@@ -116,16 +116,16 @@
 \inv{This is a Möbius transformation. Notice that if $f(x) = \frac{x+a}{x-a}$, then the inverse function $f^{-1}(k)$ essentially has the exact same structural form!}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item Simplify: $\;\dfrac{a}{b-c}+\dfrac{b}{c-a}+\dfrac{c}{a-b}\,$, given that $a+b+c=0$.
+\item Given that $a+b+c=0$, express $\;(a+b)(b+c)(c+a)\;$ in terms of $abc$.
 
-\ans{$0$}
-\method{Since $a+b+c=0$, we have $a=-(b+c)$. Substitute this into the first numerator: $\frac{-(b+c)}{b-c}$. Do the same for the others. Putting them over a common denominator $(a-b)(b-c)(c-a)$ causes all terms to sum exactly to $0$.}
+\ans{$-abc$}
+\method{Use the constraint three times: $a+b=-c$, $\;b+c=-a$, $\;c+a=-b$. The product becomes $(-c)(-a)(-b)=-abc$. Constraint substitution beats expansion every time.}
 \inv{The condition $a+b+c=0$ is famously linked to $a^3+b^3+c^3=3abc$. Try proving that identity by expanding $(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
 \item Show that $\;\dfrac{x^2+3x+2}{x^2-x-2}$ simplifies, and state all values of $x$ for which the original expression is undefined.
 
-\ans{$\dfrac{x+1}{x-2}$\;; undefined at $x=2$ and $x=-1$.}
+\ans{$\dfrac{x+2}{x-2}$\;; undefined at $x=2$ and $x=-1$.}
 \method{Factor the numerator as $(x+1)(x+2)$ and denominator as $(x-2)(x+1)$. Cancel $(x+1)$. The original fraction is undefined wherever the original denominator is zero.}
 \inv{What is the horizontal asymptote of this rational function? As $x \to \infty$, the ratio of the leading coefficients dictates the limit.}
 
@@ -146,8 +146,8 @@
 %── B8 ──────────────────────────────────────────────────────────────────────────
 \item Solve for $x$: $\;\dfrac{3}{x+1}+\dfrac{4}{x+2} = \dfrac{11}{(x+1)(x+2)}$.
 
-\ans{$x = 1$}
-\method{Multiply the entire equation by the common denominator $(x+1)(x+2)$. This leaves a simple linear equation: $3(x+2) + 4(x+1) = 11 \implies 7x + 10 = 11 \implies 7x = 1$.}
+\ans{$x = \dfrac{1}{7}$}
+\method{Multiply the entire equation by the common denominator $(x+1)(x+2)$. This leaves a simple linear equation: $3(x+2) + 4(x+1) = 11 \implies 7x + 10 = 11 \implies x = \tfrac{1}{7}$. Neither denominator vanishes at $x=\tfrac17$, so the solution is valid.}
 \inv{If the numerators were $x$ instead of constants, you would end up with a quadratic equation. Always check if your final roots cause a division by zero in the original fractions!}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
@@ -248,12 +248,10 @@
 
 \ans{$2$}
 \method{Let $x = 2022$. The expression is $\frac{(x+3)^3 - (x+2)^3 - (x+1)^3 + x^3}{(x+3)^2-x^2}$. \\
-Numerator pairing: $[(x+3)^3 - x^3] - [(x+2)^3 + (x+1)^3]$. \\
-Expand safely: $(x^3+9x^2+27x+27 - x^3) - (x^3+6x^2+12x+8 + x^3+3x^2+3x+1)$. \\
-$= (9x^2+27x+27) - (2x^3+9x^2+15x+9)$. Wait, the sign on $x^3$ was positive! Let's pair differently: \\
+Pair the terms with matching signs: \\
 $(x+3)^3 - (x+2)^3 = 3x^2 + 15x + 19$. \\
 $x^3 - (x+1)^3 = -3x^2 - 3x - 1$. \\
-Add them together: $12x + 18$. \\
+Adding: the numerator is $12x + 18$. \\
 Denominator: $(x+3)^2 - x^2 = 6x + 9$. The ratio is exactly $\frac{2(6x+9)}{6x+9} = 2$.}
 \inv{Notice how the $x^3$ and $x^2$ terms completely vanish. This means for ANY sequence of four consecutive integers $a, b, c, d$, the ratio $\frac{d^3-c^3-b^3+a^3}{d^2-a^2}$ is a constant. Prove it.}
 

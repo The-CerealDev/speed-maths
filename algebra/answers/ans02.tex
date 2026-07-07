@@ -129,7 +129,7 @@ alternating-parity exponents?}
 %── B1 ──────────────────────────────────────────────────────────────────────────
 \item Simplify: $\;\dfrac{x}{x^2-1}+\dfrac{1}{x-1}$.
 
-\ans{$\dfrac{x+1}{(x-1)(x+1)} \cdot\dfrac{x+x+1}{1} = \dfrac{2x+1}{(x-1)(x+1)}$}
+\ans{$\dfrac{2x+1}{(x-1)(x+1)}$}
 \method{Common denominator is $(x-1)(x+1)$.
 Numerator: $x + (x+1) = 2x+1$. Do not expand the denominator.}
 \inv{Now add a third term: simplify $\dfrac{x}{x^2-1}+\dfrac{1}{x-1}-\dfrac{1}{x+1}$.
@@ -285,16 +285,15 @@ Use this method to simplify $\sqrt{7+2\sqrt{10}}$ and $\sqrt{11-4\sqrt{7}}$.
 When does $\sqrt{a+b\sqrt{c}}$ denest to a rational combination of simple surds?}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item Given $a+b+c=1$ and $a^2+b^2+c^2=1$, find $ab+bc+ca$ and hence $a^3+b^3+c^3$.
+\item Given $a+b+c=1$ and $a^2+b^2+c^2=1$, find $ab+bc+ca$ and hence $a^3+b^3+c^3-3abc$.
 
-\ans{$ab+bc+ca=0$;\quad $a^3+b^3+c^3=1$}
+\ans{$ab+bc+ca=0$;\quad $a^3+b^3+c^3-3abc=1$}
 \method{$(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca) \Rightarrow 1=1+2(ab+bc+ca)$,
 so $ab+bc+ca=0$.
-Then use $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)=1\cdot(1-0)=1$,
-giving $a^3+b^3+c^3=1+3abc$.
-But we need $abc$: from the above, the result is $1+3abc$.
-If additionally $a+b+c=a^2+b^2+c^2=1$, then $abc$ is not yet determined --- the answer $a^3+b^3+c^3=1$ follows more directly from the Newton recurrence $p_3=e_1 p_2-e_2 p_1+3e_3=1\cdot1-0\cdot1+3abc$; further information is needed for $abc$.
-For the special case $abc=0$: $a^3+b^3+c^3=1$.}
+Then apply the factorisation
+$a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)=1\cdot(1-0)=1$.
+Note $abc$ itself is \emph{not} determined by the given data --- only the
+combination $a^3+b^3+c^3-3abc$ is.}
 \inv{Use Newton's identity $p_3=e_1p_2-e_2p_1+3e_3$ (where $e_1,e_2,e_3$ are the elementary symmetric polynomials) to find $a^3+b^3+c^3$ in terms of $e_1,e_2,e_3$ in general.
 Verify with $a=1,b=0,c=0$.
 Then investigate: if $a^n+b^n+c^n$ is an integer for $n=1,2,3$, must it be an integer for all $n$? (Ramanujan connection.)}
@@ -302,7 +301,7 @@ Then investigate: if $a^n+b^n+c^n$ is an integer for $n=1,2,3$, must it be an in
 %── C5 ──────────────────────────────────────────────────────────────────────────
 \item Solve: $\;(x-1)(x-3)(x-5)(x-7)+15=0$.
 
-\ans{$x=2,\;6,\;4\pm i$\; (real solutions: $x=2$ and $x=6$)}
+\ans{$x=2,\;6,\;4\pm\sqrt{6}$\; (all four real)}
 \method{Pair: $(x-1)(x-7)=x^2-8x+7$ and $(x-3)(x-5)=x^2-8x+15$.
 $(u-4)(u+4)=u^2-16$, so $u^2-16+15=u^2-1=0 \Rightarrow u=\pm1$.
 $u=1$: $x^2-8x+10=0 \Rightarrow x=4\pm\sqrt{6}$.
@@ -367,8 +366,7 @@ is equivalent to $(xy+yz+zx)^2=2xyz(x+y+z)$, which is automatic when the sum is 
   \frac{1}{1\cdot2\cdot3}+\frac{1}{2\cdot3\cdot4}+\frac{1}{3\cdot4\cdot5}+\cdots+\frac{1}{8\cdot9\cdot10}.
 \]
 
-\ans{$\dfrac{2}{9} - \dfrac{1}{90} = \dfrac{11}{45}$\;\;
-     (exact: $\dfrac{1}{4}-\dfrac{1}{180}=\dfrac{44}{180}=\dfrac{11}{45}$)}
+\ans{$\dfrac{11}{45}$}
 \method{Partial fractions: $\dfrac{1}{n(n+1)(n+2)}=\dfrac{1}{2}\!\left(\dfrac{1}{n(n+1)}-\dfrac{1}{(n+1)(n+2)}\right)$.
 This is a telescoping sum! Sum from $n=1$ to $8$:
 $\dfrac{1}{2}\!\left(\dfrac{1}{1\cdot2}-\dfrac{1}{9\cdot10}\right)
@@ -383,9 +381,7 @@ and verify for $N=2$.}
 \item The roots of $x^2+px+q=0$ are $r$ and $s$.
       Find, in terms of $p$ and $q$, the monic quadratic whose roots are $r^2+s$ and $s^2+r$.
 
-\ans{$x^2 + (p^2-2q+p)\,x + (q^2-p q+q-p^3+3pq-p)$\;\;
-     i.e.\ $x^2+(p^2-2q+p)x+(q^2-pq+q+3p^2q\!-\!p^3\!-\!p^2\!-\!2pq\!+\!p)$ ---
-     see method for the clean route.}
+\ans{$x^2-(p^2-2q-p)\,x+(q^2-p^3+3pq+q)=0$}
 \method{By Vieta on the original: $r+s=-p$, $rs=q$.
 New sum: $(r^2+s)+(s^2+r)=(r^2+s^2)+(r+s)=[(r+s)^2-2rs]+(r+s)=(p^2-2q)+(-p)=p^2-2q-p$.
 New product: $(r^2+s)(s^2+r)=r^2s^2+r^3+s^3+rs=q^2+(r+s)^3-3rs(r+s)+q
