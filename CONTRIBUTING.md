@@ -78,9 +78,10 @@ draft, never a deliverable — the standards are:
    submit, you have personally solved start to finish, under something
    like the section's time budget. If you can't reproduce the method
    without the AI, either learn it first or drop the question.
-2. **Verify every answer independently.** Recompute by hand, or — for
-   counting questions especially — brute-force it with a short script
-   and check the count matches the formula. An unverified `\ans{}` is
+2. **Verify every answer computationally.** Whenever mathematically
+   feasible, write a short Python script to brute-force or verify your
+   solution. If computational verification is strictly impossible, you must
+   rigorously recompute by hand from scratch. An unverified `\ans{}` is
    the one thing that must never reach `main`.
 3. **Assume AI output may plagiarise.** Models reproduce real
    competition questions from memory, sometimes verbatim. Before
@@ -102,6 +103,7 @@ draft, never a deliverable — the standards are:
       `answers/` (the preamble path is relative)
 - [ ] Both `.tex` and the compiled `.pdf` are committed
 - [ ] Adapted questions carry their `(after ...)` credit
-- [ ] Answers verified by hand or by script — a wrong `\ans{}` is worse
+- [ ] Answers verified computationally via script (or strictly by hand if
+      programming is mathematically impossible) — a wrong `\ans{}` is worse
       than no sheet
 - [ ] AI assistance disclosed if used
