@@ -49,7 +49,7 @@
 \item Given $a-b=3$ and $a^2+b^2=29$, find $ab$.
 \ans{$ab=10$}
 \method{$(a-b)^2=a^2-2ab+b^2=9$, so $29-2ab=9$, giving $ab=10$.}
-\inv{With $ab=10$ and $a-b=3$: form $x^2-Sx+P=0$ where $S=a+b=\sqrt{(a-b)^2+4ab}=\sqrt{49}=7$. So $a,b$ are roots of $x^2-7x+10=0$, i.e.\ $(x-2)(x-5)=0$: $a=5,b=2$.}
+\inv{With $ab=10$ and $a-b=3$: form $x^2-Sx+P=0$ where $S=a+b=\pm\sqrt{(a-b)^2+4ab}=\pm\sqrt{49}=\pm7$. Both signs are valid: $S=7$ gives $(a,b)=(5,2)$; $S=-7$ gives $(a,b)=(-2,-5)$. Check both satisfy the original data --- dropping the $\pm$ silently loses a solution.}
 
 \item Factorise $x^4-1$ completely over $\mathbb{R}$.
 \ans{$(x^2+1)(x+1)(x-1)$}
@@ -77,9 +77,9 @@
 \method{Remainder Theorem: evaluate $g$ at the root of each linear factor. No division needed.}
 \inv{Since $g(1)=0$, the factor $(x-1)$ divides $g(x)$. Factorise $u^2-3u+2=(u-1)(u-2)$ where $u=x^5$, giving $g(x)=(x^5-1)(x^5-2)=(x-1)(x^4+x^3+x^2+x+1)(x^5-2)$. Check this against $g(1)=0$ and $g(-1)=6$.}
 
-\item Simplify: $\dfrac{ab}{a-b}-\dfrac{a^2}{a^2-b^2}$.
-\ans{$\dfrac{ab^2}{(a-b)(a+b)}=\dfrac{ab^2}{a^2-b^2}$}
-\method{Common denominator $(a-b)(a+b)$: $\dfrac{ab(a+b)-a^2}{(a-b)(a+b)}=\dfrac{a(b^2+ab-a)}{(a^2-b^2)}$. Since numerator $= a^2b+ab^2-a^2 = ab^2+a^2(b-1)$ simplify: $ab(a+b)-a^2=a[b(a+b)-a]=a[ab+b^2-a]$. This leaves $\dfrac{a(ab+b^2-a)}{a^2-b^2}$.}
+\item Simplify: $\dfrac{ab}{a-b}-\dfrac{a^2b}{a^2-b^2}$.
+\ans{$\dfrac{ab^2}{a^2-b^2}$}
+\method{Common denominator $(a-b)(a+b)$: numerator is $ab(a+b)-a^2b=ab\left[(a+b)-a\right]=ab^2$. Result: $\dfrac{ab^2}{a^2-b^2}$. Factor the shared $ab$ out of the numerator before expanding anything.}
 \inv{Practice combining algebraic fractions by always factoring denominators \emph{before} finding a common denominator. Try $\dfrac{1}{x^2-1}-\dfrac{1}{x^2+2x+1}$ using this approach.}
 
 \item Factorise $x^6-y^6$ completely over $\mathbb{Z}$.
@@ -95,7 +95,7 @@
 \item Simplify: $\left(1-\dfrac{1}{x^2}\right)(x^2+x)$.
 \ans{$\dfrac{(x-1)(x+1)^2}{x}$}
 \method{$\frac{x^2-1}{x^2}\cdot x(x+1)=\frac{(x-1)(x+1)}{x^2}\cdot x(x+1)=\frac{(x-1)(x+1)^2}{x}$.}
-\inv{For what values of $x$ is this expression zero, undefined, or equal to $x$? Solving $(x-1)(x+1)^2=x^2$ gives a cubic --- use the rational root theorem to find integer solutions.}
+\inv{For what values of $x$ is this expression zero, undefined, or equal to $x$? Setting it equal to $x$ leads to the cubic $x^3-x-1=0$ --- use the rational root theorem to prove it has \emph{no} rational solutions. (Its one real root $\approx1.3247$ is the ``plastic number''.)}
 
 \item Given $a+b+c=5$, $ab+bc+ca=6$, find $a^2+b^2+c^2$.
 \ans{$13$}
@@ -151,7 +151,7 @@ Quadratic: $x^2-0\cdot x+(-12)=x^2-12$.}
 \method{Pair: $(x+1)(x+7)=x^2+8x+7$ and $(x+3)(x+5)=x^2+8x+15$. Let $u=x^2+8x+11$: product $=(u-4)(u+4)=u^2-16$. This is a perfect square $u^2$ when $k=16$.}
 \inv{The same pairing idea works for symmetric arithmetic progressions.
 Try proving:
-$(n-3)(n-1)(n+1)(n+3)+9=(n^2-5)^2$.
+$(n-3)(n-1)(n+1)(n+3)+16=(n^2-5)^2$.
 Then generalise to $\{n-3d,n-d,n+d,n+3d\}$ and find the constant that completes a square.}
 
 \item Prove $(a^2+b^2)(c^2+d^2)\geq(ac+bd)^2$. State the equality condition.
@@ -178,7 +178,7 @@ Then generalise to $\{n-3d,n-d,n+d,n+3d\}$ and find the constant that completes 
 \item Prove $n^2\equiv0$ or $1\pmod4$ for all integers $n$; hence $n^2+2$ is never divisible by 4.
 \ans{Proved below.}
 \method{Every integer is even ($n=2m$) or odd ($n=2m+1$). \emph{Even:} $n^2=4m^2\equiv0$. \emph{Odd:} $n^2=4m^2+4m+1\equiv1$. So $n^2\equiv0$ or $1$, hence $n^2+2\equiv2$ or $3\pmod4$. Neither is $\equiv0$, so $4\nmid(n^2+2)$. $\square$}
-\inv{Extend: show $n^2\equiv0,1,$ or $4\pmod8$ by checking all residues $n\equiv0,\ldots,7$. Hence show $n^2+n$ is always even (easier) and $n^2+n+2$ is never divisible by 4.}
+\inv{Extend: show $n^2\equiv0,1,$ or $4\pmod8$ by checking all residues $n\equiv0,\ldots,7$. Hence show that $n^2+3$ is never divisible by 8, and that $n^2+n$ is always even.}
 
 \item Find all real solutions to $x^4-4x^3+4x^2-1=0$.
 \ans{$x=1$ (double) and $x=1\pm\sqrt{2}$}
