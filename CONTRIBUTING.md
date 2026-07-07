@@ -39,6 +39,17 @@ blind. These rules keep that true.
 - The last D questions *should* resist a first attempt. The intended
   workflow is: try, get stuck, learn the tool, come back tomorrow.
 
+## Competition Styles & Question Design
+
+When drafting new questions (whether by hand or with AI assistance), you must match the tone, syllabus, and specific flavor of the target competitions:
+
+- **TMUA (Test of Mathematics for University Admission):** Focuses on AS-Level pure math and strict mathematical logic (especially for Paper 2). Questions should require systematic, multi-step reasoning rather than routine calculation. Emphasize logic, proof, and spotting errors in mathematical arguments.
+- **MAT (Mathematics Admissions Test):** Tests depth over breadth. Questions should take foundational concepts (polynomials, basic calculus, sequences) and force students to apply them in unfamiliar, non-standard contexts. Design questions that lead the student through a creative logical leap.
+- **SMC (Senior Mathematical Challenge):** Fast-paced, non-standard problem-solving. Use foundational topics (number theory, algebra, geometry, combinatorics) but frame them in ways that require precision of thought and arithmetic fluency rather than formula recall.
+- **BMO1 (British Mathematical Olympiad Round 1):** The gold standard for Section D. Questions must require rigorous, formal written proofs and deep mathematical insight. Focus on non-linear Diophantine equations, Euclidean geometry, advanced polynomials, and combinatorics.
+
+Always remember: **No calculators are allowed in any of these exams.** Design numbers to cancel cleanly, factor nicely, or telescope elegantly. If a computation gets bogged down in ugly arithmetic, the question is poorly designed.
+
 ## Answer files
 
 Every question gets all three:
