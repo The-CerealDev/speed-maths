@@ -28,7 +28,7 @@
 \item Factorise: $x^3-x^2-4x+4$.
 \ans{$(x-1)(x-2)(x+2)$}
 \method{Group: $x^2(x-1)-4(x-1)=(x-1)(x^2-4)=(x-1)(x-2)(x+2)$.}
-\inv{The grouping $x^2(x-1)-4(x-1)$ works because both groups share the factor $(x-1)$. For which cubics $x^3+ax^2+bx+c$ does this grouping strategy always work? (When $-b/a=-c/b$, i.e.\ $b^2=ac$.) Verify for this example.}
+\inv{The grouping $x^2(x-1)-4(x-1)$ works because both groups share the factor $(x-1)$. For which cubics $x^3+ax^2+bx+c$ does this grouping strategy work? (When $c=ab$, so that $x^3+ax^2+bx+ab=x^2(x+a)+b(x+a)$.) Verify for this example: $a=-1$, $b=-4$, $c=4=(-1)(-4)$. \checkmark}
 
 \item Without expanding, find the coefficient of $x^2$ in $(1+x)^4$.
 \ans{$6$}
@@ -98,7 +98,7 @@
 \item Find the quadratic with roots $r^2$ and $s^2$ where $r,s$ are roots of $x^2+px+q=0$.
 \ans{$x^2-(p^2-2q)x+q^2=0$}
 \method{$r^2+s^2=(r+s)^2-2rs=p^2-2q$. $(rs)^2=q^2$. Quadratic: $x^2-(p^2-2q)x+q^2=0$.}
-\inv{This is the Tschirnhaus substitution idea: transforming the roots without solving for them. Now find the cubic whose roots are $r^3,s^3$ when $r,s$ satisfy $x^2-3x+1=0$. (Hint: use the fact that $r^3+s^3$ and $r^3s^3$ can be found from the Vieta data.)}
+\inv{This is the Tschirnhaus substitution idea: transforming the roots without solving for them. Now find the quadratic whose roots are $r^3,s^3$ when $r,s$ satisfy $x^2-3x+1=0$. (Hint: use the fact that $r^3+s^3$ and $r^3s^3$ can be found from the Vieta data.)}
 
 \item Solve: $\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{5}{6}$ and $\dfrac{1}{x}-\dfrac{1}{y}=\dfrac{1}{6}$.
 \ans{$x=2,\;y=3$}
@@ -107,7 +107,7 @@
 
 \item Prove: $\dfrac{1}{(2k-1)(2k+1)}=\dfrac{1}{2}\!\left(\dfrac{1}{2k-1}-\dfrac{1}{2k+1}\right)$; hence $\sum_{k=1}^n\dfrac{1}{(2k-1)(2k+1)}=\dfrac{n}{2n+1}$.
 \ans{Proof by partial fractions, then telescoping.}
-\method{PF: $\frac{1}{(2k-1)(2k+1)}=\frac{A}{2k-1}+\frac{B}{2k+1}$. Solving: $A=B=\frac{1}{2}$. Sum telescopes: $\frac{1}{2}\!\left(1-\frac{1}{2n+1}\right)=\frac{n}{2n+1}$. $\square$}
+\method{PF: $\frac{1}{(2k-1)(2k+1)}=\frac{A}{2k-1}+\frac{B}{2k+1}$. Solving: $A=\frac{1}{2}$, $B=-\frac{1}{2}$. Sum telescopes: $\frac{1}{2}\!\left(1-\frac{1}{2n+1}\right)=\frac{n}{2n+1}$. $\square$}
 \inv{The denominator $(2k-1)(2k+1)$ is the product of two consecutive odd numbers. The partial fraction structure is $\frac{1}{2d}\!\left(\frac{1}{a}-\frac{1}{b}\right)$ where $b-a=d$. This generalises: $\frac{1}{(n+a)(n+b)}=\frac{1}{b-a}\!\left(\frac{1}{n+a}-\frac{1}{n+b}\right)$. Use this to find $\sum_{k=1}^n\frac{1}{(k+1)(k+3)}$.}
 
 \item If $f(x)=\dfrac{ax+b}{cx+d}$ and $f(f(x))=x$, what condition must $a,b,c,d$ satisfy?
@@ -120,17 +120,12 @@
 \section*{Section C \quad Substitution \& Structure}
 \begin{enumerate}
 
-\item Solve: $\left(x^2+\dfrac{1}{x^2}\right)-7\!\left(x-\dfrac{1}{x}\right)-8=0$.
+\item Solve: $\left(x^2+\dfrac{1}{x^2}\right)-7\!\left(x-\dfrac{1}{x}\right)-10=0$.
 \ans{$x-\dfrac{1}{x}=8$ (giving $x=4\pm\sqrt{17}$) or $x-\dfrac{1}{x}=-1$ (giving $x=\frac{-1\pm\sqrt5}{2}$)}
 \method{Let $u=x-\frac{1}{x}$, so $x^2+\frac{1}{x^2}=u^2+2$.
-Then
-$(u^2+2)-7u-8=0\Rightarrow u^2-7u-6=0$,
-so
-$u=\dfrac{7\pm\sqrt{73}}{2}$.
-Hence solve
-$x-\frac1x=u$ i.e. $x^2-ux-1=0$ for each $u$.
-So
-$x=\dfrac{u\pm\sqrt{u^2+4}}{2}$ with $u=\dfrac{7\pm\sqrt{73}}2$.}
+Then $(u^2+2)-7u-10=0\Rightarrow u^2-7u-8=0\Rightarrow(u-8)(u+1)=0$.
+$u=8$: $x^2-8x-1=0\Rightarrow x=4\pm\sqrt{17}$.
+$u=-1$: $x^2+x-1=0\Rightarrow x=\frac{-1\pm\sqrt5}{2}$.}
 \inv{The lesson: when you see $x^2+\frac{1}{x^2}$ \emph{alongside} $x-\frac{1}{x}$, use $u=x-\frac{1}{x}$ (since $u^2=x^2-2+\frac{1}{x^2}$). When you see $x^2+\frac{1}{x^2}$ \emph{alongside} $x+\frac{1}{x}$, use $v=x+\frac{1}{x}$ instead. Carefully distinguish which combination is present before substituting.}
 
 \item Using the Engel (Titu) form of Cauchy--Schwarz, prove $\dfrac{a^2}{b}+\dfrac{b^2}{c}+\dfrac{c^2}{a}\geq3$ when $a+b+c=3$.
@@ -139,15 +134,12 @@ $x=\dfrac{u\pm\sqrt{u^2+4}}{2}$ with $u=\dfrac{7\pm\sqrt{73}}2$.}
 \inv{The Engel/Titu form states $\sum\frac{x_i^2}{y_i}\geq\frac{(\sum x_i)^2}{\sum y_i}$. Prove it from the standard Cauchy--Schwarz $(\sum u_iv_i)^2\leq(\sum u_i^2)(\sum v_i^2)$ by setting $u_i=\frac{x_i}{\sqrt{y_i}}$ and $v_i=\sqrt{y_i}$. This form is indispensable in olympiad inequality problems.}
 
 \item Solve the system: $x^2+xy=12$, $\;xy+y^2=6$.
-\ans{$(x,y)=(3,1),\;(-3,-1),\;(2\sqrt{3},-\sqrt{3}),\;(-2\sqrt{3},\sqrt{3})$}
-\method{From
-$x^2+xy=12$ and $xy+y^2=6$,
-divide to get
-$\frac{x}{y}=2$ (note $y\neq0$), so $x=2y$.
-Substitute into $xy+y^2=6$:
-$2y^2+y^2=6\Rightarrow y^2=2$.
-This gives $(x,y)=(2\sqrt2,\sqrt2)$ and $(-2\sqrt2,-\sqrt2)$.
-Also solving via $x=ky$ from the ratio gives $k=2$ and $k=-3$, yielding the four listed pairs.}
+\ans{$(x,y)=(2\sqrt2,\;\sqrt2)$ and $(-2\sqrt2,\;-\sqrt2)$}
+\method{Factor both left sides: $x(x+y)=12$ and $y(x+y)=6$.
+Neither $y$ nor $x+y$ can be zero (each would force $0=6$ or $0=12$), so divide:
+$\frac{x}{y}=2$, giving $x=2y$.
+Substitute into $xy+y^2=6$: $2y^2+y^2=6\Rightarrow y^2=2\Rightarrow y=\pm\sqrt2$,
+with $x=2y$ matching the sign. Check: $8+4=12$ \checkmark, $4+2=6$ \checkmark.}
 \inv{Dividing equations is a powerful technique when the ratio reveals a simple relationship. But division requires care: we must check we're not dividing by zero. When might $xy+y^2=0$? Then $y=0$ or $y=-x$; check these cases separately.}
 
 \item Find values of $k$ for which $kx^2-4x+k-3=0$ has two distinct real roots.
@@ -171,13 +163,17 @@ so
 $t=\sqrt{2\sqrt5-2}$ (positive branch).}
 \inv{The substitution $t=\sqrt{x}-1/\sqrt{x}$ is a ``half-power'' reduction. Note the pattern: $x-1/x=t(\underbrace{\sqrt{x}+1/\sqrt{x}}_{\sqrt{t^2+4}})$. This generalises: to go from $x\pm1/x$ to $x^{1/2}\pm1/x^{1/2}$, use this factorisation chain. Apply it to find $\sqrt[4]{x}-1/\sqrt[4]{x}$ when $x-1/x=\sqrt5$.}
 
-\item Given $a,b>0$ with $\frac{1}{a}+\frac{1}{b}=1$, prove $(a-1)(b-1)\geq0$ and find $\min(a+b)$.
-\ans{$(a-1)(b-1)\geq0$ with equality iff $a=b=2$;\quad minimum of $a+b$ is $4$.}
-\method{From $\frac{1}{a}+\frac{1}{b}=1$: $a+b=ab$. $(a-1)(b-1)=ab-a-b+1=(a+b)-a-b+1=1\geq0$. $\square$ For minimum of $a+b=ab$: AM--GM gives $ab\leq\left(\frac{a+b}{2}\right)^2$, so $a+b\leq\frac{(a+b)^2}{4}$, giving $a+b\geq4$.}
+\item Given $a,b>0$ with $\frac{1}{a}+\frac{1}{b}=1$, show $(a-1)(b-1)=1$ and find $\min(a+b)$.
+\ans{$(a-1)(b-1)=1$ always;\quad minimum of $a+b$ is $4$, at $a=b=2$.}
+\method{From $\frac{1}{a}+\frac{1}{b}=1$: $a+b=ab$. $(a-1)(b-1)=ab-a-b+1=(a+b)-(a+b)+1=1$. $\square$ For minimum of $a+b=ab$: AM--GM gives $ab\leq\left(\frac{a+b}{2}\right)^2$, so $a+b\leq\frac{(a+b)^2}{4}$, giving $a+b\geq4$, with equality at $a=b=2$.}
 \inv{The constraint $\frac{1}{a}+\frac{1}{b}=1$ defines a hyperbola in the $(a,b)$-plane restricted to $a,b>0$. The minimum of $a+b$ subject to this constraint (answer: 4 at $a=b=2$) can also be found by substitution $b=\frac{a}{a-1}$ and then minimising $a+\frac{a}{a-1}$. Try this approach.}
 
 \item Solve: $(x^2-x-1)^2=(2x+1)^2$.
-\ans{$x=3,\;x=-\frac{2}{3},\;x=\frac{1\pm\sqrt{5}}{2}$}
+\ans{$x=0,\;x=-1,\;x=\dfrac{3\pm\sqrt{17}}{2}$}
+\method{$A^2=B^2\Leftrightarrow(A-B)(A+B)=0$.
+$A-B=x^2-3x-2$ and $A+B=x^2+x=x(x+1)$.
+$x(x+1)=0$: $x=0$ or $x=-1$.
+$x^2-3x-2=0$: $x=\frac{3\pm\sqrt{17}}{2}$. Four real solutions in total.}
 \inv{The key move: $A^2=B^2\Leftrightarrow(A-B)(A+B)=0$. Never expand both squares and combine --- always factor as a difference of two squares first. Use this to solve $|(x^2-2)^2-(x-1)^2|=0$ and $(x^2+x)^2=(x-1)^2$.}
 
 \end{enumerate}
@@ -186,13 +182,14 @@ $t=\sqrt{2\sqrt5-2}$ (positive branch).}
 \begin{enumerate}
 
 \item Find $f(x)$ given $f(x)+f\!\left(\frac{1}{1-x}\right)=x$.
-\ans{$f(x)=\dfrac{x^3-x^2+1}{2x(x-1)}$ see clean form below.}
+\ans{$f(x)=\dfrac{x^3-x+1}{2x(x-1)}$}
 \method{Let the substitution $\phi(x)=\frac{1}{1-x}$. Note $\phi(\phi(x))=\phi\!\left(\frac{1}{1-x}\right)=\frac{1}{1-\frac{1}{1-x}}=\frac{1-x}{-x}=\frac{x-1}{x}$ and $\phi^3(x)=x$ (three-cycle). So the three equations are:
 $f(x)+f\!\left(\frac{1}{1-x}\right)=x$ \quad(i)
 $f\!\left(\frac{1}{1-x}\right)+f\!\left(\frac{x-1}{x}\right)=\frac{1}{1-x}$ \quad(ii)
 $f\!\left(\frac{x-1}{x}\right)+f(x)=\frac{x-1}{x}$ \quad(iii)
 Add all three and divide by 2: $f(x)+f\!\left(\frac{1}{1-x}\right)+f\!\left(\frac{x-1}{x}\right)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right)$.
-Then subtract (ii): $f(x)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right)-\frac{1}{1-x}=\frac{1}{2}\!\left(x-\frac{1}{1-x}+\frac{x-1}{x}\right)=\frac{x^3-x^2+1}{2x(x-1)}$.}
+Then subtract (ii): $f(x)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right)-\frac{1}{1-x}=\frac{1}{2}\!\left(x-\frac{1}{1-x}+\frac{x-1}{x}\right)=\frac{x^3-x+1}{2x(x-1)}$.
+Check at $x=2$: $f(2)+f(-1)=\frac{7}{4}+\frac{1}{4}=2$. \checkmark}
 \inv{The three-cycle $x\to\frac{1}{1-x}\to\frac{x-1}{x}\to x$ is a well-known M\"{o}bius transformation cycle. Any functional equation on such a cycle can be solved by the add-then-subtract method. Find all $f$ satisfying $f(x)+2f(1-x)=3x$.}
 
 \item Prove the Cauchy--Schwarz inequality in Engel form; find $\min\left(\frac{1}{x}+\frac{4}{1-x}\right)$ for $0<x<1$.
@@ -206,12 +203,13 @@ Then subtract (ii): $f(x)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right
 \inv{Cauchy's functional equation $f(x+y)=f(x)+f(y)$ (Cauchy 1821) is the first example where ``algebraic'' solutions and ``analytic'' solutions differ. Explore: what happens if we additionally require $f$ to be monotone? Or bounded on an interval? Both conditions force $f(x)=cx$.}
 
 \item Show that among any 5 integers there exist 2 whose difference is divisible by 4.
+      Hence prove that for any 5 integers, two of them satisfy $a^2\equiv b^2\pmod4$.
 \ans{Proved below.}
 \method{Every integer has residue $0,1,2,$ or $3\pmod4$ (four classes). By the Pigeonhole Principle, among 5 integers, at least two share the same residue. Their difference $\equiv0\pmod4$. $\square$ For the second part: $a\equiv b\pmod4\Rightarrow a^2-b^2=(a-b)(a+b)$. Since $4\mid(a-b)$, we have $4\mid(a^2-b^2)$, i.e.\ $a^2\equiv b^2\pmod4$.}
 \inv{\textbf{Pigeonhole Principle:} if $n$ objects are placed into $k<n$ boxes, at least one box contains at least $\lceil n/k\rceil$ objects. This is one of the most powerful tools in combinatorics and number theory. Use it to prove: among any 13 integers, two have the same remainder when divided by 12.}
 
 \item Find all integer solutions to $x^2-y^2=2024$.
-\ans{$(x,y)=(\pm507,\pm505),\;(\pm253,\pm\!249),\;(\pm1013,\pm\!1011)$, \ldots}
+\ans{$(x,y)=(\pm507,\pm505),\;(\pm255,\pm251),\;(\pm57,\pm35),\;(\pm45,\pm1)$ --- all sign combinations, 16 solutions in total.}
 \method{$(x-y)(x+y)=2024=2^3\times11\times23$. Write $x-y=a$, $x+y=b$ where $ab=2024$ and $a,b$ have the same parity (both even, since $2024$ is even). Set $a=2s$, $b=2t$: $4st=2024\Rightarrow st=506=2\times11\times23$. Factor pairs of 506 (both positive, $s\leq t$): $(1,506),(2,253),(11,46),(22,23)$. Each gives $x=s+t$, $y=t-s$. Include negative values of $x,y$.}
 \inv{$x^2-y^2=N$ has integer solutions iff $N$ can be written as a product of two integers of the same parity. For odd $N$: every factorisation $N=ab$ works (since odd$\times$odd = odd). For $N\equiv2\pmod4$: no solutions (since $x^2-y^2=(x-y)(x+y)$ and $x\pm y$ share parity, so the product is $\equiv0$ or $3\pmod4$, never $2$). For $N\equiv0\pmod4$: use even factorisations. Classify all $N$ for which $x^2-y^2=N$ has no solutions.}
 

@@ -22,7 +22,8 @@
 
 \item Without a calculator: $7^2-5^2+3^2-1^2$.
 \ans{$32$}
-\inv{Use $(a^2-b^2)=(a-b)(a+b)$: $(7^2-5^2)+(3^2-1^2)=(7-5)(7+5)+(3-1)(3+1)=2\times12+2\times4=24+8=32$. This telescoping of paired differences is always faster than computing individual squares.}
+\method{Use $(a^2-b^2)=(a-b)(a+b)$: $(7^2-5^2)+(3^2-1^2)=(7-5)(7+5)+(3-1)(3+1)=2\times12+2\times4=24+8=32$.}
+\inv{This telescoping of paired differences is always faster than computing individual squares.}
 
 \item Roots of $x^2-8x+3=0$ are $p,q$. Find $\left(p-\frac{1}{p}\right)\!\!\left(q-\frac{1}{q}\right)$.
 \method{$\left(p-\frac{1}{p}\right)\!\!\left(q-\frac{1}{q}\right)=pq-\frac{p}{q}-\frac{q}{p}+\frac{1}{pq}=pq-\frac{p^2+q^2}{pq}+\frac{1}{pq}$.
@@ -95,7 +96,7 @@ hence $a^3+b^3+c^3=8$.}
 \item Write $x^4+4$ as a product of two quadratics with integer coefficients.
 \ans{$(x^2+2x+2)(x^2-2x+2)$}
 \method{Sophie Germain: $x^4+4=(x^4+4x^2+4)-4x^2=(x^2+2)^2-(2x)^2=(x^2+2x+2)(x^2-2x+2)$.}
-\inv{Sophie Germain identity: $a^4+4b^4=(a^2+2b^2+2ab)(a^2+2b^2-2ab)$. Here $a=x$, $b=1$. Each quadratic factor has discriminant $4-8=-4<0$, so neither factors further over $\mathbb{R}$. But over $\mathbb{C}$: roots of $x^2+2x+2=0$ are $-1\pm i$, the primitive 8th roots of $-1$.}
+\inv{Sophie Germain identity: $a^4+4b^4=(a^2+2b^2+2ab)(a^2+2b^2-2ab)$. Here $a=x$, $b=1$. Each quadratic factor has discriminant $4-8=-4<0$, so neither factors further over $\mathbb{R}$. But over $\mathbb{C}$: roots of $x^2+2x+2=0$ are $-1\pm i$, which are primitive 4th roots of $-4$.}
 
 \item Find $f^{-1}(x)$ for $f(x)=\dfrac{2x+1}{x-1}$ and verify $f(f^{-1}(x))=x$.
 \ans{$f^{-1}(x)=\dfrac{x+1}{x-2}$}
@@ -103,7 +104,7 @@ hence $a^3+b^3+c^3=8$.}
 \inv{Note: $f^{-1}(x)=\frac{x+1}{x-2}$ has the same form as $f$ (linear over linear). All M\"{o}bius transformations have inverses of the same type. Check: is $f^{-1}$ also its own inverse? Compute $f^{-1}(f^{-1}(x))$. If yes, $f$ has order 2 in the group of M\"{o}bius transformations. What is the order of $f$ (the order of $f$ = smallest $n$ with $f^n(x)=x$)?}
 
 \item Prove: the product of four consecutive integers is always one less than a perfect square.
-\ans{$(n-1)n(n+1)(n+2)+1=n^2(n+1)^2=(n(n+1))^2$.}
+\ans{$(n^2+n-1)^2-1$}
 \method{Let the integers be $n-1, n, n+1, n+2$. Pair: $(n-1)(n+2)=n^2+n-2$ and $n(n+1)=n^2+n$. Let $m=n^2+n$: product $=(m-2)m=m^2-2m$. So product $+1=m^2-2m+1=(m-1)^2=(n^2+n-1)^2$. $\square$}
 \inv{This shows $n(n-1)(n+1)(n+2)=(n^2+n-1)^2-1$, a perfect square minus 1. So the product is the product of $(n^2+n-2)$ and $(n^2+n)$ --- two numbers differing by 2 whose product is always a square minus 1. Generalise: show the product of any four terms in AP is always one less than a perfect square.}
 
@@ -141,7 +142,7 @@ Check: at $x=7/2$: $\frac{9/2}{3/2}=3$ and $\frac{3/2}{9/2}=\frac{1}{3}$. Sum $=
 \item Prove $\dfrac{x}{3}+\dfrac{2y}{3}\geq x^{1/3}y^{2/3}$ for $x,y>0$ using weighted AM--GM.
 \ans{Proved below.}
 \method{Weighted AM--GM with weights $\frac{1}{3}$ and $\frac{2}{3}$: $\frac{1}{3}\cdot x+\frac{2}{3}\cdot y\geq x^{1/3}y^{2/3}$. $\square$ (This is the standard statement of weighted AM--GM: $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$ for $a,b>0$, $\lambda\in(0,1)$, here $\lambda=\frac{1}{3}$.)}
-\inv{Weighted AM--GM generalises to: $\lambda_1a_1+\cdots+\lambda_na_n\geq a_1^{\lambda_1}\cdots a_n^{\lambda_n}$ where $\lambda_i>0$ and $\sum\lambda_i=1$. This is equivalent to the convexity of $-\ln x$. Use it to prove that for $a,b,c>0$ with $a+2b+3c=6$: $a\cdot b^2\cdot c^3\leq\frac{6^6}{6^6}=1$. (Set $\lambda_1=\frac{1}{6}, \lambda_2=\frac{2}{6}, \lambda_3=\frac{3}{6}$ and apply to $6a/1, 6b/2, 6c/3$ explore this.)}
+\inv{Weighted AM--GM generalises to: $\lambda_1a_1+\cdots+\lambda_na_n\geq a_1^{\lambda_1}\cdots a_n^{\lambda_n}$ where $\lambda_i>0$ and $\sum\lambda_i=1$. This is equivalent to the convexity of $-\ln x$. Use it to prove that for $a,b,c>0$ with $a+2b+3c=6$: $a\cdot b^2\cdot c^3\leq\frac{6^6}{6^6}=1$. (Set $\lambda_1=\frac{1}{6}, \lambda_2=\frac{2}{6}, \lambda_3=\frac{3}{6}$ and apply to $a, b, c$.)}
 
 \item Find all real pairs $(x,y)$ with $x+y=1$ and $x^4+y^4=\frac{41}{8}$.
 \ans{$\left(\dfrac{3}{2},-\dfrac{1}{2}\right)$ and $\left(-\dfrac{1}{2},\dfrac{3}{2}\right)$}
@@ -203,15 +204,15 @@ Equality when $x/2=x/2=y$, i.e. $x=\frac{8}{3}$, $y=\frac{4}{3}$.}
 \section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
 \begin{enumerate}
 
-\item \textbf{Vieta jumping:} $a^2+b^2=k(ab+1)$.
+\item \textbf{Vieta jumping:} Suppose $a$ and $b$ are positive integers with $a^2+b^2=k(ab+1)$. Show $k=4$ is achieved by $(a,b)=(8,2)$, and explain the descent step.
 \ans{(a) $(a,b)=(8,2)$ gives $k=4$. (b) Vieta jumping establishes no new solutions beyond the obvious family.}
 \method{(a) $a=8,b=2$: $64+4=68=4(16+1)=68$. \checkmark So $k=4$ is achieved.
 (b) Fix $k$ and $b$; consider $a$ as a root of $x^2-kbx+(b^2-k)=0$. The other root $a'$ satisfies $a+a'=kb$ (sum of roots) and $aa'=b^2-k$ (product). So $a'=kb-a$ is an integer, and $a'\cdot b=b^2-k$, so $a'^2+b^2=k(a'b+1)$ (verify). If $a>b$, then $a'^2=k(a'b+1)-b^2$; since $a'\cdot b=b^2-k<b^2$ (if $k>0$), we get $a'<b$. So we can descend: $(a,b)\to(b,a')\to\ldots$ until we reach a base case.}
 \inv{Vieta jumping is a powerful technique for Diophantine equations with symmetric structure. It was used to solve IMO 1988 Problem 6, widely regarded as one of the hardest competition problems ever set. Look up the problem: ``$a^2+b^2\equiv0\pmod{ab+1}$: prove $\frac{a^2+b^2}{ab+1}$ is a perfect square.'' The full proof uses Vieta jumping to show the minimum-value solution is $(0,0)$, giving the value as a perfect square.}
 
 \item Find all polynomials $p(x)$ satisfying $(x-1)p(x+1)=(x+2)p(x)$.
-\ans{$p(x)=cx(x+1)$ for any constant $c$.}
-\method{$x=1$: $0=3p(1)\Rightarrow p(1)=0$. $x=-2$: $(-3)p(-1)=0\Rightarrow p(-1)=0$. So $(x-1)$ and $(x+1)$ divide $p$ careful. Try $p(x)=x(x+1)$: $(x-1)(x+1)(x+2)=(x+2)x(x+1)$. \checkmark By degree considerations, $p(x)=cx(x+1)$ is the unique (up to scalar) polynomial solution.}
+\ans{$p(x)=cx(x-1)(x+1)$ for any constant $c$.}
+\method{$x=1$: $0=3p(1)\Rightarrow p(1)=0$. $x=-2$: $(-3)p(-1)=0\Rightarrow p(-1)=0$. $x=0$: $(-1)p(1)=2p(0)\Rightarrow p(0)=0$. So $x$, $(x-1)$, and $(x+1)$ divide $p$. Try $p(x)=x(x-1)(x+1)$: $(x-1)(x+1)(x)(x+2)=(x+2)x(x-1)(x+1)$. \checkmark By degree considerations, this is the unique (up to scalar) polynomial solution.}
 \inv{Functional equations for polynomials can be solved by: (1) substituting specific values to find roots, (2) using degree arguments, (3) comparing leading coefficients. This is related to the Gamma function: $\Gamma(x+1)=x\Gamma(x)$. The polynomial $p(x)=x(x+1)$ satisfies $(x-1)p(x+1)=(x+2)p(x)$, analogously to $\Gamma$.}
 
 \item For $a+b+c=1$, $a,b,c>0$, find $\min\left(\dfrac{a}{1-a}+\dfrac{b}{1-b}+\dfrac{c}{1-c}\right)$.
@@ -234,8 +235,8 @@ As $N\to\infty$: $\frac{2(N^2+N+1)}{3N^2+3N}\to\frac{2}{3}$. $\square$}
 \inv{The key insight: split the cubic fraction into a product of two ratios, each of which telescopes separately. This technique --- factoring into simpler telescoping components --- is the standard approach for infinite products. Try $\prod_{n=2}^\infty\frac{n^4-1}{n^4+1}$ using the same idea (factor $n^4\pm1$ over $\mathbb{Z}[i]$).}
 
 \item Find all integer solutions to $x^3+y^3=(x+y)^2$.
-\ans{$(0,0),\;(2,2),\;(n,-n)$ for all $n\in\mathbb{Z}$, and permutations}
-\method{Let $s=x+y$ and $p=xy$. $x^3+y^3=s(s^2-3p)=s^2$. If $s=0$: $x=-y$, all integers satisfy (infinitely many solutions). If $s\neq0$: divide by $s$: $s^2-3p=s$, so $p=\frac{s^2-s}{3}=\frac{s(s-1)}{3}$. For $p$ to be an integer, $3\mid s(s-1)$. Since $s$ and $s-1$ are consecutive, $3\mid s$ or $3\mid(s-1)$. Cases: $s=3k$ gives $p=k(3k-1)$; $s=3k+1$ gives $p=\frac{(3k+1)(3k)}{3}=k(3k+1)$; $s=3k-1$ gives $p=\frac{(3k-1)(3k-2)}{3}$, which requires $3\mid(3k-1)(3k-2)$: $3k-1\equiv2$ and $3k-2\equiv1$ mod 3, so $3\nmid(3k-1)(3k-2)$ unless $k\equiv0$ (mod 3). The analysis yields $(x,y)=(0,0)$, $(2,2)$, and $(-n,n)$ as the key solutions.}
+\ans{$(n,-n)$ for all $n\in\mathbb{Z}$, and $(1,0), (0,1), (1,2), (2,1), (2,2)$}
+\method{Let $s=x+y$ and $p=xy$. $x^3+y^3=s(s^2-3p)=s^2$. If $s=0$: $y=-x$ (infinitely many solutions $(n,-n)$). If $s\neq0$: $s^2-3p=s \Rightarrow p=\frac{s(s-1)}{3}$. For real $x,y$, discriminant $s^2-4p = s^2-\frac{4s(s-1)}{3} = \frac{4s-s^2}{3} \geq 0$. Thus $0<s\leq 4$. Try $s=1$: $p=0 \Rightarrow (1,0),(0,1)$. Try $s=2$: $p=2/3$ (reject). Try $s=3$: $p=2 \Rightarrow (1,2),(2,1)$. Try $s=4$: $p=4 \Rightarrow (2,2)$.}
 \inv{The Diophantine equation $x^3+y^3=(x+y)^2$ connects to elliptic curves. The substitution $s=x+y$, $p=xy$ reduces the problem to a condition on $p$ in terms of $s$. For fixed $s$, $x$ and $y$ are roots of $t^2-st+p=0$, requiring the discriminant $s^2-4p\geq0$ for real roots and also being a perfect square for integer roots. Work through the case $s=3$ explicitly.}
 
 \end{enumerate}

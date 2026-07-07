@@ -18,7 +18,7 @@
 \item Given $x+\dfrac{1}{x}=\sqrt5$, find $x^2+\dfrac{1}{x^2}$.
 \ans{$3$}
 \method{$\left(x+\frac{1}{x}\right)^2=x^2+2+\frac{1}{x^2}=5$, so $x^2+\frac{1}{x^2}=3$.}
-\inv{Note $x^2+\frac{1}{x^2}=3<5=\left(x+\frac{1}{x}\right)^2-2$. Continue the chain to find $x^3+\frac{1}{x^3}=(\sqrt5)(3)-\sqrt5=2\sqrt5$ and $x^4+\frac{1}{x^4}=3^2-2=7$.}
+\inv{Note $x^2+\frac{1}{x^2} = \left(x+\frac{1}{x}\right)^2-2 = 5-2 = 3 < 5$. Continue the chain to find $x^3+\frac{1}{x^3}=(\sqrt5)(3)-\sqrt5=2\sqrt5$ and $x^4+\frac{1}{x^4}=3^2-2=7$.}
 
 \item State the coefficient of $xy^2$ in $(x+y)^3$.
 \ans{$3$}
@@ -27,6 +27,7 @@
 
 \item Evaluate $\dfrac{1}{\sqrt2-1}-\dfrac{1}{\sqrt2+1}$.
 \ans{$2$}
+\method{Rationalise both fractions: $\frac{\sqrt2+1}{(\sqrt2-1)(\sqrt2+1)} - \frac{\sqrt2-1}{(\sqrt2+1)(\sqrt2-1)} = (\sqrt2+1) - (\sqrt2-1) = 2$.}
 \inv{Rationalising: $\frac{1}{\sqrt{n}-1}=\frac{\sqrt{n}+1}{n-1}$ and $\frac{1}{\sqrt{n}+1}=\frac{\sqrt{n}-1}{n-1}$. Their difference is $\frac{2}{n-1}$. Verify at $n=2$: $\frac{2}{1}=2$. \checkmark Now evaluate $\frac{1}{\sqrt{5}-2}-\frac{1}{\sqrt{5}+2}$.}
 
 \item If $x=2$ is a repeated root of $f(x)=x^3+ax+b$, find $a$ and $b$.
@@ -56,6 +57,7 @@
 
 \item Given $f(x)=x^2-3x+2$, find $f(f(0))$.
 \ans{$0$}
+\method{$f(0) = 0^2-3(0)+2 = 2$. Then $f(f(0)) = f(2) = 2^2-3(2)+2 = 0$.}
 \inv{$f(f(0))=0$ means 0 is a period-2 point of $f$: $f(0)=2$ and $f(2)=0$, so $f(f(0))=0$. Explore: is 0 a fixed point? ($f(0)=2\neq0$, so no.) Find all fixed points of $f$ (where $f(x)=x$: $x^2-4x+2=0$, $x=2\pm\sqrt2$). What does the graph of $y=f(f(x))$ look like?}
 
 \end{enumerate}
@@ -69,7 +71,7 @@
 \inv{This is expressing $x^2+3x+5$ in the \emph{shifted basis} $\{(x+1)^2,(x+1),1\}$ centred at $x=-1$. It is equivalent to the Taylor expansion about $x=-1$: $f(-1)=3$, $f'(-1)=1$, $f''(-1)/2!=1$. Compare the coefficients with $A=f''(-1)/2$, $B=f'(-1)$, $C=f(-1)$.}
 
 \item The cubic $p(x)=x^3+ax^2+bx+c$ satisfies $p(1)=0$, $p(-1)=4$, $p(2)=15$. Find $a,b,c$.
-\ans{The stated data are inconsistent with the usual clean-integer target.}
+\ans{$a=\frac{11}{3},\;b=-3,\;c=-\frac{5}{3}$}
 \method{From
 $p(1)=0$: $a+b+c=-1$.
 From
@@ -117,10 +119,12 @@ So the coefficients are rational, not integers.}
 $\alpha^2+\beta^2+\gamma^2=(\sum\alpha)^2-2\sum\alpha\beta=0-2(-7)=14$.
 $(\alpha\beta+\beta\gamma+\gamma\alpha)^2=\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2+2\alpha\beta\gamma(\alpha+\beta+\gamma)=\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2+0$.
 So $\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=(-7)^2=49$.}
+\inv{Notice that the sum of the roots is zero ($p=0$ for the $x^2$ coefficient). This means the sum of squares is simply $-2q$. Use this shortcut to instantly find the sum of squares of the roots of $x^3-15x+4=0$.}
 
 \item Solve: $\dfrac{2}{x^2-1}-\dfrac{1}{x-1}=\dfrac{3}{x+1}$.
 \ans{No solution (the only candidate $x=1$ is excluded from the domain).}
-\inv{This is the classic case where clearing denominators produces an extraneous solution. The lesson: \emph{always check all solutions in the original equation}. The expression $\frac{2}{x^2-1}-\frac{1}{x-1}$ can be simplified to $\frac{1}{x+1}$ for $x\neq1$, making the equation $\frac{1}{x+1}=\frac{3}{x+1}$, which has no solution. Spot this simplification first to avoid the extraneous solution trap.}
+\method{Multiply by $(x-1)(x+1)$: $2(x+1) - (x^2-1)/(x-1) = 3(x-1)$? No, $(x^2-1)$ is the common denominator. So $2 - (x+1) = 3(x-1) \Rightarrow 1-x = 3x-3 \Rightarrow 4x=4 \Rightarrow x=1$. But $x=1$ makes the original denominators zero, so it is extraneous.}
+\inv{This is the classic case where clearing denominators produces an extraneous solution. The lesson: \emph{always check all solutions in the original equation}. The expression $\frac{2}{x^2-1}-\frac{1}{x-1}$ can be simplified to $\frac{-1}{x+1}$ for $x\neq1$, making the equation $\frac{-1}{x+1}=\frac{3}{x+1}$, which has no solution. Spot this simplification first to avoid the extraneous solution trap.}
 
 \end{enumerate}
 
@@ -143,7 +147,7 @@ So $\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=(-7)^2=49$.}
 \inv{The correct inequality $2(a^4+b^4)\geq(a^2+b^2)^2$ is a special case of the \emph{power mean inequality}: $M_4\geq M_2$, i.e.\ $\left(\frac{a^4+b^4}{2}\right)^{1/4}\geq\left(\frac{a^2+b^2}{2}\right)^{1/2}$. Verify this for $a=3,b=1$, then for $a=1,b=0$.}
 
 \item Solve $x^4-2x^3-3x^2+4x+4=0$ given that it has a repeated real root.
-\method{Try $x=2$: $16-16-12+8+4=0$. \checkmark So $(x-2)^2$ divides the polynomial. Divide: $x^4-2x^3-3x^2+4x+4=(x-2)^2(x^2+2x+1)$ check: $(x^2-4x+4)(x^2+2x+1)=x^4+2x^3+x^2-4x^3-8x^2-4x+4x^2+8x+4=x^4-2x^3-3x^2+4x+4$. \checkmark So $(x-2)^2(x+1)^2=0$: $x=2$ or $x=-1$ (each a double root).}
+\method{Try $x=2$: $16-16-12+8+4=0$. \checkmark So $(x-2)^2$ divides the polynomial. Divide: $x^4-2x^3-3x^2+4x+4=(x-2)^2(x^2+2x+1)$. So $(x-2)^2(x+1)^2=0$: $x=2$ or $x=-1$ (each a double root).}
 \ans{$x=2$ (double root) and $x=-1$ (double root)}
 \inv{A polynomial $p(x)$ has a repeated root $r$ iff both $p(r)=0$ and $p'(r)=0$ (the root is shared with the derivative). Check: $p'(x)=4x^3-6x^2-6x+4$. $p'(2)=32-24-12+4=0$ \checkmark. $p'(-1)=-4-6+6+4=0$ \checkmark. This derivative test is the standard method for finding repeated roots.}
 
@@ -169,8 +173,8 @@ Check: $\sqrt{16}-\sqrt9=1$.}
 \inv{The squaring step introduced $x=0$ as an extraneous solution. When we required $x-2=\sqrt{x+4}\geq0$, i.e.\ $x\geq2$, this eliminated $x=0$ before even checking. Spotting the domain restriction \emph{before} squaring saves a check step. Practise identifying domain restrictions at each squaring step.}
 
 \item For what values of $b,c$ do $x^2+bx+c=0$ and $x^2+cx+b=0$ have the same roots?
-\ans{$b=c$ (both equations identical) or $b+c=-1$ with $bc=b$ i.e.\ $b=0,c=-1$ or $c=0,b=-1$; more generally $b=c$ or $b+c+1=0$.}
-\method{If both quadratics have the same roots $r,s$: Vieta gives $r+s=-b$ and $rs=c$ from the first, and $r+s=-c$ and $rs=b$ from the second. So $-b=-c$ (i.e.\ $b=c$) \emph{and} $c=b$. This is consistent only if $b=c$. \emph{But also}: the two quadratics could be the same polynomial after re-ordering coefficients: $b=c$ (identical) OR swapping gives $x^2+cx+b$ where $b=c$ automatically. The only genuinely different case is $b=c$, giving both $x^2+bx+b=0$.}
+\ans{$b=c$}
+\method{For both quadratics to have the exact same roots, all corresponding coefficients must be equal (since both are monic). Therefore $b=c$.}
 \inv{The two equations have the \emph{same} roots only when $b=c$. But they could each have \emph{one common root}: if $r$ is a shared root, then $r^2+br+c=0$ and $r^2+cr+b=0$. Subtracting: $(b-c)r+(c-b)=0\Rightarrow(b-c)(r-1)=0$. So either $b=c$ or $r=1$. If $r=1$: $1+b+c=0$, so $b+c=-1$.}
 
 \end{enumerate}
@@ -180,13 +184,13 @@ Check: $\sqrt{16}-\sqrt9=1$.}
 
 \item \textbf{Schur's Inequality (degree 2):} Prove $\sum a^2(a-b)(a-c)\geq0$ for $a,b,c\geq0$.
 \ans{Proved below.}
-\method{WLOG $a\geq b\geq c\geq0$. Group as $[a^2(a-b)(a-c)+c^2(c-a)(c-b)]+b^2(b-a)(b-c)$. The bracketed term: $a^2(a-b)(a-c)\geq0$ since $a\geq b,c$; $c^2(c-a)(c-b)\geq0$ since $c-a\leq0$ and $c-b\leq0$ (product of two negatives). The second term: $b^2(b-a)(b-c)$; here $b-a\leq0$ and $b-c\geq0$, so $b^2(b-a)(b-c)\leq0$. This term needs care. Instead: write $a^2(a-b)(a-c)=a^2(a-b)(a-c)$ and note that both $(a-b)\geq0$ and $(a-c)\geq0$. For $c^2(c-a)(c-b)$: both $(c-a)\leq0$ and $(c-b)\leq0$, so the product is $\geq0$. So the sum of these two is $\geq0$. And $b^2(b-a)(b-c)$: $(b-a)\leq0$, $(b-c)\geq0$, so this is $\leq0$. We need to show the whole sum $\geq0$. Use the fact that $a^2(a-b)(a-c)\geq b^2|b-a||b-c|$ this is non-trivial. A cleaner proof: expand and use AM--GM.}
-\inv{Schur's inequality for general $t\geq0$ states $a^t(a-b)(a-c)+b^t(b-a)(b-c)+c^t(c-a)(c-b)\geq0$. The $t=1$ case gives: $a^3+b^3+c^3+abc\geq(ab(a+b)+bc(b+c)+ca(c+a))$. This is a BMO1-level inequality. Look up the proof using $t=1$ and try to verify it numerically for $a=3,b=2,c=1$.}
+\method{WLOG $a\geq b\geq c\geq0$. Group as $(a-b)[a^2(a-c) - b^2(b-c)] + c^2(c-a)(c-b)$. Since $c\geq0$, $(c-a)\leq0$ and $(c-b)\leq0$, so the second term is $\geq0$. For the first term, since $a\geq b\geq c\geq 0$, we have $a-c \geq b-c \geq 0$ and $a^2 \geq b^2$, so $a^2(a-c) \geq b^2(b-c)$. Thus the bracket is $\geq 0$, and $(a-b)\geq 0$. The sum is $\geq 0$.}
+\inv{Schur's inequality for general $t\geq0$ states $a^t(a-b)(a-c)+b^t(b-a)(b-c)+c^t(c-a)(c-b)\geq0$. The $t=1$ case gives: $a^3+b^3+c^3+3abc\geq(ab(a+b)+bc(b+c)+ca(c+a))$. This is a BMO1-level inequality. Look up the proof using $t=1$ and try to verify it numerically for $a=3,b=2,c=1$.}
 
 \item Find all polynomials with real coefficients satisfying $p(x^2)=p(x)^2$.
 \ans{$p(x)=0$ and $p(x)=x^n$ for non-negative integers $n$.}
 \method{Suppose $p$ has degree $d$. Then $p(x^2)$ has degree $2d$ and $p(x)^2$ has degree $2d$: consistent. If $r$ is a root of $p$, then $p(r^2)=p(r)^2=0$, so $r^2$ is also a root. The sequence $r,r^2,r^4,\ldots$ must terminate (finitely many roots), so $r=0$ or $r=1$ or $r=-1$. If $r=-1$: $r^2=1$ is a root, and $1^2=1$, so $p(1)=p(1)^2\Rightarrow p(1)=0$ or $1$. Careful analysis gives only monomials $p(x)=x^n$ and the zero polynomial.}
-\inv{Functional equations for polynomials are a rich topic. Try $p(x+1)-p(x)=nx^{n-1}$ (the discrete derivative). The polynomial that satisfies this is $p(x)=x^n$. Also explore: find all polynomials satisfying $p(x^2-1)=p(x)p(-x)$.}
+\inv{Functional equations for polynomials are a rich topic. Try $p(x+1)-p(x)=nx^{n-1}$ (the discrete derivative). The polynomial that satisfies this has leading term $x^n$ (related to Bernoulli polynomials). Also explore: find all polynomials satisfying $p(x^2-1)=p(x)p(-x)$.}
 
 \item Find a closed form for $\dfrac{1^2}{1\cdot3}+\dfrac{2^2}{3\cdot5}+\cdots+\dfrac{n^2}{(2n-1)(2n+1)}$.
 \ans{$\dfrac{n(n+1)}{2(2n+1)}$}
@@ -209,7 +213,7 @@ But $q(5)=5p(5)-1$, so $5p(5)-1=-1$, giving $p(5)=0$.}
 \ans{$(m,n)\in\{(53,52),\;(19,16),\;(13,8),\;(11,4)\}$}
 \method{$(m-n)(m+n)=105=3\times5\times7$. Set $m-n=a$, $m+n=b$: $ab=105$, $b>a>0$, same parity (both odd since $105$ is odd and $a,b$ have same parity). Factor pairs of 105 with $a<b$, both odd: $(1,105),(3,35),(5,21),(7,15)$. Each gives $m=\frac{a+b}{2}$, $n=\frac{b-a}{2}$:
 $(1,105)\to(53,52)$; $(3,35)\to(19,16)$; $(5,21)\to(13,8)$; $(7,15)\to(11,4)$.}
-\inv{The key observation: since $105$ is odd, $m-n$ and $m+n$ must both be odd (both even would give $4\mid(m^2-n^2)$, but $4\nmid105$). This parity constraint halves the number of cases. Generalise: for which $N$ does $m^2-n^2=N$ have no positive integer solutions? (When $N\equiv2\pmod4$ or $N=1$.)}
+\inv{The key observation: since $105$ is odd, $m-n$ and $m+n$ must both be odd (both even would give $4\mid(m^2-n^2)$, but $4\nmid105$). This parity constraint halves the number of cases. Generalise: for which $N$ does $m^2-n^2=N$ have no positive integer solutions? (When $N\equiv2\pmod4$ or $N=1$ or $N=4$.)}
 
 \end{enumerate}
 
