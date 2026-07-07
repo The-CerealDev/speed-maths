@@ -70,8 +70,8 @@ Equality when $x=\tfrac{9}{x}$, i.e.\ $x=3$.
 Always suspect AM--GM when you see a sum of a quantity and its reciprocal (scaled).}
 \inv{Generalise: the minimum of $x+\dfrac{c}{x}$ for $x,c>0$ is $2\sqrt{c}$,
 achieved at $x=\sqrt{c}$.
-Now find the minimum of $x+\dfrac{4}{x}+\dfrac{9}{x^2}$ for $x>0$
-by substituting $t=x+\tfrac{3}{x}$ and completing the square in $t$.}
+Now find the minimum of $4x+\dfrac{9}{x}$ for $x>0$, and in general of
+$ax+\dfrac{c}{x}$ for $a,c>0$. (\textit{Answer: $2\sqrt{ac}$, at $x=\sqrt{c/a}$.})}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
 \item Factorise over $\mathbb{Z}$: $\;x^4-y^4$.
@@ -89,9 +89,9 @@ $1,-1,i,-i$, corresponding exactly to the four factors.}
 %── A7 ──────────────────────────────────────────────────────────────────────────
 \item The roots of $2x^2-6x+3=0$ are $\alpha$ and $\beta$. Find $\alpha^2+\beta^2$.
 
-\ans{$\dfrac{15}{2}$}
+\ans{$6$}
 \method{Vieta: $\alpha+\beta=3$, $\alpha\beta=\tfrac{3}{2}$.
-$\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta=9-3=\tfrac{15}{2}$.
+$\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta=9-3=6$.
 Note: for a non-monic quadratic $ax^2+bx+c=0$, Vieta gives $\alpha+\beta=-b/a$, $\alpha\beta=c/a$.}
 \inv{Find $\alpha^3+\beta^3$ and $\dfrac{1}{\alpha^2}+\dfrac{1}{\beta^2}$ using the same roots.
 For $\dfrac{1}{\alpha^2}+\dfrac{1}{\beta^2}$, write it as $\dfrac{\alpha^2+\beta^2}{\alpha^2\beta^2}$.
@@ -105,7 +105,7 @@ Then investigate: what quadratic has roots $\alpha^2$ and $\beta^2$?
 \method{Factor: $(n+1)!-n!=n!\cdot n = n\cdot n!$.
 Then $\dfrac{n\cdot n!}{(n-1)!}=n\cdot\dfrac{n!}{(n-1)!}=n\cdot n=n^2$.
 Always factor out the smaller factorial first.}
-\inv{Prove the identity $(n+1)!-n!-n\cdot(n-1)!=(n-1)!\cdot(n^2-n-1)$
+\inv{Prove the identity $(n+1)!-n!-n\cdot(n-1)!=(n-1)!\cdot(n^2-n)$
 by factoring $(n-1)!$ throughout.
 Then investigate: for which $n$ is $\dfrac{(2n)!}{(n!)^2}$ (the central binomial coefficient)
 divisible by $n+1$? (\textit{Catalan number connection.})}
@@ -220,14 +220,13 @@ using the identity $(r+1)^3-r^3=3r^2+3r+1$, telescoped.}
 %── B7 ──────────────────────────────────────────────────────────────────────────
 \item Solve: $\;\dfrac{2x-1}{x+3}-\dfrac{x+2}{x-1}=1$.
 
-\ans{$x=2$}
+\ans{$x=-\dfrac{1}{5}$}
 \method{Common denominator $(x+3)(x-1)$:
 $(2x-1)(x-1)-(x+2)(x+3)=(x+3)(x-1)$.
 LHS: $(2x^2-3x+1)-(x^2+5x+6)=x^2-8x-5$.
 RHS: $x^2+2x-3$.
 So $x^2-8x-5=x^2+2x-3 \Rightarrow -10x=2 \Rightarrow x=-\tfrac{1}{5}$.
-\textit{(Re-check):} verify $x=-\tfrac{1}{5}$ in original --- LHS $=\tfrac{-7/5}{14/5}-\tfrac{9/5}{-6/5}=\tfrac{-7}{14}+\tfrac{9}{6}=-\tfrac{1}{2}+\tfrac{3}{2}=1$. \checkmark
-So $x=-\tfrac{1}{5}$.}
+Check in the original: LHS $=\tfrac{-7/5}{14/5}-\tfrac{9/5}{-6/5}=-\tfrac{1}{2}+\tfrac{3}{2}=1$. \checkmark}
 \inv{Rational equations of this form always reduce to a polynomial equation after clearing
 denominators. Investigate: under what conditions does clearing denominators in
 $\dfrac{P(x)}{Q(x)}=\dfrac{R(x)}{S(x)}$ produce extraneous solutions?
@@ -379,8 +378,8 @@ Sketch the curve $y=x^4+4x^2$ and read off the answers geometrically.}
 \method{$\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{a+b}{ab}=\dfrac{1}{ab}$.
 By AM--GM, $ab\leq\left(\dfrac{a+b}{2}\right)^2=\dfrac{1}{4}$, so $\dfrac{1}{ab}\geq4$.
 Equality when $a=b=\tfrac{1}{2}$.}
-\inv{This is a standard constrained optimisation whose answer $4=\left(\dfrac{1+1}{\sqrt{ab}}\right)^2$
-more neatly: $\left(\sqrt{\tfrac{1}{a}}+\sqrt{\tfrac{1}{b}}\right)^2\geq4\cdot\tfrac{1}{\sqrt{ab}}$.
+\inv{Reprove the result via Cauchy--Schwarz:
+$\left(\dfrac{1}{a}+\dfrac{1}{b}\right)(a+b)\geq(1+1)^2=4$, and $a+b=1$.
 Generalise: for $a_1+a_2+\cdots+a_n=1$ with all $a_i>0$, find the minimum of
 $\displaystyle\sum_{i=1}^n\dfrac{1}{a_i}$ using the AM--HM inequality.
 (\textit{Answer: $n^2$.})}
@@ -396,18 +395,11 @@ $\displaystyle\sum_{i=1}^n\dfrac{1}{a_i}$ using the AM--HM inequality.
 %── D1 ──────────────────────────────────────────────────────────────────────────
 \item Find all real solutions to $\;x^4+2x^3-2x-1=0$.
 
-\ans{$x=1,\;-1,\;-1\pm\sqrt{2}$\quad (i.e.\ $x\in\{1,-1,-1+\sqrt2,-1-\sqrt2\}$)}
-\method{Group by spotting symmetry: $x^4-1+2x^3-2x = (x^2+1)(x^2-1)+2x(x^2-1)=(x^2-1)(x^2+2x+1)=(x-1)(x+1)(x+1)^2=(x-1)(x+1)^3$.
-
-Factor as $(x^4-1)+2x(x^2-1)=(x^2+1)(x-1)(x+1)+2x(x-1)(x+1)=(x-1)(x+1)\left[(x^2+1)+2x\right]=(x-1)(x+1)(x+1)^2=(x^2-1)(x+1)^2$.
-So roots: $x=1$ (from $x^2-1$), $x=-1$ (double, from both factors).
-
-\textit{Alternatively:} write $(x^4-1)+2x(x^2-1)=(x^2-1)(x^2+1+2x)=(x-1)(x+1)(x+1)^2$.
-Roots: $x=1$ and $x=-1$ (multiplicity 3? --- but we want distinct reals).
-Since $(x+1)^2(x-1)(x+1)=(x+1)^3(x-1)$, roots are $x=1$ and $x=-1$.
-
-\textit{Correct factoring:} $x^4+2x^3-2x-1=(x^4-1)+2x(x^2-1)=(x^2-1)(x^2+1)+(x^2-1)(2x)=(x^2-1)(x^2+2x+1)=(x-1)(x+1)(x+1)^2=(x-1)(x+1)^3$.
-Real roots: $x=1$, $x=-1$.}
+\ans{$x=1$ and $x=-1$\quad ($x=-1$ has multiplicity 3)}
+\method{Group into two differences: $x^4+2x^3-2x-1=(x^4-1)+2x(x^2-1)$.
+Both terms share the factor $x^2-1$:
+$(x^2-1)(x^2+1)+2x(x^2-1)=(x^2-1)(x^2+2x+1)=(x-1)(x+1)(x+1)^2=(x-1)(x+1)^3$.
+The only real solutions are $x=1$ and $x=-1$.}
 \inv{The factorisation $x^4+2x^3-2x-1=(x-1)(x+1)^3$ shows $x=-1$ is a root of multiplicity 3.
 Verify by computing $f(-1)$, $f'(-1)$, $f''(-1)$ and checking they are all zero.
 Geometrically, a root of multiplicity 3 means the curve $y=f(x)$ crosses the $x$-axis
@@ -452,9 +444,10 @@ using $3(a^2+b^2+c^2)\geq(a+b+c)^2$ via the Cauchy--Schwarz inequality.}
 \method{\textit{Part 1:} Let $t=\tfrac{a}{b}>0$.  Then $t+\tfrac{1}{t}-2=\dfrac{t^2-2t+1}{t}=\dfrac{(t-1)^2}{t}\geq0$.
 So $\tfrac{a}{b}+\tfrac{b}{a}\geq2$, equality iff $a=b$. $\square$
 
-\textit{Part 2:} Let $a=x^2$, $b=y^2$ (so $x,y>0$).  Part 1 gives $\tfrac{x^2}{y^2}+\tfrac{y^2}{x^2}\geq2$.
-Instead use directly: $(\sqrt{a}-\sqrt{b})^2\geq0 \Rightarrow a+b\geq2\sqrt{ab}
-\Rightarrow \dfrac{a+b}{2}\geq\sqrt{ab}$. $\square$}
+\textit{Part 2:} Apply Part 1 to the positive reals $\sqrt{a}$ and $\sqrt{b}$:
+$\dfrac{\sqrt{a}}{\sqrt{b}}+\dfrac{\sqrt{b}}{\sqrt{a}}\geq2
+\;\Rightarrow\; \dfrac{a+b}{\sqrt{ab}}\geq2
+\;\Rightarrow\; \dfrac{a+b}{2}\geq\sqrt{ab}$. $\square$}
 \inv{These two proofs show that \emph{every algebraic inequality ultimately rests on
 the fact that squares are non-negative}.
 Find at least three distinct proofs of AM--GM for two variables.
@@ -465,19 +458,10 @@ $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$.
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Find the number of integers $n$ with $1\leq n\leq1000$ such that $(n+3)\mid(n^2-1)$.
 
-\ans{$7$}
-\method{$n^2-1=(n+3)(n-3)+8$.
-So $(n+3)\mid(n^2-1)$ iff $(n+3)\mid8$.
-The divisors of 8 are $1,2,4,8$.
-Since $n\geq1$, we have $n+3\geq4$, so valid divisors of 8 that are $\geq4$: $\{4,8\}$.
-$n+3=4 \Rightarrow n=1$. $n+3=8 \Rightarrow n=5$.
-
-giving $n=-4,-5,-7,-11$ (all outside range).
-Also $n+3=1 \Rightarrow n=-2$ (out of range); $n+3=2 \Rightarrow n=-1$ (out of range).
-So within $1\leq n\leq1000$: only $n=1$ and $n=5$.
-
-\textit{Re-examine:} divisors of 8 that are positive and $\geq4$: $4$ and $8$.
-So only \textbf{2} values: $n=1$ and $n=5$.}
+\ans{$2$\quad ($n=1$ and $n=5$)}
+\method{$n^2-1=(n+3)(n-3)+8$, so $(n+3)\mid(n^2-1)$ iff $(n+3)\mid8$.
+Since $n\geq1$, we need $n+3\geq4$, and the only divisors of 8 that are $\geq4$
+are 4 and 8, giving $n=1$ and $n=5$. Exactly \textbf{2} values in range.}
 \inv{Generalise: find all $n\geq1$ such that $(n+k)\mid(n^2-1)$ for fixed $k$.
 Write $n^2-1=(n+k)(n-k)+(k^2-1)$, so the condition becomes $(n+k)\mid(k^2-1)$.
 This is a standard technique: \emph{reduce the divisibility to a condition on a constant}.
