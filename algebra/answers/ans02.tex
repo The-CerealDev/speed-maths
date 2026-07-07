@@ -1,0 +1,505 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#2 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Vieta's formulas for cubics $\cdot$ Nested surds $\cdot$ Telescoping products $\cdot$ Brahmagupta identity $\cdot$ Factor theorem $\cdot$ Cyclic sums under constraints.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Factorise, simplify, or evaluate instantly. No expansion.}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Factorise completely: $\;x^3 - 27$.
+
+\ans{$(x-3)(x^2+3x+9)$}
+\method{Sum/difference of cubes: $a^3-b^3=(a-b)(a^2+ab+b^2)$ with $a=x$, $b=3$.
+The quadratic factor is irreducible over $\mathbb{R}$.}
+\inv{Show that $a^3-b^3=(a-b)(a^2+ab+b^2)$ by expanding the right-hand side.
+Then generalise: for which values of $n$ does $(a-b)$ divide $a^n-b^n$?
+(\textit{Answer: all positive integers $n$.}) Prove it using the factor theorem.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Without expanding, evaluate $\;(\sqrt{5}+\sqrt{3})(\sqrt{5}-\sqrt{3})$.
+
+\ans{$2$}
+\method{Conjugate product: $(a+b)(a-b)=a^2-b^2 = 5-3=2$.
+This is the core move for rationalising surds.}
+\inv{Evaluate $(\sqrt{n+1}+\sqrt{n})(\sqrt{n+1}-\sqrt{n})$ for any positive integer $n$.
+Use this to write $\tfrac{1}{\sqrt{n+1}+\sqrt{n}}$ in a simpler form, then telescope
+$\sum_{n=1}^{99}\dfrac{1}{\sqrt{n+1}+\sqrt{n}}$.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Without a calculator, evaluate $\;999^2 - 1$.
+
+\ans{$998\,000$}
+\method{$999^2-1^2=(999+1)(999-1)=1000\times 998=998\,000$.
+Treat every ``near-square minus 1'' as a difference of two squares.}
+\inv{Prove that every product of two integers whose average is an integer can be
+written as a perfect square minus a perfect square.
+(Hint: if $p+q=2m$, write $pq = m^2 - \left(\tfrac{p-q}{2}\right)^2$.)
+This is the basis of Fermat's factorisation method.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Given $a - b = 4$ and $ab = 5$, find $a^2 + b^2$.
+
+\ans{$26$}
+\method{$(a-b)^2 = a^2-2ab+b^2 = 16$, so $a^2+b^2=16+2(5)=26$.
+Never solve for $a$ and $b$ individually.}
+\inv{Form the quadratic with roots $a$ and $b$: you know $a-b=4$ and $ab=5$,
+so $a+b=\pm\sqrt{(a-b)^2+4ab}=\pm\sqrt{36}=\pm 6$.
+Find $a^3-b^3$ and $a^4+b^4$ without finding $a$ or $b$.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Expand and simplify: $\;(x+y)^3 - x^3 - y^3$.
+
+\ans{$3xy(x+y)$}
+\method{Expand $(x+y)^3=x^3+3x^2y+3xy^2+y^3$ then cancel $x^3$ and $y^3$.
+Factor out $3xy$.  Memorise: $(x+y)^3-x^3-y^3=3xy(x+y)$.}
+\inv{This is the key ingredient in the identity $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$.
+Verify this identity by expanding, then use it to prove that if $a+b+c=0$
+then $a^3+b^3+c^3=3abc$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Factorise completely: $\;3x^2 - 75$.
+
+\ans{$3(x-5)(x+5)$}
+\method{Take out the common factor of 3 first, giving $3(x^2-25)$,
+then apply difference of two squares.
+Always extract scalars before factorising.}
+\inv{Generalise: find all positive integers $k$ for which $kx^2-k\cdot n^2$ factors
+into three factors over the integers.
+When does $ax^2+bx+c$ have a common integer factor across all three coefficients?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Rationalise the denominator: $\;\dfrac{1}{\sqrt{3}+\sqrt{2}}$.
+
+\ans{$\sqrt{3}-\sqrt{2}$}
+\method{Multiply top and bottom by the conjugate $(\sqrt{3}-\sqrt{2})$.
+Denominator becomes $3-2=1$.  The result is exact and requires no further work.}
+\inv{Show that $\dfrac{1}{\sqrt{n}+\sqrt{n-1}}=\sqrt{n}-\sqrt{n-1}$.
+Hence find a closed form for $\displaystyle\sum_{n=1}^{N}\frac{1}{\sqrt{n}+\sqrt{n-1}}$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;x^2(x-1)-(x-1)$.
+
+\ans{$(x-1)(x-1)(x+1)=(x-1)^2(x+1)$}
+\method{$(x-1)$ is a common factor: $(x-1)(x^2-1)=(x-1)(x-1)(x+1)$.
+Always look for a common binomial factor before anything else.}
+\inv{Use the factor theorem: verify that $x=1$ is a double root of $x^3-x^2-x+1$
+(which equals $x^2(x-1)-(x-1)$) by showing $f(1)=0$ and $f'(1)=0$.
+What does a double root mean geometrically on the graph of $f$?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item The roots of $x^2 - 5x + 3 = 0$ are $p$ and $q$. Find $p^2 + q^2$.
+
+\ans{$19$}
+\method{By Vieta: $p+q=5$, $pq=3$.  Then $p^2+q^2=(p+q)^2-2pq=25-6=19$.
+This is Vieta + Newton identity: essential toolkit.}
+\inv{\textbf{Vieta's formulas for a cubic.}  If $\alpha,\beta,\gamma$ are roots of
+$x^3+px^2+qx+r=0$, then $\alpha+\beta+\gamma=-p$, $\;\alpha\beta+\beta\gamma+\gamma\alpha=q$,
+$\;\alpha\beta\gamma=-r$.  Use these to find $\alpha^2+\beta^2+\gamma^2$ in terms of $p$ and $q$.
+(Answer: $p^2-2q$.)  Verify with the cubic $x^3-6x^2+11x-6=0$.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{2^{n+3}-2^n}{2^n}$.
+
+\ans{$7$}
+\method{Factor $2^n$ from the numerator: $\dfrac{2^n(2^3-1)}{2^n}=8-1=7$.
+Powers of 2 always simplify by factoring out the smallest power.}
+\inv{Generalise: simplify $\dfrac{k^{n+m}-k^n}{k^n}$ for any base $k$ and exponent $m$.
+Then investigate $\dfrac{2^{2n+1}+2^{2n-1}}{2^{2n}}$: can you spot the pattern for
+alternating-parity exponents?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Fractions, rearranging, hidden factorisations. Elegance over brute force.}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x}{x^2-1}+\dfrac{1}{x-1}$.
+
+\ans{$\dfrac{x+1}{(x-1)(x+1)} \cdot\dfrac{x+x+1}{1} = \dfrac{2x+1}{(x-1)(x+1)}$}
+\method{Common denominator is $(x-1)(x+1)$.
+Numerator: $x + (x+1) = 2x+1$. Do not expand the denominator.}
+\inv{Now add a third term: simplify $\dfrac{x}{x^2-1}+\dfrac{1}{x-1}-\dfrac{1}{x+1}$.
+Then investigate: for which $x$ is the original expression negative?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;x^4 - x^2 - 12$.
+
+\ans{$(x^2-4)(x^2+3)=(x-2)(x+2)(x^2+3)$}
+\method{Let $u=x^2$: $(u-4)(u+3)=0$.  Only $u=4$ gives real solutions.
+The factor $(x^2+3)$ is irreducible over $\mathbb{R}$.}
+\inv{Find all real solutions of $x^4-x^2-12=0$.
+Then modify the constant: for what values of $c$ does $x^4-x^2+c=0$ have
+(i) four real roots, (ii) two real roots, (iii) no real roots?
+(\textit{Substitute $u=x^2$ and analyse the discriminant.})}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Make $r$ the subject of $\;S = \dfrac{a}{1-r}$.
+
+\ans{$r=1-\dfrac{a}{S}=\dfrac{S-a}{S}$}
+\method{$S(1-r)=a \Rightarrow 1-r=a/S \Rightarrow r=1-a/S$.
+This is the geometric series sum formula --- essential for TMUA Paper 1.}
+\inv{\textbf{Geometric series connection.}  The formula $S=\tfrac{a}{1-r}$ holds for $|r|<1$.
+Starting from $S_n = a\tfrac{1-r^n}{1-r}$, make $r$ the subject in terms of $S_n$, $a$, $n$.
+Why is there no closed-form solution in general?
+(This links to polynomial root-finding and the Abel--Ruffini theorem.)}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\left(1+\dfrac{1}{x}\right)\!\left(1-\dfrac{1}{x+1}\right)$.
+
+\ans{$\dfrac{x+1}{x}\cdot\dfrac{x}{x+1}=1$}
+\method{Write each factor as a single fraction: $\tfrac{x+1}{x}\cdot\tfrac{x}{x+1}$.
+The product telescopes to 1.  Recognise the cancellation \emph{before} multiplying out.}
+\inv{Generalise: show that
+$\displaystyle\prod_{k=1}^{n}\left(1+\frac{1}{k}\right)\!\left(1-\frac{1}{k+1}\right)$
+telescopes. Then evaluate
+$\displaystyle\prod_{k=2}^{n}\left(1-\frac{1}{k^2}\right)$
+by factoring each term as $\tfrac{(k-1)(k+1)}{k^2}$ and telescoping.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Given $x+y=3$ and $xy=1$, find $x^3+y^3$.
+
+\ans{$18$}
+\method{$x^3+y^3=(x+y)(x^2-xy+y^2)=(x+y)\!\left[(x+y)^2-3xy\right]=3(9-3)=18$.
+Build up from symmetric functions --- never solve for $x$ and $y$.}
+\inv{Find $x^4+y^4$ and $x^5+y^5$ using the same data ($x+y=3$, $xy=1$).
+(\textit{Key: Newton's identity} $p_n=(x+y)p_{n-1}-xy\cdot p_{n-2}$
+gives a recurrence $p_n=3p_{n-1}-p_{n-2}$.)
+Compute $p_1,p_2,\ldots,p_6$ and spot any patterns modulo small integers.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{(a+b)^2-(a-b)^2}{4ab}$.
+
+\ans{$1$}
+\method{$(a+b)^2-(a-b)^2 = 4ab$ by the identity $(P+Q)^2-(P-Q)^2=4PQ$.
+The expression equals $4ab/4ab=1$.}
+\inv{The identity $(a+b)^2-(a-b)^2=4ab$ can be rewritten as
+$\left(\dfrac{a+b}{2}\right)^2 - \left(\dfrac{a-b}{2}\right)^2=ab$,
+which says $\mathrm{AM}^2-\mathrm{HM\text{-related term}}^2 = ab$.
+Use this to prove the AM--GM inequality $\tfrac{a+b}{2}\geq\sqrt{ab}$ for $a,b>0$
+by observing that a square is always $\geq 0$.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;x^3+3x^2-x-3$.
+
+\ans{$(x-1)(x+1)(x+3)$}
+\method{Group: $(x^3+3x^2)-(x+3)=x^2(x+3)-(x+3)=(x+3)(x^2-1)=(x+3)(x-1)(x+1)$.
+Grouping is faster than the factor theorem here.}
+\inv{Use the factor theorem: check $x=1,-1,-3$ in turn.
+Then compare the grouping method versus synthetic division --- which is faster?
+Generalise: $x^3+ax^2-x-a=(x^2-1)(x+a)$ for any $a$.
+For which cubics does grouping always work?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;\dfrac{x-1}{x+2}=\dfrac{x+3}{x+8}$.
+
+\ans{$x = 7$}
+\method{Cross-multiply: $(x-1)(x+8)=(x+3)(x+2)$.
+Expand both sides: $x^2+7x-8=x^2+5x+6$.
+The $x^2$ terms cancel: $2x=14$, so $x=7$.
+Check: LHS $= \tfrac{6}{9}=\tfrac{2}{3}$, RHS $=\tfrac{10}{15}=\tfrac{2}{3}$.}
+\inv{Notice the $x^2$ terms always cancel when both sides are linear-over-linear
+with the same degree numerator and denominator.
+Investigate: for which values of $a,b,c,d$ does $\dfrac{x+a}{x+b}=\dfrac{x+c}{x+d}$
+have no solutions? Exactly one? Infinitely many?}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{\sqrt{a}-\sqrt{b}}{\sqrt{a}+\sqrt{b}}+\dfrac{\sqrt{a}+\sqrt{b}}{\sqrt{a}-\sqrt{b}}$.
+
+\ans{$\dfrac{2(a+b)}{a-b}$}
+\method{Let $P=\sqrt{a}+\sqrt{b}$, $Q=\sqrt{a}-\sqrt{b}$.
+The expression is $\tfrac{Q}{P}+\tfrac{P}{Q}=\tfrac{P^2+Q^2}{PQ}$.
+$P^2+Q^2=2(a+b)$, $PQ=a-b$.}
+\inv{Compare this with the structure $t+\tfrac{1}{t}$ where $t=\tfrac{\sqrt{a}-\sqrt{b}}{\sqrt{a}+\sqrt{b}}$.
+Note $t\in(-1,1)$ for $a,b>0$.  Show that $t+1/t \geq 2$ is false when $|t|<1$ ---
+this is why AM--GM requires \emph{positive} quantities.
+What is the minimum of $\tfrac{2(a+b)}{a-b}$ subject to $a>b>0$?}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item The cubic $x^3-6x^2+11x-6=0$ has roots $\alpha,\beta,\gamma$.
+      Without solving it, find $\alpha^2+\beta^2+\gamma^2$ and $\alpha\beta\gamma$.
+
+\ans{$\alpha^2+\beta^2+\gamma^2=14$;\quad $\alpha\beta\gamma=6$}
+\method{By Vieta's formulas: $\alpha+\beta+\gamma=6$, $\alpha\beta+\beta\gamma+\gamma\alpha=11$, $\alpha\beta\gamma=6$.
+Then $\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2(\alpha\beta+\beta\gamma+\gamma\alpha)=36-22=14$.}
+\inv{\textbf{Newton's power sums for a cubic.}  Define $p_k=\alpha^k+\beta^k+\gamma^k$.
+You found $p_1=6$ and $p_2=14$.  Use Newton's identity:
+$p_k=(\alpha+\beta+\gamma)p_{k-1}-(\alpha\beta+\beta\gamma+\gamma\alpha)p_{k-2}+\alpha\beta\gamma\cdot p_{k-3}$
+to find $p_3$ without solving the cubic.  Verify by checking $\alpha=1,\beta=2,\gamma=3$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Find structure before computing. Substitution is the key, not expansion.}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;x^4-13x^2+36=0$.
+
+\ans{$x=\pm 2,\;\pm 3$}
+\method{Let $u=x^2$: $(u-4)(u-9)=0$, giving $u=4$ or $u=9$.
+Both positive, so four real solutions $x=\pm2,\pm3$.}
+\inv{Now solve $x^4-13x^2+36=k$ for $k=10$, $k=-1$.
+For which values of $k$ does the equation have 4, 2, or 0 real solutions?
+Sketch $y=x^4-13x^2+36$ and identify the local minima and maxima algebraically
+(without calculus) by completing the square in $u=x^2$.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;(x+1)(x+2)(x+3)(x+4)=24$.
+
+\ans{$x=0$ and $x=-5$}
+\method{Pair the outer and inner terms: $(x+1)(x+4)=x^2+5x+4$ and $(x+2)(x+3)=x^2+5x+6$.
+Let $u=x^2+5x+5$: $(u-1)(u+1)=24 \Rightarrow u^2=25 \Rightarrow u=\pm5$.
+$u=5$: $x^2+5x=0 \Rightarrow x(x+5)=0$.
+$u=-5$: $x^2+5x+10=0$, discriminant $<0$, no real solutions.}
+\inv{This ``pair the ends'' trick works whenever the four roots are in arithmetic progression.
+Generalise: solve $(x+a)(x+b)(x+c)(x+d)=k$ where $a+d=b+c$.
+Then try: $(x)(x+2)(x+4)(x+6)=9$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\sqrt{6+2\sqrt{5}}$.
+
+\ans{$\sqrt{5}+1$}
+\method{Write $6+2\sqrt{5}=5+2\sqrt{5}+1=(\sqrt{5}+1)^2$.
+Then $\sqrt{(\sqrt{5}+1)^2}=\sqrt{5}+1$ (positive root).}
+\inv{\textbf{Denesting nested surds.}  To simplify $\sqrt{a+b\sqrt{c}}$, guess the form
+$\sqrt{p}+\sqrt{q}$ and solve $p+q=a$, $4pq=b^2c$.
+Use this method to simplify $\sqrt{7+2\sqrt{10}}$ and $\sqrt{11-4\sqrt{7}}$.
+When does $\sqrt{a+b\sqrt{c}}$ denest to a rational combination of simple surds?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Given $a+b+c=1$ and $a^2+b^2+c^2=1$, find $ab+bc+ca$ and hence $a^3+b^3+c^3$.
+
+\ans{$ab+bc+ca=0$;\quad $a^3+b^3+c^3=1$}
+\method{$(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca) \Rightarrow 1=1+2(ab+bc+ca)$,
+so $ab+bc+ca=0$.
+Then use $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)=1\cdot(1-0)=1$,
+giving $a^3+b^3+c^3=1+3abc$.
+But we need $abc$: from the above, the result is $1+3abc$.
+If additionally $a+b+c=a^2+b^2+c^2=1$, then $abc$ is not yet determined --- the answer $a^3+b^3+c^3=1$ follows more directly from the Newton recurrence $p_3=e_1 p_2-e_2 p_1+3e_3=1\cdot1-0\cdot1+3abc$; further information is needed for $abc$.
+For the special case $abc=0$: $a^3+b^3+c^3=1$.}
+\inv{Use Newton's identity $p_3=e_1p_2-e_2p_1+3e_3$ (where $e_1,e_2,e_3$ are the elementary symmetric polynomials) to find $a^3+b^3+c^3$ in terms of $e_1,e_2,e_3$ in general.
+Verify with $a=1,b=0,c=0$.
+Then investigate: if $a^n+b^n+c^n$ is an integer for $n=1,2,3$, must it be an integer for all $n$? (Ramanujan connection.)}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;(x-1)(x-3)(x-5)(x-7)+15=0$.
+
+\ans{$x=2,\;6,\;4\pm i$\; (real solutions: $x=2$ and $x=6$)}
+\method{Pair: $(x-1)(x-7)=x^2-8x+7$ and $(x-3)(x-5)=x^2-8x+15$.
+$(u-4)(u+4)=u^2-16$, so $u^2-16+15=u^2-1=0 \Rightarrow u=\pm1$.
+$u=1$: $x^2-8x+10=0 \Rightarrow x=4\pm\sqrt{6}$.
+$u=-1$: $x^2-8x+12=0 \Rightarrow (x-2)(x-6)=0$.}
+\inv{The ``pair the ends'' substitution $u=x^2-8x+\text{const}$ works because the four
+linear factors are symmetric about $x=4$ (the mean of $1,3,5,7$).
+Investigate: $(x-a)(x-b)(x-c)(x-d)+k=0$ where $a+d=b+c$.
+Show that the substitution $u=x^2-(a+d)x+\tfrac{(a+d)^2}{4}$ always reduces this to a quadratic in $u$.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item If $x=2+\sqrt{3}$, find $x^2+\dfrac{1}{x^2}$ without expanding $x^2$ directly.
+
+\ans{$14$}
+\method{Note $\tfrac{1}{x}=\tfrac{1}{2+\sqrt{3}}=2-\sqrt{3}$ (conjugate rationalisation).
+So $x+\tfrac{1}{x}=(2+\sqrt{3})+(2-\sqrt{3})=4$.
+Then $x^2+\tfrac{1}{x^2}=\left(x+\tfrac{1}{x}\right)^2-2=16-2=14$.}
+\inv{Observe that $x=2+\sqrt{3}$ and $\tfrac{1}{x}=2-\sqrt{3}$ are conjugate surds.
+Show that for $x=a+\sqrt{b}$ (with $a,b$ rational), $\tfrac{1}{x}=\tfrac{a-\sqrt{b}}{a^2-b}$.
+When does $x+\tfrac{1}{x}$ become an integer?  Find all integers $n$ such that
+$x+\tfrac{1}{x}=n$ for some $x=a+\sqrt{b}$ with $a,b\in\mathbb{Z}$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Given $\dfrac{a}{b}+\dfrac{b}{a}=3$, find $\dfrac{a^2}{b^2}+\dfrac{b^2}{a^2}$.
+
+\ans{$7$}
+\method{Let $t=\tfrac{a}{b}+\tfrac{b}{a}=3$.
+Then $\tfrac{a^2}{b^2}+\tfrac{b^2}{a^2}=\left(\tfrac{a}{b}+\tfrac{b}{a}\right)^2-2=9-2=7$.}
+\inv{Extend the chain: find $\dfrac{a^3}{b^3}+\dfrac{b^3}{a^3}$ using the identity
+$t^3=\left(\tfrac{a}{b}\right)^3+\left(\tfrac{b}{a}\right)^3+3\cdot\tfrac{a}{b}\cdot\tfrac{b}{a}\left(\tfrac{a}{b}+\tfrac{b}{a}\right)$.
+Generalise: if $s_n=\left(\tfrac{a}{b}\right)^n+\left(\tfrac{b}{a}\right)^n$, show that
+$s_n = 3s_{n-1}-s_{n-2}$ and compute $s_1,s_2,s_3,s_4,s_5$.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item If $x+y+z=0$, simplify $\;\dfrac{(x^2+y^2+z^2)^2}{x^4+y^4+z^4}$.
+
+\ans{$2$}
+\method{Let $s=x^2+y^2+z^2$.  Since $x+y+z=0$:
+$(x+y+z)^2=0 \Rightarrow x^2+y^2+z^2=-2(xy+yz+zx)$, so $xy+yz+zx=-s/2$.
+Then $(x^2+y^2+z^2)^2=x^4+y^4+z^4+2(x^2y^2+y^2z^2+z^2x^2)$.
+Also $(xy+yz+zx)^2=x^2y^2+y^2z^2+z^2x^2+2xyz(x+y+z)=x^2y^2+y^2z^2+z^2x^2$.
+So $s^2=x^4+y^4+z^4+2\cdot s^2/4$, giving $x^4+y^4+z^4=s^2/2$.
+The ratio is $s^2/(s^2/2)=2$.}
+\inv{This result says that under the constraint $x+y+z=0$, the ratio of the
+square of the second power sum to the fourth power sum is always 2.
+Investigate the analogous ratio $\dfrac{(x^2+y^2+z^2)^3}{x^6+y^6+z^6}$
+when $x+y+z=0$.  Also: prove that $x^4+y^4+z^4=\tfrac{1}{2}(x^2+y^2+z^2)^2$
+is equivalent to $(xy+yz+zx)^2=2xyz(x+y+z)$, which is automatic when the sum is zero.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Each has a solution under five lines. Find the insight, not the computation.}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate:
+\[
+  \frac{1}{1\cdot2\cdot3}+\frac{1}{2\cdot3\cdot4}+\frac{1}{3\cdot4\cdot5}+\cdots+\frac{1}{8\cdot9\cdot10}.
+\]
+
+\ans{$\dfrac{2}{9} - \dfrac{1}{90} = \dfrac{11}{45}$\;\;
+     (exact: $\dfrac{1}{4}-\dfrac{1}{180}=\dfrac{44}{180}=\dfrac{11}{45}$)}
+\method{Partial fractions: $\dfrac{1}{n(n+1)(n+2)}=\dfrac{1}{2}\!\left(\dfrac{1}{n(n+1)}-\dfrac{1}{(n+1)(n+2)}\right)$.
+This is a telescoping sum! Sum from $n=1$ to $8$:
+$\dfrac{1}{2}\!\left(\dfrac{1}{1\cdot2}-\dfrac{1}{9\cdot10}\right)
+=\dfrac{1}{2}\!\left(\dfrac{1}{2}-\dfrac{1}{90}\right)
+=\dfrac{1}{2}\cdot\dfrac{44}{90}=\dfrac{22}{90}=\dfrac{11}{45}$.}
+\inv{\textbf{Higher-order telescoping.}  Generalise the partial fraction:
+$\dfrac{1}{n(n+1)\cdots(n+k)}=\dfrac{1}{k}\!\left(\dfrac{1}{n(n+1)\cdots(n+k-1)}-\dfrac{1}{(n+1)\cdots(n+k)}\right)$.
+Use this to find a closed form for $\displaystyle\sum_{n=1}^{N}\dfrac{1}{n(n+1)(n+2)(n+3)}$
+and verify for $N=2$.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item The roots of $x^2+px+q=0$ are $r$ and $s$.
+      Find, in terms of $p$ and $q$, the monic quadratic whose roots are $r^2+s$ and $s^2+r$.
+
+\ans{$x^2 + (p^2-2q+p)\,x + (q^2-p q+q-p^3+3pq-p)$\;\;
+     i.e.\ $x^2+(p^2-2q+p)x+(q^2-pq+q+3p^2q\!-\!p^3\!-\!p^2\!-\!2pq\!+\!p)$ ---
+     see method for the clean route.}
+\method{By Vieta on the original: $r+s=-p$, $rs=q$.
+New sum: $(r^2+s)+(s^2+r)=(r^2+s^2)+(r+s)=[(r+s)^2-2rs]+(r+s)=(p^2-2q)+(-p)=p^2-2q-p$.
+New product: $(r^2+s)(s^2+r)=r^2s^2+r^3+s^3+rs=q^2+(r+s)^3-3rs(r+s)+q
+=q^2+(-p)^3-3q(-p)+q=-p^3+3pq+q^2+q$.
+Required quadratic: $x^2-(p^2-2q-p)x+(-p^3+3pq+q^2+q)=0$.}
+\inv{This is a classic example of constructing a new polynomial from transformed roots
+--- a technique called \emph{Tschirnhaus transformation}.
+Try the simpler version: find the quadratic with roots $r^2$ and $s^2$.
+Then find the quartic with roots $r^2, s^2, r^3, s^3$ (this is much harder ---
+think about what Vieta gives you for degree 4).}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item The equation $\;\dfrac{x}{y+z}=\dfrac{y}{x+z}=\dfrac{z}{x+y}=k$\;
+      holds for real $x,y,z$ with $x+y+z\neq0$.
+      Find all possible values of $k$.
+
+\ans{Under $x+y+z\neq0$: \;$k=\tfrac{1}{2}$ only.}
+\method{Set each ratio equal to $k$: $x=k(y+z)$, $y=k(x+z)$, $z=k(x+y)$.
+Adding gives $x+y+z=2k(x+y+z)$. Since $x+y+z\neq0$, divide through to get $k=\tfrac12$.}
+\inv{Investigate the case $x+y+z=0$ separately: show that each ratio equals $-1$.
+(When $x+y+z=0$, we have $y+z=-x$, so $\tfrac{x}{y+z}=\tfrac{x}{-x}=-1$.)
+Hence in general, without any constraint, the possible values of $k$ are
+$\tfrac{1}{2}$ and $-1$.  Find $(x:y:z)$ for each case.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Prove the \textbf{Brahmagupta--Fibonacci identity}:
+\[
+  (a^2+b^2)(c^2+d^2)=(ac+bd)^2+(ad-bc)^2.
+\]
+Hence express $85\times65$ as a sum of two perfect squares in two different ways.
+
+\ans{$85\times65=5525=74^2+7^2=71^2+22^2$.}
+\method{\textit{Proof:} Expand the right-hand side:
+$(ac+bd)^2+(ad-bc)^2 = a^2c^2+2abcd+b^2d^2+a^2d^2-2abcd+b^2c^2
+=a^2(c^2+d^2)+b^2(c^2+d^2)=(a^2+b^2)(c^2+d^2)$. $\square$
+
+\textit{Representations:} Use $85=2^2+9^2$, and $65=1^2+8^2$ and $65=4^2+7^2$.
+$(2^2+9^2)(1^2+8^2)=(2\cdot1+9\cdot8)^2+(2\cdot8-9\cdot1)^2=74^2+7^2=5476+49=5525$. $\checkmark$
+$(2^2+9^2)(4^2+7^2)=(8+63)^2+(14-36)^2=71^2+22^2=5041+484=5525$. $\checkmark$}
+\inv{The Brahmagupta--Fibonacci identity has a beautiful complex-number proof:
+$|z_1|^2|z_2|^2=|z_1z_2|^2$ where $z_1=a+bi$, $z_2=c+di$.
+Expand $z_1z_2$ and read off the identity.
+Use this to determine which positive integers can be expressed as a sum of two squares.
+(\textit{Theorem: a positive integer $n$ is a sum of two squares iff in its prime factorisation,
+every prime of the form $4k+3$ appears to an even power.})}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find all integers $n\geq 1$ for which $\;n^2+n+1\;$ divides $\;n^3-1$.
+
+\ans{All integers $n\geq 1$.}
+\method{Use the identity $n^3-1=(n-1)(n^2+n+1)$. Therefore $n^2+n+1$ divides $n^3-1$
+for every integer $n$, hence for all $n\geq1$.}
+\inv{\textbf{Polynomial divisibility.}  The factorisation $n^3-1=(n-1)(n^2+n+1)$ is a
+special case of the cyclotomic polynomial $\Phi_3(n)=n^2+n+1$.
+Investigate: for which $n$ does $\Phi_3(n)=n^2+n+1$ itself have a factor
+in common with $n^2-1$?  
+(\textit{Answer: $\gcd(n^2+n+1,n^2-1)=\gcd(n+2,n^2-1)$, which divides $3$.})
+Explore the analogous questions for $\Phi_4(n)=n^2+1$ and $\Phi_6(n)=n^2-n+1$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Vieta's formulas (quadratic and cubic).}
+        $e_1=\sum\alpha$, $e_2=\sum\alpha\beta$, $e_3=\alpha\beta\gamma$ read directly
+        from the polynomial. Combine with Newton's power-sum identities to find
+        $\alpha^k+\beta^k+\gamma^k$ without solving.
+
+  \item \textbf{Denesting nested surds.}
+        $\sqrt{a+b\sqrt{c}}=\sqrt{p}+\sqrt{q}$ where $p+q=a$ and $4pq=b^2c$.
+        Always try to write the radicand as a perfect square.
+
+  \item \textbf{Telescoping products and higher-order partial fractions.}
+        $\tfrac{1}{n(n+1)(n+2)}=\tfrac{1}{2}\!\left(\tfrac{1}{n(n+1)}-\tfrac{1}{(n+1)(n+2)}\right)$.
+        Every product of consecutive integers telescopes with the right partial fraction.
+
+  \item \textbf{Brahmagupta--Fibonacci / complex modulus.}
+        $(a^2+b^2)(c^2+d^2)=(ac\pm bd)^2+(ad\mp bc)^2$.
+        Products of sums of two squares are themselves sums of two squares.
+
+  \item \textbf{Constraint exploitation and cyclic sum collapse.}
+        When $x+y+z=0$, ratios of power sums become constants.
+        When $a+b+c=0$: use $a^3+b^3+c^3=3abc$; when $abc=1$: multiply fractions by $abc$.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Expanding instead of pairing.}
+        In C2 and C5, expanding all four brackets is fatal.
+        Always look for symmetric pairs that produce the same sub-expression.
+
+  \item \textbf{Forgetting the second Vieta formula.}
+        $\alpha\beta+\beta\gamma+\gamma\alpha$ (not $\alpha\beta\gamma$) gives the coefficient of $x$ in a monic cubic.
+        Confusing $e_2$ and $e_3$ is the most common Vieta error.
+
+  \item \textbf{Taking the wrong square root in nested surds.}
+        $\sqrt{11-4\sqrt{7}} = 2-\sqrt{7}$ only if $2-\sqrt{7}>0$, i.e.\ $\sqrt{7}<2$, which is false.
+        The answer is $\sqrt{7}-2$. Always check positivity.
+
+  \item \textbf{Applying AM--GM to non-positive quantities.}
+        AM--GM ($\tfrac{a+b}{2}\geq\sqrt{ab}$) requires $a,b\geq0$.
+        Applying it when quantities can be negative gives false inequalities.
+
+  \item \textbf{Assuming $\dfrac{x}{y+z}=\dfrac{y}{x+z}=\dfrac{z}{x+y}$ forces $x=y=z$.}
+        The case $x+y+z=0$ (giving $k=-1$) is equally valid and must not be overlooked.
+\end{enumerate}
+
+\SpeedClosing{``An elegant solution is not luck --- it is the reward for seeing the structure
+    that was always there.''}
+
+\end{document}

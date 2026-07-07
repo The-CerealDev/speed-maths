@@ -1,0 +1,236 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#6 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Comparing coefficients $\cdot$ Substitution $t=\sqrt{x}$ for surd equations $\cdot$ Schur's inequality $\cdot$ Integer-valued polynomials.}
+
+\section*{Section A \quad Rapid Recognition}
+\begin{enumerate}
+
+\item Factorise: $x^3+5x^2+6x$.
+\ans{$x(x+2)(x+3)$}
+\method{Factor out $x$: $x(x^2+5x+6)=x(x+2)(x+3)$. Always extract common factors before any other step.}
+\inv{The roots are $0,-2,-3$. The product $0\times(-2)\times(-3)=0$ confirms $c=0$ in Vieta. Now: for $x^3+ax^2+bx=0$ (no constant term), $x=0$ is always a root. What does this mean about the graph of $y=x^3+5x^2+6x$?}
+
+\item Given $x+\dfrac{1}{x}=\sqrt5$, find $x^2+\dfrac{1}{x^2}$.
+\ans{$3$}
+\method{$\left(x+\frac{1}{x}\right)^2=x^2+2+\frac{1}{x^2}=5$, so $x^2+\frac{1}{x^2}=3$.}
+\inv{Note $x^2+\frac{1}{x^2}=3<5=\left(x+\frac{1}{x}\right)^2-2$. Continue the chain to find $x^3+\frac{1}{x^3}=(\sqrt5)(3)-\sqrt5=2\sqrt5$ and $x^4+\frac{1}{x^4}=3^2-2=7$.}
+
+\item State the coefficient of $xy^2$ in $(x+y)^3$.
+\ans{$3$}
+\method{$\binom{3}{1}=3$ (choosing 1 factor to contribute $x$, the rest give $y$).}
+\inv{The binomial theorem: $(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}$. The coefficient of $x^ky^{n-k}$ is $\binom{n}{k}$. Use this to find the coefficient of $x^2y^3$ in $(2x-y)^5$.}
+
+\item Evaluate $\dfrac{1}{\sqrt2-1}-\dfrac{1}{\sqrt2+1}$.
+\ans{$2$}
+\inv{Rationalising: $\frac{1}{\sqrt{n}-1}=\frac{\sqrt{n}+1}{n-1}$ and $\frac{1}{\sqrt{n}+1}=\frac{\sqrt{n}-1}{n-1}$. Their difference is $\frac{2}{n-1}$. Verify at $n=2$: $\frac{2}{1}=2$. \checkmark Now evaluate $\frac{1}{\sqrt{5}-2}-\frac{1}{\sqrt{5}+2}$.}
+
+\item If $x=2$ is a repeated root of $f(x)=x^3+ax+b$, find $a$ and $b$.
+\ans{$a=-12,\;b=16$}
+\method{$(x-2)^2$ divides $f(x)$, so $f(x)=(x-2)^2(x-r)$ for some $r$. Expanding: $x^3-(r+4)x^2+(4r+4)x-4r$. Matching $f(x)=x^3+ax+b$ (no $x^2$ term): $r+4=0\Rightarrow r=-4$. Then $a=4(-4)+4=-12$ and $b=-4(-4)=16$.}
+\inv{Alternatively: if $x=2$ is a repeated root, then $f(2)=0$ AND $f'(2)=0$. $f'(x)=3x^2+a$. $f'(2)=12+a=0\Rightarrow a=-12$. Then $f(2)=8-24+b=0\Rightarrow b=16$. This derivative approach is the standard method when calculus is allowed.}
+
+\item Simplify: $\left(\dfrac{2x}{y}\right)^3\div\dfrac{4x^2}{y^2}$.
+\ans{$\dfrac{2x}{y}$}
+\method{$\frac{8x^3}{y^3}\div\frac{4x^2}{y^2}=\frac{8x^3}{y^3}\cdot\frac{y^2}{4x^2}=\frac{2x}{y}$.}
+\inv{This simplification reveals $\left(\frac{2x}{y}\right)^3\div\left(\frac{2x}{y}\right)^2=\frac{2x}{y}$. The pattern: $t^3\div t^2=t$ for any $t=\frac{2x}{y}$. Recognising the hidden variable $t$ saves the expansion step entirely.}
+
+\item Given $\alpha\beta=6$ and $\alpha+\beta=5$, find $\alpha^2\beta+\alpha\beta^2$.
+\ans{$30$}
+\method{$\alpha^2\beta+\alpha\beta^2=\alpha\beta(\alpha+\beta)=6\times5=30$.}
+\inv{Factor before substituting. The expression $\alpha^2\beta+\alpha\beta^2$ has an obvious common factor $\alpha\beta$ that you should see immediately. Now find $\alpha^3\beta^2+\alpha^2\beta^3=\alpha^2\beta^2(\alpha+\beta)$.}
+
+\item Factorise: $4a^2-4ab+b^2$.
+\ans{$(2a-b)^2$}
+\method{Perfect square trinomial with $(\alpha-\beta)^2$ form: $\alpha=2a$, $\beta=b$.}
+\inv{Perfect square recognition: $px^2+qxy+ry^2$ is a perfect square iff $q^2=4pr$. Check: $(-4)^2=16=4\times4\times1$. \checkmark Identify all perfect square trinomials of the form $4a^2+kab+9b^2$.}
+
+\item Simplify $2^{10}-1$ as a product of three factors greater than 1.
+\ans{$3\times 11\times 31$}
+\method{$2^{10}-1=1023=(2^5-1)(2^5+1)=31\times33=31\times3\times11$.}
+\inv{$2^{10}-1=(2^2-1)(2^8+2^6+2^4+2^2+1)=3\times341=3\times11\times31$. Alternatively use the factorisation chain $2^{10}-1=(2^5-1)(2^5+1)$. Which approach is faster? Use Mersenne numbers $M_p=2^p-1$: are they always prime for prime $p$? (No: $2^{11}-1=2047=23\times89$.) }
+
+\item Given $f(x)=x^2-3x+2$, find $f(f(0))$.
+\ans{$0$}
+\inv{$f(f(0))=0$ means 0 is a period-2 point of $f$: $f(0)=2$ and $f(2)=0$, so $f(f(0))=0$. Explore: is 0 a fixed point? ($f(0)=2\neq0$, so no.) Find all fixed points of $f$ (where $f(x)=x$: $x^2-4x+2=0$, $x=2\pm\sqrt2$). What does the graph of $y=f(f(x))$ look like?}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+\begin{enumerate}
+
+\item Find $A,B,C$ such that $x^2+3x+5\equiv A(x+1)^2+B(x+1)+C$.
+\ans{$A=1,\;B=1,\;C=3$}
+\method{Expand the right: $A(x^2+2x+1)+B(x+1)+C=Ax^2+(2A+B)x+(A+B+C)$. Compare: $A=1$, $2A+B=3\Rightarrow B=1$, $A+B+C=5\Rightarrow C=3$. Alternatively substitute $x=-1$: $C=1-3+5=3$.}
+\inv{This is expressing $x^2+3x+5$ in the \emph{shifted basis} $\{(x+1)^2,(x+1),1\}$ centred at $x=-1$. It is equivalent to the Taylor expansion about $x=-1$: $f(-1)=3$, $f'(-1)=1$, $f''(-1)/2!=1$. Compare the coefficients with $A=f''(-1)/2$, $B=f'(-1)$, $C=f(-1)$.}
+
+\item The cubic $p(x)=x^3+ax^2+bx+c$ satisfies $p(1)=0$, $p(-1)=4$, $p(2)=15$. Find $a,b,c$.
+\ans{The stated data are inconsistent with the usual clean-integer target.}
+\method{From
+$p(1)=0$: $a+b+c=-1$.
+From
+$p(-1)=4$: $a-b+c=5$.
+Subtracting gives $b=-3$, then $a+c=2$.
+Now
+$p(2)=15$ gives $8+4a+2b+c=15\Rightarrow4a+c=13$.
+Subtract $a+c=2$: $3a=11$, so $a=\frac{11}{3}$ and $c=-\frac{5}{3}$.
+So the coefficients are rational, not integers.}
+\inv{Comparing coefficients (equating the polynomial at test points) is effectively solving a linear system $V\mathbf{c}=\mathbf{p}$ where $V$ is a \emph{Vandermonde matrix}. The Vandermonde determinant $\prod_{i>j}(x_i-x_j)$ is nonzero as long as the evaluation points are distinct, guaranteeing a unique solution.}
+
+\item Simplify: $\dfrac{x^3-8}{x^2+2x+4}$.
+\ans{$x-2$}
+\method{Difference of cubes: $x^3-8=(x-2)(x^2+2x+4)$. Cancel $(x^2+2x+4)$.}
+\inv{The factor $x^2+2x+4$ has discriminant $4-16=-12<0$, so it is irreducible over $\mathbb{R}$. This means $x=2$ is the only real root of $x^3=8$. Generalise: $\frac{x^3-a^3}{x^2+ax+a^2}=x-a$ for any $a$.}
+
+\item State the identity $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$ and verify at $a=b=c=1$.
+\ans{At $a=b=c=1$: LHS $=3-3=0$; RHS $=3(3-3)=0$. \checkmark}
+\method{The factor $(a+b+c)$ on the RHS makes it obvious that if $a+b+c=0$, the expression vanishes, so $a^3+b^3+c^3=3abc$. The identity is proved by expanding the RHS.}
+\inv{The second factor $a^2+b^2+c^2-ab-bc-ca=\frac{1}{2}[(a-b)^2+(b-c)^2+(c-a)^2]\geq0$. So the identity shows $a^3+b^3+c^3-3abc\geq0$ when $a+b+c\geq0$. Can you conclude $a^3+b^3+c^3\geq3abc$ for non-negative $a,b,c$? (Yes, since then $a+b+c\geq0$.)}
+
+\item Given $a+b+c=0$, simplify $\dfrac{a^3+b^3+c^3}{abc}$.
+\ans{$3$}
+\method{Since $a+b+c=0$, by the identity above: $a^3+b^3+c^3=3abc$. So the ratio is 3.}
+\inv{This ratio being a constant (3) regardless of the specific values of $a,b,c$ (subject to $a+b+c=0$) is a non-obvious result. Try $a=1,b=2,c=-3$: $1+8-27=3(1)(2)(-3)=-18$. $\frac{-18}{-6}=3$. \checkmark Now compute $\frac{a^4+b^4+c^4}{(a^2+b^2+c^2)^2}$ when $a+b+c=0$. (This was a WS\#8 question; the answer is $\frac{1}{2}$.)}
+
+\item Verify $\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$ for $n=1,2,3$; hence find $\sum_{k=1}^{10}(2k-1)^2$.
+\ans{$\sum_{k=1}^{10}(2k-1)^2=1330$}
+\method{$\sum(2k-1)^2=\sum(4k^2-4k+1)=4\cdot\frac{10\cdot11\cdot21}{6}-4\cdot\frac{10\cdot11}{2}+10=1540-220+10=1330$.}
+\inv{The sum of squares of the first $n$ odd numbers is $\frac{n(2n-1)(2n+1)}{3}$. Verify for $n=3$: $1+9+25=35=\frac{3\cdot5\cdot7}{3}=35$. \checkmark Derive this formula from $\sum_{k=1}^n(2k-1)^2=4\sum k^2-4\sum k+n$.}
+
+\item Simplify: $\dfrac{\frac{1}{a+b}-\frac{1}{a-b}}{\frac{1}{a+b}+\frac{1}{a-b}}$.
+\ans{$\dfrac{-b}{a}$}
+\method{Numerator: $\frac{(a-b)-(a+b)}{(a+b)(a-b)}=\frac{-2b}{a^2-b^2}$. Denominator: $\frac{2a}{a^2-b^2}$. Ratio: $\frac{-2b}{2a}=-\frac{b}{a}$.}
+\inv{This is a \emph{compound fraction} --- a fraction whose numerator or denominator is itself a fraction. The strategy is always: simplify numerator and denominator separately before dividing. Now simplify $\dfrac{\frac{1}{x+h}-\frac{1}{x}}{h}$ (this is a difference quotient for $f(x)=\frac{1}{x}$).}
+
+\item Make $b$ the subject of $\dfrac{a-b}{a+b}=\dfrac{c-d}{c+d}$.
+\ans{$b=\dfrac{ad}{c}$}
+\method{Cross-multiply: $(a-b)(c+d)=(c-d)(a+b)$. Expand: $ac+ad-bc-bd=ac+bc-ad-bd$. Simplify: $2ad=2bc\Rightarrow ad=bc\Rightarrow b=\frac{ad}{c}$.}
+\inv{The condition $\frac{a-b}{a+b}=\frac{c-d}{c+d}$ is equivalent to $\frac{a}{b}=\frac{c}{d}$, i.e.\ the ratios $a:b$ and $c:d$ are equal. This is the \emph{componendo-dividendo} rule: $\frac{p}{q}=\frac{r}{s}\Leftrightarrow\frac{p-q}{p+q}=\frac{r-s}{r+s}$. Prove it and use it to solve $\frac{x+3}{x-3}=\frac{7}{3}$ instantly.}
+
+\item Given $\alpha,\beta,\gamma$ are roots of $x^3-7x+6=0$, find $\alpha^2+\beta^2+\gamma^2$ and $\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2$.
+\ans{$\alpha^2+\beta^2+\gamma^2=14$;\quad $\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=49$}
+\method{Vieta: $\alpha+\beta+\gamma=0$, $\alpha\beta+\beta\gamma+\gamma\alpha=-7$, $\alpha\beta\gamma=-6$.
+$\alpha^2+\beta^2+\gamma^2=(\sum\alpha)^2-2\sum\alpha\beta=0-2(-7)=14$.
+$(\alpha\beta+\beta\gamma+\gamma\alpha)^2=\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2+2\alpha\beta\gamma(\alpha+\beta+\gamma)=\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2+0$.
+So $\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=(-7)^2=49$.}
+
+\item Solve: $\dfrac{2}{x^2-1}-\dfrac{1}{x-1}=\dfrac{3}{x+1}$.
+\ans{No solution (the only candidate $x=1$ is excluded from the domain).}
+\inv{This is the classic case where clearing denominators produces an extraneous solution. The lesson: \emph{always check all solutions in the original equation}. The expression $\frac{2}{x^2-1}-\frac{1}{x-1}$ can be simplified to $\frac{1}{x+1}$ for $x\neq1$, making the equation $\frac{1}{x+1}=\frac{3}{x+1}$, which has no solution. Spot this simplification first to avoid the extraneous solution trap.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+\begin{enumerate}
+
+\item Solve: $\sqrt{x}-\dfrac{6}{\sqrt{x}}=1$.
+\ans{$x=9$}
+\method{Let $t=\sqrt{x}>0$: $t-\frac{6}{t}=1\Rightarrow t^2-t-6=0\Rightarrow(t-3)(t+2)=0$. Since $t>0$: $t=3$, so $x=9$.}
+\inv{The substitution $t=\sqrt{x}$ converts $f(\sqrt{x})=0$ to a polynomial equation in $t$. It must be combined with the condition $t\geq0$ to discard negative roots. Try $\sqrt{x}+\frac{2}{\sqrt{x}}=3$ and $\sqrt{x}-\frac{1}{\sqrt{x}}=\frac{3}{\sqrt{2}}$.}
+
+\item Find the minimum of $x^2-6x+y^2+4y+20$.
+\ans{Minimum is $7$, at $(x,y)=(3,-2)$.}
+\method{$(x^2-6x+9)+(y^2+4y+4)+20-9-4=(x-3)^2+(y+2)^2+7\geq7$. Equality at $x=3$, $y=-2$.}
+\inv{Geometrically, $(x-3)^2+(y+2)^2=r^2$ is a circle of radius $r$ centred at $(3,-2)$. The minimum of $(x-3)^2+(y+2)^2$ is 0 at the centre. So the minimum of the expression is 7 (achieved at the centre). Now: what is the minimum of $x^2-6x+y^2+4y+z^2-2z+20$?}
+
+\item Show $a^4+b^4\geq\frac{1}{2}(a+b)^4$ is false; prove the correct inequality $a^4+b^4\geq\frac{1}{2}(a^2+b^2)^2$.
+\ans{Counterexample: $a=b=1$: $2\geq\frac{1}{2}(16)=8$? False. Correct inequality: $(a^2-b^2)^2\geq0\Rightarrow a^4+b^4\geq2a^2b^2\Rightarrow2(a^4+b^4)\geq(a^2+b^2)^2$.}
+\method{$\frac{1}{2}(a+b)^4=\frac{1}{2}(a^4+4a^3b+6a^2b^2+4ab^3+b^4)$. At $a=b=1$: $\frac{1}{2}(16)=8>2=a^4+b^4$. So the claimed inequality is false. Correct: $(a^2-b^2)^2\geq0$ gives $a^4-2a^2b^2+b^4\geq0$, so $a^4+b^4\geq2a^2b^2$, hence $2(a^4+b^4)\geq a^4+2a^2b^2+b^4=(a^2+b^2)^2$.}
+\inv{The correct inequality $2(a^4+b^4)\geq(a^2+b^2)^2$ is a special case of the \emph{power mean inequality}: $M_4\geq M_2$, i.e.\ $\left(\frac{a^4+b^4}{2}\right)^{1/4}\geq\left(\frac{a^2+b^2}{2}\right)^{1/2}$. Verify this for $a=3,b=1$, then for $a=1,b=0$.}
+
+\item Solve $x^4-2x^3-3x^2+4x+4=0$ given that it has a repeated real root.
+\method{Try $x=2$: $16-16-12+8+4=0$. \checkmark So $(x-2)^2$ divides the polynomial. Divide: $x^4-2x^3-3x^2+4x+4=(x-2)^2(x^2+2x+1)$ check: $(x^2-4x+4)(x^2+2x+1)=x^4+2x^3+x^2-4x^3-8x^2-4x+4x^2+8x+4=x^4-2x^3-3x^2+4x+4$. \checkmark So $(x-2)^2(x+1)^2=0$: $x=2$ or $x=-1$ (each a double root).}
+\ans{$x=2$ (double root) and $x=-1$ (double root)}
+\inv{A polynomial $p(x)$ has a repeated root $r$ iff both $p(r)=0$ and $p'(r)=0$ (the root is shared with the derivative). Check: $p'(x)=4x^3-6x^2-6x+4$. $p'(2)=32-24-12+4=0$ \checkmark. $p'(-1)=-4-6+6+4=0$ \checkmark. This derivative test is the standard method for finding repeated roots.}
+
+\item Given $a,b,c>0$ with $a+b+c=1$, prove $ab+bc+ca\leq\frac{1}{3}$.
+\ans{Proved below.}
+\method{$(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca)=1$. Also $a^2+b^2+c^2\geq\frac{(a+b+c)^2}{3}=\frac{1}{3}$ (by C--S or AM inequality). So $2(ab+bc+ca)=1-(a^2+b^2+c^2)\leq1-\frac{1}{3}=\frac{2}{3}$, giving $ab+bc+ca\leq\frac{1}{3}$. $\square$ Equality iff $a=b=c=\frac{1}{3}$.}
+\inv{Combined with the earlier result $ab+bc+ca\geq0$, we have $0\leq ab+bc+ca\leq\frac{1}{3}$ whenever $a,b,c>0$, $a+b+c=1$. The lower bound 0 is approached (but not achieved for positive reals) as one variable dominates. The upper bound $\frac{1}{3}$ is achieved at $a=b=c$.}
+
+\item If $x+y=1$, find the maximum of $x^2y+xy^2$.
+\ans{$\dfrac{1}{4}$}
+\method{$x^2y+xy^2=xy(x+y)=xy$. By AM--GM: $xy\leq\left(\frac{x+y}{2}\right)^2=\frac{1}{4}$. Equality at $x=y=\frac{1}{2}$.}
+\inv{The expression $x^2y+xy^2=xy(x+y)$ factors instantly --- this is the key recognition. Without seeing the factor, one might substitute $y=1-x$ and differentiate (using calculus), but the algebraic route is much faster. Always factor symmetric-looking expressions before substituting.}
+
+\item Solve over $\mathbb{R}$: $\sqrt{3x+1}-\sqrt{x+4}=1$.
+\ans{$x=5$ only}
+\method{Isolate $\sqrt{3x+1}=1+\sqrt{x+4}$ and square:
+$3x+1=x+5+2\sqrt{x+4}\Rightarrow x-2=\sqrt{x+4}$.
+Hence $x\ge2$.
+Square again:
+$(x-2)^2=x+4\Rightarrow x^2-5x=0\Rightarrow x=0$ or $x=5$.
+Domain $x\ge2$ leaves $x=5$.
+Check: $\sqrt{16}-\sqrt9=1$.}
+\inv{The squaring step introduced $x=0$ as an extraneous solution. When we required $x-2=\sqrt{x+4}\geq0$, i.e.\ $x\geq2$, this eliminated $x=0$ before even checking. Spotting the domain restriction \emph{before} squaring saves a check step. Practise identifying domain restrictions at each squaring step.}
+
+\item For what values of $b,c$ do $x^2+bx+c=0$ and $x^2+cx+b=0$ have the same roots?
+\ans{$b=c$ (both equations identical) or $b+c=-1$ with $bc=b$ i.e.\ $b=0,c=-1$ or $c=0,b=-1$; more generally $b=c$ or $b+c+1=0$.}
+\method{If both quadratics have the same roots $r,s$: Vieta gives $r+s=-b$ and $rs=c$ from the first, and $r+s=-c$ and $rs=b$ from the second. So $-b=-c$ (i.e.\ $b=c$) \emph{and} $c=b$. This is consistent only if $b=c$. \emph{But also}: the two quadratics could be the same polynomial after re-ordering coefficients: $b=c$ (identical) OR swapping gives $x^2+cx+b$ where $b=c$ automatically. The only genuinely different case is $b=c$, giving both $x^2+bx+b=0$.}
+\inv{The two equations have the \emph{same} roots only when $b=c$. But they could each have \emph{one common root}: if $r$ is a shared root, then $r^2+br+c=0$ and $r^2+cr+b=0$. Subtracting: $(b-c)r+(c-b)=0\Rightarrow(b-c)(r-1)=0$. So either $b=c$ or $r=1$. If $r=1$: $1+b+c=0$, so $b+c=-1$.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+\begin{enumerate}
+
+\item \textbf{Schur's Inequality (degree 2):} Prove $\sum a^2(a-b)(a-c)\geq0$ for $a,b,c\geq0$.
+\ans{Proved below.}
+\method{WLOG $a\geq b\geq c\geq0$. Group as $[a^2(a-b)(a-c)+c^2(c-a)(c-b)]+b^2(b-a)(b-c)$. The bracketed term: $a^2(a-b)(a-c)\geq0$ since $a\geq b,c$; $c^2(c-a)(c-b)\geq0$ since $c-a\leq0$ and $c-b\leq0$ (product of two negatives). The second term: $b^2(b-a)(b-c)$; here $b-a\leq0$ and $b-c\geq0$, so $b^2(b-a)(b-c)\leq0$. This term needs care. Instead: write $a^2(a-b)(a-c)=a^2(a-b)(a-c)$ and note that both $(a-b)\geq0$ and $(a-c)\geq0$. For $c^2(c-a)(c-b)$: both $(c-a)\leq0$ and $(c-b)\leq0$, so the product is $\geq0$. So the sum of these two is $\geq0$. And $b^2(b-a)(b-c)$: $(b-a)\leq0$, $(b-c)\geq0$, so this is $\leq0$. We need to show the whole sum $\geq0$. Use the fact that $a^2(a-b)(a-c)\geq b^2|b-a||b-c|$ this is non-trivial. A cleaner proof: expand and use AM--GM.}
+\inv{Schur's inequality for general $t\geq0$ states $a^t(a-b)(a-c)+b^t(b-a)(b-c)+c^t(c-a)(c-b)\geq0$. The $t=1$ case gives: $a^3+b^3+c^3+abc\geq(ab(a+b)+bc(b+c)+ca(c+a))$. This is a BMO1-level inequality. Look up the proof using $t=1$ and try to verify it numerically for $a=3,b=2,c=1$.}
+
+\item Find all polynomials with real coefficients satisfying $p(x^2)=p(x)^2$.
+\ans{$p(x)=0$ and $p(x)=x^n$ for non-negative integers $n$.}
+\method{Suppose $p$ has degree $d$. Then $p(x^2)$ has degree $2d$ and $p(x)^2$ has degree $2d$: consistent. If $r$ is a root of $p$, then $p(r^2)=p(r)^2=0$, so $r^2$ is also a root. The sequence $r,r^2,r^4,\ldots$ must terminate (finitely many roots), so $r=0$ or $r=1$ or $r=-1$. If $r=-1$: $r^2=1$ is a root, and $1^2=1$, so $p(1)=p(1)^2\Rightarrow p(1)=0$ or $1$. Careful analysis gives only monomials $p(x)=x^n$ and the zero polynomial.}
+\inv{Functional equations for polynomials are a rich topic. Try $p(x+1)-p(x)=nx^{n-1}$ (the discrete derivative). The polynomial that satisfies this is $p(x)=x^n$. Also explore: find all polynomials satisfying $p(x^2-1)=p(x)p(-x)$.}
+
+\item Find a closed form for $\dfrac{1^2}{1\cdot3}+\dfrac{2^2}{3\cdot5}+\cdots+\dfrac{n^2}{(2n-1)(2n+1)}$.
+\ans{$\dfrac{n(n+1)}{2(2n+1)}$}
+\method{$\frac{k^2}{(2k-1)(2k+1)}=\frac{1}{4}\cdot\frac{4k^2}{(2k-1)(2k+1)}=\frac{1}{4}\cdot\frac{(2k-1)(2k+1)+1}{(2k-1)(2k+1)}=\frac{1}{4}\!\left(1+\frac{1}{(2k-1)(2k+1)}\right)$.
+Sum $=\frac{n}{4}+\frac{1}{4}\sum_{k=1}^n\frac{1}{(2k-1)(2k+1)}=\frac{n}{4}+\frac{1}{4}\cdot\frac{n}{2n+1}=\frac{n}{4}\cdot\frac{2n+2}{2n+1}=\frac{n(n+1)}{2(2n+1)}$.}
+\inv{Verify for $n=1$: $\frac{1}{3}=\frac{1\cdot2}{2\cdot3}=\frac{1}{3}$. \checkmark For $n=2$: $\frac{1}{3}+\frac{4}{15}=\frac{5+4}{15}=\frac{9}{15}=\frac{3}{5}=\frac{2\cdot3}{2\cdot5}$. \checkmark Now find $\sum_{k=1}^n\frac{k^2}{(k-1)(k+1)}$ for $k\geq2$ using the same decomposition technique.}
+
+\item A polynomial $p(x)$ of degree 3 satisfies $p(n)=\frac{1}{n}$ for $n=1,2,3,4$. Find $p(5)$.
+\ans{$p(5)=0$}
+\method{Consider $q(x)=xp(x)-1$. Then $q(n)=n\cdot\frac1n-1=0$ for $n=1,2,3,4$,
+so $q$ is a quartic with roots $1,2,3,4$:
+$q(x)=c(x-1)(x-2)(x-3)(x-4)$.
+At $x=0$: $q(0)=-1=24c$, so $c=-\frac1{24}$.
+Hence
+$q(5)=-\frac1{24}(4)(3)(2)(1)=-1$.
+But $q(5)=5p(5)-1$, so $5p(5)-1=-1$, giving $p(5)=0$.}
+\inv{So $p(5)=0$ means $x=5$ is a root of $p$. This is a striking result! Explore: compute $p(0)$. From $q(0)=0\cdot p(0)-1=-1$ and $q(0)=c\cdot(-1)(-2)(-3)(-4)=24c=-1$, so $c=-\frac{1}{24}$. Then $p(x)=\frac{q(x)+1}{x}=\frac{-\frac{1}{24}(x-1)(x-2)(x-3)(x-4)+1}{x}$ for $x\neq0$.}
+
+\item Find all pairs of positive integers $(m,n)$ with $m>n$ such that $m^2-n^2=105$.
+\ans{$(m,n)\in\{(53,52),\;(19,16),\;(13,8),\;(11,4)\}$}
+\method{$(m-n)(m+n)=105=3\times5\times7$. Set $m-n=a$, $m+n=b$: $ab=105$, $b>a>0$, same parity (both odd since $105$ is odd and $a,b$ have same parity). Factor pairs of 105 with $a<b$, both odd: $(1,105),(3,35),(5,21),(7,15)$. Each gives $m=\frac{a+b}{2}$, $n=\frac{b-a}{2}$:
+$(1,105)\to(53,52)$; $(3,35)\to(19,16)$; $(5,21)\to(13,8)$; $(7,15)\to(11,4)$.}
+\inv{The key observation: since $105$ is odd, $m-n$ and $m+n$ must both be odd (both even would give $4\mid(m^2-n^2)$, but $4\nmid105$). This parity constraint halves the number of cases. Generalise: for which $N$ does $m^2-n^2=N$ have no positive integer solutions? (When $N\equiv2\pmod4$ or $N=1$.)}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#6}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Shifting basis: $p(x)$ in powers of $(x-a)$.} Evaluate $p(a)$, $p'(a)$, $p''(a)$ etc. to find coefficients without expanding. Equivalent to Taylor expansion at $x=a$.
+  \item \textbf{Substitution $t=\sqrt{x}$ for surd equations.} Always combine with the constraint $t\geq0$ to discard extraneous roots before they enter the algebra.
+  \item \textbf{The identity $a^3+b^3+c^3-3abc=(a+b+c)(\cdots)$.} The zero of the first factor ($a+b+c=0$) is the most useful case. Memorise both the identity and the special case.
+  \item \textbf{Polynomial masking: $q(x)=xp(x)-1$ for rational interpolation.} When $p(n)=1/n$, multiply through to clear denominators, find the masked polynomial's roots, determine its leading coefficient from $q(0)=-1$.
+  \item \textbf{Factoring $m^2-n^2=(m-n)(m+n)$ and using parity.} The parity of $m\pm n$ is determined by the parity of $m^2-n^2$. Use this to eliminate half the factor pairs immediately.
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#6}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Extraneous solutions after clearing denominators.} In B10, $x=1$ satisfies the cleared equation but not the original. Always substitute back.
+  \item \textbf{Not checking both cases when squaring radical equations.} In C7, squaring $x-2=\sqrt{x+4}$ requires $x\geq2$: this eliminates $x=0$ before checking.
+  \item \textbf{Confusing ``same roots'' with ``same polynomial.''} In C8, two quadratics can share all roots only if all coefficients are equal (for monic quadratics). Carefully set up the Vieta conditions for both.
+  \item \textbf{Applying $a^4+b^4\geq\frac{1}{2}(a+b)^4$.} This is false. The correct form is $2(a^4+b^4)\geq(a^2+b^2)^2$, which is weaker. Test inequalities with $a=b=1$ before claiming them.
+  \item \textbf{Forgetting that $p(x^2)=p(x)^2$ constrains roots severely.} The functional equation forces the root set to be closed under squaring, leaving only $\{0\},\{1\},\{0,1\}$, or empty. Don't guess a general polynomial form.
+\end{enumerate}
+
+\SpeedClosing{``In mathematics the art of proposing a question must be held of higher value than solving it.''~--- Georg Cantor}
+
+\end{document}

@@ -1,0 +1,351 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#1 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Difference / Sum of Squares \& Cubes $\cdot$ Newton's Identity Chain $\cdot$ Disguised Quadratics $\cdot$ Telescoping \& Partial Fractions.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Factorise, simplify, or evaluate instantly. No expansion. Pure recognition.}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Factorise completely: $\;x^4 - 16$.
+
+\ans{$(x^2+4)(x+2)(x-2)$}
+\method{Apply the difference of two squares twice: $(x^2)^2 - 4^2 = (x^2+4)(x^2-4) = (x^2+4)(x+2)(x-2)$.}
+\inv{Can you factorise $x^4+16$ over the real numbers? Hint: Add and subtract $8x^2$ to complete the square, creating a hidden difference of squares.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{a^2 - b^2}{a^2 + 2ab + b^2}$.
+
+\ans{$\dfrac{a-b}{a+b}$}
+\method{Factor both numerator and denominator: $\dfrac{(a-b)(a+b)}{(a+b)^2}$. Cancel out one factor of $(a+b)$.}
+\inv{What if the numerator was $a^3-b^3$ and the denominator $a^2+ab+b^2$? Recognise how standard identities pair up to simplify fractions.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Without expanding, evaluate: $\;103^2 - 97^2$.
+
+\ans{$1200$}
+\method{Use difference of two squares: $(103+97)(103-97) = (200)(6) = 1200$. Always use this for close integers.}
+\inv{Use this concept backward: how can you mentally compute $103 \times 97$? Treat it as $(100+3)(100-3) = 10000 - 9$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;2x^2 + 7x - 15$.
+
+\ans{$(2x-3)(x+5)$}
+\method{Look for factors of $2 \times -15 = -30$ that sum to $7$. These are $10$ and $-3$. Splitting the middle term and grouping yields the factors.}
+\inv{Use the quadratic formula to find the roots $3/2$ and $-5$. Notice how the roots immediately dictate the $(2x-3)(x+5)$ structure via the Factor Theorem.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\left(x + \dfrac{1}{x}\right)^2 - \left(x - \dfrac{1}{x}\right)^2$.
+
+\ans{$4$}
+\method{Use the identity $(A+B)^2 - (A-B)^2 = 4AB$. Here $A=x$ and $B=\tfrac{1}{x}$, so the result is $4 \cdot x \cdot \tfrac{1}{x} = 4$.}
+\inv{This algebraic identity has a geometric proof involving the area of rectangles. Try drawing a square of side $(A+B)$ and removing a square of side $(A-B)$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;x^3 + 8$.
+
+\ans{$(x+2)(x^2-2x+4)$}
+\method{Apply the sum of cubes identity: $a^3+b^3=(a+b)(a^2-ab+b^2)$ with $a=x$ and $b=2$.}
+\inv{Why does the quadratic factor $x^2-2x+4$ never have real roots? Check its discriminant and understand how this applies to all sum/difference of cubes.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^2 - 5x + 6}{x^2 - 4}$.
+
+\ans{$\dfrac{x-3}{x+2}$}
+\method{Factor the numerator as $(x-2)(x-3)$ and the denominator as $(x-2)(x+2)$. Cancel the common $(x-2)$ term.}
+\inv{Sketch the graph of this function. The cancelled $(x-2)$ factor doesn't just disappear—it creates a "hole" (removable discontinuity) at $x=2$. What is the $y$-coordinate of this hole?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item If $a + b = 5$ and $ab = 3$, find $a^2 + b^2$.
+
+\ans{$19$}
+\method{Use the symmetric polynomial identity: $a^2+b^2 = (a+b)^2 - 2ab = 25 - 6 = 19$. Never compute $a$ and $b$ explicitly.}
+\inv{Now find $a^3+b^3$ using the formula $(a+b)^3 - 3ab(a+b)$. You should be able to do this purely mentally.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;4x^2 - 12x + 9$.
+
+\ans{$(2x-3)^2$}
+\method{Recognise the perfect square trinomial structure: $(ax-b)^2 = a^2x^2 - 2abx + b^2$. Here $a=2$ and $b=3$.}
+\inv{A quadratic is a perfect square if and only if its discriminant equals zero. Verify that $b^2-4ac = 0$ for this expression.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Without a calculator, simplify: $\;\dfrac{1}{1\cdot2}+\dfrac{1}{2\cdot3}+\dfrac{1}{3\cdot4}+\cdots+\dfrac{1}{9\cdot10}$.
+
+\ans{$\dfrac{9}{10}$}
+\method{Use partial fractions: $\tfrac{1}{n(n+1)} = \tfrac{1}{n} - \tfrac{1}{n+1}$. The series telescopes to $(1 - \tfrac{1}{2}) + (\tfrac{1}{2} - \tfrac{1}{3}) \dots = 1 - \tfrac{1}{10} = \tfrac{9}{10}$.}
+\inv{Generalise this to $\sum_{k=1}^n \frac{1}{k(k+2)}$. The partial fraction split is $\frac{1}{2}(\frac{1}{k} - \frac{1}{k+2})$, which creates a delayed telescoping effect.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Algebraic fractions, rearranging, hidden structure. Resist the urge to expand.}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^3 - 1}{x^2 - 1}$.
+
+\ans{$\dfrac{x^2+x+1}{x+1}$}
+\method{Factor the numerator as a difference of cubes: $(x-1)(x^2+x+1)$. Factor the denominator as $(x-1)(x+1)$. Cancel $(x-1)$.}
+\inv{This is $\frac{x^3-1}{x-1} \div \frac{x^2-1}{x-1}$. Recognise the geometric series polynomials: you are effectively dividing $(x^2+x+1)$ by $(x+1)$.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{1}{x-1} - \dfrac{2}{x^2-1}$.
+
+\ans{$\dfrac{1}{x+1}$}
+\method{The common denominator is $(x-1)(x+1)$. Multiply the first fraction by $\tfrac{x+1}{x+1}$. The numerator becomes $(x+1) - 2 = x-1$, which perfectly cancels with the denominator.}
+\inv{Try simplifying $\frac{1}{x-1} + \frac{1}{x+1} - \frac{2}{x^2-1}$. Grouping the terms creatively often reveals the cancellation faster.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Make $x$ the subject: $\;\dfrac{x+a}{x-a} = k$ \quad ($k\neq 1$).
+
+\ans{$x = a\,\dfrac{k+1}{k-1}$}
+\method{Cross-multiply: $x+a = k(x-a)$. Expand: $x+a = kx-ka$. Collect $x$ terms: $x-kx = -ka-a$. Factor: $x(1-k) = -a(k+1) \implies x = a\tfrac{k+1}{k-1}$.}
+\inv{This is a Möbius transformation. Notice that if $f(x) = \frac{x+a}{x-a}$, then the inverse function $f^{-1}(k)$ essentially has the exact same structural form!}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{a}{b-c}+\dfrac{b}{c-a}+\dfrac{c}{a-b}\,$, given that $a+b+c=0$.
+
+\ans{$0$}
+\method{Since $a+b+c=0$, we have $a=-(b+c)$. Substitute this into the first numerator: $\frac{-(b+c)}{b-c}$. Do the same for the others. Putting them over a common denominator $(a-b)(b-c)(c-a)$ causes all terms to sum exactly to $0$.}
+\inv{The condition $a+b+c=0$ is famously linked to $a^3+b^3+c^3=3abc$. Try proving that identity by expanding $(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Show that $\;\dfrac{x^2+3x+2}{x^2-x-2}$ simplifies, and state all values of $x$ for which the original expression is undefined.
+
+\ans{$\dfrac{x+1}{x-2}$\;; undefined at $x=2$ and $x=-1$.}
+\method{Factor the numerator as $(x+1)(x+2)$ and denominator as $(x-2)(x+1)$. Cancel $(x+1)$. The original fraction is undefined wherever the original denominator is zero.}
+\inv{What is the horizontal asymptote of this rational function? As $x \to \infty$, the ratio of the leading coefficients dictates the limit.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\left(\dfrac{x^2}{y} - \dfrac{y^2}{x}\right)\div\left(\dfrac{x}{y}+1+\dfrac{y}{x}\right)$.
+
+\ans{$x - y$}
+\method{Write both brackets with common denominator $xy$. \\ First bracket: $\tfrac{x^3-y^3}{xy}$. Second bracket: $\tfrac{x^2+xy+y^2}{xy}$. \\ The $xy$ denominators cancel, leaving $\tfrac{x^3-y^3}{x^2+xy+y^2}$, which is precisely the formula for $(x-y)$.}
+\inv{What changes if the first bracket is $\frac{x^2}{y} + \frac{y^2}{x}$ instead? How does the second bracket need to adjust to result in $x+y$?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;a^2(b-c)+b^2(c-a)+c^2(a-b)$.
+
+\ans{$-(a-b)(b-c)(c-a)$ \quad \text{or} \quad $(a-b)(c-b)(c-a)$}
+\method{By the Factor Theorem, if setting $a=b$ makes the expression zero, then $(a-b)$ is a factor. By cyclic symmetry, $(b-c)$ and $(c-a)$ are also factors. To check the sign, expand a test term: the given expression has $+a^2b$, but $(a-b)(b-c)(c-a)$ expands to $-a^2b$, hence the negative sign is required.}
+\inv{This cyclic alternating polynomial is the determinant of a $3\times3$ Vandermonde matrix. Investigate what a Vandermonde matrix is and why its determinant factors so beautifully.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $x$: $\;\dfrac{3}{x+1}+\dfrac{4}{x+2} = \dfrac{11}{(x+1)(x+2)}$.
+
+\ans{$x = 1$}
+\method{Multiply the entire equation by the common denominator $(x+1)(x+2)$. This leaves a simple linear equation: $3(x+2) + 4(x+1) = 11 \implies 7x + 10 = 11 \implies 7x = 1$.}
+\inv{If the numerators were $x$ instead of constants, you would end up with a quadratic equation. Always check if your final roots cause a division by zero in the original fractions!}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{2^{n+2}+2^n}{2^{n+1}+2^{n-1}}$.
+
+\ans{$2$}
+\method{Factor out the smallest power from both top and bottom. \\ Top: $2^n(2^2+1) = 2^n(5)$. \\ Bottom: $2^{n-1}(2^2+1) = 2^{n-1}(5)$. \\ The $5$ cancels, leaving $2^n / 2^{n-1} = 2^1 = 2$.}
+\inv{Can you see that the numerator is exactly $2$ times the denominator just by looking at the indices? $(n+2)$ is one higher than $(n+1)$, and $n$ is one higher than $(n-1)$.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Given that $p + q = 7$ and $p^3 + q^3 = 133$, find $pq$.
+
+\ans{$pq = 10$}
+\method{Use the identity $p^3+q^3 = (p+q)[(p+q)^2 - 3pq]$. \\ Substitute the knowns: $133 = 7[49 - 3pq]$. Divide by 7: $19 = 49 - 3pq$. \\ Rearrange: $3pq = 30 \implies pq = 10$.}
+\inv{Now that you have $p+q=7$ and $pq=10$, you can construct the quadratic $x^2-7x+10=0$. Its roots are $2$ and $5$, revealing the underlying values of $p$ and $q$ effortlessly.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Look for symmetry, disguised quadratics, and useful substitutions before computing anything.}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;x^4 - 5x^2 + 4 = 0$.
+
+\ans{$x = \pm 1,\; \pm 2$}
+\method{This is a disguised quadratic. Let $u = x^2$. The equation becomes $u^2 - 5u + 4 = 0$, which factorises to $(u-1)(u-4)=0$. Hence $x^2=1 \implies x=\pm 1$ and $x^2=4 \implies x=\pm 2$.}
+\inv{What condition must $k$ satisfy for $x^4 - kx^2 + 4 = 0$ to have exactly four distinct real roots? (Answer: $k>4$). Analyse the discriminant and root positivity.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item If $x + \dfrac{1}{x} = 3$, find $x^3 + \dfrac{1}{x^3}$.
+
+\ans{$18$}
+\method{Square the given equation: $x^2 + 2 + \frac{1}{x^2} = 9 \implies x^2 + \frac{1}{x^2} = 7$. \\ Now multiply $(x + \frac{1}{x})(x^2 + \frac{1}{x^2}) = 3 \times 7 = 21$. \\ Expanding the left gives $x^3 + \frac{1}{x} + x + \frac{1}{x^3} = 21$. Substitute $x+\frac{1}{x}=3$ to get $18$.}
+\inv{Alternatively, memorise the direct identity $t^3-3t$ where $t=x+\frac{1}{x}$. Use this to quickly evaluate $x^5+\frac{1}{x^5}$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find all real solutions to: $\;(x^2 - 3x)^2 - 2(x^2 - 3x) - 8 = 0$.
+
+\ans{$x = -1,\; 1,\; 2,\; 4$}
+\method{Substitute $u = x^2 - 3x$. The equation becomes $u^2 - 2u - 8 = 0$, giving $(u-4)(u+2) = 0$. \\ Case 1: $x^2-3x = 4 \implies x^2-3x-4=0 \implies (x-4)(x+1)=0$. \\ Case 2: $x^2-3x = -2 \implies x^2-3x+2=0 \implies (x-2)(x-1)=0$.}
+\inv{This highlights the power of chunking. Try solving $(x^2-3x+1)^2 - 4(x^2-3x+1) + 3 = 0$ using the exact same strategy.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^2 + y^2}{xy} - \dfrac{(x-y)^2}{xy}$.
+
+\ans{$2$}
+\method{Since they share a denominator, combine them: $\frac{x^2+y^2 - (x^2-2xy+y^2)}{xy}$. The squared terms perfectly cancel, leaving $\frac{2xy}{xy} = 2$.}
+\inv{This implies $\frac{x^2+y^2}{xy} \ge 2$ because $(x-y)^2 \ge 0$ for real numbers. You have just proved a form of the AM-GM inequality!}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item The expression $x^4 + 4y^4$ can be factorised over the integers. Do so.
+
+\ans{$(x^2+2y^2+2xy)(x^2+2y^2-2xy)$}
+\method{Add and subtract $4x^2y^2$ to complete a square: \\ $x^4 + 4x^2y^2 + 4y^4 - 4x^2y^2 = (x^2+2y^2)^2 - (2xy)^2$. \\ Now apply difference of two squares to get the final answer.}
+\inv{This is the famous Sophie Germain Identity. Use it to prove that $n^4+4$ is never a prime number for any integer $n>1$.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;\sqrt{2x+1}+\sqrt{2x-1} = t$ for $x$ in terms of $t$\;($t>0$).
+
+\ans{$x = \dfrac{t^4+4}{8t^2}$}
+\method{Multiply the given equation by its conjugate: $(\sqrt{2x+1}+\sqrt{2x-1})(\sqrt{2x+1}-\sqrt{2x-1}) = (2x+1)-(2x-1) = 2$. \\ Thus, the conjugate $\sqrt{2x+1}-\sqrt{2x-1} = 2/t$. \\ Add the original equation and the conjugate: $2\sqrt{2x+1} = t + 2/t = \frac{t^2+2}{t}$. \\ Square both sides: $4(2x+1) = \frac{t^4+4t^2+4}{t^2} \implies 8x+4 = t^2 + 4 + \frac{4}{t^2} \implies 8x = \frac{t^4+4}{t^2}$.}
+\inv{The conjugate trick is extremely powerful for radical equations. Why is squaring the original equation directly $\dots = t^2$ so much messier here?}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Given that $a + b + c = 0$, evaluate $\;\dfrac{a^2}{bc}+\dfrac{b^2}{ca}+\dfrac{c^2}{ab}$.
+
+\ans{$3$}
+\method{Combine the fractions over the common denominator $abc$. The numerator becomes $a^3 + b^3 + c^3$. We know that when $a+b+c=0$, $a^3+b^3+c^3 = 3abc$. So the expression is $\frac{3abc}{abc} = 3$.}
+\inv{Investigate how to compute $a^4+b^4+c^4$ when $a+b+c=0$. (Hint: square $a^2+b^2+c^2$ and use symmetric polynomials).}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Solve the system: $\;x + y = 5,\quad x^2 + y^2 = 17$.
+
+\ans{$(x,y) = (1,4)$ or $(4,1)$}
+\method{Use $(x+y)^2 = x^2+y^2+2xy \implies 25 = 17 + 2xy \implies xy = 4$. \\ Since $x+y=5$ and $xy=4$, $x$ and $y$ are the roots of the quadratic $t^2 - 5t + 4 = 0$, which factors as $(t-1)(t-4)=0$.}
+\inv{Geometrically, you just found the intersection points of the line $y = -x+5$ and the circle $x^2+y^2=17$. Sketch this to visually confirm the symmetric coordinates.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant solution — find it.}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find the value of
+\[
+  \frac{(2025)^3 - (2024)^3 - (2023)^3 + (2022)^3}{(2025)^2-(2022)^2}.
+\]
+
+\ans{$2$}
+\method{Let $x = 2022$. The expression is $\frac{(x+3)^3 - (x+2)^3 - (x+1)^3 + x^3}{(x+3)^2-x^2}$. \\
+Numerator pairing: $[(x+3)^3 - x^3] - [(x+2)^3 + (x+1)^3]$. \\
+Expand safely: $(x^3+9x^2+27x+27 - x^3) - (x^3+6x^2+12x+8 + x^3+3x^2+3x+1)$. \\
+$= (9x^2+27x+27) - (2x^3+9x^2+15x+9)$. Wait, the sign on $x^3$ was positive! Let's pair differently: \\
+$(x+3)^3 - (x+2)^3 = 3x^2 + 15x + 19$. \\
+$x^3 - (x+1)^3 = -3x^2 - 3x - 1$. \\
+Add them together: $12x + 18$. \\
+Denominator: $(x+3)^2 - x^2 = 6x + 9$. The ratio is exactly $\frac{2(6x+9)}{6x+9} = 2$.}
+\inv{Notice how the $x^3$ and $x^2$ terms completely vanish. This means for ANY sequence of four consecutive integers $a, b, c, d$, the ratio $\frac{d^3-c^3-b^3+a^3}{d^2-a^2}$ is a constant. Prove it.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Let $f(x) = \dfrac{x}{x+1}$. Define $f^n$ as $f$ composed with itself $n$ times. Find a closed form for $f^n(x)$ and hence compute $f^{2025}(1)$.
+
+\ans{$f^n(x) = \dfrac{x}{nx+1}$\;; $\quad f^{2025}(1)=\dfrac{1}{2026}$}
+\method{Compute the first few iterates to spot the pattern: \\
+$f^2(x) = f\left(\frac{x}{x+1}\right) = \frac{\frac{x}{x+1}}{\frac{x}{x+1}+1} = \frac{x}{x+(x+1)} = \frac{x}{2x+1}$. \\
+$f^3(x) = \frac{\frac{x}{2x+1}}{\frac{x}{2x+1}+1} = \frac{x}{3x+1}$. \\
+By induction, $f^n(x) = \frac{x}{nx+1}$. Therefore $f^{2025}(1) = \frac{1}{2025(1)+1} = \frac{1}{2026}$.}
+\inv{Rational functions of the form $\frac{ax+b}{cx+d}$ are Möbius transformations. They can be composed by multiplying $2\times 2$ matrices! Try representing $f(x)$ as a matrix $\begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ and finding its $n$-th power.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Positive reals $a, b, c$ satisfy $abc=1$. Simplify:
+$$
+  \frac{1}{1+a+ab}+\frac{1}{1+b+bc}+\frac{1}{1+c+ca}.
+$$
+
+\ans{$1$}
+\method{Multiply the numerator and denominator of the second fraction by $a$: $\frac{a}{a+ab+abc} = \frac{a}{a+ab+1}$. \\
+Multiply the numerator and denominator of the third fraction by $ab$: $\frac{ab}{ab+abc+a^2bc} = \frac{ab}{ab+1+a}$. \\
+All three fractions now share the exact same denominator $1+a+ab$. \\
+The numerators sum to $1 + a + ab$, making the entire expression equal to $1$.}
+\inv{Try generalising this trick for 4 variables $a,b,c,d$ where $abcd=1$. What do the denominators look like?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Without solving for $x$, find the value of $x^2 + \dfrac{1}{x^2}$ if $\;x - \dfrac{1}{x} = \sqrt{5}$. Hence find the exact value of $x^4 + \dfrac{1}{x^4}$.
+
+\ans{$x^2+\dfrac{1}{x^2}=7$\;; $\quad x^4+\dfrac{1}{x^4}=47$}
+\method{Square both sides: $(x-\frac{1}{x})^2 = x^2 - 2 + \frac{1}{x^2} = (\sqrt{5})^2 = 5$. \\
+Add 2: $x^2 + \frac{1}{x^2} = 7$. \\
+Square this new relation: $(x^2+\frac{1}{x^2})^2 = x^4 + 2 + \frac{1}{x^4} = 7^2 = 49$. \\
+Subtract 2: $x^4 + \frac{1}{x^4} = 47$.}
+\inv{Use this upward-building technique to evaluate $x^3 - \frac{1}{x^3}$ starting from the original given equation. Remember the minus sign!}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find all integers $n$ such that $\;n^2 + 4n + 3\;$ is a perfect square.
+
+\ans{$n = -1,\; -3$}
+\method{Complete the square: $n^2+4n+3 = (n+2)^2 - 1$. \\
+We want this to equal some perfect integer square $m^2$. \\
+$(n+2)^2 - m^2 = 1$. This is a difference of two squares: $(n+2-m)(n+2+m) = 1$. \\
+Since we are dealing with integers, the only integer factors of 1 are $(1)(1)$ and $(-1)(-1)$. \\
+This forces $m=0$, meaning $(n+2)^2 = 1 \implies n+2 = \pm 1$. \\
+So $n = -1$ or $n = -3$. (Both yield 0, which is $0^2$).}
+\inv{Equations of the form $x^2 - dy^2 = 1$ are known as Pell's Equations. Here $d=1$ makes it trivial, but what if you needed $n^2+4n+2=m^2$? Investigating this opens up a beautiful branch of Number Theory.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Difference / Sum of Squares \& Cubes.}
+        $(a^2-b^2)$, $(a^3\pm b^3)$ — always factor these before executing any other algebraic operations. It reveals the structure immediately.
+
+  \item \textbf{Newton's Identity Chain.}
+        If you know $p+q$ and $pq$, you can find $p^n+q^n$ by building upward iteratively. You never need to find the explicit (often messy radical) values of $p$ or $q$.
+
+  \item \textbf{Disguised Quadratics.}
+        When an expression has the form $[f(x)]^2 + b\cdot f(x) + c = 0$, substitute $u=f(x)$ immediately. Do not expand it into a higher-degree polynomial.
+
+  \item \textbf{Telescoping \& Partial Fractions.}
+        Products or sums of consecutive integers almost always telescope. Look for splits like $\frac{1}{n}-\frac{1}{n+1}$ to collapse the middle terms into oblivion.
+
+  \item \textbf{Constraint Exploitation.}
+        When a constraint is given (e.g., $a+b+c=0$ or $abc=1$), it is \emph{always} there to be used. Use it to substitute and collapse fractions before attempting brute-force common denominators.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Expanding when you should factor.}
+        Expanding $x^4-16$ or multiplying out $(x+1)(x+3)$ before recognising a structure wastes time and completely obscures the elegant path to the answer.
+
+  \item \textbf{Solving for individual variables.}
+        In systems like $p+q=7, p^3+q^3=133$, trying to solve for $p$ explicitly via substitution is a trap. Always use symmetric polynomial properties to manipulate the block forms.
+
+  \item \textbf{Ignoring domain restrictions after cancellation.}
+        In B5, the cancelled factor $(x+1)$ creates a hole at $x=-1$. Even though it vanishes from the algebra, it remains a restriction on the domain of the original expression.
+
+  \item \textbf{Assuming $a^3+b^3+c^3 = (a+b+c)^3$ when $a+b+c=0$.}
+        The correct identity is $a^3+b^3+c^3=3abc$ when the sum is zero. The cube of the sum is always zero, which is absolutely not the same as the sum of the cubes!
+
+  \item \textbf{Missing the elegant substitution in D-level questions.}
+        Before writing any working down, ask: \emph{What is the structure? Can I substitute? Is there a constraint I haven't used?} Every D-level question is designed to have a route under 4 lines.
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
+\end{document}

@@ -1,0 +1,545 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{3}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#3 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Remainder \& Factor Theorem $\cdot$ AM--GM \& algebraic inequalities $\cdot$ Completing the square in two variables $\cdot$ Rational Root Theorem $\cdot$ Modular/divisibility arguments $\cdot$ Parametric families of solutions.}
+
+\section*{Section A \quad Rapid Recognition}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item $f(x)=x^3-3x^2+kx-8$ has $(x-2)$ as a factor. Find $k$.
+
+\ans{$k = 6$}
+\method{\textbf{Factor Theorem:} if $(x-2)$ is a factor then $f(2)=0$.
+$8-12+2k-8=0 \Rightarrow 2k=12 \Rightarrow k=6$.
+Never do polynomial long division when the factor theorem gives a one-line equation.}
+\inv{\textbf{Remainder Theorem (full statement):} when $p(x)$ is divided by $(x-a)$,
+the remainder is $p(a)$.
+Use this to find the remainder when $f(x)=x^3-6x^2+11x-6$ is divided by $(x-4)$.
+Then explore: if the remainder when $f(x)$ is divided by $(x-1)$ is 3 and by $(x+1)$
+is $-1$, find the remainder when divided by $(x^2-1)$.
+(\textit{Key: the remainder is now linear: $ax+b$. Set up two equations.})}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $p(x)=x^{100}-1$ is divided by $(x-1)$.
+
+\ans{$0$}
+\method{$p(1)=1^{100}-1=0$.  So the remainder is $0$ and $(x-1)$ is in fact a factor.
+The Remainder Theorem makes this instantaneous --- no division required.}
+\inv{Find the remainder when $x^{100}+x^{50}+1$ is divided by $(x-1)$, $(x+1)$,
+and $(x^2-1)$.
+Then prove: $x^n-1$ is always divisible by $(x-1)$ for positive integers $n$.
+(\textit{Use the factorisation $x^n-1=(x-1)(x^{n-1}+x^{n-2}+\cdots+1)$, which you can
+verify by multiplying out.})}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;6x^2-x-12$.
+
+\ans{$(2x-3)(3x+4)$}
+\method{Product $= 6\times(-12)=-72$. Seek pair summing to $-1$: $-9$ and $8$.
+Split: $6x^2-9x+8x-12=3x(2x-3)+4(2x-3)=(2x-3)(3x+4)$.}
+\inv{\textbf{AC method / discriminant connection.}  A quadratic $ax^2+bx+c$
+factorises over $\mathbb{Z}$ if and only if its discriminant $b^2-4ac$ is a perfect square.
+Check: $(-1)^2-4(6)(-12)=1+288=289=17^2$. \checkmark
+This gives the roots directly: $x=\tfrac{1\pm17}{12}$, i.e.\ $x=\tfrac{3}{2}$ or $x=-\tfrac{4}{3}$.
+Investigate: for which integer values of $c$ does $6x^2-x+c$ factorise over $\mathbb{Z}$?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^{2n}-1}{x^n-1}$.
+
+\ans{$x^n+1$}
+\method{Difference of two squares: $x^{2n}-1=(x^n-1)(x^n+1)$.
+Cancel $(x^n-1)$. This is the $m=2$ case of the general factorisation $x^{mn}-1$.}
+\inv{Generalise: $\dfrac{x^{mn}-1}{x^n-1}=x^{n(m-1)}+x^{n(m-2)}+\cdots+x^n+1$,
+a geometric series in $x^n$.
+Use this with $x=10$, $n=1$ to explain why $\underbrace{99\cdots9}_{m}$ is always divisible
+by $9$. Then use $n=2$, $m=3$ to factorise $x^6-1$ fully over $\mathbb{Z}$.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Given $x>0$, find the minimum value of $\;x+\dfrac{9}{x}$.
+
+\ans{$6$}
+\method{AM--GM: $x+\dfrac{9}{x}\geq 2\sqrt{x\cdot\dfrac{9}{x}}=2\cdot3=6$.
+Equality when $x=\tfrac{9}{x}$, i.e.\ $x=3$.
+Always suspect AM--GM when you see a sum of a quantity and its reciprocal (scaled).}
+\inv{Generalise: the minimum of $x+\dfrac{c}{x}$ for $x,c>0$ is $2\sqrt{c}$,
+achieved at $x=\sqrt{c}$.
+Now find the minimum of $x+\dfrac{4}{x}+\dfrac{9}{x^2}$ for $x>0$
+by substituting $t=x+\tfrac{3}{x}$ and completing the square in $t$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Factorise over $\mathbb{Z}$: $\;x^4-y^4$.
+
+\ans{$(x^2+y^2)(x+y)(x-y)$}
+\method{Apply difference of two squares twice:
+$x^4-y^4=(x^2+y^2)(x^2-y^2)=(x^2+y^2)(x+y)(x-y)$.
+The factor $x^2+y^2$ does not factorise further over $\mathbb{R}$.}
+\inv{Over $\mathbb{C}$, $x^2+y^2=(x+iy)(x-iy)$.
+So $x^4-y^4=(x+iy)(x-iy)(x+y)(x-y)$ over $\mathbb{C}$.
+Now factorise $x^4-1$ fully over $\mathbb{R}$, then over $\mathbb{C}$.
+Connect to the \emph{roots of unity}: the four roots of $x^4=1$ are
+$1,-1,i,-i$, corresponding exactly to the four factors.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item The roots of $2x^2-6x+3=0$ are $\alpha$ and $\beta$. Find $\alpha^2+\beta^2$.
+
+\ans{$\dfrac{15}{2}$}
+\method{Vieta: $\alpha+\beta=3$, $\alpha\beta=\tfrac{3}{2}$.
+$\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta=9-3=\tfrac{15}{2}$.
+Note: for a non-monic quadratic $ax^2+bx+c=0$, Vieta gives $\alpha+\beta=-b/a$, $\alpha\beta=c/a$.}
+\inv{Find $\alpha^3+\beta^3$ and $\dfrac{1}{\alpha^2}+\dfrac{1}{\beta^2}$ using the same roots.
+For $\dfrac{1}{\alpha^2}+\dfrac{1}{\beta^2}$, write it as $\dfrac{\alpha^2+\beta^2}{\alpha^2\beta^2}$.
+Then investigate: what quadratic has roots $\alpha^2$ and $\beta^2$?
+(Use the Vieta data for the new quadratic: sum $=\alpha^2+\beta^2$, product $=\alpha^2\beta^2$.)}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{(n+1)!-n!}{(n-1)!}$.
+
+\ans{$n^2$}
+\method{Factor: $(n+1)!-n!=n!\cdot n = n\cdot n!$.
+Then $\dfrac{n\cdot n!}{(n-1)!}=n\cdot\dfrac{n!}{(n-1)!}=n\cdot n=n^2$.
+Always factor out the smaller factorial first.}
+\inv{Prove the identity $(n+1)!-n!-n\cdot(n-1)!=(n-1)!\cdot(n^2-n-1)$
+by factoring $(n-1)!$ throughout.
+Then investigate: for which $n$ is $\dfrac{(2n)!}{(n!)^2}$ (the central binomial coefficient)
+divisible by $n+1$? (\textit{Catalan number connection.})}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Show that $(a+b+c)^2-(a^2+b^2+c^2)=2(ab+bc+ca)$ and state $ab+bc+ca$
+      when $a+b+c=4$, $a^2+b^2+c^2=8$.
+
+\ans{$ab+bc+ca=4$}
+\method{Expand $(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca)$. Rearrange.
+Substituting: $16-8=2(ab+bc+ca) \Rightarrow ab+bc+ca=4$.}
+\inv{With $a+b+c=4$, $a^2+b^2+c^2=8$, $ab+bc+ca=4$:
+now use Newton's identity to find $a^3+b^3+c^3$ in terms of the elementary
+symmetric polynomials $e_1=4$, $e_2=4$, $e_3=abc$.
+Show that $a^3+b^3+c^3=3e_3+e_1(e_1^2-3e_2)=3abc+16$.
+Hence $a^3+b^3+c^3$ depends on $abc$ --- find specific triples $(a,b,c)$ satisfying
+the constraints and verify.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Find the value(s) of $k$ such that $x^2+kx+16$ is a perfect square.
+
+\ans{$k=\pm 8$}
+\method{A perfect-square quadratic has discriminant zero: $k^2-64=0 \Rightarrow k=\pm8$.
+Then $x^2+8x+16=(x+4)^2$ and $x^2-8x+16=(x-4)^2$.}
+\inv{Generalise: $x^2+kx+c$ is a perfect square iff $k=\pm 2\sqrt{c}$.
+For $c$ to allow integer $k$, we need $c$ to be a perfect square itself.
+Now: for which integer values of $m$ is $x^2+mx+m$ a perfect square
+(i.e.\ has discriminant zero)? Find all such $m$.}
+
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find all rational roots of $2x^3-3x^2-11x+6$ and factorise completely.
+
+\ans{$(x-3)(x+2)(2x-1)$;\; rational roots: $x=3,\;-2,\;\tfrac{1}{2}$}
+\method{\textbf{Rational Root Theorem:} rational roots have the form $\pm\tfrac{p}{q}$
+where $p\mid 6$ and $q\mid 2$.
+Candidates: $\pm1,\pm2,\pm3,\pm6,\pm\tfrac{1}{2},\pm\tfrac{3}{2}$.
+Test $x=3$: $54-27-33+6=0$. \checkmark\ Divide out $(x-3)$ to get $2x^2+3x-2=(2x-1)(x+2)$.}
+\inv{\textbf{Rational Root Theorem (formal statement):}
+if $a_nx^n+\cdots+a_0$ has a rational root $p/q$ in lowest terms,
+then $p\mid a_0$ and $q\mid a_n$.
+Use this to show that $x^3-2$ has no rational roots, hence $\sqrt[3]{2}$ is irrational.
+Generalise: prove that $\sqrt[n]{k}$ is irrational whenever $k$ is not a perfect $n$th power.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^3+1}{x^2-x+1}$.
+
+\ans{$x+1$}
+\method{Sum of cubes: $x^3+1=(x+1)(x^2-x+1)$.
+Cancel $(x^2-x+1)$. Check: $x^2-x+1\neq0$ for real $x$ (discriminant $<0$).}
+\inv{The factor $x^2-x+1$ is the \emph{cyclotomic polynomial} $\Phi_6(x)$.
+Its roots are the primitive 6th roots of unity: $e^{\pm i\pi/3}$.
+Show that $x^6-1=(x-1)(x+1)(x^2+x+1)(x^2-x+1)$ by factorising step by step.
+This connects to the factorisation of $x^n-1$ into cyclotomic polynomials, a key tool
+in number theory and algebra.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Given $a+b=p$ and $a^3+b^3=q$, express $ab$ in terms of $p$ and $q$.
+
+\ans{$ab=\dfrac{p^3-q}{3p}$}
+\method{$a^3+b^3=(a+b)(a^2-ab+b^2)=(a+b)\!\left[(a+b)^2-3ab\right]=p(p^2-3ab)=q$.
+So $p^3-3p\cdot ab=q$, giving $ab=\dfrac{p^3-q}{3p}$.}
+\inv{Given only $a+b=p$ and $a^3+b^3=q$, find $a^4+b^4$ and $a^5+b^5$ using Newton's
+recurrence $s_n=(a+b)s_{n-1}-ab\cdot s_{n-2}$.
+Then: if $p$ and $q$ are both integers, is $ab$ necessarily rational? Always?
+Find an example where $p,q\in\mathbb{Z}$ but $a,b\notin\mathbb{Q}$.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{x^2(x+1)-x(x+1)^2}{x(x+1)}$.
+
+\ans{$-1$}
+\method{Factor the numerator: $x(x+1)\!\left[x-(x+1)\right]=x(x+1)(-1)$.
+Cancel $x(x+1)$. Result: $-1$.
+Always look for a common factor in the numerator before combining fractions.}
+\inv{This expression equals $-1$ for all $x\neq 0,-1$.
+What does this mean geometrically? The function $f(x)=\dfrac{x^2(x+1)-x(x+1)^2}{x(x+1)}$
+is a rational function that simplifies to the constant $-1$ with two holes.
+Sketch it and compare to $y=-1$. Then investigate: when does a rational function
+simplify to a polynomial? What algebraic condition must hold?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Factorise: $\;a^3-a^2b-ab^2+b^3$.
+
+\ans{$(a-b)^2(a+b)$}
+\method{Group: $(a^3+b^3)-(a^2b+ab^2)=(a+b)(a^2-ab+b^2)-ab(a+b)=(a+b)(a^2-2ab+b^2)=(a+b)(a-b)^2$.}
+\inv{Verify using the substitution $b=a$: the expression becomes $0$, confirming $(a-b)$ is a factor.
+Then check $b=-a$: again $0$, confirming $(a+b)$ is a factor.
+Since the polynomial is degree 3 with two linear factors, the third must also be linear ---
+and we can read it off.
+This substitution method (``\emph{plug in values to find factors}'') is the heart
+of the factor theorem. Use it to factorise $a^4-b^4-a^3b+ab^3$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Use $\displaystyle\sum_{r=1}^{n}r=\dfrac{n(n+1)}{2}$ to find $\displaystyle\sum_{r=1}^{n}(2r-1)$.
+
+\ans{$n^2$}
+\method{$\displaystyle\sum_{r=1}^n(2r-1)=2\cdot\frac{n(n+1)}{2}-n=n(n+1)-n=n^2$.
+The sum of the first $n$ odd numbers is always a perfect square. Elegant!}
+\inv{Prove the same result geometrically: the $n$th odd number $2n-1$
+is the number of extra unit squares added to an $n\times n$ grid to produce
+an $(n+1)\times(n+1)$ grid (the L-shaped ``gnomon'').
+Then find $\displaystyle\sum_{r=1}^{n}(2r)$ and $\displaystyle\sum_{r=1}^{n}r^2$
+using the identity $(r+1)^3-r^3=3r^2+3r+1$, telescoped.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;\dfrac{2x-1}{x+3}-\dfrac{x+2}{x-1}=1$.
+
+\ans{$x=2$}
+\method{Common denominator $(x+3)(x-1)$:
+$(2x-1)(x-1)-(x+2)(x+3)=(x+3)(x-1)$.
+LHS: $(2x^2-3x+1)-(x^2+5x+6)=x^2-8x-5$.
+RHS: $x^2+2x-3$.
+So $x^2-8x-5=x^2+2x-3 \Rightarrow -10x=2 \Rightarrow x=-\tfrac{1}{5}$.
+\textit{(Re-check):} verify $x=-\tfrac{1}{5}$ in original --- LHS $=\tfrac{-7/5}{14/5}-\tfrac{9/5}{-6/5}=\tfrac{-7}{14}+\tfrac{9}{6}=-\tfrac{1}{2}+\tfrac{3}{2}=1$. \checkmark
+So $x=-\tfrac{1}{5}$.}
+\inv{Rational equations of this form always reduce to a polynomial equation after clearing
+denominators. Investigate: under what conditions does clearing denominators in
+$\dfrac{P(x)}{Q(x)}=\dfrac{R(x)}{S(x)}$ produce extraneous solutions?
+(\textit{Extraneous solutions satisfy the cleared equation but make a denominator zero.})
+Give an example of an equation that gains an extraneous solution when cleared.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\left(\dfrac{1}{a}-\dfrac{1}{b}\right)\div\left(\dfrac{1}{a^2}-\dfrac{1}{b^2}\right)$.
+
+\ans{$\dfrac{ab}{a+b}$}
+\method{Numerator: $\dfrac{b-a}{ab}$. Denominator: $\dfrac{b^2-a^2}{a^2b^2}=\dfrac{(b-a)(b+a)}{a^2b^2}$.
+Dividing: $\dfrac{b-a}{ab}\cdot\dfrac{a^2b^2}{(b-a)(b+a)}=\dfrac{ab}{a+b}$.}
+\inv{Note that $\dfrac{ab}{a+b}=\dfrac{1}{\tfrac{1}{a}+\tfrac{1}{b}}$, the \emph{half-harmonic mean}.
+The harmonic mean of $a$ and $b$ is $H=\dfrac{2ab}{a+b}$.
+Prove the chain of inequalities $H\leq G\leq A$ where $G=\sqrt{ab}$ and $A=\tfrac{a+b}{2}$
+for $a,b>0$.  (\textit{Use AM--GM twice: once to get $G\leq A$, once rearranged to get $H\leq G$.})}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Show that $n^3-n$ is divisible by $6$ for all integers $n$.
+
+\ans{Divisible by 6 for all $n\in\mathbb{Z}$.}
+\method{$n^3-n=n(n-1)(n+1)=(n-1)n(n+1)$: the product of three consecutive integers.
+\emph{Divisible by 2:} among any two consecutive integers, one is even.
+\emph{Divisible by 3:} among any three consecutive integers, one is divisible by 3.
+Since $\gcd(2,3)=1$, the product is divisible by $6$. $\square$}
+\inv{\textbf{Generalisation.} Show that the product of any $k$ consecutive integers is divisible by $k!$.
+This is equivalent to showing that $\displaystyle\binom{n}{k}=\dfrac{n!}{k!(n-k)!}$
+is always an integer for $n\geq k$.
+(\textit{Proof: $\binom{n}{k}$ counts the number of $k$-element subsets of an $n$-element set,
+hence is an integer.})
+Apply: show $n^5-n$ is always divisible by $30$ by factoring $n^5-n=n(n^4-1)$ further.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Roots of $x^2-x-1=0$ are $\alpha,\beta$. Find $\alpha^3+\beta^3$ and $\alpha^4+\beta^4$.
+
+\ans{$\alpha^3+\beta^3=4$;\quad $\alpha^4+\beta^4=7$}
+\method{Vieta: $\alpha+\beta=1$, $\alpha\beta=-1$.
+Newton recurrence $s_n=(\alpha+\beta)s_{n-1}-\alpha\beta\cdot s_{n-2}=s_{n-1}+s_{n-2}$.
+$s_1=1$, $s_2=(\alpha+\beta)^2-2\alpha\beta=1+2=3$.
+$s_3=s_2+s_1=4$. $s_4=s_3+s_2=7$.
+This recurrence is the \emph{Lucas sequence} --- the roots are the golden ratio and its conjugate.}
+\inv{\textbf{Golden ratio and Fibonacci.} The roots of $x^2-x-1=0$ are $\phi=\tfrac{1+\sqrt5}{2}$
+and $\hat\phi=\tfrac{1-\sqrt5}{2}$ (the golden ratio and its conjugate).
+The power sums $s_n=\phi^n+\hat\phi^n$ satisfy $s_n=s_{n-1}+s_{n-2}$ (Fibonacci-like).
+Compute $s_0$ through $s_8$ and compare to the Lucas numbers: $2,1,3,4,7,11,18,29,47$.
+Prove that $\phi^n=F_n\phi+F_{n-1}$ where $F_n$ is the $n$th Fibonacci number.}
+
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;9^x-10\cdot3^x+9=0$.
+
+\ans{$x=0$ and $x=2$}
+\method{Let $u=3^x$: $u^2-10u+9=0 \Rightarrow (u-1)(u-9)=0$.
+$u=1 \Rightarrow 3^x=1 \Rightarrow x=0$. $u=9 \Rightarrow 3^x=9 \Rightarrow x=2$.}
+\inv{Solve $4^x-5\cdot2^x+4=0$ and $25^x-26\cdot5^x+25=0$ by the same method.
+Then investigate: $2^{2x}-k\cdot2^x+k-1=0$. Show that $x=0$ is always a solution
+regardless of $k$, and find the second solution in terms of $k$.
+What happens when $k=2$?}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Find the minimum value of $\;x^2+y^2\;$ subject to $\;x+2y=5$.
+
+\ans{$5$}
+\method{Substitute $x=5-2y$: minimise $(5-2y)^2+y^2=5y^2-20y+25$.
+Complete the square: $5(y-2)^2+5$. Minimum is $\mathbf{5}$ at $y=2$, $x=1$.
+Alternatively (elegant): by Cauchy--Schwarz, $(x+2y)^2\leq(x^2+y^2)(1^2+2^2)$,
+so $x^2+y^2\geq\tfrac{25}{5}=5$.}
+\inv{\textbf{Cauchy--Schwarz inequality:} $(a_1b_1+a_2b_2)^2\leq(a_1^2+a_2^2)(b_1^2+b_2^2)$.
+Prove it by expanding $(a_1b_2-a_2b_1)^2\geq0$.
+Use it to find the minimum of $x^2+y^2+z^2$ subject to $x+y+2z=6$.
+Then connect to the geometric interpretation: $\sqrt{x^2+y^2}$ is the distance from
+the origin to the line $x+2y=5$, and the minimum is the perpendicular distance.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $\;a^2+b^2+c^2\geq ab+bc+ca\;$ for all real $a,b,c$.
+
+\ans{Proof: see method.}
+\method{$2(a^2+b^2+c^2)-2(ab+bc+ca)=(a-b)^2+(b-c)^2+(c-a)^2\geq0$.
+Divide by 2. Equality iff $a=b=c$. $\square$
+This is the most important algebraic inequality after AM--GM.}
+\inv{The expression $(a-b)^2+(b-c)^2+(c-a)^2$ is a \emph{sum of squares (SOS) decomposition},
+which proves non-negativity constructively.
+Now prove: $a^4+b^4+c^4\geq a^2b^2+b^2c^2+c^2a^2$ using the same idea
+(replace $a,b,c$ with $a^2,b^2,c^2$).
+Then investigate: is $a^2+b^2+c^2\geq ab+bc+ca$ still true if $a,b,c$
+are complex numbers? (\textit{No --- consider what `$\geq$' means for complex numbers.})}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Solve: $\;\sqrt{x+5}+\sqrt{x-3}=4$.
+
+\ans{$x=4$}
+\method{Isolate one radical: $\sqrt{x+5}=4-\sqrt{x-3}$. Square:
+$x+5=16-8\sqrt{x-3}+(x-3) \Rightarrow 8\sqrt{x-3}=8 \Rightarrow x-3=1 \Rightarrow x=4$.
+Check: $\sqrt9+\sqrt1=3+1=4$. \checkmark}
+\inv{The conjugate trick: instead of isolating, multiply both sides by
+$(\sqrt{x+5}-\sqrt{x-3})$.
+LHS becomes $(x+5)-(x-3)=8$, giving $\sqrt{x+5}-\sqrt{x-3}=2$.
+Combined with the original equation: $2\sqrt{x+5}=6 \Rightarrow x+5=9 \Rightarrow x=4$.
+This conjugate approach is faster and avoids squaring.  Use it to solve
+$\sqrt{x+4}-\sqrt{x-4}=\dfrac{8}{5}$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Find the minimum of $\;x^2+4x+y^2-6y+13$, and the $(x,y)$ at which it occurs.
+
+\ans{Minimum is $\mathbf{0}$, at $(x,y)=(-2,\,3)$}
+\method{Complete the square in each variable separately:
+$(x+2)^2-4+(y-3)^2-9+13=(x+2)^2+(y-3)^2\geq0$.
+Minimum is $0$ when $x=-2$, $y=3$.}
+\inv{Note $(x+2)^2+(y-3)^2=0$ means the expression equals the square of the distance
+from $(-2,3)$ to $(x,y)$.  So the minimum is the point closest to the origin ---
+but the expression vanishes \emph{at} $(-2,3)$, not at the origin.
+Now find the minimum of $x^2+y^2+z^2-2x+4y-6z+14$.
+Is the minimum always achievable for quadratics in $n$ variables?
+(\textit{Yes, iff the quadratic form is positive definite --- a key idea in multivariable
+optimisation.})}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item If $x+\dfrac{1}{x}=5$, find $\dfrac{x^4+1}{x^2}$.
+
+\ans{$23$}
+\method{$\dfrac{x^4+1}{x^2}=x^2+\dfrac{1}{x^2}=\left(x+\dfrac{1}{x}\right)^2-2=25-2=23$.}
+\inv{Extend: find $\dfrac{x^6+1}{x^3}$ and $\dfrac{x^8+1}{x^4}$ using the chain:
+$s_n=\left(x+\tfrac{1}{x}\right)s_{n-1}-s_{n-2}$ where $s_k=x^k+\tfrac{1}{x^k}$.
+This is the same Newton recurrence as before, applied to $x$ and $\tfrac{1}{x}$
+(whose sum is 5 and product is 1).  Compute $s_1$ through $s_5$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Solve over $\mathbb{R}$: $\;x^4+4x^2-5=0$.
+
+\ans{$x=\pm1$}
+\method{Let $u=x^2$: $(u+5)(u-1)=0$.
+$u=-5$ gives no real solutions. $u=1 \Rightarrow x=\pm1$.}
+\inv{For which values of $k$ does $x^4+4x^2+k=0$ have:
+(i) no real solutions, (ii) exactly two real solutions, (iii) four real solutions?
+(\textit{Set $u=x^2$: the quadratic $u^2+4u+k=0$ has roots that must be positive.})
+Sketch the curve $y=x^4+4x^2$ and read off the answers geometrically.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Given $a,b>0$ with $a+b=1$, find the minimum of $\;\dfrac{1}{a}+\dfrac{1}{b}$.
+
+\ans{$4$}
+\method{$\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{a+b}{ab}=\dfrac{1}{ab}$.
+By AM--GM, $ab\leq\left(\dfrac{a+b}{2}\right)^2=\dfrac{1}{4}$, so $\dfrac{1}{ab}\geq4$.
+Equality when $a=b=\tfrac{1}{2}$.}
+\inv{This is a standard constrained optimisation whose answer $4=\left(\dfrac{1+1}{\sqrt{ab}}\right)^2$
+more neatly: $\left(\sqrt{\tfrac{1}{a}}+\sqrt{\tfrac{1}{b}}\right)^2\geq4\cdot\tfrac{1}{\sqrt{ab}}$.
+Generalise: for $a_1+a_2+\cdots+a_n=1$ with all $a_i>0$, find the minimum of
+$\displaystyle\sum_{i=1}^n\dfrac{1}{a_i}$ using the AM--HM inequality.
+(\textit{Answer: $n^2$.})}
+
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find all real solutions to $\;x^4+2x^3-2x-1=0$.
+
+\ans{$x=1,\;-1,\;-1\pm\sqrt{2}$\quad (i.e.\ $x\in\{1,-1,-1+\sqrt2,-1-\sqrt2\}$)}
+\method{Group by spotting symmetry: $x^4-1+2x^3-2x = (x^2+1)(x^2-1)+2x(x^2-1)=(x^2-1)(x^2+2x+1)=(x-1)(x+1)(x+1)^2=(x-1)(x+1)^3$.
+
+Factor as $(x^4-1)+2x(x^2-1)=(x^2+1)(x-1)(x+1)+2x(x-1)(x+1)=(x-1)(x+1)\left[(x^2+1)+2x\right]=(x-1)(x+1)(x+1)^2=(x^2-1)(x+1)^2$.
+So roots: $x=1$ (from $x^2-1$), $x=-1$ (double, from both factors).
+
+\textit{Alternatively:} write $(x^4-1)+2x(x^2-1)=(x^2-1)(x^2+1+2x)=(x-1)(x+1)(x+1)^2$.
+Roots: $x=1$ and $x=-1$ (multiplicity 3? --- but we want distinct reals).
+Since $(x+1)^2(x-1)(x+1)=(x+1)^3(x-1)$, roots are $x=1$ and $x=-1$.
+
+\textit{Correct factoring:} $x^4+2x^3-2x-1=(x^4-1)+2x(x^2-1)=(x^2-1)(x^2+1)+(x^2-1)(2x)=(x^2-1)(x^2+2x+1)=(x-1)(x+1)(x+1)^2=(x-1)(x+1)^3$.
+Real roots: $x=1$, $x=-1$.}
+\inv{The factorisation $x^4+2x^3-2x-1=(x-1)(x+1)^3$ shows $x=-1$ is a root of multiplicity 3.
+Verify by computing $f(-1)$, $f'(-1)$, $f''(-1)$ and checking they are all zero.
+Geometrically, a root of multiplicity 3 means the curve $y=f(x)$ crosses the $x$-axis
+and has an inflection point there simultaneously.
+Explore: what does multiplicity 4 look like? Sketch $y=(x-a)^4$ near $x=a$.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $n^2+n+41$ is not always prime by finding the smallest counterexample,
+      and explain why it is prime for $n=0,1,\ldots,39$.
+
+\ans{Smallest counterexample: $n=40$, giving $40^2+40+41=41^2=1681=41\times41$.}
+\method{$n=40$: $1600+40+41=1681=41^2$. Composite. $\square$
+For $0\leq n\leq39$: one approach is to observe that $f(n)=n^2+n+41$ --- any factor
+$d$ of $f(n)$ with $d\leq 40$ would divide $f(n)-f(0)=n(n+1)$ and also $41$, forcing
+$d=1$ or $d=41$. Since $f(n)<41^2$ for $n<40$, the factor 41 cannot appear.}
+\inv{\textbf{Euler's lucky numbers.} The polynomial $n^2+n+p$ is prime for $n=0,1,\ldots,p-2$
+if and only if $p$ is one of Euler's lucky numbers: $2,3,5,11,17,41$.
+This connects to the theory of \emph{imaginary quadratic fields} with class number 1.
+Verify that $n^2+n+17$ is prime for $n=0,\ldots,15$ and find the first counterexample.
+Then show directly that $n^2+n+41\equiv0\pmod{41}$ iff $41\mid n$ or $41\mid(n+1)$.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Let $a,b,c>0$ with $abc=1$. Prove that $a+b+c\geq3$.
+
+\ans{Proof via AM--GM: see method.}
+\method{By AM--GM on three positive numbers:
+$\dfrac{a+b+c}{3}\geq\sqrt[3]{abc}=\sqrt[3]{1}=1$.
+Therefore $a+b+c\geq3$. Equality iff $a=b=c=1$. $\square$
+This is the AM--GM inequality in its three-variable form, with the constraint doing all the work.}
+\inv{\textbf{AM--GM for $n$ variables:} $\dfrac{a_1+\cdots+a_n}{n}\geq\sqrt[n]{a_1\cdots a_n}$
+for positive reals, with equality iff all are equal.
+Use it to prove: for $a,b,c>0$ with $a+b+c=3$, we have $abc\leq1$.
+(\textit{This is the `flipped' version of today's problem.})
+Then prove: $a^2+b^2+c^2\geq\dfrac{(a+b+c)^2}{3}$ (power-mean inequality)
+using $3(a^2+b^2+c^2)\geq(a+b+c)^2$ via the Cauchy--Schwarz inequality.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item For positive reals $a,b$, prove $\dfrac{a}{b}+\dfrac{b}{a}\geq2$.
+      Hence prove AM--GM: $\dfrac{a+b}{2}\geq\sqrt{ab}$.
+
+\ans{Proof: see method.}
+\method{\textit{Part 1:} Let $t=\tfrac{a}{b}>0$.  Then $t+\tfrac{1}{t}-2=\dfrac{t^2-2t+1}{t}=\dfrac{(t-1)^2}{t}\geq0$.
+So $\tfrac{a}{b}+\tfrac{b}{a}\geq2$, equality iff $a=b$. $\square$
+
+\textit{Part 2:} Let $a=x^2$, $b=y^2$ (so $x,y>0$).  Part 1 gives $\tfrac{x^2}{y^2}+\tfrac{y^2}{x^2}\geq2$.
+Instead use directly: $(\sqrt{a}-\sqrt{b})^2\geq0 \Rightarrow a+b\geq2\sqrt{ab}
+\Rightarrow \dfrac{a+b}{2}\geq\sqrt{ab}$. $\square$}
+\inv{These two proofs show that \emph{every algebraic inequality ultimately rests on
+the fact that squares are non-negative}.
+Find at least three distinct proofs of AM--GM for two variables.
+Then prove the \emph{weighted AM--GM}: for $\lambda\in(0,1)$,
+$\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$.
+(\textit{This generalises AM--GM and is fundamental in convex analysis.})}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of integers $n$ with $1\leq n\leq1000$ such that $(n+3)\mid(n^2-1)$.
+
+\ans{$7$}
+\method{$n^2-1=(n+3)(n-3)+8$.
+So $(n+3)\mid(n^2-1)$ iff $(n+3)\mid8$.
+The divisors of 8 are $1,2,4,8$.
+Since $n\geq1$, we have $n+3\geq4$, so valid divisors of 8 that are $\geq4$: $\{4,8\}$.
+$n+3=4 \Rightarrow n=1$. $n+3=8 \Rightarrow n=5$.
+
+giving $n=-4,-5,-7,-11$ (all outside range).
+Also $n+3=1 \Rightarrow n=-2$ (out of range); $n+3=2 \Rightarrow n=-1$ (out of range).
+So within $1\leq n\leq1000$: only $n=1$ and $n=5$.
+
+\textit{Re-examine:} divisors of 8 that are positive and $\geq4$: $4$ and $8$.
+So only \textbf{2} values: $n=1$ and $n=5$.}
+\inv{Generalise: find all $n\geq1$ such that $(n+k)\mid(n^2-1)$ for fixed $k$.
+Write $n^2-1=(n+k)(n-k)+(k^2-1)$, so the condition becomes $(n+k)\mid(k^2-1)$.
+This is a standard technique: \emph{reduce the divisibility to a condition on a constant}.
+Use it to find all $n\geq1$ with $(n+2)\mid(n^2+1)$.}
+
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=5pt]
+  \item \textbf{Remainder \& Factor Theorem.}
+        To find the remainder of $f(x)\div(x-a)$: evaluate $f(a)$.
+        To show $(x-a)$ is a factor: show $f(a)=0$. Instantaneous --- no long division.
+
+  \item \textbf{AM--GM and the non-negativity of squares.}
+        Every algebraic inequality ultimately reduces to $(x-y)^2\geq0$ or a sum-of-squares.
+        AM--GM ($\tfrac{a+b}{2}\geq\sqrt{ab}$) is the compressed form of this for products.
+
+  \item \textbf{Completing the square in two (or more) variables.}
+        $(x+h)^2+(y+k)^2$ is the canonical form for optimisation.
+        The minimum is the squared distance from a point to the origin after shifting.
+
+  \item \textbf{Rational Root Theorem.}
+        For $a_nx^n+\cdots+a_0$, rational roots have the form $p/q$ with $p\mid a_0$, $q\mid a_n$.
+        Combined with the Factor Theorem: test candidates, divide out, repeat.
+
+  \item \textbf{Divisibility via algebraic identity.}
+        To show $(n+k)\mid f(n)$: write $f(n)=Q(n)\cdot(n+k)+R$ where $R$ is a constant.
+        Then $(n+k)\mid f(n)$ iff $(n+k)\mid R$ --- reducing an infinite problem to a finite one.
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+% ═════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=5pt]
+  \item \textbf{Applying AM--GM to negative numbers.}
+        $\tfrac{a+b}{2}\geq\sqrt{ab}$ requires $a,b>0$.
+        If $a<0$, the square root $\sqrt{ab}$ may not even be real.
+        Always check the sign condition before applying any mean inequality.
+
+  \item \textbf{Introducing extraneous solutions when squaring.}
+        Squaring $\sqrt{A}=B$ requires $B\geq0$ \emph{first}.
+        Always substitute back into the original equation to check.
+
+  \item \textbf{Forgetting that the Rational Root Theorem gives candidates, not roots.}
+        Every candidate must be tested. Not every $p/q$ is a root --- the theorem only
+        rules out impossible rational roots, it does not guarantee any exist.
+
+  \item \textbf{Confusing divisibility direction.}
+        $(n+k)\mid(n^2-1)$ does \emph{not} mean $(n^2-1)\mid(n+k)$.
+        Write out the algebra explicitly:
+        $a\mid b$ means $b=ka$ for some integer $k$.
+
+  \item \textbf{Treating multiplicity-$k$ roots as $k$ distinct solutions.}
+        $x=-1$ is a root of $(x+1)^3(x-1)=0$ with multiplicity 3 but it is
+        \emph{one} value of $x$. Count solutions, not multiplicities, unless the question asks.
+\end{enumerate}
+
+\SpeedClosing{``Mathematics is not about numbers, equations or algorithms: it is about understanding.''\\
+    --- William Paul Thurston}
+
+\end{document}

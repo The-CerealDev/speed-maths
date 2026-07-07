@@ -1,0 +1,131 @@
+% ══════════════════════════════════════════════════════════════════════════════
+% Speed Maths --- shared preamble
+% Included by every sheet and answer file via:  \input{../../shared/preamble}
+% Editing THIS file changes the look of every sheet/answer across every pillar.
+% ══════════════════════════════════════════════════════════════════════════════
+
+\usepackage[a4paper, top=25mm, bottom=25mm, left=22mm, right=22mm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+% ── Colours ───────────────────────────────────────────────────────────────────
+\definecolor{darkgray}{gray}{0.15}
+\definecolor{medgray}{gray}{0.45}
+\definecolor{lightgray}{gray}{0.93}
+\definecolor{boxgray}{gray}{0.88}
+
+% ── Section formatting ──────────────────────────────────────────────────────────
+\titleformat{\section}[block]
+  {\normalfont\large\bfseries}{}
+  {0pt}{}[\vspace{2pt}\hrule\vspace{6pt}]
+\titlespacing*{\section}{0pt}{14pt}{4pt}
+
+% ── List formatting ─────────────────────────────────────────────────────────────
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=2em, itemsep=10pt}
+
+% ── Branding constants (edit here, not per-file) ────────────────────────────────
+\newcommand{\SpeedExamLine}{Competition \& Exam Prep}
+\newcommand{\SpeedCredit}{by \href{https://www.linkedin.com/in/cerealdev/}{David Akinyele-Aje}}
+
+% ── Header / footer ──────────────────────────────────────────────────────────────
+% Usage (once, after \input{../../shared/preamble} and before \begin{document}):
+%   \SpeedHeader{Algebra}{3}
+% First arg  = pillar name shown as "Speed <Pillar> --- Daily Drill"
+% Second arg = worksheet number
+\pagestyle{fancy}
+\newcommand{\SpeedHeader}[2]{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \setlength{\headheight}{14pt}%
+  \fancyhead[L]{\small\textbf{Speed #1 --- Daily Drill}}%
+  \fancyhead[R]{\small Worksheet \##2}%
+  \fancyfoot[L]{\small \SpeedExamLine}%
+  \fancyfoot[C]{\small\thepage}%
+  \fancyfoot[R]{\small \SpeedCredit}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+% ── Title block (used at the top of every sheet AND answer file) ───────────────
+% Usage: \SpeedTitleBlock{Daily Algebra Drill \#3}
+% For answer files, pass the "--- Answers \& Investigations" suffix in the arg.
+\newcommand{\SpeedTitleBlock}[1]{%
+  \begin{center}
+    {\LARGE\bfseries #1}\\[6pt]
+    \hrule\vspace{4pt}
+    \begin{tabular}{llcc}
+      \toprule
+      \textbf{Section} & \textbf{Topic} & \textbf{Questions} & \textbf{Target time}\\
+      \midrule
+      A & Rapid Recognition          & 10 & 2 min 30 sec \\
+      B & Manipulation Drills        & 10 & 8 min        \\
+      C & Substitution \& Structure  & 8  & 10 min       \\
+      D & Challenge                  & 5  & 15 min       \\
+      \bottomrule
+    \end{tabular}
+    \vspace{4pt}
+    \hrule
+  \end{center}
+}
+
+% ── Answer / Method / Investigate-further boxes (answer files only) ────────────
+\newmdenv[
+  backgroundcolor=lightgray,
+  linecolor=medgray,
+  linewidth=0.5pt,
+  leftmargin=0pt, rightmargin=0pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  innertopmargin=5pt, innerbottommargin=5pt,
+  skipabove=4pt, skipbelow=4pt
+]{ansbox}
+
+\newmdenv[
+  backgroundcolor=white,
+  linecolor=darkgray,
+  linewidth=0.8pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  leftmargin=0pt, rightmargin=0pt,
+  innerleftmargin=8pt, innerrightmargin=6pt,
+  innertopmargin=4pt, innerbottommargin=4pt,
+  skipabove=4pt, skipbelow=6pt
+]{invbox}
+
+\newcommand{\ans}[1]{%
+  \begin{ansbox}
+    \textbf{Answer:} #1
+  \end{ansbox}}
+
+\newcommand{\method}[1]{%
+  {\small\textbf{Method:} #1}\par}
+
+\newcommand{\inv}[1]{%
+  \begin{invbox}
+    \textbf{\small Investigate further:} {\small #1}
+  \end{invbox}}
+
+% ── Misc helpers ────────────────────────────────────────────────────────────────
+\newcommand{\qn}[1]{\textbf{#1.}\;}
+
+% ── Closing motivational rule + cross-promo footer (sheets only) ────────────────
+% Usage: \SpeedClosing{"Quote text."}
+\newcommand{\SpeedClosing}[1]{%
+  \vspace{20pt}
+  \begin{center}
+  \rule{0.6\textwidth}{0.4pt}\\[4pt]
+  {\small\itshape #1}\\[4pt]
+  \rule{0.6\textwidth}{0.4pt}
+  \end{center}
+  \begin{center}
+  {\small other prep to look at today:}\\
+  {\small \href{https://dailyintegral.com}{Daily Integral} for Calculus and Logic}
+  \end{center}
+}

@@ -1,0 +1,14 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Incomplete pillars — untracked until their sheet runs are finished.
+# Remove a line here when its pillar is ready to publish.
+combinatorics/
+number-theory/
+geometry/

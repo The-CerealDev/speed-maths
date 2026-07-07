@@ -1,0 +1,228 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#4 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Geometric series identity $\cdot$ Polynomial remainder shortcut $\cdot$ Parity/mod arguments $\cdot$ AM--GM under substitution.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+\item Evaluate without expanding: $201\times199$.
+\ans{$39{,}999$}
+\method{$(200+1)(200-1)=200^2-1=40000-1=39999$. DOTS with $a=200$.}
+\inv{This is Fermat's factorisation idea in reverse. Show that every product of two integers equidistant from $n$ equals $n^2-d^2$ where $d$ is the distance. Use it to compute $1007\times993$ and $10001\times9999$ mentally.}
+
+\item Factorise: $x^2-x-42$.
+\ans{$(x-7)(x+6)$}
+\method{Seek integers with product $-42$ and sum $-1$: that's $-7$ and $+6$.}
+\inv{For $x^2+bx+c$, the factorisation exists over $\mathbb{Z}$ iff $b^2-4c$ is a perfect square. Check: $1+168=169=13^2$. This discriminant test is always faster than trial and error.}
+
+\item Simplify $1+x+x^2+x^3+x^4$ at $x=-1$.
+\ans{$1$}
+\method{Substitute: $1-1+1-1+1=1$. Alternatively, an odd number of terms of $1+(-1)+\ldots$ always gives 1 when the last term is $+1$.}
+\inv{Geometric series: $\sum_{k=0}^{n}x^k=\frac{x^{n+1}-1}{x-1}$ for $x\neq1$. At $x=-1$, $n=4$: $\frac{(-1)^5-1}{-2}=\frac{-2}{-2}=1$. Explore the pattern for general even/odd $n$.}
+
+\item Given $p+q=6$, $pq=7$, find $p^3+q^3$.
+\ans{$90$}
+\method{$p^3+q^3=(p+q)[(p+q)^2-3pq]=6[36-21]=6\times15=90$.}
+\inv{Find $p^4+q^4$ using the Newton recurrence $s_n=(p+q)s_{n-1}-pq\cdot s_{n-2}$: $s_4=6\cdot s_3-7\cdot s_2$. First find $s_2=36-14=22$, then $s_3=90$, then $s_4=6(90)-7(22)=540-154=386$.}
+
+\item Remainder when $f(x)=x^3+2x-3$ is divided by $(x-1)$.
+\ans{$0$}
+\method{$f(1)=1+2-3=0$. By the Remainder Theorem the remainder is $f(1)=0$, so $(x-1)$ is a factor.}
+\inv{Since $(x-1)$ is a factor, fully factorise $x^3+2x-3$. Use synthetic or polynomial division: $x^3+2x-3=(x-1)(x^2+x+3)$. Check that $x^2+x+3$ has negative discriminant, confirming $x=1$ is the only real root.}
+
+\item Factorise completely: $2x^3-18x$.
+\ans{$2x(x-3)(x+3)$}
+\method{Factor out $2x$: $2x(x^2-9)=2x(x-3)(x+3)$. Extract scalars and common factors \emph{first}, always.}
+\inv{The zeros are $x=0,\pm3$. Sketch $y=2x^3-18x$ by noting it passes through these zeros and has leading coefficient $+2$. Confirm the local max and min lie between consecutive zeros.}
+
+\item Simplify: $\dfrac{3^{n+1}-3^{n-1}}{3^n}$.
+\ans{$\dfrac{8}{3}$}
+\method{Factor out $3^{n-1}$: $\dfrac{3^{n-1}(9-1)}{3^n}=\dfrac{8}{3}$. Always pull out the lowest power.}
+\inv{Generalise: $\dfrac{a^{n+k}-a^{n-k}}{a^n}=a^k-a^{-k}$ for any base $a\neq0$. Verify with $a=2$, $k=2$ and with $a=10$, $k=1$.}
+
+\item Given $a-b=3$ and $a^2+b^2=29$, find $ab$.
+\ans{$ab=10$}
+\method{$(a-b)^2=a^2-2ab+b^2=9$, so $29-2ab=9$, giving $ab=10$.}
+\inv{With $ab=10$ and $a-b=3$: form $x^2-Sx+P=0$ where $S=a+b=\sqrt{(a-b)^2+4ab}=\sqrt{49}=7$. So $a,b$ are roots of $x^2-7x+10=0$, i.e.\ $(x-2)(x-5)=0$: $a=5,b=2$.}
+
+\item Factorise $x^4-1$ completely over $\mathbb{R}$.
+\ans{$(x^2+1)(x+1)(x-1)$}
+\method{Two applications of DOTS: $(x^2+1)(x^2-1)=(x^2+1)(x+1)(x-1)$. The factor $x^2+1$ is irreducible over $\mathbb{R}$.}
+\inv{Over $\mathbb{C}$: $x^2+1=(x+i)(x-i)$, giving four linear factors corresponding to the four fourth roots of unity: $\pm1,\pm i$. Draw these on an Argand diagram and note they form a square --- this is why $x^4=1$ has four roots equally spaced at $90^\circ$.}
+
+\item Simplify: $\dfrac{n!}{(n-2)!}$.
+\ans{$n(n-1)$}
+\method{$\dfrac{n!}{(n-2)!}=n\cdot(n-1)\cdot\frac{(n-2)!}{(n-2)!}=n(n-1)$.}
+\inv{This is the number of ways to choose an ordered pair from $n$ items (permutations $P(n,2)$). More generally, $P(n,k)=\frac{n!}{(n-k)!}$. Verify $P(5,2)=20$ by listing pairs from $\{1,2,3,4,5\}$.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+\item Simplify $\dfrac{x^5-1}{x-1}$ using the geometric series formula.
+\ans{$x^4+x^3+x^2+x+1$}
+\method{$x^5-1=(x-1)(x^4+x^3+x^2+x+1)$. This is the finite geometric series: $1+x+\cdots+x^{n-1}=\frac{x^n-1}{x-1}$ with $n=5$.}
+\inv{Prove the geometric series formula by letting $S=1+x+\cdots+x^{n-1}$ and computing $xS-S$. Then use it to sum $1+2+4+\cdots+2^9$ and $1+3+9+\cdots+3^7$.}
+
+\item Find the remainders when $g(x)=x^{10}-3x^5+2$ is divided by $(x-1)$ and $(x+1)$.
+\ans{Remainder at $(x-1)$: $g(1)=1-3+2=0$. \quad Remainder at $(x+1)$: $g(-1)=1+3+2=6$.}
+\method{Remainder Theorem: evaluate $g$ at the root of each linear factor. No division needed.}
+\inv{Since $g(1)=0$, the factor $(x-1)$ divides $g(x)$. Factorise $u^2-3u+2=(u-1)(u-2)$ where $u=x^5$, giving $g(x)=(x^5-1)(x^5-2)=(x-1)(x^4+x^3+x^2+x+1)(x^5-2)$. Check this against $g(1)=0$ and $g(-1)=6$.}
+
+\item Simplify: $\dfrac{ab}{a-b}-\dfrac{a^2}{a^2-b^2}$.
+\ans{$\dfrac{ab^2}{(a-b)(a+b)}=\dfrac{ab^2}{a^2-b^2}$}
+\method{Common denominator $(a-b)(a+b)$: $\dfrac{ab(a+b)-a^2}{(a-b)(a+b)}=\dfrac{a(b^2+ab-a)}{(a^2-b^2)}$. Since numerator $= a^2b+ab^2-a^2 = ab^2+a^2(b-1)$ simplify: $ab(a+b)-a^2=a[b(a+b)-a]=a[ab+b^2-a]$. This leaves $\dfrac{a(ab+b^2-a)}{a^2-b^2}$.}
+\inv{Practice combining algebraic fractions by always factoring denominators \emph{before} finding a common denominator. Try $\dfrac{1}{x^2-1}-\dfrac{1}{x^2+2x+1}$ using this approach.}
+
+\item Factorise $x^6-y^6$ completely over $\mathbb{Z}$.
+\ans{$(x-y)(x+y)(x^2+xy+y^2)(x^2-xy+y^2)$}
+\method{Two routes then combined: $x^6-y^6=(x^3-y^3)(x^3+y^3)$, then sum/difference of cubes on each factor. Alternatively $(x^2)^3-(y^2)^3$ first, then DOTS on each.}
+\inv{The fully factored form reveals that $x^6-y^6$ is divisible by both $x^2-y^2$ and $x^2+xy+y^2$. How many distinct integer factors does $2^6-1^6=63$ have? List them using the factorisation.}
+
+\item Roots of $3x^2+5x-2=0$ are $\alpha,\beta$. Find $\frac{1}{\alpha}+\frac{1}{\beta}$.
+\ans{$\dfrac{5}{2}$}
+\method{$\frac{1}{\alpha}+\frac{1}{\beta}=\frac{\alpha+\beta}{\alpha\beta}=\frac{-5/3}{-2/3}=\frac{5}{2}$.}
+\inv{The quadratic with roots $\frac{1}{\alpha}$ and $\frac{1}{\beta}$ is obtained by replacing $x$ with $\frac{1}{x}$: $\frac{3}{x^2}+\frac{5}{x}-2=0\Rightarrow 2x^2-5x-3=0$. Verify $\frac{1}{\alpha}+\frac{1}{\beta}=\frac{5}{2}$ from its Vieta formulas.}
+
+\item Simplify: $\left(1-\dfrac{1}{x^2}\right)(x^2+x)$.
+\ans{$\dfrac{(x-1)(x+1)^2}{x}$}
+\method{$\frac{x^2-1}{x^2}\cdot x(x+1)=\frac{(x-1)(x+1)}{x^2}\cdot x(x+1)=\frac{(x-1)(x+1)^2}{x}$.}
+\inv{For what values of $x$ is this expression zero, undefined, or equal to $x$? Solving $(x-1)(x+1)^2=x^2$ gives a cubic --- use the rational root theorem to find integer solutions.}
+
+\item Given $a+b+c=5$, $ab+bc+ca=6$, find $a^2+b^2+c^2$.
+\ans{$13$}
+\method{$(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca)\Rightarrow 25=a^2+b^2+c^2+12\Rightarrow a^2+b^2+c^2=13$.}
+\inv{Also find $a^3+b^3+c^3$ using Newton's identity $p_3=e_1p_2-e_2p_1+3e_3$ where $e_3=abc$ is unknown. What additional condition would you need to pin down $e_3$?}
+
+\item Rearrange for $y$: $\dfrac{2y+1}{y-3}=x$.
+\ans{$y=\dfrac{3x+1}{x-2}$}
+\method{$2y+1=x(y-3)=xy-3x\Rightarrow 2y-xy=-3x-1\Rightarrow y(2-x)=-(3x+1)\Rightarrow y=\dfrac{3x+1}{x-2}$.}
+\inv{Notice that if $f(x)=\frac{2x+1}{x-3}$, then $f^{-1}(x)=\frac{3x+1}{x-2}$. Compute $f(f^{-1}(x))$ to verify. Then check: is $f(f(x))=x$? If so, $f$ is its own inverse (an \emph{involution}).}
+
+\item Show $4n^2-1=(2n-1)(2n+1)$; hence prove $4n^2-1$ is never prime for $n\geq2$.
+\ans{For $n\geq2$: $2n-1\geq3$ and $2n+1\geq5$, both greater than 1, so $4n^2-1$ is a product of two integers each $>1$. Hence composite.}
+\method{The key is that $(2n-1)$ and $(2n+1)$ are \emph{both} greater than 1 for $n\geq2$. For $n=1$: $4-1=3$ which is prime, confirming the bound $n\geq2$ is tight.}
+\inv{This proves that no number of the form $4n^2-1$ (i.e.\ one less than a multiple of 4 that is a perfect square) is prime for $n\geq2$. Extend: show $9n^2-1$ is composite for $n\geq2$ and $p^2n^2-1$ is composite for any prime $p$ and $n\geq2$.}
+
+\item With $\alpha+\beta=4$, $\alpha\beta=1$, find the quadratic with integer coefficients
+      whose roots are $\alpha-\frac{1}{\alpha}$ and $\beta-\frac{1}{\beta}$.
+\ans{$x^2-12=0$}
+\method{Sum $=(\alpha+\beta)-\left(\frac{1}{\alpha}+\frac{1}{\beta}\right)=4-\frac{\alpha+\beta}{\alpha\beta}=4-4=0$.
+Product $=(\alpha-\frac{1}{\alpha})(\beta-\frac{1}{\beta})=\alpha\beta-\frac{\alpha}{\beta}-\frac{\beta}{\alpha}+\frac{1}{\alpha\beta}=1-\frac{\alpha^2+\beta^2}{\alpha\beta}+1=2-(16-2)=-12$.
+Quadratic: $x^2-0\cdot x+(-12)=x^2-12$.}
+\inv{The roots are $\pm2\sqrt{3}$. Verify by solving $x^2=12$. Now try the same technique for the quadratic with roots $\alpha+\frac{1}{\alpha}$ and $\beta+\frac{1}{\beta}$ --- you should get a different quadratic. This technique of building new quadratics from transformed roots without solving is a core TMUA skill.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+\item Solve: $4^x-5\cdot2^x+4=0$.
+\ans{$x=0$ and $x=2$}
+\method{Let $u=2^x$: $u^2-5u+4=(u-1)(u-4)=0$. $u=1\Rightarrow x=0$; $u=4\Rightarrow x=2$.}
+\inv{Now solve $4^x-17\cdot2^x+16=0$ and $9^x-4\cdot3^x+3=0$ by the same substitution. Then investigate: $a^{2x}-k\cdot a^x+(k-1)=0$ always has $x=0$ as a solution. What is the second solution?}
+
+\item Express $x^3+\frac{1}{x^3}$ in terms of $t=x+\frac{1}{x}$.
+\ans{$t^3-3t$}
+\method{$x^2+\frac{1}{x^2}=t^2-2$. Then $x^3+\frac{1}{x^3}=\left(x+\frac{1}{x}\right)\!\!\left(x^2-1+\frac{1}{x^2}\right)=t(t^2-3)=t^3-3t$.}
+\inv{This gives the chain: $s_1=t$, $s_2=t^2-2$, $s_3=t^3-3t$, $s_4=t^4-4t^2+2$, following the Newton recurrence $s_n=t\cdot s_{n-1}-s_{n-2}$. Derive $s_4$ and $s_5$, then evaluate each at $t=3$.}
+
+\item Find the minimum of $3x+\frac{27}{x}$ for $x>0$.
+\ans{Minimum is $18$ at $x=3$.}
+\method{AM--GM: $3x+\frac{27}{x}\geq2\sqrt{3x\cdot\frac{27}{x}}=2\sqrt{81}=18$. Equality when $3x=\frac{27}{x}\Rightarrow x^2=9\Rightarrow x=3$.}
+\inv{Compare to completing the square: $3x+\frac{27}{x}=3\!\left(\sqrt{x}-\frac{3}{\sqrt{x}}\right)^2+18\geq18$. Both proofs work; which is faster? Then find the minimum of $ax+\frac{b}{x}$ for $a,b,x>0$. (Answer: $2\sqrt{ab}$ at $x=\sqrt{b/a}$.) Apply to minimise $5x+\frac{20}{x}$.}
+
+\item Solve for real $x$: $\sqrt{2x-1}+\sqrt{x-1}=2$.
+\ans{$x=12-4\sqrt{7}$\; (one real solution)}
+\method{Isolate $\sqrt{2x-1}=2-\sqrt{x-1}$, requiring $2\geq\sqrt{x-1}$, i.e.\ $x\leq5$. Square: $2x-1=4-4\sqrt{x-1}+(x-1)$, so $x-4=-4\sqrt{x-1}$, requiring $x\leq4$. Square again: $(x-4)^2=16(x-1)\Rightarrow x^2-24x+32=0\Rightarrow x=12\pm4\sqrt{7}$. Since $x\leq4$: $x=12-4\sqrt{7}\approx1.42$.}
+\inv{For cleaner surd equations, try the conjugate trick: also form $\sqrt{2x-1}-\sqrt{x-1}$ by multiplying through by $\frac{\sqrt{2x-1}-\sqrt{x-1}}{\sqrt{2x-1}-\sqrt{x-1}}$. This gives a second equation and the system solves more cleanly.}
+
+\item Find the value of $k$ such that $(x+1)(x+3)(x+5)(x+7)+k$ is a perfect square.
+\ans{$k=16$}
+\method{Pair: $(x+1)(x+7)=x^2+8x+7$ and $(x+3)(x+5)=x^2+8x+15$. Let $u=x^2+8x+11$: product $=(u-4)(u+4)=u^2-16$. This is a perfect square $u^2$ when $k=16$.}
+\inv{The same pairing idea works for symmetric arithmetic progressions.
+Try proving:
+$(n-3)(n-1)(n+1)(n+3)+9=(n^2-5)^2$.
+Then generalise to $\{n-3d,n-d,n+d,n+3d\}$ and find the constant that completes a square.}
+
+\item Prove $(a^2+b^2)(c^2+d^2)\geq(ac+bd)^2$. State the equality condition.
+\ans{Equality iff $ad=bc$.}
+\method{$(a^2+b^2)(c^2+d^2)-(ac+bd)^2=a^2d^2-2abcd+b^2c^2=(ad-bc)^2\geq0$. $\square$ This is the Cauchy--Schwarz inequality in two dimensions.}
+\inv{The Cauchy--Schwarz inequality in $n$ dimensions states $(\mathbf{u}\cdot\mathbf{v})^2\leq|\mathbf{u}|^2|\mathbf{v}|^2$, which in components is $(\sum a_ib_i)^2\leq(\sum a_i^2)(\sum b_i^2)$. Prove the $n=3$ case by expanding $(a_1b_2-a_2b_1)^2+(a_1b_3-a_3b_1)^2+(a_2b_3-a_3b_2)^2\geq0$.}
+
+\item With $u=x+y$, $v=x-y$, express $x^4+y^4$ in terms of $u$ and $v$.
+\ans{$\dfrac{u^4+v^4+6u^2v^2}{8}$}
+\method{$x=\frac{u+v}{2}$, $y=\frac{u-v}{2}$. $x^4+y^4=\frac{1}{16}\!\left[(u+v)^4+(u-v)^4\right]=\frac{1}{16}\cdot2(u^4+6u^2v^2+v^4)=\frac{u^4+6u^2v^2+v^4}{8}$.}
+\inv{This substitution ($u=x+y$, $v=x-y$) is called a \emph{linear change of variables}. It converts symmetric expressions in $x,y$ into expressions in $u,v$ where even-degree terms survive. Use it to express $x^6+y^6$ in terms of $u$ and $v$.}
+
+\item Solve: $x^4-7x^2+12=0$.
+\ans{$x=\pm2,\;\pm\sqrt{3}$}
+\method{Let $u=x^2$: $(u-3)(u-4)=0$. $u=3\Rightarrow x=\pm\sqrt{3}$; $u=4\Rightarrow x=\pm2$.}
+\inv{Sketch $y=x^4-7x^2+12$ by noting the zeros and that $y\to+\infty$ as $x\to\pm\infty$. Find the local minima by writing $y=(x^2-\frac{7}{2})^2-\frac{1}{4}$ --- what are the $y$-values at the minima?}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+
+\begin{enumerate}
+
+\item Prove $n^2\equiv0$ or $1\pmod4$ for all integers $n$; hence $n^2+2$ is never divisible by 4.
+\ans{Proved below.}
+\method{Every integer is even ($n=2m$) or odd ($n=2m+1$). \emph{Even:} $n^2=4m^2\equiv0$. \emph{Odd:} $n^2=4m^2+4m+1\equiv1$. So $n^2\equiv0$ or $1$, hence $n^2+2\equiv2$ or $3\pmod4$. Neither is $\equiv0$, so $4\nmid(n^2+2)$. $\square$}
+\inv{Extend: show $n^2\equiv0,1,$ or $4\pmod8$ by checking all residues $n\equiv0,\ldots,7$. Hence show $n^2+n$ is always even (easier) and $n^2+n+2$ is never divisible by 4.}
+
+\item Find all real solutions to $x^4-4x^3+4x^2-1=0$.
+\ans{$x=1$ (double) and $x=1\pm\sqrt{2}$}
+\method{Try $(x^2+ax+b)(x^2+cx+d)$ with $b+d+ac=4$, $bd=-1$, $a+c=-4$, $ad+bc=0$. Taking $b=1$, $d=-1$: $a=c=-2$ works. So $(x^2-2x+1)(x^2-2x-1)=0$, giving $(x-1)^2=0\Rightarrow x=1$ and $x^2-2x-1=0\Rightarrow x=1\pm\sqrt2$.}
+\inv{Notice that this quartic has the form $q(x^2-2x)$ where $q(t)=t^2-1$. This substitution-based structure ($t=x^2-2x=(x-1)^2-1$) is a powerful pattern. Find all solutions to $x^4-4x^3+4x^2=9$ using the same substitution.}
+
+\item Sequence: $a_1=1$, $a_{n+1}=\frac{a_n}{a_n+2}$. Find a closed form for $a_n$ and $a_{100}$.
+\ans{$a_n=\dfrac{1}{2^n-1}$;\quad $a_{100}=\dfrac{1}{2^{100}-1}$}
+\method{Let $b_n=\frac{1}{a_n}$: $b_{n+1}=\frac{a_n+2}{a_n}=1+\frac{2}{a_n}=1+2b_n$. This linear recurrence has homogeneous solution $C\cdot2^n$ and particular solution $-1$, giving $b_n=C\cdot2^n-1$. With $b_1=1$: $C=1$. So $b_n=2^n-1$ and $a_n=\frac{1}{2^n-1}$.}
+\inv{The substitution $b_n=1/a_n$ converted a nonlinear recurrence to a linear one --- a standard trick. Now solve $a_{n+1}=\frac{2a_n}{a_n+3}$ with $a_1=1$ by the same method. Note that as $n\to\infty$, $a_n\to0$: the sequence converges to 0.}
+
+\item Evaluate $\prod_{k=2}^{n}\!\left(1-\frac{1}{k^2}\right)$ in closed form. Find its limit as $n\to\infty$.
+\ans{$\dfrac{n+1}{2n}$;\quad limit $= \dfrac{1}{2}$}
+\method{$1-\frac{1}{k^2}=\frac{(k-1)(k+1)}{k^2}$. Product $=\dfrac{\prod(k-1)}{\prod k}\cdot\dfrac{\prod(k+1)}{\prod k}=\frac{1}{n}\cdot\frac{n+1}{2}=\frac{n+1}{2n}$. Each factor telescopes separately: $\prod_{k=2}^n\frac{k-1}{k}=\frac{1}{n}$ and $\prod_{k=2}^n\frac{k+1}{k}=\frac{n+1}{2}$.}
+\inv{The infinite product $\prod_{k=2}^{\infty}(1-\frac{1}{k^2})=\frac{1}{2}$ has a beautiful proof via the Weierstrass product for $\sin(\pi x)$: $\sin(\pi x)=\pi x\prod_{k=1}^{\infty}(1-\frac{x^2}{k^2})$. Setting $x=1$ gives $0=\pi\cdot0$ (trivial). Setting $x=\frac{1}{2}$: $1=\frac{\pi}{2}\prod_{k=1}^{\infty}(1-\frac{1}{4k^2})$. Explore the Wallis product formula for $\pi$.}
+
+\item $p(x)=x^4+ax^3+bx^2+cx+d$ with $p(1)=10$, $p(2)=20$, $p(3)=30$, $p(4)=40$. Find $p(12)-12p(0)$.
+\ans{$7752$}
+\method{Define $q(x)=p(x)-10x$. Then $q(1)=q(2)=q(3)=q(4)=0$. Since $p$ is monic of degree 4: $q(x)=(x-1)(x-2)(x-3)(x-4)$.
+$p(0)=q(0)=(-1)(-2)(-3)(-4)=24$.
+$p(12)=q(12)+120=(11)(10)(9)(8)+120=7920+120=8040$.
+$p(12)-12p(0)=8040-288=7752$.}
+\inv{The key idea: defining $q(x)=p(x)-f(x)$ where $f$ is simple and matches the given values reduces the problem to finding $q$, which has known zeros. Explore: if $p(k)=k^2$ for $k=0,1,2,3,4$ where $p$ is monic of degree 5, find $p(5)$. (Define $q(x)=p(x)-x^2$ and proceed.)}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Geometric series factorisation.} $x^n-1=(x-1)(x^{n-1}+\cdots+1)$. Before dividing any polynomial by $(x-1)$, check if the Remainder Theorem gives 0 first.
+  \item \textbf{AM--GM for expressions of the form $f(x)+c/f(x)$.} Minimum $=2\sqrt{c}$ at $f(x)=\sqrt{c}$. Recognise the pattern immediately.
+  \item \textbf{Remainder Theorem over long division.} Always evaluate $f(a)$ instead of dividing by $(x-a)$.
+  \item \textbf{Mod-4 parity argument.} $n^2\equiv0$ or $1\pmod4$ for all $n$. Memorise this --- it rules out divisibility by 4 for many expressions.
+  \item \textbf{Polynomial masking: $q(x)=p(x)-f(x)$.} When $p(k)=f(k)$ at several points, define $q=p-f$ to get a polynomial with known zeros.
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Forgetting to check domain when squaring.} In C4, squaring introduces extraneous solutions. Always substitute back.
+  \item \textbf{Confusing $x^4-1$ factors.} Over $\mathbb{R}$: three factors. Over $\mathbb{C}$: four. State your field.
+  \item \textbf{AM--GM requires positive terms.} $3x+27/x\geq18$ only for $x>0$. Check sign before applying.
+  \item \textbf{Missing the polynomial masking trick.} In D5, trying to solve for $a,b,c,d$ directly from three equations is impossible (underdetermined). Always look for a cleaner reformulation.
+  \item \textbf{Partial telescoping errors.} In D4, separate the product into two telescoping products before computing. Do not try to cancel within a single combined fraction.
+\end{enumerate}
+
+\SpeedClosing{``The person who can solve in 5 minutes what others solve in 50 has not worked 10 times harder --- they have seen something different.''}
+
+\end{document}

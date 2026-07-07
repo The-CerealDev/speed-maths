@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#7}
+\noindent\textit{New toolkit today: Weighted AM--GM $\cdot$ Vieta jumping $\cdot$ Power mean inequality $\cdot$ Infinite products via telescoping.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+
+\noindent\textit{No expansion. Recognise the pattern, write the answer.}
+
+\begin{enumerate}
+
+\item Factorise: $\;x^5 - x$.
+
+\item Given $ab + bc + ca = 4$ and $a + b + c = 3$, find $(a+b+c)^2 - (a^2+b^2+c^2)$.
+
+\item Without a calculator: $\;7^2 - 5^2 + 3^2 - 1^2$.
+
+\item The roots of $x^2 - 8x + 3 = 0$ are $p$ and $q$.
+      Find $\left(p - \dfrac{1}{p}\right)\!\!\left(q - \dfrac{1}{q}\right)$.
+
+\item Simplify: $\;\dfrac{(2n)!}{(2n-1)!} - \dfrac{n!}{(n-1)!}$.
+
+\item Factorise: $\;27x^3 - 8$.
+
+\item Given $t = x - \dfrac{1}{x}$, write $t^2 + 4$ in terms of $x$.
+
+\item Evaluate: $\;\log_2 8 + \log_2 4 - \log_2 32$.
+      (\textit{No log rules needed: convert to powers of 2.})
+
+\item Given $f(x) = 2x + 1$ and $g(x) = x^2 - 1$, find $f(g(x)) - g(f(x))$.
+
+\item Simplify: $\;\dfrac{a^2 - b^2}{a - b} - \dfrac{a^2 - c^2}{a - c}$.
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+
+\noindent\textit{Fractions, structure, identities. Minimum working.}
+
+\begin{enumerate}
+
+\item Evaluate the telescoping product:
+      $\;\displaystyle\prod_{k=2}^{n} \!\left(1 - \dfrac{1}{k}\right)$
+      and find its value when $n = 100$.
+
+\item Simplify: $\;\dfrac{x^2 + 3x - 10}{x^2 - x - 2} \cdot \dfrac{x^2 + x - 2}{x^2 + 6x + 5}$.
+
+\item Find the value of $\;a^3 + b^3 + c^3\;$ given
+      $a + b + c = 2$, $\;a^2+b^2+c^2 = 6$, $\;abc = -2$.
+
+\item The expression $\;p(x) = x^4 + 4\;$ can be written as a product of two
+      quadratic factors with integer coefficients. Find them.
+      (\textit{This is Sophie Germain: add and subtract $4x^2$.})
+
+\item Given $\;f(x) = \dfrac{2x+1}{x-1}\;$, find $f^{-1}(x)$ and verify
+      $f(f^{-1}(x)) = x$.
+
+\item Prove: the product of four consecutive integers is always one less
+      than a perfect square.
+      (\textit{Let the integers be $n-1, n, n+1, n+2$ and pair them.})
+
+\item Simplify: $\;\dfrac{1}{1 + x} + \dfrac{1}{1 - x} + \dfrac{2}{1 + x^2} + \dfrac{4}{1 + x^4}$.
+
+\item The equation $\;x^3 + px + q = 0\;$ has roots $\alpha, \beta, \gamma$.
+      Express $\alpha^3 + \beta^3 + \gamma^3$ in terms of $p$ and $q$ \emph{without using Newton's identity}.
+      (\textit{Each root satisfies $r^3 = -pr - q$. Add.})
+
+\item Prove that if $a + b + c = 0$ then $(a^2+b^2+c^2)^2 = 2(a^4+b^4+c^4)$.
+
+\item Solve: $\;\dfrac{x+1}{x-2} + \dfrac{x-2}{x+1} = \dfrac{10}{3}$.
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+
+\noindent\textit{One clean substitution is worth ten lines of algebra.}
+
+\begin{enumerate}
+
+\item Using weighted AM--GM ($\lambda a + (1-\lambda)b \geq a^\lambda b^{1-\lambda}$
+      for $\lambda \in (0,1)$), prove that $\;\dfrac{x}{3} + \dfrac{2y}{3} \geq x^{1/3}y^{2/3}$
+      for $x, y > 0$.
+
+\item Find all real pairs $(x, y)$ satisfying:
+      $\;x + y = 1\;$ and $\;x^4 + y^4 = \dfrac{7}{8}$.
+
+\item Prove: for $a, b > 0$,
+\[
+  \sqrt{\frac{a^2+b^2}{2}} \;\geq\; \frac{a+b}{2} \;\geq\; \sqrt{ab} \;\geq\; \frac{2ab}{a+b}.
+\]
+(\textit{Prove each $\geq$ from right to left using a single algebraic step each.})
+
+\item Solve: $\;27^x + 27^{1-x} = 28$.
+
+\item For real $a, b, c$ with $a + b + c = 1$ and $abc > 0$,
+      prove $\;\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} \geq 9$.
+
+\item The sum $S = 1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\dfrac{n(n+1)}{2}\right)^2$.
+      Verify for $n = 3$, then use it to evaluate $3^3+4^3+\cdots+10^3$ without
+      computing each cube.
+
+\item Find all real solutions to $\;|x^2 - 4| = |x - 2| \cdot |x + 2|$.
+
+\item Given $x, y > 0$ with $x + y = 4$, find the maximum of $\;x^2 y$.
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+
+\noindent\textit{No brute force. Each question rewards one key observation.}
+
+\begin{enumerate}
+
+\item \textbf{Vieta Jumping.}
+      Suppose $a$ and $b$ are positive integers with $a^2 + b^2 = k(ab + 1)$
+      for some positive integer $k$.
+      \begin{itemize}[leftmargin=*,itemsep=2pt]
+        \item[(a)] Show $k = 4$ is achieved by $(a,b) = (2,2)$.
+        \item[(b)] Assume a solution $(a,b)$ with $a \geq b$ exists.
+                   Consider $a$ as a root of $x^2 - kbx + (b^2-k) = 0$
+                   and let $a'$ be the other root. Show $a' = kb - a$ and $a'b = b^2 - k$.
+                   (\textit{This is the essence of Vieta jumping: the other root is smaller.})
+      \end{itemize}
+
+\item Find all polynomials $p(x)$ with real coefficients such that
+      $(x-1)p(x+1) = (x+2)p(x)$ for all real $x$.
+
+\item For positive reals $a, b, c$ with $a + b + c = 1$, find the minimum of
+\[
+  \frac{a}{1-a} + \frac{b}{1-b} + \frac{c}{1-c}.
+\]
+
+\item Evaluate:
+\[
+  \prod_{n=2}^{\infty}\frac{n^3-1}{n^3+1}.
+\]
+(\textit{Factor each term as a ratio of products using sum and difference of cubes.
+The result telescopes.})
+
+\item Find all integer solutions to $\;x^3 + y^3 = (x+y)^2$.
+
+\end{enumerate}
+
+\SpeedClosing{``Do not worry about your difficulties in mathematics.
+I assure you mine are still greater.''~--- Albert Einstein}
+
+\end{document}

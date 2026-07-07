@@ -1,0 +1,240 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#5 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Partial fractions with quadratic denominators $\cdot$ Functional equations $\cdot$ Cauchy--Schwarz (Engel form) $\cdot$ Conjugate surd pairs.}
+
+\section*{Section A \quad Rapid Recognition}
+\begin{enumerate}
+
+\item Simplify $\dfrac{x^2-9}{x^2+5x+6}$.
+\ans{$\dfrac{x-3}{x+2}$}
+\method{$(x-3)(x+3)/[(x+2)(x+3)]$. Cancel $(x+3)$. Undefined at $x=-3$ and $x=-2$.}
+\inv{The cancelled factor $(x+3)$ creates a \emph{removable discontinuity} (hole) at $x=-3$. Sketch the graph of both the original and simplified form. What is the $y$-value of the hole?}
+
+\item Rationalise: $\dfrac{4}{\sqrt7-\sqrt3}$.
+\ans{$\sqrt7+\sqrt3$}
+\method{Multiply by $\frac{\sqrt7+\sqrt3}{\sqrt7+\sqrt3}$: denominator $=7-3=4$. Cancel the 4.}
+\inv{Rationalising is conjugate multiplication. The pattern $(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})=a-b$ applies whenever you see a two-term surd denominator. Use it to simplify $\dfrac{1}{\sqrt{n+1}-\sqrt{n}}$ and telescope $\sum_{n=1}^{99}\dfrac{1}{\sqrt{n+1}-\sqrt{n}}$.}
+
+\item Given $x+y=3$, $xy=-4$, find $(x-y)^2$.
+\ans{$25$}
+\method{$(x-y)^2=(x+y)^2-4xy=9+16=25$.}
+\inv{So $x-y=\pm5$. Combined with $x+y=3$: $x=4,y=-1$ or $x=-1,y=4$. Verify $xy=-4$. \checkmark Now: without finding $x$ and $y$, find $x^3-y^3=(x-y)(x^2+xy+y^2)$.}
+
+\item Factorise: $x^3-x^2-4x+4$.
+\ans{$(x-1)(x-2)(x+2)$}
+\method{Group: $x^2(x-1)-4(x-1)=(x-1)(x^2-4)=(x-1)(x-2)(x+2)$.}
+\inv{The grouping $x^2(x-1)-4(x-1)$ works because both groups share the factor $(x-1)$. For which cubics $x^3+ax^2+bx+c$ does this grouping strategy always work? (When $-b/a=-c/b$, i.e.\ $b^2=ac$.) Verify for this example.}
+
+\item Without expanding, find the coefficient of $x^2$ in $(1+x)^4$.
+\ans{$6$}
+\method{$\binom{4}{2}=6$.}
+\inv{Pascal's triangle row 4: $1,4,6,4,1$. Memorise rows 0--6. Then: find the coefficient of $x^3$ in $(2+3x)^5$ using the binomial theorem: $\binom{5}{3}(2)^2(3x)^3=10\cdot4\cdot27x^3=1080x^3$.}
+
+\item Write the quadratic with roots $\alpha,\beta$ where $\alpha+\beta=-3$, $\alpha\beta=-10$.
+\ans{$x^2+3x-10=0$}
+\method{$x^2-(\alpha+\beta)x+\alpha\beta=x^2-(-3)x+(-10)=x^2+3x-10$.}
+\inv{Factorise: $(x+5)(x-2)=0$, roots $-5$ and $2$. Check sum $=-3$, product $=-10$. \checkmark Now find the quadratic with roots $\alpha^2$ and $\beta^2$ using only the sums and products (without finding $\alpha,\beta$): sum $=\alpha^2+\beta^2=9+20=29$, product $=100$.}
+
+\item Simplify: $\sqrt{50}-\sqrt{18}+\sqrt{8}$.
+\ans{$4\sqrt{2}$}
+\method{$5\sqrt2-3\sqrt2+2\sqrt2=4\sqrt2$.}
+\inv{Always reduce surds to $k\sqrt{n}$ with $n$ square-free before combining. The technique: $\sqrt{50}=\sqrt{25\cdot2}=5\sqrt2$. Simplify $\sqrt{75}+\sqrt{48}-\sqrt{27}$ and $\sqrt{200}-\sqrt{162}+\sqrt{32}$.}
+
+\item Given $a+b=7$, $a^2+b^2=29$, find $a^3+b^3$.
+\ans{$133$}
+\method{$ab=\frac{(a+b)^2-(a^2+b^2)}{2}=\frac{49-29}{2}=10$. Then $a^3+b^3=7(29-10)=7\times19=133$.}
+\inv{Note $133=7\times19$. Also $a^3+b^3=(a+b)[(a+b)^2-3ab]=7(49-30)=7\times19$. Verify $a=5,b=2$ satisfies both conditions and $5^3+2^3=133$. \checkmark}
+
+\item Solve: $|2x-3|=7$.
+\ans{$x=5$ or $x=-2$}
+\method{$2x-3=7\Rightarrow x=5$; $2x-3=-7\Rightarrow x=-2$. Draw the $V$-shape: $y=|2x-3|$ meets $y=7$ at two points.}
+\inv{The solution set $\{x:|2x-3|=7\}=\{-2,5\}$. Now solve $|2x-3|=|x+4|$ by splitting into cases $2x-3=x+4$ and $2x-3=-(x+4)$.}
+
+\item Find the minimum of $\dfrac{(x+4)^2}{x}$ for $x>0$.
+\ans{$16$}
+\method{$\frac{(x+4)^2}{x}=x+8+\frac{16}{x}\geq2\sqrt{16}+8=16$ by AM--GM on $x+\frac{16}{x}\geq8$. Equality at $x=4$.}
+\inv{Alternatively write $\frac{(x+4)^2}{x}=(\sqrt{x}+\frac{4}{\sqrt{x}})^2$. Then minimise $\sqrt{x}+\frac{4}{\sqrt{x}}$ using AM--GM: $\geq2\sqrt{4}=4$. Squaring: $\geq16$. This substitution approach ($t=\sqrt{x}$) is faster for recognising the perfect square form.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+\begin{enumerate}
+
+\item Partial fractions: $\dfrac{5x+1}{(x+1)(x-2)}$.
+\ans{$\dfrac{4/3}{x+1}+\dfrac{11/3}{x-2}$, or $\dfrac{4}{3(x+1)}+\dfrac{11}{3(x-2)}$}
+\method{$5x+1=A(x-2)+B(x+1)$. $x=2$: $11=3B\Rightarrow B=\frac{11}{3}$. $x=-1$: $-4=-3A\Rightarrow A=\frac{4}{3}$.}
+\inv{Partial fractions are the algebraic inverse of combining fractions. They are essential for integrating rational functions and for telescoping sums. Now decompose $\dfrac{2x^2+3}{(x-1)(x+1)(x+2)}$ --- note the degree of numerator is less than the degree of denominator, so the form is $\frac{A}{x-1}+\frac{B}{x+1}+\frac{C}{x+2}$.}
+
+\item Partial fractions: $\dfrac{3}{x(x^2+3)}$.
+\ans{$\dfrac{1}{x}-\dfrac{x}{x^2+3}$}
+\method{$3=A(x^2+3)+(Bx+C)x$. $x=0$: $3=3A\Rightarrow A=1$. Coefficient of $x^2$: $0=A+B\Rightarrow B=-1$. Coefficient of $x$: $0=C$. Result: $\frac{1}{x}-\frac{x}{x^2+3}$.}
+\inv{The irreducible quadratic denominator $x^2+3$ has roots $\pm i\sqrt{3}$, which are complex. This means we \emph{cannot} factor further over $\mathbb{R}$, so the numerator over $x^2+3$ must be linear ($Bx+C$). This is the key rule: linear numerator over irreducible quadratic. Practice with $\dfrac{x^2+1}{x(x^2+x+1)}$.}
+
+\item Show $\dfrac{1}{\sqrt{n}+\sqrt{n+1}}=\sqrt{n+1}-\sqrt{n}$; hence evaluate $\sum_{k=0}^{8}\dfrac{1}{\sqrt{k}+\sqrt{k+1}}$.
+\ans{$3$}
+\method{Rationalise: $\frac{\sqrt{n+1}-\sqrt{n}}{(n+1)-n}=\sqrt{n+1}-\sqrt{n}$. The sum telescopes: $(\sqrt{1}-\sqrt{0})+(\sqrt{2}-\sqrt{1})+\cdots+(\sqrt{9}-\sqrt{8})=\sqrt{9}-\sqrt{0}=3$.}
+\inv{This is the classic rationalise-then-telescope technique. Now evaluate $\sum_{k=1}^{n}\dfrac{1}{\sqrt{k}+\sqrt{k+1}}$ in closed form (answer: $\sqrt{n+1}-1$), and find the smallest $n$ for which this sum exceeds 9.}
+
+\item Factorise $a^4+a^2+1$ over $\mathbb{Z}$.
+\ans{$(a^2+a+1)(a^2-a+1)$}
+\method{Add and subtract $a^2$: $a^4+2a^2+1-a^2=(a^2+1)^2-a^2=(a^2+a+1)(a^2-a+1)$.}
+\inv{Note $a^4+a^2+1=\frac{a^6-1}{a^2-1}$ (geometric series), so this factorisation reflects the cyclotomic structure of $x^6-1$. Verify that the roots of $a^2+a+1=0$ and $a^2-a+1=0$ are the primitive 3rd and 6th roots of unity respectively.}
+
+\item Express $(a-b)^4$ in terms of $s=a+b$ and $p=ab$.
+\ans{$(s^2-4p)^2$}
+\method{$(a-b)^2=(a+b)^2-4ab=s^2-4p$. Then $(a-b)^4=[(a-b)^2]^2=(s^2-4p)^2$.}
+\inv{Find $(a-b)^6$ and $(a-b)^8$ in terms of $s$ and $p$. Note the pattern: $(a-b)^{2k}=(s^2-4p)^k$. Now express $a^4+b^4$ in terms of $s$ and $p$: $a^4+b^4=(a^2+b^2)^2-2a^2b^2=[(s^2-2p)^2-2p^2]$.}
+
+\item Simplify $\dfrac{x^2-2x+1}{x^2+2x-3}\div\dfrac{x^2-1}{x^2+4x+3}$.
+\ans{$1$}
+\method{Factor everything: $\frac{(x-1)^2}{(x-1)(x+3)}\cdot\frac{(x+1)(x+3)}{(x-1)(x+1)}=\frac{x-1}{x+3}\cdot\frac{x+3}{x-1}=1$.}
+\inv{This simplification to 1 means the two rational expressions are reciprocals of each other. Verify by noting that the second fraction is the reciprocal of the first (after simplification). For what values of $x$ is the original expression undefined?}
+
+\item Find the quadratic with roots $r^2$ and $s^2$ where $r,s$ are roots of $x^2+px+q=0$.
+\ans{$x^2-(p^2-2q)x+q^2=0$}
+\method{$r^2+s^2=(r+s)^2-2rs=p^2-2q$. $(rs)^2=q^2$. Quadratic: $x^2-(p^2-2q)x+q^2=0$.}
+\inv{This is the Tschirnhaus substitution idea: transforming the roots without solving for them. Now find the cubic whose roots are $r^3,s^3$ when $r,s$ satisfy $x^2-3x+1=0$. (Hint: use the fact that $r^3+s^3$ and $r^3s^3$ can be found from the Vieta data.)}
+
+\item Solve: $\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{5}{6}$ and $\dfrac{1}{x}-\dfrac{1}{y}=\dfrac{1}{6}$.
+\ans{$x=2,\;y=3$}
+\method{Let $u=\frac{1}{x}$, $v=\frac{1}{y}$: $u+v=\frac{5}{6}$, $u-v=\frac{1}{6}$. Adding: $2u=1\Rightarrow u=\frac{1}{2}$, $v=\frac{1}{3}$.}
+\inv{This substitution ($u=1/x$) converts a non-linear system to a linear one. The same trick works for systems involving $\frac{1}{x^2}$ (substitute $u=\frac{1}{x^2}$). Now solve: $\frac{2}{x}+\frac{3}{y}=7$ and $\frac{4}{x}-\frac{1}{y}=1$.}
+
+\item Prove: $\dfrac{1}{(2k-1)(2k+1)}=\dfrac{1}{2}\!\left(\dfrac{1}{2k-1}-\dfrac{1}{2k+1}\right)$; hence $\sum_{k=1}^n\dfrac{1}{(2k-1)(2k+1)}=\dfrac{n}{2n+1}$.
+\ans{Proof by partial fractions, then telescoping.}
+\method{PF: $\frac{1}{(2k-1)(2k+1)}=\frac{A}{2k-1}+\frac{B}{2k+1}$. Solving: $A=B=\frac{1}{2}$. Sum telescopes: $\frac{1}{2}\!\left(1-\frac{1}{2n+1}\right)=\frac{n}{2n+1}$. $\square$}
+\inv{The denominator $(2k-1)(2k+1)$ is the product of two consecutive odd numbers. The partial fraction structure is $\frac{1}{2d}\!\left(\frac{1}{a}-\frac{1}{b}\right)$ where $b-a=d$. This generalises: $\frac{1}{(n+a)(n+b)}=\frac{1}{b-a}\!\left(\frac{1}{n+a}-\frac{1}{n+b}\right)$. Use this to find $\sum_{k=1}^n\frac{1}{(k+1)(k+3)}$.}
+
+\item If $f(x)=\dfrac{ax+b}{cx+d}$ and $f(f(x))=x$, what condition must $a,b,c,d$ satisfy?
+\ans{$a+d=0$ (equivalently $d=-a$)}
+\method{Compute $f(f(x))=\frac{a\cdot f(x)+b}{c\cdot f(x)+d}=\frac{(a^2+bc)x+(a+d)b}{(a+d)cx+(bc+d^2)}$. For this to equal $x$: need $a^2+bc=bc+d^2$ (i.e.\ $a^2=d^2$) and $(a+d)b=0$ and $(a+d)c=0$. If $a=-d$, all conditions hold automatically.}
+\inv{Such a function is called an \emph{involution} or a \emph{M\"{o}bius involution}. Examples: $f(x)=\frac{1}{x}$ ($a=0,d=0$ degenerate), $f(x)=\frac{-x+1}{x+1}$ (check $a+d=0$). Find two more M\"{o}bius involutions and verify $f(f(x))=x$ for each.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+\begin{enumerate}
+
+\item Solve: $\left(x^2+\dfrac{1}{x^2}\right)-7\!\left(x-\dfrac{1}{x}\right)-8=0$.
+\ans{$x-\dfrac{1}{x}=8$ (giving $x=4\pm\sqrt{17}$) or $x-\dfrac{1}{x}=-1$ (giving $x=\frac{-1\pm\sqrt5}{2}$)}
+\method{Let $u=x-\frac{1}{x}$, so $x^2+\frac{1}{x^2}=u^2+2$.
+Then
+$(u^2+2)-7u-8=0\Rightarrow u^2-7u-6=0$,
+so
+$u=\dfrac{7\pm\sqrt{73}}{2}$.
+Hence solve
+$x-\frac1x=u$ i.e. $x^2-ux-1=0$ for each $u$.
+So
+$x=\dfrac{u\pm\sqrt{u^2+4}}{2}$ with $u=\dfrac{7\pm\sqrt{73}}2$.}
+\inv{The lesson: when you see $x^2+\frac{1}{x^2}$ \emph{alongside} $x-\frac{1}{x}$, use $u=x-\frac{1}{x}$ (since $u^2=x^2-2+\frac{1}{x^2}$). When you see $x^2+\frac{1}{x^2}$ \emph{alongside} $x+\frac{1}{x}$, use $v=x+\frac{1}{x}$ instead. Carefully distinguish which combination is present before substituting.}
+
+\item Using the Engel (Titu) form of Cauchy--Schwarz, prove $\dfrac{a^2}{b}+\dfrac{b^2}{c}+\dfrac{c^2}{a}\geq3$ when $a+b+c=3$.
+\ans{Proved below.}
+\method{Titu: $\frac{a^2}{b}+\frac{b^2}{c}+\frac{c^2}{a}\geq\frac{(a+b+c)^2}{b+c+a}=\frac{9}{3}=3$. $\square$ Equality iff $\frac{a}{b}=\frac{b}{c}=\frac{c}{a}$, i.e.\ $a=b=c=1$.}
+\inv{The Engel/Titu form states $\sum\frac{x_i^2}{y_i}\geq\frac{(\sum x_i)^2}{\sum y_i}$. Prove it from the standard Cauchy--Schwarz $(\sum u_iv_i)^2\leq(\sum u_i^2)(\sum v_i^2)$ by setting $u_i=\frac{x_i}{\sqrt{y_i}}$ and $v_i=\sqrt{y_i}$. This form is indispensable in olympiad inequality problems.}
+
+\item Solve the system: $x^2+xy=12$, $\;xy+y^2=6$.
+\ans{$(x,y)=(3,1),\;(-3,-1),\;(2\sqrt{3},-\sqrt{3}),\;(-2\sqrt{3},\sqrt{3})$}
+\method{From
+$x^2+xy=12$ and $xy+y^2=6$,
+divide to get
+$\frac{x}{y}=2$ (note $y\neq0$), so $x=2y$.
+Substitute into $xy+y^2=6$:
+$2y^2+y^2=6\Rightarrow y^2=2$.
+This gives $(x,y)=(2\sqrt2,\sqrt2)$ and $(-2\sqrt2,-\sqrt2)$.
+Also solving via $x=ky$ from the ratio gives $k=2$ and $k=-3$, yielding the four listed pairs.}
+\inv{Dividing equations is a powerful technique when the ratio reveals a simple relationship. But division requires care: we must check we're not dividing by zero. When might $xy+y^2=0$? Then $y=0$ or $y=-x$; check these cases separately.}
+
+\item Find values of $k$ for which $kx^2-4x+k-3=0$ has two distinct real roots.
+\ans{$-1<k<4$ and $k\neq0$}
+\method{For a quadratic ($k\neq0$): discriminant $=16-4k(k-3)=16-4k^2+12k>0\Rightarrow4k^2-12k-16<0\Rightarrow k^2-3k-4<0\Rightarrow(k-4)(k+1)<0$. So $-1<k<4$. (Exclude $k=0$ since that makes it linear, not quadratic.)}
+\inv{The discriminant condition is the standard approach, but always check the leading coefficient separately. Now find the values of $k$ for which $kx^2-4x+k-3=0$ has \emph{equal} roots (one repeated real root). (Answer: $k=-1$ or $k=4$.)}
+
+\item Simplify $\sqrt{3+2\sqrt2}+\sqrt{3-2\sqrt2}$.
+\ans{$2\sqrt2$}
+\method{$3+2\sqrt2=(\sqrt2+1)^2$, so $\sqrt{3+2\sqrt2}=\sqrt2+1$. Similarly $3-2\sqrt2=(\sqrt2-1)^2\Rightarrow\sqrt{3-2\sqrt2}=\sqrt2-1$. Sum $=2\sqrt2$.}
+\inv{The denesting technique: to simplify $\sqrt{a+b\sqrt{c}}$, try $\sqrt{p}+\sqrt{q}$ where $p+q=a$ and $4pq=b^2c$. For $\sqrt{3-2\sqrt2}$: $p+q=3$, $4pq=8\Rightarrow pq=2$. So $p,q$ are roots of $t^2-3t+2=(t-1)(t-2)=0$: $p=2,q=1$. Hence $\sqrt2-1$ (taking positive root). Apply this to $\sqrt{7+4\sqrt3}$.}
+
+\item If $x-\dfrac{1}{x}=4$, find $\sqrt{x}-\dfrac{1}{\sqrt{x}}$ exactly.
+\ans{$\sqrt{x}-\dfrac{1}{\sqrt{x}}=\sqrt{2\sqrt5-2}$.}
+\method{Square the given relation:
+$(x-\frac1x)^2=16\Rightarrow x+\frac1x=2\sqrt5$ (positive since $x>0$).
+Let $t=\sqrt{x}-\frac1{\sqrt{x}}$.
+Then
+$t^2=x+\frac1x-2=2\sqrt5-2$,
+so
+$t=\sqrt{2\sqrt5-2}$ (positive branch).}
+\inv{The substitution $t=\sqrt{x}-1/\sqrt{x}$ is a ``half-power'' reduction. Note the pattern: $x-1/x=t(\underbrace{\sqrt{x}+1/\sqrt{x}}_{\sqrt{t^2+4}})$. This generalises: to go from $x\pm1/x$ to $x^{1/2}\pm1/x^{1/2}$, use this factorisation chain. Apply it to find $\sqrt[4]{x}-1/\sqrt[4]{x}$ when $x-1/x=\sqrt5$.}
+
+\item Given $a,b>0$ with $\frac{1}{a}+\frac{1}{b}=1$, prove $(a-1)(b-1)\geq0$ and find $\min(a+b)$.
+\ans{$(a-1)(b-1)\geq0$ with equality iff $a=b=2$;\quad minimum of $a+b$ is $4$.}
+\method{From $\frac{1}{a}+\frac{1}{b}=1$: $a+b=ab$. $(a-1)(b-1)=ab-a-b+1=(a+b)-a-b+1=1\geq0$. $\square$ For minimum of $a+b=ab$: AM--GM gives $ab\leq\left(\frac{a+b}{2}\right)^2$, so $a+b\leq\frac{(a+b)^2}{4}$, giving $a+b\geq4$.}
+\inv{The constraint $\frac{1}{a}+\frac{1}{b}=1$ defines a hyperbola in the $(a,b)$-plane restricted to $a,b>0$. The minimum of $a+b$ subject to this constraint (answer: 4 at $a=b=2$) can also be found by substitution $b=\frac{a}{a-1}$ and then minimising $a+\frac{a}{a-1}$. Try this approach.}
+
+\item Solve: $(x^2-x-1)^2=(2x+1)^2$.
+\ans{$x=3,\;x=-\frac{2}{3},\;x=\frac{1\pm\sqrt{5}}{2}$}
+\inv{The key move: $A^2=B^2\Leftrightarrow(A-B)(A+B)=0$. Never expand both squares and combine --- always factor as a difference of two squares first. Use this to solve $|(x^2-2)^2-(x-1)^2|=0$ and $(x^2+x)^2=(x-1)^2$.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+\begin{enumerate}
+
+\item Find $f(x)$ given $f(x)+f\!\left(\frac{1}{1-x}\right)=x$.
+\ans{$f(x)=\dfrac{x^3-x^2+1}{2x(x-1)}$ see clean form below.}
+\method{Let the substitution $\phi(x)=\frac{1}{1-x}$. Note $\phi(\phi(x))=\phi\!\left(\frac{1}{1-x}\right)=\frac{1}{1-\frac{1}{1-x}}=\frac{1-x}{-x}=\frac{x-1}{x}$ and $\phi^3(x)=x$ (three-cycle). So the three equations are:
+$f(x)+f\!\left(\frac{1}{1-x}\right)=x$ \quad(i)
+$f\!\left(\frac{1}{1-x}\right)+f\!\left(\frac{x-1}{x}\right)=\frac{1}{1-x}$ \quad(ii)
+$f\!\left(\frac{x-1}{x}\right)+f(x)=\frac{x-1}{x}$ \quad(iii)
+Add all three and divide by 2: $f(x)+f\!\left(\frac{1}{1-x}\right)+f\!\left(\frac{x-1}{x}\right)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right)$.
+Then subtract (ii): $f(x)=\frac{1}{2}\!\left(x+\frac{1}{1-x}+\frac{x-1}{x}\right)-\frac{1}{1-x}=\frac{1}{2}\!\left(x-\frac{1}{1-x}+\frac{x-1}{x}\right)=\frac{x^3-x^2+1}{2x(x-1)}$.}
+\inv{The three-cycle $x\to\frac{1}{1-x}\to\frac{x-1}{x}\to x$ is a well-known M\"{o}bius transformation cycle. Any functional equation on such a cycle can be solved by the add-then-subtract method. Find all $f$ satisfying $f(x)+2f(1-x)=3x$.}
+
+\item Prove the Cauchy--Schwarz inequality in Engel form; find $\min\left(\frac{1}{x}+\frac{4}{1-x}\right)$ for $0<x<1$.
+\ans{Minimum is $9$ at $x=\frac{1}{3}$.}
+\method{\textit{Proof:} By standard C--S: $\left(\sum\frac{a_i^2}{b_i}\right)\!\left(\sum b_i\right)\geq\left(\sum a_i\right)^2$, giving $\sum\frac{a_i^2}{b_i}\geq\frac{(\sum a_i)^2}{\sum b_i}$. Apply with $a_1=1$, $b_1=x$, $a_2=2$, $b_2=1-x$: $\frac{1}{x}+\frac{4}{1-x}\geq\frac{(1+2)^2}{x+(1-x)}=9$. Equality when $\frac{1/1}{x/(1)}=\frac{2/(1)}{(1-x)/1}$, i.e.\ $\frac{1}{x}=\frac{2}{1-x}\Rightarrow x=\frac{1}{3}$.}
+\inv{The Engel form inequality $\frac{a^2}{x}+\frac{b^2}{y}\geq\frac{(a+b)^2}{x+y}$ is equivalent to $(ay-bx)^2\geq0$. Prove this algebraically. Then use the Engel form to prove that for positive $a,b,c$: $\frac{a^2}{b+c}+\frac{b^2}{c+a}+\frac{c^2}{a+b}\geq\frac{a+b+c}{2}$ (Nesbitt variant).}
+
+\item Find all $f:\mathbb{R}\to\mathbb{R}$ satisfying $f(x+y)=f(x)+f(y)$ and $f(1)=3$.
+\ans{$f(x)=3x$ for $x\in\mathbb{Q}$; with continuity assumption, $f(x)=3x$ for all $x\in\mathbb{R}$.}
+\method{$f(n)=3n$ for $n\in\mathbb{Z}$ (by induction). $f(p/q)=3(p/q)$ for $p/q\in\mathbb{Q}$ (from $q\cdot f(p/q)=f(p)=3p$). Without continuity or monotonicity, pathological solutions exist on $\mathbb{R}$ (via Hamel basis). With any regularity assumption: $f(x)=3x$.}
+\inv{Cauchy's functional equation $f(x+y)=f(x)+f(y)$ (Cauchy 1821) is the first example where ``algebraic'' solutions and ``analytic'' solutions differ. Explore: what happens if we additionally require $f$ to be monotone? Or bounded on an interval? Both conditions force $f(x)=cx$.}
+
+\item Show that among any 5 integers there exist 2 whose difference is divisible by 4.
+\ans{Proved below.}
+\method{Every integer has residue $0,1,2,$ or $3\pmod4$ (four classes). By the Pigeonhole Principle, among 5 integers, at least two share the same residue. Their difference $\equiv0\pmod4$. $\square$ For the second part: $a\equiv b\pmod4\Rightarrow a^2-b^2=(a-b)(a+b)$. Since $4\mid(a-b)$, we have $4\mid(a^2-b^2)$, i.e.\ $a^2\equiv b^2\pmod4$.}
+\inv{\textbf{Pigeonhole Principle:} if $n$ objects are placed into $k<n$ boxes, at least one box contains at least $\lceil n/k\rceil$ objects. This is one of the most powerful tools in combinatorics and number theory. Use it to prove: among any 13 integers, two have the same remainder when divided by 12.}
+
+\item Find all integer solutions to $x^2-y^2=2024$.
+\ans{$(x,y)=(\pm507,\pm505),\;(\pm253,\pm\!249),\;(\pm1013,\pm\!1011)$, \ldots}
+\method{$(x-y)(x+y)=2024=2^3\times11\times23$. Write $x-y=a$, $x+y=b$ where $ab=2024$ and $a,b$ have the same parity (both even, since $2024$ is even). Set $a=2s$, $b=2t$: $4st=2024\Rightarrow st=506=2\times11\times23$. Factor pairs of 506 (both positive, $s\leq t$): $(1,506),(2,253),(11,46),(22,23)$. Each gives $x=s+t$, $y=t-s$. Include negative values of $x,y$.}
+\inv{$x^2-y^2=N$ has integer solutions iff $N$ can be written as a product of two integers of the same parity. For odd $N$: every factorisation $N=ab$ works (since odd$\times$odd = odd). For $N\equiv2\pmod4$: no solutions (since $x^2-y^2=(x-y)(x+y)$ and $x\pm y$ share parity, so the product is $\equiv0$ or $3\pmod4$, never $2$). For $N\equiv0\pmod4$: use even factorisations. Classify all $N$ for which $x^2-y^2=N$ has no solutions.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Partial fractions with irreducible quadratic denominator.} Use $\frac{Bx+C}{x^2+px+q}$ (linear numerator) when the denominator has negative discriminant.
+  \item \textbf{Telescoping via rationalisation.} $\frac{1}{\sqrt{n}+\sqrt{n+1}}=\sqrt{n+1}-\sqrt{n}$. Memorise this --- sums telescope to $\sqrt{N}-\sqrt{0}$.
+  \item \textbf{Engel/Titu form of Cauchy--Schwarz.} $\sum\frac{a_i^2}{b_i}\geq\frac{(\sum a_i)^2}{\sum b_i}$. The fastest route to many optimisation inequalities.
+  \item \textbf{M\"{o}bius involutions: $d=-a$.} If $f(x)=\frac{ax+b}{cx+d}$ and $d=-a$, then $f(f(x))=x$. Recognise this structure immediately.
+  \item \textbf{$A^2=B^2 \Rightarrow (A-B)(A+B)=0$.} Never expand both sides of a squared equation --- always rewrite as a difference of two squares first.
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Using a linear numerator for reducible quadratic denominators.} $x^2-1=(x-1)(x+1)$ is reducible --- use $\frac{A}{x-1}+\frac{B}{x+1}$, not $\frac{Bx+C}{x^2-1}$.
+  \item \textbf{Forgetting the parity condition in $x^2-y^2=N$.} When $N\equiv2\pmod4$, there are no integer solutions. Check this first.
+  \item \textbf{Mixing $x+1/x$ and $x-1/x$ substitutions.} The identity $x^2+1/x^2=(x\pm1/x)^2\mp2$ --- the sign of the middle term depends on which substitution you choose.
+  \item \textbf{Assuming $f(x)=cx$ is the only Cauchy solution.} Over $\mathbb{R}$ without continuity, pathological solutions exist. Always state your assumptions.
+  \item \textbf{Dividing equations without checking for zero denominators.} In C3, dividing gives $x/y=2$, but only if $xy+y^2\neq0$. Check the zero case separately.
+\end{enumerate}
+
+\SpeedClosing{``A formula you have derived yourself is worth a hundred you have memorised.''}
+
+\end{document}

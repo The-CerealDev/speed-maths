@@ -1,0 +1,263 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#7 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Weighted AM--GM $\cdot$ Vieta jumping $\cdot$ Power mean inequality $\cdot$ Infinite products via telescoping.}
+
+\section*{Section A \quad Rapid Recognition}
+\begin{enumerate}
+
+\item Factorise: $x^5-x$.
+\ans{$x(x-1)(x+1)(x^2+1)$}
+\method{$x(x^4-1)=x(x^2-1)(x^2+1)=x(x-1)(x+1)(x^2+1)$.}
+\inv{The five roots are $0,\pm1,\pm i$. These are all fifth roots of $x^5=x$, i.e.\ fixed points of $f(z)=z^5$ on $\mathbb{C}$. Separately: $x^5-x=x(x^4-1)$. Note $x^4-1=(x^2-1)(x^2+1)$. How many real roots does $x^5-x=c$ have for various $c$?}
+
+\item Given $ab+bc+ca=4$ and $a+b+c=3$, find $(a+b+c)^2-(a^2+b^2+c^2)$.
+\ans{$8$}
+\method{$(a+b+c)^2-(a^2+b^2+c^2)=2(ab+bc+ca)=8$.}
+\inv{Instant: the identity $(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca)$ means the answer is $2\times4=8$, regardless of the value of $a+b+c=3$. The condition $a+b+c=3$ is a red herring here --- a classic TMUA trap.}
+
+\item Without a calculator: $7^2-5^2+3^2-1^2$.
+\ans{$32$}
+\inv{Use $(a^2-b^2)=(a-b)(a+b)$: $(7^2-5^2)+(3^2-1^2)=(7-5)(7+5)+(3-1)(3+1)=2\times12+2\times4=24+8=32$. This telescoping of paired differences is always faster than computing individual squares.}
+
+\item Roots of $x^2-8x+3=0$ are $p,q$. Find $\left(p-\frac{1}{p}\right)\!\!\left(q-\frac{1}{q}\right)$.
+\method{$\left(p-\frac{1}{p}\right)\!\!\left(q-\frac{1}{q}\right)=pq-\frac{p}{q}-\frac{q}{p}+\frac{1}{pq}=pq-\frac{p^2+q^2}{pq}+\frac{1}{pq}$.
+Vieta: $p+q=8$, $pq=3$. $p^2+q^2=(p+q)^2-2pq=64-6=58$.
+Result $=3-\frac{58}{3}+\frac{1}{3}=3-\frac{57}{3}=3-19=-16$. 
+}
+
+\ans{$-16$}
+\inv{Practice the general expansion: $\left(p-\frac{1}{p}\right)\!\!\left(q-\frac{1}{q}\right)=pq+\frac{1}{pq}-\frac{p^2+q^2}{pq}$. Each of $pq$, $p^2+q^2$, and $\frac{1}{pq}$ can be expressed using Vieta's formulas. The key: never try to find $p$ and $q$ individually.}
+
+\item Simplify: $\dfrac{(2n)!}{(2n-1)!}-\dfrac{n!}{(n-1)!}$.
+\ans{$n$}
+\method{$\frac{(2n)!}{(2n-1)!}=2n$ and $\frac{n!}{(n-1)!}=n$. Difference $=2n-n=n$.}
+\inv{Both ratios use the same identity: $\frac{k!}{(k-1)!}=k$. Memorise this as ``factorial ratio = top index.'' Now simplify $\frac{(n+2)!}{n!}-\frac{(n+1)!}{(n-1)!}$ using the same idea.}
+
+\item Factorise: $27x^3-8$.
+\ans{$(3x-2)(9x^2+6x+4)$}
+\method{Difference of cubes: $(3x)^3-2^3=(3x-2)(9x^2+6x+4)$.}
+\inv{The quadratic factor $9x^2+6x+4$ has discriminant $36-144=-108<0$, so it is irreducible over $\mathbb{R}$. Its roots are the complex cube roots of $\frac{8}{27}$ other than $\frac{2}{3}$.}
+
+\item Given $t=x-\frac{1}{x}$, write $t^2+4$ in terms of $x$.
+\ans{$\left(x+\dfrac{1}{x}\right)^2$}
+\method{$t^2+4=\left(x-\frac{1}{x}\right)^2+4=x^2-2+\frac{1}{x^2}+4=x^2+2+\frac{1}{x^2}=\left(x+\frac{1}{x}\right)^2$.}
+\inv{This identity $\left(x-\frac{1}{x}\right)^2+4=\left(x+\frac{1}{x}\right)^2$ is the algebraic version of $\cosh^2 t-\sinh^2 t=1$ (if $x=e^t$). It underpins the technique in C6 of WS\#11 for moving between $x+1/x$ and $x-1/x$.}
+
+\item Evaluate: $\log_2 8+\log_2 4-\log_2 32$.
+\ans{$0$}
+\method{$3+2-5=0$. Convert to powers of 2: $8=2^3$, $4=2^2$, $32=2^5$.}
+\inv{$\log_2(8\times4)-\log_2 32=\log_2 32-\log_2 32=0$. The log laws: $\log(ab)=\log a+\log b$ and $\log(a/b)=\log a-\log b$. No log rules needed: converting to powers of 2 is always faster for base-2 problems.}
+
+\item Given $f(x)=2x+1$ and $g(x)=x^2-1$, find $f(g(x))-g(f(x))$.
+\ans{$-2x^2-4x-1$}
+\method{$f(g(x))=2(x^2-1)+1=2x^2-1$. $g(f(x))=(2x+1)^2-1=4x^2+4x+1-1=4x^2+4x$. Difference $=2x^2-1-4x^2-4x=-2x^2-4x-1$.}
+\inv{Note $f\circ g\neq g\circ f$ in general --- function composition is not commutative. Find the values of $x$ where $f(g(x))=g(f(x))$, i.e.\ where $-2x^2-4x-1=0$. What does this mean about the relationship between the two composition paths?}
+
+\item Simplify: $\dfrac{a^2-b^2}{a-b}-\dfrac{a^2-c^2}{a-c}$.
+\method{$\frac{(a-b)(a+b)}{a-b}-\frac{(a-c)(a+c)}{a-c}=(a+b)-(a+c)=b-c$.}
+\ans{$b-c$}
+\inv{Both fractions simplify to sums: $(a+b)$ and $(a+c)$. The $a$ terms cancel. This is a common TMUA trick: simplify each term individually before combining, rather than finding a common denominator.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+\begin{enumerate}
+
+\item Evaluate the telescoping product $\prod_{k=2}^{n}\!\left(1-\frac{1}{k}\right)$ for general $n$ and at $n=100$.
+\ans{$\dfrac{1}{n}$;\quad at $n=100$: $\dfrac{1}{100}$}
+\method{$\prod_{k=2}^n\frac{k-1}{k}=\frac{1}{2}\cdot\frac{2}{3}\cdot\frac{3}{4}\cdots\frac{n-1}{n}=\frac{1}{n}$ (telescoping).}
+\inv{Compare to the sum $\sum_{k=2}^n\left(1-\frac{1}{k}\right)=\sum_{k=2}^n\frac{k-1}{k}$, which does \emph{not} telescope. Products telescope when successive terms are ratios; sums telescope when successive terms are differences. Know which structure you're dealing with before proceeding.}
+
+\item Simplify: $\dfrac{x^2+3x-10}{x^2-x-2}\cdot\dfrac{x^2+x-2}{x^2+6x+5}$.
+\method{$x^2+3x-10=(x+5)(x-2)$, $x^2-x-2=(x-2)(x+1)$,
+$x^2+x-2=(x+2)(x-1)$, $x^2+6x+5=(x+5)(x+1)$.
+So
+$\dfrac{(x+5)(x-2)}{(x-2)(x+1)}\cdot\dfrac{(x+2)(x-1)}{(x+5)(x+1)}
+=\dfrac{(x+2)(x-1)}{(x+1)^2}$.}
+\ans{$\dfrac{(x+2)(x-1)}{(x+1)^2}$}
+\inv{Always factor numerators and denominators completely before multiplying rational expressions --- cancel at the \emph{fraction level} before computing. This problem has 4 quadratics but only takes 4 factorisations and 4 cancellations.}
+
+\item Find $a^3+b^3+c^3$ given $a+b+c=2$, $a^2+b^2+c^2=6$, $abc=-2$.
+\ans{$8$}
+\method{$ab+bc+ca=\frac{(a+b+c)^2-(a^2+b^2+c^2)}{2}=\frac{4-6}{2}=-1$.
+Then
+$a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$.
+So
+$a^3+b^3+c^3-3(-2)=2(6-(-1))=14$,
+hence $a^3+b^3+c^3=8$.}
+\inv{The two approaches: (1) Newton's identity $p_3=e_1p_2-e_2p_1+3e_3$, (2) the cubic identity $p_3-3e_3=e_1(p_2-e_2)$. Both are worth knowing. Verify with $a=1,b=-1,c=2$: $a+b+c=2$ \checkmark, $a^2+b^2+c^2=6$ \checkmark, $abc=-2$ \checkmark, $a^3+b^3+c^3=1-1+8=8$ \checkmark.}
+
+\item Write $x^4+4$ as a product of two quadratics with integer coefficients.
+\ans{$(x^2+2x+2)(x^2-2x+2)$}
+\method{Sophie Germain: $x^4+4=(x^4+4x^2+4)-4x^2=(x^2+2)^2-(2x)^2=(x^2+2x+2)(x^2-2x+2)$.}
+\inv{Sophie Germain identity: $a^4+4b^4=(a^2+2b^2+2ab)(a^2+2b^2-2ab)$. Here $a=x$, $b=1$. Each quadratic factor has discriminant $4-8=-4<0$, so neither factors further over $\mathbb{R}$. But over $\mathbb{C}$: roots of $x^2+2x+2=0$ are $-1\pm i$, the primitive 8th roots of $-1$.}
+
+\item Find $f^{-1}(x)$ for $f(x)=\dfrac{2x+1}{x-1}$ and verify $f(f^{-1}(x))=x$.
+\ans{$f^{-1}(x)=\dfrac{x+1}{x-2}$}
+\method{Set $y=\frac{2x+1}{x-1}$: $y(x-1)=2x+1\Rightarrow xy-y=2x+1\Rightarrow x(y-2)=y+1\Rightarrow x=\frac{y+1}{y-2}$. So $f^{-1}(x)=\frac{x+1}{x-2}$. Verify: $f\!\left(\frac{x+1}{x-2}\right)=\frac{2\cdot\frac{x+1}{x-2}+1}{\frac{x+1}{x-2}-1}=\frac{\frac{2x+2+x-2}{x-2}}{\frac{x+1-x+2}{x-2}}=\frac{3x}{3}=x$. \checkmark}
+\inv{Note: $f^{-1}(x)=\frac{x+1}{x-2}$ has the same form as $f$ (linear over linear). All M\"{o}bius transformations have inverses of the same type. Check: is $f^{-1}$ also its own inverse? Compute $f^{-1}(f^{-1}(x))$. If yes, $f$ has order 2 in the group of M\"{o}bius transformations. What is the order of $f$ (the order of $f$ = smallest $n$ with $f^n(x)=x$)?}
+
+\item Prove: the product of four consecutive integers is always one less than a perfect square.
+\ans{$(n-1)n(n+1)(n+2)+1=n^2(n+1)^2=(n(n+1))^2$.}
+\method{Let the integers be $n-1, n, n+1, n+2$. Pair: $(n-1)(n+2)=n^2+n-2$ and $n(n+1)=n^2+n$. Let $m=n^2+n$: product $=(m-2)m=m^2-2m$. So product $+1=m^2-2m+1=(m-1)^2=(n^2+n-1)^2$. $\square$}
+\inv{This shows $n(n-1)(n+1)(n+2)=(n^2+n-1)^2-1$, a perfect square minus 1. So the product is the product of $(n^2+n-2)$ and $(n^2+n)$ --- two numbers differing by 2 whose product is always a square minus 1. Generalise: show the product of any four terms in AP is always one less than a perfect square.}
+
+\item Simplify: $\dfrac{1}{1+x}+\dfrac{1}{1-x}+\dfrac{2}{1+x^2}+\dfrac{4}{1+x^4}$.
+\ans{$\dfrac{8}{1-x^8}$}
+\method{$\frac{1}{1+x}+\frac{1}{1-x}=\frac{2}{1-x^2}$. Then $\frac{2}{1-x^2}+\frac{2}{1+x^2}=\frac{4}{1-x^4}$. Then $\frac{4}{1-x^4}+\frac{4}{1+x^4}=\frac{8}{1-x^8}$.}
+\inv{This is a \emph{telescoping by doubling}: each step uses $\frac{1}{1-t}+\frac{1}{1+t}=\frac{2}{1-t^2}$, doubling the degree of the denominator each time. The pattern: $\sum_{k=0}^{n}\frac{2^k}{1+x^{2^k}}=\frac{2^{n+1}}{1-x^{2^{n+1}}}$ (starting from $\frac{1}{1-x}$ after the first step). This is related to the formula for the infinite product $\prod(1+x^{2^k})=\frac{1}{1-x}$.}
+
+\item Roots $\alpha,\beta,\gamma$ of $x^3+px+q=0$. Express $\alpha^3+\beta^3+\gamma^3$ in terms of $p$ and $q$ without Newton's identity.
+\ans{$-3q$}
+\method{Each root satisfies the equation: $\alpha^3=-p\alpha-q$. Similarly for $\beta,\gamma$. Add: $\alpha^3+\beta^3+\gamma^3=-p(\alpha+\beta+\gamma)-3q=-p(0)-3q=-3q$ (since $\alpha+\beta+\gamma=0$ for a depressed cubic).}
+\inv{This elegant proof uses the polynomial equation itself to evaluate power sums. It generalises: if $r$ satisfies $r^n+a_{n-1}r^{n-1}+\cdots+a_0=0$, then $r^n=-a_{n-1}r^{n-1}-\cdots-a_0$. Summing over all roots gives Newton-like identities without the recurrence formalism.}
+
+\item Prove: if $a+b+c=0$ then $(a^2+b^2+c^2)^2=2(a^4+b^4+c^4)$.
+\ans{Proved below.}
+\method{$a+b+c=0\Rightarrow(a+b+c)^2=a^2+b^2+c^2+2(ab+bc+ca)=0\Rightarrow ab+bc+ca=-\frac{s}{2}$ where $s=a^2+b^2+c^2$.
+$(ab+bc+ca)^2=a^2b^2+b^2c^2+c^2a^2+2abc(a+b+c)=a^2b^2+b^2c^2+c^2a^2$.
+$(a^2+b^2+c^2)^2=a^4+b^4+c^4+2(a^2b^2+b^2c^2+c^2a^2)=s^2$.
+And $(ab+bc+ca)^2=s^2/4$, so $a^2b^2+b^2c^2+c^2a^2=s^2/4$.
+Thus $a^4+b^4+c^4=s^2-2(s^2/4)=s^2/2$. So $(a^2+b^2+c^2)^2=s^2=2(s^2/2)=2(a^4+b^4+c^4)$. $\square$}
+\inv{This was a result from Worksheet \#7 Section C. Revisiting it with the intermediate steps exposed reveals the chain of reasoning. The key chain: $a+b+c=0\Rightarrow ab+bc+ca=-\frac{a^2+b^2+c^2}{2}\Rightarrow(ab+bc+ca)^2=\frac{(a^2+b^2+c^2)^2}{4}$. Memorise this chain as a unit.}
+
+\item Solve: $\dfrac{x+1}{x-2}+\dfrac{x-2}{x+1}=\dfrac{10}{3}$.
+\method{Let $u=\frac{x+1}{x-2}$: $u+\frac{1}{u}=\frac{10}{3}\Rightarrow3u^2-10u+3=0\Rightarrow(3u-1)(u-3)=0$. $u=3$: $\frac{x+1}{x-2}=3\Rightarrow x+1=3x-6\Rightarrow x=\frac{7}{2}$. $u=\frac{1}{3}$: $\frac{x+1}{x-2}=\frac{1}{3}\Rightarrow3x+3=x-2\Rightarrow x=-\frac{5}{2}$. 
+
+Check: at $x=7/2$: $\frac{9/2}{3/2}=3$ and $\frac{3/2}{9/2}=\frac{1}{3}$. Sum $=3+\frac{1}{3}=\frac{10}{3}$. \checkmark}
+\ans{$x=\dfrac{7}{2}$ and $x=-\dfrac{5}{2}$}
+\inv{The substitution $u=\frac{x+1}{x-2}$ reveals that the second term is $1/u$, so the equation is $u+1/u=10/3$ --- a disguised quadratic in $u$. Recognise the pattern: whenever you see $f(x)+\frac{1}{f(x)}=k$, substitute $u=f(x)$ to get $u+\frac{1}{u}=k$, i.e.\ $u^2-ku+1=0$.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+\begin{enumerate}
+
+\item Prove $\dfrac{x}{3}+\dfrac{2y}{3}\geq x^{1/3}y^{2/3}$ for $x,y>0$ using weighted AM--GM.
+\ans{Proved below.}
+\method{Weighted AM--GM with weights $\frac{1}{3}$ and $\frac{2}{3}$: $\frac{1}{3}\cdot x+\frac{2}{3}\cdot y\geq x^{1/3}y^{2/3}$. $\square$ (This is the standard statement of weighted AM--GM: $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$ for $a,b>0$, $\lambda\in(0,1)$, here $\lambda=\frac{1}{3}$.)}
+\inv{Weighted AM--GM generalises to: $\lambda_1a_1+\cdots+\lambda_na_n\geq a_1^{\lambda_1}\cdots a_n^{\lambda_n}$ where $\lambda_i>0$ and $\sum\lambda_i=1$. This is equivalent to the convexity of $-\ln x$. Use it to prove that for $a,b,c>0$ with $a+2b+3c=6$: $a\cdot b^2\cdot c^3\leq\frac{6^6}{6^6}=1$. (Set $\lambda_1=\frac{1}{6}, \lambda_2=\frac{2}{6}, \lambda_3=\frac{3}{6}$ and apply to $6a/1, 6b/2, 6c/3$ explore this.)}
+
+\item Find all real pairs $(x,y)$ with $x+y=1$ and $x^4+y^4=\frac{41}{8}$.
+\ans{$\left(\dfrac{3}{2},-\dfrac{1}{2}\right)$ and $\left(-\dfrac{1}{2},\dfrac{3}{2}\right)$}
+\method{Let $p=xy$. Since $x+y=1$, we have $x^2+y^2=1-2p$.
+Then
+$x^4+y^4=(x^2+y^2)^2-2x^2y^2=(1-2p)^2-2p^2=1-4p+2p^2$.
+Set this equal to $\frac{41}{8}$:
+$1-4p+2p^2=\frac{41}{8}\Rightarrow16p^2-32p-33=0$.
+So
+$p=\frac{32\pm56}{32}$, hence $p=\frac{11}{4}$ or $p=-\frac{3}{4}$.
+But $x+y=1$ gives real roots only if $1-4p\ge0$, so $p=\frac{11}{4}$ is impossible.
+Thus $p=-\frac{3}{4}$.
+Now $x,y$ are roots of $t^2-t-\frac{3}{4}=0$, i.e. $4t^2-4t-3=0$.
+Hence $t=\frac{3}{2}$ or $t=-\frac{1}{2}$, so
+$(x,y)=\left(\frac{3}{2},-\frac{1}{2}\right)$ or $\left(-\frac{1}{2},\frac{3}{2}\right)$.}
+\inv{Symmetric function method: always reduce to $s=x+y$ and $p=xy$, then express all power sums via Newton's identities. This reduces any symmetric equation in $x,y$ to a polynomial in $s$ and $p$. The constraint $s=1$ fixes one variable, leaving a single polynomial in $p$.}
+
+\item Prove $\sqrt{\dfrac{a^2+b^2}{2}}\geq\dfrac{a+b}{2}\geq\sqrt{ab}\geq\dfrac{2ab}{a+b}$ for $a,b>0$.
+\ans{All three inequalities proved below.}
+\method{(Right) $\sqrt{ab}\geq\frac{2ab}{a+b}$: divide by $\sqrt{ab}>0$: $1\geq\frac{2\sqrt{ab}}{a+b}$, i.e.\ $a+b\geq2\sqrt{ab}$ --- AM--GM. \checkmark
+(Middle) $\frac{a+b}{2}\geq\sqrt{ab}$: AM--GM directly. \checkmark
+(Left) $\sqrt{\frac{a^2+b^2}{2}}\geq\frac{a+b}{2}$: square both sides (both positive): $\frac{a^2+b^2}{2}\geq\frac{(a+b)^2}{4}\Leftrightarrow2(a^2+b^2)\geq(a+b)^2\Leftrightarrow(a-b)^2\geq0$. \checkmark $\square$}
+\inv{These are the \emph{Power Mean inequalities}: $M_2\geq M_1\geq M_0\geq M_{-1}$ where $M_r=\left(\frac{a^r+b^r}{2}\right)^{1/r}$ for $r\neq0$ and $M_0=\sqrt{ab}$. The chain is $M_2\geq M_1\geq M_0\geq M_{-1}$, i.e.\ QM $\geq$ AM $\geq$ GM $\geq$ HM. Compute all four for $a=4,b=1$.}
+
+\item Solve: $27^x+27^{1-x}=28$.
+\ans{$x=1$ and $x=0$}
+\method{$27^x+\frac{27}{27^x}=28$. Let $u=27^x$: $u+\frac{27}{u}=28\Rightarrow u^2-28u+27=(u-1)(u-27)=0$. $u=1\Rightarrow x=0$; $u=27\Rightarrow x=1$.}
+\inv{This is the substitution $u+c/u=k$ (seen in B10 and C of earlier sheets) applied to an exponential equation. The pattern: whenever $a^x+a^{k-x}=c$, let $u=a^x$ to get $u+a^k/u=c$. Here $k=1$, $a=27$, $c=28$.}
+
+\item For $a,b,c>0$ with $a+b+c=1$, prove $\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}\geq9$.
+\ans{Proved below.}
+\method{By AM--HM (or AM--GM): $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\geq\frac{9}{a+b+c}=9$ by the AM--HM inequality $\frac{n}{\sum\frac{1}{x_i}}\leq\frac{\sum x_i}{n}$, i.e.\ $\sum\frac{1}{x_i}\geq\frac{n^2}{\sum x_i}$.
+Alternatively: Cauchy--Schwarz (Engel): $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}=\frac{1^2}{a}+\frac{1^2}{b}+\frac{1^2}{c}\geq\frac{(1+1+1)^2}{a+b+c}=9$. $\square$}
+\inv{This is the AM--HM inequality for three variables: $\frac{a+b+c}{3}\geq\frac{3}{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}}$. It is equivalent to $\left(\sum a\right)\!\!\left(\sum\frac{1}{a}\right)\geq n^2$ (by Cauchy--Schwarz). Prove this $n$-variable version using the Engel form.}
+
+\item Evaluate $3^3+4^3+\cdots+10^3$ using $\sum_{k=1}^n k^3=\left(\frac{n(n+1)}{2}\right)^2$.
+\ans{$3016$}
+\method{$\sum_{k=3}^{10}k^3=\sum_{k=1}^{10}k^3-1^3-2^3=\left(\frac{10\times11}{2}\right)^2-1-8=3025-9=3016$.}
+\inv{The formula $\sum_{k=1}^n k^3=\left(\frac{n(n+1)}{2}\right)^2=\left(\sum_{k=1}^n k\right)^2$ is the remarkable \emph{Nicomachus theorem}: the sum of cubes equals the square of the sum of naturals. Prove it by induction, then use it to show $1^3+2^3+\cdots+n^3=(1+2+\cdots+n)^2$ --- a perfect square for every $n$.}
+
+\item Find all real solutions to $|x^2-4|=|x-2|\cdot|x+2|$.
+\ans{All real $x$.}
+\method{$|x^2-4|=|(x-2)(x+2)|=|x-2|\cdot|x+2|$ by the multiplicative property of absolute values: $|ab|=|a||b|$. This holds for all real $x$, with no restriction. So the solution set is $\mathbb{R}$.}
+\inv{The identity $|ab|=|a||b|$ is fundamental. It follows from $|a|=\sqrt{a^2}$: $|ab|=\sqrt{(ab)^2}=\sqrt{a^2b^2}=|a||b|$. Now solve $|x^2-4|=|x-2|+|x+2|$ (this is \emph{not} always true --- investigate when it holds and when it fails).}
+
+\item Given $x,y>0$ with $x+y=4$, find the maximum of $x^2y$.
+\method{Apply AM--GM to $\frac{x}{2},\frac{x}{2},y$:
+$\frac{x/2+x/2+y}{3}\ge\left(\frac{x^2y}{4}\right)^{1/3}$.
+Since $x+y=4$, this gives
+$\frac{4}{3}\ge\left(\frac{x^2y}{4}\right)^{1/3}$,
+so
+$x^2y\le\frac{256}{27}$.
+Equality when $x/2=x/2=y$, i.e. $x=\frac{8}{3}$, $y=\frac{4}{3}$.}
+\ans{Maximum is $\dfrac{256}{27}$ at $x=\dfrac{8}{3}$, $y=\dfrac{4}{3}$.}
+\inv{The \textbf{splitting trick} for AM--GM: to maximise $x^ay^b$ subject to $x+y=c$, split $x$ into $a$ equal parts and $y$ into $b$ equal parts, then apply AM--GM to $a+b$ quantities. This always gives the maximum at $x/a=y/b$.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+\begin{enumerate}
+
+\item \textbf{Vieta jumping:} $a^2+b^2=k(ab+1)$.
+\ans{(a) $(a,b)=(8,2)$ gives $k=4$. (b) Vieta jumping establishes no new solutions beyond the obvious family.}
+\method{(a) $a=8,b=2$: $64+4=68=4(16+1)=68$. \checkmark So $k=4$ is achieved.
+(b) Fix $k$ and $b$; consider $a$ as a root of $x^2-kbx+(b^2-k)=0$. The other root $a'$ satisfies $a+a'=kb$ (sum of roots) and $aa'=b^2-k$ (product). So $a'=kb-a$ is an integer, and $a'\cdot b=b^2-k$, so $a'^2+b^2=k(a'b+1)$ (verify). If $a>b$, then $a'^2=k(a'b+1)-b^2$; since $a'\cdot b=b^2-k<b^2$ (if $k>0$), we get $a'<b$. So we can descend: $(a,b)\to(b,a')\to\ldots$ until we reach a base case.}
+\inv{Vieta jumping is a powerful technique for Diophantine equations with symmetric structure. It was used to solve IMO 1988 Problem 6, widely regarded as one of the hardest competition problems ever set. Look up the problem: ``$a^2+b^2\equiv0\pmod{ab+1}$: prove $\frac{a^2+b^2}{ab+1}$ is a perfect square.'' The full proof uses Vieta jumping to show the minimum-value solution is $(0,0)$, giving the value as a perfect square.}
+
+\item Find all polynomials $p(x)$ satisfying $(x-1)p(x+1)=(x+2)p(x)$.
+\ans{$p(x)=cx(x+1)$ for any constant $c$.}
+\method{$x=1$: $0=3p(1)\Rightarrow p(1)=0$. $x=-2$: $(-3)p(-1)=0\Rightarrow p(-1)=0$. So $(x-1)$ and $(x+1)$ divide $p$ careful. Try $p(x)=x(x+1)$: $(x-1)(x+1)(x+2)=(x+2)x(x+1)$. \checkmark By degree considerations, $p(x)=cx(x+1)$ is the unique (up to scalar) polynomial solution.}
+\inv{Functional equations for polynomials can be solved by: (1) substituting specific values to find roots, (2) using degree arguments, (3) comparing leading coefficients. This is related to the Gamma function: $\Gamma(x+1)=x\Gamma(x)$. The polynomial $p(x)=x(x+1)$ satisfies $(x-1)p(x+1)=(x+2)p(x)$, analogously to $\Gamma$.}
+
+\item For $a+b+c=1$, $a,b,c>0$, find $\min\left(\dfrac{a}{1-a}+\dfrac{b}{1-b}+\dfrac{c}{1-c}\right)$.
+\ans{$\dfrac{3}{2}$}
+\method{$\frac{a}{1-a}=\frac{a}{b+c}$. So the sum is $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}$.
+By Nesbitt's inequality: $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}\geq\frac{3}{2}$. Equality at $a=b=c=\frac{1}{3}$.}
+\inv{\textbf{Nesbitt's inequality}: for $a,b,c>0$, $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}\geq\frac{3}{2}$. Proof: add 1 to each fraction: $\frac{a+b+c}{b+c}+\frac{a+b+c}{a+c}+\frac{a+b+c}{a+b}\geq\frac{9}{2}$ by AM--HM on $(b+c),(a+c),(a+b)$. Divide by $a+b+c=1$. This inequality appears frequently in competition problems.}
+
+\item Evaluate $\displaystyle\prod_{n=2}^{\infty}\frac{n^3-1}{n^3+1}$.
+\ans{$\dfrac{2}{3}$}
+\method{$\frac{n^3-1}{n^3+1}=\frac{(n-1)(n^2+n+1)}{(n+1)(n^2-n+1)}$. The infinite product splits into two:
+
+$\prod_{n=2}^N\frac{n-1}{n+1}=\frac{1}{2}\cdot\frac{2}{3}\cdot\frac{3}{4}\cdots\frac{N-1}{N+1}=\frac{1\cdot2}{N(N+1)}\to0$. 
+
+$\prod_{n=2}^N\frac{n^2+n+1}{n^2-n+1}$: note $n^2+n+1=(n+1)^2-(n+1)+1$ and $n^2-n+1=n^2-n+1$. Setting $a_n=n^2-n+1$: $a_{n+1}=(n+1)^2-(n+1)+1=n^2+n+1$. So $\frac{n^2+n+1}{n^2-n+1}=\frac{a_{n+1}}{a_n}$. This telescopes: $\prod_{n=2}^N\frac{a_{n+1}}{a_n}=\frac{a_{N+1}}{a_2}=\frac{N^2+N+1}{3}$.
+
+Combined: $\prod_{n=2}^N\frac{n^3-1}{n^3+1}=\frac{1\cdot2}{N(N+1)}\cdot\frac{N^2+N+1}{3}=\frac{2(N^2+N+1)}{3N(N+1)}$.
+
+As $N\to\infty$: $\frac{2(N^2+N+1)}{3N^2+3N}\to\frac{2}{3}$. $\square$}
+\inv{The key insight: split the cubic fraction into a product of two ratios, each of which telescopes separately. This technique --- factoring into simpler telescoping components --- is the standard approach for infinite products. Try $\prod_{n=2}^\infty\frac{n^4-1}{n^4+1}$ using the same idea (factor $n^4\pm1$ over $\mathbb{Z}[i]$).}
+
+\item Find all integer solutions to $x^3+y^3=(x+y)^2$.
+\ans{$(0,0),\;(2,2),\;(n,-n)$ for all $n\in\mathbb{Z}$, and permutations}
+\method{Let $s=x+y$ and $p=xy$. $x^3+y^3=s(s^2-3p)=s^2$. If $s=0$: $x=-y$, all integers satisfy (infinitely many solutions). If $s\neq0$: divide by $s$: $s^2-3p=s$, so $p=\frac{s^2-s}{3}=\frac{s(s-1)}{3}$. For $p$ to be an integer, $3\mid s(s-1)$. Since $s$ and $s-1$ are consecutive, $3\mid s$ or $3\mid(s-1)$. Cases: $s=3k$ gives $p=k(3k-1)$; $s=3k+1$ gives $p=\frac{(3k+1)(3k)}{3}=k(3k+1)$; $s=3k-1$ gives $p=\frac{(3k-1)(3k-2)}{3}$, which requires $3\mid(3k-1)(3k-2)$: $3k-1\equiv2$ and $3k-2\equiv1$ mod 3, so $3\nmid(3k-1)(3k-2)$ unless $k\equiv0$ (mod 3). The analysis yields $(x,y)=(0,0)$, $(2,2)$, and $(-n,n)$ as the key solutions.}
+\inv{The Diophantine equation $x^3+y^3=(x+y)^2$ connects to elliptic curves. The substitution $s=x+y$, $p=xy$ reduces the problem to a condition on $p$ in terms of $s$. For fixed $s$, $x$ and $y$ are roots of $t^2-st+p=0$, requiring the discriminant $s^2-4p\geq0$ for real roots and also being a perfect square for integer roots. Work through the case $s=3$ explicitly.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Weighted AM--GM: $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$.} For maximising $x^ay^b$ with $x+y$ fixed, split into $a$ copies of $x$ and $b$ copies of $y$, apply AM--GM.
+  \item \textbf{Telescoping products via factored ratios.} Write $\frac{n^3\pm1}{n^3\mp1}$ as a product of two ratios, check if each telescopes independently. The product then collapses to finitely many surviving factors.
+  \item \textbf{Nesbitt's inequality: $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}\geq\frac{3}{2}$.} This identity arises in disguised form whenever $1-a=b+c$ (under $a+b+c=1$). Recognise the substitution $\frac{a}{1-a}=\frac{a}{b+c}$.
+  \item \textbf{$u+c/u=k$ as a disguised quadratic.} Whenever you see $f(x)+\frac{c}{f(x)}=k$, substitute $u=f(x)$ to get $u^2-ku+c=0$.
+  \item \textbf{Vieta jumping: the other root is smaller.} For symmetric Diophantine equations, fix one variable, treat the equation as a quadratic in the other, and show the second root gives a smaller positive solution --- establishing descent to a base case.
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Forgetting $s=0$ solutions in $x^3+y^3=(x+y)^2$.} The case $x+y=0$ gives infinitely many solutions $(-n,n)$ that are easy to miss if you divide by $s$ too quickly.
+  \item \textbf{Splitting infinite products incorrectly.} $\prod(ab)=\prod a\cdot\prod b$ only when both sub-products converge. Check convergence separately for each factor before splitting.
+  \item \textbf{Applying AM--GM without the splitting trick.} $\max(x^2y)$ with $x+y=4$ cannot be solved by plain AM--GM on two terms --- you must split $x$ into two equal parts to make the inequality sharp.
+  \item \textbf{Confusing Nesbitt with the Cauchy--Schwarz bound.} Cauchy--Schwarz gives $\sum\frac{a}{b+c}\geq\frac{(a+b+c)^2}{\text{something}}$, which can also derive Nesbitt but is less direct. Use the ``add 1 to each term'' trick for Nesbitt --- it's faster.
+  \item \textbf{Stopping Vieta jumping after one descent step.} The power of the method is the infinite descent --- you must argue that the process terminates at a base case, not just that one descent step works.
+\end{enumerate}
+
+\SpeedClosing{``Do not worry about your difficulties in mathematics. I assure you mine are still greater.''~--- Albert Einstein}
+
+\end{document}

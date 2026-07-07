@@ -1,0 +1,143 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Algebra}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Algebra Drill \#6}
+\noindent\textit{New toolkit today: Comparing coefficients $\cdot$ Substitution $t = \sqrt{x}$ for surd equations $\cdot$ Schur's inequality $\cdot$ Integer-valued polynomials.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+
+\noindent\textit{No expansion. Recognise the pattern, write the answer.}
+
+\begin{enumerate}
+
+\item Factorise: $\;x^3 + 5x^2 + 6x$.
+
+\item Given $x + \dfrac{1}{x} = \sqrt{5}$, find $x^2 + \dfrac{1}{x^2}$.
+
+\item Without expanding, state the coefficient of $xy^2$ in $(x+y)^3$.
+
+\item Evaluate: $\;\dfrac{1}{\sqrt{2}-1} - \dfrac{1}{\sqrt{2}+1}$.
+
+\item The polynomial $f(x) = x^3 + ax + b$ has $x = 2$ as a root and
+      $f'(2) = 0$... but no calculus today! Instead: if $x=2$ is a
+      \emph{repeated} root, find $a$ and $b$.
+
+\item Simplify: $\;\left(\dfrac{2x}{y}\right)^3 \div \dfrac{4x^2}{y^2}$.
+
+\item Given $\alpha\beta = 6$ and $\alpha + \beta = 5$, find $\alpha^2\beta + \alpha\beta^2$.
+
+\item Factorise over $\mathbb{Z}$: $\;4a^2 - 4ab + b^2$.
+
+\item Show quickly that $2^{10} = 1024$, hence simplify $\;2^{10} - 1$
+      as a product of three integer factors greater than 1.
+
+\item Given $f(x) = x^2 - 3x + 2$, find $f(f(0))$.
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+
+\noindent\textit{Fractions, structure, identities. Minimum working.}
+
+\begin{enumerate}
+
+\item Find constants $A$, $B$, $C$ such that
+      $\;x^2 + 3x + 5 \equiv A(x+1)^2 + B(x+1) + C$.
+
+\item The polynomial $\;p(x) = x^3 + ax^2 + bx + c\;$ satisfies
+      $p(1) = 0$, $p(-1) = 4$, and $p(2) = 15$. Find $a$, $b$, $c$.
+
+\item Simplify: $\;\dfrac{x^3 - 8}{x^2 + 2x + 4}$.
+
+\item Factorise: $\;a^3 + b^3 + c^3 - 3abc$.
+      (\textit{State the identity from memory, then verify by choosing $a=b=c$.})
+
+\item Given $a + b + c = 0$, simplify $\;\dfrac{a^3+b^3+c^3}{abc}$.
+
+\item Prove that $\;\displaystyle\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\;$
+      for $n=1,2,3$ by direct verification, then use the formula to find
+      $\displaystyle\sum_{k=1}^{10}(2k-1)^2$.
+
+\item Simplify: $\;\dfrac{\dfrac{1}{a+b} - \dfrac{1}{a-b}}{\dfrac{1}{a+b} + \dfrac{1}{a-b}}$.
+
+\item Make $b$ the subject: $\;\dfrac{a-b}{a+b} = \dfrac{c-d}{c+d}$.
+
+\item Given $\alpha, \beta, \gamma$ are roots of $x^3 - 7x + 6 = 0$,
+      find $\alpha^2 + \beta^2 + \gamma^2$ and $\alpha^2\beta^2 + \beta^2\gamma^2 + \gamma^2\alpha^2$.
+
+\item Solve: $\;\dfrac{2}{x^2-1} - \dfrac{1}{x-1} = \dfrac{3}{x+1}$.
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+
+\noindent\textit{One clean substitution is worth ten lines of algebra.}
+
+\begin{enumerate}
+
+\item Solve: $\;\sqrt{x} - \dfrac{6}{\sqrt{x}} = 1$.
+      (\textit{Let $t = \sqrt{x}$.})
+
+\item Find the minimum value of $\;x^2 - 6x + y^2 + 4y + 20$
+      by completing the square in both $x$ and $y$.
+
+\item Show that $\;a^4 + b^4 \geq \dfrac{1}{2}(a+b)^4\;$ is \textbf{false},
+      then find and prove the correct inequality relating $a^4+b^4$ to $(a^2+b^2)^2$.
+
+\item Solve: $\;x^4 - 2x^3 - 3x^2 + 4x + 4 = 0$
+      given that it has a repeated real root.
+
+\item Given $a, b, c > 0$ with $a + b + c = 1$,
+      prove that $\;ab + bc + ca \leq \dfrac{1}{3}$.
+
+\item If $\;x + y = 1$, find the maximum value of $\;x^2 y + xy^2$.
+
+\item Solve over $\mathbb{R}$: $\;\sqrt{3x+1} - \sqrt{x+4} = 1$.
+
+\item The equation $\;x^2 + bx + c = 0\;$ has roots $r$ and $s$.
+      For what values of $b$ and $c$ are the roots of
+      $\;x^2 + cx + b = 0\;$ also $r$ and $s$?
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+
+\noindent\textit{No brute force. Each question rewards one key observation.}
+
+\begin{enumerate}
+
+\item \textbf{Schur's Inequality (degree 2 case).}
+      Prove that for all non-negative reals $a, b, c$:
+\[
+  a^2(a-b)(a-c) + b^2(b-a)(b-c) + c^2(c-a)(c-b) \;\geq\; 0.
+\]
+(\textit{Consider the case $a \geq b \geq c \geq 0$ and group terms strategically.})
+
+\item Find all polynomials $p(x)$ with real coefficients satisfying
+      $p(x^2) = p(x)^2$ for all real $x$.
+
+\item Evaluate:
+\[
+  \frac{1^2}{1\cdot3} + \frac{2^2}{3\cdot5} + \frac{3^2}{5\cdot7}
+    + \cdots + \frac{n^2}{(2n-1)(2n+1)}.
+\]
+Express your answer as a closed form in $n$.
+
+\item A polynomial $p(x)$ of degree 3 satisfies $p(n) = \dfrac{1}{n}$
+      for $n = 1, 2, 3, 4$.  Find $p(5)$.
+
+\item Find all pairs of positive integers $(m, n)$ with $m > n$
+      such that $\;m^2 - n^2 = 105$.
+
+\end{enumerate}
+
+\SpeedClosing{``In mathematics the art of proposing a question must be held of higher value
+than solving it.''~--- Georg Cantor}
+
+\end{document}
