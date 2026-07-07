@@ -1,7 +1,7 @@
 # Speed Maths — Daily Drill Series
 
-TMUA & SMC exam prep. Four pillars: Algebra (done), Combinatorics, Number Theory,
-Geometry (all three empty, not started).
+TMUA & SMC exam prep. Four pillars: Algebra (done), Combinatorics (in progress),
+Number Theory, Geometry (both empty, not started).
 
 ## Structure
 Speed-Maths/
@@ -9,7 +9,7 @@ Speed-Maths/
 │                            answer/investigate boxes, title-table macro
 ├── algebra/sheets/        sheet01.tex … sheet07.tex (+ compiled pdf)
 ├── algebra/answers/       ans01.tex  … ans07.tex   (+ compiled pdf)
-├── combinatorics/{sheets,answers}/   ← empty, README placeholder only
+├── combinatorics/{sheets,answers}/   ← sheet01 / ans01 done
 ├── number-theory/{sheets,answers}/   ← empty, README placeholder only
 └── geometry/{sheets,answers}/        ← empty, README placeholder only
 
@@ -27,6 +27,7 @@ Speed-Maths/
 - Answers use `\ans{}` `\method{}` `\inv{}` (investigate-further extension) per question.
 - Every sheet/answer ends with `\SpeedClosing{<quote>}` (rule + quote + cross-promo).
 - Compile from inside `sheets/` or `answers/` (relative `\input` path depends on it).
+- **Strict Verification:** All generated answers must be verified computationally via a short script, and questions must strictly adhere to TMUA/MAT/SMC/BMO1 styles (see `CONTRIBUTING.md`).
 
 ## Difficulty design (agreed 2026-07-07)
 - Training goal: SMC → BMO1 qualification + TMUA 9. "Mathematical excellence training."

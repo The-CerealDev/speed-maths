@@ -1,7 +1,7 @@
 # Speed Maths — Daily Drill Series
 
 TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
-**Combinatorics**, **Number Theory**, **Geometry** (not started).
+**Combinatorics** (in progress), **Number Theory**, **Geometry** (not started).
 
 ## Structure
 
@@ -15,8 +15,8 @@ Speed-Maths/
 │   ├── sheets/           sheet01.tex … sheet07.tex  (+ compiled .pdf)
 │   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── combinatorics/
-│   ├── sheets/           empty — see README.md inside
-│   └── answers/
+│   ├── sheets/           sheet01.tex (+ compiled .pdf)
+│   └── answers/          ans01.tex (+ compiled .pdf)
 ├── number-theory/
 │   ├── sheets/
 │   └── answers/
@@ -92,6 +92,10 @@ touched:
   packages/colours/box-environments (~40 lines each). Extracted once into
   `shared/preamble.tex` so future edits (or new pillars) can't drift the
   same way again.
+- **Strict Verification & Question Design:** Created a robust `CONTRIBUTING.md`
+  that strictly mandates computational/script-based verification for all
+  answers, and clearly defines the TMUA, MAT, SMC, and BMO1 question styles
+  to guide future question generation.
 
 All 14 files were recompiled after migration to confirm no content was lost
 or altered — only structure and branding changed.
