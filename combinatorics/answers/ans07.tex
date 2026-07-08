@@ -140,7 +140,7 @@
 \inv{The values $1,2,4,8,16$ for $n=1,\ldots,5$ scream ``$2^{n-1}$'' --- and then $n=6$ gives 31, not 32 (C4). This is the most famous false pattern in mathematics; never trust a doubling sequence without proof.}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item Snaps to break a $4\times6$ bar into 24 squares?
+\item Snaps to break a $4\times6$ bar into 24 squares (no stacking)?
 
 \ans{$23$}
 \method{Invariant: each snap turns one piece into two, so the number of pieces rises by exactly 1 per snap. Starting at 1 piece and ending at 24 needs $24-1=23$ snaps --- \emph{regardless} of the order or pattern of breaks.}
@@ -154,11 +154,11 @@
 \inv{This is A8's recurrence exactly. Prove $2^n-1$ is also a \emph{lower} bound (the biggest disk must move, and the other $n-1$ must be stacked off it first and on it after) --- optimality needs both a construction and a bound, just like every guarantee on sheet 6.}
 
 %── B10 ─────────────────────────────────────────────────────────────────────────
-\item Prove $F_1+\cdots+F_n=F_{n+2}-1$; evaluate for $n=8$.
+\item Use $F_1+\cdots+F_n=F_{n+2}-1$ to evaluate $F_4+\cdots+F_{12}$.
 
-\ans{$54$}
-\method{\emph{Proof (telescoping).} Since $F_k=F_{k+2}-F_{k+1}$, summing $k=1$ to $n$ collapses: $\sum_{k=1}^n F_k=\sum(F_{k+2}-F_{k+1})=F_{n+2}-F_2=F_{n+2}-1$. For $n=8$: $F_{10}-1=55-1=54$. $\square$}
-\inv{Telescoping a recurrence is the fastest route to its running sums. Derive $\sum F_i^2=F_nF_{n+1}$ the same way (from $F_i^2=F_i F_{i+1}-F_{i-1}F_i$) --- a gorgeous identity with a one-line proof.}
+\ans{$372$}
+\method{Subtract two prefix sums: $F_4+\cdots+F_{12}=(F_1+\cdots+F_{12})-(F_1+F_2+F_3)=(F_{14}-1)-(F_5-1)=F_{14}-F_5=377-5=372$.}
+\inv{The identity comes from telescoping $F_k=F_{k+2}-F_{k+1}$, which collapses $\sum_{k=1}^n F_k=F_{n+2}-F_2=F_{n+2}-1$ --- prove it in one line. Then derive $\sum F_i^2=F_nF_{n+1}$ the same way (from $F_i^2=F_iF_{i+1}-F_{i-1}F_i$): a gorgeous identity with a one-line proof.}
 
 \end{enumerate}
 
@@ -204,11 +204,11 @@
 \inv{That compositions-into-odd-parts equals a Fibonacci number is startling until you find the bijection (group the parts cleverly, or use the recurrence's telescoping). Which Fibonacci? $d(n)=F_n$. Prove $d(n)=d(n-1)+d(n-2)$ directly by considering whether the last part is 1.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item Derive the Hanoi recurrence; give the 10-disk count.
+\item Length-6 strings over $\{0,1,2\}$ with no two adjacent 0s?
 
-\ans{$1023$}
-\method{To move $n$ disks, you must move the top $n-1$ to the spare peg ($H(n-1)$ moves), move the largest ($1$ move), then move the $n-1$ back ($H(n-1)$): $H(n)=2H(n-1)+1$. Unfolding: $H(n)=2^n-1$, so $H(10)=1023$.}
-\inv{Unfold the recurrence symbolically: $H(n)=2H(n-1)+1=2^2H(n-2)+2+1=\cdots=2^n-1$. The ``$+1$ per level doubled'' becomes the geometric sum $2^{n}-1$. This telescoping-by-substitution solves every $a_n=ra_{n-1}+c$.}
+\ans{$448$}
+\method{Two-state recurrence on the last symbol. Let $z(n)$ count valid strings ending in 0 and $w(n)$ those ending in 1 or 2. A 0 may follow only a non-0: $z(n)=w(n-1)$. A 1 or 2 may follow anything, in 2 ways: $w(n)=2\bigl(z(n-1)+w(n-1)\bigr)$. Writing $a_n=z(n)+w(n)$ for the total gives $a_n=2a_{n-1}+2a_{n-2}$, seeded $a_1=3$, $a_2=8$: $3,8,22,60,164,448$.}
+\inv{The ``$2a_{n-2}$'' encodes the two non-zero symbols that can bridge a forbidden pair --- coefficients count local choices, exactly as in C2. Predict the recurrence for a $k$-letter alphabet with no two adjacent 0s ($a_n=(k-1)a_{n-1}+(k-1)a_{n-2}$), and check it collapses to Fibonacci at $k=2$.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
 \item Domino tilings of a $3\times4$ grid?
@@ -264,11 +264,14 @@ The cases are disjoint and exhaustive, so $a_n=a_{n-1}+a_{n-2}$. With $a_1=1$, $
 \inv{This is \emph{constructive induction}: the proof is an algorithm you could run. It works precisely because $2^n\times2^n$ splits into four self-similar quarters --- the same divide-and-conquer as merge sort. Note $\frac{4^n-1}{3}$ trominoes are used; check this is an integer for all $n$ (it must be --- why?). Does the theorem hold for a $6\times6$ board minus one square? (No self-similarity --- investigate.)}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Take 1 or 2 stones from 2025; last stone wins. Who wins?
+\item Remove a power of 2 ($1,2,4,8,\ldots$) from 2025; last stone wins. Who wins?
 
 \ans{The second player.}
-\method{\emph{Proof.} Call the number of stones a player must move from their \emph{position}, and call a position \emph{losing} if the player to move loses under optimal play. We claim the losing positions are exactly the multiples of 3. From a multiple of 3, every move (take 1 or 2) leaves a non-multiple of 3 for the opponent; from a non-multiple of 3, the mover can always take 1 or 2 to leave a multiple of 3. Since position $0$ is losing (the previous player took the last stone and won), it follows by induction that $0,3,6,\ldots$ are losing and all other positions are winning. The first player starts at $2025=3\times675$, a multiple of 3 --- a losing position. Hence the \emph{second} player wins, by always returning the pile to a multiple of 3. $\square$}
-\inv{The winning strategy is an invariant: the winner keeps the pile $\equiv0\pmod3$ after each of their moves, which they always can because $1+2=3$ spans a full residue step. Generalise to ``take 1, 2, or $k$'': the losing positions become the multiples of $k+1$. What changes in \emph{mis\`ere} play, where taking the last stone loses? Re-derive the losing set.}
+\method{\emph{Proof.} Call a position (the number of stones the mover faces) \emph{losing} if the mover loses under optimal play; we claim the losing positions are exactly the multiples of 3. The key fact is that \emph{no power of 2 is divisible by 3}: since $2\equiv-1\pmod3$, we have $2^k\equiv(-1)^k\equiv\pm1\pmod3$, never $0$.
+\emph{From a multiple of 3:} subtracting any power of 2 (residue $\pm1$) leaves a non-multiple of 3 --- the mover cannot avoid handing the opponent a non-multiple.
+\emph{From a non-multiple of 3:} the mover removes 1 stone (if the residue is 1) or 2 stones (if the residue is 2) --- both are powers of 2 --- reaching a multiple of 3.
+Since position $0$ is losing, induction gives that the losing positions are precisely $0,3,6,\ldots$. As $2025=3\times675$ is a multiple of 3, the first player faces a losing position, so the \textbf{second} player wins by always restoring the pile to a multiple of 3. $\square$}
+\inv{The extra content over the plain 1-or-2 game is the modular fact $2^k\equiv(-1)^k\pmod3$ --- the large move set collapses to two useful residues. Now try removing any \emph{Fibonacci} number of stones: the losing positions are no longer an arithmetic progression (Zeckendorf's theorem governs them) --- a beautiful, much harder game to sit with.}
 
 \end{enumerate}
 
