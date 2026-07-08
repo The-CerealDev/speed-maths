@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#6}
+\noindent\textit{New toolkit today: Pigeonhole Principle (basic \& strong) $\cdot$ Worst-Case Thinking $\cdot$ Double Counting $\cdot$ The Handshake Lemma.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Guarantees on sight. Ask: what is the worst case?}
+
+\begin{enumerate}
+
+\item A drawer holds 10 black and 10 white socks. How many must be drawn (in the dark) to guarantee a matching pair?
+
+\item Same drawer: how many draws guarantee a \emph{black} pair?
+
+\item True or false: among any 13 people, two share a birth month.
+
+\item How many people are needed to guarantee two were born on the same day of the week?
+
+\item How many integers must you take to guarantee two of the same parity?
+
+\item Six friends each count their handshakes at a party; the counts total 18. How many handshakes happened?
+
+\item True or false: in any grid of numbers, the sum of the row totals equals the sum of the column totals.
+
+\item How many integers must you take to guarantee two whose difference is a multiple of 5?
+
+\item A bag has sweets of 4 flavours. How many sweets guarantee 3 of one flavour?
+
+\item True or false: among any 4 integers, some two have an even difference.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Name the pigeonholes, or name what is being counted twice.}
+
+\begin{enumerate}
+
+\item A round table has 12 seats. What is the smallest number of diners that forces two of them to sit in adjacent seats? \textit{\small(after TMUA 2019 P2 Q9)}
+
+\item How many integers must you take to guarantee two whose difference is divisible by 7?
+
+\item Show that among any 5 integers, two have a difference divisible by 4. Then write down 5 integers of which no two differ by a multiple of \emph{5}.
+
+\item Six numbers are chosen from $\{1,2,\ldots,10\}$. Must two of them sum to 11? What is the smallest choice size that forces this? \textit{\small(after TMUA 2022 P2 Q8)}
+
+\item Eight teams play a round-robin (each pair meets once). How many matches are played, and how many does each team play?
+
+\item In a class of 30, each student writes down their number of friends within the class, and the numbers total 84. How many friendships are there?
+
+\item Four numbers are chosen from $\{1,2,\ldots,6\}$. Show that two of them must be consecutive, and exhibit a largest possible choice with no two consecutive.
+
+\item At any party with at least two people, two attendees have shaken the same number of hands. What makes the counts $0$ and $n-1$ incompatible?
+
+\item Twenty-five sweets are shared among 7 children. Show that some child receives at least 4.
+
+\item A society has 5 committees, each with 4 members, and every member sits on exactly 2 committees. How many members does the society have?
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Strong pigeonhole and structural double counts. Build the boxes before you count the pigeons.}
+
+\begin{enumerate}
+
+\item A jar holds beads of 3 colours. How many beads guarantee 5 of one colour?
+
+\item Seven distinct numbers are chosen from $\{1,2,\ldots,12\}$. Show that two of them sum to 13, and show that six numbers are not enough to force this.
+
+\item How many integers must you take to guarantee two ending in the same digit?
+
+\item An $8\times8$ chessboard has two diagonally opposite corner squares removed. Can the remaining 62 squares be tiled by 31 dominoes? Justify your answer.
+
+\item How large must a group be to guarantee that 4 of its members share a birth month?
+
+\item A school runs 20 clubs, each with exactly 6 students, and every student belongs to exactly 3 clubs. How many students does the school have?
+
+\item The numbers $1,2,\ldots,9$ are arranged around a circle in any order. Show that some three adjacent numbers have sum at least 15.
+
+\item Five distinct numbers are chosen from $\{1,2,\ldots,8\}$. Show that two of them differ by exactly 4.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Determine, with proof. Model your write-up on the answer file's --- the argument is the answer.}
+
+\begin{enumerate}
+
+\item Five points lie in a unit square. Prove that two of them are at distance at most $\dfrac{\sqrt2}{2}$.
+
+\item Five points have integer coordinates. Prove that the midpoint of some pair of them also has integer coordinates.
+
+\item At a party with $n\geq2$ people, prove that two people have shaken hands with exactly the same number of fellow guests.
+
+\item Twenty students each solve exactly two of the five problems on a quiz, and every problem is solved by the same number $k$ of students. Determine $k$, with proof.
+
+\item Among any six people, any two of whom are either friends or strangers, prove that there exist three mutual friends or three mutual strangers.
+
+\end{enumerate}
+
+\SpeedClosing{``The pigeonhole principle proves existence without ever finding the thing ---
+mathematics at its most confident.''}
+
+\end{document}

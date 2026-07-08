@@ -1,0 +1,299 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#6 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Pigeonhole Principle (basic \& strong) $\cdot$ Worst-Case Thinking $\cdot$ Double Counting $\cdot$ The Handshake Lemma.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Socks to guarantee a matching pair?
+
+\ans{$3$}
+\method{Worst case: one of each colour (2 socks). One more forces a match.}
+\inv{The answer is (number of colours) $+1$, independent of how many socks the drawer holds. What DOES the drawer size affect? (Whether the guarantee is achievable at all --- with one black sock total, no black pair exists.)}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Draws to guarantee a black pair?
+
+\ans{$12$}
+\method{Worst case: all 10 white socks first, then 2 black.}
+\inv{``A pair'' vs ``a \emph{black} pair'' changed the answer from 3 to 12 --- adversarial drawing exhausts everything unhelpful first. Rule: to guarantee $X$, assume the drawer fights you optimally, then add what $X$ still needs.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item 13 people, two share a birth month?
+
+\ans{True}
+\method{13 pigeons, 12 month-boxes.}
+\inv{The principle is an \emph{existence} claim: it never says which month. That non-constructive character is what makes pigeonhole proofs feel like magic --- and what D-section write-ups must state cleanly.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Guarantee two share a weekday of birth?
+
+\ans{$8$}
+\method{7 boxes, so 8 people.}
+\inv{General basic form: $k$ boxes need $k+1$ pigeons. Say it as a sentence: ``if $k+1$ objects go into $k$ boxes, some box holds two.'' Being able to \emph{state} the principle precisely is worth marks in proofs.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Integers to guarantee two of the same parity?
+
+\ans{$3$}
+\method{Two parity boxes.}
+\inv{Same-parity difference is even --- so among any 3 integers, two differ by an even number (A10 is the 4-integer version --- why does it also hold with just 3?).}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Handshake counts total 18: how many handshakes?
+
+\ans{$9$}
+\method{Each handshake is counted twice, once by each participant: $18/2$.}
+\inv{The Handshake Lemma: $\sum\deg=2\cdot(\text{edges})$. Immediate corollary: the number of people with an ODD handshake count is even. Check it at your next gathering; prove it from the lemma in one line.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Row totals sum $=$ column totals sum?
+
+\ans{True}
+\method{Both equal the sum of every entry --- one grid, two reading orders.}
+\inv{This trivial-looking fact IS double counting. All of today's incidence arguments (B10, C6, D4) are this sentence applied to a cleverly chosen grid: rows = people, columns = committees, entries = memberships.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Guarantee two integers differing by a multiple of 5?
+
+\ans{$6$}
+\method{Boxes are the residues mod 5; same residue $\Rightarrow$ difference divisible by 5.}
+\inv{Residue classes are the most important pigeonholes in competition maths. Note the construction side: $1,2,3,4,5$ (one per residue) shows 5 integers do NOT suffice --- a guarantee question is only fully answered when both directions are shown.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Sweets to guarantee 3 of one flavour (4 flavours)?
+
+\ans{$4\cdot2+1=9$}
+\method{Worst case: 2 of every flavour (8 sweets); the ninth forces a third somewhere.}
+\inv{Strong pigeonhole: to force $m$ in one of $k$ boxes you need $k(m-1)+1$ pigeons. Re-derive A1 ($m=2$, $k=2$) and C1 from this one formula.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Any 4 integers: two with even difference?
+
+\ans{True}
+\method{Two parity boxes, four integers --- some two share parity, and their difference is even.}
+\inv{Sharper: among any 3 integers two share parity (A5). Among any 4 integers, must two differ by a multiple of 3? (Yes --- 3 boxes.) The box count, not the pigeon count, is the quantity to engineer.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item 12 round-table seats: smallest number forcing an adjacent pair? \textit{\small(after TMUA 2019 P2 Q9)}
+
+\ans{$7$}
+\method{Six diners can sit in alternate seats (construction: seats $1,3,5,7,9,11$), so 6 does not force adjacency. With 7 diners, pair the seats into 6 adjacent couples $\{1,2\},\{3,4\},\ldots,\{11,12\}$: seven diners in six couples put two in the same couple --- adjacent. Answer: 7.}
+\inv{Both halves matter: the construction shows 6 fails, the pigeonhole shows 7 works. TMUA multiple-choice hides this structure; BMO1 demands you write both. Generalise: $2n$ seats need $n+1$ diners.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Guarantee two integers with difference divisible by 7?
+
+\ans{$8$}
+\method{Seven residue boxes mod 7.}
+\inv{Follow-up with structure: among any 8 integers, two differ by a multiple of 7 --- but among any \emph{four} integers, must two SUM or differ to a multiple of 5? (Boxes $\{0\},\{1,4\},\{2,3\}$ mod 5: three boxes, four pigeons --- yes. Pairing residues that sum to 5 is the C2 trick in modular clothing.)}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Two of any 5 integers differ by a multiple of 4; five integers avoiding multiples-of-5 differences.
+
+\ans{Pigeonhole on 4 residues; construction: $1,2,3,4,5$}
+\method{Mod 4 there are only 4 residues, so 5 integers repeat one; equal residues difference $\equiv0$. For the second part, any complete residue system mod 5 works: $1,2,3,4,5$ have all differences $1$--$4$ mod 5, never $0$.}
+\inv{Notice the numbers 4 and 5 trade places in the two halves --- the guarantee threshold for modulus $m$ is exactly $m+1$. State this as a single theorem covering A8, B2 and this question.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Six from $\{1,\ldots,10\}$: two summing to 11? \textit{\small(after TMUA 2022 P2 Q8)}
+
+\ans{Yes; the smallest forcing size is $6$}
+\method{Pair the set into $\{1,10\},\{2,9\},\{3,8\},\{4,7\},\{5,6\}$: five boxes each summing to 11. Six chosen numbers land two in one box. Five numbers can dodge (take one from each pair, e.g.\ $1,2,3,4,5$).}
+\inv{Sum-pairs are pigeonholes just as residues are. Design your own: from $\{1,\ldots,20\}$, how many numbers force two summing to 21? Two differing by 10? (Same boxes both times! Why?)}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Round-robin with 8 teams: matches and per-team games?
+
+\ans{$\dbinom{8}{2}=28$ matches; each team plays $7$}
+\method{A match is a pair of teams. Per team: everyone else once.}
+\inv{Double-count check: $8\cdot7$ counts each match twice, $56/2=28$. \checkmark\ Real leagues double it (home and away: 56). How many matches in a league where each team plays each other $k$ times?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Friendship counts total 84: how many friendships?
+
+\ans{$42$}
+\method{Handshake lemma: each friendship contributes 2 to the total.}
+\inv{Could the counts have totalled 85? (No --- the degree sum is always even.) This parity fact silently solves impossible-configuration questions: e.g.\ can 7 people each have exactly 3 friends? ($7\cdot3=21$ odd --- impossible.)}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Four from $\{1,\ldots,6\}$: two consecutive?
+
+\ans{Forced; largest safe choice has 3 elements, e.g.\ $\{1,3,5\}$}
+\method{Boxes $\{1,2\},\{3,4\},\{5,6\}$: four numbers in three boxes put two in one box, and box-mates are consecutive. The construction $\{1,3,5\}$ (or $\{2,4,6\}$, $\{1,4,6\}$, \ldots) shows 3 can dodge.}
+\inv{Connect back to sheet 2's D2: subsets of $\{1,\ldots,8\}$ with NO two consecutive were counted by Fibonacci (55 of them). Guarantee questions ask for the \emph{largest} such subset instead --- extremal vs enumerative, two faces of one constraint.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Two party guests with equal handshake counts: why can't $0$ and $n-1$ coexist?
+
+\ans{Someone shaking all $n-1$ hands has shaken the non-shaker's hand --- contradiction.}
+\method{Possible counts are $0,1,\ldots,n-1$: that is $n$ boxes for $n$ people, so pigeonhole alone fails. But the extreme boxes are incompatible: a count of $n-1$ (shook everyone) and a count of $0$ (shook no one) cannot both occur. So at most $n-1$ counts are actually available for $n$ people --- pigeonhole now bites.}
+\inv{This ``shrink the boxes by a contradiction'' move upgrades many pigeonhole arguments. D3 asks for the full formal write-up --- draft it now while the idea is warm.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item 25 sweets, 7 children: someone gets at least 4.
+
+\ans{At least $\lceil25/7\rceil=4$}
+\method{If every child had at most 3, the total would be at most $21<25$. Contradiction.}
+\inv{The averaging form of pigeonhole: some value is $\geq$ the mean (and some is $\leq$). Convert to the strong form: $7\cdot3+1=22$ sweets already force a 4; we had 25. Which formulation writes up faster?}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item 5 committees of 4; everyone on exactly 2: how many members?
+
+\ans{$\dfrac{5\cdot4}{2}=10$}
+\method{Count (person, committee) memberships two ways: committees give $5\cdot4=20$; people give $2\cdot(\text{members})$. So members $=10$.}
+\inv{A7's grid made explicit: rows are people, columns committees. Whenever a puzzle says ``each X has $a$ Y's and each Y has $b$ X's'', the incidence count $a|X|=b|Y|$ falls out. D4 is this with one unknown.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Beads of 3 colours: guarantee 5 alike?
+
+\ans{$3\cdot4+1=13$}
+\method{Worst case 4 of each colour; the 13th bead is a fifth of something.}
+\inv{Strong pigeonhole in one line. Now invert the question: with 30 beads of 3 colours, what group size is \emph{guaranteed} to exist? ($\lceil30/3\rceil=10$ of some colour.) Forcing-number vs guaranteed-size --- keep the two directions straight.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Seven from $\{1,\ldots,12\}$: two sum to 13; six don't force.
+
+\ans{Forced at 7; construction for 6: $\{1,2,3,4,5,6\}$}
+\method{Boxes $\{1,12\},\{2,11\},\{3,10\},\{4,9\},\{5,8\},\{6,7\}$ --- six boxes each summing to 13. Seven numbers double up somewhere. Taking the smaller element of each pair ($1$--$6$) dodges with six numbers: all pair-sums are at most $11<13$.}
+\inv{Verify the construction really works (largest sum $5+6=11$). Then a two-step hybrid: how many numbers from $\{1,\ldots,12\}$ force EITHER a pair summing to 13 OR a pair differing by 6? (The boxes coincide! Explain why $\{k,13-k\}$ and difference-6 pairs interlock.)}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Guarantee two integers with the same last digit?
+
+\ans{$11$}
+\method{Ten digit-boxes $0$--$9$.}
+\inv{Same last digit $\iff$ difference divisible by 10 --- so this is A8/B2 with modulus 10. Chain it: among 11 integers, two differ by a multiple of 10; among how many, two differing by a multiple of 100? The modulus is the box count, always.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Mutilated chessboard: 31 dominoes?
+
+\ans{Impossible.}
+\method{Colour the board alternately. Opposite corners share a colour, so the mutilated board has 32 squares of one colour and 30 of the other. Every domino covers one square of each colour, so 31 dominoes cover 31 of each --- but $31\neq32$. No tiling exists. $\square$}
+\inv{The first \emph{invariant} argument of the pillar: a quantity every move preserves (colour balance) separates reachable from unreachable. Sheet 7 builds a whole section on this. Try: remove two squares of OPPOSITE colours anywhere --- can the remaining 62 always be tiled? (Yes --- Gomory's beautiful cycle argument; look it up after attempting.)}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Group size guaranteeing 4 share a birth month?
+
+\ans{$12\cdot3+1=37$}
+\method{Worst case: 3 in every month (36 people). One more forces a fourth.}
+\inv{Real-world calibration: school year groups of 37+ always contain a birth-month quartet --- check your own class. Strong pigeonhole with $k=12$, $m=4$; write the general $k(m-1)+1$ and test it against every A/C question so far.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item 20 clubs $\times$ 6 students; each student in 3 clubs: student count?
+
+\ans{$\dfrac{20\cdot6}{3}=40$}
+\method{Memberships counted by clubs: 120. Counted by students: $3S$. So $S=40$.}
+\inv{Add a consistency question: could the same school run 21 clubs of 6 with everyone in exactly 3? ($126/3=42$ --- fine). And 20 clubs of 7? ($140/3$ is not an integer --- impossible!). Divisibility of the double count is a hidden feasibility test.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item $1$--$9$ around a circle: three adjacent summing $\geq15$.
+
+\ans{Some three adjacent numbers sum to at least 15.}
+\method{The nine positions split into three \emph{disjoint} blocks of three consecutive seats. The three block-sums total $1+2+\cdots+9=45$, so some block sums to at least $\lceil45/3\rceil=15$. $\square$}
+\inv{Averaging pigeonhole on engineered boxes. Sharper (harder): show some three adjacent sum $\geq16$ fails --- find an arrangement whose every adjacent triple sums $\leq16$ but... actually can every triple be $\leq15$? The nine \emph{overlapping} triples sum to $3\cdot45=135=9\cdot15$ exactly --- so all nine triples equal 15, forcing impossible structure. Chase this to decide whether 15 is tight.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Five from $\{1,\ldots,8\}$: two differing by 4.
+
+\ans{Forced.}
+\method{Boxes $\{1,5\},\{2,6\},\{3,7\},\{4,8\}$: four boxes whose mates differ by exactly 4. Five numbers put two in one box. $\square$}
+\inv{Largest safe set: 4 (one per box --- e.g.\ $\{1,2,3,4\}$). Variant with difference 3 on $\{1,\ldots,9\}$: boxes $\{1,4\},\{2,5\},\{3,6\},\{7,?\}$... the pairing frays. Build correct boxes for difference 3 (chains $1\to4\to7$, $2\to5\to8$, $3\to6\to9$: pick alternate links) and find the true threshold.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Five points in a unit square: two within $\frac{\sqrt2}{2}$.
+
+\ans{Proof below.}
+\method{\emph{Proof.} Divide the unit square into four closed $\frac12\times\frac12$ quarter-squares. Five points in four quarters: by the pigeonhole principle two points, say $P$ and $Q$, lie in the same quarter. Any two points of a $\frac12\times\frac12$ square are at distance at most its diagonal, $\frac{\sqrt2}{2}$. Hence $|PQ|\leq\frac{\sqrt2}{2}$. $\square$}
+\inv{The write-up has three named steps: build boxes, apply pigeonhole, bound within a box --- every geometric pigeonhole proof has this skeleton. Is $\frac{\sqrt2}{2}$ best possible for five points? (Place four corners + centre and measure.) What about \emph{four} points --- what distance can they all keep?}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Five lattice points: some midpoint is a lattice point.
+
+\ans{Proof below.}
+\method{\emph{Proof.} Classify each point $(x,y)$ by the parities of its coordinates: (even, even), (even, odd), (odd, even), (odd, odd) --- four classes. Five points give two in the same class, say $P=(a,b)$ and $Q=(c,d)$ with $a\equiv c$ and $b\equiv d\pmod 2$. Then $a+c$ and $b+d$ are both even, so the midpoint $\left(\frac{a+c}{2},\frac{b+d}{2}\right)$ has integer coordinates. $\square$}
+\inv{Four points can dodge: $(0,0),(0,1),(1,0),(1,1)$ --- one per parity class; check all six midpoints fail. So 5 is exact. Generalise to 3D: how many lattice points force a lattice midpoint? ($2^3+1=9$.) And what forces a lattice \emph{centroid} of some three points? (Much subtler --- sit with it.)}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Two guests with equal handshake counts.
+
+\ans{Proof below.}
+\method{\emph{Proof.} Each of the $n$ guests has a handshake count in $\{0,1,\ldots,n-1\}$ --- $n$ possible values. Suppose all counts were distinct; then every value occurs exactly once, so some guest $A$ has count $n-1$ and some guest $B$ has count $0$. But $A$ shook hands with everyone else, including $B$, contradicting $B$'s count of $0$. Hence not all counts are distinct: two guests share a count. $\square$}
+\inv{Note the structure: pigeonhole fails at first ($n$ values, $n$ people), so we \emph{assume distinctness and hunt a contradiction} between the forced extremes. Extend: must THREE guests share a count? (No --- construct a party with counts as spread as possible.)}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item 20 students, 2 problems each, 5 problems solved equally: determine $k$.
+
+\ans{$k=8$}
+\method{\emph{Proof.} Count (student, solved problem) pairs two ways. By students: each of 20 students contributes exactly 2 pairs: $40$. By problems: each of the 5 problems is solved by $k$ students, contributing $5k$ pairs. The same set counted twice: $5k=40$, so $k=8$. Feasibility: any assignment of students to the $\binom52=10$ problem-pairs with each problem in $8$ chosen pairs works --- e.g.\ give each of the 10 problem-pairs exactly 2 students. $\square$}
+\inv{The determination is two lines; the \emph{feasibility construction} is what BMO1 markers look for and students forget. Harder: if instead every PAIR of problems is solved by exactly one common student, how many students? (10 --- one per pair; the double count now runs over problem-pairs.)}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Six people: three mutual friends or three mutual strangers.
+
+\ans{Proof below.}
+\method{\emph{Proof.} Fix a person $X$. The other five people split into friends of $X$ and strangers to $X$; by pigeonhole one class contains at least $\lceil5/2\rceil=3$ people --- say (without loss of generality) $A,B,C$ are all friends of $X$. Now examine the three relations among $A,B,C$: if any pair, say $A$ and $B$, are friends, then $X,A,B$ are three mutual friends. Otherwise all three pairs among $A,B,C$ are strangers, and $A,B,C$ are three mutual strangers. Either way the claim holds. (If the majority class was strangers, the same argument runs with roles swapped.) $\square$}
+\inv{This is the Ramsey number statement $R(3,3)\leq6$. Show 5 people are not enough: arrange five people in a cycle where neighbours are friends and non-neighbours strangers, and verify no monochromatic triangle. Hence $R(3,3)=6$ exactly. The write-up's ``without loss of generality'' is load-bearing --- say why the symmetry justifies it.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Basic pigeonhole.} $k+1$ objects in $k$ boxes: some box holds two. The craft is in \emph{designing} the boxes: residues, sum-pairs, quarter-squares, parity classes.
+  \item \textbf{Strong pigeonhole.} Forcing $m$ alike among $k$ types needs $k(m-1)+1$ objects. Equivalently: some box holds at least the ceiling of the average.
+  \item \textbf{Worst case first.} Every guarantee number is (largest configuration that dodges) $+1$. A complete answer exhibits the dodge AND proves the force.
+  \item \textbf{Double counting.} Count (X, Y) incidences by X and by Y: $a|X|=b|Y|$. Grids, committees, degree sums --- and an integrality feasibility test for free.
+  \item \textbf{Shrink the boxes by contradiction.} When boxes equal pigeons, show two boxes cannot both be occupied (counts 0 and $n-1$) --- then pigeonhole closes the argument.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Answering the force without the dodge.} ``7 diners force adjacency'' is half marks until you seat 6 who don't. Guarantee $=$ construction $+$ pigeonhole.
+  \item \textbf{Off-by-one in strong pigeonhole.} It is $k(m-1)+1$, not $km$ or $km+1$. Re-derive from the worst case each time rather than recalling.
+  \item \textbf{Boxes that aren't disjoint or don't cover.} Sum-pair and difference boxes must partition the set --- check both properties explicitly before counting pigeons.
+  \item \textbf{Double counting with one side wrong.} ``Each of 20 clubs of 7, everyone in 3'' has no integer solution --- test divisibility before trusting a puzzle's premises.
+  \item \textbf{Vague write-ups.} ``By pigeonhole, done'' scores nothing. Name the pigeons, name the boxes, state which two collide and what that collision gives you.
+\end{enumerate}
+
+\SpeedClosing{``The pigeonhole principle proves existence without ever finding the thing ---
+mathematics at its most confident.''}
+
+\end{document}
