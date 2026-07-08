@@ -1,0 +1,299 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{3}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#3 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Blocks \& Gaps $\cdot$ Circular Arrangements $\cdot$ Repeated Letters $\cdot$ Forced-Order Tricks.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item In how many ways can 5 people stand in a row?
+
+\ans{$5!=120$}
+\method{Distinct objects in a row: factorial. Instant.}
+\inv{Sheet 1's opening question returns as pure recall --- that is the point of Section A. If this took more than three seconds, redo sheet 1's A section tomorrow.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item How many arrangements of the letters of LEMON?
+
+\ans{$5!=120$}
+\method{Five \emph{distinct} letters --- same question as A1 in costume.}
+\inv{Spot the isomorphism reflex: people in rows, distinct letters, distinct books are the same problem. The next question breaks the spell --- watch what changes.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item How many arrangements of the letters of BANANA?
+
+\ans{$\dfrac{6!}{3!\,2!}=60$}
+\method{Six letters: A$\times$3, N$\times$2, B$\times$1. Divide $6!$ by the repeats: $\frac{720}{6\cdot2}$.}
+\inv{Why division works: the 3 A's can be permuted in $3!$ ways without changing the word, so each distinct word was counted exactly $3!\,2!$ times among the $6!$. This ``quotient out the symmetry'' idea is the same one that will give circular arrangements in A4.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Four people around a round table (rotations the same)?
+
+\ans{$(4-1)!=6$}
+\method{Fix one person to kill the rotational symmetry; arrange the remaining 3 freely.}
+\inv{Alternative view: $\frac{4!}{4}$ --- each circular arrangement is counted 4 times among row arrangements, once per rotation. Check both give 6. When would you also divide by 2? (When the table can be ``flipped'' --- necklaces, handshake circles.)}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Six in a row, Ali first and Zara last?
+
+\ans{$4!=24$}
+\method{Two positions forced, four people free.}
+\inv{Forced positions contribute factor 1 --- cousins of sheet 2's forced aces. Variant: Ali \emph{or} Zara first (and no other constraint): $2\cdot5!=240$. Why can you not just double 24?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Three identical red flags and two identical blue flags in a row?
+
+\ans{$\dbinom{5}{2}=10$}
+\method{Only the \emph{positions} of the blue flags matter: choose 2 places from 5. Equivalently $\frac{5!}{3!2!}$.}
+\inv{Repeated-letter arrangements and binomial coefficients are the same formula meeting in the middle: $\frac{5!}{3!2!}=\binom{5}{2}$. Every binary string question (sheet 2, B6) is a flag question. What is the three-colour version? (The multinomial coefficient --- sheet 4.)}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of SPEED with the two E's together?
+
+\ans{$4!=24$}
+\method{Glue EE into one block: the objects S, P, D, [EE] are 4 distinct things. (The E's are identical, so no $\times2$ for internal order.)}
+\inv{Contrast with gluing two \emph{different} letters, which costs a factor 2. Then check the complement against sheet 1: total arrangements of SPEED $=60$, so E's apart $=60-24=36$. Verify by the gap method.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Six people around a round table (rotations the same)?
+
+\ans{$(6-1)!=120$}
+\method{Fix one person, arrange 5.}
+\inv{A dinner-party host claims seating 6 guests differently every night is possible for four months. Check: 120 nights $\approx$ four months. For how long could 8 guests last? (Nearly 14 years.)}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: 8 people round a table $=$ 7 people in a row?
+
+\ans{True --- both are $7!=5040$}
+\method{Circular $n$ $=(n-1)!$ $=$ row arrangements of $n-1$. Fixing one diner \emph{is} reducing to a row of the rest.}
+\inv{TMUA-style equivalence spotting. Decide true/false: ``$2n$ people in a circle $=$ $n$ people in a row, for some $n>1$.'' ($(2n-1)!=n!$ forces $2n-1=n$, impossible for $n>1$ --- false.)}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Arrangements of TATTY?
+
+\ans{$\dfrac{5!}{3!}=20$}
+\method{Five letters with T$\times$3: divide by $3!$.}
+\inv{Rank the words BANANA (60), TATTY (20), LEVEL (30), LEMON (120) by arrangement count \emph{before} computing, using only the repeat structure. Fluency at reading the ``signature'' $(3,2,1)$ vs $(3,1,1)$ vs $(2,2,1)$ is the skill.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Six in a row, Priya and Quinn together?
+
+\ans{$2\cdot5!=240$}
+\method{Glue the pair (block has 2 internal orders), arrange 5 objects.}
+\inv{Sheet 1 met this in Section C; now it is a B-level reflex --- the spiral is deliberate. Speed target: write ``$2\cdot5!$'' within five seconds of finishing reading.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Six in a row, Priya and Quinn \emph{not} together?
+
+\ans{$720-240=480$}
+\method{Complement of B1.}
+\inv{Reprove via gaps: seat the other 4 ($4!$), then place P and Q in different gaps of the 5 available: $4!\cdot5\cdot4=480$. The gap method scales to ``no two of \emph{three} people adjacent'' where complements get messy --- see D5.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of MISSISSIPPI?
+
+\ans{$\dfrac{11!}{4!\,4!\,2!}=34\,650$}
+\method{11 letters: I$\times$4, S$\times$4, P$\times$2, M$\times$1. One division, no listing.}
+\inv{Compute it calculator-free the clean way: $\frac{11!}{4!4!2!}=\binom{11}{4}\binom{7}{4}\binom{3}{2}=330\cdot35\cdot3$. Choosing positions letter-by-letter both proves the formula and organises the arithmetic.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Five boys, three girls in a row, no two girls adjacent?
+
+\ans{$5!\cdot(6\cdot5\cdot4)=120\cdot120=14\,400$}
+\method{Gap method: arrange the boys ($5!$), creating 6 gaps (including the two ends); place the three distinct girls in three \emph{different} gaps, in order: $6\cdot5\cdot4$.}
+\inv{Why does gluing/complement fail here? ``No two of three adjacent'' has too many overlapping bad events. The gap method sidesteps inclusion--exclusion entirely --- but inclusion--exclusion (sheet 5) will handle what gaps cannot.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Four men and four women in a row, alternating?
+
+\ans{$2\cdot4!\cdot4!=1\,152$}
+\method{Two gender patterns (MWMW\ldots{} or WMWM\ldots), then the men fill their 4 slots in $4!$ ways and the women theirs in $4!$.}
+\inv{With 5 men and 4 women only one pattern survives (MWMWMWMWM): $5!\cdot4!=2880$, no factor 2. The factor-of-2 question is always: does the \emph{pattern} have a choice, or is it forced?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Six around a round table, two particular people together?
+
+\ans{$2\cdot(5-1)!=48$}
+\method{Glue the pair into a block: 5 objects round a table $=(5-1)!$, times 2 internal orders.}
+\inv{Row version was $2\cdot5!=240$; circle version is $2\cdot4!=48$. The ratio is 5 --- exactly the number of rotations quotiented out. Check this ratio logic predicts the answer for 8 people with a glued pair.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Six-digit strings from $1,1,2,2,3,3$?
+
+\ans{$\dfrac{6!}{2!\,2!\,2!}=90$}
+\method{Three pairs: divide $720$ by $2^3$.}
+\inv{Of these 90, how many are palindromes? (A palindrome is fixed by its first three digits, which must use each of 1, 2, 3 exactly once: $3!=6$.) Symmetry constraints slash repeated-letter counts --- try ``how many read the same upside down'' style variants.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of LEVEL?
+
+\ans{$\dfrac{5!}{2!\,2!}=30$}
+\method{L$\times$2, E$\times$2, V: divide $120$ by 4.}
+\inv{How many of the 30 are palindromes? (Middle letter forced to V; first two letters L, E in some order determine the rest: 2.) Notice palindrome counting always halves the alphabet workload: only half the word is free.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Seven books, trilogy in volume order (not necessarily adjacent)?
+
+\ans{$\dfrac{7!}{3!}=840$}
+\method{Forced-order trick: of the $3!$ orderings of the trilogy within any arrangement, exactly one is correct --- so divide $7!$ by $3!$. No gluing: they need not be adjacent.}
+\inv{Compare the three trilogy conditions: adjacent-any-order ($3!\cdot5!=720$), adjacent-in-order ($5!=120$), in-order-anywhere ($840$). Rank them by restrictiveness \emph{before} computing next time. The divide-by-order trick is sheet 1's ``strictly increasing digits'' insight, now industrialised.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Round-table seatings of $n$ people $=720$. Find $n$.
+
+\ans{$n=7$}
+\method{$(n-1)!=720=6!$, so $n=7$.}
+\inv{Factorials are so sparse that ``$=720$'' identifies $6!$ instantly --- recall sheet 1's ladder. Solve also $(n-1)!\cdot2=240$ (a glued-pair circle count): $n=6$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Eight in a row, three friends consecutive?
+
+\ans{$3!\cdot6!=4\,320$}
+\method{Glue the three into a block (internal orders $3!$), then 6 objects in a row.}
+\inv{Generalise: $k$ specified people consecutive among $n$ gives $k!\,(n-k+1)!$. Sanity-check the formula against B1 ($k=2$, $n=6$).}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Same, but the three friends in height order?
+
+\ans{$6!=720$}
+\method{The block's internal order is now forced: drop the $3!$.}
+\inv{``Consecutive AND ordered'' = glue with factor 1; ``ordered but scattered'' = divide by $3!$ (B9). Keep the two tricks distinct in your head --- mixing them up is a classic exam slip.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of DIVIDED?
+
+\ans{$\dfrac{7!}{3!\,2!}=420$}
+\method{Seven letters: D$\times$3, I$\times$2, V, E. $\frac{5040}{12}=420$.}
+\inv{How many arrangements \emph{start and end with D}? (Fix two D's at the ends; arrange the middle five letters D, I, I, V, E: $\frac{5!}{2!}=60$.) Note you don't choose \emph{which} D's --- they are identical.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Four men, four women alternating around a round table?
+
+\ans{$3!\cdot4!=144$}
+\method{Seat the men first: circular, so $(4-1)!=6$. Their seating fixes 4 alternating gaps, into which the women go in $4!$ ways. (No extra factor 2: in a circle the two ``patterns'' are rotations of each other.)}
+\inv{Row version (B5) had the pattern factor 2; the circle ate it. Trace exactly where: rotating an MWMW\ldots{} row by one seat turns it into WMWM\ldots{} --- rotations already identify the two patterns. Symmetries must be counted once, not twice.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of CIRCLE with the two C's apart?
+
+\ans{$\dfrac{6!}{2!}-5!=360-120=240$}
+\method{Total (with C repeated): 360. Together: glue CC (identical, no internal factor): $5!=120$. Subtract.}
+\inv{Redo via gaps: arrange I, R, L, E ($4!$), choose 2 of the 5 gaps for the identical C's ($\binom{5}{2}$): $24\cdot10=240$. \checkmark\ Complement and gaps agree --- and for \emph{identical} letters the gap count uses $\binom{}{}$, not a falling product. Spot why.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Five-digit even numbers using $1,2,3,4,5$ once each?
+
+\ans{$2\cdot4!=48$}
+\method{Units digit must be 2 or 4 (two choices); the rest arrange freely.}
+\inv{How many are divisible by 4? A number is divisible by 4 exactly when its last two digits are. The valid distinct-digit endings from $\{1,\ldots,5\}$ are 12, 24, 32, 52 --- four endings, each completed by $3!$ arrangements of the remaining digits: $4\cdot6=24$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Three maths, two physics, two chemistry books, subjects together?
+
+\ans{$3!\cdot(3!\cdot2!\cdot2!)=6\cdot24=144$}
+\method{Arrange the three subject blocks ($3!$), then the books inside each block ($3!,2!,2!$).}
+\inv{Blocks-of-blocks compose: shelves of subjects of books of chapters\ldots{} each level multiplies independently. Now add the constraint ``maths must be left of chemistry'' --- which factor changes, and to what? (The $3!$ becomes 3: divide by the $2!$ orderings of the M--C pair.)}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Eight around a round table, two people refusing to be adjacent?
+
+\ans{$7!-2\cdot6!=5\,040-1\,440=3\,600$}
+\method{All seatings ($7!$) minus glued-pair seatings ($2\cdot6!$).}
+\inv{Gap version: seat the 6 others round the table ($5!$), then put the two enemies into 2 of the 6 gaps: $5!\cdot6\cdot5=3600$. \checkmark\ Both routes again --- build the habit of solving restricted seatings twice until they always agree first time.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Seven-digit numbers from $1$--$7$, odd digits in increasing order?
+
+\ans{$\dfrac{7!}{4!}=210$}
+\method{The four odd digits $1,3,5,7$ appear in some order in every arrangement; exactly one of the $4!$ orders is increasing. So divide: $\frac{5040}{24}=210$. Equivalently: choose which 4 positions hold the odds ($\binom{7}{4}=35$, order then forced) and arrange the three evens ($3!$): $35\cdot6=210$.}
+\inv{Two proofs, one answer --- the divide-by-order trick and the choose-positions trick are secretly the same computation: $\binom{7}{4}\cdot3!=\frac{7!}{4!}$. Now count arrangements where the odds increase AND the evens decrease ($\binom{7}{4}\cdot1=35$).}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Ten children in a circle: Mia--Noah adjacent, Omar--Priya not?
+
+\ans{$2\cdot8!-4\cdot7!=80\,640-20\,160=60\,480$}
+\method{Layer the constraints. Glue Mia--Noah: $2\cdot(9-1)!=80\,640$ circles. From these subtract the ones where Omar--Priya are also adjacent (glue both pairs): $2\cdot2\cdot(8-1)!=20\,160$. Answer: $60\,480$.}
+\inv{The pattern ``force the easy constraint, complement the hard one'' handles most two-constraint arrangement problems. Try three pairs: A--B adjacent, C--D adjacent, E--F \emph{not} adjacent, 10 people in a circle. (Same layering, one more glue.)}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of AABBCC with no two identical letters adjacent?
+
+\ans{$30$}
+\method{Inclusion--exclusion on the ``bad pair'' events, computed cleanly by gluing. Total: $\frac{6!}{2!2!2!}=90$. Glue AA: $\frac{5!}{2!2!}=30$, same for BB, CC. Glue two pairs: $\frac{4!}{2!}=12$ each (3 ways). Glue all three: $3!=6$. Count with no glued pair $=90-3\cdot30+3\cdot12-6=30$.}
+\inv{This is inclusion--exclusion arriving a sheet early --- sheet 5 makes it systematic. For now, verify the answer differently: by symmetry all $3!$ letter-labelings are equivalent, so just count patterns like ABCABC, ABCACB, \ldots{} and multiply. How many \emph{patterns} are there? ($30/3!=5$.)}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Eight in a row, exactly two of the three sisters adjacent?
+
+\ans{$8!-14\,400-4\,320=21\,600$}
+\method{Three disjoint outcomes partition all $8!=40\,320$ arrangements: \emph{no} adjacent sister-pair, \emph{exactly one} adjacent sister-pair, and \emph{two} adjacent sister-pairs (which is precisely ``all three consecutive''). \emph{None adjacent} (gap method): $5!\cdot6\cdot5\cdot4=14\,400$. \emph{All three consecutive}: $3!\cdot6!=4\,320$. ``Exactly two sisters adjacent'' is the middle category, so it equals $40\,320-14\,400-4\,320=21\,600$.}
+\inv{Check the borderline case that makes this work: in a block of three sisters, the outer two are NOT adjacent to each other --- adjacency is about neighbouring seats, not membership of a block. Redo the problem for ``at least two adjacent'' ($40\,320-14\,400=25\,920$) and confirm the three-way split is consistent.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Eight knights round a table, three feuding knights pairwise non-adjacent?
+
+\ans{$4!\cdot5\cdot4\cdot3=1\,440$}
+\method{Gap method, circular edition. Seat the five peaceful knights first: $(5-1)!=24$ circular orders, creating exactly 5 gaps between them. Place the three feuding knights into three \emph{different} gaps (one per gap --- two in one gap would be adjacent to each other): $5\cdot4\cdot3=60$. Total $24\cdot60=1\,440$.}
+\inv{Why must each chosen gap hold exactly one feuder? And why did the circle change the gap count (5 gaps from 5 people, versus 6 gaps from 5 people in a row)? Generalise: $n$ knights, $k$ feuding, count $=(n-k-1)!\cdot\frac{(n-k)!}{(n-2k)!}$ --- test it against B4's row analogue and this question.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Glue blocks.} ``Must be together'' $\Rightarrow$ treat as one object, multiply by internal orders (which is 1 if the glued items are identical or their order is forced).
+  \item \textbf{Count gaps.} ``No two adjacent'' $\Rightarrow$ seat the unrestricted objects, then place the restricted ones into distinct gaps. Rows of $m$ give $m+1$ gaps; circles of $m$ give $m$ gaps.
+  \item \textbf{Divide by forced order.} If $k$ objects must appear in one specified relative order (not necessarily adjacent), count freely and divide by $k!$.
+  \item \textbf{Fix a seat in circles.} Rotational symmetry costs one factor of $n$: circular $n$ $=(n-1)!$. Ask separately whether reflections are also ``the same''.
+  \item \textbf{Layer constraints.} Force the ``must'' constraints by gluing first, then handle the ``must not'' by complement or gaps inside that restricted world.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Multiplying by internal orders of identical letters.} Gluing the two E's of SPEED is a factor 1, not 2. Only \emph{distinguishable} contents of a block get a factorial.
+  \item \textbf{Row gaps vs circle gaps.} Five people create 6 gaps in a row but only 5 in a circle. Using the row count at a round table silently overcounts.
+  \item \textbf{Double-counting the alternating patterns in a circle.} MWMW\ldots{} and WMWM\ldots{} are rotations of each other at a round table --- the row-version factor 2 must be dropped (C4).
+  \item \textbf{Confusing ``in order'' with ``adjacent''.} Volume order scattered along the shelf divides by $3!$; volumes boxed together glues a block. Different tricks, different answers (B9 vs C1/C2).
+  \item \textbf{Treating ``exactly one adjacent pair'' as total minus none-adjacent.} That difference counts \emph{at least one} pair. The all-together case must be carved out separately (D4).
+\end{enumerate}
+
+\SpeedClosing{``Glue what must be together, seat what must be apart last ---
+the gaps will tell you how much room rebellion really has.''}
+
+\end{document}
