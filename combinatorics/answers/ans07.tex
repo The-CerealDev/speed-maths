@@ -1,0 +1,302 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#7 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Recurrences \& Fibonacci Counting $\cdot$ Catalan Numbers $\cdot$ Bijections $\cdot$ Invariants \& Monovariants.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Climb 4 stairs, steps of 1 or 2?
+
+\ans{$5$}
+\method{Ways to reach step $n$: $f(n)=f(n-1)+f(n-2)$ (last move was a 1 or a 2). With $f(1)=1$, $f(2)=2$: $1,2,3,5$.}
+\inv{This is Fibonacci in disguise --- $f(n)=F_{n+1}$. Nearly every question on this sheet is one recurrence wearing a costume; learn to hear ``the last move was $X$ or $Y$'' as ``$f(n)=f(n-X)+f(n-Y)$''.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Climb 5 stairs?
+
+\ans{$8$}
+\method{Continue the sequence one step: $f(5)=f(4)+f(3)=5+3=8$.}
+\inv{Extend the reflex to steps of 1 or 3: the recurrence becomes $f(n)=f(n-1)+f(n-3)$ --- the Padovan/Narayana pattern. Write its first eight values.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Binary strings of length 4, no two adjacent 1s?
+
+\ans{$8$}
+\method{Let $g(n)$ count them. A valid string ends in 0 (then $g(n-1)$ ways) or in 01 (then $g(n-2)$): $g(n)=g(n-1)+g(n-2)$, with $g(1)=2$, $g(2)=3$. So $2,3,5,8$.}
+\inv{Same recurrence as the stairs --- and as sheet 2's no-two-consecutive subsets (55 for $n=8$). Three problems, one Fibonacci. Find the bijection between length-$n$ binary strings with no ``11'' and stair-climbs of $n{+}1$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Domino tilings of $2\times3$?
+
+\ans{$3$}
+\method{Tilings of $2\times n$: the last column is one vertical domino ($t(n-1)$) or two horizontals filling two columns ($t(n-2)$): $t(n)=t(n-1)+t(n-2)$, $t(1)=1$, $t(2)=2$. So $1,2,3$.}
+\inv{Fibonacci again ($t(n)=F_{n+1}$). Why do stairs, no-11 strings and $2\times n$ tilings all obey it? Each has a ``binary choice at the end that removes 1 or 2 units'' --- name that choice in each and the shared structure becomes visible.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Domino tilings of $2\times4$?
+
+\ans{$5$}
+\method{$t(4)=t(3)+t(2)=3+2=5$.}
+\inv{Predict $2\times10$ before doing B3 (it is $F_{11}$). Fluency at extending a known recurrence in your head is the entire skill this section trains.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Regions from 3 lines in general position?
+
+\ans{$7$}
+\method{Each new line crosses all previous ones and gains (number of lines already present)$+1$ new regions: $R(n)=R(n-1)+n$, $R(0)=1$. So $1,2,4,7$.}
+\inv{Unfolding the recurrence gives $R(n)=1+\binom{n+1}{2}$ --- a closed form from a running sum. Check $R(3)=1+6=7$. What if lines may be parallel or concurrent? (Fewer regions --- generality is what makes the count maximal.)}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Correctly matched arrangements of 3 bracket pairs?
+
+\ans{$5$}
+\method{The Catalan number $C_3=5$: \texttt{((()))}, \texttt{(()())}, \texttt{(())()}, \texttt{()(())}, \texttt{()()()}.}
+\inv{$C_n=\frac{1}{n+1}\binom{2n}{n}$ counts balanced brackets, and also triangulations (D3), staircase lattice paths (C3), and much else. The recurrence $C_n=\sum_{i}C_iC_{n-1-i}$ ``splits at the matching partner of the first bracket'' --- meet it properly in C3.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item $a_1=1$, $a_{n+1}=2a_n+1$: find $a_4$.
+
+\ans{$15$}
+\method{$1\to3\to7\to15$. (Each term is one less than a power of 2.)}
+\inv{Guess and prove the closed form $a_n=2^n-1$ by induction. This exact recurrence is the Towers of Hanoi (B9, C6) --- recognising it now will save you the derivation later.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Write $F_8$.
+
+\ans{$21$}
+\method{$1,1,2,3,5,8,13,21$.}
+\inv{Memorise $F_1$ through $F_{12}$ ($\ldots,34,55,89,144$) --- they surface constantly. Note $F_{12}=144=12^2$, the only nontrivial square Fibonacci number (a deep theorem).}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: $F_1+\cdots+F_8=54$.
+
+\ans{True}
+\method{$1{+}1{+}2{+}3{+}5{+}8{+}13{+}21=54$. Also $F_{10}-1=55-1=54$.}
+\inv{The shortcut $\sum_{i=1}^n F_i=F_{n+2}-1$ is B10 --- prove it and you never add Fibonacci numbers by hand again. Which running-sum identities does Pascal's triangle hide? (Hockey stick, sheet 4 D4.)}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Climb 10 stairs, steps of 1 or 2?
+
+\ans{$89$}
+\method{Run $f(n)=f(n-1)+f(n-2)$ to $n=10$: $\ldots,55,89$. That is $F_{11}$.}
+\inv{At $n=10$ brute force would list 89 sequences; the recurrence gives it in ten additions. This gap widens fast --- $f(30)=F_{31}=1\,346\,269$. Recurrences are how counting scales.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Binary strings of length 8, no two adjacent 1s?
+
+\ans{$55$}
+\method{$g(n)=g(n-1)+g(n-2)$, $g(1)=2,g(2)=3$: $\ldots,34,55$. ($g(n)=F_{n+2}$.)}
+\inv{Sheet 2 D2 counted no-two-consecutive \emph{subsets} of $\{1,\ldots,8\}$ and also got 55 --- because a subset is exactly a binary string (element in/out). Same object, two sheets apart; that is the pillar closing a loop.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Domino tilings of $2\times10$?
+
+\ans{$89$}
+\method{$t(n)=F_{n+1}$, so $t(10)=F_{11}=89$.}
+\inv{Stairs of 10 and $2\times10$ tilings both give 89 --- exhibit a direct bijection (a vertical domino $\leftrightarrow$ a 1-step, a horizontal pair $\leftrightarrow$ a 2-step). A bijection is a \emph{proof} the counts are equal, needing no formula.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Regions from 10 lines in general position?
+
+\ans{$56$}
+\method{$R(n)=1+\binom{n+1}{2}=1+\binom{11}{2}=1+55=56$.}
+\inv{Verify against the recurrence: $R(10)=R(9)+10$. Closed form and recurrence must always agree --- disagreement means an arithmetic slip in one, a free error-check.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item $a_1=2$, $a_n=3a_{n-1}-1$: find $a_4$.
+
+\ans{$41$}
+\method{$2\to5\to14\to41$.}
+\inv{Solve it in closed form: fixed point $a^*=\tfrac12$, so $a_n-\tfrac12=3(a_{n-1}-\tfrac12)$, giving $a_n=\tfrac12+\tfrac32\cdot3^{\,n-1}$. Check $a_4=\tfrac12+\tfrac32\cdot27=41$. The ``subtract the fixed point'' trick linearises any $a_n=ra_{n-1}+c$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Climb 6 stairs, steps of 1, 2, or 3?
+
+\ans{$24$}
+\method{Tribonacci: $f(n)=f(n-1)+f(n-2)+f(n-3)$, $f(1)=1,f(2)=2,f(3)=4$. So $1,2,4,7,13,24$.}
+\inv{Three step-sizes give three seed values and a three-term recurrence --- the pattern generalises to any step set. What step sizes would make $f$ satisfy $f(n)=f(n-1)+f(n-4)$? (Steps of 1 and 4.)}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Regions of a disc from 5 points, all chords?
+
+\ans{$16$}
+\method{Regions $=1+\binom{n}{2}+\binom{n}{4}$: with $n=5$, $1+10+5=16$.}
+\inv{The values $1,2,4,8,16$ for $n=1,\ldots,5$ scream ``$2^{n-1}$'' --- and then $n=6$ gives 31, not 32 (C4). This is the most famous false pattern in mathematics; never trust a doubling sequence without proof.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Snaps to break a $4\times6$ bar into 24 squares?
+
+\ans{$23$}
+\method{Invariant: each snap turns one piece into two, so the number of pieces rises by exactly 1 per snap. Starting at 1 piece and ending at 24 needs $24-1=23$ snaps --- \emph{regardless} of the order or pattern of breaks.}
+\inv{Your first monovariant: a quantity (piece count) that changes by a fixed amount every move, so the total number of moves is forced. The answer never depends on strategy --- the mark of an invariant argument. How many snaps for an $m\times n$ bar? ($mn-1$.)}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Least moves, Towers of Hanoi, 6 disks?
+
+\ans{$63$}
+\method{$H(n)=2H(n-1)+1$ (move $n-1$ disks off, move the big one, move them back), $H(1)=1$: $1,3,7,15,31,63$. So $H(n)=2^n-1$.}
+\inv{This is A8's recurrence exactly. Prove $2^n-1$ is also a \emph{lower} bound (the biggest disk must move, and the other $n-1$ must be stacked off it first and on it after) --- optimality needs both a construction and a bound, just like every guarantee on sheet 6.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Prove $F_1+\cdots+F_n=F_{n+2}-1$; evaluate for $n=8$.
+
+\ans{$54$}
+\method{\emph{Proof (telescoping).} Since $F_k=F_{k+2}-F_{k+1}$, summing $k=1$ to $n$ collapses: $\sum_{k=1}^n F_k=\sum(F_{k+2}-F_{k+1})=F_{n+2}-F_2=F_{n+2}-1$. For $n=8$: $F_{10}-1=55-1=54$. $\square$}
+\inv{Telescoping a recurrence is the fastest route to its running sums. Derive $\sum F_i^2=F_nF_{n+1}$ the same way (from $F_i^2=F_i F_{i+1}-F_{i-1}F_i$) --- a gorgeous identity with a one-line proof.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Climb 8 stairs, steps 1 or 2, no two 2-steps in a row?
+
+\ans{$19$}
+\method{Track the last step: let $b(n)$ end in a 1-step, $c(n)$ end in a 2-step. A 1-step may follow anything: $b(n)=b(n-1)+c(n-1)$. A 2-step may not follow a 2-step: $c(n)=b(n-2)$. Building up to $n=8$ gives total $b(8)+c(8)=19$.}
+\inv{One forbidden adjacency forces a \emph{two-state} recurrence --- you must remember what the last move was. This ``carry the state'' idea is the workhorse behind C8 and countless BMO1 process problems. Recompute allowing no two \emph{1}-steps in a row instead; is the answer the same by symmetry?}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Tile a $2\times6$ strip with dominoes and $2\times2$ squares?
+
+\ans{$43$}
+\method{Fill left to right: a vertical domino advances 1 column ($a_{n-1}$); two horizontal dominoes or one $2\times2$ square advance 2 columns (2 ways, $2a_{n-2}$). So $a_n=a_{n-1}+2a_{n-2}$, $a_0=a_1=1$: $1,1,3,5,11,21,43$.}
+\inv{A ``$+2a_{n-2}$'' term means \emph{two} ways to cross the two-column gap --- the coefficient counts the local choices. This is the general shape of transfer-matrix tiling counts. Solve the recurrence in closed form (characteristic roots $2$ and $-1$).}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Lattice paths $(0,0)\to(4,4)$, unit steps, never above $y=x$?
+
+\ans{$C_4=14$}
+\method{These are \emph{Dyck paths}; they are counted by the Catalan number $C_4=\frac{1}{5}\binom{8}{4}=\frac{70}{5}=14$. (Reflection principle: all $\binom{8}{4}=70$ paths minus the $\binom{8}{3}=56$ that cross the diagonal.)}
+\inv{The reflection trick --- flip a bad path after its first illegal step to biject with unconstrained paths to a shifted endpoint --- is one of the most reusable ideas in combinatorics. Balanced brackets (A7), non-crossing chords and triangulations (D3) are all secretly Dyck paths. Find the bracket $\leftrightarrow$ path bijection (up-step $=$ ``('').}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Regions of a disc from 6 points, all chords? \textit{\small(not 32)}
+
+\ans{$31$}
+\method{$1+\binom62+\binom64=1+15+15=31$. Each interior crossing (a $\binom{n}{4}$: one per 4 points, sheet 2 D5) adds one region beyond the $1+\binom{n}{2}$ that chords alone would give.}
+\inv{The sequence $1,2,4,8,16,\mathbf{31}$ is the textbook warning against pattern-matching. Derive the formula honestly via Euler's $V-E+F=2$: count vertices (points + crossings), edges (chord arcs), and read off faces. Getting 31 from Euler is deeply satisfying.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Ordered sums of 8 into odd parts?
+
+\ans{$21$}
+\method{Let $d(n)$ count compositions of $n$ into odd parts. Peeling the first part (odd) gives $d(n)=d(n-1)+d(n-3)+d(n-5)+\cdots$; simplifying, $d(n)=d(n-1)+d(n-2)$ --- Fibonacci again! With $d(1)=1,d(2)=1$: $\ldots,13,21$, so $d(8)=21=F_8$.}
+\inv{That compositions-into-odd-parts equals a Fibonacci number is startling until you find the bijection (group the parts cleverly, or use the recurrence's telescoping). Which Fibonacci? $d(n)=F_n$. Prove $d(n)=d(n-1)+d(n-2)$ directly by considering whether the last part is 1.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Derive the Hanoi recurrence; give the 10-disk count.
+
+\ans{$1023$}
+\method{To move $n$ disks, you must move the top $n-1$ to the spare peg ($H(n-1)$ moves), move the largest ($1$ move), then move the $n-1$ back ($H(n-1)$): $H(n)=2H(n-1)+1$. Unfolding: $H(n)=2^n-1$, so $H(10)=1023$.}
+\inv{Unfold the recurrence symbolically: $H(n)=2H(n-1)+1=2^2H(n-2)+2+1=\cdots=2^n-1$. The ``$+1$ per level doubled'' becomes the geometric sum $2^{n}-1$. This telescoping-by-substitution solves every $a_n=ra_{n-1}+c$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Domino tilings of a $3\times4$ grid?
+
+\ans{$11$}
+\method{Odd-width strips need a genuine transfer-matrix (column-state) recurrence rather than a two-term one; carrying the profile of filled cells column by column yields $11$. (The $3\times n$ tiling counts run $1,3,11,41,153,\ldots$, satisfying $a_n=4a_{n-1}-a_{n-2}$.)}
+\inv{Note $3\times n$ needs $n$ even to be tileable at all --- a parity/colouring invariant (colour the 12 cells like a chessboard: 6 of each, and each domino covers one of each). The recurrence $a_n=4a_{n-1}-a_{n-2}$ hides in the transfer matrix; find its characteristic equation.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Binary strings of length 10 with no three consecutive 1s?
+
+\ans{$504$}
+\method{State $=$ number of 1s currently at the end (0, 1, or 2). A valid string of length $n$ ends in 0, in one trailing 1, or in two: summing gives $h(n)=h(n-1)+h(n-2)+h(n-3)$ (tribonacci), seeded $h(1)=2,h(2)=4,h(3)=7$. Running to $n=10$: $\ldots,274,504$.}
+\inv{``No three in a row'' widens the memory to the last two symbols --- a three-term recurrence, exactly as ``no two in a row'' gave a two-term one. Predict the recurrence for ``no \emph{four} consecutive 1s'' before deriving it (tetranacci). The forbidden-run length sets the recurrence order.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(BMO1 difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Permutations with $|p(i)-i|\leq1$: prove $a_n=a_{n-1}+a_{n-2}$; find $a_6$.
+
+\ans{$a_6=13$}
+\method{\emph{Proof.} Consider where $n$ is sent. Since $|p(n)-n|\leq1$, either $p(n)=n$ or $p(n)=n-1$.
+\emph{Case $p(n)=n$:} the restriction of $p$ to $\{1,\ldots,n-1\}$ is any valid permutation of that set, giving $a_{n-1}$ possibilities.
+\emph{Case $p(n)=n-1$:} then some $i$ has $p(i)=n$, and $|i-n|\leq1$ forces $i=n-1$, so $p(n-1)=n$. Thus $n$ and $n-1$ are swapped, and $p$ restricted to $\{1,\ldots,n-2\}$ is any valid permutation: $a_{n-2}$ possibilities.
+The cases are disjoint and exhaustive, so $a_n=a_{n-1}+a_{n-2}$. With $a_1=1$, $a_2=2$ we get $1,2,3,5,8,13$, so $a_6=13$. $\square$}
+\inv{The proof's engine is ``look at the most constrained element ($n$) and split on its few options'' --- the surest way to \emph{find} a recurrence. These permutations biject with $2\times n$ tilings (a fixed point $=$ vertical domino, a swap $=$ horizontal pair): so $a_n=F_{n+1}$, and D1 was B3 in disguise all along.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Erase two numbers, write their difference, repeat: prove the last number is odd.
+
+\ans{Proof below.}
+\method{\emph{Proof (parity invariant).} Track the parity of the sum $S$ of all numbers on the board. Replacing $a$ and $b$ by $|a-b|$ changes the sum by $|a-b|-(a+b)=-2\min(a,b)$, an even number. So $S\bmod 2$ never changes --- it is an \emph{invariant}. Initially $S=1+2+\cdots+10=55$, which is odd. When one number remains it equals $S$, whose parity is still odd; hence the final number is odd. $\square$}
+\inv{The whole proof is ``find a quantity every move preserves.'' Note $|a-b|$ and $a+b$ have the same parity --- that is why the operation is parity-safe. Investigate the reachable \emph{values}, not just parity: what is the largest possible final number? The smallest? (The gcd of all the numbers bounds what survives.)}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Prove a convex hexagon has 14 triangulations.
+
+\ans{$C_4=14$}
+\method{\emph{Proof.} Let $T_n$ be the number of triangulations of a convex $(n{+}2)$-gon; we show $T_n=C_n$, the Catalan number. Fix the edge $AB$ of the polygon. In any triangulation, $AB$ lies in exactly one triangle $ABX$ for some other vertex $X$. That triangle splits the polygon into a smaller polygon on one side of $AX$ (with $i+2$ vertices) and another on the side of $XB$ (with $n-i+1$ vertices), each independently triangulated. Summing over the position of $X$ gives $T_n=\sum_{i=0}^{n-1}T_iT_{n-1-i}$ --- the Catalan recurrence, with $T_0=1$. Hence $T_n=C_n$; for a hexagon $n=4$ and $C_4=\frac{1}{5}\binom{8}{4}=14$. $\square$}
+\inv{The ``fix an edge, split at its triangle'' move is the canonical Catalan recurrence, shared with bracket-matching (A7) and Dyck paths (C3). Verify $C_4=14$ against the closed form and, if you have patience, by careful listing. Which other objects does $C_4=14$ count? (Binary trees with 4 internal nodes, among many.)}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Prove any $2^n\times2^n$ board minus one square is L-tromino tileable.
+
+\ans{Proof below (induction).}
+\method{\emph{Proof by induction on $n$.} \emph{Base $n=1$:} a $2\times2$ board with one square removed is exactly a single L-tromino. \emph{Step:} assume every $2^{n-1}\times2^{n-1}$ board with one square removed can be tiled. Given a $2^n\times2^n$ board with one square missing, cut it into four $2^{n-1}\times2^{n-1}$ quadrants. The missing square lies in one quadrant. Place one L-tromino at the centre covering one corner square from each of the \emph{other three} quadrants. Now every quadrant has exactly one square unavailable (the genuinely missing one, or the centre corner just covered), so by the inductive hypothesis each quadrant can be tiled. Together with the central tromino this tiles the whole board. $\square$}
+\inv{This is \emph{constructive induction}: the proof is an algorithm you could run. It works precisely because $2^n\times2^n$ splits into four self-similar quarters --- the same divide-and-conquer as merge sort. Note $\frac{4^n-1}{3}$ trominoes are used; check this is an integer for all $n$ (it must be --- why?). Does the theorem hold for a $6\times6$ board minus one square? (No self-similarity --- investigate.)}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Take 1 or 2 stones from 2025; last stone wins. Who wins?
+
+\ans{The second player.}
+\method{\emph{Proof.} Call the number of stones a player must move from their \emph{position}, and call a position \emph{losing} if the player to move loses under optimal play. We claim the losing positions are exactly the multiples of 3. From a multiple of 3, every move (take 1 or 2) leaves a non-multiple of 3 for the opponent; from a non-multiple of 3, the mover can always take 1 or 2 to leave a multiple of 3. Since position $0$ is losing (the previous player took the last stone and won), it follows by induction that $0,3,6,\ldots$ are losing and all other positions are winning. The first player starts at $2025=3\times675$, a multiple of 3 --- a losing position. Hence the \emph{second} player wins, by always returning the pile to a multiple of 3. $\square$}
+\inv{The winning strategy is an invariant: the winner keeps the pile $\equiv0\pmod3$ after each of their moves, which they always can because $1+2=3$ spans a full residue step. Generalise to ``take 1, 2, or $k$'': the losing positions become the multiples of $k+1$. What changes in \emph{mis\`ere} play, where taking the last stone loses? Re-derive the losing set.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Hear the recurrence.} ``The last move removed 1 or 2 units'' means $f(n)=f(n-1)+f(n-2)$. Read the final choice, write the recurrence, seed it, run it.
+  \item \textbf{Carry the state.} A forbidden adjacency (no two 2-steps, no three 1s) forces you to remember the recent past: a multi-state or higher-order recurrence.
+  \item \textbf{Bijections prove equalities for free.} Stairs $=$ tilings $=$ no-11 strings, all Fibonacci; brackets $=$ Dyck paths $=$ triangulations, all Catalan. Exhibit the map, skip the formula.
+  \item \textbf{Invariants forbid.} A quantity preserved by every move (a parity, a colouring, a residue) proves some end-state is unreachable, no matter the strategy.
+  \item \textbf{Monovariants count and games decide.} A quantity that changes by a fixed step each move fixes the move count (snaps); a residue the winner can always restore names the winning strategy (Nim).
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Trusting a doubling pattern.} $1,2,4,8,16$ then \textbf{31}, not 32 (C4). A sequence is not a formula until proved; five terms prove nothing.
+  \item \textbf{Wrong seed values.} A correct recurrence with the wrong $f(1),f(2)$ gives wrong answers forever. Compute the first two cases by hand, carefully.
+  \item \textbf{One-state recurrence for a two-state problem.} ``No two 2-steps'' cannot be counted by a single $f(n)$; you must track the last move. Under-modelling the state silently overcounts.
+  \item \textbf{Constructive claim without the construction.} D4 and B9 need an explicit tiling/strategy, not just ``it works by induction/it's optimal.'' Build the object; markers award the algorithm.
+  \item \textbf{Naming the invariant but not checking every move preserves it.} State the quantity \emph{and} verify each legal move leaves it unchanged --- the parity of $|a-b|$ vs $a+b$ in D2 is the crux, not a footnote.
+\end{enumerate}
+
+\SpeedClosing{``A recurrence remembers where it came from; an invariant refuses to forget.
+Between them they count almost everything.''}
+
+\end{document}

@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#7}
+\noindent\textit{New toolkit today: Recurrences \& Fibonacci Counting $\cdot$ Catalan Numbers $\cdot$ Bijections $\cdot$ Invariants \& Monovariants.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Small recurrence and bijection values on sight. Build up, don't brute-force.}
+
+\begin{enumerate}
+
+\item In how many ways can you climb 4 stairs, taking 1 or 2 steps at a time?
+
+\item And 5 stairs?
+
+\item How many binary strings of length 4 have no two adjacent 1s?
+
+\item In how many ways can a $2\times3$ rectangle be tiled by dominoes?
+
+\item And a $2\times4$ rectangle?
+
+\item Into how many regions do 3 lines in general position divide the plane?
+
+\item In how many ways can 3 pairs of brackets be written so that they match correctly?
+
+\item A sequence has $a_1=1$ and $a_{n+1}=2a_n+1$. Find $a_4$.
+
+\item The Fibonacci numbers are $F_1=F_2=1$, $F_{n}=F_{n-1}+F_{n-2}$. Write down $F_8$.
+
+\item True or false: $F_1+F_2+\cdots+F_8=54$.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Set up the recurrence, then run it. Name the state before you count.}
+
+\begin{enumerate}
+
+\item In how many ways can you climb 10 stairs, taking 1 or 2 steps at a time?
+
+\item How many binary strings of length 8 have no two adjacent 1s?
+
+\item In how many ways can a $2\times10$ rectangle be tiled by dominoes?
+
+\item Into how many regions do 10 lines in general position divide the plane?
+
+\item A sequence has $a_1=2$ and $a_n=3a_{n-1}-1$. Find $a_4$.
+
+\item In how many ways can you climb 6 stairs taking 1, 2, or 3 steps at a time?
+
+\item Five points lie on a circle and every pair is joined by a chord, with no three chords concurrent inside. Into how many regions is the disc divided?
+
+\item A $4\times6$ chocolate bar is snapped along its gridlines into 24 unit squares. What is the smallest number of snaps needed?
+
+\item What is the least number of moves needed to solve the Towers of Hanoi with 6 disks?
+
+\item Prove that $F_1+F_2+\cdots+F_n=F_{n+2}-1$, and use it to evaluate $F_1+\cdots+F_8$.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Two-state recurrences, tilings and bijections. Find the object being counted twice.}
+
+\begin{enumerate}
+
+\item In how many ways can you climb 8 stairs, taking 1 or 2 steps, with no two 2-steps in a row?
+
+\item In how many ways can a $2\times6$ strip be tiled using $1\times2$ dominoes and $2\times2$ squares?
+
+\item How many lattice paths run from $(0,0)$ to $(4,4)$ using unit right and up steps and never rising above the line $y=x$?
+
+\item Six points lie on a circle; every pair is joined by a chord, no three concurrent inside. Into how many regions is the disc divided? \textit{\small(the answer is not $32$)}
+
+\item In how many ways can 8 be written as an ordered sum of odd positive integers?
+
+\item Derive a recurrence for the least number of Towers-of-Hanoi moves, and hence give the number for 10 disks.
+
+\item In how many ways can a $3\times4$ grid be tiled by dominoes?
+
+\item How many binary strings of length 10 contain no three consecutive 1s?
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(BMO1 difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Determine, with proof. The write-up is the answer --- state the bijection or invariant in full.}
+
+\begin{enumerate}
+
+\item Let $a_n$ be the number of permutations $p$ of $\{1,2,\ldots,n\}$ with $|p(i)-i|\leq1$ for every $i$. Prove that $a_n=a_{n-1}+a_{n-2}$, and hence find $a_6$.
+
+\item The numbers $1,2,\ldots,10$ are written on a board. Repeatedly, two numbers are erased and their (non-negative) difference is written in their place, until one number remains. Prove that the final number is odd.
+
+\item Prove that the number of ways to triangulate a convex hexagon by non-crossing diagonals is 14.
+
+\item Prove that any $2^n\times2^n$ board with one unit square removed can be tiled by L-shaped trominoes.
+
+\item Two players alternately remove 1 or 2 stones from a pile of 2025, and the player who takes the last stone wins. Determine, with proof, which player has a winning strategy.
+
+\end{enumerate}
+
+\SpeedClosing{``A recurrence remembers where it came from; an invariant refuses to forget.
+Between them they count almost everything.''}
+
+\end{document}
