@@ -55,11 +55,11 @@
 \inv{Repeated-letter arrangements and binomial coefficients are the same formula meeting in the middle: $\frac{5!}{3!2!}=\binom{5}{2}$. Every binary string question (sheet 2, B6) is a flag question. What is the three-colour version? (The multinomial coefficient --- sheet 4.)}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item Arrangements of SPEED with the two E's together?
+\item Arrangements of NOON?
 
-\ans{$4!=24$}
-\method{Glue EE into one block: the objects S, P, D, [EE] are 4 distinct things. (The E's are identical, so no $\times2$ for internal order.)}
-\inv{Contrast with gluing two \emph{different} letters, which costs a factor 2. Then check the complement against sheet 1: total arrangements of SPEED $=60$, so E's apart $=60-24=36$. Verify by the gap method.}
+\ans{$\dfrac{4!}{2!\,2!}=6$}
+\method{Four letters, two pairs: $\frac{24}{4}$.}
+\inv{List all six to feel the formula: NOON, NONO, NNOO, OONN, ONON, ONNO. Any word whose repeat signature is $(2,2)$ has 6 arrangements --- signature, not spelling, decides the count.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
 \item Six people around a round table (rotations the same)?
@@ -169,25 +169,25 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Eight in a row, three friends consecutive?
+\item Eight in a row: three friends consecutive, two others (non-friends) not adjacent?
 
-\ans{$3!\cdot6!=4\,320$}
-\method{Glue the three into a block (internal orders $3!$), then 6 objects in a row.}
-\inv{Generalise: $k$ specified people consecutive among $n$ gives $k!\,(n-k+1)!$. Sanity-check the formula against B1 ($k=2$, $n=6$).}
+\ans{$3!\cdot6!-3!\cdot2!\cdot5!=4\,320-1\,440=2\,880$}
+\method{Layer the constraints (sheet's D2 pattern, arriving early). Glue the trio: $3!\cdot6!=4\,320$ arrangements. From these subtract those where the two enemies are also adjacent --- glue them too: $3!\cdot2!\cdot5!=1\,440$. Answer $2\,880$.}
+\inv{Generalise the single-constraint count: $k$ specified people consecutive among $n$ gives $k!\,(n-k+1)!$ --- check it against B1. Then redo this question with the gap method instead of the complement and confirm agreement.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item Same, but the three friends in height order?
+\item Same eight, no refusals, friends consecutive \emph{and} in height order?
 
 \ans{$6!=720$}
-\method{The block's internal order is now forced: drop the $3!$.}
+\method{The block's internal order is now forced: glue with factor 1, then 6 objects in a row.}
 \inv{``Consecutive AND ordered'' = glue with factor 1; ``ordered but scattered'' = divide by $3!$ (B9). Keep the two tricks distinct in your head --- mixing them up is a classic exam slip.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Arrangements of DIVIDED?
+\item Arrangements of DIVIDED without all three D's together?
 
-\ans{$\dfrac{7!}{3!\,2!}=420$}
-\method{Seven letters: D$\times$3, I$\times$2, V, E. $\frac{5040}{12}=420$.}
-\inv{How many arrangements \emph{start and end with D}? (Fix two D's at the ends; arrange the middle five letters D, I, I, V, E: $\frac{5!}{2!}=60$.) Note you don't choose \emph{which} D's --- they are identical.}
+\ans{$\dfrac{7!}{3!\,2!}-\dfrac{5!}{2!}=420-60=360$}
+\method{Total arrangements: $\frac{7!}{3!2!}=420$. All-D's-together: glue [DDD] (identical letters, factor 1) and arrange it with I, I, V, E: $\frac{5!}{2!}=60$. Subtract.}
+\inv{Careful distinction: the complement of ``all three together'' still allows \emph{two} D's adjacent. Count the arrangements where no two D's are adjacent at all (gap method on I, I, V, E: $\frac{4!}{2!}\cdot\binom{5}{3}=120$) and check $120<360$ makes sense.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
 \item Four men, four women alternating around a round table?
@@ -204,11 +204,11 @@
 \inv{Redo via gaps: arrange I, R, L, E ($4!$), choose 2 of the 5 gaps for the identical C's ($\binom{5}{2}$): $24\cdot10=240$. \checkmark\ Complement and gaps agree --- and for \emph{identical} letters the gap count uses $\binom{}{}$, not a falling product. Spot why.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item Five-digit even numbers using $1,2,3,4,5$ once each?
+\item Five-digit even numbers over $40\,000$ using $1,2,3,4,5$ once each?
 
-\ans{$2\cdot4!=48$}
-\method{Units digit must be 2 or 4 (two choices); the rest arrange freely.}
-\inv{How many are divisible by 4? A number is divisible by 4 exactly when its last two digits are. The valid distinct-digit endings from $\{1,\ldots,5\}$ are 12, 24, 32, 52 --- four endings, each completed by $3!$ arrangements of the remaining digits: $4\cdot6=24$.}
+\ans{$18$}
+\method{Two interacting constraints (units even, leading digit 4 or 5) --- case on the units digit, because it consumes a candidate leading digit or not. \emph{Units 2:} leading digit from $\{4,5\}$, rest free: $2\cdot3!=12$. \emph{Units 4:} leading digit must be 5, rest free: $3!=6$. Total $18$.}
+\inv{Why case on units rather than the leading digit? Try it the other way and watch the option-counts stop being uniform (sheet 1's C1 lesson). Extension: how many are divisible by 4? (Endings 12, 24, 32, 52; now impose the $>40\,000$ condition on each case.)}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
 \item Three maths, two physics, two chemistry books, subjects together?
@@ -233,11 +233,11 @@
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item Seven-digit numbers from $1$--$7$, odd digits in increasing order?
+\item Seven-digit numbers from $1$--$7$: odds increasing, evens decreasing?
 
-\ans{$\dfrac{7!}{4!}=210$}
-\method{The four odd digits $1,3,5,7$ appear in some order in every arrangement; exactly one of the $4!$ orders is increasing. So divide: $\frac{5040}{24}=210$. Equivalently: choose which 4 positions hold the odds ($\binom{7}{4}=35$, order then forced) and arrange the three evens ($3!$): $35\cdot6=210$.}
-\inv{Two proofs, one answer --- the divide-by-order trick and the choose-positions trick are secretly the same computation: $\binom{7}{4}\cdot3!=\frac{7!}{4!}$. Now count arrangements where the odds increase AND the evens decrease ($\binom{7}{4}\cdot1=35$).}
+\ans{$\dbinom{7}{4}=35$}
+\method{Choose which 4 of the 7 positions hold the odd digits: $\binom{7}{4}=35$. Everything else is forced --- the odds $1,3,5,7$ must fill their positions in increasing order (one way), and the evens $6,4,2$ fill theirs in decreasing order (one way). A count that looks like it needs $7!$ cases collapses to a single choice.}
+\inv{Equivalently by double forced-order division: $\frac{7!}{4!\,3!}=35$ --- divide by the orderings of the odds AND of the evens. With only the odds constrained the count is $\frac{7!}{4!}=210$; check both against the choose-positions view. This ``order is forced, so only positions matter'' insight is the SMC's favourite disguise for $\binom{n}{k}$.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Ten children in a circle: Mia--Noah adjacent, Omar--Priya not?
@@ -261,11 +261,11 @@
 \inv{Check the borderline case that makes this work: in a block of three sisters, the outer two are NOT adjacent to each other --- adjacency is about neighbouring seats, not membership of a block. Redo the problem for ``at least two adjacent'' ($40\,320-14\,400=25\,920$) and confirm the three-way split is consistent.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Eight knights round a table, three feuding knights pairwise non-adjacent?
+\item Eight knights round a table: three feuders pairwise non-adjacent, King and Queen together?
 
-\ans{$4!\cdot5\cdot4\cdot3=1\,440$}
-\method{Gap method, circular edition. Seat the five peaceful knights first: $(5-1)!=24$ circular orders, creating exactly 5 gaps between them. Place the three feuding knights into three \emph{different} gaps (one per gap --- two in one gap would be adjacent to each other): $5\cdot4\cdot3=60$. Total $24\cdot60=1\,440$.}
-\inv{Why must each chosen gap hold exactly one feuder? And why did the circle change the gap count (5 gaps from 5 people, versus 6 gaps from 5 people in a row)? Generalise: $n$ knights, $k$ feuding, count $=(n-k-1)!\cdot\frac{(n-k)!}{(n-2k)!}$ --- test it against B4's row analogue and this question.}
+\ans{$3!\cdot2\cdot(4\cdot3\cdot2)=288$}
+\method{Layer: glue first, then gaps. Glue the King--Queen pair (2 internal orders); the peaceful side is now 4 units (the KQ block plus 3 other knights). Seat those 4 units round the table: $(4-1)!=6$ circular orders, creating exactly 4 gaps. Place the three feuding knights into three different gaps (one each --- sharing a gap would make two feuders adjacent): $4\cdot3\cdot2=24$. Total $6\cdot2\cdot24=288$.}
+\inv{Check the order of operations matters: try placing the feuders first and gluing second, and watch the gap count become ill-defined --- constraints that \emph{create} structure (glue) must precede constraints that \emph{consume} it (gaps). Then generalise the no-royals version: $n$ knights, $k$ feuding, count $=(n-k-1)!\cdot\frac{(n-k)!}{(n-2k)!}$; test it at $n=8$, $k=3$ (1440) against a hand count of a small case like $n=5$, $k=2$.}
 
 \end{enumerate}
 
