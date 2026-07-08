@@ -133,11 +133,11 @@
 \inv{``Choose the positions'' converts string problems into subset problems. How many length-8 strings have more 1s than 0s? (Sum $\binom{8}{5}+\binom{8}{6}+\binom{8}{7}+\binom{8}{8}=93$.) Could symmetry have halved the work? Careful --- the middle term $\binom{8}{4}$ belongs to neither side.}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item How many 3-letter strings (repeats allowed) contain at least one vowel?
+\item From the 5 vowels and 21 consonants, how many 3-letter \emph{sets} have exactly one vowel and two consonants?
 
-\ans{$26^3-21^3=17\,576-9\,261=8\,315$}
-\method{Complement: strings with \emph{no} vowel use 21 consonants: $21^3$. Subtract from the total.}
-\inv{``At least one'' is the complement battle-cry. Try ``at least two vowels'' --- now the complement (zero or one vowel) needs two cases: $21^3+3\cdot5\cdot21^2$. Check the three counts (0, 1, $\geq2$ vowels) sum to $26^3$.}
+\ans{$\dbinom{5}{1}\dbinom{21}{2}=5\cdot210=1\,050$}
+\method{Choose the vowel, then the pair of consonants --- independent choices multiply.}
+\inv{Now count 3-letter \emph{strings} (ordered, no repeats) with exactly one vowel: multiply by the $3$ positions for the vowel and $2!$ orders of the consonants --- or by $3!$ on the whole set. Ordered $=$ unordered $\times$ arrangements, always.}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
 \item Solve for $n$: $\;\dbinom{n}{2}+\dbinom{n}{1}=21$.
@@ -190,25 +190,25 @@
 \inv{Derive the general formula $\frac{n(n-3)}{2}$ two ways: (i) $\binom{n}{2}-n$, (ii) each vertex sends $n-3$ diagonals and each is counted twice. Two derivations agreeing is your built-in error check.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item Triangles from 8 points on a circle; how many use point $A$?
+\item Triangles from 8 points on a circle; how many avoid point $A$?
 
-\ans{$\dbinom{8}{3}=56$ in total;\quad $\dbinom{7}{2}=21$ through $A$}
-\method{All triples work (no three points on a circle are collinear). Through $A$: fix $A$, choose 2 partners.}
-\inv{Check by symmetry: each of the 56 triangles has 3 vertices, so vertex-uses total $56\cdot3=168=8\cdot21$ --- each point is used 21 times. Counting incidences two ways strikes again.}
+\ans{$\dbinom{8}{3}=56$ in total;\quad $\dbinom{7}{3}=35$ avoid $A$}
+\method{All triples work (no three points on a circle are collinear). Avoiding $A$: all three vertices come from the other 7 points. Alternatively by complement: $56-\binom{7}{2}=56-21=35$ --- subtract the triangles \emph{through} $A$.}
+\inv{Check by symmetry: each of the 56 triangles has 3 vertices, so vertex-uses total $56\cdot3=168=8\cdot21$ --- each point is used 21 times, avoided 35 times, and $21+35=56$. Counting incidences two ways strikes again.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Teams of 6 from 6 boys and 6 girls with equal numbers of each.
+\item Teams of 6 from 6 boys and 6 girls with unequal numbers of each.
 
-\ans{$\dbinom{6}{3}^2=20^2=400$}
-\method{Equal numbers in a team of 6 means 3 boys and 3 girls: $\binom{6}{3}\binom{6}{3}$.}
-\inv{Sum over all splits: $\sum_{k}\binom{6}{k}\binom{6}{6-k}=\binom{12}{6}=924$ --- Vandermonde's identity, proved by asking how many boys ended up in an unrestricted team. Verify the $k=3$ term is your 400.}
+\ans{$\dbinom{12}{6}-\dbinom{6}{3}^2=924-400=524$}
+\method{Complement: the only \emph{equal} split for a team of 6 is 3--3, counted by $\binom{6}{3}\binom{6}{3}=400$. Subtract from all $\binom{12}{6}=924$ teams. Listing the unequal splits (6--0, 5--1, 4--2 and mirrors) works too but is six cases instead of one subtraction.}
+\inv{The identity behind the complement: $\sum_{k}\binom{6}{k}\binom{6}{6-k}=\binom{12}{6}$ --- Vandermonde, proved by asking how many boys ended up in an unrestricted team. Verify the 6-case direct sum gives 524 and feel the difference in effort.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item 5-card hands from 52 cards containing all four aces.
+\item 5-card hands from 52 cards containing at least three aces.
 
-\ans{$\dbinom{48}{1}=48$}
-\method{The four aces are forced; only the fifth card is a decision.}
-\inv{Harder: hands with \emph{exactly three} aces: $\binom{4}{3}\binom{48}{2}=4512$. Why must you choose \emph{which} aces now, when for four aces you didn't? Forced choices contribute factor 1 --- spot them and skip them.}
+\ans{$\dbinom{4}{3}\dbinom{48}{2}+\dbinom{48}{1}=4512+48=4\,560$}
+\method{Two disjoint cases. \emph{Exactly three aces:} choose which 3 of the 4 aces, then 2 non-aces: $4\cdot1128$. \emph{All four aces:} the aces are forced, only the fifth card is free: $48$.}
+\inv{Why $\binom{4}{3}$ in one case but no $\binom{4}{4}$ anxiety in the other? Forced choices contribute a factor of 1. Extend: compute ``at least two aces'' and check all five ace-counts (0 through 4) sum to $\binom{52}{5}$.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
 \item A convex $n$-gon has exactly 27 diagonals. Find $n$.
@@ -240,18 +240,18 @@
 \inv{So $1+2+3+4=\binom{5}{2}$ --- triangular numbers are $\binom{n+1}{2}$ in disguise. Count the \emph{squares} on the same grid ($16+9+4+1=30$), then find how many rectangles on an $8\times8$ board are NOT squares.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item Subsets of $\{1,\ldots,8\}$ with no two consecutive integers (empty set included).
+\item Subsets of $\{1,\ldots,8\}$ with no two consecutive integers (empty set included). \textit{\small(cf.\ MAT 2023 Q5)}
 
 \ans{$55$}
 \method{Let $a_n$ count such subsets of $\{1,\ldots,n\}$. Split on whether $n$ is used: if not, $a_{n-1}$ subsets; if yes, $n-1$ is banned, leaving $a_{n-2}$. So $a_n=a_{n-1}+a_{n-2}$ with $a_1=2$, $a_2=3$ --- Fibonacci! The chain runs $2,3,5,8,13,21,34,55$, so $a_8=55$.}
 \inv{Alternative proof: a size-$k$ subset with no neighbours corresponds to choosing $k$ from $8-k+1$ positions after shrinking the gaps, giving $\sum_k\binom{9-k}{k}=55$ --- a Fibonacci number as a diagonal sum in Pascal's triangle. Both proofs preview sheet 7's recurrence toolkit.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Committees of 4 from 7 juniors and 5 seniors with strictly more juniors.
+\item Committees of any size from 6 juniors and 6 seniors with strictly more juniors.
 
-\ans{$\dbinom{7}{4}+\dbinom{7}{3}\dbinom{5}{1}=35+175=210$}
-\method{Strictly more juniors in a committee of 4 means 4--0 or 3--1. Two cases, add: $35+35\cdot5$.}
-\inv{Note the impossibility of a tie playing no role here --- but for committees of 4 with a 2--2 split allowed, ``more juniors'' vs ``more seniors'' vs ``tie'' partitions $\binom{12}{4}=495$. Compute all three and check they sum correctly. Symmetry does NOT make the first two equal --- why?}
+\ans{$\dfrac{2^{12}-\binom{12}{6}}{2}=\dfrac{4096-924}{2}=1\,586$}
+\method{Every committee has more juniors, more seniors, or a tie. Pair each junior with a senior once and for all; swapping every member for their partner is a bijection between ``more juniors'' committees and ``more seniors'' committees, so those two counts are equal. Ties (equal numbers, $k$ of each) number $\sum_k\binom{6}{k}^2=\binom{12}{6}=924$ by Vandermonde. Hence each majority count is $\frac{4096-924}{2}=1586$. No case-by-case summation needed.}
+\inv{Case-sum check: $\sum_{j>s}\binom{6}{j}\binom{6}{s}$ really is 1586 --- but the bijection argument scales to 100 juniors and 100 seniors untouched, while the sum does not. Warning: with \emph{unequal} club sizes (7 juniors, 5 seniors) the swap bijection dies. What replaces it? (Nothing clean --- that asymmetric version is a genuine slog, which is exactly why the symmetric version is the beautiful one.)}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
 \item Six people each shake hands with exactly two others. In how many ways?
