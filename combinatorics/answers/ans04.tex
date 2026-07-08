@@ -1,0 +1,300 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#4 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Binomial Theorem $\cdot$ Pascal's Rule $\cdot$ Coefficient Extraction $\cdot$ Substituting Values into Expansions.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^2$ in $(1+x)^5$.
+
+\ans{$\dbinom{5}{2}=10$}
+\method{Binomial theorem: the $x^k$ coefficient in $(1+x)^n$ is $\binom{n}{k}$.}
+\inv{\emph{Why} is it $\binom{5}{2}$? Expanding $(1+x)(1+x)(1+x)(1+x)(1+x)$, an $x^2$ term arises by choosing the $x$ from exactly 2 of the 5 brackets. The binomial theorem \emph{is} a counting statement --- that lens powers everything on this sheet.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x$ in $(x+2)^3$.
+
+\ans{$12$}
+\method{Term with $x^1$: $\binom{3}{1}x\cdot2^2=12x$. Keep track of which quantity is being raised to which power.}
+\inv{Write out all four terms of $(x+2)^3$ and check they sum to $27$ at $x=1$. The ``evaluate at $x=1$'' check catches most expansion slips in exams.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Row 5 of Pascal's triangle.
+
+\ans{$1,\;5,\;10,\;10,\;5,\;1$}
+\method{Adjacent sums of row 4 ($1,4,6,4,1$), or $\binom{5}{k}$ directly.}
+\inv{Memorise rows 0--8 cold. Then look at the triangle mod 2 (odd entries only) --- shade them for rows 0--16 and meet the Sierpi\'nski triangle. D3 explains the pattern.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^3y^2$ in $(x+y)^5$.
+
+\ans{$\dbinom{5}{2}=10$}
+\method{Choose which 2 of the 5 brackets contribute $y$: $\binom{5}{2}$.}
+\inv{Coefficients of $x^3y^2$ and $x^2y^3$ are equal --- symmetry of $\binom{5}{2}=\binom{5}{3}$ made visible. In how many terms does $(x+y)^5$ expand? (6 --- one per power split.)}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Sum of all coefficients of $(1+x)^7$.
+
+\ans{$2^7=128$}
+\method{Substitute $x=1$: the expansion collapses to its coefficient sum.}
+\inv{Substituting values into an identity is the sheet's master move. What does $x=2$ give? ($3^7$ --- the sum $\sum\binom{7}{k}2^k$.) Every substitution is a new identity for free.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Constant term of $\left(x+\frac{1}{x}\right)^4$.
+
+\ans{$\dbinom{4}{2}=6$}
+\method{Powers cancel when the $x$'s and $\frac1x$'s balance: 2 of each.}
+\inv{Why does $\left(x+\frac1x\right)^5$ have \emph{no} constant term? (Odd total degree --- balance is impossible.) Parity kills entire terms before any computation.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item $\dbinom{9}{4}+\dbinom{9}{5}$ as one coefficient.
+
+\ans{$\dbinom{10}{5}=252$}
+\method{Pascal's rule: adjacent entries sum to the entry below.}
+\inv{Prove it in one line with committees (a committee of 5 from 10 either contains the distinguished person or not) --- you will need exactly this argument in C8.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item $\dbinom{6}{0}-\dbinom{6}{1}+\dbinom{6}{2}-\cdots+\dbinom{6}{6}$.
+
+\ans{$0$}
+\method{Substitute $x=-1$ into $(1+x)^6$: $0^6=0$.}
+\inv{Consequence: in any row, the even-index entries and odd-index entries have equal sums (each $2^{n-1}$ --- B5 uses this). Pair with sheet 2's subset-parity bijection: same fact, two proofs.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: coefficient of $x^2$ in $(1-x)^{10}$ is negative.
+
+\ans{False --- it is $+45$}
+\method{The $x^2$ term is $\binom{10}{2}(-x)^2=45x^2$: the square eats the sign. Signs alternate, and even powers are positive.}
+\inv{TMUA-style sign traps live exactly here. Which coefficients of $(1-x)^{10}$ \emph{are} negative? (The odd ones.) State the general sign rule for $(a-b)^n$ and never lose a mark to it again.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Largest coefficient in $(1+x)^4$.
+
+\ans{$\dbinom{4}{2}=6$}
+\method{Rows of Pascal's triangle rise to the middle and fall symmetrically.}
+\inv{For even $n$ there is one maximum; for odd $n$, two equal ones. Prove the rise-then-fall by examining the ratio $\binom{n}{k+1}/\binom{n}{k}=\frac{n-k}{k+1}$ --- when does it drop below 1? (C2 uses this.)}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^3$ in $(2+3x)^5$.
+
+\ans{$\dbinom{5}{3}2^2 3^3=10\cdot4\cdot27=1\,080$}
+\method{General term $\binom{5}{k}2^{5-k}(3x)^k$; set $k=3$. Both constants carry powers --- forgetting $2^{5-k}$ is the classic slip.}
+\inv{Check digit-cheaply: at $x=1$ the whole expansion is $5^5=3125$; your five coefficients must sum to it. Run the check --- it takes 20 seconds and catches the missing-power error instantly.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^5$ in $(1+x)^4(1+x)^3$.
+
+\ans{$\dbinom{7}{5}=21$}
+\method{Multiply the bases first: $(1+x)^7$. Never expand the factors separately when they share a base.}
+\inv{Expanding separately and convolving gives $\sum_k\binom{4}{k}\binom{3}{5-k}=\binom{7}{5}$ --- you have accidentally proved a Vandermonde identity. D2 weaponises this.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Term independent of $x$ in $\left(2x+\frac{1}{x^2}\right)^6$.
+
+\ans{$\dbinom{6}{2}2^4=240$}
+\method{General term: $\binom{6}{k}(2x)^{6-k}x^{-2k}$ has degree $6-3k$. Zero degree forces $k=2$: $\binom{6}{2}2^4$.}
+\inv{Degree bookkeeping first, arithmetic second. Which powers of $x$ \emph{can} occur here? ($6-3k$: only $6,3,0,-3,-6,-9,-12$ --- gaps of 3.) Knowing the degree lattice tells you instantly that e.g.\ an $x^2$ term is impossible.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^2$ in $(1+x)^n$ is 66. Find $n$.
+
+\ans{$n=12$}
+\method{$\binom{n}{2}=66\Rightarrow n(n-1)=132=12\cdot11$.}
+\inv{Sheet 2's consecutive-product reflex again. Harder inverse: the coefficient of $x^3$ is 220 --- find $n$ ($n(n-1)(n-2)=1320=12\cdot11\cdot10$). Estimation ($\sqrt[3]{1320}\approx11$) then check.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item $\dbinom{10}{0}+\dbinom{10}{2}+\cdots+\dbinom{10}{10}$.
+
+\ans{$2^9=512$}
+\method{Add the $x=1$ and $x=-1$ substitutions of $(1+x)^{10}$: odd terms cancel, even terms double. $(2^{10}+0)/2$.}
+\inv{The add/subtract-substitutions trick extracts any alternating pattern. Try extracting $\binom{10}{0}+\binom{10}{4}+\binom{10}{8}$ --- what would you substitute? (Fourth roots of unity: a genuine BMO-level extension to sit with.)}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^2$ in $(1+2x)^4(1-x)^2$.
+
+\ans{$9$}
+\method{Convolve only what is needed: $x^2$ coefficient $=24\cdot1+8\cdot(-2)+1\cdot1=9$, using $(1+2x)^4=1+8x+24x^2+\cdots$ and $(1-x)^2=1-2x+x^2$.}
+\inv{Never expand whole products for one coefficient --- harvest each factor only up to the degree you need. Practise: coefficient of $x^3$ in the same product ($32\cdot1+24\cdot(-2)+8\cdot1=-8$).}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $11^3$ and $9^3$ by binomial.
+
+\ans{$11^3=1\,331$;\quad $9^3=729$}
+\method{$(10+1)^3=1000+300+30+1$; $(10-1)^3=1000-300+30-1$. Pascal row 3 does the arithmetic.}
+\inv{Notice $11^3$'s digits ARE row 3 of Pascal's triangle (1,3,3,1) --- and $11^4=14641$ is row 4. When does the pattern break, and why? (Row 5 has a two-digit entry: carrying destroys the display.)}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^3$ in $(1+kx)^6$ is 160. Find $k$.
+
+\ans{$k=2$}
+\method{$\binom{6}{3}k^3=20k^3=160\Rightarrow k^3=8$.}
+\inv{Could a negative or fractional $k$ ever be the intended answer in such questions? Solve $\binom{6}{3}k^3=-540$ and $\binom{4}{2}k^2=\frac{3}{2}$ to see both arise naturally in TMUA-style settings.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item $\dbinom{n}{2}=\dbinom{n}{3}$. Find $n$.
+
+\ans{$n=5$}
+\method{Equal entries sit symmetrically: $\binom{n}{r}=\binom{n}{s}$ (with $r\neq s$) forces $r+s=n$. So $n=2+3=5$.}
+\inv{Solve without symmetry, by ratio: $\frac{\binom{n}{3}}{\binom{n}{2}}=\frac{n-2}{3}=1$. The ratio form generalises to ``for which $k$ is $\binom{n}{k}$ maximal?'' --- close the loop with A10.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Coefficient of $a^2b^2c$ in $(a+b+c)^5$. \textit{\small(cf.\ TMUA 2020 P1 Q13)}
+
+\ans{$\dfrac{5!}{2!\,2!\,1!}=30$}
+\method{Multinomial: distribute the 5 brackets among the letters --- exactly the BANANA formula from sheet 3 wearing algebra.}
+\inv{Repeated-letter words, flag rows, multinomial coefficients: one formula, three sheets. How many \emph{distinct monomials} does $(a+b+c)^5$ have? (Solutions of $i+j+k=5$: that is sheet 5's stars-and-bars, arriving tomorrow.)}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^6$ in $\left(x^2+\frac{1}{x}\right)^6$.
+
+\ans{$\dbinom{6}{2}=15$}
+\method{General term $\binom{6}{k}(x^2)^{6-k}x^{-k}$ has degree $12-3k$; degree 6 forces $k=2$.}
+\inv{The degree lattice here is $12,9,6,3,0,-3,-6$. Which is the constant term? ($k=4$: $\binom{6}{4}=15$ --- equal to the $x^6$ coefficient, by which symmetry?)}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Greatest coefficient in $(1+x)^8$.
+
+\ans{$\dbinom{8}{4}=70$}
+\method{Ratio test from A10's inv: $\frac{\binom{8}{k+1}}{\binom{8}{k}}=\frac{8-k}{k+1}>1$ exactly while $k<3.5$, so coefficients climb to $k=4$ then fall.}
+\inv{Now find the greatest coefficient of $(1+2x)^8$ --- the ratio becomes $\frac{2(8-k)}{k+1}$ and the peak moves right (to $k=5$: check it). Peaks shift towards the larger term; TMUA loves this.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Estimate $1.01^{10}$ from three terms.
+
+\ans{$1+10(0.01)+45(0.01)^2=1.1045$}
+\method{$(1+x)^{10}$ at $x=0.01$; terms shrink so fast the tail is invisible at 4 d.p.}
+\inv{Bound the error: the next term is $120(0.01)^3=1.2\times10^{-4}$... which \emph{would} touch the 4th decimal place. Investigate: the true value is $1.10462\ldots$, so why did the estimate still round correctly? (The tail is positive but small enough. Always \emph{bound}, not assume.)}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Coefficients of $x^4$ and $x^5$ in $(1+x)^n$ equal. Find $n$.
+
+\ans{$n=9$}
+\method{$\binom{n}{4}=\binom{n}{5}\Rightarrow4+5=n$.}
+\inv{Equal \emph{adjacent} coefficients happen only for odd $n$ at the centre --- connect to A10's ``two equal maxima''. For $(1+2x)^n$, adjacent equality instead solves $\frac{2(n-k)}{k+1}=1$: find an $(n,k)$ example.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Coefficient of $x^4$ in $(1+x)^5(1-2x)^3$. \textit{\small(cf.\ MAT 2023 Q1F)}
+
+\ans{$25$}
+\method{Convolution with signs, harvesting only degree-4 pairs: $5\cdot1+10\cdot(-6)+10\cdot12+5\cdot(-8)=5-60+120-40=25$. Lay the two coefficient lists side by side and zip them --- do not expand the product.}
+\inv{MAT's Q1 multiple-choice regularly hides one sign or one binomial power slip among its options. Recompute with the factors swapped in your zip to double-check --- convolution is symmetric, so any asymmetry in your two answers locates the error.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item $\displaystyle\sum_{k=0}^{5}k\binom{5}{k}$.
+
+\ans{$5\cdot2^4=80$}
+\method{Committee--chair (sheet 2, B5): $k\binom{5}{k}=5\binom{4}{k-1}$, and summing the right side gives $5\cdot2^4$. Alternatively differentiate $(1+x)^5$ and set $x=1$.}
+\inv{Two proofs from two different sheets --- the counting one and the calculus one. Use either to evaluate $\sum k^2\binom{5}{k}$ (answer $5\cdot6\cdot2^3=$ check it: $k^2=k(k-1)+k$). Identities stack.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Constant term of $\left(x-\frac{2}{x}\right)^8$.
+
+\ans{$\dbinom{8}{4}(-2)^4=70\cdot16=1\,120$}
+\method{Degree $8-2k=0$ gives $k=4$; the $(-2)^4$ is positive. Sign discipline: write the $(-2)^k$ \emph{inside} the general term from the start.}
+\inv{What is the coefficient of $x^2$ in the same expansion, and is it positive or negative? ($k=3$: $\binom{8}{3}(-2)^3=-448$.) Predict the sign from the parity of $k$ before computing.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Prove Pascal's rule by committee; build row 7 from row 6.
+
+\ans{Row 7: $1,7,21,35,35,21,7,1$}
+\method{\emph{Proof.} A committee of $r$ from $n$ people either includes a distinguished person $P$ or not. Including $P$: $\binom{n-1}{r-1}$ choices for the rest. Excluding $P$: $\binom{n-1}{r}$. These cases are disjoint and exhaustive, so $\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}$. $\square$ Adjacent sums of row 6 ($1,6,15,20,15,6,1$) then give row 7.}
+\inv{This one-sentence proof is a model of BMO1 writing: cases named, disjointness noted, conclusion drawn. Rewrite sheet 2 B9's Priya split as a formal proof in the same register --- Section D now expects this standard.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Prove $\dbinom{2n}{n}$ is even for all $n\geq1$.
+
+\ans{Proof below.}
+\method{\emph{Proof.} By Pascal's rule, $\binom{2n}{n}=\binom{2n-1}{n-1}+\binom{2n-1}{n}$. By the symmetry $\binom{m}{r}=\binom{m}{m-r}$ applied with $m=2n-1$: $\binom{2n-1}{n-1}=\binom{2n-1}{(2n-1)-(n-1)}=\binom{2n-1}{n}$. So $\binom{2n}{n}$ is the sum of two \emph{equal} integers, hence even. $\square$}
+\method{\emph{Alternative (bijective) proof.} Pair each $n$-subset $S$ of $\{1,\ldots,2n\}$ with its complement $S^c$. Since $|S|=n=|S^c|$ and $S\neq S^c$ always, the $n$-subsets split into disjoint pairs, so their number is even. $\square$}
+\inv{Two complete written proofs --- study how each names its key step. Sharper question: what is the largest power of 2 dividing $\binom{2n}{n}$? Compute it for $n=1,\ldots,8$ and conjecture (Kummer's theorem: the number of carries when adding $n+n$ in binary).}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Show $\displaystyle\sum_{k=0}^{10}\binom{10}{k}^2=\binom{20}{10}$.
+
+\ans{Both count $\binom{20}{10}=184\,756$.}
+\method{\emph{Proof.} Consider choosing 10 people from a room of 10 women and 10 men: $\binom{20}{10}$ ways. Alternatively, classify each choice by the number $k$ of women chosen: $\binom{10}{k}$ ways for the women and $\binom{10}{10-k}$ for the men, and $\binom{10}{10-k}=\binom{10}{k}$ by symmetry. Summing the disjoint classes: $\sum_k\binom{10}{k}^2$. Two counts of one set are equal. $\square$}
+\inv{This is Vandermonde's identity $\sum_k\binom{m}{k}\binom{n}{r-k}=\binom{m+n}{r}$ at $m=n=r=10$ --- sheet 2's C5 inv, now proved properly. Also prove it by extracting the $x^{10}$ coefficient from $(1+x)^{10}(1+x)^{10}$: the algebra proof and the committee proof should feel like translations of each other.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item For how many $k$ is $\dbinom{12}{k}$ odd? \textit{\small(cf.\ TMUA 2023 P1 Q6)}
+
+\ans{$4$\quad ($k=0,4,8,12$)}
+\method{Work mod 2 with the factorisation $(1+x)^{12}=\left((1+x)^4\right)^3$. Mod 2, $(1+x)^2\equiv1+x^2$ and hence $(1+x)^4\equiv1+x^4$, so $(1+x)^{12}\equiv(1+x^4)^3=1+3x^4+3x^8+x^{12}\equiv1+x^4+x^8+x^{12}\pmod2$. The odd coefficients sit exactly at $k=0,4,8,12$: four of them.}
+\inv{General law (Lucas): $\binom{n}{k}$ is odd iff every binary digit of $k$ is $\leq$ the corresponding digit of $n$. Here $n=12=1100_2$, so $k\in\{0000,0100,1000,1100\}$ --- the same four. Verify Lucas on row 10 ($1010_2$: which $k$?), and connect to A3's Sierpi\'nski picture.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Show $\dbinom{2}{2}+\dbinom{3}{2}+\cdots+\dbinom{9}{2}=\dbinom{10}{3}$.
+
+\ans{$\dbinom{10}{3}=120$}
+\method{\emph{Proof (classify by largest element).} Count the 3-subsets of $\{1,2,\ldots,10\}$: there are $\binom{10}{3}$. Classify each subset by its largest element $m+1$ (so $m+1$ ranges over $3,\ldots,10$): the other two elements are then any 2-subset of $\{1,\ldots,m\}$, giving $\binom{m}{2}$ subsets in that class. The classes are disjoint and exhaustive, so $\sum_{m=2}^{9}\binom{m}{2}=\binom{10}{3}$. $\square$}
+\inv{This is the \emph{hockey stick identity}: any diagonal run in Pascal's triangle sums to the entry below-right of its end. Prove it a second way by iterating Pascal's rule. Then use it to re-derive $1+2+\cdots+n=\binom{n+1}{2}$ and $\sum m^2$ (write $m^2=2\binom{m}{2}+\binom{m}{1}$).}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item $p$ prime, $0<k<p$: prove $p\mid\dbinom{p}{k}$.
+
+\ans{Proof below.}
+\method{\emph{Proof.} Write $k!\,\binom{p}{k}=p(p-1)\cdots(p-k+1)$. The right side is visibly divisible by $p$, so $p\mid k!\binom{p}{k}$. Since $p$ is prime and every factor of $k!=1\cdot2\cdots k$ is less than $p$, we have $p\nmid k!$, so $p$ and $k!$ are coprime. A prime dividing a product must divide one of the factors; as it cannot divide $k!$, it divides $\binom{p}{k}$. $\square$ (Note where primality is used --- \emph{twice}.)}
+\inv{Consequence: $(1+x)^p\equiv1+x^p\pmod p$ --- the ``freshman's dream'' is a theorem mod $p$. Feed $x=1$ into it to get $2^p\equiv2\pmod p$: you have proved Fermat's little theorem for base 2. Test the failure for composites: is $\binom{4}{2}$ divisible by 4? This lemma returns as a workhorse in the number-theory pillar.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The general term.} Write $\binom{n}{k}a^{n-k}b^k$ \emph{with the constants inside}, solve the degree equation for $k$, then compute. Never expand what you can index.
+  \item \textbf{Substitute values into identities.} $x=1$: coefficient sum. $x=-1$: alternating sum. Add/subtract the two: even/odd extraction. Every substitution is a theorem.
+  \item \textbf{Pascal's rule = in-or-out.} $\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}$ is the committee split from sheet 2, and it generates the whole triangle.
+  \item \textbf{Count one thing two ways.} Vandermonde, hockey stick, committee--chair: pick the right scenario and the identity proves itself in a sentence.
+  \item \textbf{Binomials mod small primes.} $(1+x)^2\equiv1+x^2\pmod2$ propagates to $(1+x)^{2^m}\equiv1+x^{2^m}$: parity patterns of whole rows fall out (Lucas/Sierpi\'nski).
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Dropping the constant's power.} In $(2+3x)^5$ the $2^{5-k}$ is compulsory. Coefficient-sum check at $x=1$ catches this in seconds.
+  \item \textbf{Sign slips with $(a-b)^n$.} Keep $(-b)^k$ intact inside the general term; decide the sign from the parity of $k$, never by feel.
+  \item \textbf{Expanding both factors fully for one coefficient.} Harvest each factor only to the degree needed and zip. Full expansion is slow and error-prone.
+  \item \textbf{Assuming symmetric-looking sums need algebra.} $\sum\binom{10}{k}^2$ falls to a story about choosing 10 people. Reach for the committee before the formula sheet.
+  \item \textbf{Using primality nowhere.} If your proof of D5 never invokes that $p$ is prime, it proves the false statement $4\mid\binom{4}{2}$. Locate where every hypothesis earns its keep.
+\end{enumerate}
+
+\SpeedClosing{``An identity is a story told twice ---
+once for each side of the equals sign.''}
+
+\end{document}
