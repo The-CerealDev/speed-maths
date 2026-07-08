@@ -50,6 +50,26 @@ When drafting new questions (whether by hand or with AI assistance), you must ma
 
 Always remember: **No calculators are allowed in any of these exams.** Design numbers to cancel cleanly, factor nicely, or telescope elegantly. If a computation gets bogged down in ugly arithmetic, the question is poorly designed.
 
+### The research corpus (mandatory)
+
+New sheets must be grounded in real past papers, not written from memory
+of "what these exams are like":
+
+1. **Fetch before you write.** A local corpus lives in `research/`
+   (SMC, BMO1, TMUA, MAT papers + mark schemes, with `pdftotext`
+   extracts in `research/txt/` and per-competition archetype indexes
+   `research/INDEX-*.md`). If a competition or year you need is
+   missing, fetch it first — official sources: `ukmt.org.uk`,
+   `bmos.ukmt.org.uk`, `esat-tmua.ac.uk`, `maths.ox.ac.uk`.
+2. **Ground every section.** Each sheet's question archetypes must be
+   ones that actually occur in the corpus for its target competition
+   (A/B ↔ TMUA/SMC-early, C ↔ SMC-mid, D ↔ SMC-late/BMO1). Close
+   adaptations carry the `(after SMC 2024 Q19)` credit as usual.
+3. **The corpus is local-only.** `research/` is gitignored because the
+   papers are UKMT/OCR/Oxford copyright and this repo is public. Never
+   commit or paste paper content into tracked files — only your own
+   original/adapted questions.
+
 ## Answer files
 
 Every question gets all three:

@@ -28,6 +28,11 @@ Speed-Maths/
 - Every sheet/answer ends with `\SpeedClosing{<quote>}` (rule + quote + cross-promo).
 - Compile from inside `sheets/` or `answers/` (relative `\input` path depends on it).
 - **Strict Verification:** All generated answers must be verified computationally via a short script, and questions must strictly adhere to TMUA/MAT/SMC/BMO1 styles (see `CONTRIBUTING.md`).
+- **Mandatory research corpus:** new sheets are grounded in the fetched past-paper
+  corpus in `research/` (SMC/BMO1/TMUA/MAT papers + txt extracts + INDEX-*.md
+  archetype catalogues). It is gitignored — copyrighted papers must never reach the
+  public repo. Fetch missing papers before writing (CONTRIBUTING.md → "The research
+  corpus" lists the official sources).
 
 ## Difficulty design (agreed 2026-07-07)
 - Training goal: SMC → BMO1 qualification + TMUA 9. "Mathematical excellence training."

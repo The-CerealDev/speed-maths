@@ -11,3 +11,8 @@
 # Remove a line here when its pillar is ready to publish.
 number-theory/
 geometry/
+
+# Local research corpus: fetched past papers (UKMT/OCR/Oxford copyright).
+# NEVER commit these — the repo is public. Archetype indexes stay local too
+# since they quote question content.
+research/
