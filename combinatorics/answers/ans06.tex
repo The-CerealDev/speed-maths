@@ -169,11 +169,11 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Beads of 3 colours: guarantee 5 alike?
+\item 10 red, 10 green, 10 blue: guarantee 5 of some colour; guarantee 5 red?
 
-\ans{$3\cdot4+1=13$}
-\method{Worst case 4 of each colour; the 13th bead is a fifth of something.}
-\inv{Strong pigeonhole in one line. Now invert the question: with 30 beads of 3 colours, what group size is \emph{guaranteed} to exist? ($\lceil30/3\rceil=10$ of some colour.) Forcing-number vs guaranteed-size --- keep the two directions straight.}
+\ans{Some colour: $3\cdot4+1=13$.\quad Five red: $20+4+1=25$.}
+\method{\emph{Some colour} is plain strong pigeonhole: worst case 4 of each (12 beads), the 13th forces a fifth. \emph{Five red} is adversarial: the drawer hands you all 10 green and 10 blue first (20 useless beads), then 4 red --- so 24 can still fail, and the 25th guarantees a fifth red.}
+\inv{The two answers differ because ``some colour'' lets any colour win, while ``red'' must survive the drawer burning every other colour first --- the A2 lesson (a pair vs a black pair) scaled up. What if you needed 5 red \emph{and} 5 green? Chase the worst case: burn blue first.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
 \item Seven from $\{1,\ldots,12\}$: two sum to 13; six don't force.
@@ -197,11 +197,11 @@
 \inv{The first \emph{invariant} argument of the pillar: a quantity every move preserves (colour balance) separates reachable from unreachable. Sheet 7 builds a whole section on this. Try: remove two squares of OPPOSITE colours anywhere --- can the remaining 62 always be tiled? (Yes --- Gomory's beautiful cycle argument; look it up after attempting.)}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Group size guaranteeing 4 share a birth month?
+\item Group size to guarantee two share both birth month and weekday?
 
-\ans{$12\cdot3+1=37$}
-\method{Worst case: 3 in every month (36 people). One more forces a fourth.}
-\inv{Real-world calibration: school year groups of 37+ always contain a birth-month quartet --- check your own class. Strong pigeonhole with $k=12$, $m=4$; write the general $k(m-1)+1$ and test it against every A/C question so far.}
+\ans{$12\cdot7+1=85$}
+\method{The pigeonholes are (month, weekday) pairs: $12\times7=84$ boxes. With 85 people, two land in the same box --- same month AND same weekday.}
+\inv{Two independent attributes multiply their box counts, they do not add --- $84$, not $19$. This product-of-dimensions idea reappears whenever you pigeonhole on several coordinates at once (residues mod different primes, grid cells). How many boxes if you also track blood type (4 kinds)?}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
 \item 20 clubs $\times$ 6 students; each student in 3 clubs: student count?
@@ -247,18 +247,18 @@
 \inv{Four points can dodge: $(0,0),(0,1),(1,0),(1,1)$ --- one per parity class; check all six midpoints fail. So 5 is exact. Generalise to 3D: how many lattice points force a lattice midpoint? ($2^3+1=9$.) And what forces a lattice \emph{centroid} of some three points? (Much subtler --- sit with it.)}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Two guests with equal handshake counts.
+\item The number of people with an odd handshake count is even.
 
 \ans{Proof below.}
-\method{\emph{Proof.} Each of the $n$ guests has a handshake count in $\{0,1,\ldots,n-1\}$ --- $n$ possible values. Suppose all counts were distinct; then every value occurs exactly once, so some guest $A$ has count $n-1$ and some guest $B$ has count $0$. But $A$ shook hands with everyone else, including $B$, contradicting $B$'s count of $0$. Hence not all counts are distinct: two guests share a count. $\square$}
-\inv{Note the structure: pigeonhole fails at first ($n$ values, $n$ people), so we \emph{assume distinctness and hunt a contradiction} between the forced extremes. Extend: must THREE guests share a count? (No --- construct a party with counts as spread as possible.)}
+\method{\emph{Proof.} Let the guests be the vertices of a graph, with an edge for each handshake; write $d(v)$ for the number of hands $v$ shook. Every handshake has two participants, so summing over all guests counts each handshake twice: $\sum_{v}d(v)=2H$, where $H$ is the total number of handshakes --- an even number. Split the sum by parity: $\sum_{d(v)\text{ even}}d(v)$ is even (a sum of even numbers), and the whole sum is even, so $\sum_{d(v)\text{ odd}}d(v)$ is even too. But that last sum is a sum of odd numbers, and a sum of odd numbers is even only when there is an even count of them. Hence the number of guests with an odd handshake count is even. $\square$}
+\inv{This is the Handshake Lemma's famous corollary. It instantly kills impossible configurations: can 9 people each shake exactly 3 hands? (Nine odds is odd --- no.) Sit with the parity step ``a sum of odd numbers is even iff there is an even number of them'' until it is obvious; it is the whole proof.}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item 20 students, 2 problems each, 5 problems solved equally: determine $k$.
+\item 20 students, each solving exactly 2 of 5 problems: two share a problem-pair.
 
-\ans{$k=8$}
-\method{\emph{Proof.} Count (student, solved problem) pairs two ways. By students: each of 20 students contributes exactly 2 pairs: $40$. By problems: each of the 5 problems is solved by $k$ students, contributing $5k$ pairs. The same set counted twice: $5k=40$, so $k=8$. Feasibility: any assignment of students to the $\binom52=10$ problem-pairs with each problem in $8$ chosen pairs works --- e.g.\ give each of the 10 problem-pairs exactly 2 students. $\square$}
-\inv{The determination is two lines; the \emph{feasibility construction} is what BMO1 markers look for and students forget. Harder: if instead every PAIR of problems is solved by exactly one common student, how many students? (10 --- one per pair; the double count now runs over problem-pairs.)}
+\ans{Proof below; some pair chosen by $\geq2$ students (in fact $\geq\lceil20/10\rceil=2$).}
+\method{\emph{Proof.} Each student's choice of two problems from five is an unordered pair, and there are exactly $\binom{5}{2}=10$ such pairs. Regard the 10 pairs as pigeonholes and the 20 students as pigeons. Since $20>10$, by the pigeonhole principle some pigeonhole holds at least two students --- that is, some pair of problems was chosen by at least two students, who therefore solved exactly the same pair. (Strong pigeonhole sharpens this: at least $\lceil20/10\rceil=2$ share the most popular pair, and averaging shows some pair is chosen by at least 2 regardless of the distribution.) $\square$}
+\inv{Naming the pigeonholes as the $\binom{5}{2}$ pairs --- rather than the problems --- is the whole idea; a student who lists the wrong boxes gets nothing. Sharpen it: with 21 students must some pair be chosen three times? (No --- $21<2\cdot10+1$.) Find the exact threshold that forces a triple.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Six people: three mutual friends or three mutual strangers.
