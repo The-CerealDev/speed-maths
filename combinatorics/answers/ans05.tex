@@ -41,11 +41,11 @@
 \inv{Why floor and not rounding? Count multiples of 3 in $1,\ldots,101$ and in $1,\ldots,102$ and watch the count tick up only at true multiples. This tiny function powers C4 and D3.}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item Multiples of 3 or 5 up to 100?
+\item $|A|=8$, $|B|=6$, $|A\cup B|=11$: find $|A\cap B|$.
 
-\ans{$33+20-6=47$}
-\method{Multiples of 15 were counted twice; subtract them once.}
-\inv{The overlap class is ``divisible by $\mathrm{lcm}$'', not ``by the product'' --- for 4 and 6 the overlap is multiples of 12, not 24. Recompute this question with 4 and 6 to catch the distinction.}
+\ans{$8+6-11=3$}
+\method{Rearrange two-set inclusion--exclusion: $|A\cap B|=|A|+|B|-|A\cup B|$.}
+\inv{The formula has four quantities; any three determine the fourth. What constraints must the three given numbers satisfy for a solution to exist at all? ($|A\cup B|\leq|A|+|B|$ and $|A\cup B|\geq\max$ --- data violating these describe no actual sets, a favourite TMUA logic trap.)}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
 \item Non-negative triples, $x+y+z=4$?
@@ -169,11 +169,11 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Positive quadruples, $x+y+z+w=15$?
+\item Positive quadruples, $x+y+z+w=15$, none exceeding 5?
 
-\ans{$\dbinom{14}{3}=364$}
-\method{Bars-in-gaps: 15 stars, choose 3 of the 14 gaps.}
-\inv{Also the number of three-element subsets of $\{1,\ldots,14\}$ --- find the direct bijection (the bar positions ARE the subset). Stars-and-bars is secretly always a subset count.}
+\ans{$52$}
+\method{Both bound types at once. Unrestricted positive solutions: $\binom{14}{3}=364$ (bars in gaps). Violations are variables $\geq6$: shift one variable by 5 (positive $\geq6$ becomes positive $\geq1$), leaving sum 10: $\binom{9}{3}=84$, times 4 choices: 336. Double violations (two variables $\geq6$, sum drops to 5): $\binom{4}{3}=4$ each, $\binom{4}{2}=6$ pairs: 24. Triples impossible. Count: $364-336+24=52$.}
+\inv{Check plausibility: the mean share is $15/4=3.75$ with cap 5 --- tight, so few solutions survive; 52 of 364 feels right. Sanity-check one corner: $(5,5,4,1)$ counts, $(6,4,4,1)$ does not. When the cap equals the mean exactly, how many survive? (Sum 20, cap 5: only $(5,5,5,5)$ --- run the I--E and watch it collapse to 1.)}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
 \item Non-negative triples, $x+y+z=15$, each $\leq6$?
@@ -218,11 +218,11 @@
 \inv{Dice sums are capped stars-and-bars --- this exact question (sum of three dice) launched probability theory in the 1650s: compare the counts for sum 10 (27) and sum 9 (25), whose near-equality puzzled gamblers. Recompute the 25.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item Positive integers below 1000 with digit sum 9?
+\item Positive integers below 1000 with digit sum 12?
 
-\ans{$\dbinom{11}{2}=55$}
-\method{Write each number as a 3-digit string $d_1d_2d_3$ (leading zeros allowed, from 001 to 999): need $d_1+d_2+d_3=9$ with digits $0$--$9$. The cap never bites (no digit can exceed 9 when the sum is 9), so pure stars and bars: $\binom{11}{2}=55$. The string 000 has sum 0, so nothing was wrongly included.}
-\inv{Digit-sum 10 needs the cap: $\binom{12}{2}-3=63$ (subtract the three strings with a digit 10... check via the violation shift). Where exactly does the cap start biting, and why at sum 10? This ``pad with leading zeros'' recoding is a bijection worth naming in written solutions.}
+\ans{$\dbinom{14}{2}-3\dbinom{4}{2}=91-18=73$}
+\method{Write each number as a 3-digit string $d_1d_2d_3$ with leading zeros allowed: need $d_1+d_2+d_3=12$, digits $0$--$9$. Unrestricted: $\binom{14}{2}=91$. Violations $d_i\geq10$: shift by 10, sum 2 remains: $\binom{4}{2}=6$, times 3 digits: 18. Two violations impossible ($\geq20>12$). Count: $91-18=73$.}
+\inv{For digit sum 9 the cap never bites (no digit can reach 10) and the count is a pure $\binom{11}{2}=55$. Find the digit sum with the MOST three-digit representatives --- symmetry of the distribution around $13.5$ says compare sums 13 and 14; compute both. The ``pad with leading zeros'' recoding is a bijection worth naming in written solutions.}
 
 \end{enumerate}
 
@@ -265,7 +265,7 @@ Equivalently $360\left(1-\frac12\right)\left(1-\frac13\right)\left(1-\frac15\rig
 \inv{General surjection count: $\sum_k(-1)^k\binom{m}{k}(m-k)^n$ for $n$ students, $m$ clubs. Compute the $4$-club version for 6 students (1560). Dividing by $m!$ counts \emph{partitions into unlabelled groups} --- the Stirling numbers, waiting one sheet ahead.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item 1--$10^6$: neither squares nor cubes?
+\item Prove exactly $998\,910$ of 1--$10^6$ are neither squares nor cubes.
 
 \ans{$10^6-1000-100+10=998\,910$}
 \method{Squares up to $10^6$: exactly $1000$ (namely $k^2$ for $k\leq10^3$). Cubes: $100$ (since $100^3=10^6$). The double-counted numbers are those that are both square and cube, i.e.\ sixth powers: $10$ of them ($k^6$, $k\leq10$). By inclusion--exclusion, squares-or-cubes number $1000+100-10=1090$; the rest number $10^6-1090=998\,910$. $\square$}
