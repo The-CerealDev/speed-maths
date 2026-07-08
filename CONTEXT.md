@@ -1,6 +1,6 @@
 # Speed Maths — Daily Drill Series
 
-TMUA & SMC exam prep. Four pillars: Algebra (done), Combinatorics (in progress),
+TMUA & SMC exam prep. Four pillars: Algebra (done), Combinatorics (done),
 Number Theory, Geometry (both empty, not started).
 
 ## Structure
@@ -53,10 +53,13 @@ Algebra = 7 complete sheets, toolkit progression already runs: sum/diff of squar
 Vieta's/nested surds → Remainder-Factor thm/AM-GM → geometric series/parity →
 partial fractions/Cauchy-Schwarz → Schur's/integer polys → weighted AM-GM/Vieta jumping.
 
-Combinatorics = sheet01 + ans01 done (multiplication principle / factorials /
-permutations / cases). Planned progression for 02–07: combinations & complementary
-counting → restricted/circular arrangements → binomial theorem & Pascal → stars-and-bars
-& inclusion-exclusion → pigeonhole & double counting → recurrences, bijections, invariants.
+Combinatorics = 7 complete sheets + answers (all committed & pushed). Progression:
+multiplication principle/factorials → combinations & complementary counting →
+blocks/gaps/circular arrangements → binomial theorem & Pascal → stars-and-bars &
+inclusion-exclusion → pigeonhole & double counting → recurrences/bijections/invariants.
+Every answer computationally verified before writing; every sheet difficulty-calibrated
+by an agy pass and its flags applied in a follow-up commit. D-tags ramp SMC → SMC/BMO1
+→ BMO1 with fully written proofs in sheets 4–7. Corpus-credited adaptations throughout.
 
 **Do not generate new pillar content unprompted** — wait for explicit direction on
 which pillar + how many sheets before writing questions.
