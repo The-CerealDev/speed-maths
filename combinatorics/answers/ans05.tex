@@ -1,0 +1,303 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#5 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Stars \& Bars $\cdot$ Substitution Shifts $\cdot$ Inclusion--Exclusion $\cdot$ Counting with Caps.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative $(x,y)$ with $x+y=10$?
+
+\ans{$11$}
+\method{$x$ can be $0,1,\ldots,10$; then $y$ is forced.}
+\inv{Trivial by listing --- but note it is also $\binom{11}{1}$: ten stars, one bar. Every question on this sheet is this question with more bars.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item 5 identical sweets to 3 children (zeros allowed)?
+
+\ans{$\dbinom{7}{2}=21$}
+\method{Stars and bars: 5 stars, 2 bars in a row of 7 symbols; choose the bar positions.}
+\inv{Draw the correspondence explicitly for one case: $\star\star|\star|\star\star$ means $(2,1,2)$. The \emph{bijection} between distributions and star--bar strings is the proof --- rehearse saying it in one sentence.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item $|A\cup B|$ from $15, 12, 5$?
+
+\ans{$15+12-5=22$}
+\method{Two-set inclusion--exclusion: adding double-counts the overlap once, so subtract it once.}
+\inv{Rearrange to find any missing quantity: $|A\cap B|=|A|+|B|-|A\cup B|$. TMUA logic questions like giving you three of the four numbers --- be ready to solve for each.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Multiples of 3 up to 100?
+
+\ans{$\lfloor100/3\rfloor=33$}
+\method{Floor of the quotient.}
+\inv{Why floor and not rounding? Count multiples of 3 in $1,\ldots,101$ and in $1,\ldots,102$ and watch the count tick up only at true multiples. This tiny function powers C4 and D3.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Multiples of 3 or 5 up to 100?
+
+\ans{$33+20-6=47$}
+\method{Multiples of 15 were counted twice; subtract them once.}
+\inv{The overlap class is ``divisible by $\mathrm{lcm}$'', not ``by the product'' --- for 4 and 6 the overlap is multiples of 12, not 24. Recompute this question with 4 and 6 to catch the distinction.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative triples, $x+y+z=4$?
+
+\ans{$\dbinom{6}{2}=15$}
+\method{4 stars, 2 bars.}
+\inv{General formula: non-negative solutions of $x_1+\cdots+x_k=n$ number $\binom{n+k-1}{k-1}$. Re-derive it from the star--bar picture, then never look it up again.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Positive triples, $x+y+z=6$?
+
+\ans{$\dbinom{5}{2}=10$}
+\method{Shift: $x'=x-1$ etc.\ gives non-negative $x'+y'+z'=3$: $\binom{5}{2}$. Equivalently, place 2 bars in the 5 gaps between six stars.}
+\inv{Two mental models --- shift-then-stars vs bars-in-gaps. They must agree: $\binom{n-1}{k-1}$ both ways. Which generalises to ``each variable at least 2''? (Both: shift by 2, or leave a star glued to each bar.)}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Class of 30: 20 French, 15 German, 8 both --- neither?
+
+\ans{$30-(20+15-8)=3$}
+\method{Union first (27), then complement.}
+\inv{Draw the Venn diagram and fill the four regions (12, 8, 7, 3). Region-filling is slower but incorruptible --- use it to check any two-set I--E answer under exam pressure.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: 7 has six ordered two-part sums?
+
+\ans{True\quad($1{+}6,\,2{+}5,\,\ldots,\,6{+}1$)}
+\method{The first part can be $1$ through $6$; the second is forced.}
+\inv{``Ordered sums'' are \emph{compositions}. Guess the count of ordered three-part sums of 7 ($\binom{6}{2}=15$), then the total over all lengths --- D2 proves the astonishing answer.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item 4 identical marbles, 2 boxes?
+
+\ans{$5$}
+\method{The first box holds $0$--$4$.}
+\inv{As stars and bars: $\binom{5}{1}=5$. \checkmark\ Now make the marbles \emph{distinct}: $2^4=16$. Identical-vs-distinct changes the formula family entirely --- always classify the objects before counting.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative triples, $x+y+z=12$?
+
+\ans{$\dbinom{14}{2}=91$}
+\method{12 stars, 2 bars: $\binom{14}{2}$.}
+\inv{Sanity-check stars-and-bars answers by shrinking: the same formula must give 15 for $n=4$ (A6). A formula you can shrink-test is a formula you can trust.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Positive triples, $x+y+z=12$?
+
+\ans{$\dbinom{11}{2}=55$}
+\method{Shift each variable down by 1: non-negative sum 9, so $\binom{11}{2}$.}
+\inv{Positive solutions of sum $n$ = non-negative solutions of sum $n-k$. State the general bridge and apply it mentally: positive quadruples summing to 10? ($\binom{9}{3}=84$.)}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item 10 sweets, 4 children, each at least one?
+
+\ans{$\dbinom{9}{3}=84$}
+\method{Bars-in-gaps: ten stars have 9 internal gaps; choose 3.}
+\inv{Now demand each child gets at least \emph{two}: shift by 2 each, sum drops to 2, count $\binom{5}{3}=10$. Lower bounds are always shifts --- upper bounds are the day's harder story (C2, C5).}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item 1--1000, divisible by neither 2 nor 5?
+
+\ans{$1000-500-200+100=400$}
+\method{Complement of the union: subtract each, add back the multiples of 10.}
+\inv{400/1000 = $(1-\frac12)(1-\frac15)$ --- the count factorises! This is no accident: divisibility by 2 and by 5 are independent events across a full period. D3 turns this into Euler's $\varphi$.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative, $x+y+z=10$, $x\geq2$?
+
+\ans{$\dbinom{10}{2}=45$}
+\method{Shift only $x$: $x'=x-2$ gives $x'+y+z=8$: $\binom{10}{2}$.}
+\inv{Mixed bounds bow to per-variable shifts: solve $x\geq2$, $y\geq1$, $z\geq0$, sum 10 ($\binom{9}{2}=36$). Write the shifted equation every time --- skipping the substitution line is where errors breed.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Arrangements of $1,2,3,4$ with 1 not first?
+
+\ans{$4!-3!=18$}
+\method{Complement: total minus those with 1 first.}
+\inv{Direct count: 3 choices of first digit, then $3!$ arrangements --- $18$ again. This tiny warm-up is one forbidden position; C6 has two, D1 has \emph{all} positions forbidden. Watch the technique escalate.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item 1--100, divisible by 2 or 3?
+
+\ans{$50+33-16=67$}
+\method{Overlap is multiples of 6: $\lfloor100/6\rfloor=16$.}
+\inv{Check by complement: coprime-to-6 residues are 1 and 5 mod 6, giving $17+16=33$ non-multiples; $100-33=67$. \checkmark\ Complement checks are nearly free --- build the reflex.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Ordered three-part sums of 8?
+
+\ans{$\dbinom{7}{2}=21$}
+\method{Compositions of 8 into 3 positive parts: bars in 2 of the 7 gaps.}
+\inv{Unordered partitions of 8 into 3 parts number only 5 ($6{+}1{+}1$, $5{+}2{+}1$, $4{+}3{+}1$, $4{+}2{+}2$, $3{+}3{+}2$). Why does dividing 21 by $3!$ NOT give 5? (Repeated parts break the symmetry --- the same trap as sheet 2's ``divide by symmetry that isn't there''.)}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative $(x,y)$ with $x+y\leq5$?
+
+\ans{$\dbinom{7}{2}=21$}
+\method{Slack variable: introduce $s=5-x-y\geq0$; then $x+y+s=5$, a three-variable stars-and-bars.}
+\inv{The slack-variable move turns every inequality into an equation. Geometrically you counted lattice points in a triangle --- check: $1+2+\cdots+6=21$. Two viewpoints, one number.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item 5-letter A/B strings using both letters?
+
+\ans{$2^5-2=30$}
+\method{Complement: only the all-A and all-B strings fail.}
+\inv{This is inclusion--exclusion on 2 ``missing letter'' events in miniature. With three letters (strings over $\{$A,B,C$\}$ using all three) the same logic needs the full machine: $3^5-3\cdot2^5+3=150$ --- which is D4 in disguise. Peek ahead.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Positive quadruples, $x+y+z+w=15$?
+
+\ans{$\dbinom{14}{3}=364$}
+\method{Bars-in-gaps: 15 stars, choose 3 of the 14 gaps.}
+\inv{Also the number of three-element subsets of $\{1,\ldots,14\}$ --- find the direct bijection (the bar positions ARE the subset). Stars-and-bars is secretly always a subset count.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Non-negative triples, $x+y+z=15$, each $\leq6$?
+
+\ans{$10$}
+\method{Inclusion--exclusion on the \emph{violations}. Unrestricted: $\binom{17}{2}=136$. Violating $x\geq7$: shift by 7, sum 8: $\binom{10}{2}=45$, and 3 choices of violator: 135. Two violators ($\geq7$ twice, sum drops to 1): $\binom{3}{2}=3$ each, 3 pairs: 9. Three violators impossible. Count: $136-135+9=10$.}
+\inv{Caps are complements of shifts --- the day's central lesson. Check the answer directly: with all variables $\leq6$ and sum 15, the average is 5, so solutions cluster near $(6,6,3)$-type triples; list them (permutations of $(6,6,3)$, $(6,5,4)$, $(5,5,5)$: $3+6+1=10$). \checkmark}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Tea/coffee/juice: how many like none?
+
+\ans{$100-80=20$}
+\method{Three-set I--E: $|T\cup C\cup J|=50+40+30-20-15-10+5=80$.}
+\inv{Recite the sign rule: singles $-$ pairs $+$ triple. Then answer a sharper question from the same data: how many like \emph{exactly one} drink? (Singles minus twice-pairs plus thrice-triple: $120-2\cdot45+3\cdot5=45$.) Exactly-counts are I--E's second gear.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item 1--1000, divisible by 2, 3, or 5?
+
+\ans{$734$}
+\method{$500+333+200-166-100-66+33=734$. The overlaps are lcm's: 6, 10, 15, 30.}
+\inv{Complement: $266$ integers survive --- and $1000\cdot(1-\frac12)(1-\frac13)(1-\frac15)=266.67$, close but NOT exact. Why does the product formula miss here when it was exact in B4? (1000 is not a multiple of 30 --- partial periods leave remainders. D3 chooses its numbers to dodge this.)}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item 8 apples, 3 children, each at most 4?
+
+\ans{$15$}
+\method{Unrestricted: $\binom{10}{2}=45$. One child $\geq5$: shift 5, sum 3: $\binom{5}{2}=10$, times 3 children: 30. Two children $\geq5$ would need sum $\geq10>8$: impossible. Answer $45-30=15$.}
+\inv{The ``second violation impossible'' step is what keeps caps quick --- always bound the double-violation before computing it. Redo with cap 3 (each child $\leq3$): now double violations survive; the count is $45-3\cdot\binom{6}{2}+3\cdot\binom{2}{2}=3$. List them to believe it ($(3,3,2)$ permutations).}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item ABCDE arrangements: A not first, B not second?
+
+\ans{$120-24-24+6=78$}
+\method{I--E on the two bad events (A first: $4!$; B second: $4!$; both: $3!$).}
+\inv{Escalate to three pinned letters (A not 1st, B not 2nd, C not 3rd): $120-3\cdot24+3\cdot6-2!=64$. The pattern of shrinking factorials with alternating signs is the derangement formula being born --- D1 delivers it.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Three dice summing to 10?
+
+\ans{$27$}
+\method{Stars and bars with caps. Shift to $x'+y'+z'=7$ with each $x'\in[0,5]$: unrestricted $\binom{9}{2}=36$; one variable $\geq6$: sum 1, $\binom{3}{2}=3$, times 3: 9. Answer $36-9=27$.}
+\inv{Dice sums are capped stars-and-bars --- this exact question (sum of three dice) launched probability theory in the 1650s: compare the counts for sum 10 (27) and sum 9 (25), whose near-equality puzzled gamblers. Recompute the 25.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Positive integers below 1000 with digit sum 9?
+
+\ans{$\dbinom{11}{2}=55$}
+\method{Write each number as a 3-digit string $d_1d_2d_3$ (leading zeros allowed, from 001 to 999): need $d_1+d_2+d_3=9$ with digits $0$--$9$. The cap never bites (no digit can exceed 9 when the sum is 9), so pure stars and bars: $\binom{11}{2}=55$. The string 000 has sum 0, so nothing was wrongly included.}
+\inv{Digit-sum 10 needs the cap: $\binom{12}{2}-3=63$ (subtract the three strings with a digit 10... check via the violation shift). Where exactly does the cap start biting, and why at sum 10? This ``pad with leading zeros'' recoding is a bijection worth naming in written solutions.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Show exactly 9 of the 24 letter placements have no letter correct.
+
+\ans{$D_4=9$}
+\method{\emph{Proof.} For $i=1,\ldots,4$ let $A_i$ be the set of placements with letter $i$ correct. Placements fixing a given set of $k$ letters number $(4-k)!$, and there are $\binom{4}{k}$ such sets, so by inclusion--exclusion
+$|A_1\cup A_2\cup A_3\cup A_4|=\binom41 3!-\binom42 2!+\binom43 1!-\binom44 0!=24-12+4-1=15$.
+Hence the placements with \emph{no} letter correct number $24-15=9$. $\square$}
+\inv{These are \emph{derangements}: $D_n=n!\sum_{k=0}^n\frac{(-1)^k}{k!}$. Compute $D_5=44$ and check $\frac{D_n}{n!}\to\frac1e\approx0.368$ --- over a third of all shuffles fix nothing, however large $n$ grows. Investigate the elegant recurrence $D_n=(n-1)(D_{n-1}+D_{n-2})$.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove: compositions of $n$ number $2^{n-1}$.
+
+\ans{Proof below.}
+\method{\emph{Proof (bijection with gap subsets).} Write $n$ as a row of $n$ stars. A composition of $n$ corresponds to choosing, independently for each of the $n-1$ gaps between adjacent stars, whether to place a bar there: the bars cut the row into ordered positive parts, and every composition arises from exactly one set of cuts. Choices: $2^{n-1}$. Since compositions $\leftrightarrow$ subsets of the gap set, the count is $2^{n-1}$. $\square$}
+\inv{Cross-check against the by-length sum: $\sum_{k=1}^{n}\binom{n-1}{k-1}=2^{n-1}$ --- the row-sum identity of sheet 4 falling out of a partition of the composition set by length. One object, two counts, one identity: this is what ``combinatorial proof'' means on a BMO script.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Integers 1--360 coprime to 360?
+
+\ans{$96$}
+\method{$360=2^3\cdot3^2\cdot5$, so remove multiples of 2, 3, 5 by inclusion--exclusion:
+$360-180-120-72+60+36+24-12=96$.
+Equivalently $360\left(1-\frac12\right)\left(1-\frac13\right)\left(1-\frac15\right)=360\cdot\frac12\cdot\frac23\cdot\frac45=96$ --- the product form is the I--E sum factorised.}
+\inv{This is Euler's totient $\varphi(360)$. Prove the factorised form follows from I--E for any $n$ (each prime contributes an independent ``survival factor'' $1-\frac1p$ over a full period --- B4's observation made general). $\varphi$ returns as a lead actor in the number-theory pillar.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Five students, three clubs, none empty: show 150.
+
+\ans{$3^5-3\cdot2^5+3\cdot1^5=150$}
+\method{\emph{Proof.} Unrestricted assignments: $3^5=243$. For each club $c$ let $A_c$ be the assignments leaving $c$ empty; $|A_c|=2^5$, $|A_c\cap A_{c'}|=1^5$, and all three clubs empty is impossible. By inclusion--exclusion the assignments missing at least one club number $3\cdot2^5-3\cdot1=93$, so surjective assignments number $243-93=150$. $\square$}
+\inv{General surjection count: $\sum_k(-1)^k\binom{m}{k}(m-k)^n$ for $n$ students, $m$ clubs. Compute the $4$-club version for 6 students (1560). Dividing by $m!$ counts \emph{partitions into unlabelled groups} --- the Stirling numbers, waiting one sheet ahead.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item 1--$10^6$: neither squares nor cubes?
+
+\ans{$10^6-1000-100+10=998\,910$}
+\method{Squares up to $10^6$: exactly $1000$ (namely $k^2$ for $k\leq10^3$). Cubes: $100$ (since $100^3=10^6$). The double-counted numbers are those that are both square and cube, i.e.\ sixth powers: $10$ of them ($k^6$, $k\leq10$). By inclusion--exclusion, squares-or-cubes number $1000+100-10=1090$; the rest number $10^6-1090=998\,910$. $\square$}
+\inv{Why is ``both square and cube'' the same as ``sixth power''? (If $n=a^2=b^3$, look at each prime's exponent: it is even and divisible by 3, hence divisible by 6.) That little lemma is the question's real content --- the counting is decoration. Extend: how many are none of square, cube, or fifth power?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Stars and bars.} Non-negative solutions of $x_1+\cdots+x_k=n$: $\binom{n+k-1}{k-1}$. Positive solutions: bars in gaps, $\binom{n-1}{k-1}$.
+  \item \textbf{Shift for lower bounds.} ``$x\geq c$'' $\Rightarrow$ substitute $x'=x-c$ and reduce the target sum. Write the substitution line explicitly.
+  \item \textbf{Include--exclude for upper bounds.} Caps are violations to subtract: count unrestricted, remove each violation (shift by cap$+1$), add back double violations. Check when doubles are impossible.
+  \item \textbf{Slack variables.} ``$\leq n$'' becomes ``$=n$'' with one extra non-negative variable. Inequalities are equations in disguise.
+  \item \textbf{The I--E sign rhythm.} Singles $-$ pairs $+$ triples $-\cdots$, with overlaps measured by lcm's (divisibility) or forced objects (fixed letters, empty clubs).
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Muddling the two stars-and-bars formulas.} Zeros allowed: $\binom{n+k-1}{k-1}$. Positive: $\binom{n-1}{k-1}$. Shrink-test on a tiny case before trusting either.
+  \item \textbf{Using the product instead of the lcm for overlaps.} Divisible by 4 and 6 means divisible by 12, not 24. Compute the lcm consciously every time.
+  \item \textbf{Forgetting the cap can't always bite.} In C8 no digit could exceed 9; in C5 no two children could both violate. Bound the violation before machining through it.
+  \item \textbf{Dividing compositions by $k!$ to get partitions.} Repeated parts have smaller orbits --- 21 compositions of 8 into 3 parts give 5 partitions, not $21/6$. Symmetry division needs distinct parts.
+  \item \textbf{Stopping I--E one term early.} The alternating sum runs until intersections are empty --- and you must \emph{say} why they are empty (sum too large, all clubs empty impossible), not just stop.
+\end{enumerate}
+
+\SpeedClosing{``Overcount boldly, then subtract with precision ---
+inclusion--exclusion is bookkeeping for the brave.''}
+
+\end{document}
