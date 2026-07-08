@@ -1,0 +1,299 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#2 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Combinations $\binom{n}{r}$ $\cdot$ Choosing vs Arranging $\cdot$ Complementary Counting $\cdot$ Committee Constructions.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;\dbinom{7}{2}$.
+
+\ans{$21$}
+\method{$\dbinom{7}{2}=\dfrac{7\cdot6}{2}=21$. For $\binom{n}{2}$, always: half of $n(n-1)$.}
+\inv{$\binom{n}{2}$ is the $(n-1)$th triangular number. Why must the product of two consecutive integers always be even, making $\binom{n}{2}$ an integer? This integrality question generalises to all $\binom{n}{r}$ --- see B-section of sheet 6.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;\dbinom{8}{3}$.
+
+\ans{$56$}
+\method{$\dbinom{8}{3}=\dfrac{8\cdot7\cdot6}{3!}=\dfrac{336}{6}=56$. Cancel before multiplying: $\frac{8\cdot7\cdot6}{6}=8\cdot7$.}
+\inv{Note $\binom{8}{3}=56=\binom{8}{5}$. Prove the symmetry $\binom{n}{r}=\binom{n}{n-r}$ \emph{without} algebra: choosing which 3 objects to take is the same decision as choosing which 5 to leave behind.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;\dbinom{9}{7}$.
+
+\ans{$36$}
+\method{Use symmetry first: $\dbinom{9}{7}=\dbinom{9}{2}=\dfrac{9\cdot8}{2}=36$. Never compute a large lower index directly.}
+\inv{How large can the saving get? Compare the work in computing $\binom{100}{98}$ directly against $\binom{100}{2}$. Under exam time pressure, the symmetry flip is the single most-used binomial reflex.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item How many committees of 3 can be chosen from 6 people?
+
+\ans{$\dbinom{6}{3}=20$}
+\method{A committee is unordered: $\dbinom{6}{3}=\dfrac{6\cdot5\cdot4}{6}=20$.}
+\inv{Contrast with sheet 1's medal question: 3 \emph{distinct} medals from 8 runners was $8\cdot7\cdot6$. Divide-by-$r!$ is exactly the bridge between the two: $\binom{n}{r}=\frac{{}^nP_r}{r!}$. When does a question secretly order the chosen objects?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $n$: $\;\dbinom{n}{2}=45$.
+
+\ans{$n=10$}
+\method{$\dfrac{n(n-1)}{2}=45\Rightarrow n(n-1)=90=10\cdot9\Rightarrow n=10$. Spot consecutive-integer products instantly.}
+\inv{Which totals $T$ make $\binom{n}{2}=T$ solvable? Exactly the triangular numbers $1,3,6,10,15,\ldots$ Investigate: can a number be triangular in two different ways?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item How many subsets of a 5-element set have at least 4 elements?
+
+\ans{$\dbinom{5}{4}+\dbinom{5}{5}=5+1=6$}
+\method{``At least 4'' means sizes 4 or 5. Two small cases --- add them.}
+\inv{``At least'' with \emph{few} qualifying cases: add directly. ``At least'' with \emph{many} qualifying cases: subtract the complement. Recount this both ways ($32-\binom{5}{0}-\binom{5}{1}-\binom{5}{2}-\binom{5}{3}=6$) and note which was faster --- then decide the crossover rule for yourself.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;\dbinom{6}{0}+\dbinom{6}{1}+\cdots+\dbinom{6}{6}$.
+
+\ans{$2^6=64$}
+\method{Row sum of Pascal's triangle: every subset of a 6-set has \emph{some} size, so the sizes partition the $2^6$ subsets.}
+\inv{This double count (subsets by size vs.\ in/out choices) is your first serious ``count the same thing two ways'' argument --- the headline tool of sheet 6. Also evaluate the alternating version $\binom{6}{0}-\binom{6}{1}+\binom{6}{2}-\cdots$ (answer 0) and explain it by pairing subsets.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item How many ways can 2 letters be chosen from $\{$A, B, C, D, E$\}$?
+
+\ans{$\dbinom{5}{2}=10$}
+\method{Unordered pairs from 5: $\frac{5\cdot4}{2}=10$.}
+\inv{List all 10 pairs quickly in lexicographic order (AB, AC, \ldots, DE). Systematic listing is worth practising: it is the verification tool of last resort when a formula feels doubtful in an exam.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: $\;\dbinom{100}{98}=4950$.
+
+\ans{True}
+\method{$\dbinom{100}{98}=\dbinom{100}{2}=\dfrac{100\cdot99}{2}=4950$.}
+\inv{TMUA-style statement checks reward one clean disproof or one clean identity. Decide true/false: $\binom{n}{2}+\binom{n+1}{2}=n^2$. (True --- prove it, then interpret it as two staircase halves of a square.)}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A lottery ticket selects 4 numbers from $1$--$10$ (order irrelevant). How many different tickets are there?
+
+\ans{$\dbinom{10}{4}=210$}
+\method{Pure choice, no order: $\dfrac{10\cdot9\cdot8\cdot7}{24}=210$.}
+\inv{The UK Lotto uses 6 numbers from 59: $\binom{59}{6}=45\,057\,474$. Estimate it mentally as $\frac{59^6}{720}$ to one significant figure and compare --- order-of-magnitude fluency beats exact arithmetic here.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $n$: $\;\dbinom{n}{3}=35$.
+
+\ans{$n=7$}
+\method{$n(n-1)(n-2)=35\cdot6=210=7\cdot6\cdot5$. Three consecutive integers --- read off $n=7$.}
+\inv{Estimate first: $n(n-1)(n-2)\approx n^3$, so $n\approx\sqrt[3]{210}\approx6$; test 6 and 7. The estimate-then-check loop solves every $\binom{n}{r}=T$ equation faster than algebra.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item From 8 men and 6 women, how many committees of 2 men and 2 women can be formed?
+
+\ans{$\dbinom{8}{2}\dbinom{6}{2}=28\cdot15=420$}
+\method{Independent choices multiply: choose the men, then the women.}
+\inv{Why is it \emph{not} $\binom{14}{4}$ restricted afterwards? Compute how many of the $\binom{14}{4}=1001$ unrestricted committees have the 2--2 split, and check you recover 420. Structure-first beats filter-later.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Twelve people at a party all shake hands with each other exactly once. How many handshakes take place?
+
+\ans{$\dbinom{12}{2}=66$}
+\method{A handshake \emph{is} an unordered pair of people.}
+\inv{Recount by degrees: each of 12 people shakes 11 hands, and $12\cdot11$ counts every handshake twice --- so $66$. This degree-sum argument is the Handshake Lemma; it returns in sheet 6 and in graph theory proper.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Ten points, no three collinear: how many segments, and how many triangles?
+
+\ans{$\dbinom{10}{2}=45$ segments;\quad $\dbinom{10}{3}=120$ triangles}
+\method{A segment is a pair of points; a triangle is a triple. The no-three-collinear condition guarantees every triple genuinely forms a triangle.}
+\inv{Now let exactly 4 of the 10 points be collinear. How many triangles survive? ($120-\binom{4}{3}=116$.) Degenerate cases are subtracted, not case-split --- a complementary-counting reflex.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Team of 5 from 11, then a captain from the team. Count both ways.
+
+\ans{$\dbinom{11}{5}\cdot5=2310=11\cdot\dbinom{10}{4}$}
+\method{Team first: $462\cdot5$. Captain first: 11 choices, then 4 teammates from the remaining 10: $11\cdot210$. Both give 2310.}
+\inv{You have just proved the identity $r\binom{n}{r}=n\binom{n-1}{r-1}$ by counting one committee-with-chair two ways. Write the algebraic proof too, and keep both --- ``committee--chair'' arguments prove many binomial identities without algebra.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item How many binary strings of length 8 contain exactly three 1s?
+
+\ans{$\dbinom{8}{3}=56$}
+\method{A string is determined by \emph{which} 3 of the 8 positions hold the 1s.}
+\inv{``Choose the positions'' converts string problems into subset problems. How many length-8 strings have more 1s than 0s? (Sum $\binom{8}{5}+\binom{8}{6}+\binom{8}{7}+\binom{8}{8}=93$.) Could symmetry have halved the work? Careful --- the middle term $\binom{8}{4}$ belongs to neither side.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item How many 3-letter strings (repeats allowed) contain at least one vowel?
+
+\ans{$26^3-21^3=17\,576-9\,261=8\,315$}
+\method{Complement: strings with \emph{no} vowel use 21 consonants: $21^3$. Subtract from the total.}
+\inv{``At least one'' is the complement battle-cry. Try ``at least two vowels'' --- now the complement (zero or one vowel) needs two cases: $21^3+3\cdot5\cdot21^2$. Check the three counts (0, 1, $\geq2$ vowels) sum to $26^3$.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $n$: $\;\dbinom{n}{2}+\dbinom{n}{1}=21$.
+
+\ans{$n=6$}
+\method{$\frac{n(n-1)}{2}+n=\frac{n(n+1)}{2}=21\Rightarrow n(n+1)=42=6\cdot7\Rightarrow n=6$.}
+\inv{You used Pascal's rule backwards: $\binom{n}{2}+\binom{n}{1}=\binom{n+1}{2}$. State Pascal's rule $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$ and prove it by asking whether a distinguished element is in the chosen set --- sheet 4 builds the whole triangle from this.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Committees of 4 from 9 people: how many include Priya? Exclude her?
+
+\ans{Include: $\dbinom{8}{3}=56$;\quad exclude: $\dbinom{8}{4}=70$}
+\method{Include her: she is in, choose 3 companions from 8. Exclude her: choose all 4 from the other 8.}
+\inv{$56+70=126=\binom{9}{4}$ --- every committee either contains Priya or doesn't. This in/out split \emph{is} Pascal's rule with faces on it. Use the same split to compute $\binom{10}{5}$ from row 9.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Routes from $(0,0)$ to $(4,3)$ stepping only right or up?
+
+\ans{$\dbinom{7}{3}=35$}
+\method{Every route is a string of 4 R's and 3 U's: choose which 3 of the 7 steps are U.}
+\inv{Lattice paths are strings are subsets --- one idea, three costumes. How many routes pass through the point $(2,1)$? (Multiply the two stages: $\binom{3}{1}\binom{4}{2}=18$.) How many \emph{avoid} it?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Committee of 5 from 7 women and 6 men, at least 4 women.
+
+\ans{$\dbinom{7}{4}\dbinom{6}{1}+\dbinom{7}{5}=35\cdot6+21=231$}
+\method{Exactly 4 women or exactly 5 women --- two disjoint cases, then add.}
+\inv{A classic overcounting trap lurks here: ``choose 4 women to guarantee the quota ($\binom{7}{4}$), then anyone from the remaining 9'' gives $35\cdot9=315\neq231$. Find the committees counted twice by that argument --- diagnosing it inoculates you permanently.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item How many four-digit numbers have at least one repeated digit?
+
+\ans{$9000-9\cdot9\cdot8\cdot7=9000-4536=4464$}
+\method{Complement: all-distinct four-digit numbers number $9\cdot9\cdot8\cdot7$ (sheet 1 technique). Subtract from 9000.}
+\inv{What fraction is that? Nearly half. Estimate the same fraction for 6-digit numbers, then investigate the birthday-paradox structure: with $k$ digits drawn from 10, repeats dominate surprisingly early.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item How many diagonals does a regular 12-gon have?
+
+\ans{$\dbinom{12}{2}-12=66-12=54$}
+\method{Every pair of vertices gives a segment; remove the 12 sides. (Regularity is irrelevant --- only convexity matters.)}
+\inv{Derive the general formula $\frac{n(n-3)}{2}$ two ways: (i) $\binom{n}{2}-n$, (ii) each vertex sends $n-3$ diagonals and each is counted twice. Two derivations agreeing is your built-in error check.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Triangles from 8 points on a circle; how many use point $A$?
+
+\ans{$\dbinom{8}{3}=56$ in total;\quad $\dbinom{7}{2}=21$ through $A$}
+\method{All triples work (no three points on a circle are collinear). Through $A$: fix $A$, choose 2 partners.}
+\inv{Check by symmetry: each of the 56 triangles has 3 vertices, so vertex-uses total $56\cdot3=168=8\cdot21$ --- each point is used 21 times. Counting incidences two ways strikes again.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Teams of 6 from 6 boys and 6 girls with equal numbers of each.
+
+\ans{$\dbinom{6}{3}^2=20^2=400$}
+\method{Equal numbers in a team of 6 means 3 boys and 3 girls: $\binom{6}{3}\binom{6}{3}$.}
+\inv{Sum over all splits: $\sum_{k}\binom{6}{k}\binom{6}{6-k}=\binom{12}{6}=924$ --- Vandermonde's identity, proved by asking how many boys ended up in an unrestricted team. Verify the $k=3$ term is your 400.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item 5-card hands from 52 cards containing all four aces.
+
+\ans{$\dbinom{48}{1}=48$}
+\method{The four aces are forced; only the fifth card is a decision.}
+\inv{Harder: hands with \emph{exactly three} aces: $\binom{4}{3}\binom{48}{2}=4512$. Why must you choose \emph{which} aces now, when for four aces you didn't? Forced choices contribute factor 1 --- spot them and skip them.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item A convex $n$-gon has exactly 27 diagonals. Find $n$.
+
+\ans{$n=9$}
+\method{$\frac{n(n-3)}{2}=27\Rightarrow n(n-3)=54=9\cdot6\Rightarrow n=9$. (Product of two integers differing by 3 --- read it off.)}
+\inv{Which diagonal counts are achievable? Compute $\frac{n(n-3)}{2}$ for $n=4,\ldots,10$: $2,5,9,14,20,27,35$. Investigate: can two different polygons ever have the same diagonal count? (The sequence is strictly increasing --- why does that settle it?)}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Subsets of $\{1,\ldots,10\}$ containing at least one of 1 and 2.
+
+\ans{$2^{10}-2^8=1024-256=768$}
+\method{Complement: subsets avoiding \emph{both} 1 and 2 are exactly the subsets of the remaining 8 elements: $2^8$.}
+\inv{Recount by inclusion--exclusion: (contain 1) $+$ (contain 2) $-$ (contain both) $=512+512-256=768$. You have met inclusion--exclusion informally --- sheet 5 makes it a machine. Which route generalises better to ``at least one of 1, 2, 3''?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Rectangles on a $4\times4$ grid. \textit{\small(extends Sheet 1, D2)}
+
+\ans{$\dbinom{5}{2}^2=100$}
+\method{A rectangle is determined by choosing 2 of the 5 vertical gridlines and 2 of the 5 horizontal gridlines: $\binom{5}{2}\cdot\binom{5}{2}=10\cdot10$. Sheet 1 counted the spans by listing $(4+3+2+1)$; the binomial coefficient \emph{is} that sum.}
+\inv{So $1+2+3+4=\binom{5}{2}$ --- triangular numbers are $\binom{n+1}{2}$ in disguise. Count the \emph{squares} on the same grid ($16+9+4+1=30$), then find how many rectangles on an $8\times8$ board are NOT squares.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Subsets of $\{1,\ldots,8\}$ with no two consecutive integers (empty set included).
+
+\ans{$55$}
+\method{Let $a_n$ count such subsets of $\{1,\ldots,n\}$. Split on whether $n$ is used: if not, $a_{n-1}$ subsets; if yes, $n-1$ is banned, leaving $a_{n-2}$. So $a_n=a_{n-1}+a_{n-2}$ with $a_1=2$, $a_2=3$ --- Fibonacci! The chain runs $2,3,5,8,13,21,34,55$, so $a_8=55$.}
+\inv{Alternative proof: a size-$k$ subset with no neighbours corresponds to choosing $k$ from $8-k+1$ positions after shrinking the gaps, giving $\sum_k\binom{9-k}{k}=55$ --- a Fibonacci number as a diagonal sum in Pascal's triangle. Both proofs preview sheet 7's recurrence toolkit.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Committees of 4 from 7 juniors and 5 seniors with strictly more juniors.
+
+\ans{$\dbinom{7}{4}+\dbinom{7}{3}\dbinom{5}{1}=35+175=210$}
+\method{Strictly more juniors in a committee of 4 means 4--0 or 3--1. Two cases, add: $35+35\cdot5$.}
+\inv{Note the impossibility of a tie playing no role here --- but for committees of 4 with a 2--2 split allowed, ``more juniors'' vs ``more seniors'' vs ``tie'' partitions $\binom{12}{4}=495$. Compute all three and check they sum correctly. Symmetry does NOT make the first two equal --- why?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Six people each shake hands with exactly two others. In how many ways?
+
+\ans{$70$}
+\method{Everyone having exactly two handshakes forces the handshake pattern to be a union of cycles of length $\geq3$ covering all 6 people: either one 6-cycle or two 3-cycles. \emph{One 6-cycle:} arrange 6 people in a cycle: $\frac{5!}{2}=60$ (rotations and reflection give the same handshake set). \emph{Two 3-cycles:} split into two trios: $\frac{1}{2}\binom{6}{3}=10$, each trio shaking hands in exactly one way. Total $60+10=70$.}
+\inv{Why is a ``cycle'' forced? Prove: a graph where every vertex has degree 2 is a disjoint union of cycles. Then redo the count for 7 people (answer: $\frac{6!}{2}+\binom{7}{3}\cdot\frac{3!}{2\cdot3}\cdot1=360+35\cdot1\cdot1\cdot\ldots$ --- careful: a 3-cycle plus a 4-cycle. Work it out and brute-check it).}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Ten points on a circle, all chords drawn, no three concurrent inside. Interior intersection points?
+
+\ans{$\dbinom{10}{4}=210$}
+\method{The key insight: every interior intersection comes from exactly one set of 4 points on the circle (the two crossing chords are the diagonals of the quadrilateral those 4 points form), and every 4 points create exactly one interior crossing. So intersections $\leftrightarrow$ 4-subsets: $\binom{10}{4}=210$. No coordinate geometry, no counting chords.}
+\inv{This is a \emph{bijection} doing all the work --- sheet 7's crown tool. Follow-up: how many \emph{triangles} are formed whose vertices are all interior intersection points... is much harder; instead count the regions the chords cut the disc into for $n=1,\ldots,6$ points ($1,2,4,8,16,31$!) and investigate why the doubling pattern breaks.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Choose vs arrange.} $\binom{n}{r}=\frac{{}^nP_r}{r!}$: divide by $r!$ exactly when the selection is unordered. Ask ``does swapping two chosen objects give a new outcome?''
+  \item \textbf{Symmetry flip.} $\binom{n}{r}=\binom{n}{n-r}$: always compute the smaller index. $\binom{100}{98}$ is a two-second question.
+  \item \textbf{Complementary counting.} ``At least one X'' $=$ total $-$ ``no X''. The complement of a hard condition is usually one clean product.
+  \item \textbf{Committee--chair double counting.} $r\binom{n}{r}=n\binom{n-1}{r-1}$: proving identities by counting a scenario two ways beats algebra.
+  \item \textbf{Objects $\leftrightarrow$ subsets.} Binary strings, lattice paths, handshakes, grid rectangles, chord crossings --- all are ``choose a subset'' in costume. Find the subset.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Ordering an unordered selection.} A committee counted with ${}^nP_r$ is overcounted by a factor of $r!$. Decide ordered/unordered \emph{before} touching numbers.
+  \item \textbf{The ``guarantee the quota'' overcount.} ``Choose 4 women, then anyone else'' double-counts committees with 5 women (C1). Quota problems need exact cases or a complement --- never ``reserve then top up''.
+  \item \textbf{Adding overlapping cases.} Cases must be \emph{disjoint} before you add. ``Contains 1'' and ``contains 2'' overlap; either subtract the overlap or complement.
+  \item \textbf{Forgetting forced choices are free.} All four aces in the hand is a factor of 1, not $\binom{4}{4}$ worth of anxiety --- but \emph{exactly} three aces needs $\binom{4}{3}$.
+  \item \textbf{Dividing by symmetry that isn't there.} Handshake circles divide by rotations \emph{and} reflections ($\frac{5!}{2}$); labelled pair-splits divide by $2$ only when the two groups are indistinguishable. Name the symmetry before dividing by it.
+\end{enumerate}
+
+\SpeedClosing{``When a count splits into cases, count the complement first ---
+the opposite of `at least one' is always simpler.''}
+
+\end{document}
