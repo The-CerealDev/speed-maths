@@ -55,10 +55,10 @@
 \inv{Why does $\left(x+\frac1x\right)^5$ have \emph{no} constant term? (Odd total degree --- balance is impossible.) Parity kills entire terms before any computation.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item $\dbinom{9}{4}+\dbinom{9}{5}$ as one coefficient.
+\item Express $\dbinom{9}{4}+\dbinom{9}{5}$ as one coefficient.
 
-\ans{$\dbinom{10}{5}=252$}
-\method{Pascal's rule: adjacent entries sum to the entry below.}
+\ans{$\dbinom{10}{5}$\quad(which is 252)}
+\method{Pascal's rule: adjacent entries sum to the entry below. No evaluation needed --- the recognition is the answer.}
 \inv{Prove it in one line with committees (a committee of 5 from 10 either contains the distinguished person or not) --- you will need exactly this argument in C8.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
@@ -98,11 +98,11 @@
 \inv{Check digit-cheaply: at $x=1$ the whole expansion is $5^5=3125$; your five coefficients must sum to it. Run the check --- it takes 20 seconds and catches the missing-power error instantly.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Coefficient of $x^5$ in $(1+x)^4(1+x)^3$.
+\item Coefficient of $x^5$ in $(1+2x)^4(1+x)^3$.
 
-\ans{$\dbinom{7}{5}=21$}
-\method{Multiply the bases first: $(1+x)^7$. Never expand the factors separately when they share a base.}
-\inv{Expanding separately and convolving gives $\sum_k\binom{4}{k}\binom{3}{5-k}=\binom{7}{5}$ --- you have accidentally proved a Vandermonde identity. D2 weaponises this.}
+\ans{$168$}
+\method{Convolve the tails only: from $(1+2x)^4$ take coefficients $16, 32, 24$ (of $x^4,x^3,x^2$) and from $(1+x)^3$ take $3, 3, 1$ (of $x,x^2,x^3$): $16\cdot3+32\cdot3+24\cdot1=168$.}
+\inv{Had both brackets shared the base $(1+x)$, you would merge first: $(1+x)^4(1+x)^3=(1+x)^7$, coefficient $\binom{7}{5}=21$ in five seconds. Check the bases before you convolve --- and note that separate-then-convolve on the shared-base version proves $\sum_k\binom{4}{k}\binom{3}{5-k}=\binom{7}{5}$, a Vandermonde identity (D2).}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
 \item Term independent of $x$ in $\left(2x+\frac{1}{x^2}\right)^6$.
@@ -119,11 +119,11 @@
 \inv{Sheet 2's consecutive-product reflex again. Harder inverse: the coefficient of $x^3$ is 220 --- find $n$ ($n(n-1)(n-2)=1320=12\cdot11\cdot10$). Estimation ($\sqrt[3]{1320}\approx11$) then check.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item $\dbinom{10}{0}+\dbinom{10}{2}+\cdots+\dbinom{10}{10}$.
+\item Coefficient of $x^6$ in $\left(x^2+\frac{1}{x}\right)^6$.
 
-\ans{$2^9=512$}
-\method{Add the $x=1$ and $x=-1$ substitutions of $(1+x)^{10}$: odd terms cancel, even terms double. $(2^{10}+0)/2$.}
-\inv{The add/subtract-substitutions trick extracts any alternating pattern. Try extracting $\binom{10}{0}+\binom{10}{4}+\binom{10}{8}$ --- what would you substitute? (Fourth roots of unity: a genuine BMO-level extension to sit with.)}
+\ans{$\dbinom{6}{2}=15$}
+\method{General term $\binom{6}{k}(x^2)^{6-k}x^{-k}$ has degree $12-3k$; degree 6 forces $k=2$.}
+\inv{The degree lattice here is $12,9,6,3,0,-3,-6$. Which is the constant term? ($k=4$: $\binom{6}{4}=15$ --- equal to the $x^6$ coefficient. Coincidence, or a symmetry of this particular bracket? Substitute $x\to\frac{1}{x}$ and find out.)}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
 \item Coefficient of $x^2$ in $(1+2x)^4(1-x)^2$.
@@ -169,11 +169,11 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Coefficient of $x^6$ in $\left(x^2+\frac{1}{x}\right)^6$.
+\item $\dbinom{10}{0}+\dbinom{10}{2}+\cdots+\dbinom{10}{10}$.
 
-\ans{$\dbinom{6}{2}=15$}
-\method{General term $\binom{6}{k}(x^2)^{6-k}x^{-k}$ has degree $12-3k$; degree 6 forces $k=2$.}
-\inv{The degree lattice here is $12,9,6,3,0,-3,-6$. Which is the constant term? ($k=4$: $\binom{6}{4}=15$ --- equal to the $x^6$ coefficient, by which symmetry?)}
+\ans{$2^9=512$}
+\method{Substitute twice into $(1+x)^{10}$: $x=1$ gives $2^{10}$ (all terms), $x=-1$ gives $0$ (alternating). Adding kills the odd-index terms and doubles the even ones: sum $=(2^{10}+0)/2=512$.}
+\inv{The add/subtract-substitutions trick extracts any alternating pattern. Try extracting $\binom{10}{0}+\binom{10}{4}+\binom{10}{8}$ --- what would you substitute? (Fourth roots of unity: a genuine BMO-level extension to sit with.)}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
 \item Greatest coefficient in $(1+x)^8$.
@@ -190,11 +190,11 @@
 \inv{Bound the error: the next term is $120(0.01)^3=1.2\times10^{-4}$... which \emph{would} touch the 4th decimal place. Investigate: the true value is $1.10462\ldots$, so why did the estimate still round correctly? (The tail is positive but small enough. Always \emph{bound}, not assume.)}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item Coefficients of $x^4$ and $x^5$ in $(1+x)^n$ equal. Find $n$.
+\item In $(1+3x)^n$, coefficient of $x^5$ is three times that of $x^4$. Find $n$.
 
 \ans{$n=9$}
-\method{$\binom{n}{4}=\binom{n}{5}\Rightarrow4+5=n$.}
-\inv{Equal \emph{adjacent} coefficients happen only for odd $n$ at the centre --- connect to A10's ``two equal maxima''. For $(1+2x)^n$, adjacent equality instead solves $\frac{2(n-k)}{k+1}=1$: find an $(n,k)$ example.}
+\method{$\binom{n}{5}3^5=3\cdot\binom{n}{4}3^4$. The powers of 3 cancel completely ($3^5$ on both sides), leaving $\binom{n}{5}=\binom{n}{4}$, so $n=4+5=9$ by symmetry.}
+\inv{The constants were a decoy --- strip them before solving. Equal \emph{adjacent} plain coefficients happen only for odd $n$ at the centre (A10's two equal maxima). For a genuine constant effect, solve: in $(1+2x)^n$ the $x^5$ coefficient is \emph{four} times the $x^4$ one; now the 2's don't cancel.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
 \item Coefficient of $x^4$ in $(1+x)^5(1-2x)^3$. \textit{\small(cf.\ MAT 2023 Q1F)}
@@ -211,11 +211,11 @@
 \inv{Two proofs from two different sheets --- the counting one and the calculus one. Use either to evaluate $\sum k^2\binom{5}{k}$ (answer $5\cdot6\cdot2^3=$ check it: $k^2=k(k-1)+k$). Identities stack.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item Constant term of $\left(x-\frac{2}{x}\right)^8$.
+\item Evaluate $\displaystyle\sum_{k=0}^{6}\binom{6}{k}2^k$ by substitution.
 
-\ans{$\dbinom{8}{4}(-2)^4=70\cdot16=1\,120$}
-\method{Degree $8-2k=0$ gives $k=4$; the $(-2)^4$ is positive. Sign discipline: write the $(-2)^k$ \emph{inside} the general term from the start.}
-\inv{What is the coefficient of $x^2$ in the same expansion, and is it positive or negative? ($k=3$: $\binom{8}{3}(-2)^3=-448$.) Predict the sign from the parity of $k$ before computing.}
+\ans{$3^6=729$}
+\method{The sum is exactly $(1+x)^6$ at $x=2$: $(1+2)^6=729$. Recognising a binomial expansion \emph{in reverse} is the skill --- the $2^k$ pattern names the substitution.}
+\inv{Every value of $x$ turns $(1+x)^n$ into an identity: $x=10$ explains why row-$n$ digits ``read as'' $11^n$ (B7), and $x=-\frac12$ gives an alternating shrinking sum. Evaluate $\sum\binom{6}{k}(-1)^k2^{6-k}$ by spotting \emph{its} disguise ($(2-1)^6=1$).}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
 \item Prove Pascal's rule by committee; build row 7 from row 6.
@@ -248,10 +248,12 @@
 \inv{This is Vandermonde's identity $\sum_k\binom{m}{k}\binom{n}{r-k}=\binom{m+n}{r}$ at $m=n=r=10$ --- sheet 2's C5 inv, now proved properly. Also prove it by extracting the $x^{10}$ coefficient from $(1+x)^{10}(1+x)^{10}$: the algebra proof and the committee proof should feel like translations of each other.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item For how many $k$ is $\dbinom{12}{k}$ odd? \textit{\small(cf.\ TMUA 2023 P1 Q6)}
+\item Prove exactly four of the $\dbinom{12}{k}$ are odd. \textit{\small(cf.\ TMUA 2023 P1 Q6)}
 
-\ans{$4$\quad ($k=0,4,8,12$)}
-\method{Work mod 2 with the factorisation $(1+x)^{12}=\left((1+x)^4\right)^3$. Mod 2, $(1+x)^2\equiv1+x^2$ and hence $(1+x)^4\equiv1+x^4$, so $(1+x)^{12}\equiv(1+x^4)^3=1+3x^4+3x^8+x^{12}\equiv1+x^4+x^8+x^{12}\pmod2$. The odd coefficients sit exactly at $k=0,4,8,12$: four of them.}
+\ans{The odd ones are exactly $k=0,4,8,12$.}
+\method{\emph{Proof.} All congruences are mod 2. First, $(1+x)^2=1+2x+x^2\equiv1+x^2$, and squaring again, $(1+x)^4\equiv(1+x^2)^2\equiv1+x^4$. Hence
+$(1+x)^{12}=\left((1+x)^4\right)^3\equiv(1+x^4)^3=1+3x^4+3x^8+x^{12}\equiv1+x^4+x^8+x^{12}.$
+Comparing coefficients of $x^k$ on both sides: $\binom{12}{k}$ is odd precisely when $k\in\{0,4,8,12\}$ --- four values. $\square$}
 \inv{General law (Lucas): $\binom{n}{k}$ is odd iff every binary digit of $k$ is $\leq$ the corresponding digit of $n$. Here $n=12=1100_2$, so $k\in\{0000,0100,1000,1100\}$ --- the same four. Verify Lucas on row 10 ($1010_2$: which $k$?), and connect to A3's Sierpi\'nski picture.}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
