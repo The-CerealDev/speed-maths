@@ -1,0 +1,283 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Combinatorics}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Combinatorics Drill \#1 --- Answers \& Investigations}
+\noindent\textit{New toolkit today: Multiplication Principle $\cdot$ Factorials \& Factorial Algebra $\cdot$ Permutations of Distinct Objects $\cdot$ Counting by Cases.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Evaluate or count instantly. One rule per question. Pure recognition.}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;5!$.
+
+\ans{$120$}
+\method{$5! = 5\cdot4\cdot3\cdot2\cdot1 = 120$. Know $1!$ through $7!$ cold: $1, 2, 6, 24, 120, 720, 5040$.}
+\inv{How fast does $n!$ grow compared with $2^n$ and $n^2$? Compute all three for $n = 1,\dots,10$ and watch the overtaking points. Factorial growth is the reason ``brute-force listing'' fails so quickly in combinatorics.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{8!}{6!}$.
+
+\ans{$56$}
+\method{Cancel, never expand: $\dfrac{8!}{6!} = 8 \cdot 7 = 56$. A ratio of factorials is always a short product.}
+\inv{Convince yourself that $\dfrac{n!}{k!}$ (for $n>k$) is the number of ways to arrange $n-k$ chosen objects out of $n$ in a row --- this product is called a \emph{falling factorial} and is written $n^{\underline{n-k}}$ or ${}^nP_{n-k}$.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item A menu offers 4 starters, 5 mains and 3 desserts. How many different three-course meals are possible?
+
+\ans{$60$}
+\method{Multiplication principle: independent choices multiply. $4 \times 5 \times 3 = 60$.}
+\inv{What if you may also \emph{skip} any course (but must eat something)? Now each course has an extra ``none'' option: $5\times6\times4 - 1 = 119$. The $-1$ removes the empty meal --- a first taste of counting then correcting.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item In how many ways can 4 different books be arranged on a shelf?
+
+\ans{$24$}
+\method{$4$ choices for the first slot, then $3$, then $2$, then $1$: $4! = 24$.}
+\inv{Why does the multiplication principle apply even though the choices are \emph{not} independent (each choice removes options)? The key is that the \emph{number} of options at each step is the same regardless of what was chosen before.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate: $\;\dfrac{6!}{4!\,2!}$.
+
+\ans{$15$}
+\method{$\dfrac{6!}{4!\,2!} = \dfrac{6\cdot5}{2} = 15$. Cancel the largest factorial first.}
+\inv{This number is the binomial coefficient $\binom{6}{2}$ --- the number of ways to \emph{choose} 2 objects from 6 when order does not matter. Choosing versus arranging is the whole story of next sheet's toolkit.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item How many 3-letter strings can be made from the 26 letters of the alphabet if letters may repeat?
+
+\ans{$26^3 = 17\,576$}
+\method{Each of the 3 positions independently takes any of 26 letters: $26\times26\times26$.}
+\inv{How many 3-letter strings use at least one repeated letter? Subtract the no-repeat count (A7) from this total: $17\,576 - 15\,600 = 1\,976$. Counting the complement is often the fast route.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item How many 3-letter strings can be made if no letter may repeat?
+
+\ans{$26 \cdot 25 \cdot 24 = 15\,600$}
+\method{Options shrink by one at each position: $26 \times 25 \times 24$.}
+\inv{For strings of length $k$ from an alphabet of $n$, when does ``no repeats'' first become impossible? This threshold ($k > n$) is the doorway to the pigeonhole principle --- sheet 6.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $n$: $\;n! = 720$.
+
+\ans{$n = 6$}
+\method{Recall the factorial ladder: $6! = 720$. No algebra required if the small factorials are memorised.}
+\inv{Why does $n! = m$ have at most one solution $n$ for any given $m$? Strictly increasing functions are injective --- the same reason $2^x = m$ has at most one solution.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item How many two-digit numbers have both digits odd?
+
+\ans{$25$}
+\method{Each digit is one of $\{1,3,5,7,9\}$: $5 \times 5 = 25$. (No leading-zero worry --- odd digits are nonzero.)}
+\inv{How many two-digit numbers have both digits \emph{even}? Careful: the leading digit cannot be 0, so the answer is $4\times5=20$, not 25. Leading zeros are the classic counting trap.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Simplify: $\;\dfrac{(n+1)!}{(n-1)!}$.
+
+\ans{$n(n+1)$}
+\method{$(n+1)! = (n+1)\,n\,(n-1)!$, so the ratio is $(n+1)n$.}
+\inv{Products of consecutive integers are always divisible by $2$ (and $k$ consecutive integers by $k!$). Why must $n(n+1)$ be even? This tiny fact powers many divisibility arguments later.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Factorial algebra and direct counting. Set up the product, don't list outcomes.}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item In how many ways can 6 different people stand in a line? In how many of these arrangements does Amara stand first?
+
+\ans{$720$; \quad $120$}
+\method{$6! = 720$. Fixing Amara first leaves $5! = 120$ arrangements of the rest. Note $120 = \tfrac{1}{6}\cdot 720$: by symmetry each person is first in exactly $\tfrac16$ of all arrangements.}
+\inv{Use the symmetry idea directly: without computing $5!$, argue that each of the 6 people is first equally often. Symmetry arguments like this later become the technique of ``counting in two ways'' --- sheet 6.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Simplify $\;\dfrac{n!}{(n-2)!}\;$ and hence solve $\;\dfrac{n!}{(n-2)!} = 42$.
+
+\ans{$n(n-1)$; \quad $n = 7$}
+\method{$n(n-1) = 42$ with $n$ a positive integer: consecutive integers with product 42 are 7 and 6.}
+\inv{Rather than solving the quadratic $n^2-n-42=0$, note $n(n-1)\approx n^2$ so $n \approx \sqrt{42} \approx 6.5$, and consecutive-integer products bracket it. Estimation-then-check is faster than algebra under time pressure.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item A 4-digit code uses the digits 0--9. How many codes have no repeated digit?
+
+\ans{$10 \cdot 9 \cdot 8 \cdot 7 = 5\,040$}
+\method{Codes may start with 0 (it is a code, not a number), so all four positions simply shrink: $10\cdot9\cdot8\cdot7$.}
+\inv{Read the question twice: a \emph{code} allows a leading zero; a \emph{number} does not. Rework the question as ``4-digit numbers with no repeated digit'' ($9\cdot9\cdot8\cdot7 = 4536$) and see exactly where the difference enters.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item How many three-digit numbers have all three digits different?
+
+\ans{$9 \cdot 9 \cdot 8 = 648$}
+\method{Hundreds digit: 9 options ($1$--$9$). Tens: 9 options (anything except the hundreds digit --- 0 is now allowed). Units: 8 options.}
+\inv{Why is it best to place the \emph{most constrained} position first? Try counting units-first and watch the case-split appear. Constraint-first ordering is the single most useful habit in counting problems.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Gold, silver and bronze medals are awarded in a race with 8 runners. In how many ways can the medals be won?
+
+\ans{$8 \cdot 7 \cdot 6 = 336$}
+\method{Distinct medals means order matters: this is ${}^8P_3 = \dfrac{8!}{5!}$.}
+\inv{If instead 3 \emph{identical} qualification spots are awarded, the answer shrinks by a factor of $3! = 6$ to $56 = \binom{8}{3}$. Every unordered count is an ordered count divided by the overcounting factor --- the bridge to sheet 2.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item How many arrangements are there of the letters of the word SPEED?
+
+\ans{$\dfrac{5!}{2!} = 60$}
+\method{5 letters with E repeated twice: the two E's are indistinguishable, so divide the $5!$ arrangements by $2!$ swaps.}
+\inv{Arrangements of MISSISSIPPI: $\dfrac{11!}{4!\,4!\,2!} = 34\,650$. Formulate the general rule for repeated letters, then test it on a word where \emph{all} letters are the same --- does your formula give 1?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item A flag has 3 horizontal stripes. Each stripe is one of 5 colours, and adjacent stripes must be different colours. How many flags are possible?
+
+\ans{$5 \cdot 4 \cdot 4 = 80$}
+\method{Top stripe: 5. Each later stripe: anything except the colour directly above it, so 4 each.}
+\inv{Now make it a \emph{circular} band of 3 stripes (the last is also adjacent to the first). The count drops to $5\cdot4\cdot3 = 60$. For $n$ stripes in a circle the answer is $(k-1)^n + (-1)^n(k-1)$ with $k$ colours --- try to verify it for small $n$ by hand.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item A set has 6 elements. By deciding, for each element, whether it is in or out, count the subsets of the set.
+
+\ans{$2^6 = 64$}
+\method{Each element makes an independent binary choice: in or out. Six choices of 2 options multiply to $2^6$. This count includes the empty set and the whole set.}
+\inv{Why must the number of subsets with an \emph{even} number of elements equal the number with an \emph{odd} number (32 each)? Find a rule that pairs each even subset with an odd one --- your first \emph{bijection}, the star technique of sheet 7.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $n$: $\;(n+1)! = 12\,(n-1)!$.
+
+\ans{$n = 3$}
+\method{Divide both sides by $(n-1)!$: $(n+1)n = 12$. Consecutive integers with product 12 are 4 and 3, so $n = 3$.}
+\inv{Solve $(n+2)! = 90\,n!$ the same way. Then ask: can $(n+1)! = k\,(n-1)!$ ever have two positive solutions $n$ for one value of $k$? (Consider monotonicity.)}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item A number plate consists of 2 different letters followed by 3 digits (digits may repeat). How many plates are possible?
+
+\ans{$26 \cdot 25 \cdot 10^3 = 650\,000$}
+\method{Letters: $26\cdot25$ (different). Digits: $10^3$ (repeats allowed). Independent blocks multiply.}
+\inv{A country needs 30 million plates. Using the block-multiplication idea, design the shortest plate format (letters and digits) that suffices. Real-world capacity planning is exactly this calculation.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Split into cases before you multiply. Watch for leading zeros and forced choices.}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item How many even three-digit numbers have all three digits different?
+
+\ans{$328$}
+\method{Case on the units digit. Units $=0$: hundreds 9, tens 8 $\Rightarrow 72$. Units $\in\{2,4,6,8\}$: 4 choices; hundreds anything nonzero except units (8); tens anything except both (8) $\Rightarrow 4\cdot8\cdot8=256$. Total $72+256 = 328$.}
+\inv{Recount by choosing hundreds first and watch the computation break (the number of allowed units digits depends on earlier choices). A case split is forced exactly when option-counts stop being uniform --- learn to spot this before starting.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Six people stand in a line. Two of them, Priya and Quinn, insist on standing next to each other. How many arrangements are possible?
+
+\ans{$2 \cdot 5! = 240$}
+\method{Glue Priya and Quinn into one block: 5 objects arrange in $5!$ ways, and the block has 2 internal orders.}
+\inv{Three people insist on standing together: $3!\cdot4! = 144$. Now \emph{two disjoint pairs} each insist on adjacency: $2\cdot2\cdot4! = 96$. The glue-a-block trick composes --- check it by treating each pair as one object.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item With the same six people, how many arrangements have Priya and Quinn \emph{not} next to each other?
+
+\ans{$720 - 240 = 480$}
+\method{Total minus together. Complementary counting: when ``not'' appears in the question, count the opposite.}
+\inv{Prove the same answer directly: seat the other 4 people ($4!$ ways), creating 5 gaps; place Priya and Quinn in different gaps ($5\cdot4$ ways): $24\cdot20=480$. Two methods, one answer --- the gap method generalises to ``no two adjacent'' problems, as in SMC 2025 Q9.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item How many five-digit palindromes are there?
+
+\ans{$900$}
+\method{A palindrome $abcba$ is determined entirely by its first three digits: $a$ (nonzero, 9), $b$ (10), $c$ (10) $\Rightarrow 9\cdot10\cdot10$.}
+\inv{Count six-digit palindromes ($abccba$: also 900) and explain why the count did not grow. Then find how many five-digit palindromes are divisible by 11. (Hint: every even-length palindrome is divisible by 11 --- why?)}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Three married couples sit in a row of 6 seats so that each couple sits together. In how many ways can they be seated?
+
+\ans{$3! \cdot 2^3 = 48$}
+\method{Glue each couple into a block: $3!$ orders of the blocks, then each couple flips internally: $2^3$.}
+\inv{Same six people around a \emph{circular} table (rotations considered the same), couples still together: $(3-1)!\cdot 2^3 = 16$. Circular arrangements lose one factor of $n$ to rotation --- sheet 3 makes this precise.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Using the factorisation $360 = 2^3 \cdot 3^2 \cdot 5$, count the positive factors of 360.
+
+\ans{$(3+1)(2+1)(1+1) = 24$}
+\method{A factor is built by choosing an exponent for each prime: $2^a3^b5^c$ with $a\in\{0,..,3\}$, $b\in\{0,..,2\}$, $c\in\{0,1\}$. Independent choices multiply.}
+\inv{Which numbers have an \emph{odd} number of factors? Pair each factor $d$ with $360/d$ and see when a factor pairs with itself. This classic sits at the junction of combinatorics and number theory --- it returns in the number-theory pillar.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item How many four-digit odd numbers have all four digits different?
+
+\ans{$5 \cdot 8 \cdot 8 \cdot 7 = 2\,240$}
+\method{Most constrained first: units odd (5 ways), thousands nonzero and $\neq$ units (8), then the middle two digits: 8 and 7 remaining choices.}
+\inv{Redo the count for four-digit \emph{even} numbers with distinct digits and check that odd + even $= 9\cdot9\cdot8\cdot7 = 4536$, the B-section total. Verifying a case split against an independent total is the fastest error-catch in exams.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item $n! = 20\,(n-2)!$\,. Find $n$.
+
+\ans{$n = 5$}
+\method{$n(n-1) = 20$, consecutive integers: $5\cdot4$. So $n=5$.}
+\inv{Which values $k$ make $n(n-1) = k$ solvable in positive integers? These $k$ are the \emph{oblong numbers} $2, 6, 12, 20, 30, \dots$ --- exactly twice the triangular numbers. Where have you met triangular numbers in counting already?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. If the last ones resist, sit with them --- learn the tool, then return.}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item How many three-digit numbers consist of three different even digits and are divisible by 3? \textit{\small(after SMC 2025 Q12)}
+
+\ans{$20$}
+\method{Divisibility by 3 depends only on the digit \emph{sum}, so first choose the digit set, then arrange. Triples from $\{0,2,4,6,8\}$ with sum divisible by 3: $\{0,2,4\}, \{0,4,8\}, \{2,4,6\}, \{4,6,8\}$. The two sets containing 0 give $3! - 2! = 4$ valid numbers each (subtracting leading-zero cases); the other two give $3! = 6$ each. Total $2\cdot4 + 2\cdot6 = 20$.}
+\inv{The original SMC 2025 Q12 asks the same question for three different \emph{odd} digits (answer 24) --- do it, and notice why no leading-zero correction appears there. Then investigate: why does each valid digit set contribute the same residue pattern mod 3 as its ``complement'' set?}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item How many rectangles (of any size, including squares) appear in a $3\times 3$ grid of unit squares? \textit{\small(after SMC 2022 Q3)}
+
+\ans{$36$}
+\method{A rectangle is determined by choosing 2 of the 4 vertical grid lines and 2 of the 4 horizontal grid lines. Each pair count is $\binom{4}{2} = 6$, giving $6 \times 6 = 36$. No listing, no case work.}
+\inv{Generalise to an $m\times n$ grid: $\binom{m+1}{2}\binom{n+1}{2}$. Then count only the \emph{squares} in a $3\times3$ grid ($9+4+1 = 14$) and in $n\times n$ --- the answer is a sum of squares. SMC 2022 Q3 counts parallelograms in a triangular grid; try it with the same ``choose the bounding lines'' mindset.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item In how many ways can 8 people be split into 4 unlabelled pairs?
+
+\ans{$105$}
+\method{Order the people alphabetically. The first unpaired person must pair with someone: 7 choices. The next unpaired person: 5 choices. Then 3, then 1. Total $7\cdot5\cdot3\cdot1 = 105$. Anchoring on the first unpaired person kills the overcounting before it starts.}
+\inv{Alternative route: $\dfrac{8!}{(2!)^4\,4!} = 105$ --- arrange everyone, then quotient out swaps within pairs and orderings of the pairs. Verify the double factorial pattern $(2n-1)!! = (2n-1)(2n-3)\cdots 3\cdot 1$ counts pairings of $2n$ people, and compute it for a whist drive of 12 players.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item In how many zeros does the number $100!$ end?
+
+\ans{$24$}
+\method{Trailing zeros come from factors of 10 $= 2\times5$, and 2s vastly outnumber 5s in $100!$, so count factors of 5: $\left\lfloor\frac{100}{5}\right\rfloor + \left\lfloor\frac{100}{25}\right\rfloor = 20 + 4 = 24$. (The second term catches $25, 50, 75, 100$, which each contribute \emph{two} fives.)}
+\inv{Legendre's formula gives the exact power of any prime $p$ in $n!$: $\sum_{k\geq1}\lfloor n/p^k \rfloor$. Use it to find the power of 3 in $100!$, then investigate: is there an $n$ such that $n!$ ends in exactly \emph{five} zeros? (Careful --- the zero count jumps by 2 somewhere.)}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Thirty squares are drawn side by side in a line. The first and last squares are shaded, and more squares must be shaded so that both rules hold: (a) no two adjacent squares are shaded, and (b) there are never more than three consecutive unshaded squares. What is the difference between the largest and smallest possible number of shaded squares? \textit{\small(after SMC 2025 Q9)}
+
+\ans{$15 - 9 = 6$}
+\method{Translate both rules into \emph{distances between consecutive shaded squares}: rule (a) says the distance is at least 2; rule (b) says it is at most 4. The shaded squares walk from position 1 to position 30, a total distance of 29. \textbf{Maximum:} steps of at least 2 allow at most $\lfloor 29/2 \rfloor = 14$ steps, i.e.\ 15 shaded squares --- achieved by $1, 3, 5, \dots, 27, 30$ (note the final step of 3; ending $\dots, 29, 30$ would break rule (a)). \textbf{Minimum:} steps of at most 4 force at least $\lceil 29/4 \rceil = 8$ steps, i.e.\ 9 shaded squares --- achieved by $1, 5, 9, 13, 17, 21, 25, 27, 30$. Difference: $15 - 9 = 6$.}
+\inv{The original SMC 2025 Q9 runs the same rules over \emph{fifty} squares (answer 11) --- solve it with the distance argument above, no listing. Then find general formulae for $n$ squares, $\max = 1 + \lfloor\frac{n-1}{2}\rfloor$ and $\min = 1 + \lceil\frac{n-1}{4}\rceil$, and work out for which $n$ the na\"ive constructions fail at the right-hand end (as both did here) while the formulae still hold.}
+
+\end{enumerate}
+
+\SpeedClosing{``Before you count, decide exactly what you are counting.
+Every hard count is an easy count seen from the wrong side.''}
+
+\end{document}
