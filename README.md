@@ -1,7 +1,7 @@
 # Speed Maths — Daily Drill Series
 
 TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
-**Combinatorics** (done, 7 sheets), **Number Theory**, **Geometry** (not started).
+**Combinatorics** (done, 7 sheets), **Number Theory** (not started), **Geometry** (not started).
 
 ## Structure
 
@@ -15,8 +15,8 @@ Speed-Maths/
 │   ├── sheets/           sheet01.tex … sheet07.tex  (+ compiled .pdf)
 │   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── combinatorics/
-│   ├── sheets/           sheet01.tex (+ compiled .pdf)
-│   └── answers/          ans01.tex (+ compiled .pdf)
+│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
+│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── number-theory/
 │   ├── sheets/
 │   └── answers/
@@ -29,7 +29,7 @@ Speed-Maths/
 
 - **Numbering:** two-digit, zero-padded (`sheet01`, not `sheet1`) so ordering
   stays correct past sheet 9.
-- **Branding:** locked to *"TMUA & SMC Preparation"* everywhere. Edit
+- **Branding:** locked to *"Competition & Exam Prep"* everywhere. Edit
   `\SpeedExamLine` in `shared/preamble.tex` once if this ever needs to change
   — don't hand-edit individual sheets.
 - **Author credit:** `\SpeedCredit` in `shared/preamble.tex`, linking

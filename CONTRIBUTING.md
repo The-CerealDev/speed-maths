@@ -69,6 +69,11 @@ of "what these exams are like":
    papers are UKMT/OCR/Oxford copyright and this repo is public. Never
    commit or paste paper content into tracked files — only your own
    original/adapted questions.
+4. **Run the similarity check before opening a PR.**
+   `python3 tools/similarity_check.py <sheet-or-answers.tex>` compares
+   every question and `\method{}` against the corpus and flags anything
+   that reads too close to a source with no `(after ...)` credit — see
+   the AI policy below for how to act on a flag.
 
 ## Answer files
 
@@ -77,6 +82,87 @@ Every question gets all three:
 - `\method{...}` — the fast route, not the textbook route
 - `\inv{...}` — an extension that points somewhere real (a harder
   variant, the actual SMC/BMO1 question it came from, next sheet's tool)
+
+## Verification pipeline
+
+"Verify every answer computationally" is only real if it leaves a trace.
+Ad hoc scripts you ran once and threw away are not verification anyone
+else can trust or re-check — they're a claim. This repo verifies by
+committed, re-runnable script, not by self-report.
+
+**Convention:**
+- One file per sheet: `<pillar>/verify/sheetNN_verify.py` (stdlib Python
+  only — no dependencies to install, no friction for contributors who
+  aren't primarily programmers).
+- One `check_<label>()` function per question that gets a script (label
+  matches the sheet, e.g. `check_A1`, `check_D5`).
+- Each function must:
+  1. **Independently re-derive the `\ans{}` value** — brute force, direct
+     computation, or a full DP/game-tree solve. Never just re-type the
+     method's arithmetic and assert it equals itself.
+  2. **Assert every checkable factual or numeric claim in the `\method{}`**,
+     not only the final answer. A `\method{}` can state a wrong
+     intermediate fact (a modular claim, a factorisation, an identity)
+     while the final `\ans{}` still happens to be right — the script must
+     catch that, because a reviewer skimming prose won't reliably.
+  - Claims that are pure framing or motivation ("this is startling",
+    "the surest way to find a recurrence") are not checkable statements
+    and are left alone — that stays a human judgement call.
+- **Every script's `main()` must open with an `if not __debug__:` guard
+  that refuses to run** (see `combinatorics/verify/sheet07_verify.py`).
+  `python -O` or `PYTHONOPTIMIZE=1` strips every `assert` at compile
+  time — since assertions are the entire verification mechanism, running
+  under either would silently report every check as PASS while checking
+  nothing. This has to be an `if`, never an `assert`, or the guard itself
+  gets stripped too.
+- Run a whole pillar's sheets with `python3 <pillar>/verify/run_all.py`.
+  **A nonzero exit is a merge blocker, full stop** — this is the actual
+  gate, not the honesty-system checklist item it used to be.
+- Commit the verify script alongside the `.tex` and `.pdf` in the same PR.
+- **If an AI agent drafted the `\method{}`, a different agent (fresh
+  context, no memory of drafting it) must write the verify script for
+  it — never the same agent that wrote the method.** An agent checking
+  its own output shares its own blind spots: it can write an assertion
+  that technically passes while quietly checking something easier than
+  the actual claim, and there's no independent eye to catch it. Feed the
+  second agent only the question and the `\method{}` text, not the
+  drafting conversation, and have it write the checks cold.
+  **This is unenforceable by inspection — a reviewer cannot tell from
+  the diff whether it actually happened.** So say it explicitly in the
+  PR description ("method: agent A, verify script: agent B, fresh
+  context") alongside the AI-disclosure line below. Treat it as a
+  disclosed claim you're trusting the contributor on, same as "I solved
+  this myself" — not a gate the process itself enforces.
+- **Before submitting, break your own script on purpose once and confirm
+  it fails.** Change one asserted value, or the claim it's checking, and
+  re-run. If it still says PASS, the check is vacuous (a stray early
+  return, a tautological assertion, a variable that's shadowed and never
+  actually used) — this is the one cheap step that catches a check that
+  looks real but verifies nothing.
+- **Every check must state its strength, not just pass/fail.** A script
+  that brute-forces or DP-solves the full case (like D5's `n=2025` game
+  tree) is exhaustive proof. A script that samples many random trials
+  (like D2's 2000 reduction orders) is strong evidence, not proof, of a
+  universally-quantified claim. Say which one it is in the function's
+  docstring — reporting both as a bare "PASS" hides exactly the
+  distinction a reviewer needs.
+
+**Why this matters more once AI drafts `\method{}` text:** a method
+adapted from a real past-paper solution can carry over an insight that no
+longer holds once the numbers are morphed (a triangle that isn't 3-4-5
+anymore, a sum that no longer telescopes) — while the final numeric
+answer still happens to check out by brute force. AI-assisted `\method{}`
+drafting is allowed under the AI policy below, but every checkable claim
+it makes must have a corresponding assertion in the verify script before
+a human review is complete. An AI-drafted method with an unverified
+intermediate claim is not ready for review, regardless of how confident
+the prose sounds.
+
+See `combinatorics/verify/sheet07_verify.py` for a worked example
+covering three different techniques: a brute-forced recurrence (A1), an
+algebraic identity plus Monte Carlo simulation of the actual claimed
+theorem (D2), and a full game-tree DP that independently re-solves the
+$n=2025$ case rather than trusting the proof's induction (D5).
 
 ## Found a mistake?
 
@@ -109,16 +195,34 @@ draft, never a deliverable — the standards are:
    submit, you have personally solved start to finish, under something
    like the section's time budget. If you can't reproduce the method
    without the AI, either learn it first or drop the question.
-2. **Verify every answer computationally.** Whenever mathematically
-   feasible, write a short Python script to brute-force or verify your
-   solution. If computational verification is strictly impossible, you must
-   rigorously recompute by hand from scratch. An unverified `\ans{}` is
-   the one thing that must never reach `main`.
-3. **Assume AI output may plagiarise.** Models reproduce real
-   competition questions from memory, sometimes verbatim. Before
-   treating a generated question as original, search for it; if it
-   resembles a known past-paper question, apply rule 2 of the
-   non-negotiables (adapt + credit, or rewrite).
+2. **Verify every answer — and every checkable claim in the method —
+   computationally.** Whenever mathematically feasible, write a
+   `<pillar>/verify/sheetNN_verify.py` check (see "Verification
+   pipeline" above) that independently re-derives the `\ans{}` and
+   asserts each factual claim the `\method{}` makes. If computational
+   verification is strictly impossible, you must rigorously recompute by
+   hand from scratch and say so in the script's docstring. An unverified
+   `\ans{}`, or a `\method{}` with an un-asserted checkable claim, is the
+   one thing that must never reach `main`. **If AI wrote the `\method{}`,
+   AI may also write the verify script — but it must be a different
+   agent instance, given only the question and the method text, not the
+   conversation that drafted it.** The same agent grading its own
+   homework is not verification.
+3. **Assume AI output may plagiarise — check it with `tools/similarity_check.py`,
+   not just a memory-search.** Models reproduce real competition
+   questions from memory, sometimes verbatim, and a human skimming for
+   "does this ring a bell" misses close-but-not-identical reproductions.
+   Run `python3 tools/similarity_check.py <your-file.tex>` before
+   opening a PR — it word-shingle-compares every question (and every
+   `\method{}`) against the full local corpus and flags anything with
+   high overlap and no `(after ...)` credit tag. A high-overlap result
+   *with* a credit tag is expected and fine (that's what a credited
+   adaptation looks like); a high-overlap result with no credit tag
+   means compare it to the source by hand and either credit it or
+   rewrite it per rule 2 of the non-negotiables. This tool only works
+   locally — it reads the gitignored `research/txt/` corpus and cannot
+   run in any public CI for the same copyright reason the corpus itself
+   isn't committed.
 4. **Difficulty tags are a human judgement.** AI is systematically bad
    at judging how hard a question feels under exam pressure. You place
    it in A/B/C/D and you defend the section tag, based on having done
@@ -128,13 +232,44 @@ draft, never a deliverable — the standards are:
    Heavy AI use with verification is welcome; undisclosed AI use that a
    reviewer catches via a wrong answer burns trust permanently.
 
+## Reviewer checklist
+
+Reviewing means re-deriving, not skimming. A review that only confirms
+"a script exists and passes" is checking paperwork, not mathematics —
+the script's coverage is exactly what's in question.
+
+- [ ] Run `python3 <pillar>/verify/run_all.py` yourself. A pass is the
+      floor, not the approval.
+- [ ] Open the verify script and check its coverage against the
+      `\method{}` prose: does every checkable claim (a factorisation, a
+      modular fact, an identity, a stated intermediate value) actually
+      have an assertion? A script that only checks the final `\ans{}`
+      is incomplete, even if it's green.
+- [ ] **Pick one assertion yourself and mutate it — change the expected
+      value or comment it out — then re-run and confirm it fails.** This
+      is the real safety net, not the "different agent wrote it" claim
+      above: you can't verify from a diff whether two agents were
+      actually used, but you can always verify, yourself, in under a
+      minute, whether the check in front of you is real or vacuous. Do
+      this regardless of who or what wrote the script.
+- [ ] Independently re-derive at least the D-section questions yourself
+      before approving — for A/B/C you may spot-check, but D is where a
+      confidently-wrong `\method{}` does the most damage.
+- [ ] If the question is an adaptation, confirm the `(after ...)` credit
+      is present and that the morph didn't quietly break an intermediate
+      claim borrowed from the original (see "Verification pipeline").
+- [ ] Would you defend the D-tag yourself if a student pushed back on it?
+      If not, it's not ready to merge.
+
 ## Before you open a PR
 
 - [ ] Compiles with `pdflatex` **run from inside** `sheets/` or
       `answers/` (the preamble path is relative)
 - [ ] Both `.tex` and the compiled `.pdf` are committed
 - [ ] Adapted questions carry their `(after ...)` credit
-- [ ] Answers verified computationally via script (or strictly by hand if
-      programming is mathematically impossible) — a wrong `\ans{}` is worse
-      than no sheet
+- [ ] `python3 tools/similarity_check.py <file>` run, and every flagged
+      block is either credited or rewritten
+- [ ] `<pillar>/verify/sheetNN_verify.py` committed, and
+      `python3 <pillar>/verify/run_all.py` exits 0 — a wrong `\ans{}` or
+      an unverified `\method{}` claim is worse than no sheet
 - [ ] AI assistance disclosed if used

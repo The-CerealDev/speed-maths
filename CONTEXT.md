@@ -9,7 +9,7 @@ Speed-Maths/
 │                            answer/investigate boxes, title-table macro
 ├── algebra/sheets/        sheet01.tex … sheet07.tex (+ compiled pdf)
 ├── algebra/answers/       ans01.tex  … ans07.tex   (+ compiled pdf)
-├── combinatorics/{sheets,answers}/   ← sheet01 / ans01 done
+├── combinatorics/{sheets,answers}/   ← 7 sheets + answers done
 ├── number-theory/{sheets,answers}/   ← empty, README placeholder only
 └── geometry/{sheets,answers}/        ← empty, README placeholder only
 
@@ -17,7 +17,7 @@ Speed-Maths/
 - Every file starts: `\documentclass[11pt,a4paper]{article}` →
   `\input{../../shared/preamble}` → `\SpeedHeader{<Pillar>}{<N>}` → `\begin{document}`
 - Never hand-edit header/footer/colours per-file — edit `shared/preamble.tex` once.
-- Branding is locked: **"Exam and Competition Prep"**, credit links
+- Branding is locked: **"Competition & Exam Prep"**, credit links
   `linkedin.com/in/cerealdev/`, author "David Akinyele-Aje". Don't drift this again
   (it drifted badly before a full audit fixed it — see README changelog).
 - Numbering: zero-padded (`sheet01`, not `sheet1`).
@@ -27,7 +27,19 @@ Speed-Maths/
 - Answers use `\ans{}` `\method{}` `\inv{}` (investigate-further extension) per question.
 - Every sheet/answer ends with `\SpeedClosing{<quote>}` (rule + quote + cross-promo).
 - Compile from inside `sheets/` or `answers/` (relative `\input` path depends on it).
-- **Strict Verification:** All generated answers must be verified computationally via a short script, and questions must strictly adhere to TMUA/MAT/SMC/BMO1 styles (see `CONTRIBUTING.md`).
+- **Strict verification, committed not ad hoc (new PRs only — not yet
+  retrofitted):** every *new* sheet must ship a
+  `<pillar>/verify/sheetNN_verify.py` that independently re-derives each
+  `\ans{}` *and* asserts every checkable claim in the `\method{}` text
+  (not just the final answer). `python3 <pillar>/verify/run_all.py` must
+  exit 0 before merge. As of 2026-07-10 this only exists for 3 of
+  combinatorics sheet07's 33 questions, as a worked demo
+  (`combinatorics/verify/sheet07_verify.py`) — the other 13 published
+  sheets (all of algebra, 6/7 of combinatorics) have no verify script
+  yet. Retrofitting them is an open, undecided task, not done. See
+  `CONTRIBUTING.md` → "Verification pipeline" for the full convention.
+  Questions must also strictly adhere to TMUA/MAT/SMC/BMO1 styles (see
+  `CONTRIBUTING.md`).
 - **Mandatory research corpus:** new sheets are grounded in the fetched past-paper
   corpus in `research/` (SMC/BMO1/TMUA/MAT papers + txt extracts + INDEX-*.md
   archetype catalogues). It is gitignored — copyrighted papers must never reach the
