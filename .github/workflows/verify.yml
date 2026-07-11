@@ -1,0 +1,69 @@
+name: Verify
+
+# Runs the computational verification pipeline (see CONTRIBUTING.md ->
+# "Verification pipeline"). This does NOT run tools/similarity_check.py —
+# that tool reads the local research/ corpus, which is gitignored and
+# never exists on a CI runner, on purpose (copyright). Plagiarism checking
+# stays a local, pre-PR step.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  run-existing-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # number-theory/ and geometry/ are still fully gitignored (empty
+        # pillars) — add them here once they have real content to check out.
+        pillar: [algebra, combinatorics]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run ${{ matrix.pillar }}/verify (if it has any scripts yet)
+        run: |
+          if ls ${{ matrix.pillar }}/verify/*_verify.py >/dev/null 2>&1; then
+            python3 ${{ matrix.pillar }}/verify/run_all.py
+          else
+            echo "No verify scripts yet for ${{ matrix.pillar }} — nothing to run."
+          fi
+
+  new-sheets-must-ship-a-verify-script:
+    # CONTRIBUTING.md requires every NEW sheet to ship a verify script.
+    # This does not retroactively fail on the 13 sheets published before
+    # the pipeline existed — only on sheets touched in *this* PR.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check every changed sheet has a matching verify script
+        run: |
+          changed=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" -- '*/sheets/sheet*.tex')
+          if [ -z "$changed" ]; then
+            echo "No sheet files changed in this PR."
+            exit 0
+          fi
+          missing=0
+          for f in $changed; do
+            pillar=$(echo "$f" | cut -d/ -f1)
+            num=$(basename "$f" .tex | sed 's/sheet//')
+            expected="$pillar/verify/sheet${num}_verify.py"
+            if [ ! -f "$expected" ]; then
+              echo "MISSING: $f has no $expected"
+              missing=1
+            else
+              echo "OK: $f -> $expected"
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo ""
+            echo "One or more new/changed sheets have no verify script. See CONTRIBUTING.md -> Verification pipeline."
+            exit 1
+          fi
