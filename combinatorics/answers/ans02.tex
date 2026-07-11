@@ -258,7 +258,7 @@
 
 \ans{$70$}
 \method{Everyone having exactly two handshakes forces the handshake pattern to be a union of cycles of length $\geq3$ covering all 6 people: either one 6-cycle or two 3-cycles. \emph{One 6-cycle:} arrange 6 people in a cycle: $\frac{5!}{2}=60$ (rotations and reflection give the same handshake set). \emph{Two 3-cycles:} split into two trios: $\frac{1}{2}\binom{6}{3}=10$, each trio shaking hands in exactly one way. Total $60+10=70$.}
-\inv{Why is a ``cycle'' forced? Prove: a graph where every vertex has degree 2 is a disjoint union of cycles. Then redo the count for 7 people (answer: $\frac{6!}{2}+\binom{7}{3}\cdot\frac{3!}{2\cdot3}\cdot1=360+35\cdot1\cdot1\cdot\ldots$ --- careful: a 3-cycle plus a 4-cycle. Work it out and brute-check it).}
+\inv{Why is a ``cycle'' forced? Prove: a graph where every vertex has degree 2 is a disjoint union of cycles. Then redo the count for 7 people (answer: $\frac{6!}{2}+\binom{7}{3}\cdot 1\cdot\frac{3!}{2}=360+35\cdot3=465$ --- careful: a 3-cycle plus a 4-cycle. Work it out and brute-check it).}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Ten points on a circle, all chords drawn, no three concurrent inside. Interior intersection points?

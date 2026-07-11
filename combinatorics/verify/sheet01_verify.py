@@ -154,7 +154,7 @@ def check_A9():
 # \method claims: (n+1)! = (n+1)*n*(n-1)!.
 # ─────────────────────────────────────────────────────────────────────────
 def check_A10():
-    """STRONG-BUT-FINITE: this is an algebraic identity in n, so it cannot
+    """SAMPLED CHECK: this is an algebraic identity in n, so it cannot
     be brute-forced over an infinite domain. Verified for n = 1..30 using
     math.factorial computed directly (a route independent of the method's
     manual cancellation) — strong evidence, not a full symbolic proof."""
