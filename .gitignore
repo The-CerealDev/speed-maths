@@ -16,3 +16,11 @@ geometry/
 # NEVER commit these — the repo is public. Archetype indexes stay local too
 # since they quote question content.
 research/
+
+# AI state and config files
+.agents/
+.claude/
+.cursor/
+CONTEXT.md
+ORIGINAL_REQUEST.md
+PROJECT.md
