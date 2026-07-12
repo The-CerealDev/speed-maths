@@ -1,3 +1,5 @@
+% main (standalone preamble for editing)
+% vim: nowrap: spell:
 % ══════════════════════════════════════════════════════════════════════════════
 % Speed Maths --- shared preamble
 % Included by every sheet and answer file via:  \input{../../shared/preamble}
@@ -34,8 +36,8 @@
 \setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=2em, itemsep=10pt}
 
 % ── Branding constants (edit here, not per-file) ────────────────────────────────
-\newcommand{\SpeedExamLine}{Competition \& Exam Prep}
-\newcommand{\SpeedCredit}{by \href{https://www.linkedin.com/in/cerealdev/}{David Akinyele-Aje}}
+\newcommand{\SpeedExamLine}{\textbf{Speed Maths:} Competition \& Exam Prep}
+\newcommand{\SpeedCredit}{Series by \href{https://www.linkedin.com/in/cerealdev/}{David Akinyele-Aje}}
 
 % ── Header / footer ──────────────────────────────────────────────────────────────
 % Usage (once, after \input{../../shared/preamble} and before \begin{document}):
@@ -56,11 +58,13 @@
 }
 
 % ── Title block (used at the top of every sheet AND answer file) ───────────────
-% Usage: \SpeedTitleBlock{Daily Algebra Drill \#3}
+% Usage: \SpeedTitleBlock{Daily Algebra Drill \#3}{Jane Doe}
+% %% AGENTS: When generating a new sheet, ask the human contributor for the name they want credited in argument 2.
 % For answer files, pass the "--- Answers \& Investigations" suffix in the arg.
-\newcommand{\SpeedTitleBlock}[1]{%
+\newcommand{\SpeedTitleBlock}[2]{%
   \begin{center}
-    {\LARGE\bfseries #1}\\[6pt]
+    {\LARGE\bfseries #1}\\[4pt]
+    {\normalsize\itshape Sheet by #2}\\[6pt]
     \hrule\vspace{4pt}
     \begin{tabular}{llcc}
       \toprule
@@ -125,7 +129,7 @@
   \rule{0.6\textwidth}{0.4pt}
   \end{center}
   \begin{center}
-  {\small other prep to look at today:}\\
-  {\small \href{https://dailyintegral.com}{Daily Integral} for Calculus and Logic}
+  {\small Found a mistake or want to contribute a sheet?}\\
+  {\small Visit the open-source project at \href{https://github.com/The-CerealDev/speed-maths}{github.com/The-CerealDev/speed-maths}}
   \end{center}
 }

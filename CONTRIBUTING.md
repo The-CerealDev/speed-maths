@@ -20,6 +20,8 @@ blind. These rules keep that true.
 3. **Every sheet file starts the same way** (copy an existing sheet):
    `\documentclass[11pt,a4paper]{article}` →
    `\input{../../shared/preamble}` → `\SpeedHeader{<Pillar>}{<N>}`.
+   You must also claim authorship of the sheet in the title block:
+   `\SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{Your Name}`.
    Numbering is zero-padded: `sheet08.tex`, never `sheet8.tex`.
 
 ## Sheet anatomy
