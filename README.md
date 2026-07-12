@@ -29,12 +29,10 @@ Speed-Maths/
 
 - **Numbering:** two-digit, zero-padded (`sheet01`, not `sheet1`) so ordering
   stays correct past sheet 9.
-- **Branding:** locked to *"Competition & Exam Prep"* everywhere. Edit
-  `\SpeedExamLine` in `shared/preamble.tex` once if this ever needs to change
-  — don't hand-edit individual sheets.
-- **Author credit:** `\SpeedCredit` in `shared/preamble.tex`, linking
-  `https://www.linkedin.com/in/cerealdev/`. Same rule — edit once, applies
-  everywhere.
+- **Branding:** locked to `\textbf{Speed Maths:} Competition \& Exam Prep` everywhere. Edit
+  `\SpeedExamLine` in `shared/preamble.tex` once if this ever needs to change.
+- **Series Editor credit:** `\SpeedCredit` in `shared/preamble.tex`. This stays on every page.
+- **Sheet Author credit:** Passed as the second argument to `\SpeedTitleBlock`.
 - **Every sheet/answer file starts the same way:**
   ```latex
   \documentclass[11pt,a4paper]{article}
@@ -43,10 +41,10 @@ Speed-Maths/
 
   \begin{document}
 
-  \SpeedTitleBlock{Daily <Pillar> Drill \#<N>}
+  \SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Author Name>}
   \noindent\textit{New toolkit today: ...}
   ```
-  Answer files use `\SpeedTitleBlock{Daily <Pillar> Drill \#<N> --- Answers \& Investigations}`
+  Answer files use `\SpeedTitleBlock{Daily <Pillar> Drill \#<N> --- Answers \& Investigations}{<Author Name>}`
   and the `\ans{}` / `\method{}` / `\inv{}` commands for each question.
 - **Closing block:** every sheet/answer ends with
   `\SpeedClosing{<quote text>}` — this generates the rule/quote/cross-promo
