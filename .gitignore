@@ -24,3 +24,8 @@ research/
 CONTEXT.md
 ORIGINAL_REQUEST.md
 PROJECT.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
