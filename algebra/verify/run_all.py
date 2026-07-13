@@ -22,6 +22,16 @@ def main():
     failed = []
     for script in scripts:
         print(f"── {script.name} " + "─" * max(0, 50 - len(script.name)), flush=True)
+        
+        # STRUCTURAL CHECK: Enforce that lazy AI agents haven't skipped questions
+        with open(script, 'r') as f:
+            content = f.read()
+            if content.count('def check_') != 33:
+                print(f"  FAIL  {script.name}: Incomplete script! Expected 33 checks, found {content.count('def check_')}.")
+                failed.append(script.name)
+                print(flush=True)
+                continue
+
         result = subprocess.run([sys.executable, str(script)])
         if result.returncode != 0:
             failed.append(script.name)
