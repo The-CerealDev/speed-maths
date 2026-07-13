@@ -157,7 +157,8 @@ Open a new chat. Your goal is to generate ONLY the questions first. Do not ask f
 > ```
 > 
 > **Mathematical Rules:**
-> No calculators. Numbers must cancel cleanly or telescope elegantly.
+> 1. No calculators. Numbers must cancel cleanly or telescope elegantly.
+> 2. Content MUST be strictly grounded in the TMUA, MAT, SMC, or BMO1 specifications. DO NOT use university-level math (e.g., explicitly ban Euler's Totient function, Wilson's Theorem, Fermat's Little Theorem, etc.). Rely entirely on the creative use of school-level syllabuses (e.g., divisibility rules, last digits, logic puzzles, basic Diophantine equations).
 
 *(Manual Step: Copy the output into `[pillar]/sheets/sheetXX.tex`)*
 
