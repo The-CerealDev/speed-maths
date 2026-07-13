@@ -40,7 +40,7 @@ def check_A2():
 
 
 def check_A3():
-  """MONTE CARLO PROOF: Verify pigeonhole principle for 13 people and 12 months."""
+  """SAMPLED CHECK: Verify pigeonhole principle for 13 people and 12 months."""
   for _ in range(20000):
     combo = [random.randint(0, 11) for _ in range(13)]
     assert len(set(combo)) < 13
@@ -206,7 +206,7 @@ def check_B10():
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_C1():
-  """MONTE CARLO PROOF: Verify drawing from 10R, 10G, 10B. Check threshold to force
+  """SAMPLED CHECK: Verify drawing from 10R, 10G, 10B. Check threshold to force
   some colour of size 5 (13) vs red of size 5 (25)."""
   bag = ['R'] * 10 + ['G'] * 10 + ['B'] * 10
   for _ in range(20000):
@@ -233,7 +233,7 @@ def check_C2():
 
 
 def check_C3():
-  """MONTE CARLO PROOF: Verify residue pigeonhole mod 10 for 11 integers."""
+  """SAMPLED CHECK: Verify residue pigeonhole mod 10 for 11 integers."""
   for _ in range(20000):
     combo = [random.randint(0, 9) for _ in range(11)]
     assert len(set(combo)) < 11
@@ -251,7 +251,7 @@ def check_C4():
 
 
 def check_C5():
-  """MONTE CARLO PROOF: Verify pigeonhole on 85 month-weekday pairs (84 boxes)."""
+  """SAMPLED CHECK: Verify pigeonhole on 85 month-weekday pairs (84 boxes)."""
   for _ in range(20000):
     combo = [random.randint(0, 83) for _ in range(85)]
     assert len(set(combo)) < 85
@@ -320,7 +320,7 @@ def check_D3():
 
 
 def check_D4():
-  """MONTE CARLO PROOF: Verify selection of pairs by students mapping to PHP."""
+  """SAMPLED CHECK: Verify selection of pairs by students mapping to PHP."""
   assert math.comb(5, 2) == 10
   for _ in range(20000):
     combo = [random.randint(0, 9) for _ in range(20)]
