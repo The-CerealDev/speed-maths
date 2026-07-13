@@ -1,46 +1,68 @@
 # Speed Maths AI Workflow & Prompts
 
-Because this project mandates strict computational verification for every mathematical question, we heavily encourage using AI to do the heavy lifting! 
+If you are using a standard web interface (like ChatGPT or Claude.ai) to contribute to this project, **the AI cannot see the repository**. If you ask it to generate 33 questions and answers at the same time, it will hallucinate, truncate, and break the strict structural rules of the repository.
 
-If you are using a standard web interface (like ChatGPT or Claude.ai) rather than a CLI coding agent, the AI cannot "see" our repository. You must feed it the exact structural rules so it formats the LaTeX correctly. Follow the workflow below.
+To prevent this, you must split the generation into **three distinct turns**, and you must provide it with **real repository samples** so it knows exactly what to mimic.
 
-## 1. Drafting Questions (Agent 1)
-Open a new chat in your web browser. Use this "Killer Prompt" to draft a new sheet with perfect structural compliance.
+---
+
+## Turn 1: Generating the Questions
+Open a new chat. Your goal is to generate ONLY the questions first. Do not ask for answers yet.
 
 **Copy & Paste this Prompt:**
 > I am writing a math worksheet for the open-source Speed Maths project. The target competition is [TMUA / MAT / SMC / BMO1]. 
 > Please generate a new [Algebra / Combinatorics / Number Theory / Geometry] sheet. 
 > 
+> **Crucial Rule:** For this first step, output ONLY the main sheet (the questions). Do NOT output the answers yet.
+> 
 > **Structural Rules:**
-> 1. You must generate exactly 33 questions split into four sections:
->    - `\section*{A — Rapid Recognition}`: 10 questions (Foundational, easy)
->    - `\section*{B — Manipulation Drills}`: 10 questions (Direct application)
->    - `\section*{C — Substitution & Structure}`: 8 questions (Harder, requires case splits or insight)
->    - `\section*{D — Challenge (SMC / BMO1 difficulty)}`: 5 questions (Hardest, proof-heavy). *Note: The section title must include this difficulty tag!*
-> 2. The document must start exactly like this:
->    `\documentclass[11pt,a4paper]{article}`
->    `\input{../../shared/preamble}`
->    `\SpeedHeader{<Pillar Name>}{<Sheet Number>}`
->    `\begin{document}`
->    `\SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Your Name>}`
+> Generate exactly 33 questions split into:
+> - `\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}`: 10 questions
+> - `\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}`: 10 questions
+> - `\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}`: 8 questions
+> - `\section*{Section D \quad Challenge \hfill{\normalfont\small(BMO1 difficulty)}}`: 5 questions
+> 
+> The document must start exactly like this:
+> ```latex
+> \documentclass[11pt,a4paper]{article}
+> \input{../../shared/preamble}
+> \SpeedHeader{<Pillar>}{<Sheet Number>}
+> \begin{document}
+> \SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Your Name>}
+> ```
 > 
 > **Mathematical Rules:**
-> 1. Do not use a calculator. Numbers must cancel cleanly or telescope elegantly.
-> 2. Do not output the answers inside the main sheet file. 
-> 3. Provide a separate "Answers" output. For every question, you MUST provide:
->    - `\ans{...}`: Just the final answer.
->    - `\method{...}`: A fast, competition-style method. **State intermediate factual/numeric claims clearly** (e.g. "x factors to (y)(z)") so they can be computationally verified by a Python script later.
->    - `\inv{...}`: An extension or generalization.
+> No calculators. Numbers must cancel cleanly or telescope elegantly.
 
-**Your manual step:** 
-1. Copy the LaTeX question output and paste it into `[pillar]/sheets/sheet01.tex`. 
-2. Copy the Answers output and paste it into `[pillar]/answers/ans01.tex`.
-3. Compile both PDFs locally by running `pdflatex sheet01.tex` and `pdflatex ans01.tex` to make sure they look right.
+*(Manual Step: Copy the output into `[pillar]/sheets/sheetXX.tex`)*
 
 ---
 
-## 2. Writing Verification Scripts (Agent 2)
-*Crucial Rule: You must open a **fresh, new chat window** to write the verification script. The AI checking the answer must not have the memory of drafting it!*
+## Turn 2: Generating the Answers
+Now that the AI has the context of the 33 questions, ask it to generate the Answer Key file.
+
+**Copy & Paste this Prompt:**
+> Perfect. Now generate the Answer Key file for those exactly 33 questions. 
+> 
+> **Crucial Rule:** For every single question, you MUST mimic this exact structural sample pulled from the repository:
+> 
+> ```latex
+> %── A1 ──────────────────────────────────────────────────────────────────────────
+> \item Factorise completely: $\;x^4 - 16$.
+> 
+> \ans{$(x^2+4)(x+2)(x-2)$}
+> \method{Apply the difference of two squares twice: $(x^2)^2 - 4^2 = (x^2+4)(x^2-4) = (x^2+4)(x+2)(x-2)$.}
+> \inv{Can you factorise $x^4+16$ over the real numbers? Hint: Add and subtract $8x^2$ to complete the square, creating a hidden difference of squares.}
+> ```
+> 
+> Make sure your `\method{}` explicitly states intermediate factual/numeric claims so they can be computationally verified later. Output the full file for all 33 questions.
+
+*(Manual Step: Copy the output into `[pillar]/answers/ansXX.tex`)*
+
+---
+
+## Turn 3: Writing Verification Scripts
+*Crucial Rule: You must open a **fresh, new chat window** to write the verification script. The AI checking the answer must not have the memory of drafting it, so it is forced to do independent math!*
 
 **Copy & Paste this Prompt:**
 > You are verifying a mathematical worksheet for the Speed Maths project.
@@ -53,13 +75,18 @@ Open a new chat in your web browser. Use this "Killer Prompt" to draft a new she
 > **Rules:**
 > 1. Use ONLY the Python Standard Library. No external packages.
 > 2. Independently re-derive the `\ans{}` value using brute force, dynamic programming, or random sampling.
-> 3. You MUST `assert` every single checkable factual or numeric claim made in the `\method{}` text.
-> 4. Add a docstring to the top of the function that is EXACTLY either `"""EXHAUSTIVE PROOF"""` or `"""SAMPLED CHECK"""`. Do not use any other phrasing.
+> 3. You MUST mimic this exact structural sample from the repository. Note the exact docstring required:
 > 
-> Output the raw Python function.
+> ```python
+> # A2
+> def check_A2():
+>     """ SAMPLED CHECK: Random rational testing """
+>     for _ in range(50):
+>         a = fractions.Fraction(random.randint(-10, 10), random.randint(1, 10))
+>         b = fractions.Fraction(random.randint(-10, 10), random.randint(1, 10))
+>         if a + b != 0:
+>             assert (a**2 - b**2) / (a**2 + 2*a*b + b**2) == (a - b) / (a + b)
+> ```
+> *(Use `"""EXHAUSTIVE PROOF"""` if you do not use sampling).*
 
-**Your manual step:** 
-1. Copy the Python function and append it to `[pillar]/verify/sheet01_verify.py`.
-2. Open your local terminal and run the test: `python3 <pillar>/verify/run_all.py`
-3. **The Feedback Loop:** If the script fails, copy the error from your terminal and paste it back into your chat so the AI can fix the script (or point out if the math itself is actually wrong!).
-4. Run `python3 tools/validate_verify_scripts.py` right before opening your Pull Request.
+*(Manual Step: Copy the Python function and append it to `[pillar]/verify/sheetXX_verify.py`)*
