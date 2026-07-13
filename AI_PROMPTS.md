@@ -2,26 +2,40 @@
 
 Because this project mandates strict computational verification for every mathematical question, we heavily encourage using AI to do the heavy lifting! 
 
-If you are using a standard web interface (like ChatGPT or Claude.ai) rather than a CLI coding agent, you will need to manually copy the generated code into your local files and run the tests yourself. Follow the workflow and prompts below.
+If you are using a standard web interface (like ChatGPT or Claude.ai) rather than a CLI coding agent, the AI cannot "see" our repository. You must feed it the exact structural rules so it formats the LaTeX correctly. Follow the workflow below.
 
 ## 1. Drafting Questions (Agent 1)
-Open a new chat in your web browser. Use this prompt to draft a new question.
+Open a new chat in your web browser. Use this "Killer Prompt" to draft a new sheet with perfect structural compliance.
 
 **Copy & Paste this Prompt:**
-> I am writing a math worksheet for the open-source Speed Maths project https://github.com/The-CerealDev/speed-maths . The target competition is [TMUA / MAT / SMC / BMO1]. 
-> Look at the Existing context in that repo 
-> Please generate a new [Algebra / Combinatorics / Number Theory / Geometry] question that fits Section [A (Easy) / B (Manipulation) / C (Structure) / D (Hard)]. 
+> I am writing a math worksheet for the open-source Speed Maths project. The target competition is [TMUA / MAT / SMC / BMO1]. 
+> Please generate a new [Algebra / Combinatorics / Number Theory / Geometry] sheet. 
 > 
-> **Rules:**
-> 1. Do not use a calculator. The numbers must cancel cleanly or telescope elegantly.
-> 2. Output the LaTeX question text.
-> 3. Provide the final answer in an `\ans{...}` block.
-> 4. Provide a fast, competition-style method in a `\method{...}` block. State intermediate factual claims clearly so they can be computationally verified later.
-> 5. Provide an extension or generalization in an `\inv{...}` block.
+> **Structural Rules:**
+> 1. You must generate exactly 33 questions split into four sections:
+>    - `\section*{A — Rapid Recognition}`: 10 questions (Foundational, easy)
+>    - `\section*{B — Manipulation Drills}`: 10 questions (Direct application)
+>    - `\section*{C — Substitution & Structure}`: 8 questions (Harder, requires case splits or insight)
+>    - `\section*{D — Challenge (SMC / BMO1 difficulty)}`: 5 questions (Hardest, proof-heavy). *Note: The section title must include this difficulty tag!*
+> 2. The document must start exactly like this:
+>    `\documentclass[11pt,a4paper]{article}`
+>    `\input{../../shared/preamble}`
+>    `\SpeedHeader{<Pillar Name>}{<Sheet Number>}`
+>    `\begin{document}`
+>    `\SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Your Name>}`
+> 
+> **Mathematical Rules:**
+> 1. Do not use a calculator. Numbers must cancel cleanly or telescope elegantly.
+> 2. Do not output the answers inside the main sheet file. 
+> 3. Provide a separate "Answers" output. For every question, you MUST provide:
+>    - `\ans{...}`: Just the final answer.
+>    - `\method{...}`: A fast, competition-style method. **State intermediate factual/numeric claims clearly** (e.g. "x factors to (y)(z)") so they can be computationally verified by a Python script later.
+>    - `\inv{...}`: An extension or generalization.
 
 **Your manual step:** 
-1. Copy the LaTeX output and paste it into the appropriate worksheet file (e.g., `number-theory/sheets/sheet01.tex`) and answer file (e.g., `number-theory/answers/ans01.tex`). 
-2. Compile the PDF locally by running `pdflatex sheet01.tex` inside the folder to make sure it looks right.
+1. Copy the LaTeX question output and paste it into `[pillar]/sheets/sheet01.tex`. 
+2. Copy the Answers output and paste it into `[pillar]/answers/ans01.tex`.
+3. Compile both PDFs locally by running `pdflatex sheet01.tex` and `pdflatex ans01.tex` to make sure they look right.
 
 ---
 
@@ -37,7 +51,7 @@ Open a new chat in your web browser. Use this prompt to draft a new question.
 > Please write a Python test function named `def check_[Question ID]():` that computationally verifies this answer.
 > 
 > **Rules:**
-> 1. Use ONLY the Python Standard Library.
+> 1. Use ONLY the Python Standard Library. No external packages.
 > 2. Independently re-derive the `\ans{}` value using brute force, dynamic programming, or random sampling.
 > 3. You MUST `assert` every single checkable factual or numeric claim made in the `\method{}` text.
 > 4. Add a docstring to the top of the function that is EXACTLY either `"""EXHAUSTIVE PROOF"""` or `"""SAMPLED CHECK"""`. Do not use any other phrasing.
@@ -45,7 +59,7 @@ Open a new chat in your web browser. Use this prompt to draft a new question.
 > Output the raw Python function.
 
 **Your manual step:** 
-1. Copy the Python function and append it to the appropriate verify script (e.g., `number-theory/verify/sheet01_verify.py`).
+1. Copy the Python function and append it to `[pillar]/verify/sheet01_verify.py`.
 2. Open your local terminal and run the test: `python3 <pillar>/verify/run_all.py`
-3. **The Feedback Loop:** If the script fails or throws an assertion error, copy the error from your terminal and paste it back into your chat so the AI can fix the script (or point out if the math itself is actually wrong!).
-4. Run `python3 tools/validate_verify_scripts.py` right before opening your Pull Request to ensure your formatting is perfectly compliant.
+3. **The Feedback Loop:** If the script fails, copy the error from your terminal and paste it back into your chat so the AI can fix the script (or point out if the math itself is actually wrong!).
+4. Run `python3 tools/validate_verify_scripts.py` right before opening your Pull Request.
