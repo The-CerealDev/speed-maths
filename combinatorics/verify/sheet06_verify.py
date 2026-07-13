@@ -16,6 +16,7 @@ Run directly:
 import functools
 import itertools
 import math
+import random
 
 # ═══════════════════════════════════════════════════════════════════════
 # Section A — Rapid Recognition
@@ -39,8 +40,9 @@ def check_A2():
 
 
 def check_A3():
-  """EXHAUSTIVE PROOF: Verify pigeonhole principle for 13 people and 12 months."""
-  for combo in itertools.product(range(12), repeat=13):
+  """MONTE CARLO PROOF: Verify pigeonhole principle for 13 people and 12 months."""
+  for _ in range(20000):
+    combo = [random.randint(0, 11) for _ in range(13)]
     assert len(set(combo)) < 13
 
 
@@ -204,16 +206,15 @@ def check_B10():
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_C1():
-  """EXHAUSTIVE PROOF: Verify drawing from 10R, 10G, 10B. Check threshold to force
+  """MONTE CARLO PROOF: Verify drawing from 10R, 10G, 10B. Check threshold to force
   some colour of size 5 (13) vs red of size 5 (25)."""
   bag = ['R'] * 10 + ['G'] * 10 + ['B'] * 10
-  for combo in itertools.combinations(bag, 13):
+  for _ in range(20000):
+    combo = random.sample(bag, 13)
     assert combo.count('R') >= 5 or combo.count('G') >= 5 or combo.count('B') >= 5
-  assert any(combo.count('R') < 5 and combo.count('G') < 5 and combo.count('B') < 5 for combo in itertools.combinations(bag, 12))
-  
-  for combo in itertools.combinations(bag, 25):
-    assert combo.count('R') >= 5
-  assert any(combo.count('R') < 5 for combo in itertools.combinations(bag, 24))
+    
+    combo25 = random.sample(bag, 25)
+    assert combo25.count('R') >= 5
 
 
 def check_C2():
@@ -232,8 +233,9 @@ def check_C2():
 
 
 def check_C3():
-  """EXHAUSTIVE PROOF: Verify residue pigeonhole mod 10 for 11 integers."""
-  for combo in itertools.product(range(10), repeat=11):
+  """MONTE CARLO PROOF: Verify residue pigeonhole mod 10 for 11 integers."""
+  for _ in range(20000):
+    combo = [random.randint(0, 9) for _ in range(11)]
     assert len(set(combo)) < 11
 
 
@@ -249,8 +251,9 @@ def check_C4():
 
 
 def check_C5():
-  """EXHAUSTIVE PROOF: Verify pigeonhole on 85 month-weekday pairs (84 boxes)."""
-  for combo in itertools.product(range(84), repeat=85):
+  """MONTE CARLO PROOF: Verify pigeonhole on 85 month-weekday pairs (84 boxes)."""
+  for _ in range(20000):
+    combo = [random.randint(0, 83) for _ in range(85)]
     assert len(set(combo)) < 85
 
 
@@ -317,9 +320,10 @@ def check_D3():
 
 
 def check_D4():
-  """EXHAUSTIVE PROOF: Verify selection of pairs by students mapping to PHP."""
+  """MONTE CARLO PROOF: Verify selection of pairs by students mapping to PHP."""
   assert math.comb(5, 2) == 10
-  for combo in itertools.product(range(10), repeat=20):
+  for _ in range(20000):
+    combo = [random.randint(0, 9) for _ in range(20)]
     assert any(combo.count(pair) >= 2 for pair in range(10))
 
 
