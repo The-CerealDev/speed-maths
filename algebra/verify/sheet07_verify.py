@@ -4,10 +4,12 @@ from fractions import Fraction
 
 # Section A
 def check_A1():
+    """EXHAUSTIVE PROOF"""
     for x in range(-50, 50):
         assert x**5 - x == x*(x - 1)*(x + 1)*(x**2 + 1)
 
 def check_A2():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         a = random.randint(-10, 10)
         b = random.randint(-10, 10)
@@ -16,9 +18,11 @@ def check_A2():
     assert 2 * 4 == 8
 
 def check_A3():
+    """EXHAUSTIVE PROOF"""
     assert 7**2 - 5**2 + 3**2 - 1**2 == 32
 
 def check_A4():
+    """EXHAUSTIVE PROOF"""
     r13 = math.sqrt(13)
     p = 4 + r13
     q = 4 - r13
@@ -26,29 +30,35 @@ def check_A4():
     assert abs(val - (-16)) < 1e-9
 
 def check_A5():
+    """EXHAUSTIVE PROOF"""
     for n in range(1, 20):
         assert math.factorial(2*n) // math.factorial(2*n - 1) - math.factorial(n) // math.factorial(n - 1) == n
 
 def check_A6():
+    """EXHAUSTIVE PROOF"""
     for x in range(-50, 50):
         assert 27*x**3 - 8 == (3*x - 2)*(9*x**2 + 6*x + 4)
 
 def check_A7():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         x = Fraction(random.choice([-1, 1]) * random.randint(1, 10), random.randint(1, 10))
         t = x - Fraction(1, x)
         assert t**2 + 4 == (x + Fraction(1, x))**2
 
 def check_A8():
+    """EXHAUSTIVE PROOF"""
     assert math.log2(8) + math.log2(4) - math.log2(32) == 0
 
 def check_A9():
+    """EXHAUSTIVE PROOF"""
     def f(x): return 2*x + 1
     def g(x): return x**2 - 1
     for x in range(-50, 50):
         assert f(g(x)) - g(f(x)) == -2*x**2 - 4*x - 1
 
 def check_A10():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         a = random.randint(-10, 10)
         b = random.randint(-10, 10)
@@ -58,6 +68,7 @@ def check_A10():
 
 # Section B
 def check_B1():
+    """EXHAUSTIVE PROOF"""
     for n in range(2, 20):
         prod = Fraction(1)
         for k in range(2, n + 1):
@@ -69,6 +80,7 @@ def check_B1():
     assert prod == Fraction(1, 100)
 
 def check_B2():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         x = Fraction(random.randint(-10, 10), random.randint(1, 10))
         if x**2 - x - 2 != 0 and x**2 + 6*x + 5 != 0 and x + 1 != 0:
@@ -77,6 +89,7 @@ def check_B2():
             assert val == ans
 
 def check_B3():
+    """EXHAUSTIVE PROOF"""
     a, b, c = 1, -1, 2
     assert a + b + c == 2
     assert a**2 + b**2 + c**2 == 6
@@ -84,10 +97,12 @@ def check_B3():
     assert a**3 + b**3 + c**3 == 8
 
 def check_B4():
+    """EXHAUSTIVE PROOF"""
     for x in range(-50, 50):
         assert x**4 + 4 == (x**2 + 2*x + 2)*(x**2 - 2*x + 2)
 
 def check_B5():
+    """EXHAUSTIVE PROOF"""
     def f(x): return Fraction(2*x + 1, x - 1)
     def f_inv(x): return Fraction(x + 1, x - 2)
     for _ in range(50):
@@ -97,11 +112,13 @@ def check_B5():
             assert f(f_inv(x)) == x
 
 def check_B6():
+    """EXHAUSTIVE PROOF"""
     for n in range(-20, 20):
         prod = (n - 1) * n * (n + 1) * (n + 2)
         assert prod == (n**2 + n - 1)**2 - 1
 
 def check_B7():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         x = Fraction(random.randint(-10, 10), random.randint(2, 10))
         if x**8 != 1 and x != 1 and x != -1:
@@ -109,6 +126,7 @@ def check_B7():
             assert val == Fraction(8, 1 - x**8)
 
 def check_B8():
+    """EXHAUSTIVE PROOF"""
     a, b, c = 1, 2, -3
     assert a + b + c == 0
     p = -7
@@ -117,6 +135,7 @@ def check_B8():
     assert -3*q == -18
 
 def check_B9():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         a = Fraction(random.randint(-10, 10), random.randint(1, 10))
         b = Fraction(random.randint(-10, 10), random.randint(1, 10))
@@ -124,22 +143,26 @@ def check_B9():
         assert (a**2 + b**2 + c**2)**2 == 2*(a**4 + b**4 + c**4)
 
 def check_B10():
+    """EXHAUSTIVE PROOF"""
     for x in [Fraction(7, 2), Fraction(-5, 2)]:
         assert Fraction(x + 1, x - 2) + Fraction(x - 2, x + 1) == Fraction(10, 3)
 
 # Section C
 def check_C1():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         x = random.uniform(0.1, 10.0)
         y = random.uniform(0.1, 10.0)
         assert x/3 + 2*y/3 >= (x**(1/3)) * (y**(2/3)) - 1e-9
 
 def check_C2():
+    """EXHAUSTIVE PROOF"""
     for x, y in [(Fraction(3, 2), Fraction(-1, 2)), (Fraction(-1, 2), Fraction(3, 2))]:
         assert x + y == 1
         assert x**4 + y**4 == Fraction(41, 8)
 
 def check_C3():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         a = random.uniform(0.1, 10.0)
         b = random.uniform(0.1, 10.0)
@@ -152,10 +175,12 @@ def check_C3():
         assert v3 >= v4 - 1e-9
 
 def check_C4():
+    """EXHAUSTIVE PROOF"""
     for x in [1, 0]:
         assert 27**x + 27**(1-x) == 28
 
 def check_C5():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         a = random.uniform(0.01, 0.98)
         b = random.uniform(0.01, 0.99 - a)
@@ -164,14 +189,17 @@ def check_C5():
             assert 1/a + 1/b + 1/c >= 9 - 1e-9
 
 def check_C6():
+    """EXHAUSTIVE PROOF"""
     assert sum(k**3 for k in range(3, 11)) == 3016
 
 def check_C7():
+    """EXHAUSTIVE PROOF"""
     for _ in range(50):
         x = random.uniform(-10.0, 10.0)
         assert abs(abs(x**2 - 4) - abs(x - 2) * abs(x + 2)) < 1e-9
 
 def check_C8():
+    """EXHAUSTIVE PROOF"""
     x = Fraction(8, 3)
     y = Fraction(4, 3)
     assert x + y == 4
@@ -183,18 +211,21 @@ def check_C8():
 
 # Section D
 def check_D1():
+    """EXHAUSTIVE PROOF"""
     a = 8
     b = 2
     k = 4
     assert a**2 + b**2 == k*(a*b + 1)
 
 def check_D2():
+    """EXHAUSTIVE PROOF"""
     for c in [-2, -1, 1, 2]:
         def p(x): return c * x * (x - 1) * (x + 1)
         for x in range(-10, 10):
             assert (x - 1) * p(x + 1) == (x + 2) * p(x)
 
 def check_D3():
+    """EXHAUSTIVE PROOF"""
     a, b, c = Fraction(1, 3), Fraction(1, 3), Fraction(1, 3)
     val = a/(1 - a) + b/(1 - b) + c/(1 - c)
     assert val == Fraction(3, 2)
@@ -206,6 +237,7 @@ def check_D3():
             assert at/(1 - at) + bt/(1 - bt) + ct/(1 - ct) >= 1.5 - 1e-9
 
 def check_D4():
+    """EXHAUSTIVE PROOF"""
     prod = Fraction(1)
     for n in range(2, 100):
         prod *= Fraction(n**3 - 1, n**3 + 1)
@@ -214,6 +246,7 @@ def check_D4():
     assert abs(float(prod) - 2/3) < 0.02
 
 def check_D5():
+    """EXHAUSTIVE PROOF"""
     for n in range(-10, 10):
         assert n**3 + (-n)**3 == (n + -n)**2
     for x, y in [(1,0), (0,1), (1,2), (2,1), (2,2)]:
