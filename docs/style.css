@@ -19,19 +19,32 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .container {
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+main.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+}
+
 header {
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
-    padding: 3rem 0;
-    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    flex-shrink: 0;
 }
 
 header h1 {
@@ -49,42 +62,52 @@ header .subtitle {
 .alert {
     background-color: #ebf8ff;
     border-left: 4px solid var(--primary);
-    padding: 1rem;
-    margin-bottom: 2rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     font-size: 0.95rem;
     color: #2a4365;
+    flex-shrink: 0;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: 1.5rem;
+    flex: 1;
+    min-height: 0;
 }
 
 .pillar-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 1.5rem;
+    padding: 1.25rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .pillar-card h2 {
     font-size: 1.25rem;
     border-bottom: 2px solid var(--primary);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
+    flex-shrink: 0;
 }
 
 .pillar-desc {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
 }
 
 .sheet-list {
     list-style: none;
+    overflow-y: auto;
+    padding-right: 0.5rem;
 }
 
 .sheet-list li {
@@ -149,10 +172,11 @@ header .subtitle {
 
 footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    flex-shrink: 0;
 }
 
 footer a {
