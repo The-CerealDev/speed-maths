@@ -6,7 +6,7 @@ cd "$ROOT_DIR"
 
 echo "Recompiling all PDFs. This may take a few seconds..."
 
-for dir in algebra/sheets algebra/answers combinatorics/sheets combinatorics/answers; do
+for dir in */sheets */answers; do
   if [ -d "$dir" ]; then
     echo "Compiling PDFs in $dir..."
     cd "$dir"
