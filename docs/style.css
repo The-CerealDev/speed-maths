@@ -19,10 +19,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow:
 }
 
 .container {
@@ -72,7 +71,7 @@ header .subtitle {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     flex: 1;
     min-height: 0;
@@ -184,8 +183,35 @@ footer a {
     text-decoration: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
+    }
+    
+    header {
+        padding: 1rem 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .pillar-card {
+        padding: 1rem;
+    }
+
+    .sheet-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .links {
+        width: 100%;
+    }
+    
+    .pdf-link {
+        flex: 1;
+        text-align: center;
     }
 }
