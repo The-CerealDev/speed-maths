@@ -1,11 +1,9 @@
 import os
-import shutil
 import re
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS_DIR = os.path.join(ROOT_DIR, 'docs')
-TEMPLATE_FILE = os.path.join(DOCS_DIR, 'template.html')
-INDEX_FILE = os.path.join(DOCS_DIR, 'index.html')
+TEMPLATE_FILE = os.path.join(ROOT_DIR, 'template.html')
+INDEX_FILE = os.path.join(ROOT_DIR, 'index.html')
 
 PILLARS = {
     'algebra': 'PILLAR_ALGEBRA',
@@ -19,10 +17,6 @@ def build_site():
     
     with open(TEMPLATE_FILE, 'r') as f:
         html_content = f.read()
-
-    # Create pdfs directory inside docs
-    docs_pdfs_dir = os.path.join(DOCS_DIR, 'pdfs')
-    os.makedirs(docs_pdfs_dir, exist_ok=True)
 
     for pillar_folder, placeholder in PILLARS.items():
         pillar_path = os.path.join(ROOT_DIR, pillar_folder)
@@ -47,41 +41,25 @@ def build_site():
             html_content = html_content.replace(f"<!-- {placeholder} -->", coming_soon_html)
             continue
 
-        # If sheets exist, copy them and build the list
+        # If sheets exist, build the list
         html_list = ['<ul class="sheet-list">']
         
-        # Create pillar-specific pdf folder in docs
-        dest_pillar_dir = os.path.join(docs_pdfs_dir, pillar_folder)
-        os.makedirs(dest_pillar_dir, exist_ok=True)
-
         for sheet_num in sheets_found:
             sheet_pdf = f"sheet{sheet_num}.pdf"
             ans_pdf = f"ans{sheet_num}.pdf"
 
-            # Copy Sheet PDF
-            src_sheet = os.path.join(sheets_path, sheet_pdf)
-            dest_sheet = os.path.join(dest_pillar_dir, sheet_pdf)
-            if os.path.exists(src_sheet):
-                shutil.copy2(src_sheet, dest_sheet)
+            has_ans = os.path.exists(os.path.join(answers_path, ans_pdf))
 
-            # Copy Answer PDF
-            src_ans = os.path.join(answers_path, ans_pdf)
-            dest_ans = os.path.join(dest_pillar_dir, ans_pdf)
-            has_ans = False
-            if os.path.exists(src_ans):
-                shutil.copy2(src_ans, dest_ans)
-                has_ans = True
-
-            # Generate HTML
+            # Generate HTML pointing directly to the repo files
             list_item = f'''
                     <li>
                         <span class="sheet-name">Sheet {sheet_num}</span>
                         <div class="links">
-                            <a href="pdfs/{pillar_folder}/{sheet_pdf}" class="pdf-link" target="_blank">Questions</a>'''
+                            <a href="{pillar_folder}/sheets/{sheet_pdf}" class="pdf-link" target="_blank">Questions</a>'''
             
             if has_ans:
                 list_item += f'''
-                            <a href="pdfs/{pillar_folder}/{ans_pdf}" class="pdf-link ans" target="_blank">Answers</a>'''
+                            <a href="{pillar_folder}/answers/{ans_pdf}" class="pdf-link ans" target="_blank">Answers</a>'''
             
             list_item += '''
                         </div>
@@ -94,7 +72,7 @@ def build_site():
     with open(INDEX_FILE, 'w') as f:
         f.write(html_content)
     
-    print("Website build complete! index.html generated successfully.")
+    print("Website build complete! index.html generated successfully in root.")
 
 if __name__ == "__main__":
     build_site()
