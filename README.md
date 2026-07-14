@@ -20,10 +20,29 @@ Speed-Maths/
 ├── number-theory/
 │   ├── sheets/
 │   └── answers/
-└── geometry/
-    ├── sheets/
-    └── answers/
+├── geometry/
+│   ├── sheets/
+│   └── answers/
+├── prompts/
+│   ├── AI_PROMPTS.md          ← Instructions for LLMs generating content
+│   └── BUILD_CORPUS_PROMPT.md ← Instructions for LLMs scraping past papers
+├── tools/
+│   ├── build_website.py       ← Statically builds the frontend index.html
+│   ├── compile_pdfs.sh        ← Bulk recompiles all LaTeX sheets
+│   └── similarity_check.py    ← Plagiarism checker against research corpus
+├── template.html              ← The HTML skeleton of the website
+├── style.css                  ← CSS for the website frontend
+└── index.html                 ← Auto-generated frontend (DO NOT manually edit)
 ```
+
+## Website Architecture
+
+This repository doubles as a static PDF-archive website (like PMT or MadasMaths). The website is served completely automatically without any database or client-side JavaScript.
+
+- **`template.html`**: This is the source code for the website's layout. If you want to change the title, add a footer, or redesign the UI, edit this file.
+- **`style.css`**: The extremely minimal, academic stylesheet.
+- **`tools/build_website.py`**: When run, this Python script reads `template.html`, scans the repo for `.pdf` files, dynamically injects the download links, and saves the final result as `index.html`.
+- **`index.html`**: The final artifact. It is automatically overwritten every time the build script runs. **Do not manually edit this file.**
 
 ## Conventions
 
