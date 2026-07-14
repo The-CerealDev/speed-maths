@@ -190,7 +190,7 @@ answer key actively damages a student mid-prep.
 AI assistance is allowed and actively encouraged. It is the fastest way
 to find question archetypes you've never met, generate variants at a
 target difficulty, and draft `\inv{}` extensions beyond your own
-toolkit. This repo itself is built AI-assisted. **(For a quick start, check out the [AI Workflow & Prompts Guide](AI_PROMPTS.md) we've created for new contributors!)** But AI output is a
+toolkit. This repo itself is built AI-assisted. **(For a quick start, check out the [AI Workflow & Prompts Guide](prompts/AI_PROMPTS.md) we've created for new contributors!)** But AI output is a
 draft, never a deliverable — the standards are:
 
 1. **Solve everything yourself before committing.** Every question you
