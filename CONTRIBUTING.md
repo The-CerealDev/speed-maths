@@ -58,11 +58,11 @@ New sheets must be grounded in real past papers, not written from memory
 of "what these exams are like":
 
 1. **Fetch before you write.** A local corpus lives in `research/`
-   (SMC, BMO1, TMUA, MAT papers + mark schemes, with `pdftotext`
-   extracts in `research/txt/` and per-competition archetype indexes
-   `research/INDEX-*.md`). If a competition or year you need is
-   missing, fetch it first — official sources: `ukmt.org.uk`,
-   `bmos.ukmt.org.uk`, `esat-tmua.ac.uk`, `maths.ox.ac.uk`.
+   (SMC, BMO1, TMUA, MAT papers + mark schemes, with text extracts in 
+   `research/txt/`). **To automatically generate this corpus**, simply hand the 
+   `prompts/BUILD_CORPUS_PROMPT.md` file to your AI agent (Cursor, Devin, etc.). 
+   It will dynamically download the copyrighted past papers and compile the 
+   corpus locally for you.
 2. **Ground every section.** Each sheet's question archetypes must be
    ones that actually occur in the corpus for its target competition
    (A/B ↔ TMUA/SMC-early, C ↔ SMC-mid, D ↔ SMC-late/BMO1). Close
