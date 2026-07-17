@@ -159,6 +159,7 @@ Open a new chat. Your goal is to generate ONLY the questions first. Do not ask f
 > **Mathematical Rules:**
 > 1. No calculators. Numbers must cancel cleanly or telescope elegantly.
 > 2. Content MUST be strictly grounded in the TMUA, MAT, SMC, or BMO1 specifications. DO NOT use university-level math (e.g., explicitly ban Euler's Totient function, Wilson's Theorem, Fermat's Little Theorem, etc.). Rely entirely on the creative use of school-level syllabuses (e.g., divisibility rules, last digits, logic puzzles, basic Diophantine equations).
+> 3. **Corpus Grounding (Agentic Workflows):** If you are an AI agent with filesystem access, you MUST read the `INDEX-*.md` and `txt/` files in the local `research/` directory before writing. Each sheet's question archetypes must be ones that actually occur in the corpus for its target competition (Sections A/B ↔ TMUA/SMC-early, Section C ↔ SMC-mid, Section D ↔ SMC-late/BMO1).
 
 *(Manual Step: Copy the output into `[pillar]/sheets/sheetXX.tex`)*
 
