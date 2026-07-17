@@ -116,3 +116,13 @@ touched:
 
 All 14 files were recompiled after migration to confirm no content was lost
 or altered — only structure and branding changed.
+
+## Roadmap (Planned Expansions)
+
+While the initial four pillars cover the core Olympiad syllabus (SMC / BMO1), the ultimate vision for this repository is to provide 100% comprehensive coverage of the UK university admissions ecosystem (TMUA, MAT, STEP). 
+
+Once the core pillars are complete, the project will expand to include:
+- **Speed Calculus**: Differentiation and integration (optimization, tangents, area).
+- **Speed Logic**: The foundation of TMUA Paper 2 (truth tables, necessary/sufficient conditions, counterexamples).
+- **Speed Sequences**: Arithmetic/geometric progressions, recurrence relations, and series.
+- **Speed Graphs**: Advanced curve sketching, trigonometric identities, and function intersections.
