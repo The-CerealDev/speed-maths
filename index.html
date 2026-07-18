@@ -155,11 +155,16 @@
             <section class="pillar-card">
                 <h2>Number Theory</h2>
                 <p class="pillar-desc">Divisibility, modular arithmetic, and primes.</p>
-                
-                <div class="coming-soon">
-                    Currently under construction. Want to contribute? <a href="https://github.com/The-CerealDev/speed-maths">View GitHub repo</a>
-                </div>
-            
+                <ul class="sheet-list">
+
+                    <li>
+                        <span class="sheet-name">Sheet 01</span>
+                        <div class="links">
+                            <a href="number-theory/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+                            <a href="number-theory/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+                        </div>
+                    </li>
+</ul>
             </section>
 
             <!-- GEOMETRY -->
@@ -180,5 +185,32 @@
             <p>Open source and computationally verified. <a href="https://github.com/The-CerealDev/speed-maths">GitHub</a></p>
         </div>
     </footer>
+
+    <!-- GoatCounter Analytics -->
+    <!-- Replace 'YOUR_CODE' with your actual GoatCounter code (e.g., 'speed-maths') -->
+    <script data-goatcounter="https://speed-maths.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Custom script to track PDF downloads as events -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var pdfLinks = document.querySelectorAll('.pdf-link');
+            pdfLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    if (window.goatcounter && window.goatcounter.count) {
+                        var isAnswer = link.classList.contains('ans');
+                        var type = isAnswer ? 'Answer' : 'Question';
+                        var file = link.getAttribute('href');
+                        
+                        window.goatcounter.count({
+                            path: 'download-' + file,
+                            title: type + ' Downloaded: ' + file,
+                            event: true
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
