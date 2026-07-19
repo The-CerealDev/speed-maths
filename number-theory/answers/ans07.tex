@@ -1,0 +1,324 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Number Theory Drill \#7 --- Answers \& Investigations}{AI Generation}
+\noindent\textit{New toolkit today: Combinatorial Number Theory $\cdot$ Divisor Counting $\cdot$ Synoptic Mastery.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Primes, moduli, and basics. Pure recognition.}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the prime factorisation of $91$.
+
+\ans{$7 \times 13$}
+\method{Testing small primes: 91 is not divisible by 2, 3, or 5. Testing 7 gives $91 \div 7 = 13$, which is also prime.}
+\inv{Can you quickly spot why $1001$ is a multiple of $91$? Hint: $1001 = 7 \times 11 \times 13$.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the last digit of $3^{20}$?
+
+\ans{$1$}
+\method{The powers of 3 follow a cycle modulo 10: $3^1=3$, $3^2=9$, $3^3=27\equiv7$, $3^4=81\equiv1$. Since $20$ is a multiple of 4, $3^{20} \equiv 1 \pmod{10}$.}
+\inv{What is the last digit of $3^{21}$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find $\gcd(144, 60)$.
+
+\ans{$12$}
+\method{Using prime factorisation: $144 = 2^4 \times 3^2$ and $60 = 2^2 \times 3 \times 5$. The greatest common divisor is $2^2 \times 3 = 12$.}
+\inv{Can you find the lowest common multiple of 144 and 60 using the GCD?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Compute $12 \times 13 \pmod{5}$.
+
+\ans{$1$}
+\method{Reduce each factor modulo 5 first: $12 \equiv 2 \pmod{5}$ and $13 \equiv 3 \pmod{5}$. Then $2 \times 3 = 6 \equiv 1 \pmod{5}$.}
+\inv{Can you compute $12^{13} \pmod{5}$?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest prime factor of $323$?
+
+\ans{$17$}
+\method{Note that $323$ is very close to $324 = 18^2$. We can write $323 = 18^2 - 1 = (18-1)(18+1) = 17 \times 19$. Both 17 and 19 are prime, so the smallest is 17.}
+\inv{Can you use difference of two squares to factorise $899$?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item How many positive divisors does $28$ have?
+
+\ans{$6$}
+\method{The prime factorisation is $28 = 2^2 \times 7^1$. The number of divisors is found by adding 1 to each exponent and multiplying: $(2+1)(1+1) = 3 \times 2 = 6$.}
+\inv{Can you find the sum of these 6 divisors?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Compute $5^{3} \pmod{6}$.
+
+\ans{$5$}
+\method{Note that $5 \equiv -1 \pmod{6}$. Therefore, $5^3 \equiv (-1)^3 = -1 \equiv 5 \pmod{6}$.}
+\inv{What is $5^{100} \pmod{6}$?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find $x \pmod{7}$ if $4x \equiv 1 \pmod{7}$.
+
+\ans{$2$}
+\method{We want a multiple of 4 that is 1 more than a multiple of 7. Testing multiples of 4: $4, 8, 12, \dots$. We see that $8 \equiv 1 \pmod{7}$, so $4x \equiv 8 \pmod{7}$, giving $x \equiv 2 \pmod{7}$.}
+\inv{Can you solve $4x \equiv 3 \pmod{7}$?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $10^{10}$ is divided by $9$?
+
+\ans{$1$}
+\method{Since $10 \equiv 1 \pmod{9}$, raising both sides to the power of 10 gives $10^{10} \equiv 1^{10} = 1 \pmod{9}$.}
+\inv{What is the remainder when $8^{10}$ is divided by $9$?}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Which is larger: $2^{30}$ or $3^{20}$?
+
+\ans{$3^{20}$}
+\method{Rewrite the expressions with a common exponent: $2^{30} = (2^3)^{10} = 8^{10}$ and $3^{20} = (3^2)^{10} = 9^{10}$. Since $9 > 8$, it follows that $9^{10} > 8^{10}$.}
+\inv{Which is larger: $2^{50}$ or $5^{20}$?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Index laws, modular equations, and divisor counting.}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $7^4$.
+
+\ans{$01$}
+\method{We compute $7^2 = 49$, and then $7^4 = 49^2$. Since $49 = 50 - 1$, $49^2 = 2500 - 100 + 1 = 2401$. The last two digits are 01.}
+\inv{What are the last two digits of $7^{400}$?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item How many trailing zeros are there in $20!$?
+
+\ans{$4$}
+\method{Trailing zeros are produced by factors of 10, which require pairs of 2s and 5s. Since 2s are more abundant, we just count the number of factors of 5 in $20!$. This is $\lfloor 20/5 \rfloor = 4$.}
+\inv{How many trailing zeros are in $100!$?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $120n$ is a perfect square.
+
+\ans{$30$}
+\method{The prime factorisation of $120$ is $2^3 \times 3^1 \times 5^1$. For $120n$ to be a perfect square, all prime exponents must be even. Thus, we need to multiply by $2^1 \times 3^1 \times 5^1 = 30$.}
+\inv{What is the smallest $n$ such that $120n$ is a perfect cube?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest power of $3$ that divides $50!$.
+
+\ans{$22$}
+\method{By Legendre's formula, the exponent of 3 in $50!$ is $\lfloor 50/3 \rfloor + \lfloor 50/9 \rfloor + \lfloor 50/27 \rfloor = 16 + 5 + 1 = 22$.}
+\inv{What is the largest power of 9 that divides $50!$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Find the unique pair of positive integers $(x,y)$ such that $x^2 - y^2 = 17$.
+
+\ans{$(9, 8)$}
+\method{Factorising gives $(x-y)(x+y) = 17$. Since 17 is prime and $x,y$ are positive integers, $x+y > x-y$, so we must have $x-y = 1$ and $x+y = 17$. Adding the equations gives $2x = 18 \implies x=9$, and $y=8$.}
+\inv{Can you find a pair of positive integers such that $x^2 - y^2 = 18$?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $3^{100}$ is divided by $10$?
+
+\ans{$1$}
+\method{The question asks for the last digit of $3^{100}$. We know $3^4 = 81 \equiv 1 \pmod{10}$. Therefore, $3^{100} = (3^4)^{25} \equiv 1^{25} = 1 \pmod{10}$.}
+\inv{What is the remainder when $3^{100}$ is divided by $7$?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $x$ in the range $0 \leq x < 11$: $\;3x + 4 \equiv 6 \pmod{11}$.
+
+\ans{$8$}
+\method{Subtract 4 from both sides to get $3x \equiv 2 \pmod{11}$. We can add multiples of 11 to 2 until we get a multiple of 3: $2+11=13$, $13+11=24$. Thus $3x \equiv 24 \pmod{11}$, which gives $x \equiv 8 \pmod{11}$.}
+\inv{Can you solve $5x \equiv 7 \pmod{11}$?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of the positive divisors of $50$.
+
+\ans{$93$}
+\method{The prime factorisation is $50 = 2^1 \times 5^2$. The sum of divisors is given by $(1 + 2^1)(1 + 5^1 + 5^2) = 3 \times 31 = 93$.}
+\inv{Find the sum of the positive divisors of $100$.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item How many prime numbers are there strictly between $40$ and $50$?
+
+\ans{$3$}
+\method{The odd numbers between 40 and 50 are 41, 43, 45, 47, 49. 45 is a multiple of 5, and 49 is $7^2$. The remaining numbers, 41, 43, and 47, are not divisible by 2, 3, 5, or 7, so they are prime.}
+\inv{How many prime numbers are there between $90$ and $100$?}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Find the smallest three-digit positive integer that leaves a remainder of $2$ when divided by $3, 4$, and $5$.
+
+\ans{$122$}
+\method{Let the number be $x$. Then $x - 2$ is divisible by 3, 4, and 5. The smallest positive common multiple is $\text{lcm}(3,4,5) = 60$. Thus $x - 2 = 60k$, so $x = 60k + 2$. Since we need the smallest three-digit integer, we set $k=2$, which gives $x = 120 + 2 = 122$.}
+\inv{What is the smallest four-digit positive integer that satisfies this property?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Synoptic links connecting number theory to algebra and combinatorics.}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find the product of all positive integers $n < 50$ that have exactly three positive divisors. \textit{\small(after SMC 2015 Q16)}
+
+\ans{$44100$}
+\method{A number has exactly three divisors if and only if it is the square of a prime number ($n=p^2$), so its divisors are $1, p, p^2$. The primes $p$ for which $p^2 < 50$ are $2, 3, 5, 7$. Their squares are $4, 9, 25, 49$. The product is $4 \times 9 \times 25 \times 49 = 100 \times 441 = 44100$.}
+\inv{This question builds upon the archetype of mapping divisor counts to prime factorisations, as seen in SMC 2015 Q16. Can you find the sum of all numbers less than $100$ with exactly three divisors?}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $n$ has exactly $15$ positive divisors. \textit{\small(after SMC 2018 Q20)}
+
+\ans{$144$}
+\method{The number of divisors is given by the product of one more than each prime exponent. Since $15 = 15$ or $3 \times 5$, $n$ must be of the form $p^{14}$ or $p^4 q^2$ for distinct primes $p, q$. For $p^{14}$, the smallest is $2^{14} = 16384$. For $p^4 q^2$, we minimise by assigning the larger exponent to the smaller prime: $2^4 \times 3^2 = 16 \times 9 = 144$. The smallest value is $144$.}
+\inv{This problem tests optimisation within divisor counting, contrasting with direct prime evaluation in SMC 2018 Q20. What is the smallest positive integer with exactly $14$ positive divisors?}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item How many positive divisors of $3^5 \times 5^4 \times 7^3$ are multiples of $45$? \textit{\small(after SMC 2021 Q19)}
+
+\ans{$64$}
+\method{Any divisor of $3^5 \times 5^4 \times 7^3$ must be of the form $3^a 5^b 7^c$ where $0 \leq a \leq 5$, $0 \leq b \leq 4$, and $0 \leq c \leq 3$. For the divisor to be a multiple of $45 = 3^2 \times 5^1$, we require $a \geq 2$ and $b \geq 1$. Thus, the choices are $a \in \{2,3,4,5\}$ (4 options), $b \in \{1,2,3,4\}$ (4 options), and $c \in \{0,1,2,3\}$ (4 options). The total number of such divisors is $4 \times 4 \times 4 = 64$.}
+\inv{This explores combinatorics over prime exponents, an extension of direct combinations tested in SMC 2021 Q19. How many divisors of the same number are perfect squares?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item How many positive divisors of $10!$ are perfect squares?
+
+\ans{$30$}
+\method{The prime factorisation of $10!$ is $2^8 \times 3^4 \times 5^2 \times 7^1$. A divisor is a perfect square if all its prime exponents are even. The exponent of 2 can be $0,2,4,6,8$ (5 choices). The exponent of 3 can be $0,2,4$ (3 choices). The exponent of 5 can be $0,2$ (2 choices). The exponent of 7 must be $0$ (1 choice). The total number of square divisors is $5 \times 3 \times 2 \times 1 = 30$.}
+\inv{How many positive divisors of $10!$ are perfect cubes?}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item What is the greatest possible value of $\gcd(n^2 + 5, n + 2)$ for a positive integer $n$?
+
+\ans{$9$}
+\method{Use the Euclidean algorithm: $\gcd(n^2 + 5, n + 2) = \gcd(n^2 + 5 - (n-2)(n+2), n+2) = \gcd(n^2 + 5 - (n^2 - 4), n+2) = \gcd(9, n+2)$. The greatest possible value is 9, which occurs when $n+2$ is a multiple of 9, such as $n=7$.}
+\inv{What is the greatest possible value of $\gcd(n^3 + 1, n + 2)$?}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all digits of the number $10^{15} - 2026$.
+
+\ans{$126$}
+\method{The number $10^{15}$ is a 1 followed by 15 zeros. Subtracting 2026 gives $999999999997974$, which has 15 digits in total. The first 11 digits are 9s. The sum of the digits is $11 \times 9 + 7 + 9 + 7 + 4 = 99 + 27 = 126$.}
+\inv{Find the sum of the digits of $10^{100} - 2025$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x,y)$ such that $x^3 - y^3 = 37$. \textit{\small(after SMC 2023 Q1)}
+
+\ans{$(4, 3)$}
+\method{Factorise the left side: $(x-y)(x^2+xy+y^2) = 37$. Since 37 is prime and $x,y$ are positive integers, $x^2+xy+y^2 > x-y > 0$. Thus $x-y = 1$ and $x^2+xy+y^2 = 37$. Substituting $x = y+1$ gives $(y+1)^2+(y+1)y+y^2 = 37 \implies 3y^2+3y-36 = 0 \implies y^2+y-12 = 0 \implies (y+4)(y-3) = 0$. Since $y > 0$, $y=3$, which gives $x=4$.}
+\inv{This question builds upon algebraic identity usage similar to SMC 2023 Q1. Can you find all integer pairs for $x^3 - y^3 = 19$?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $x$ such that $x \equiv 1 \pmod 3$, $x \equiv 2 \pmod 4$, and $x \equiv 3 \pmod 5$.
+
+\ans{$58$}
+\method{From $x \equiv 3 \pmod 5$ and $x \equiv 2 \pmod 4$, the last digit must be 8 (since it must end in 3 or 8, and must be even). So $x = 10k + 8$. Since $10k+8 \equiv 2k \equiv 2 \pmod 4$, $k$ must be odd. We test odd $k$: for $k=1$, $x=18 \equiv 0 \pmod 3$. For $k=3$, $x=38 \equiv 2 \pmod 3$. For $k=5$, $x=58 \equiv 1 \pmod 3$. Thus 58 is the smallest.}
+\inv{Can you solve this using the Chinese Remainder Theorem directly?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant solution — find it.}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item How many integer pairs $(x,y)$ satisfy the equation $x^2 + xy + y^2 = 7$? \textit{\small(after SMC 2023 Q10)}
+
+\ans{$12$}
+\method{Multiply by 4: $4x^2 + 4xy + 4y^2 = 28$, which rewrites to $(2x+y)^2 + 3y^2 = 28$. Since squares are non-negative, $3y^2 \leq 28$, so $y^2 \in \{0, 1, 4, 9\}$. If $y^2=0$, $(2x)^2=28$ (no integer solution). If $y^2=1$, $(2x \pm 1)^2=25 \implies 2x \pm 1 = \pm 5$, giving $x \in \{2, -3, 3, -2\}$ (4 pairs). If $y^2=4$, $(2x \pm 2)^2=16 \implies 2x \pm 2 = \pm 4$, giving $x \in \{1, -3, 3, -1\}$ (4 pairs). If $y^2=9$, $(2x \pm 3)^2=1 \implies 2x \pm 3 = \pm 1$, giving $x \in \{-1, -2, 2, 1\}$ (4 pairs). In total, $4+4+4 = 12$ pairs.}
+\inv{This question explores bounding Diophantine equations, a more advanced application of finding factors as seen in SMC 2023 Q10. Can you find the number of integer pairs for $x^2 - xy + y^2 = 7$?}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item For how many integers $n \in \{1, 2, \dots, 100\}$ is $n^n$ a perfect square?
+
+\ans{$55$}
+\method{If $n$ is even, say $n=2k$, then $n^n = (2k)^{2k} = ((2k)^k)^2$, which is always a perfect square. There are 50 even integers in the range. If $n$ is odd, say $n=2k+1$, then $n^n = n^{2k+1} = n \cdot (n^k)^2$. For this to be a perfect square, $n$ itself must be a perfect square. The odd perfect squares in the range are $1, 9, 25, 49, 81$, which gives 5 more values. Total is $50 + 5 = 55$.}
+\inv{For how many integers in the same range is $n^n$ a perfect cube?}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(a,b)$ such that $a^2 - 4b^2 = 45$. \textit{\small(after MAT 2021 Q1)}
+
+\ans{$(7, 1), (9, 3), (23, 11)$}
+\method{Factorise as $(a-2b)(a+2b) = 45$. The divisors of 45 are $(1, 45), (3, 15), (5, 9)$. We set $a-2b$ to the smaller divisor and $a+2b$ to the larger. For $(1, 45)$, adding gives $2a=46 \implies a=23$, $2b=22 \implies b=11$. For $(3, 15)$, $2a=18 \implies a=9$, $2b=12 \implies b=3$. For $(5, 9)$, $2a=14 \implies a=7$, $2b=4 \implies b=1$. Thus the pairs are $(7, 1), (9, 3), (23, 11)$.}
+\inv{This mirrors the difference of squares logic tested implicitly in MAT 2021 Q1. What happens if you try to solve $a^2 - 4b^2 = 46$?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item What is the largest prime factor of $2^{16} - 1$?
+
+\ans{$257$}
+\method{We factorise using difference of two squares repeatedly: $2^{16} - 1 = (2^8+1)(2^8-1) = (257)(2^4+1)(2^4-1) = (257)(17)(2^2+1)(2^2-1) = 257 \times 17 \times 5 \times 3 \times 1$. The largest number in this factorisation is 257, which is a known Fermat prime.}
+\inv{What is the largest prime factor of $2^{18} - 1$?}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item If $p$ and $q$ are prime numbers such that $p^2 - 2q^2 = 1$, find the value of $p+q$. \textit{\small(after SMC 2023 Q17)}
+
+\ans{$5$}
+\method{Rewrite as $p^2 - 1 = 2q^2$, which gives $(p-1)(p+1) = 2q^2$. If $p=2$, $3 = 2q^2$, impossible. Thus $p$ is an odd prime. Then $p-1$ and $p+1$ are consecutive even integers, so one is a multiple of 4 and the other is a multiple of 2. Their product is divisible by 8. Thus $2q^2$ is a multiple of 8, meaning $q^2$ is a multiple of 4, so $q$ is even. The only even prime is $q=2$. Substituting $q=2$ gives $p^2 - 8 = 1 \implies p^2 = 9 \implies p=3$. Both $3$ and $2$ are prime, so $p+q = 5$.}
+\inv{This question plays with parity constraints on primes, much like SMC 2023 Q17 logic. Can you solve $p^2 - 3q^2 = 1$ for primes $p, q$?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Prime Factorisation.}
+        Knowing the prime factorisation of numbers is the key to counting divisors, finding GCDs, and determining properties of factorials.
+
+  \item \textbf{Difference of Two Squares.}
+        $(x-y)(x+y)$ appears everywhere. It simplifies evaluations like $a^2 - b^2$, factors polynomials, and solves Diophantine equations.
+
+  \item \textbf{Completing the Rectangle/Square.}
+        Equations like $xy + ax + by = c$ can always be factored by adding $ab$ to both sides, transforming them into $(x+b)(y+a) = c+ab$.
+
+  \item \textbf{Modular Arithmetic Cycles.}
+        Powers of numbers modulo $n$ always eventually fall into repeating cycles. You can compute the last digits of large powers by observing these short cycles.
+
+  \item \textbf{Parity Arguments.}
+        Often, testing even/odd cases or investigating divisibility by 2 and 4 can tightly restrict solutions to Diophantine equations, especially when primes are involved.
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Forgetting 1 is not a prime.}
+        When finding prime factors or solving equations with primes, remember that 2 is the smallest prime. 1 is just a unit.
+
+  \item \textbf{Expanding unnecessarily.}
+        Never expand an expression when you can keep it in factored form. The factors hold the secrets to divisibility and GCD.
+
+  \item \textbf{Missing negative solutions in Diophantine equations.}
+        When solving $x^2 - y^2 = d$, don't forget that negative factors multiply to positive results. Read carefully if the question restricts to positive integers.
+
+  \item \textbf{Brute forcing modular equations.}
+        For equations like $3x \equiv 2 \pmod{11}$, don't just guess numbers randomly; strategically add multiples of the modulus to the right-hand side until it is divisible by the coefficient.
+
+  \item \textbf{Assuming a prime must be odd.}
+        2 is the only even prime, and it is frequently the key that unlocks number theory puzzles involving squares and parity.
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
+\end{document}

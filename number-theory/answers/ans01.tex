@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Number Theory Drill \#1}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Factorise completely into primes: $\;2025$.
+
+\ans{$3^4 \times 5^2$}
+\method{Recognise $2025$ ends in $25$, so it is divisible by $25$. $2025 = 25 \times 81$. We know $25 = 5^2$ and $81 = 3^4$, giving $3^4 \times 5^2$.}
+\inv{Can you quickly prime factorise $2024$?}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $10^6$ is divided by $7$?
+
+\ans{$1$}
+\method{Notice that $10 \equiv 3 \pmod 7$. Thus $10^6 \equiv 3^6 \pmod 7$. We know $3^3 = 27 \equiv -1 \pmod 7$, so $3^6 = (-1)^2 = 1 \pmod 7$.}
+\inv{What is the remainder when $10^6$ is divided by $13$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find the last digit of $3^{2024}$.
+
+\ans{$1$}
+\method{The last digits of powers of $3$ cycle in a block of four: $3, 9, 7, 1$. Since $2024$ is exactly divisible by $4$, $3^{2024}$ must end in the fourth digit of the cycle, which is $1$.}
+\inv{Find the last digit of $7^{2024}$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item For what single digit $d$ is the number $73d4$ divisible by $9$?
+
+\ans{$4$}
+\method{A number is divisible by $9$ if the sum of its digits is divisible by $9$. The sum is $7 + 3 + d + 4 = 14 + d$. The nearest multiple of $9$ is $18$, which gives $d = 4$.}
+\inv{For what single digit $d$ is $73d4$ divisible by $11$?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item The positive integers $a$ and $b$ are distinct. Given $\gcd(a,b)=6$ and $\text{lcm}(a,b)=36$, find $a+b$.
+
+\ans{$42$}
+\method{We know $ab = \gcd(a,b) \times \text{lcm}(a,b) = 6 \times 36 = 216$. Since both $a$ and $b$ must be multiples of $6$, we can write $a=6x$ and $b=6y$ where $\gcd(x,y)=1$ and $xy = 6$. The pairs for $(x,y)$ are $(1,6)$ and $(2,3)$. The pairs $(a,b)$ are $(6,36)$ and $(12,18)$. The maximum possible sum is $6+36=42$.}
+\inv{Find the minimum possible value of $a+b$ under the same conditions.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest integer $k$ such that $2^k$ divides $20!$.
+
+\ans{$18$}
+\method{Use Legendre's Formula: count the multiples of $2, 4, 8, 16$ up to $20$. We get $\lfloor 20/2 \rfloor + \lfloor 20/4 \rfloor + \lfloor 20/8 \rfloor + \lfloor 20/16 \rfloor = 10 + 5 + 2 + 1 = 18$.}
+\inv{Find the largest integer $k$ such that $3^k$ divides $20!$.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $11^{10}$ is divided by $10$.
+
+\ans{$1$}
+\method{Any number ending in $1$ raised to any power will always end in $1$. Thus, the last digit is $1$, which is exactly the remainder when divided by $10$.}
+\inv{Find the remainder when $11^{10}$ is divided by $100$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $2^{100} + 3^{100}$ is divided by $5$.
+
+\ans{$2$}
+\method{By Fermat's Little Theorem (or simply cycling remainders), $2^4 \equiv 1 \pmod 5$ and $3^4 \equiv 1 \pmod 5$. Since $100$ is a multiple of $4$, $2^{100} \equiv 1$ and $3^{100} \equiv 1$. Summing them yields $1 + 1 = 2 \pmod 5$.}
+\inv{Find the remainder when $2^{100} + 4^{100}$ is divided by $5$.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest prime factor of $1001$?
+
+\ans{$7$}
+\method{Recognise $1001$ as a famous product: $1001 = 7 \times 11 \times 13$. The smallest prime factor is $7$.}
+\inv{What is the prime factorisation of $1001001$?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item Find the only positive integer $n$ such that $n^2 - 1$ is a prime number.
+
+\ans{$2$}
+\method{Factorise $n^2 - 1 = (n-1)(n+1)$. For this to be prime, the smaller factor $(n-1)$ must be $1$, giving $n=2$. Checking this gives $n^2-1 = 3$, which is prime.}
+\inv{Find the only prime number $p$ such that $p^2 - 1$ is a prime.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of $360$.
+
+\ans{$24$}
+\method{Prime factorise $360 = 36 \times 10 = 2^3 \times 3^2 \times 5^1$. Add one to each exponent and multiply: $(3+1)(2+1)(1+1) = 4 \times 3 \times 2 = 24$.}
+\inv{Find the number of odd divisors of $360$.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item A positive integer $x$ leaves a remainder of $3$ when divided by $5$, and a remainder of $5$ when divided by $7$. Find the smallest possible value of $x$.
+
+\ans{$33$}
+\method{List numbers that are $5$ more than a multiple of $7$: $5, 12, 19, 26, 33, \dots$. Check these modulo $5$: $33 \equiv 3 \pmod 5$, so $33$ is the smallest such integer.}
+\inv{Find the next smallest positive integer satisfying these conditions.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item What is the sum of the digits of the number $2^{2024} \times 5^{2025}$?
+
+\ans{$5$}
+\method{Group powers of $10$: $2^{2024} \times 5^{2025} = 2^{2024} \times 5^{2024} \times 5 = 10^{2024} \times 5 = 5 \times 10^{2024}$. This is a $5$ followed by $2024$ zeros, so the sum of the digits is $5$.}
+\inv{What is the sum of the digits of $4^{1012} \times 5^{2026}$?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Solve for the smallest positive integer $x$ such that $4x \equiv 5 \pmod 7$.
+
+\ans{$3$}
+\method{Test small values of $x$: $4(1) = 4$, $4(2) = 8 \equiv 1$, $4(3) = 12 \equiv 5 \pmod 7$. The smallest positive integer is $3$.}
+\inv{Solve for $x$ in $5x \equiv 4 \pmod 7$.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $99^{2}$.
+
+\ans{$01$}
+\method{Use binomial expansion: $99^2 = (100 - 1)^2 = 10000 - 200 + 1 = 9801$. The last two digits are $01$.}
+\inv{Find the last three digits of $99^3$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the greatest common divisor of $2^{12}-1$ and $2^{18}-1$.
+
+\ans{$63$}
+\method{Use the property $\gcd(a^m-1, a^n-1) = a^{\gcd(m,n)} - 1$. Here, $\gcd(12, 18) = 6$, so the answer is $2^6 - 1 = 64 - 1 = 63$.}
+\inv{Find the greatest common divisor of $3^{12}-1$ and $3^{18}-1$.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item The sum of three consecutive positive integers is a perfect cube. Find the smallest possible value for the largest of these three integers.
+
+\ans{$10$}
+\method{Let the integers be $n-1, n, n+1$. Their sum is $3n$. We need $3n = k^3$ for some integer $k$. The smallest valid $k$ that is a multiple of $3$ is $3$, giving $3n = 27 \implies n=9$. The largest integer is $n+1 = 10$.}
+\inv{What if the sum of five consecutive integers is a perfect cube?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $10n$ is a perfect square and $6n$ is a perfect cube.
+
+\ans{$36000$}
+\method{Let $n = 2^x 3^y 5^z$. For $10n = 2^{x+1} 3^y 5^{z+1}$ to be a square, $x+1$ is even, $y$ is even, and $z+1$ is even. For $6n = 2^{x+1} 3^{y+1} 5^z$ to be a cube, $x+1, y+1, z$ are multiples of $3$. We solve the modular congruences for $x,y,z$ to get $x=5, y=2, z=3$. Thus $n = 2^5 \cdot 3^2 \cdot 5^3 = 36000$.}
+\inv{Find the smallest positive integer $n$ such that $2n$ is a square and $3n$ is a cube.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of trailing zeros in $100!$.
+
+\ans{$24$}
+\method{Count the number of factors of $5$ in $100!$. Using Legendre's formula: $\lfloor 100/5 \rfloor + \lfloor 100/25 \rfloor = 20 + 4 = 24$.}
+\inv{Find the number of trailing zeros in $1000!$.}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item The 5-digit number $24x8y$ is divisible by $4$ and by $9$. Find the maximum possible value of $x + y$.
+
+\ans{$13$}
+\method{Divisibility by $4$ requires $8y$ to be divisible by $4$, so $y \in \{0, 4, 8\}$. Divisibility by $9$ requires the sum $14 + x + y$ to be a multiple of $9$. Testing $y=8 \implies 22+x \equiv 0 \pmod 9 \implies x=5$, yielding $x+y=13$. Testing $y=4 \implies x=9$ or $0$, yielding max $x+y=13$. The maximum is $13$.}
+\inv{Find the minimum possible value of $x+y$ for the same constraints.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integers $x$ such that $\dfrac{x^2 + 5}{x+1}$ is an integer.
+
+\ans{$-8$}
+\method{Rewrite as algebraic division: $\dfrac{x^2-1+6}{x+1} = x - 1 + \dfrac{6}{x+1}$. For this to be an integer, $x+1$ must divide $6$. The divisors of $6$ are $\pm 1, \pm 2, \pm 3, \pm 6$. We have $x+1 = d \implies x = d-1$. Summing $(d-1)$ over all $8$ divisors gives $0 - 8(1) = -8$.}
+\inv{Find the sum of all integers $x$ such that $\frac{x^2 + 5}{x-1}$ is an integer.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of ordered pairs of positive integers $(a,b)$ such that $\dfrac{1}{a} + \dfrac{1}{b} = \dfrac{1}{6}$.
+
+\ans{$9$}
+\method{Clear denominators to get $ab - 6a - 6b = 0$. Apply Simon's Favourite Factoring Trick: add $36$ to both sides to get $(a-6)(b-6) = 36$. The number of positive divisors of $36$ is $9$. Since $a, b > 0$, negative divisors do not yield valid positive integer solutions, leaving $9$ pairs.}
+\inv{Find the number of pairs if the RHS is $\frac{1}{10}$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item For how many integers $n \in [1, 100]$ is the polynomial $x^n - 1$ divisible by $x^2 + x + 1$?
+
+\ans{$33$}
+\method{The roots of $x^2+x+1=0$ are the non-real cube roots of unity, $\omega$ and $\omega^2$. For $x^n-1$ to be divisible by $x^2+x+1$, $\omega$ must be a root of $x^n-1=0$, meaning $\omega^n = 1$. This occurs if and only if $n$ is a multiple of $3$. There are $\lfloor 100/3 \rfloor = 33$ such integers.}
+\inv{For how many integers is $x^n - 1$ divisible by $x^2 - x + 1$?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The 5-digit number $A34B2$, where $A$ and $B$ are single digits and $A \neq 0$, is a multiple of $99$. Find the value of the product $A \times B$. \textit{\small(after SMC 2018 Q16)}
+
+\ans{$18$}
+\method{A number is divisible by $99$ if it is divisible by both $9$ and $11$. Divisibility by $9$ means the sum of digits $A + 3 + 4 + B + 2 = A + B + 9$ is a multiple of $9$, so $A + B$ is a multiple of $9$. Since $A$ and $B$ are digits and $A \neq 0$, $A+B \in \{9, 18\}$. Divisibility by $11$ means the alternating sum $A - 3 + 4 - B + 2 = A - B + 3$ is a multiple of $11$, so $B - A \equiv 3 \pmod{11}$. Since $-9 \leq B - A \leq 9$, we have $B - A \in \{-8, 3\}$. Case 1: $B - A = 3$. If $A+B=9$, $2B=12 \implies B=6, A=3$, yielding valid digits. If $A+B=18$, $2B=21$ (no solution). Case 2: $B - A = -8$. If $A+B=9$, $2B=1$ (no solution). If $A+B=18$, $2B=10 \implies B=5, A=13$ (invalid digit). Thus the only valid solution is $A=3, B=6$, so $A \times B = 3 \times 6 = 18$.}
+\inv{The original SMC 2018 Q16 asks for a missing digit in a multiple of 11. This question builds on it by requiring simultaneous divisibility by 9 and 11, setting up a system of equations for the sum and difference of two digits. Can you find a 5-digit multiple of 99 in the form $A234B$?}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item The product of 24 integers is equal to 1. Their sum is $0$. How many of the integers are equal to $-1$? \textit{\small(after SMC 2015 Q11)}
+
+\ans{$12$}
+\method{Since the product of the integers is $1$, each integer must be either $1$ or $-1$. Let there be $m$ ones and $n$ negative ones. We are given the total number of integers $m + n = 24$, and their sum $m - n = 0$. Solving this simple system yields $m = 12$ and $n = 12$. We quickly verify that twelve $-1$s produce a product of $(-1)^{12} = 1$, which satisfies all conditions. Thus, exactly $12$ of the integers are $-1$.}
+\inv{The original SMC 2015 Q11 asks a similar parity puzzle about 22 integers, which has no solution. This question modifies the total to 24 to guarantee a valid, elegant integer solution. What happens if the product of 24 integers is $-1$ and their sum is $0$?}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest integer $x$ such that $2^x$ divides $3^{256} - 1$.
+
+\ans{$10$}
+\method{Use difference of squares repeatedly: $3^{256}-1 = (3-1)(3+1)(3^2+1)(3^4+1)\dots(3^{128}+1)$. The term $3-1 = 2$ provides one factor of $2$. The term $3+1 = 4$ provides two factors of $2$. The remaining $7$ terms are of the form $3^{2^k}+1 \equiv 1+1 \equiv 2 \pmod 4$, meaning they each contribute exactly one factor of $2$. Thus $x = 1 + 2 + 7(1) = 10$.}
+\inv{Find the largest integer $x$ such that $2^x$ divides $5^{128} - 1$.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of primes $(p,q)$ such that $p^2 - 2q^2 = 1$.
+
+\ans{$(3,2)$}
+\method{Rearrange as $p^2 - 1 = 2q^2$, so $(p-1)(p+1) = 2q^2$. Since $p$ is prime, it must be odd (if $p=2$, $-2q^2 = 3$ has no solution). Thus $p-1$ and $p+1$ are consecutive even numbers, so one is a multiple of $2$ and the other a multiple of $4$. If $q > 2$ is an odd prime, it cannot divide both $p-1$ and $p+1$. Thus $q=2$, giving $p^2 - 8 = 1 \implies p = 3$.}
+\inv{Find all pairs of primes $(p,q)$ such that $p^2 - q^2 = 24$.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item A palindromic 6-digit number $N$ is formed by placing the digits of a 3-digit number $x$ followed by the same digits in reverse order (for example, if $x=123$, $N=123321$). What is the largest prime number that must be a factor of all such numbers $N$? \textit{\small(after TMUA 2019 Paper 1 Q12)}
+
+\ans{$11$}
+\method{Let $x$ have digits $a, b, c$. Then $N = 100000a + 10000b + 1000c + 100c + 10b + a = 100001a + 10010b + 1100c$. Factoring out $11$, we get $N = 11(9091a + 910b + 100c)$, so $11$ always divides $N$. This matches the alternating sum rule: $(a+b+c) - (c+b+a) = 0$, which is trivially a multiple of $11$. To see if any larger prime divides all such $N$, we can check $x=100 \implies N=100001 = 11 \times 9091$ and $x=101 \implies N=101101 = 11 \times 9191$. Their difference is $1100 = 11 \times 2^2 \times 5^2$. Neither $2$ nor $5$ divides $100001$, so their greatest common divisor is exactly $11$. Thus $11$ is the largest prime that must be a factor.}
+\inv{The original TMUA question explores the difference between a 3-digit number and its reverse. This question adapts the concept to a palindromic concatenation, creating a classic setup for the divisibility by 11 rule. What is the largest integer (not necessarily prime) that divides all such $N$?}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integers $n$ such that $\dfrac{n^3+100}{n+10}$ is an integer.
+
+\ans{$-540$}
+\method{Use polynomial division to write $\dfrac{n^3+100}{n+10} = n^2 - 10n + 100 - \dfrac{900}{n+10}$. For this to be an integer, $n+10$ must divide $900$. Thus $n = d - 10$ for each integer divisor $d$ of $900$. The sum of $d - 10$ over all positive and negative divisors $d$ leaves only the $-10$ terms, because $\sum d = 0$. Since $900 = 2^2 \times 3^2 \times 5^2$, it has $3 \times 3 \times 3 = 27$ positive divisors, and $54$ total divisors. Sum is $-10 \times 54 = -540$.}
+\inv{Find the sum of all integers $n$ such that $\frac{n^2+100}{n+10}$ is an integer.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item How many 5-digit numbers can be formed using only the digits $1$, $2$, and $3$, such that the number is a multiple of $3$?
+
+\ans{$81$}
+\method{A number is a multiple of $3$ if the sum of its digits is a multiple of $3$. We can choose the first four digits entirely freely, giving $3^4 = 81$ combinations. Let the sum of these four digits be $S$. Since the available last digits $\{1,2,3\}$ cover all three possible remainders modulo $3$, there is exactly one valid choice for the final digit that makes $S + d \equiv 0 \pmod 3$. Thus, there are exactly $81$ such numbers.}
+\inv{How many $6$-digit numbers can be formed using only the digits $1, 2, 3$ that are multiples of $3$?}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Let $P(x)$ be a polynomial with integer coefficients such that $P(1) = 10$ and $P(5) = 2$. Find all possible integer roots of $P(x)$.
+
+\ans{$6$}
+\method{If $r$ is an integer root, then $P(r) = 0$. By polynomial divisibility, $(r-a)$ must divide $P(r) - P(a)$. Therefore, $(r-1)$ divides $P(r)-P(1) = -10$, so $r-1 \in \{\pm 1, \pm 2, \pm 5, \pm 10\}$. Similarly, $(r-5)$ divides $P(r)-P(5) = -2$, so $r-5 \in \{\pm 1, \pm 2\}$. Testing the overlap of these conditions yields $r \in \{3, 6\}$. However, $P(x) = (x-r)Q(x)$. If $r=3$, $Q(1) = -5$ and $Q(5) = 1$. The difference $Q(5)-Q(1) = 6$ must be divisible by $5-1=4$, which is false. For $r=6$, $Q(1) = -2$ and $Q(5) = -2$, which is perfectly valid (e.g., $Q(x) = -2$). Thus $6$ is the only possible root.}
+\inv{Let $P(x)$ have $P(2) = 7$ and $P(6) = 3$. Find all integer roots.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of the smallest positive integer $n$ such that $\dfrac{n}{2}$ is a perfect square, $\dfrac{n}{3}$ is a perfect cube, and $\dfrac{n}{5}$ is a perfect fifth power.
+
+\ans{$1232$}
+\method{Let $n = 2^a 3^b 5^c$. $\frac{n}{2}$ is a square implies $a$ is odd, and $b,c$ are even. $\frac{n}{3}$ is a cube implies $b \equiv 1 \pmod 3$, and $a,c$ are multiples of $3$. $\frac{n}{5}$ is a fifth power implies $c \equiv 1 \pmod 5$, and $a,b$ are multiples of $5$. The smallest $a$ satisfying $a \equiv 1 \pmod 2, a \equiv 0 \pmod{15}$ is $15$. The smallest $b$ satisfying $b \equiv 0 \pmod 2, b \equiv 0 \pmod 5, b \equiv 1 \pmod 3$ is $10$. The smallest $c$ satisfying $c \equiv 0 \pmod 6, c \equiv 1 \pmod 5$ is $6$. Thus $n = 2^{15} 3^{10} 5^6$. The number of divisors is $(15+1)(10+1)(6+1) = 16 \times 11 \times 7 = 1232$.}
+\inv{Find the prime factorization of the smallest such $n$.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x,y)$ such that $x^2 - y! = 2016$.
+
+\ans{$(84, 7)$}
+\method{Rewrite as $x^2 = y! + 2016$. If $y \geq 9$, $y!$ is a multiple of $27$ (since $9!$ contains $\lfloor 9/3 \rfloor + \lfloor 9/9 \rfloor = 4$ factors of $3$). Thus $y! \equiv 0 \pmod{27}$. Also, $2016 = 27 \times 74 + 18 \equiv 18 \pmod{27}$. Thus $x^2 \equiv 18 \pmod{27}$. However, quadratic residues modulo $27$ are $0, 1, 4, 7, 9, 10, 13, 16, 19, 22, 25$. Since $18$ is not a quadratic residue, there are no solutions for $y \geq 9$. We manually check $y \leq 8$: for $y=7$, $x^2 = 5040 + 2016 = 7056 \implies x = 84$. Checking all others up to $8$ yields no other squares. Thus $(84,7)$ is the only solution.}
+\inv{Find all pairs $(x,y)$ such that $x^2 - y! = 12$.}
+
+\end{enumerate}
+
+\end{document}

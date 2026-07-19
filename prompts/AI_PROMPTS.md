@@ -6,6 +6,21 @@ To prevent this, you must split the generation into **three distinct turns**, an
 
 ---
 
+## Pillar Generation Workflow (The Curriculum Pattern)
+When generating a completely new 7-day pillar (e.g., Geometry), you MUST follow this workflow to prevent the sheets from becoming a randomized "mixed bag" of topics.
+
+1. **Curriculum Pre-Planning:** The Orchestrator AI must first draft a comprehensive 7-day curriculum plan mapping out the escalating toolkits and tricks.
+2. **Environment Check:** 
+   - *If your harness supports parallel multi-agent orchestration:* Spawn parallel subagents. You MUST provide each subagent with the **entire 7-day curriculum list** and explicitly tell it which day it is working on.
+   - *If your harness is sequential (e.g., standard chat UI):* Generate the sheets one-by-one. Pass the curriculum context forward into each subsequent turn. Do NOT attempt to generate all 7 sheets in a single prompt.
+3. **Agent/Turn Briefing:** The subagent (or sequential turn) must be instructed to:
+   - Use Sections A and B to actively review and drill toolkits from the *previous* days (Spaced Repetition).
+   - Use Sections C and D to strictly introduce and test the *current* day's new toolkit.
+   - Use the `\inv{}` blocks to explicitly drop hints or foreshadow the *next* day's toolkit.
+4. **Structural Compliance Check:** Before finalizing a new pillar, you MUST compare its directory structure against an existing completed pillar (e.g., `algebra/`). Ensure all necessary utility scripts (like `verify/run_all.py`) are replicated, and verify that the new pillar is correctly registered in the repository's CI pipelines (e.g., `.github/workflows/verify.yml`).
+
+---
+
 ## Turn 1: Generating the Questions
 Open a new chat. Your goal is to generate ONLY the questions first. Do not ask for answers yet.
 
@@ -160,6 +175,7 @@ Open a new chat. Your goal is to generate ONLY the questions first. Do not ask f
 > 1. No calculators. Numbers must cancel cleanly or telescope elegantly.
 > 2. Content MUST be strictly grounded in the TMUA, MAT, SMC, or BMO1 specifications. DO NOT use university-level math (e.g., explicitly ban Euler's Totient function, Wilson's Theorem, Fermat's Little Theorem, etc.). Rely entirely on the creative use of school-level syllabuses (e.g., divisibility rules, last digits, logic puzzles, basic Diophantine equations).
 > 3. **Corpus Grounding (Agentic Workflows):** If you are an AI agent with filesystem access, you MUST read the `INDEX-*.md` and `txt/` files in the local `research/` directory before writing. Each sheet's question archetypes must be ones that actually occur in the corpus for its target competition (Sections A/B ↔ TMUA/SMC-early, Section C ↔ SMC-mid, Section D ↔ SMC-late/BMO1).
+> 4. **Archetype Referencing:** When you base a question on a specific archetype from the corpus (especially in Sections C and D), you MUST append a reference to the end of the question text in italics, like this: `\textit{\small(after SMC 2022 Q3)}`. Furthermore, in the corresponding `\inv{}` block in the answer key, explicitly discuss how your question compares to or builds upon the original archetype.
 
 *(Manual Step: Copy the output into `[pillar]/sheets/sheetXX.tex`)*
 

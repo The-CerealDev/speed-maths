@@ -1,0 +1,244 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{3}
+
+\begin{document}
+
+\section*{Answer Key}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $10^{10} + 10^5 + 1$ is divided by $9$.
+
+\ans{$3$}
+\method{Notice that $10 \equiv 1 \pmod 9$, so $10^{10} \equiv 1^{10} = 1 \pmod 9$. The sum modulo 9 is $1 + 1 + 1 = 3$.}
+\inv{What is the remainder when $10^{100} + 1$ is divided by 11? Hint: $10 \equiv -1 \pmod{11}$.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the unit digit of $3^{2026}$?
+
+\ans{$9$}
+\method{The unit digits of powers of 3 cycle in the sequence $3, 9, 7, 1$. Since $2026 = 4 \times 506 + 2$, the digit corresponds to the 2nd position in the cycle, which is 9.}
+\inv{What is the unit digit of $7^{2026}$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest prime factor of $1001$.
+
+\ans{$13$}
+\method{Recognise the classic product $1001 = 7 \times 11 \times 13$. The largest prime factor is therefore 13.}
+\inv{Is 10001 prime? Hint: Check divisibility by 73 and 137.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $7 \times 8 \times 9$ is divided by $5$.
+
+\ans{$4$}
+\method{Compute modulo 5 on each factor: $7 \equiv 2$, $8 \equiv 3$, $9 \equiv 4$. Their product is $2 \times 3 \times 4 = 24$, which leaves a remainder of 4 when divided by 5.}
+\inv{Find the remainder when $11 \times 12 \times 13$ is divided by 10.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item If $n$ is an integer such that $2n \equiv 3 \pmod 5$, what is the smallest positive value of $n$?
+
+\ans{$4$}
+\method{Test small positive integers: $n=1 \implies 2$, $n=2 \implies 4$, $n=3 \implies 6 \equiv 1$, $n=4 \implies 8 \equiv 3$. Thus, the smallest is 4.}
+\inv{Solve $3n \equiv 2 \pmod 7$ for the smallest positive $n$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $\gcd(144, 84)$.
+
+\ans{$12$}
+\method{Factor out the common multiple of 12: $\gcd(12 \times 12, 12 \times 7) = 12 \times \gcd(12, 7) = 12 \times 1 = 12$.}
+\inv{What is the lowest common multiple of 144 and 84?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of $36$.
+
+\ans{$9$}
+\method{Prime factorise as $36 = 2^2 \times 3^2$. The number of positive divisors is the product of one more than each exponent: $(2+1)(2+1) = 9$.}
+\inv{How many positive divisors does 144 have?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $2^{10}$ is divided by $11$.
+
+\ans{$1$}
+\method{Note that $2^5 = 32 \equiv -1 \pmod{11}$. Squaring both sides gives $2^{10} \equiv (-1)^2 = 1 \pmod{11}$.}
+\inv{What is $3^5 \pmod{11}$?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Express $120$ as a product of prime factors.
+
+\ans{$2^3 \times 3 \times 5$}
+\method{Break the number down as $10 \times 12 = (2 \times 5) \times (2^2 \times 3) = 2^3 \times 3 \times 5$.}
+\inv{What is the prime factorisation of 360?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $k$ such that $12k$ is a perfect square.
+
+\ans{$3$}
+\method{Write $12k = 2^2 \times 3^1 \times k$. To make all exponents even, we need at least one more factor of 3, so $k=3$.}
+\inv{What is the smallest positive $k$ such that $12k$ is a perfect cube?}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item How many of the numbers $3, 4, 5, 6, 7$ are factors of the sum $3^{2026} + 3^{2025} + 3^{2024}$?
+
+\ans{$1$}
+\method{Factorise the expression as $3^{2024}(3^2 + 3^1 + 1) = 13 \times 3^{2024}$. The only prime factors are 3 and 13. Among the options given, only 3 divides it, giving 1 factor.}
+\inv{How does this compare to SMC 2023 Q10? The archetype asks for factors of $2^{2024}+2^{2023}+2^{2022} = 7 \times 2^{2022}$.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Find the highest power of $2$ that divides $100!$.
+
+\ans{$97$}
+\method{Use Legendre's formula: $\lfloor 100/2 \rfloor + \lfloor 100/4 \rfloor + \lfloor 100/8 \rfloor + \dots = 50 + 25 + 12 + 6 + 3 + 1 = 97$.}
+\inv{Find the highest power of 5 that divides $100!$.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item If $a$ and $b$ are non-zero digits, find the maximum possible integer value of $\dfrac{10a+b}{a+b}$.
+
+\ans{$9$}
+\method{Let the ratio be $k$, so $10a+b = k(a+b)$, which rearranges to $9a = (k-1)(a+b)$. To maximise $k$, we want $a+b$ to be as small as possible compared to $a$. Using $b=1, a=8$ yields $72 = (k-1)(9) \implies k=9$. Testing ratios quickly reveals $81/9 = 9$ is maximal.}
+\inv{Can the ratio ever be exactly 10 if $b$ is allowed to be zero?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of integer pairs $(x,y)$ such that $xy = 24$.
+
+\ans{$16$}
+\method{Prime factorise $24 = 2^3 \times 3$. The number of positive divisors is $(3+1)(1+1) = 8$. For each positive divisor pair $(d, 24/d)$, there is also a corresponding negative pair $(-d, -24/d)$, giving $8 \times 2 = 16$ pairs.}
+\inv{How many positive integer pairs $(x,y)$ satisfy $xy = 36$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest positive integer greater than $2$ that leaves a remainder of $2$ when divided by $3, 4$, and $5$?
+
+\ans{$62$}
+\method{Let the number be $N$. Then $N-2$ must be divisible by $3, 4,$ and $5$. The lowest common multiple of $3, 4, 5$ is 60. Therefore, the smallest positive $N$ is $60+2 = 62$.}
+\inv{What if the remainders were 1, 2, and 3 when divided by 3, 4, and 5 respectively?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $11^{11} + 12^{12}$ is divided by $10$.
+
+\ans{$7$}
+\method{The unit digit of $11^{11}$ is 1. For $12^{12}$, we check the powers of 2: they cycle $2, 4, 8, 6$. Since 12 is a multiple of 4, the unit digit is 6. The sum modulo 10 is $1+6=7$.}
+\inv{What is the remainder when $13^{13}$ is divided by 10?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Find the value of $p$ if $p$ and $p^2+2$ are both prime numbers.
+
+\ans{$3$}
+\method{Test $p=2$: $4+2=6$ (not prime). Test $p=3$: $9+2=11$ (prime). For any prime $p > 3$, $p$ cannot be divisible by 3, so $p \equiv \pm 1 \pmod 3 \implies p^2 \equiv 1 \pmod 3$. Then $p^2+2 \equiv 3 \equiv 0 \pmod 3$, so it is a multiple of 3 and greater than 3, meaning it is composite. Thus $p=3$ is the only solution.}
+\inv{Find $p$ if $p, p+2,$ and $p+4$ are all prime.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Given that $n$ is an integer, for how many values of $n$ is $\dfrac{2n+15}{n+2}$ an integer?
+
+\ans{$4$}
+\method{Rewrite the expression using algebraic long division: $\frac{2(n+2) + 11}{n+2} = 2 + \frac{11}{n+2}$. For this to be an integer, $n+2$ must be a divisor of 11. The integer divisors of 11 are $1, -1, 11, -11$, which gives 4 distinct values for $n$.}
+\inv{Find the values of $n$ for which $\frac{n^2+1}{n+1}$ is an integer.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all positive integers $n$ for which $n^2-1$ is a prime number.
+
+\ans{$2$}
+\method{Factorise as $(n-1)(n+1)$. For the product of two positive integers to be prime, the smaller factor must be 1. Thus $n-1 = 1$, yielding $n=2$. Checking $n=2$ gives $2^2-1 = 3$, which is prime. The sum of all valid $n$ is just 2.}
+\inv{For what values of $n$ is $n^3-1$ a prime number?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Determine the two last digits of $5^{2026} + 6^{2026}$.
+
+\ans{$81$}
+\method{The last two digits of any power $5^k$ ($k \ge 2$) are 25. For $6^k$, observe the pattern modulo 100: $36, 16, 96, 76, 56$, which repeats every 5 powers starting from $k=2$. Since $2026 = 2 + 5 \times 404 + 4$, it corresponds to the 5th item in the cycle, which is 56. The sum is $25 + 56 = 81$.}
+\inv{What are the last two digits of $7^{2026}$?}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x, y)$ such that $\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{3}$.
+
+\ans{$(4,12), (6,6), (12,4)$}
+\method{Clear the denominators to get $3x + 3y = xy$, which rearranges to $xy - 3x - 3y = 0$. Apply Simon's Favorite Factoring Trick by adding 9 to both sides: $(x-3)(y-3) = 9$. The positive factor pairs of 9 are $(1,9), (3,3), (9,1)$, which yield the pairs $(4,12), (6,6), (12,4)$.}
+\inv{Solve $\frac{1}{x} + \frac{1}{y} = \frac{1}{p}$ for an arbitrary prime $p$.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Solve the equation $x^2 - y^2 = 2025$ for positive integers $(x,y)$ such that $y$ is as small as possible.
+
+\ans{$x=51, y=24$}
+\method{Factorise as $(x-y)(x+y) = 2025$. To minimise $y$, the factors must be as close as possible without being equal. Since $\sqrt{2025} = 45$, the closest distinct factor pair is $75 \times 27$. Solving $x+y=75$ and $x-y=27$ yields $2x=102 \implies x=51$ and $y=24$.}
+\inv{Minimise $y$ for $x^2 - y^2 = 2024$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of integers $(x,y)$ that satisfy $xy + x + y = 14$.
+
+\ans{$(0,14), (14,0), (-2,-16), (-16,-2), (2,4), (4,2), (-4,-6), (-6,-4)$}
+\method{Add 1 to both sides to complete the factorisation: $(x+1)(y+1) = 15$. Consider all integer factor pairs of 15 (both positive and negative): $(1,15), (15,1), (-1,-15), (-15,-1), (3,5), (5,3), (-3,-5), (-5,-3)$. Subtract 1 from both coordinates of each pair to find $(x,y)$.}
+\inv{How does this link to the structural trick used in Number Theory Sheet C1?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Find all integers $x$ such that $x^4 + x^2 + 1$ is a prime number.
+
+\ans{$1, -1$}
+\method{Factorise algebraically by completing the square: $x^4+x^2+1 = (x^2+1)^2 - x^2 = (x^2+x+1)(x^2-x+1)$. For the product to be prime, the smaller positive factor must be $1$. If $x \ge 0$, $x^2-x+1 = 1 \implies x=0$ or $x=1$. If $x \le 0$, $x^2+x+1=1 \implies x=0$ or $x=-1$. Testing $x=0$ yields 1 (not prime), while $x=1$ and $x=-1$ both yield 3 (prime).}
+\inv{Solve for when $x^4+4$ is prime using Sophie Germain's identity.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item How many ways can we choose the digits $a$ and $b$ such that the 5-digit number $3a4b2$ is divisible by $36$?
+
+\ans{$6$}
+\method{Divisibility by 36 requires divisibility by 4 and 9. For 4, the number formed by the last two digits, $b2$, must be a multiple of 4, meaning $b \in \{1, 3, 5, 7, 9\}$. For 9, the digit sum $a+b+9$ must be a multiple of 9, meaning $a+b$ is either 9 or 18. Each choice of $b$ from $\{1,3,5,7\}$ yields exactly one digit $a$, while $b=9$ allows $a=0$ and $a=9$. This yields $1+1+1+1+2 = 6$ ways.}
+\inv{How many ways if the number must be divisible by 99?}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of 3-element subsets of $\{1, 2, \dots, 10\}$ such that the sum of the elements is divisible by $3$.
+
+\ans{$42$}
+\method{Classify the numbers modulo 3: there are three $0$s, four $1$s, and three $2$s. A 3-element subset sums to a multiple of 3 if all elements have the same remainder, or all three are distinct. Summing the combinations $\binom{3}{3} + \binom{4}{3} + \binom{3}{3} + \left(\binom{3}{1} \times \binom{4}{1} \times \binom{3}{1}\right) = 1 + 4 + 1 + 36 = 42$.}
+\inv{How does this compare to the MAT combinatorics archetype? The archetype frequently groups elements by modulo properties to count subsets elegantly.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integer values of $x$ for which $\dfrac{x^2+7x+2}{x+1}$ is an integer.
+
+\ans{$-6$}
+\method{Perform algebraic long division: $\frac{x^2+7x+2}{x+1} = \frac{(x+1)(x+6) - 4}{x+1} = x+6 - \frac{4}{x+1}$. The expression is an integer when $x+1$ is a divisor of $4$. The possible values for $x+1$ are $1, -1, 2, -2, 4, -4$, which give $x \in \{0, -2, 1, -3, 3, -5\}$. Their sum is $-6$.}
+\inv{What is the sum of the values of $x$ for which $\frac{2x^2-1}{x-2}$ is an integer?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $2019^{2025}$.
+
+\ans{$99$}
+\method{We need $2019^{2025} \pmod{100}$, which is equivalent to $19^{2025} \pmod{100}$. Use the binomial expansion of $(20-1)^{2025}$. All terms involving $20^k$ for $k \ge 2$ are multiples of 100, so they vanish. The only surviving terms are $\binom{2025}{1}(20)(-1)^{2024} + (-1)^{2025} = 2025 \times 20 - 1 = 40500 - 1 \equiv 00 - 1 \equiv 99 \pmod{100}$.}
+\inv{How does this compare to SMC binomial last digits archetypes? The archetype leverages the binomial expansion of $(10x \pm 1)^n$ to rapidly compute terminal digits without evaluating large powers.}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of pairs of positive integers $(a,b)$ with $a \le b$ such that $\text{lcm}(a,b) = 2^3 \cdot 3^2 \cdot 5$.
+
+\ans{$53$}
+\method{Let $\text{lcm}(a,b) = p^x q^y r^z$. For each prime $p$, the maximum of the exponents in $a$ and $b$ must be exactly $x$. There are $2x+1$ such valid pairs of exponents. Multiplying these independent choices gives $(2(3)+1)(2(2)+1)(2(1)+1) = 105$ ordered pairs. To find the unordered pairs where $a \le b$, we compute $\frac{105+1}{2} = 53$.}
+\inv{How does this build upon the BMO1 combinatorics archetype? The archetype requires constructing combinatorial matrix tables to trace prime exponent options.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of prime numbers $(p,q)$ such that $p^2 - 2q^2 = 1$.
+
+\ans{$(3,2)$}
+\method{Rearrange to $2q^2 = (p-1)(p+1)$. Since $p$ must be an odd prime (if $p=2$, $3 \neq 2q^2$), $p-1$ and $p+1$ are consecutive even integers. Their product must be a multiple of 8, so $2q^2$ is a multiple of 8, meaning $q$ is even. The only even prime is $q=2$, yielding $p=3$.}
+\inv{How does this relate to the BMO1 Diophantine archetype? The archetype often forces equations into parity checks that uniquely identify $q=2$ as a prime.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of integer solutions to $x^3 + 2y^3 = 4z^3$.
+
+\ans{$1$}
+\method{Use the method of infinite descent. Notice that $x^3$ must be even, so $x$ is even. Let $x=2X$, which gives $8X^3 + 2y^3 = 4z^3 \implies y^3 + 4X^3 = 2z^3$. This forces $y$ to be even. Substituting $y=2Y$ forces $z$ to be even. The only integer that can be infinitely divided by 2 is 0, so $(0,0,0)$ is the unique solution.}
+\inv{How does this relate to the BMO1 infinite descent archetype? The archetype proves that no non-zero solutions exist by showing any hypothetical solution can be perpetually halved.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Find the last three digits of $7^{9999}$.
+
+\ans{$143$}
+\method{We require $7^{9999} \pmod{1000}$. Note that $7^4 = 2401 \equiv 1 + 2400 \pmod{1000}$. Using the binomial expansion, $(1 + 2400)^{2499} \equiv 1 + 2499 \times 2400 \pmod{1000}$, since $2400^2$ and higher powers are multiples of 1000. $1 + 2499 \times 2400 = 1 + (2500 - 1) \times 2400 \equiv 1 - 2400 \equiv 601 \pmod{1000}$. Finally, $7^{9999} = 7^3 \times (7^4)^{2499} \equiv 343 \times 601 = 343 \times (600 + 1) = 205800 + 343 \equiv 143 \pmod{1000}$.}
+\inv{How does this compare to SMC massive exponents archetypes? It extends the binomial technique to three digits, requiring careful modulo tracking of the first-order binomial term.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the last three digits of $2025^{2026}$.
+
+\ans{$625$}
+\method{We require $2025^{2026} \pmod{1000}$. Since $2025 \equiv 25 \pmod{1000}$, we consider powers of 25 modulo 1000. $25^1 = 25$, $25^2 = 625$, $25^3 = 15625 \equiv 625 \pmod{1000}$. Because $25^2 \equiv 25^3 \pmod{1000}$, all subsequent powers remain 625 modulo 1000. Thus, $25^{2026} \equiv 625 \pmod{1000}$.}
+\inv{How does this relate to the SMC cyclic endings archetype? The archetype forces the student to spot that the sequence of remainders stabilises immediately, eliminating the need for complex cycles or totients.}
+
+\end{enumerate}
+
+\end{document}

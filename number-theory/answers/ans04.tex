@@ -1,0 +1,264 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Number Theory Drill \#4}{Answer Key}
+
+\section*{Section A}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest prime factor of $1001$.
+
+\ans{$13$}
+\method{$1001 = 7 \times 11 \times 13$. The largest prime factor is $13$.}
+\inv{Can you quickly recall the prime factors of 1001? Factoring three digit numbers that look prime but aren't is a standard trick.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the last digit of $2^{2026}$?
+
+\ans{$4$}
+\method{The last digits of powers of $2$ cycle in blocks of four: $2, 4, 8, 6$. The exponent $2026$ leaves a remainder of $2$ when divided by $4$, so the last digit is the second in the cycle, which is $4$.}
+\inv{What is the last digit of $7^{2026}$? Apply the same cyclic reasoning.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $2^{10} + 3^{10}$ is divided by $5$?
+
+\ans{$3$}
+\method{Modulo 5, we have $2^2 \equiv -1$ so $2^{10} \equiv (-1)^5 \equiv -1 \equiv 4$. Also, $3 \equiv -2$, so $3^{10} \equiv (-2)^{10} = 2^{10} \equiv 4$. The sum is $4 + 4 = 8 \equiv 3 \pmod 5$.}
+\inv{How does this generalise for $a^n + b^n$ modulo $p$?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Find the greatest common divisor of $120$ and $84$.
+
+\ans{$12$}
+\method{Using the Euclidean algorithm: $120 = 84 \times 1 + 36$, $84 = 36 \times 2 + 12$, $36 = 12 \times 3 + 0$. The last non-zero remainder is $12$.}
+\inv{Use the prime factorisation method: $120 = 2^3 \times 3 \times 5$ and $84 = 2^2 \times 3 \times 7$. The minimum powers give $2^2 \times 3 = 12$.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item How many positive integer factors does $144$ have?
+
+\ans{$15$}
+\method{Prime factorisation: $144 = 12^2 = (2^2 \times 3)^2 = 2^4 \times 3^2$. The number of factors is $(4+1)(2+1) = 5 \times 3 = 15$.}
+\inv{What is the product of all positive factors of $144$?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $11 \times 12 \times 13$ is divided by $10$?
+
+\ans{$6$}
+\method{Compute modulo 10: $1 \times 2 \times 3 = 6$. So the remainder is $6$.}
+\inv{Can you apply modulo arithmetic to sums as easily as to products?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest positive integer divisible by $2, 3, 4, 5,$ and $6$?
+
+\ans{$60$}
+\method{Find the least common multiple: $\text{lcm}(2, 3, 4, 5, 6) = \text{lcm}(4, 5, 6) = 60$.}
+\inv{What is the smallest positive integer leaving a remainder of 1 when divided by $2, 3, 4, 5,$ and $6$?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of the prime factors of $210$.
+
+\ans{$17$}
+\method{Prime factorisation: $210 = 2 \times 3 \times 5 \times 7$. The sum of these prime factors is $2 + 3 + 5 + 7 = 17$.}
+\inv{Can you do this for $330$?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $10^{2026} - 1$ is divided by $9$?
+
+\ans{$0$}
+\method{$10 \equiv 1 \pmod 9$, so $10^{2026} \equiv 1^{2026} \equiv 1 \pmod 9$. Thus $10^{2026} - 1 \equiv 1 - 1 \equiv 0 \pmod 9$.}
+\inv{This is the classic divisibility rule for 9. A number consisting of 2026 nines is a multiple of 9.}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item Find the value of $k$ if $2^k$ is the highest power of $2$ dividing $20!$.
+
+\ans{$18$}
+\method{By Legendre's formula, the exponent is $\lfloor \frac{20}{2} \rfloor + \lfloor \frac{20}{4} \rfloor + \lfloor \frac{20}{8} \rfloor + \lfloor \frac{20}{16} \rfloor = 10 + 5 + 2 + 1 = 18$.}
+\inv{Compute the highest power of $3$ dividing $20!$.}
+
+\end{enumerate}
+
+\section*{Section B}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $15n$ is a perfect square.
+
+\ans{$15$}
+\method{$15 = 3 \times 5$. To make $15n$ a perfect square, all prime exponents must be even. Multiply by another $3 \times 5$, so $n = 15$.}
+\inv{What if we wanted $15n$ to be a perfect cube?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Find all single digits $d$ such that the four-digit number $5d72$ is divisible by $9$.
+
+\ans{$4$}
+\method{The sum of the digits must be a multiple of $9$. $5 + d + 7 + 2 = d + 14$. The next multiple of $9$ is $18$, requiring $d=4$. $27$ requires $d=13$, which isn't a digit.}
+\inv{What digit makes it divisible by $11$?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of trailing zeros in $50!$.
+
+\ans{$12$}
+\method{Count the number of factors of 5 in $50!$ using Legendre's formula: $\lfloor \frac{50}{5} \rfloor + \lfloor \frac{50}{25} \rfloor = 10 + 2 = 12$.}
+\inv{Can a factorial end in exactly 5 trailing zeros?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $5^{2025}$ is divided by $7$?
+
+\ans{$6$}
+\method{Modulo 7: $5 \equiv -2$. $5^2 \equiv (-2)^2 = 4$. $5^3 \equiv -8 \equiv -1 \equiv 6$. $5^6 \equiv (-1)^2 \equiv 1 \pmod 7$. The exponent $2025 = 6 \times 337 + 3$. Thus $5^{2025} \equiv (5^6)^{337} \times 5^3 \equiv 1 \times 5^3 \equiv -1 \equiv 6 \pmod 7$.}
+\inv{This implicitly uses Fermat's Little Theorem! Notice how $a^{p-1} \equiv 1 \pmod p$ allows exponent reduction.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item If $x \equiv 3 \pmod 7$, find the remainder when $x^2 + 4x + 5$ is divided by $7$.
+
+\ans{$5$}
+\method{Substitute $x = 3$: $3^2 + 4(3) + 5 = 9 + 12 + 5 = 26$. Now $26 = 7 \times 3 + 5$, so the remainder is $5$.}
+\inv{Can you evaluate $(x+2)^2 + 1 \pmod 7$ directly? $(3+2)^2 + 1 = 26 \equiv 5$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer that leaves a remainder of $2$ when divided by $3$, and $3$ when divided by $5$.
+
+\ans{$8$}
+\method{The numbers leaving remainder 3 when divided by 5 are $3, 8, 13, \ldots$. Checking divisibility by 3: $3 \equiv 0$, $8 \equiv 2$. So $8$ is the smallest.}
+\inv{This is a manual application of the Chinese Remainder Theorem. Can you solve it algebraically?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all positive integer divisors of $100$.
+
+\ans{$217$}
+\method{$100 = 2^2 \times 5^2$. The sum of divisors is $(1 + 2 + 2^2)(1 + 5 + 5^2) = 7 \times 31 = 217$.}
+\inv{What is the sum of the divisors of $1000$?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item What is the last digit of $3^{101} + 7^{101}$?
+
+\ans{$0$}
+\method{For $3$: cycle is $3, 9, 7, 1$. $101 \equiv 1 \pmod 4$, so last digit is $3$. For $7$: cycle is $7, 9, 3, 1$. $101 \equiv 1 \pmod 4$, so last digit is $7$. The sum $3 + 7 = 10$, so the last digit is $0$.}
+\inv{Can you see that $3^{101} + 7^{101}$ is divisible by $10$ because $101$ is odd and $a^n + b^n$ is divisible by $a+b$ when $n$ is odd?}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of $2^3 \times 3^4 \times 5$.
+
+\ans{$40$}
+\method{The exponents are $3, 4,$ and $1$. The number of divisors is $(3+1)(4+1)(1+1) = 4 \times 5 \times 2 = 40$.}
+\inv{How many of these divisors are even?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest three-digit number that is a multiple of $11$ and $13$.
+
+\ans{$858$}
+\method{The $\text{lcm}(11, 13) = 143$. We want the largest multiple of $143$ under $1000$. $143 \times 10 = 1430$. $143 \times 6 = 858$, and $143 \times 7 = 1001$. Thus the answer is $858$.}
+\inv{Is there a shortcut to check divisibility by $143$?}
+
+\end{enumerate}
+
+\section*{Section C}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x, y)$ such that $x^2 - y^2 = 45$.
+
+\ans{$(23, 22), (9, 6), (7, 2)$}
+\method{Factorise as $(x-y)(x+y) = 45$. Since $x$ and $y$ are positive integers, $x+y > x-y > 0$, and both must have the same parity (but $45$ is odd, so one is even, one is odd). The factor pairs of $45$ are $(1, 45), (3, 15), (5, 9)$. This gives three systems of equations. For $(1, 45)$, $2x = 46 \implies x=23, y=22$. For $(3, 15)$, $2x = 18 \implies x=9, y=6$. For $(5, 9)$, $2x = 14 \implies x=7, y=2$.}
+\inv{This is based on the archetype in SMC 2018 Q15, requiring us to explicitly decompose a number as a product of integer factors representing sum and difference.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item The prime number $p$ can be expressed as $p = a^2 - b^2$, where $a$ and $b$ are also prime numbers. Find the value of $p$.
+
+\ans{$5$}
+\method{Factorise as $p = (a-b)(a+b)$. Since $p$ is a prime number and $a,b$ are positive integers, the smaller factor $a-b$ must equal $1$. Thus, $a$ and $b$ are consecutive integers. The only consecutive integers that are both prime are $3$ and $2$. Therefore, $a=3, b=2$, and $p = 3^2 - 2^2 = 9 - 4 = 5$.}
+\inv{This expands upon the archetype in SMC 2011 Q19, asking students to realise that difference of squares for a prime number implicitly forces a difference of 1, restricting the variables significantly.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest integer $n$ such that $n^3 + 100$ is divisible by $n+10$.
+
+\ans{$890$}
+\method{Use polynomial division or algebraic manipulation: $n^3 + 100 = (n^3 + 10^3) - 900 = (n+10)(n^2 - 10n + 100) - 900$. Thus, $n+10$ must divide $900$. To maximise $n$, we maximise $n+10$. The largest divisor of $900$ is $900$, so $n+10 = 900 \implies n = 890$.}
+\inv{Inspired by MAT 2016 Q1H, where the structure of algebraic identities simplifies divisibility problems involving polynomials.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item How many ordered pairs of positive integers $(x, y)$ satisfy $\frac{1}{x} + \frac{1}{y} = \frac{1}{6}$?
+
+\ans{$9$}
+\method{Multiply by $6xy$ to clear denominators: $6y + 6x = xy$. Rearrange and add $36$ to both sides to complete the rectangle: $xy - 6x - 6y + 36 = 36$, which factors as $(x-6)(y-6) = 36$. The number of positive integer solutions corresponds to the number of positive divisors of $36$. Since $36 = 2^2 \times 3^2$, there are $(2+1)(2+1) = 9$ divisors.}
+\inv{A classic algebraic manipulation trick (Simon's Favorite Factoring Trick) drawn from SMC 2015 Q21, merging algebra and number theory counting.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Find all integer values of $x$ for which $\frac{x^2 + 5x + 14}{x+3}$ is an integer.
+
+\ans{$-11, -7, -5, -4, -2, -1, 1, 5$}
+\method{Rewrite the numerator to isolate a multiple of $(x+3)$: $x^2 + 5x + 14 = (x+3)(x+2) + 8$. So the expression is $x+2 + \frac{8}{x+3}$. For this to be an integer, $x+3$ must be a divisor of $8$. The divisors of $8$ are $\pm 1, \pm 2, \pm 4, \pm 8$. Setting $x+3$ to each gives $x \in \{-11, -7, -5, -4, -2, -1, 1, 5\}$.}
+\inv{Adapted from SMC 2019 Q20, highlighting the power of partial fractions and remainder theorem concepts over integers.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item How many divisors of $10^{10}$ are perfect squares?
+
+\ans{$36$}
+\method{The prime factorisation of $10^{10}$ is $2^{10} \times 5^{10}$. A divisor of $10^{10}$ has the form $2^a 5^b$, where $0 \leq a, b \leq 10$. For it to be a perfect square, both $a$ and $b$ must be even. The even integers in this range are $0, 2, 4, 6, 8, 10$. There are $6$ choices for $a$ and $6$ choices for $b$, giving $6 \times 6 = 36$ total combinations.}
+\inv{Building upon SMC 2021 Q22, this links fundamental theorem of arithmetic with basic combinatorics (the multiplication principle).}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item How many positive integers $n \leq 1000$ are not divisible by $2, 3,$ or $5$?
+
+\ans{$266$}
+\method{Use the Principle of Inclusion-Exclusion (PIE). Count multiples: $\lfloor 1000/2 \rfloor = 500$, $\lfloor 1000/3 \rfloor = 333$, $\lfloor 1000/5 \rfloor = 200$. Pairwise LCMs: $\lfloor 1000/6 \rfloor = 166$, $\lfloor 1000/10 \rfloor = 100$, $\lfloor 1000/15 \rfloor = 66$. Triple LCM: $\lfloor 1000/30 \rfloor = 33$. Total multiples: $500 + 333 + 200 - (166 + 100 + 66) + 33 = 734$. The numbers NOT divisible are $1000 - 734 = 266$.}
+\inv{A standard counting strategy explored in SMC 2017 Q19. It reinforces the intersection logic of sets with prime multiples.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Given that $p$ and $q$ are prime numbers satisfying $p = q^2 - 36$, find the value of $p$.
+
+\ans{$13$}
+\method{Factorise the right hand side as $p = (q-6)(q+6)$. Because $p$ is prime and the factors are integers with $q+6 > q-6$, the smaller factor must be $1$. Thus, $q-6 = 1$, which gives $q = 7$. Checking, $q=7$ is indeed a prime. The value of $p$ is then $7+6 = 13$, which is also prime.}
+\inv{This is based on the archetype in SMC 2014 Q22, substituting polynomials with prime constraints to test whether a student can spot that $x^2 - y^2 = p$ necessitates $x-y=1$.}
+
+\end{enumerate}
+
+\section*{Section D}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(m, n)$ such that $3^m - 2^n = 1$.
+
+\ans{$(1, 1), (2, 3)$}
+\method{If $m=1$, $3 - 2^n = 1 \implies 2^n=2 \implies n=1$. If $m=2$, $9 - 2^n = 1 \implies 2^n=8 \implies n=3$. Assume $m \geq 3$. Taking modulo 4, $3^m \equiv 1 \pmod 4$ since $2^n \equiv 0 \pmod 4$ for $n \ge 2$. Thus $m$ must be even, say $m=2k$. Then $3^{2k} - 1 = 2^n \implies (3^k - 1)(3^k + 1) = 2^n$. The factors must be powers of 2, differing by 2. The only powers of 2 that differ by 2 are 2 and 4, meaning $3^k - 1 = 2 \implies 3^k = 3 \implies k=1, m=2$. The only solutions are $(1, 1)$ and $(2, 3)$.}
+\inv{This is a specific case of Catalan's Conjecture, echoing BMO1 2008 Q1. Considering remainders modulo 4 strongly restricts the parity of exponents.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item For how many positive integers $n$ is $n^4 + 4^n$ a prime number?
+
+\ans{$1$}
+\method{If $n=1$, $1+4=5$, which is prime. If $n$ is even and $n>1$, $n^4 + 4^n$ is even and $>2$, thus composite. If $n>1$ is odd, let $n = 2k+1$. Then $n^4 + 4^{2k+1} = n^4 + 4 \cdot (2^k)^4$. By Sophie Germain's Identity, $x^4 + 4y^4 = (x^2 - 2xy + 2y^2)(x^2 + 2xy + 2y^2)$. Let $x=n, y=2^k$. Both factors are strictly greater than 1, so the number is composite. Thus, there is exactly $1$ solution.}
+\inv{Inspired by BMO1 2013 Q2. Sophie Germain's Identity is an advanced but standard factorization trick that reveals hidden composites.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_1 = 1$, $a_2 = 1$, and $a_{n+2} = a_{n+1} + a_n$. What is the remainder when $a_{2026}$ is divided by $3$?
+
+\ans{$1$}
+\method{Compute the Fibonacci sequence modulo 3: $1, 1, 2, 0, 2, 2, 1, 0, 1, 1, \ldots$ The sequence of remainders repeats with a period of 8. We divide the index $2026$ by $8$: $2026 = 8 \times 253 + 2$. The remainder is the same as the 2nd term in the cycle, which is $1$.}
+\inv{Derived from SMC 2022 Q25. Taking sequences modulo $m$ always produces periodic behavior by the Pigeonhole Principle.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Let $p, q,$ and $r$ be prime numbers such that $p = 9q^2 - r^2$. Find the value of $p$.
+
+\ans{$11$}
+\method{Factorise the expression as $p = (3q-r)(3q+r)$. Since $p$ is a prime number, the smaller factor must be $1$, so $3q-r = 1$, which implies $r = 3q-1$. If $q > 2$, then $q$ is an odd prime. This makes $3q-1$ an even number strictly greater than $2$, which means $r$ cannot be prime. Thus, the only possible prime value for $q$ is $q = 2$. Substituting this in gives $r = 3(2)-1 = 5$, which is prime. The value of $p$ is then $3(2)+5 = 11$, which is also prime.}
+\inv{This builds upon the archetype from BMO1 2010 Q1, adding parity arguments about prime numbers into a difference of squares problem, pushing the student to use exhaustive logical deduction.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest positive integer $n$ such that $2^n$ divides $3^{1024} - 1$.
+
+\ans{$12$}
+\method{Using the factorization $x^2 - y^2 = (x-y)(x+y)$ repeatedly, $3^{1024} - 1 = (3^{512} + 1)(3^{256} + 1) \cdots (3^2 + 1)(3+1)(3-1)$. Every factor of the form $3^k + 1$ for even $k \ge 2$ is $3^{2m} + 1 \equiv 1 + 1 \equiv 2 \pmod 4$, meaning it contains exactly one factor of 2. There are 9 such factors ($k = 512, 256, \ldots, 2$). Thus we get $9$ factors of $2$. Additionally, $(3+1) = 4$ contains two factors of 2, and $(3-1) = 2$ contains one factor of 2. Total factors of 2: $1 (\text{from } 3-1) + 2 (\text{from } 3+1) + 9 \times 1 (\text{from } 3^2+1 \text{ to } 3^{512}+1) = 1+2+9 = 12$.}
+\inv{Mirrors BMO1 2019 Q3. This is an application of the Lifting The Exponent Lemma (LTE), $v_2(x^n - y^n) = v_2(x-y) + v_2(x+y) + v_2(n) - 1$.}
+
+\end{enumerate}
+
+\end{document}
