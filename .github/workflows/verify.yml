@@ -17,9 +17,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # number-theory/ and geometry/ are still fully gitignored (empty
-        # pillars) — add them here once they have real content to check out.
-        pillar: [algebra, combinatorics]
+        # geometry/ is still fully gitignored (empty
+        # pillar) — add it here once it has real content to check out.
+        pillar: [algebra, combinatorics, number-theory]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
