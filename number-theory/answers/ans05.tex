@@ -1,0 +1,279 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Number Theory Drill \#5 --- Answers \& Investigations}{Antigravity}
+\noindent\textit{New toolkit today: Bounding Diophantine Equations $\cdot$ Inequality Logic $\cdot$ Factor Searches.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Last digits, primes, and basic properties. Pure recognition.}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the last digit of $3^{2025}$.
+
+\ans{3}
+\method{The last digits of powers of 3 follow a cycle of four: 3, 9, 7, 1. Since $2025 = 4 \times 506 + 1$, we have $2025 \equiv 1 \pmod 4$. The last digit is the first in the cycle, which is 3.}
+\inv{Can you determine the last digit of $7^{2025}$? Hint: Find the cycle length for powers of 7.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Factorise $1001$ completely into primes.
+
+\ans{$7 \times 11 \times 13$}
+\method{Notice that $1001$ is divisible by 11 ($1-0+0-1 = 0$). Dividing by 11 gives 91, and $91 = 7 \times 13$. Thus, the prime factorisation is $7 \times 11 \times 13$.}
+\inv{What is the prime factorisation of $1001001$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find $\gcd(42, 105)$.
+
+\ans{21}
+\method{Factorise both numbers: $42 = 2 \times 3 \times 7$ and $105 = 3 \times 5 \times 7$. The common prime factors are 3 and 7, so $\gcd(42, 105) = 3 \times 7 = 21$.}
+\inv{What is the lowest common multiple of 42 and 105?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of $120$.
+
+\ans{16}
+\method{Find the prime factorisation of 120: $120 = 2^3 \times 3^1 \times 5^1$. The number of divisors is $(3+1)(1+1)(1+1) = 4 \times 2 \times 2 = 16$.}
+\inv{What is the sum of the positive divisors of 120?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $5^{10} \pmod 6$.
+
+\ans{1}
+\method{Note that $5 \equiv -1 \pmod 6$. Thus, $5^{10} \equiv (-1)^{10} = 1 \pmod 6$.}
+\inv{What is $5^{11} \pmod 6$?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $x$ such that $2x \equiv 1 \pmod 5$.
+
+\ans{3}
+\method{Multiply both sides by 3 (the inverse of 2 mod 5). This gives $6x \equiv 3 \pmod 5$, and since $6 \equiv 1 \pmod 5$, we get $x \equiv 3 \pmod 5$. The smallest positive integer is 3.}
+\inv{What is the inverse of 3 modulo 7?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest integer $n > 1$ such that $n \equiv 1 \pmod 3$ and $n \equiv 1 \pmod 4$.
+
+\ans{13}
+\method{By the Chinese Remainder Theorem, since $\gcd(3, 4) = 1$, the simultaneous congruences $n \equiv 1 \pmod 3$ and $n \equiv 1 \pmod 4$ imply $n \equiv 1 \pmod{12}$. The smallest integer $n > 1$ is $1 + 12 = 13$.}
+\inv{Find the smallest integer $n > 2$ such that $n \equiv 2 \pmod 3$ and $n \equiv 2 \pmod 4$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Write the prime factorisation of $360$.
+
+\ans{$2^3 \times 3^2 \times 5$}
+\method{Break down 360 into $36 \times 10 = (2^2 \times 3^2) \times (2 \times 5) = 2^3 \times 3^2 \times 5$.}
+\inv{What is the prime factorisation of 720?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Calculate $7^3 \pmod{10}$.
+
+\ans{3}
+\method{Work modulo 10: $7^2 = 49 \equiv 9 \pmod{10}$, so $7^3 \equiv 9 \times 7 = 63 \equiv 3 \pmod{10}$.}
+\inv{What is the last digit of $7^4$?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest prime factor of $9999$.
+
+\ans{101}
+\method{Factorise 9999 as $9 \times 1111$. Then $1111 = 11 \times 101$. Since 101 is prime, the prime factorisation is $3^2 \times 11 \times 101$, and the largest prime factor is 101.}
+\inv{What is the largest prime factor of 999999?}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Modular arithmetic, exponentiation, divisibility rules. Look for patterns.}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item The greatest power of $7$ which is a factor of $50!$ is $7^k$. What is $k$? \textit{\small(after SMC 2023 Q12)}
+
+\ans{8}
+\method{By Legendre's formula, the highest power of 7 dividing $50!$ is $\lfloor \frac{50}{7} \rfloor + \lfloor \frac{50}{49} \rfloor = 7 + 1 = 8$.}
+\inv{This question scales an SMC concept. How would you calculate the number of trailing zeroes of $50!$?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $15n$ is a perfect cube.
+
+\ans{225}
+\method{We have $15n = 3^1 \times 5^1 \times n$. To make this a perfect cube, the exponents of all prime factors must be multiples of 3. We need at least $3^2$ and $5^2$, so $n = 3^2 \times 5^2 = 9 \times 25 = 225$.}
+\inv{What is the smallest $n$ such that $15n$ is a perfect square?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $1! + 2! + 3! + \cdots + 100!$ is divided by $12$.
+
+\ans{9}
+\method{Observe that for $k \ge 4$, $k!$ is a multiple of $4 \times 3 = 12$, so $k! \equiv 0 \pmod{12}$. The sum reduces to $1! + 2! + 3! = 1 + 2 + 6 = 9 \pmod{12}$.}
+\inv{Find the remainder when the sum is divided by 24.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Which is larger, $3^{40}$ or $4^{30}$?
+
+\ans{$3^{40}$}
+\method{Express both with the same exponent: $3^{40} = (3^4)^{10} = 81^{10}$ and $4^{30} = (4^3)^{10} = 64^{10}$. Since $81 > 64$, it follows that $3^{40} > 4^{30}$.}
+\inv{Which is larger: $2^{50}$ or $3^{30}$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $x$ such that $3x \equiv 4 \pmod 7$.
+
+\ans{6}
+\method{Multiply both sides by 5 (the inverse of 3 mod 7, since $15 \equiv 1 \pmod 7$). This gives $15x \equiv 20 \pmod 7$, which simplifies to $x \equiv 6 \pmod 7$.}
+\inv{Solve $4x \equiv 5 \pmod 7$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $7^{2022}$.
+
+\ans{49}
+\method{By Euler's Totient Theorem, $\phi(100) = 40$, but we also know $7^4 = 2401 \equiv 1 \pmod{100}$. Since $2022 = 4 \times 505 + 2$, we have $7^{2022} \equiv 7^2 = 49 \pmod{100}$.}
+\inv{What are the last two digits of $3^{2022}$?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item How many positive factors of $1000$ are perfect squares?
+
+\ans{4}
+\method{The prime factorisation of 1000 is $2^3 \times 5^3$. A perfect square factor must be of the form $2^{2a} \times 5^{2b}$. The possible values for $2a$ are 0 and 2, and for $2b$ are 0 and 2. There are $2 \times 2 = 4$ such factors.}
+\inv{How many positive factors of $1000$ are perfect cubes?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Find all integers $x$ such that $0 \le x < 8$ and $x^2 \equiv 1 \pmod 8$.
+
+\ans{$1, 3, 5, 7$}
+\method{Test the odd numbers mod 8: $1^2 = 1 \equiv 1$, $3^2 = 9 \equiv 1$, $5^2 = 25 \equiv 1$, $7^2 = 49 \equiv 1$. All four odd residues satisfy the congruence.}
+\inv{Solve $x^2 \equiv 1 \pmod{16}$.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Given $2^x 3^y = 12^3$, find $x+y$.
+
+\ans{9}
+\method{Expand the right hand side: $12^3 = (2^2 \times 3)^3 = 2^6 \times 3^3$. By comparing exponents, $x = 6$ and $y = 3$. Hence $x+y = 9$.}
+\inv{If $2^x 5^y = 100^2$, what is $x+y$?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x,y)$ such that $xy = x + y + 3$.
+
+\ans{$(2,5), (3,3), (5,2)$}
+\method{Rearrange to $xy - x - y = 3$. Add 1 to both sides to complete the rectangle: $xy - x - y + 1 = 4$, which factors as $(x-1)(y-1) = 4$. Since $x,y \ge 1$, the pairs for $(x-1, y-1)$ are $(1,4), (2,2), (4,1)$. Thus $(x,y)$ can be $(2,5), (3,3), (5,2)$.}
+\inv{Find the integer solutions to $xy = x + y + 5$.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Synoptic links: use algebraic identities and combinatorial counting to solve these number theory problems.}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item The expression $\frac{n^2+3n+5}{n+1}$ takes integer values for certain positive integer values of $n$. What is the sum of all such positive integer values of $n$? \textit{\small(after SMC 2023 Q19)}
+
+\ans{2}
+\method{Perform polynomial division: $\frac{n^2+3n+5}{n+1} = \frac{n(n+1) + 2(n+1) + 3}{n+1} = n + 2 + \frac{3}{n+1}$. For this to be an integer, $n+1$ must divide 3. The positive divisors of 3 are 1 and 3, yielding $n=0$ and $n=2$. The only positive integer is $n=2$, so the sum is 2.}
+\inv{This adapts a core SMC structural problem. How would the answer change if $n$ could be any integer?}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item How many of the numbers 6, 7, 8, 9, 10 are factors of the sum $2^{2024} + 2^{2023} + 2^{2022}$? \textit{\small(after SMC 2023 Q10)}
+
+\ans{2}
+\method{Factor out the lowest power: $2^{2022}(2^2 + 2^1 + 1) = 7 \times 2^{2022}$. Examining the options: 7 divides it, 8 divides it (since $2^3$ divides $2^{2022}$), but 6, 9, and 10 do not since they require a factor of 3 or 5.}
+\inv{This questions mirrors SMC factorisation themes. Is 14 a factor?}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x, y)$ such that $x^2 - y^2 = 17$.
+
+\ans{$(9, 8)$}
+\method{Factorise the difference of squares: $(x-y)(x+y) = 17$. Since 17 is prime and $x+y > x-y > 0$, we must have $x-y = 1$ and $x+y = 17$. Adding gives $2x = 18 \implies x=9$, and $y=8$.}
+\inv{How many solutions exist if 17 is replaced by 15?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item How many ordered pairs of positive integers $(a, b)$ satisfy $\operatorname{lcm}(a, b) = 300$?
+
+\ans{75}
+\method{Prime factorise 300: $300 = 2^2 \times 3^1 \times 5^2$. Let $a = 2^{x_1} 3^{y_1} 5^{z_1}$ and $b = 2^{x_2} 3^{y_2} 5^{z_2}$. We need $\max(x_1, x_2)=2$, $\max(y_1, y_2)=1$, and $\max(z_1, z_2)=2$. The number of pairs for an exponent $k$ is $2k+1$. So $(2(2)+1) \times (2(1)+1) \times (2(2)+1) = 5 \times 3 \times 5 = 75$.}
+\inv{How many ordered pairs satisfy $\operatorname{lcm}(a, b) = 1000$?}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item How many positive integers $n \le 100$ have exactly 3 positive divisors?
+
+\ans{4}
+\method{A number has exactly 3 positive divisors if and only if it is the square of a prime. The primes whose squares are $\le 100$ are 2, 3, 5, 7. Thus, there are 4 such numbers.}
+\inv{How many numbers $\le 100$ have exactly 4 positive divisors?}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of the digits of the largest integer $n$ such that $n^3 + 100$ is a multiple of $n+10$.
+
+\ans{17}
+\method{Use polynomial division: $n^3 + 100 = (n^3 + 1000) - 900 = (n+10)(n^2-10n+100) - 900$. Thus, $n+10$ must divide $-900$. The largest integer $n$ corresponds to the largest positive factor of 900, which is 900. Hence $n+10 = 900 \implies n=890$. The sum of the digits is $8+9+0 = 17$.}
+\inv{Find the smallest integer $n$ satisfying this condition.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find all triples of positive integers $(x,y,z)$ such that $x \le y \le z$ and $xyz = x + y + z$.
+
+\ans{$(1, 2, 3)$}
+\method{Since $x \le y \le z$, we have $x+y+z \le 3z$. Therefore $xyz \le 3z \implies xy \le 3$. Since $x$ and $y$ are positive integers with $x \le y$, the possible pairs for $(x,y)$ are $(1,1), (1,2)$, and $(1,3)$. If $(1,1)$, $z = 2+z$ (impossible). If $(1,2)$, $2z = 3+z \implies z=3$. If $(1,3)$, $3z = 4+z \implies z=2$, but we need $y \le z$. The only solution is $(1,2,3)$.}
+\inv{This builds upon BMO1 Diophantine constraints. Can you find all positive integer solutions $(x,y,z,w)$ to $xyzw = x+y+z+w$ with $x \le y \le z \le w$?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integer values of $n$ for which $n^2 + 4n + 3$ is a perfect square. \textit{\small(after AI Prompts D5)}
+
+\ans{-4}
+\method{Set $n^2+4n+3 = k^2$. Complete the square: $(n+2)^2 - 1 = k^2 \implies (n+2)^2 - k^2 = 1$. The difference of two squares is 1 only when they are 1 and 0, so $(n+2)^2=1 \implies n+2 = \pm 1 \implies n=-1, -3$. The sum is $(-1) + (-3) = -4$.}
+\inv{This expands an algebraic pattern into Diophantine analysis. Does $n^2+6n+5$ have similar properties?}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant solution --- find it.}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find all prime numbers $p$ such that $p^2 + 2$ is also a prime number.
+
+\ans{3}
+\method{If $p=3$, $3^2+2 = 11$, which is prime. For $p > 3$, $p \equiv 1$ or $2 \pmod 3$, which means $p^2 \equiv 1 \pmod 3$. Then $p^2+2 \equiv 3 \equiv 0 \pmod 3$. Since $p^2+2 > 3$, it must be a composite multiple of 3. So $p=3$ is the only solution.}
+\inv{If $p^2+2$ is changed to $p^2+4$, are there any prime solutions?}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Find all pairs of positive integers $(x,y)$ such that $x^2 y = x^2 + 3y + 2$.
+
+\ans{$(2, 6)$}
+\method{Rearrange to isolate $y$: $y(x^2 - 3) = x^2 + 2 \implies y = \frac{x^2+2}{x^2-3} = 1 + \frac{5}{x^2-3}$. For $y$ to be an integer, $x^2-3$ must be a factor of 5. The factors of 5 are $\pm 1, \pm 5$. Setting $x^2-3$ to $1, -1, 5, -5$ yields $x^2 = 4, 2, 8, -2$. The only perfect square is $x^2=4$, so $x=2$ (since $x>0$). This gives $y = 1 + 5/1 = 6$. The only pair is $(2,6)$.}
+\inv{This explores algebraic rearrangement followed by a factor search. Find all integer pairs $(x,y)$ satisfying $x^2 y = x^2 + 4y + 3$.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item How many pairs of positive integers $(x,y)$ with $x \le y$ satisfy $\frac{1}{x} + \frac{1}{y} = \frac{1}{6}$?
+
+\ans{5}
+\method{Since $x \le y$, $\frac{1}{y} \le \frac{1}{x}$. Thus $\frac{1}{6} = \frac{1}{x} + \frac{1}{y} \le \frac{2}{x}$, which implies $x \le 12$. We also need $\frac{1}{x} < \frac{1}{6}$, so $x > 6$. Testing $x \in \{7, 8, 9, 10, 11, 12\}$ yields integer $y$ for $x=7, 8, 9, 10, 12$. This gives 5 pairs: $(7, 42), (8, 24), (9, 18), (10, 15), (12, 12)$.}
+\inv{This question tests bounding Diophantine equations instead of using Simon's Favourite Factoring Trick. How many pairs $(x,y)$ with $x \le y$ satisfy $\frac{1}{x} + \frac{1}{y} = \frac{1}{p}$ for a prime $p$?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $1^{2025} + 2^{2025} + \cdots + 10^{2025}$ is divided by 11.
+
+\ans{0}
+\method{By Fermat's Little Theorem, $x^{10} \equiv 1 \pmod{11}$ for $1 \le x \le 10$. Thus $x^{2025} = (x^{10})^{202} \times x^5 \equiv x^5 \pmod{11}$. Modulo 11, we have $(-x)^5 = -x^5 \equiv 11-x^5$, so the terms pair up and cancel: $1^5 + 10^5 \equiv 1^5 + (-1)^5 = 0 \pmod{11}$. This is true for all pairs, leaving a remainder of 0.}
+\inv{Evaluate $1^{2026} + 2^{2026} + \cdots + 10^{2026} \pmod{11}$.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integers $n$ for which $n^4 + 4$ is a prime number.
+
+\ans{0}
+\method{Apply the Sophie Germain Identity by adding and subtracting $4n^2$: $n^4+4 = (n^2+2)^2 - (2n)^2 = (n^2-2n+2)(n^2+2n+2)$. For this product to be prime, the smaller factor must be 1 or -1. Since $n^2 \pm 2n + 2 = (n \pm 1)^2 + 1 \ge 1$, we set $(n-1)^2+1=1 \implies n=1$, yielding $1 \times 5 = 5$ (prime), and $(n+1)^2+1=1 \implies n=-1$, yielding $5 \times 1 = 5$ (prime). The sum of $n$ is $1 + (-1) = 0$.}
+\inv{Use the identity to factorise $a^4 + 4b^4$.}
+
+\end{enumerate}
+
+\SpeedClosing{``Number theory is the queen of mathematics.'' --- Carl Friedrich Gauss}
+
+\end{document}

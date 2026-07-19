@@ -1,0 +1,268 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Number Theory Drill \#2}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Prime factorise $1001$.
+
+\ans{$7 \times 11 \times 13$}
+\method{Recognise that $1001$ is divisible by $11$ since $1 - 0 + 0 - 1 = 0$. $1001 = 11 \times 91$. Then note $91 = 7 \times 13$, giving the prime factorisation $7 \times 11 \times 13$.}
+\inv{Can you prime factorise $10001$?}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $10^5$ is divided by $11$?
+
+\ans{$10$}
+\method{Notice that $10 \equiv -1 \pmod{11}$. Thus $10^5 \equiv (-1)^5 \equiv -1 \equiv 10 \pmod{11}$.}
+\inv{What is the remainder when $10^5$ is divided by $7$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find the last digit of $7^{100}$.
+
+\ans{$1$}
+\method{The last digits of powers of $7$ cycle in a block of four: $7, 9, 3, 1$. Since $100$ is exactly divisible by $4$, $7^{100}$ must end in the fourth digit of the cycle, which is $1$.}
+\inv{Find the last digit of $3^{100}$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $k$ such that $12k$ is a perfect square.
+
+\ans{$3$}
+\method{Prime factorise $12 = 2^2 \times 3^1$. For a perfect square, all prime exponents must be even, so we must multiply by an additional $3^1$ to get $2^2 \times 3^2$. Thus $k = 3$.}
+\inv{What is the smallest positive integer $k$ such that $24k$ is a perfect cube?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Find the greatest common divisor of $84$ and $120$.
+
+\ans{$12$}
+\method{Prime factorise $84 = 2^2 \times 3 \times 7$ and $120 = 2^3 \times 3 \times 5$. The minimum exponents give the GCD: $2^2 \times 3 = 12$. Alternatively, use the Euclidean algorithm.}
+\inv{Find the greatest common divisor of $144$ and $216$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest prime $p > 30$?
+
+\ans{$31$}
+\method{Test numbers after $30$. $31$ is not divisible by $2, 3$, or $5$. Since $\sqrt{31} < 6$, we only need to check primes up to $5$. Thus $31$ is prime.}
+\inv{What is the smallest prime $p > 40$?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Find the remainder when $3^{10}$ is divided by $8$.
+
+\ans{$1$}
+\method{Notice that $3^2 = 9 \equiv 1 \pmod 8$. Thus $3^{10} = (3^2)^5 \equiv 1^5 \equiv 1 \pmod 8$.}
+\inv{What is the remainder when $5^{10}$ is divided by $8$?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all prime factors of $210$.
+
+\ans{$17$}
+\method{Prime factorise $210 = 10 \times 21 = 2 \times 5 \times 3 \times 7$. The distinct prime factors are $2, 3, 5, 7$, which sum to $17$.}
+\inv{Find the sum of all prime factors of $330$.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item For what single digit $d$ is the number $53d2$ a multiple of $9$?
+
+\ans{$8$}
+\method{A number is divisible by $9$ if the sum of its digits is divisible by $9$. The sum is $5 + 3 + d + 2 = 10 + d$. The nearest multiple of $9$ is $18$, which gives $d = 8$.}
+\inv{For what single digit $d$ is $53d2$ a multiple of $11$?}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Find the largest integer $k$ such that $3^k$ divides $27^5$.
+
+\ans{$15$}
+\method{Express the base as a power of $3$: $27 = 3^3$. Thus $27^5 = (3^3)^5 = 3^{15}$. The largest integer $k$ is $15$.}
+\inv{Find the largest integer $k$ such that $2^k$ divides $16^8$.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of positive divisors of $144$.
+
+\ans{$15$}
+\method{Prime factorise $144 = 12^2 = (2^2 \times 3)^2 = 2^4 \times 3^2$. The number of divisors is the product of the exponents plus one: $(4+1)(2+1) = 5 \times 3 = 15$.}
+\inv{Find the number of positive divisors of $360$.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $x > 1$ that leaves a remainder of $1$ when divided by $3, 4,$ and $5$.
+
+\ans{$61$}
+\method{Since $x \equiv 1 \pmod m$ for $m \in \{3, 4, 5\}$, it follows that $x - 1$ is a multiple of $3, 4,$ and $5$. The least common multiple is $\text{lcm}(3, 4, 5) = 60$, so $x - 1 = 60k$. The smallest $x > 1$ is $61$.}
+\inv{Find the smallest integer $x > 1$ leaving a remainder of $2$ when divided by $4, 5,$ and $6$.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Solve for the smallest positive integer $x$ such that $5x \equiv 1 \pmod 7$.
+
+\ans{$3$}
+\method{We seek an $x$ where $5x = 7k + 1$. Testing values or using the fact that $5 \times 3 = 15 \equiv 1 \pmod 7$ yields $x = 3$.}
+\inv{Solve for the smallest positive integer $x$ such that $3x \equiv 1 \pmod 8$.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the highest power of $5$ dividing $100!$.
+
+\ans{$24$}
+\method{Use Legendre's formula: $\lfloor 100/5 \rfloor + \lfloor 100/25 \rfloor = 20 + 4 = 24$.}
+\inv{Find the highest power of $3$ dividing $100!$.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $51^2$.
+
+\ans{$01$}
+\method{Use the binomial expansion on $(50 + 1)^2 = 2500 + 100 + 1 = 2601$. The last two digits are $01$.}
+\inv{Find the last two digits of $49^2$.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $n!$ is a multiple of $100$.
+
+\ans{$10$}
+\method{Since $100 = 2^2 \times 5^2$, we need the prime factorisation of $n!$ to contain at least two $5$s. The multiples of $5$ are $5$ and $10$, so $10!$ contains exactly two $5$s and more than enough $2$s.}
+\inv{Find the smallest positive integer $n$ such that $n!$ is a multiple of $1000$.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Given that $a$ and $b$ are distinct positive integers with $\gcd(a, b) = 12$ and $\text{lcm}(a, b) = 144$, find the minimum possible value of $a+b$.
+
+\ans{$84$}
+\method{We can write $a = 12x$ and $b = 12y$ with $\gcd(x, y) = 1$. Since $ab = \gcd(a,b)\text{lcm}(a,b) = 1728$, we have $144xy = 1728 \implies xy = 12$. The coprime pairs $(x,y)$ are $(1,12)$ and $(3,4)$. The sums $a+b$ are $12(1+12) = 156$ and $12(3+4) = 84$. The minimum is $84$.}
+\inv{If instead $\text{lcm}(a, b) = 360$, what is the minimum value of $a+b$?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item What is the sum of the digits of the number $2^{10} \times 5^{8}$?
+
+\ans{$4$}
+\method{We can combine powers of $10$: $2^{10} \times 5^8 = 2^2 \times (2 \times 5)^8 = 4 \times 10^8$. This is a $4$ followed by eight zeros, so the sum of the digits is $4$.}
+\inv{What is the sum of the digits of $2^{2024} \times 5^{2025}$?}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $2^{20} + 3^{20}$ is divided by $5$?
+
+\ans{$2$}
+\method{Using Fermat's Little Theorem or simply noting patterns: $2^4 = 16 \equiv 1 \pmod 5$ and $3^4 = 81 \equiv 1 \pmod 5$. Thus $2^{20} = (2^4)^5 \equiv 1 \pmod 5$ and $3^{20} = (3^4)^5 \equiv 1 \pmod 5$. The sum is $1 + 1 = 2 \pmod 5$.}
+\inv{What is the remainder when $4^{20} + 6^{20}$ is divided by $5$?}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Find the number of trailing zeros in $125!$.
+
+\ans{$31$}
+\method{The number of trailing zeros is given by the highest power of $5$ dividing $125!$. Legendre's formula gives $\lfloor 125/5 \rfloor + \lfloor 125/25 \rfloor + \lfloor 125/125 \rfloor = 25 + 5 + 1 = 31$.}
+\inv{Find the number of trailing zeros in $250!$.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find all positive integers $n$ such that $n^2 - 4n - 5$ is a prime number. \textit{\small(after SMC 2021 Q14)}
+
+\ans{$6$}
+\method{Factorising gives $(n-5)(n+1)$. For this to be a prime $p$, the smaller factor must be $1$ (since $n+1 > 1$). Thus $n-5 = 1 \implies n = 6$. Substituting $n=6$ yields $1 \times 7 = 7$, which is indeed prime.}
+\inv{The archetype asks about $n^2 - 1$ being prime. Here we disguised the factorisation by adding linear terms, requiring the solver to pair factors correctly.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item How many integers $x$ are there such that $\dfrac{x^2+11}{x-1}$ is an integer? \textit{\small(after SMC 2019 Q20)}
+
+\ans{$12$}
+\method{Rewrite the fraction using algebraic division: $\frac{x^2 - 1 + 12}{x-1} = x + 1 + \frac{12}{x-1}$. For this to be an integer, $x-1$ must divide $12$. The divisors of $12$ are $\pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \pm 12$, which gives $12$ divisors and thus $12$ values for $x$.}
+\inv{The archetype involves manipulating rational expressions. Here we require division to isolate a remainder term over a linear factor.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all positive integers $n$ such that $n^2 + 8n$ is a perfect square. \textit{\small(after BMO1 2018 Q1)}
+
+\ans{$1$}
+\method{Complete the square: $n^2 + 8n = k^2 \implies (n+4)^2 - 16 = k^2 \implies (n+4-k)(n+4+k) = 16$. Since $n > 0$, the sum of factors $n+4+k > 4$. Both factors must have the same parity (even), leaving only the factor pair $2 \times 8$. Thus $n+4+k = 8$ and $n+4-k = 2$. Adding these gives $2n+8 = 10 \implies n=1$.}
+\inv{This question builds on the BMO1 2018 archetype by directly testing the solver's ability to complete the square and analyse factor parity.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item How many 3-digit numbers have the property that the product of their digits is a prime number? \textit{\small(after SMC 2023 Q17)}
+
+\ans{$12$}
+\method{For the product of three digits to be a prime $p$, two digits must be $1$ and the other must be $p$. The single-digit primes are $2, 3, 5, 7$. For each prime, there are $3$ arrangements (e.g. $211, 121, 112$). Total $= 4 \times 3 = 12$.}
+\inv{The archetype involves properties of digit strings. This synoptically links number theory (primes) with a simple combinatorial counting exercise.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item How many integers $x$ with $1 \le x \le 100$ satisfy $x^2 \equiv 4 \pmod 5$? \textit{\small(after SMC 2018 Q16)}
+
+\ans{$40$}
+\method{The quadratic residues modulo $5$ are $0^2 \equiv 0$, $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 4$, $4^2 \equiv 1$. Thus $x^2 \equiv 4 \pmod 5$ implies $x \equiv 2$ or $3 \pmod 5$. There are $2$ solutions in every block of $5$ consecutive integers. In the range $1 \le x \le 100$, there are $100/5 = 20$ blocks, yielding exactly $20 \times 2 = 40$ solutions.}
+\inv{This explores quadratic residues modulo 5. The SMC 2018 Q16 archetype tested modular cycles; our question explicitly isolates the remainder equation structure.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of ordered pairs of positive integers $(x,y)$ such that $x+y=100$ and $\gcd(x,y)=5$. \textit{\small(after SMC 2022 Q12)}
+
+\ans{$8$}
+\method{Let $x = 5a$ and $y = 5b$. Then $a+b=20$ with $\gcd(a,b)=1$. We need the number of integers $a < 20$ coprime to $20$. Using Euler's totient function or manual counting, $\phi(20) = 20(1 - 1/2)(1 - 1/5) = 8$. (The coprimes are $1, 3, 7, 9, 11, 13, 17, 19$).}
+\inv{This question uses the classic structure of counting coprime pairs from the SMC, blending greatest common divisors with combinatorial counting.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest integer $n$ such that $n^3 + 100$ is divisible by $n+10$. \textit{\small(after MAT 2018 Q1)}
+
+\ans{$890$}
+\method{Rewrite the numerator using the sum of cubes: $n^3 + 100 = (n^3 + 10^3) - 900 = (n+10)(n^2-10n+100) - 900$. Thus $n+10$ must divide $900$. To maximise $n$, we set $n+10 = 900 \implies n=890$.}
+\inv{The MAT archetype uses algebra to isolate a constant remainder. Here we disguise a sum of cubes, rewarding algebraic structure recognition.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all positive integers $x < 20$ such that $x^2 \equiv 5 \pmod{11}$. \textit{\small(after SMC 2019 Q22)}
+
+\ans{$44$}
+\method{Testing squares modulo $11$: $1^2=1, 2^2=4, 3^2=9, 4^2=16 \equiv 5 \pmod{11}$. Since $4$ is a solution, $-4 \equiv 7 \pmod{11}$ is also a solution. The positive integers $x < 20$ satisfying this are $4, 7, 4+11=15,$ and $7+11=18$. Their sum is $4 + 7 + 15 + 18 = 44$.}
+\inv{Testing a concrete remainder equation. The SMC 2019 Q22 archetype involved squares in modular arithmetic, and we extend it to sum the explicit bounded solutions.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item A 4-digit number $A$ is formed by arranging the digits $1, 2, 3, 4$ in some order. What is the sum of all such possible numbers $A$? \textit{\small(after SMC 2021 Q21)}
+
+\ans{$66660$}
+\method{There are $4! = 24$ such numbers. Each digit $1, 2, 3, 4$ appears in each place value (units, tens, hundreds, thousands) exactly $3! = 6$ times. The sum of the digits is $10$. Thus each place value contributes $6 \times 10 = 60$. The total sum is $60 \times 1111 = 66660$.}
+\inv{This problem scales combinatorial permutations into a number theory context, requiring an understanding of base-10 expansions.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of pairs of positive integers $(a,b)$ such that $a^2 - b^2 = 2024$. \textit{\small(after BMO1 2021 Q1)}
+
+\ans{$4$}
+\method{Factor as $(a-b)(a+b) = 2024 = 2^3 \times 11 \times 23$. Since their sum is $2a$, $a-b$ and $a+b$ must share the same parity. Their product is even, so both must be even. Let $a-b = 2u$ and $a+b = 2v$. Then $4uv = 2024 \implies uv = 506 = 2 \times 11 \times 23$. The number $506$ has $8$ divisors. This yields exactly $4$ pairs of $(u,v)$ with $u < v$, giving $4$ valid pairs for $(a,b)$.}
+\inv{This Diophantine equation is typical of BMO1 Q1. It evaluates factor pairing and strictly enforcing parity constraints.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Let $S$ be the number of trailing zeros of $2025!$. What is the remainder when $S$ is divided by $100$? \textit{\small(after SMC 2023 Q12)}
+
+\ans{$5$}
+\method{Use Legendre's formula to find the exponent of $5$: $\lfloor 2025/5 \rfloor + \lfloor 2025/25 \rfloor + \lfloor 2025/125 \rfloor + \lfloor 2025/625 \rfloor = 405 + 81 + 16 + 3 = 505$. So $S = 505$, and $505 \pmod{100} = 5$.}
+\inv{Trailing zero questions are classic SMC. We ask for the remainder mod 100 to discourage partial manual additions.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item How many pairs of positive integers $(x,y)$ with $1 \le x, y \le 100$ satisfy $x^2 + y^2 \equiv 0 \pmod 5$? \textit{\small(after BMO1 2017 Q2)}
+
+\ans{$3600$}
+\method{Modulo $5$, the quadratic residues are $0, 1, 4$. For $x^2 + y^2 \equiv 0 \pmod 5$, the possible residue pairs $(x^2, y^2)$ are $(0,0), (1,4), (4,1)$. The number of solutions modulo $5$ for $x^2 \equiv 0$ is $1$; for $x^2 \equiv 1$ is $2$; for $x^2 \equiv 4$ is $2$. Hence, the number of pairs $(x,y) \pmod 5$ is $(1\times1) + (2\times2) + (2\times2) = 1 + 4 + 4 = 9$. Since there are exactly $100/5 = 20$ complete blocks of $5$ for each variable, the total number of pairs is $9 \times 20 \times 20 = 3600$.}
+\inv{This expands BMO1 2017 Q2's theme of Diophantine divisibility into a bivariate remainder equation, demanding combinatorial tracking of multiple modular branches.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the maximum value of $\gcd(n^2+3, n+2)$ as $n$ varies over all positive integers. \textit{\small(after BMO1 2019 Q2)}
+
+\ans{$7$}
+\method{Use the Euclidean algorithm polynomial division logic: $n^2 + 3 = (n-2)(n+2) + 7$. Therefore $\gcd(n^2+3, n+2) = \gcd(7, n+2)$. The greatest common divisor can never exceed $7$. It achieves $7$ when $n+2 = 7 \implies n=5$.}
+\inv{This relates a BMO1 polynomial GCD technique back to standard Euclidean manipulation. A short, elegant insight bounds the problem immediately.}
+
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}

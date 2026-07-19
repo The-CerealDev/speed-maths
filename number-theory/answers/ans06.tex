@@ -1,0 +1,264 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Number Theory}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Answers: Number Theory Drill \#6}{Agent Antigravity}
+
+\section*{Section A}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the largest prime factor of $2025$.
+
+\ans{$5$}
+\method{We have $2025 = 25 \times 81 = 5^2 \times 3^4$. The largest prime factor is $5$.}
+\inv{Is $2025$ a perfect square? Yes, $45^2 = 2025$.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item What is the last digit of $3^{2026}$?
+
+\ans{$9$}
+\method{The last digits of powers of $3$ cycle every $4$: $3, 9, 7, 1$. Since $2026 \equiv 2 \pmod 4$, the last digit is the second in the cycle, which is $9$.}
+\inv{What is the last digit of $3^{2024}$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find the greatest common divisor of $84$ and $120$.
+
+\ans{$12$}
+\method{Prime factorisation gives $84 = 2^2 \times 3 \times 7$ and $120 = 2^3 \times 3 \times 5$. The GCD is $2^2 \times 3 = 12$.}
+\inv{Can you find their LCM using the GCD?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item What is the remainder when $10^{10}$ is divided by $9$?
+
+\ans{$1$}
+\method{Using modular arithmetic, $10 \equiv 1 \pmod 9$. Therefore, $10^{10} \equiv 1^{10} \equiv 1 \pmod 9$.}
+\inv{What about division by $11$? $10 \equiv -1 \pmod{11}$.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Find the missing digit $d$ such that the five-digit number $47d53$ is divisible by $9$.
+
+\ans{$8$}
+\method{A number is divisible by $9$ if the sum of its digits is divisible by $9$. The sum is $4+7+d+5+3 = 19+d$. For $19+d$ to be a multiple of $9$ with $d$ a single digit, $19+d=27$, so $d=8$.}
+\inv{What if the number had to be divisible by $11$?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item How many positive integer factors does $100$ have?
+
+\ans{$9$}
+\method{Prime factorisation: $100 = 2^2 \times 5^2$. The number of factors is $(2+1)(2+1) = 9$.}
+\inv{Can you verify by listing them out?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Which is larger: $2^{300}$ or $3^{200}$?
+
+\ans{$3^{200}$}
+\method{We can rewrite the powers: $2^{300} = (2^3)^{100} = 8^{100}$, and $3^{200} = (3^2)^{100} = 9^{100}$. Clearly $9^{100} > 8^{100}$.}
+\inv{Which is larger: $2^{50}$ or $3^{30}$?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $5^{2024} \pmod 4$.
+
+\ans{$1$}
+\method{Since $5 \equiv 1 \pmod 4$, we have $5^{2024} \equiv 1^{2024} \equiv 1 \pmod 4$.}
+\inv{Evaluate $3^{2025} \pmod 4$.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ such that $12n$ is a perfect square.
+
+\ans{$3$}
+\method{We have $12 = 2^2 \times 3$. For $12n$ to be a perfect square, all prime factors must have even exponents. We need another factor of $3$, so $n=3$.}
+\inv{What is the smallest $n$ making it a perfect cube?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item What is the sum of the prime factors of $210$?
+
+\ans{$17$}
+\method{We factorise $210 = 21 \times 10 = 3 \times 7 \times 2 \times 5$. The sum of these prime factors is $2+3+5+7 = 17$.}
+\inv{Are there any repeated prime factors in $210$?}
+
+\end{enumerate}
+
+\section*{Section B}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of trailing zeroes of $20!$.
+
+\ans{$4$}
+\method{The number of trailing zeroes is determined by the number of factors of $5$. This is $\lfloor 20/5 \rfloor = 4$.}
+\inv{How many trailing zeroes in $100!$?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Solve for $x$ in $3x \equiv 4 \pmod 7$, with $0 < x < 7$.
+
+\ans{$6$}
+\method{Multiply by $5$, since $5 \times 3 = 15 \equiv 1 \pmod 7$. Thus $x \equiv 5 \times 4 = 20 \equiv 6 \pmod 7$.}
+\inv{Verify by plugging $x=6$ back in: $18 \pmod 7 = 4$.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item If $p$ and $q$ are prime numbers such that $p^2 - q^2 = 24$, find the value of $p+q$.
+
+\ans{$12$}
+\method{Factorising as a difference of squares: $(p-q)(p+q) = 24$. Since $p$ and $q$ are primes, their sum and difference must have the same parity. So $(p-q)$ and $(p+q)$ are both even. The even factor pairs of $24$ are $(2,12)$ and $(4,6)$. If $p+q=12, p-q=2 \implies p=7, q=5$, both prime! $p+q=12$.}
+\inv{What if $p^2 - q^2 = 33$?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the last two digits of $5^{2025}$.
+
+\ans{$25$}
+\method{Any power of $5$ greater than $1$ ends in $25$. $5^2 = 25$, $5^3 = 125$, $5^4 = 625$. By induction, $5^n \equiv 25 \pmod{100}$ for all $n \ge 2$.}
+\inv{What are the last two digits of $6^{2025}$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item A number $N$ leaves a remainder of $2$ when divided by $3$, and $3$ when divided by $5$. What is the smallest positive integer value of $N$?
+
+\ans{$8$}
+\method{We need $N \equiv 2 \pmod 3$ and $N \equiv 3 \pmod 5$. Testing numbers ending in $3$ or $8$: $3 \equiv 0 \pmod 3$, but $8 \equiv 2 \pmod 3$. So $N=8$.}
+\inv{Solve this systematically using the Chinese Remainder Theorem.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item How many perfect squares divide $3600$?
+
+\ans{$12$}
+\method{Prime factorisation: $3600 = 2^4 \times 3^2 \times 5^2$. A perfect square divisor must have even exponents: $2^{2a} \times 3^{2b} \times 5^{2c}$. There are $3$ choices for $a \in \{0,1,2\}$, $2$ for $b \in \{0,1\}$, and $2$ for $c \in \{0,1\}$. $3 \times 2 \times 2 = 12$.}
+\inv{How many divisors in total does $3600$ have?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Find the highest power of $3$ dividing $27^5 \times 9^4$.
+
+\ans{$23$}
+\method{Convert bases to $3$: $27^5 = (3^3)^5 = 3^{15}$ and $9^4 = (3^2)^4 = 3^8$. Multiply them: $3^{15} \times 3^8 = 3^{23}$. The highest power is $23$.}
+\inv{What is the highest power of $3$ dividing $27^5 + 9^4$?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item What is the smallest positive integer with exactly $6$ positive divisors?
+
+\ans{$12$}
+\method{To have $6$ factors, the prime factorisation must be $p^5$ or $p^2 q^1$. $p^5 \ge 2^5 = 32$. For $p^2 q^1$, the smallest is $2^2 \times 3^1 = 12$.}
+\inv{What is the smallest positive integer with exactly $8$ divisors?}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item If $x$ and $y$ are positive integers such that $xy = 144$ and $\gcd(x,y)=3$, find the maximum possible value of $x+y$.
+
+\ans{$51$}
+\method{Let $x = 3a$ and $y = 3b$ where $\gcd(a,b)=1$. $9ab = 144 \implies ab = 16$. The coprime factor pairs of $16$ are just $(1, 16)$. Thus $x=3, y=48$. The maximum sum is $3 + 48 = 51$.}
+\inv{What if the GCD was $4$?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Calculate the remainder when $1! + 2! + 3! + \dots + 10!$ is divided by $5$.
+
+\ans{$3$}
+\method{Any factorial from $5!$ onwards is a multiple of $5$, so they leave a remainder of $0$. We only need $1!+2!+3!+4! = 1+2+6+24 = 33 \equiv 3 \pmod 5$.}
+\inv{Calculate the remainder when the sum is divided by $12$.}
+
+\end{enumerate}
+
+\section*{Section C}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find the number of pairs of positive integers $(x, y)$ such that $xy + x + y = 23$.
+
+\ans{$6$}
+\method{We use Simon's Favorite Factoring Trick to factorise as $(x+1)(y+1) - 1 = 23 \implies (x+1)(y+1) = 24$. The factors of $24$ are $1, 2, 3, 4, 6, 8, 12, 24$. Since $x, y \ge 1$, we must have $x+1, y+1 \ge 2$. Valid pairs for $(x+1, y+1)$ are $(2,12), (3,8), (4,6), (6,4), (8,3), (12,2)$, giving $6$ pairs.}
+\inv{This question builds upon the archetype of Simon's Favorite Factoring Trick found in the SMC, pushing students to count valid pairs after factorisation.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all prime numbers $p$ such that $p^2 + 2$ is also prime.
+
+\ans{$3$}
+\method{If $p \neq 3$, then $p \equiv 1 \text{ or } 2 \pmod 3$. In either case, $p^2 \equiv 1 \pmod 3$, so $p^2 + 2 \equiv 3 \equiv 0 \pmod 3$. Thus $p^2+2$ is a multiple of $3$ and strictly greater than $3$, meaning it cannot be prime. The only solution is $p=3$, giving $3^2+2=11$. The sum is $3$.}
+\inv{This plays on the SMC archetype of checking prime structures modulo $3$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item How many 3-digit palindromes are divisible by $11$?
+
+\ans{$8$}
+\method{A 3-digit palindrome has the form $aba = 101a + 10b$. Divisibility by $11$ requires $2a - b \equiv 0 \pmod{11}$. Since $1 \le a \le 9$ and $0 \le b \le 9$, the possible values for $2a-b$ are $0$ or $11$. If $2a-b=0 \implies b=2a \implies (a,b) = (1,2), (2,4), (3,6), (4,8)$ (4 cases). If $2a-b=11 \implies b=2a-11 \implies (a,b) = (6,1), (7,3), (8,5), (9,7)$ (4 cases). Total $8$.}
+\inv{This adapts an SMC logic puzzle involving place value equations and divisibility rules.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The product of three consecutive positive integers is equal to $336$. Find the sum of these integers.
+
+\ans{$21$}
+\method{Let the integers be $n-1, n, n+1$. Their product is $n(n^2-1) = 336$. We know $n^3 \approx 336$, so $n \approx 7$. Testing $n=7$: $6 \times 7 \times 8 = 336$. The integers are $6, 7, 8$, and their sum is $21$.}
+\inv{A classic SMC archetype linking algebra (consecutive terms) to arithmetic limits.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Let $N$ be a 4-digit number. When its digits are reversed, the new number is $N + 1089$. If the sum of the digits of $N$ is $12$, what is the maximum possible value of $N$?
+
+\ans{$5016$}
+\method{Let $N = \overline{abcd}$. The reversed number is $\overline{dcba}$. Their difference is $999(d-a) + 90(c-b) = 1089$. This implies $d-a = 1$ and $c-b = 1$. We are given $a+b+c+d = 12 \implies 2a+2b+2 = 12 \implies a+b=5$. To maximise $N$, we want $a$ to be as large as possible. Max $a=5 \implies b=0 \implies c=1, d=6$. The number is $5016$.}
+\inv{A multi-step logic problem commonly seen in SMC requiring place value decomposition.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all positive integers $x$ such that $\frac{x+11}{x-3}$ is an integer.
+
+\ans{$39$}
+\method{We rewrite the fraction using polynomial division: $1 + \frac{14}{x-3}$. This is an integer when $x-3$ divides $14$. The divisors of $14$ are $\pm 1, \pm 2, \pm 7, \pm 14$. Thus $x \in \{4, 5, 10, 17, 2, 1, -4, -11\}$. The positive ones are $4, 5, 10, 17, 2, 1$, which sum to $39$.}
+\inv{Synoptic link: Rational manipulation combined with Diophantine divisor rules.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find the maximum possible value of $\gcd(7n+15, 3n+2)$, where $n$ is a positive integer.
+
+\ans{$31$}
+\method{Using the Euclidean algorithm trick $\gcd(a,b) = \gcd(a, a-kb)$, we can eliminate $n$. We have $\gcd(7n+15, 3n+2) = \gcd(7n+15 - 2(3n+2), 3n+2) = \gcd(n+11, 3n+2) = \gcd(n+11, 3n+2 - 3(n+11)) = \gcd(n+11, -31)$. The greatest common divisor must divide $31$. Since $31$ is prime, the maximum possible value is $31$. This is achievable, for example when $n=20$, $\gcd(155, 62) = 31$.}
+\inv{This question tests the Euclidean algorithm trick, requiring students to take linear combinations of the two terms to eliminate the variable $n$, a common SMC archetype.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Find the sum of all integers $n$ such that $\frac{n^2+3n+5}{n-1}$ is an integer.
+
+\ans{$6$}
+\method{We use polynomial division to rewrite the fraction: $\frac{n^2+3n+5}{n-1} = \frac{(n-1)(n+4) + 9}{n-1} = n+4 + \frac{9}{n-1}$. For this to be an integer, $n-1$ must be a divisor of $9$. The divisors of $9$ are $\pm 1, \pm 3, \pm 9$. Thus, $n-1 \in \{-9, -3, -1, 1, 3, 9\}$, which gives $n \in \{-8, -2, 0, 2, 4, 10\}$. The sum of these values is $-8 - 2 + 0 + 2 + 4 + 10 = 6$.}
+\inv{This question requires finding when polynomial quotients are integers by separating the remainder, extending the basic rational manipulation archetype to quadratics.}
+
+\end{enumerate}
+
+\section*{Section D}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find all three-digit numbers $abc$ such that $abc = a! + b! + c!$.
+
+\ans{$145$}
+\method{The maximum digit cannot be $\ge 7$, since $7! = 5040 > 999$. It cannot be $6$, because even if there's a $6$, the number is $\ge 720$, meaning $a \ge 7$, contradiction. Thus the max digit is $5$. The maximum possible sum is $3 \times 5! = 360$, so $a \le 3$, which means $a! \le 6$. We need $b$ or $c$ to be $5$ to reach three digits. If $a=1$, testing $(1,4,5) \implies 1!+4!+5! = 1+24+120 = 145$. The unique solution is $145$.}
+\inv{A famous BMO-style bounding argument using factorial growth limits.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Let $d_n = \gcd(n^2 + 3, n+1)$. Find the sum of all possible values of $d_n$ as $n$ ranges over all positive integers.
+
+\ans{$7$}
+\method{Using polynomial division or the Euclidean step, we can rewrite $n^2+3$ in terms of $n+1$. We have $n^2+3 = (n+1)(n-1) + 4$. Therefore, $d_n = \gcd((n+1)(n-1)+4, n+1) = \gcd(4, n+1)$. The possible values for the greatest common divisor of $n+1$ and $4$ are the positive divisors of $4$, which are $1, 2,$ and $4$. All these are achievable: $n=2 \implies \gcd(7,3)=1$, $n=1 \implies \gcd(4,2)=2$, $n=3 \implies \gcd(12,4)=4$. The sum of these possible values is $1+2+4=7$.}
+\inv{This question perfectly tests the Euclidean algorithm trick and polynomial quotients together, combining algebraic manipulation with greatest common divisor logic.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Find the last three digits of $2025^{2025}$.
+
+\ans{$625$}
+\method{We are working modulo $1000$. Note that $2025 \equiv 25 \pmod{1000}$. Successive powers of $25$ are $25^2 = 625$, $25^3 = 15625 \equiv 625 \pmod{1000}$. In fact, $25^k \equiv 625 \pmod{1000}$ for all $k \ge 2$. Thus $2025^{2025} \equiv 25^{2025} \equiv 625 \pmod{1000}$.}
+\inv{A rapid cycle-finding problem using modular exponentiation.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item For how many positive integers $n \le 100$ is $n^n$ a perfect square?
+
+\ans{$55$}
+\method{If $n$ is even, $n^n = (n^{n/2})^2$, which is always a perfect square since $n/2$ is an integer. There are $50$ even numbers $\le 100$. If $n$ is odd, then $n^n = n(n^{(n-1)/2})^2$. For this to be a square, $n$ itself must be a perfect square. The odd perfect squares up to $100$ are $1^2, 3^2, 5^2, 7^2, 9^2 \implies 1, 9, 25, 49, 81$. There are $5$ such numbers. Total $= 50 + 5 = 55$.}
+\inv{Combinatorial number theory archetype: classifying parity for exponents.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Find the maximum value of $x + y + z$ given that $x, y, z$ are positive integers satisfying $x \le y \le z$ and $\frac{1}{x} + \frac{1}{y} + \frac{1}{z} = 1$.
+
+\ans{$11$}
+\method{If $x=1$, the sum exceeds $1$. If $x=3$, $1/y+1/z = 2/3$. Since $x \le y \le z$, $y \ge 3$. If $y=3$, $z=3 \implies 3+3+3=9$. If $x=2$, $1/y+1/z = 1/2 \implies (y-2)(z-2) = 4$. The factor pairs of $4$ are $(1,4)$ and $(2,2)$. $(1,4) \implies y=3, z=6 \implies 2+3+6=11$. $(2,2) \implies y=4, z=4 \implies 2+4+4=10$. The max sum is $11$.}
+\inv{Egyptian fractions bounding archetype, requiring systematically trying minimal denominators.}
+
+\end{enumerate}
+
+\end{document}

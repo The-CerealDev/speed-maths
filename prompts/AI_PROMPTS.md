@@ -6,6 +6,18 @@ To prevent this, you must split the generation into **three distinct turns**, an
 
 ---
 
+## Pillar Generation Workflow (The Curriculum Pattern)
+When generating a completely new 7-day pillar (e.g., Geometry), you MUST follow this workflow to prevent the sheets from becoming a randomized "mixed bag" of topics.
+
+1. **Curriculum Pre-Planning:** The Orchestrator AI must first draft a comprehensive 7-day curriculum plan mapping out the escalating toolkits and tricks.
+2. **Spaced Repetition & Foreshadowing:** When spawning the parallel subagents, the Orchestrator MUST provide the subagent with the **entire 7-day curriculum list** and explicitly tell it which day it is working on. 
+3. **Agent Briefing:** The subagent must be instructed to:
+   - Use Sections A and B to actively review and drill toolkits from the *previous* days (Spaced Repetition).
+   - Use Sections C and D to strictly introduce and test the *current* day's new toolkit.
+   - Use the `\inv{}` blocks to explicitly drop hints or foreshadow the *next* day's toolkit.
+
+---
+
 ## Turn 1: Generating the Questions
 Open a new chat. Your goal is to generate ONLY the questions first. Do not ask for answers yet.
 
