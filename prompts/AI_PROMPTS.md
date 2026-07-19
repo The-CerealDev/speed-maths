@@ -17,6 +17,7 @@ When generating a completely new 7-day pillar (e.g., Geometry), you MUST follow 
    - Use Sections A and B to actively review and drill toolkits from the *previous* days (Spaced Repetition).
    - Use Sections C and D to strictly introduce and test the *current* day's new toolkit.
    - Use the `\inv{}` blocks to explicitly drop hints or foreshadow the *next* day's toolkit.
+4. **Structural Compliance Check:** Before finalizing a new pillar, you MUST compare its directory structure against an existing completed pillar (e.g., `algebra/`). Ensure all necessary utility scripts (like `verify/run_all.py`) are replicated, and verify that the new pillar is correctly registered in the repository's CI pipelines (e.g., `.github/workflows/verify.yml`).
 
 ---
 
