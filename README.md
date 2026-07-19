@@ -82,40 +82,7 @@ This repository doubles as a static PDF-archive website (like PMT or MadasMaths)
    `tabular` directly instead of calling `\SpeedTitleBlock`.
 3. Match it with an answer file using `\ans` / `\method` / `\inv`.
 
-## Migration changelog (this reboot)
 
-The original 7 algebra sheets + 7 answer files had drifted inconsistently
-over time. Fixed during this migration, all silently, no question content
-touched:
-
-- **Branding split:** sheets 1–7 said *"TMUA & UKMT"*; answers 2–7 had
-  already moved to *"TMUA & SMC"* while answer 1 and the Section D
-  difficulty tag (all 7 sheets) were still on UKMT. Standardized to **SMC**
-  everywhere, matching the majority/most recent usage.
-- **Header bug:** every single file had a duplicate `\fancyhead[R]{...}`
-  call (or was missing one side entirely), so **no compiled PDF ever
-  actually showed both the worksheet number and the author credit
-  together** — one silently overwrote the other. Fixed via one shared
-  `\SpeedHeader` macro.
-- **Column header drift:** table header alternated between "Topic" and
-  "Focus" across files. Standardized to **"Topic"**.
-- **Toolkit-line phrasing drift:** *"New Concepts:"* / *"New concepts
-  today:"* / *"Toolkit:"* / *"New toolkit today:"* all appeared at
-  different points. Standardized to **"New toolkit today:"**.
-- **Stray file:** `ans1.tex` was sitting outside the `answers/` folder at
-  the project root — moved into `algebra/answers/ans01.tex` like its
-  siblings.
-- **Duplicated preamble:** every file carried its own full copy of
-  packages/colours/box-environments (~40 lines each). Extracted once into
-  `shared/preamble.tex` so future edits (or new pillars) can't drift the
-  same way again.
-- **Strict Verification & Question Design:** Created a robust `CONTRIBUTING.md`
-  that strictly mandates computational/script-based verification for all
-  answers, and clearly defines the TMUA, MAT, SMC, and BMO1 question styles
-  to guide future question generation.
-
-All 14 files were recompiled after migration to confirm no content was lost
-or altered — only structure and branding changed.
 
 ## Roadmap (Planned Expansions)
 
