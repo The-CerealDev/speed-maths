@@ -192,13 +192,30 @@ def check_D5():
     """EXHAUSTIVE PROOF"""
     assert pow(2025, 2026, 1000) == 625
 
-if __name__ == '__main__':
-    checks = [
-        check_A1, check_A2, check_A3, check_A4, check_A5, check_A6, check_A7, check_A8, check_A9, check_A10,
-        check_B1, check_B2, check_B3, check_B4, check_B5, check_B6, check_B7, check_B8, check_B9, check_B10,
-        check_C1, check_C2, check_C3, check_C4, check_C5, check_C6, check_C7, check_C8,
-        check_D1, check_D2, check_D3, check_D4, check_D5
-    ]
-    for check in checks:
-        check()
-    print("All checks passed!")
+
+CHECKS = {
+    "A1": check_A1, "A2": check_A2, "A3": check_A3, "A4": check_A4, "A5": check_A5,
+    "A6": check_A6, "A7": check_A7, "A8": check_A8, "A9": check_A9, "A10": check_A10,
+    "B1": check_B1, "B2": check_B2, "B3": check_B3, "B4": check_B4, "B5": check_B5,
+    "B6": check_B6, "B7": check_B7, "B8": check_B8, "B9": check_B9, "B10": check_B10,
+    "C1": check_C1, "C2": check_C2, "C3": check_C3, "C4": check_C4, "C5": check_C5,
+    "C6": check_C6, "C7": check_C7, "C8": check_C8,
+    "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
+}
+
+def main():
+    if not __debug__:
+        raise Exception("Do not run with -O! Assertions are disabled.")
+
+    passed = 0
+    for name, func in CHECKS.items():
+        try:
+            func()
+            passed += 1
+        except Exception as e:
+            print(f"FAILED {name}: {e}")
+            raise
+    print(f"All {passed} checks passed!")
+
+if __name__ == "__main__":
+    main()
