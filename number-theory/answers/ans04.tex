@@ -256,7 +256,7 @@
 \item Find the largest positive integer $n$ such that $2^n$ divides $3^{1024} - 1$.
 
 \ans{$12$}
-\method{Using the factorization $x^2 - y^2 = (x-y)(x+y)$ repeatedly, $3^{1024} - 1 = (3^{512} + 1)(3^{256} + 1) \cdots (3^2 + 1)(3+1)(3-1)$. Every factor of the form $3^k + 1$ (for $k \ge 1$) is $3^{2m} + 1 \equiv 1 + 1 \equiv 2 \pmod 4$, meaning it contains exactly one factor of 2. There are 10 such factors ($k = 512, 256, \ldots, 1$). Thus we get $10$ factors of $2$. Additionally, $(3+1) = 4$ contains two factors of 2, and $(3-1) = 2$ contains one factor of 2. However, wait, $3-1$ and $3+1$ are evaluated as $3^1-1=2$ (one factor), $3^1+1=4$ (two factors). In the sequence $3^{2^k}+1$, $k=1$ is $3^2+1=10$ (one factor). Total factors of 2: $1 (\text{from } 3-1) + 2 (\text{from } 3+1) + 9 \times 1 (\text{from } 3^2+1 \text{ to } 3^{512}+1) = 1+2+9 = 12$.}
+\method{Using the factorization $x^2 - y^2 = (x-y)(x+y)$ repeatedly, $3^{1024} - 1 = (3^{512} + 1)(3^{256} + 1) \cdots (3^2 + 1)(3+1)(3-1)$. Every factor of the form $3^k + 1$ for even $k \ge 2$ is $3^{2m} + 1 \equiv 1 + 1 \equiv 2 \pmod 4$, meaning it contains exactly one factor of 2. There are 9 such factors ($k = 512, 256, \ldots, 2$). Thus we get $9$ factors of $2$. Additionally, $(3+1) = 4$ contains two factors of 2, and $(3-1) = 2$ contains one factor of 2. Total factors of 2: $1 (\text{from } 3-1) + 2 (\text{from } 3+1) + 9 \times 1 (\text{from } 3^2+1 \text{ to } 3^{512}+1) = 1+2+9 = 12$.}
 \inv{Mirrors BMO1 2019 Q3. This is an application of the Lifting The Exponent Lemma (LTE), $v_2(x^n - y^n) = v_2(x-y) + v_2(x+y) + v_2(n) - 1$.}
 
 \end{enumerate}
