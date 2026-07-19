@@ -10,8 +10,10 @@ To prevent this, you must split the generation into **three distinct turns**, an
 When generating a completely new 7-day pillar (e.g., Geometry), you MUST follow this workflow to prevent the sheets from becoming a randomized "mixed bag" of topics.
 
 1. **Curriculum Pre-Planning:** The Orchestrator AI must first draft a comprehensive 7-day curriculum plan mapping out the escalating toolkits and tricks.
-2. **Spaced Repetition & Foreshadowing:** When spawning the parallel subagents, the Orchestrator MUST provide the subagent with the **entire 7-day curriculum list** and explicitly tell it which day it is working on. 
-3. **Agent Briefing:** The subagent must be instructed to:
+2. **Environment Check:** 
+   - *If your harness supports parallel multi-agent orchestration:* Spawn parallel subagents. You MUST provide each subagent with the **entire 7-day curriculum list** and explicitly tell it which day it is working on.
+   - *If your harness is sequential (e.g., standard chat UI):* Generate the sheets one-by-one. Pass the curriculum context forward into each subsequent turn. Do NOT attempt to generate all 7 sheets in a single prompt.
+3. **Agent/Turn Briefing:** The subagent (or sequential turn) must be instructed to:
    - Use Sections A and B to actively review and drill toolkits from the *previous* days (Spaced Repetition).
    - Use Sections C and D to strictly introduce and test the *current* day's new toolkit.
    - Use the `\inv{}` blocks to explicitly drop hints or foreshadow the *next* day's toolkit.
