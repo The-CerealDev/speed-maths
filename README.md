@@ -1,7 +1,7 @@
 # Speed Maths — Daily Drill Series
 
 TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
-**Combinatorics** (done, 7 sheets), **Number Theory** (not started), **Geometry** (not started).
+**Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets), **Geometry** (not started).
 
 ## Structure
 
@@ -18,8 +18,8 @@ Speed-Maths/
 │   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
 │   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── number-theory/
-│   ├── sheets/
-│   └── answers/
+│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
+│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── geometry/
 │   ├── sheets/
 │   └── answers/
