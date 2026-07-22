@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#5}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Spotting Flawed Steps $\cdot$ Common Fallacies (affirming the consequent, denying the antecedent, unjustified division) $\cdot$ Line-by-Line Proof Critique.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Name the fallacy, or say whether the reasoning pattern is valid. Pure recognition.}
+
+\begin{enumerate}
+
+\item ``$P\Rightarrow Q$, and $Q$ is true; conclude $P$ is true.'' Is this reasoning valid?
+
+\item ``$P\Rightarrow Q$, and $Q$ is false; conclude $P$ is false.'' Is this reasoning valid?
+
+\item ``$P\Rightarrow Q$, and $P$ is false; conclude $Q$ is false.'' Is this reasoning valid?
+
+\item ``$P\Rightarrow Q$, and $P$ is true; conclude $Q$ is true.'' Is this reasoning valid?
+
+\item Spot the flaw: ``$n$ is odd $\Rightarrow n^2$ is odd. $n^2=49$ is odd. Therefore $n=7$.''
+
+\item Spot the flaw: ``If a shape is a square, it's a rectangle. This shape is not a square. Therefore it's not a rectangle.''
+
+\item True or false: ``If $P\Rightarrow Q$ and $Q\Rightarrow P$ are both true, then assuming $Q$ to conclude $P$ becomes valid reasoning.''
+
+\item Divide both sides of $x^2=5x$ by $x$ to get $x=5$. Which solution got lost?
+
+\item True or false: ``Squaring both sides of an equation can introduce extraneous (fake) solutions.''
+
+\item True or false: ``Dividing both sides of an equation by a variable expression can lose valid solutions.''
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Find the specific broken step in a short argument --- or confirm there isn't one.}
+
+\begin{enumerate}
+
+\item Spot the flaw: ``$n^2$ is a multiple of $4$. Therefore $n$ is a multiple of $4$.''
+
+\item Spot the flaw: ``$\sqrt{x^2}=x$ for all real $x$.''
+
+\item A ``proof'' that $a=0$ for any $a=b$: Line I: $a=b$. Line II: $a^2=ab$. Line III: $a^2-b^2=ab-b^2$. Line IV: $(a-b)(a+b)=b(a-b)$. Line V: dividing both sides by $(a-b)$: $a+b=b$, so $a=0$. Which line introduces the flaw, and why?
+
+\item Spot the flaw: ``If it is sunny, I wear sunglasses. I am wearing sunglasses. Therefore it is sunny.''
+
+\item Spot the flaw: ``$x^2>4$. Therefore $x>2$.''
+
+\item Spot the flaw: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $2$ and of $3$. $n$ is a multiple of $2$. Therefore $n$ is a multiple of $6$.''
+
+\item Is there a flaw in this argument? ``$n$ is odd (given). Line 1: $n=2k+1$ for some integer $k$. Line 2: $n^2=4k^2+4k+1$. Line 3: $n^2=2(2k^2+2k)+1$. Line 4: therefore $n^2$ is odd.''
+
+\item Spot the flaw: ``All multiples of $4$ are even. $n$ is even. Therefore $n$ is a multiple of $4$.''
+
+\item Spot the flaw: ``$\sqrt4=\pm2$, so $\sqrt4=2$ and $\sqrt4=-2$ simultaneously, meaning $2=-2$.''
+
+\item Spot the flaw: ``Since $(-2)^2=2^2=4$, we can cancel the squares to conclude $-2=2$.''
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Longer arguments --- some flawed, some genuinely correct. Decide which, and why.}
+
+\begin{enumerate}
+
+\item Consider this argument. Line I: let $n$ be even, so $n=2k$. Line II: $n^3=8k^3$. Line III: $n^3=2(4k^3)$. Line IV: therefore $n^3$ is even and $n^3$ is a multiple of $8$. Which best describes this attempt?
+\begin{itemize}
+\item[A)] Completely correct.
+\item[B)] Error in line II.
+\item[C)] Error in line III.
+\item[D)] The conclusion ``$n^3$ is a multiple of $8$'' does not follow.
+\end{itemize}
+
+\item ``Claim: if $n$ is a positive integer and $n^2>100$, then $n>10$. `Proof': $n^2>100 \Rightarrow n>10$ (taking square roots of both sides).'' Is this proof valid? If not, give a counterexample.
+
+\item ``Claim: if $a,b$ are integers with $a\mid b$ and $b\mid a$, then $a=b$.'' Spot the flaw and give a counterexample.
+
+\item ``Claim: for positive real $x$, if $x+\tfrac1x=2$, then $x=1$. `Proof': $x+\tfrac1x=2 \Rightarrow x^2+1=2x \Rightarrow x^2-2x+1=0 \Rightarrow (x-1)^2=0 \Rightarrow x=1$.'' Is this proof valid?
+
+\item ``Claim: if $n$ is an integer and $n^2$ is divisible by $4$, then $n$ is divisible by $4$. `Proof': $n^2$ divisible by $4$ $\Rightarrow n^2=4m$ for some integer $m$ $\Rightarrow n=2\sqrt{m}$, and since $n$ is an integer this is always even, hence $n$ is divisible by $4$.'' Identify exactly where this breaks down, and give a counterexample.
+
+\item ``Claim: the equation $x^3=x$ has exactly one real solution. `Proof': $x^3=x \Rightarrow x^3-x=0 \Rightarrow x(x^2-1)=0 \Rightarrow x=0$ (dividing by $(x^2-1)$).'' Spot the flaw.
+
+\item ``Claim: if $p$ is prime and $p>2$, then $p+1$ is not prime. `Proof': $p$ is odd (Day 1, B9), so $p+1$ is even. Since $p+1>2$ is even, it cannot be prime, as the only even prime is $2$.'' Is this proof valid?
+
+\item ``Claim: for every positive integer $n$, $n^2 \geq 2n-1$, with equality only at $n=1$. `Proof': $n^2-2n+1=(n-1)^2\geq0$ always, with equality exactly when $n=1$.'' Is this proof valid?
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant solution --- find it.}
+
+\begin{enumerate}
+
+\item A student is asked to prove: ``If $n$ is even, then $n^2$ is even.'' The student instead writes: ``Suppose $n^2$ is even. Then $n^2=2m$ for some integer $m$. If $n$ were odd, $n^2$ would be odd (Day 1, B5) --- contradiction. So $n$ is even.'' Which best describes this attempt? \textit{\small(after TMUA 2021 Paper 2 Q11 format)}
+\begin{itemize}
+\item[A)] A completely correct proof of the original statement.
+\item[B)] Incorrect --- the student has proved the converse of the original statement instead.
+\item[C)] Incorrect because there is an error in the contradiction step.
+\item[D)] Incorrect because odd numbers were not properly defined.
+\end{itemize}
+
+\item A student ``proves'' that $\sqrt2$ is rational as follows: ``Suppose $\sqrt2=p/q$ in lowest terms. Then $2=p^2/q^2$, so $2q^2=p^2$, so $p^2$ is even, so $p$ is even, so $p=2r$. Then $2q^2=4r^2$, so $q^2=2r^2$, so $q$ is even too. But $p,q$ were in lowest terms, so they can't both be even --- contradiction. Hence $\sqrt2$ is rational.'' Spot the flaw in the final line's conclusion.
+
+\item ``Reasoning: for every positive integer $n$, $n^2+n$ is even; therefore, by strong induction, every polynomial in $n$ with integer coefficients is even.'' What is wrong with this reasoning, independent of whether the individual claim ``$n^2+n$ is even'' is itself true?
+
+\item ``Claim: a triangle has two equal angles if and only if it has two equal sides (isosceles); therefore, having two equal angles is logically equivalent to having a right angle.'' What is wrong with this argument?
+
+\item A student presents this argument: ``Claim: if $n$ is a positive integer with $n^2-n+41$ composite, then $n\geq40$. Proof: we showed (Day 4, C1) that $n^2+n+41$ is prime for $n=0,\dots,39$ and composite at $n=40$. Since $n^2-n+41$ is just $n^2+n+41$ with $n$ replaced by $-n$, the same primality pattern applies, so $n^2-n+41$ is composite exactly when $n\geq40$ too.'' Identify precisely what is wrong with this argument, and give a specific counterexample.
+
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}

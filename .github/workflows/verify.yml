@@ -19,7 +19,7 @@ jobs:
       matrix:
         # geometry/ is still fully gitignored (empty
         # pillar) — add it here once it has real content to check out.
-        pillar: [algebra, combinatorics, number-theory]
+        pillar: [algebra, combinatorics, number-theory, logic]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

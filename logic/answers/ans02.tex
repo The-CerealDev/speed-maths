@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#2 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$n$ is divisible by $4$'' a sufficient condition for ``$n$ is divisible by $2$''?
+
+\ans{Yes.}
+\method{$n$ divisible by $4 \Rightarrow n$ divisible by $2$, since $4=2\times2$. ``Sufficient'' means the condition, if true, guarantees the target.}
+\inv{This is exactly Day 1's original conditional, now read in necessary/sufficient language: ``$A$ is sufficient for $B$'' means precisely $A \Rightarrow B$.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$n$ is divisible by $4$'' a necessary condition for ``$n$ is divisible by $2$''?
+
+\ans{No.}
+\method{``Necessary'' means $n$ divisible by $2 \Rightarrow n$ divisible by $4$, which is false: $n=2$ is divisible by $2$ but not $4$.}
+\inv{``$A$ necessary for $B$'' means $B \Rightarrow A$ --- the converse direction of A1. Necessary and sufficient point opposite ways along the same implication.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$x=3$'' a sufficient condition for ``$x^2=9$''?
+
+\ans{Yes.}
+\method{$x=3 \Rightarrow x^2=9$ directly by substitution.}
+\inv{Compare A4: sufficiency and necessity are independent questions about the same pair of statements.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$x=3$'' a necessary condition for ``$x^2=9$''?
+
+\ans{No.}
+\method{$x^2=9 \Rightarrow x=3$ is false: $x=-3$ also satisfies $x^2=9$ (Day 1, A2).}
+\inv{``$x=3$'' is sufficient but not necessary for ``$x^2=9$'' --- the first fully classified pair of the day.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``being a rectangle'' is a necessary condition for ``being a square''.
+
+\ans{True.}
+\method{Square $\Rightarrow$ rectangle (Day 1, A3), so ``rectangle'' is required (necessary) whenever ``square'' holds.}
+\inv{Necessary conditions are what you can't do without; they needn't guarantee the target on their own.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``being a rectangle'' is a sufficient condition for ``being a square''.
+
+\ans{False.}
+\method{A $2\times3$ rectangle (Day 1, A4) is a counterexample: it's a rectangle but not a square.}
+\inv{``Rectangle'' is necessary but not sufficient for ``square'' --- the exact mirror image of A3/A4's pair.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$n=6$'' a sufficient condition for ``$n$ is a multiple of $3$''?
+
+\ans{Yes.}
+\method{$n=6 \Rightarrow n$ is a multiple of $3$, since $6=3\times2$.}
+\inv{A single value can always be sufficient for a broader property it satisfies --- the interesting question is always necessity.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$n=6$'' a necessary condition for ``$n$ is a multiple of $3$''?
+
+\ans{No.}
+\method{$n=9$ is a multiple of $3$ but $n \neq 6$, so ``$n$ is a multiple of $3$'' does not require $n=6$.}
+\inv{A single value is essentially never necessary for a broader property --- necessity almost always demands a whole family, not one instance.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``$n$ is even'' is a necessary condition for ``$n$ is divisible by $4$''.
+
+\ans{True.}
+\method{$n$ divisible by $4 \Rightarrow n$ even, since $4=2\times2$.}
+\inv{This is the same pair as A1/A2, viewed from the opposite side --- ``even'' is necessary for ``div.\ by $4$'' exactly because ``div.\ by $4$'' is sufficient for ``even''.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: ``$n$ is even'' is a sufficient condition for ``$n$ is divisible by $4$''.
+
+\ans{False.}
+\method{$n=2$ is even but not divisible by $4$.}
+\inv{``Even'' is necessary but not sufficient for ``divisible by $4$'' --- Section B starts combining necessary and sufficient into a single four-way classification.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$x>5$'' as a condition for ``$x>0$'': necessary, sufficient, both, or neither?
+
+\ans{Sufficient but not necessary.}
+\method{$x>5 \Rightarrow x>0$ (sufficient). But $x>0 \Rightarrow x>5$ is false, e.g.\ $x=1$ (not necessary).}
+\inv{A ``wider'' threshold statement is always sufficient for a ``narrower'' one it's nested inside, and never necessary for it.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$n$ is divisible by $6$'' as a condition for ``$n$ is divisible by $2$ and by $3$''.
+
+\ans{Necessary and sufficient.}
+\method{Sufficient: $6\mid n \Rightarrow 2\mid n$ and $3\mid n$ directly. Necessary: if $2\mid n$ and $3\mid n$, then since $\gcd(2,3)=1$, $\mathrm{lcm}(2,3)=6\mid n$. Both directions hold, so it's an iff (this restates Day 1's B1 in classification language).}
+\inv{Whenever a statement and its converse are both true (Day 1), the condition is necessary and sufficient --- the two ideas are the same fact in different vocabulary.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$ab=0$'' as a condition for ``$a=0$'' (where $a,b$ are real numbers).
+
+\ans{Necessary but not sufficient.}
+\method{Necessary: $a=0 \Rightarrow ab=0$ trivially. Not sufficient: $a=1,b=0$ gives $ab=0$ but $a\neq0$.}
+\inv{The correct sufficient-and-necessary condition for ``$a=0$'' from $ab=0$ alone would need $b\neq0$ added as an extra hypothesis.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$n^2$ is even'' as a condition for ``$n$ is even''.
+
+\ans{Necessary and sufficient.}
+\method{Sufficient: $n$ even $\Rightarrow n^2$ even (Day 1, B2). Necessary: $n^2$ even $\Rightarrow n$ even, since if $n$ were odd, $n^2$ would be odd (Day 1, B5, contrapositive-flavoured). Both directions hold.}
+\inv{Compare B1's ``wider/narrower'' pattern: this pair is iff precisely because parity of $n$ and parity of $n^2$ always agree, with no gap between them.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$x$ is an integer'' as a condition for ``$x$ is a rational number''.
+
+\ans{Sufficient but not necessary.}
+\method{Sufficient: every integer is rational. Not necessary: $x=\tfrac12$ is rational but not an integer.}
+\inv{Integers are a strict subset of the rationals, so ``integer'' can only ever be sufficient for ``rational,'' never necessary.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``a triangle is equilateral'' as a condition for ``a triangle is isosceles''.
+
+\ans{Sufficient but not necessary.}
+\method{Sufficient: an equilateral triangle has (at least) two equal sides, satisfying the definition of isosceles. Not necessary: a triangle with sides $3,3,5$ is isosceles but not equilateral.}
+\inv{The same subset pattern as B5: equilateral triangles are a strict subset of isosceles triangles.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Given that ``$P \Rightarrow Q$'' and ``$Q \Rightarrow R$'' are both true, is $P$ a sufficient condition for $R$? Justify briefly.
+
+\ans{Yes.}
+\method{If $P$ holds, then $P \Rightarrow Q$ gives $Q$; then $Q \Rightarrow R$ gives $R$. So $P \Rightarrow R$, i.e.\ $P$ is sufficient for $R$.}
+\inv{This is the general transitivity-of-implication rule --- Section C proves it abstractly (C5) rather than just applying it.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Given that ``$n$ divisible by $9 \Rightarrow n$ divisible by $3$'' and ``$n$ divisible by $3 \Rightarrow$ digit sum divisible by $3$'', is ``$n$ divisible by $9$'' sufficient for ``digit sum divisible by $3$''?
+
+\ans{Yes.}
+\method{Chain the two implications: $9\mid n \Rightarrow 3\mid n \Rightarrow$ digit sum divisible by $3$. By B7's transitivity, $9\mid n$ is sufficient for ``digit sum divisible by $3$.''}
+\inv{Chaining lets you skip straight from ``divisible by $9$'' to a fact about digit sums without ever computing $n/3$ --- exactly how speed is built from a toolkit.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Each of (a) $n$ divisible by $8$, (b) $n$ divisible by $4$, (c) $n$ divisible by $2$ is sufficient for ``$n$ is even''. Which is the \emph{weakest} (least restrictive) of the three?
+
+\ans{(c) $n$ divisible by $2$.}
+\method{Every multiple of $8$ is a multiple of $4$, and every multiple of $4$ is a multiple of $2$, so (a) is the most restrictive and (c) the least. ``$n$ divisible by $2$'' is in fact necessary and sufficient for ``$n$ even'' (they're the same statement), making it the weakest condition that still works.}
+\inv{The weakest sufficient condition, when it exists, is exactly the necessary-and-sufficient one --- anything weaker would stop guaranteeing the target.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Each of (a) $n$ divisible by $2$, (b) $n$ divisible by $4$, (c) $n$ divisible by $8$ is necessary for ``$n$ is divisible by $24$''. Which is the \emph{strongest} (most restrictive) of the three?
+
+\ans{(c) $n$ divisible by $8$.}
+\method{$24=8\times3$, and $8\mid n \Rightarrow 4\mid n \Rightarrow 2\mid n$, so (c) implies both (a) and (b), making it the most restrictive (strongest) necessary condition among the three.}
+\inv{Among a chain of necessary conditions, the strongest one carries the most information --- it gets you closest to the full truth (``divisible by $24$'') without quite reaching it.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following best describes ``$n$ is a multiple of $6$'' as a condition for ``$n$ is a multiple of $2$ and a multiple of $3$''?
+
+\ans{C) Necessary and sufficient.}
+\method{This restates B2 in the standard four-way TMUA classification format: both directions ($6\mid n \Leftrightarrow 2\mid n$ and $3\mid n$) hold, as shown in B2.}
+\inv{This four-option layout (necessary-only / sufficient-only / both / neither) is the single most common TMUA Paper 2 question shape --- you'll see it again in Section D.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Prove that ``$n$ is divisible by $4$'' is necessary and sufficient for ``$n$ is even and $n/2$ is even''.
+
+\ans{Proved both directions.}
+\method{Sufficient: if $4\mid n$, write $n=4k$; then $n$ is even and $n/2=2k$ is even. Necessary: if $n$ is even and $n/2$ is even, write $n/2=2k$, so $n=4k$, i.e.\ $4\mid n$.}
+\inv{This is a clean example of building an iff by proving each direction as its own short argument --- the standard way to establish necessary-and-sufficient claims.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$x^2<4$'' as a condition for ``$x<2$'' (real $x$). Justify both directions.
+
+\ans{Sufficient but not necessary.}
+\method{Sufficient: $x^2<4 \Leftrightarrow -2<x<2$, which implies $x<2$. Not necessary: $x=-5$ satisfies $x<2$ but $x^2=25 \not< 4$.}
+\inv{$x^2<4$ is actually necessary and sufficient for the two-sided condition $-2<x<2$ --- restricting to the one-sided $x<2$ is what breaks necessity.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$n$ is prime'' as a condition for ``$n$ has exactly two positive divisors''. Justify your answer.
+
+\ans{Necessary and sufficient.}
+\method{This is the definition of a prime number, so it holds by construction: $n$ is prime if and only if $n$ has exactly two positive divisors ($1$ and $n$ itself).}
+\inv{Definitions are always necessary-and-sufficient statements in disguise --- that's exactly what makes something a definition rather than a theorem.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Given that $P$ is sufficient for $Q$, and $Q$ is sufficient for $R$, prove that $P$ is sufficient for $R$.
+
+\ans{Proved.}
+\method{``$P$ sufficient for $Q$'' means $P \Rightarrow Q$; ``$Q$ sufficient for $R$'' means $Q \Rightarrow R$. Assume $P$ holds; then $Q$ holds (first implication), then $R$ holds (second implication). So $P \Rightarrow R$, i.e.\ $P$ is sufficient for $R$.}
+\inv{This is B7/B8's pattern proved in full generality, for any $P,Q,R$ --- once proved once, it can be reused instantly (as B8 did).}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Is ``$n$ is a multiple of $4$'' necessary for ``$n$ is a multiple of $12$''? Is it sufficient? Justify both answers.
+
+\ans{Necessary: yes. Sufficient: no.}
+\method{Necessary: $12=4\times3$, so $12\mid n \Rightarrow 4\mid n$. Not sufficient: $n=4$ is a multiple of $4$ but not of $12$.}
+\inv{This is a fully worked ``necessary but not sufficient'' classification, the mirror image of C1's ``necessary and sufficient'' pair.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Find a condition $C$ on a positive integer $n$ that is necessary but not sufficient for ``$n$ is a multiple of $100$''. Justify your choice.
+
+\ans{$C$: ``$n$ is a multiple of $10$.''}
+\method{Necessary: $100=10\times10$, so $100\mid n \Rightarrow 10\mid n$. Not sufficient: $n=10$ is a multiple of $10$ but not of $100$.}
+\inv{Any divisor of $100$ smaller than $100$ itself (e.g.\ $4, 20, 25, 50$) works by the same argument --- necessity comes from being a factor, insufficiency from not being the whole thing.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Given that $x$ is necessary and sufficient for $y$, and $y$ is necessary and sufficient for $z$, prove that $x$ is necessary and sufficient for $z$.
+
+\ans{Proved.}
+\method{``$x$ necessary and sufficient for $y$'' gives both $x \Rightarrow y$ and $y \Rightarrow x$; likewise $y \Rightarrow z$ and $z \Rightarrow y$. Chaining sufficiency (C5): $x \Rightarrow y \Rightarrow z$ gives $x \Rightarrow z$. Chaining the reverse direction: $z \Rightarrow y \Rightarrow x$ gives $z \Rightarrow x$. Both directions hold, so $x$ is necessary and sufficient for $z$.}
+\inv{``Iff'' chains exactly like plain implication does, just in both directions at once --- this is why a chain of definitions (as in C4) transfers equivalence all the way down the chain.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item For real $x$, let $P$ be ``$x>0$'' and $Q$ be ``$x^2>0$''. Is $P$ necessary and sufficient for $Q$, necessary but not sufficient, sufficient but not necessary, or neither?
+
+\ans{C) Sufficient but not necessary.}
+\method{Sufficient: $x>0 \Rightarrow x^2>0$ directly (a positive number squared is positive). Not necessary: $x=-1$ gives $x^2=1>0$, so $Q$ holds, but $P$ ($x>0$) does not.}
+\inv{Compare Day 1's A6: $x^2>0$ fails only at $x=0$, so it holds for every nonzero real, positive or negative --- far more than just $x>0$ requires.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Classify ``$x$ is rational'' as a condition for ``$x^2$ is rational'' (real $x$). Prove both parts of your classification.
+
+\ans{Sufficient but not necessary.}
+\method{Sufficient: rationals are closed under multiplication, so $x=p/q$ rational gives $x^2=p^2/q^2$ rational. Not necessary: $x=\sqrt2$ is irrational, yet $x^2=2$ is rational.}
+\inv{This is the reverse-engineered cousin of Day 1's C3 (rational $+$ irrational): squaring can destroy irrationality even though addition of a rational and an irrational never does.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item A year $Y$ is a leap year exactly when $Y$ is divisible by $4$, except that century years (multiples of $100$) must be divisible by $400$. Is ``$Y$ is divisible by $4$'' necessary and sufficient, necessary but not sufficient, sufficient but not necessary, or neither, for ``$Y$ is a leap year''? Justify with a specific year.
+
+\ans{Necessary but not sufficient.}
+\method{Necessary: every leap year is divisible by $4$ by definition. Not sufficient: $Y=1900$ is divisible by $4$ and by $100$, but not by $400$, so it is not a leap year.}
+\inv{The fully necessary-and-sufficient rule is: divisible by $4$, and (not a century year, or divisible by $400$) --- the century-year clause is exactly what B3-style ``extra hypothesis needed'' patches.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Statements $A$, $B$, $C$ satisfy $A \Rightarrow B$, $B \Rightarrow C$, and $C \Rightarrow A$. Prove that $A$, $B$, $C$ are all logically equivalent (i.e.\ each pair is an ``iff'').
+
+\ans{Proved.}
+\method{We must show all six directions hold. $A\Rightarrow B$ and $B\Rightarrow C$ are given, and chaining them (C5) gives $A \Rightarrow C$. Combined with the given $C \Rightarrow A$, this proves $A \Leftrightarrow C$. Similarly, $B \Rightarrow C \Rightarrow A$ (chaining) gives $B \Rightarrow A$; combined with the given $A \Rightarrow B$, this proves $A \Leftrightarrow B$. Finally $C \Rightarrow A \Rightarrow B$ gives $C \Rightarrow B$, which with $B \Rightarrow C$ proves $B \Leftrightarrow C$. All three pairs are iff.}
+\inv{A cycle of implications closing back on itself is a standard proof technique for establishing several equivalences at once without writing out all six directions individually --- worth recognising on sight.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Statement $S$ is: ``If $n$ is a multiple of $9$, then $n$ is a multiple of $3$.'' Is ``$n$ is a multiple of $9$'' necessary and sufficient for ``$n$ is a multiple of $3$''? If not, precisely which of necessary/sufficient does it satisfy, and what does $S$'s converse (from Day 1's toolkit) have to do with your answer?
+
+\ans{Sufficient but not necessary. $S$ itself establishes sufficiency; $S$'s converse (``if $n$ is a multiple of $3$, then $n$ is a multiple of $9$'') is false ($n=6$), which is exactly why necessity fails.}
+\method{$S$ is true ($9\mid n \Rightarrow 3\mid n$, since $9=3\times3$), giving sufficiency directly. Necessity would require $S$'s converse to also be true, but $n=6$ is a multiple of $3$ and not of $9$, so the converse is false, and necessity fails.}
+\inv{This is the general rule tying both days together: ``$A$ necessary and sufficient for $B$'' is exactly ``the statement $A \Rightarrow B$ and its converse are both true'' --- Day 1's whole toolkit was secretly building toward Day 2's vocabulary.}
+
+\end{enumerate}
+
+\end{document}

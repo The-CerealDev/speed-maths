@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{3}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#3 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$n$ is even.''
+
+\ans{``$n$ is odd.''}
+\method{For an integer $n$, ``not even'' is exactly ``odd'' --- the two properties partition the integers.}
+\inv{Negation of a single property on integers is easy when the property has exactly one alternative; Section B negates compound statements where it's less automatic.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$x>5$.''
+
+\ans{``$x \leq 5$.''}
+\method{The negation of a strict inequality $x>5$ is the non-strict opposite direction, $x \leq 5$.}
+\inv{Careless negation often drops the ``or equal to'' --- $x<5$ is a common wrong answer, since it forgets $x=5$.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$n$ is divisible by $3$ and by $5$.''
+
+\ans{``$n$ is not divisible by $3$, or $n$ is not divisible by $5$.''}
+\method{De Morgan's law: $\text{not}(P \text{ and } Q) = (\text{not } P) \text{ or } (\text{not } Q)$.}
+\inv{The connective flips from ``and'' to ``or'' --- this is the single most common negation mistake (see B9).}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$x=2$ or $x=3$.''
+
+\ans{``$x \neq 2$ and $x \neq 3$.''}
+\method{De Morgan's law: $\text{not}(P \text{ or } Q) = (\text{not } P) \text{ and } (\text{not } Q)$.}
+\inv{The mirror image of A3: ``or'' flips to ``and.''}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``For all integers $n$, $n^2 \geq 0$.''
+
+\ans{``There exists an integer $n$ such that $n^2<0$.''}
+\method{Negating $\forall n, P(n)$ gives $\exists n, \text{not } P(n)$; here $P(n)$ is ``$n^2\geq0$'' and $\text{not } P(n)$ is ``$n^2<0$''.}
+\inv{The negation here is a statement that happens to be false (no such $n$ exists) --- negation is a purely mechanical operation independent of whether the result is true.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``There exists an integer $n$ such that $n^2=2$.''
+
+\ans{``For all integers $n$, $n^2 \neq 2$.''}
+\method{Negating $\exists n, P(n)$ gives $\forall n, \text{not } P(n)$; here $P(n)$ is ``$n^2=2$'' and $\text{not } P(n)$ is ``$n^2\neq2$''.}
+\inv{Unlike A5, this negation is true: no integer squares to $2$, since $1^2=1<2<4=2^2$.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``The negation of a true statement is always false.''
+
+\ans{True.}
+\method{This is the fundamental law of non-contradiction: a statement and its negation can never both be true, nor both be false.}
+\inv{This is why proof by contradiction (Day 7's toolkit) works at all: showing a statement's negation leads to nonsense forces the original to be true.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item State the contrapositive of: ``If $n$ is even, then $n^2$ is even.''
+
+\ans{``If $n^2$ is odd, then $n$ is odd.''}
+\method{The contrapositive of ``if $P$ then $Q$'' is ``if not $Q$ then not $P$'': negate both clauses and swap their order.}
+\inv{Compare with Day 1's converse of the same statement (``if $n^2$ even then $n$ even'') --- contrapositive and converse are different operations that can coincidentally share a truth value here, but not in general (see A10).}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``The contrapositive of a statement is always logically equivalent to the original.''
+
+\ans{True.}
+\method{``If $P$ then $Q$'' is false only when $P$ is true and $Q$ is false; ``if not $Q$ then not $P$'' is false only when not $Q$ is true and not $P$ is false, i.e.\ $Q$ is false and $P$ is true --- the exact same case. They agree in every case.}
+\inv{This is why proof by contrapositive (this sheet's headline tool) is a fully legitimate proof method, not just a rephrasing trick.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: ``The contrapositive of a statement is the same as its converse.''
+
+\ans{False.}
+\method{The converse of ``if $P$ then $Q$'' is ``if $Q$ then $P$'' (swap only); the contrapositive is ``if not $Q$ then not $P$'' (negate and swap). A2's negation example already shows negating changes the statement, so these are generally different operations.}
+\inv{The contrapositive is always equivalent to the original (A9); the converse generally is not (Day 1's whole toolkit) --- confusing the two is the single most common logic error on TMUA Paper 2.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``If $n$ is prime, then $n$ is odd.''
+
+\ans{``$n$ is prime and $n$ is not odd (i.e.\ $n$ is prime and $n$ is even).''}
+\method{The negation of ``if $P$ then $Q$'' is ``$P$ and not $Q$'', never another ``if...then'' statement.}
+\inv{This negation happens to be satisfiable ($n=2$), which is exactly why the original statement is false as stated (it should read ``if $n$ is prime and $n>2$, then $n$ is odd'').}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``For all $x>0$, $x^2>0$.''
+
+\ans{``There exists $x>0$ such that $x^2 \leq 0$.''}
+\method{Negating $\forall x{>}0,\, P(x)$ gives $\exists x{>}0,\, \text{not } P(x)$; here not $P(x)$ is ``$x^2\leq0$''. Note the domain restriction ``$x>0$'' is not itself negated, since it is part of the quantifier's scope, not the statement being quantified.}
+\inv{This negation is unsatisfiable (no positive $x$ has $x^2\leq0$), matching that the original was true.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
+
+\ans{``$n$ is not a multiple of $4$, and $n$ is not a multiple of $6$.''}
+\method{De Morgan's law: $\text{not}(P \text{ or } Q) = (\text{not } P) \text{ and } (\text{not } Q)$.}
+\inv{$n=5$ satisfies this negation (a multiple of neither), confirming the original ``or'' statement is not universally true.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item State the contrapositive of: ``If $x>2$, then $x^2>4$.''
+
+\ans{``If $x^2 \leq 4$, then $x \leq 2$.''}
+\method{Negate both clauses of ``if $x>2$ then $x^2>4$'' and swap: hypothesis becomes ``not $x^2>4$'', i.e.\ $x^2\leq4$; conclusion becomes ``not $x>2$'', i.e.\ $x\leq2$.}
+\inv{The original ``if $x>2$ then $x^2>4$'' is true for every real $x$ (true whenever $x>2$, vacuously true otherwise), so by A9 its contrapositive above must also be true for every real $x$ --- and it is: $x^2\leq4$ means $-2\leq x\leq2$, which certainly forces $x\leq2$.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Prove ``If $n^2$ is odd, then $n$ is odd'' by proving its contrapositive.
+
+\ans{Proved via the contrapositive ``if $n$ is even, then $n^2$ is even'' (Day 1, B2).}
+\method{The contrapositive of ``if $n^2$ odd then $n$ odd'' is ``if $n$ even then $n^2$ even'', which was proved directly in Day 1 (B2): $n=2k \Rightarrow n^2=4k^2=2(2k^2)$, even. Since the contrapositive is true and is logically equivalent to the original (A9), the original is also true.}
+\inv{This is the first time the sheet reuses an old proof unchanged, just relabelled as a contrapositive --- exactly the payoff CONTRIBUTING.md's toolkit design is built around.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$n$ is prime and $n>2$.''
+
+\ans{``$n$ is not prime, or $n \leq 2$.''}
+\method{De Morgan's law: $\text{not}(P \text{ and } Q) = (\text{not } P) \text{ or } (\text{not } Q)$.}
+\inv{Fixing B1's flawed statement: ``if $n$ is prime and $n>2$, then $n$ is odd'' is actually true, and this negation is exactly what a contrapositive-by-contradiction argument would need to rule out.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``If it rains, then the ground is wet.''
+
+\ans{``It rains and the ground is not wet.''}
+\method{The negation of ``if $P$ then $Q$'' is ``$P$ and not $Q$'' --- never ``if not $P$ then not $Q$'' (that's the inverse, a different and unrelated statement) and never ``if $Q$ then $P$'' (the converse).}
+\inv{This everyday example is exactly why ``if it rains, the ground is wet'' being true does not mean ``if it doesn't rain, the ground isn't wet'' (a sprinkler could still wet it) --- the inverse is not implied.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item State the contrapositive of: ``If $n$ is a multiple of $9$, then $n$ is a multiple of $3$.''
+
+\ans{``If $n$ is not a multiple of $3$, then $n$ is not a multiple of $9$.''}
+\method{Negate both clauses and swap: hypothesis becomes ``$n$ not a multiple of $3$'', conclusion becomes ``$n$ not a multiple of $9$''.}
+\inv{This is Day 2's D5 statement $S$, now given its contrapositive directly --- a useful cross-check against that answer's negation.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``$\text{not}(P \text{ and } Q)$'' is the same as ``$(\text{not } P) \text{ and } (\text{not } Q)$''.
+
+\ans{False.}
+\method{The correct De Morgan law is $\text{not}(P\text{ and }Q) = (\text{not }P)\text{ or }(\text{not }Q)$, with ``or'', not ``and''. Concretely, with $P$: ``$2$ is even'' (true) and $Q$: ``$3$ is even'' (false): $\text{not}(P\text{ and }Q)$ is true (since $P$ and $Q$ is false), but $(\text{not }P)\text{ and }(\text{not }Q)$ is (false and true) = false --- they disagree.}
+\inv{This is the single most common negation error --- A3 and B3 already show the correct ``and''$\to$``or'' flip in action.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: ``$\text{not}(P \text{ or } Q)$'' is the same as ``$(\text{not } P) \text{ and } (\text{not } Q)$''.
+
+\ans{True.}
+\method{This is exactly De Morgan's law for ``or'': $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$, matching A4's worked example.}
+\inv{Together, B9 and B10 are the two De Morgan laws --- ``and'' negates to ``or'' and vice versa, always.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``For every prime $p$, $p$ is odd or $p=2$.''
+
+\ans{``There exists a prime $p$ such that $p$ is not odd and $p \neq 2$.''}
+\method{Negate the quantifier ($\forall \to \exists$, negate the inner statement) then apply De Morgan to the ``or'': $\text{not}(p\text{ odd or }p{=}2) = (p\text{ not odd})\text{ and }(p\neq2)$.}
+\inv{This negation is unsatisfiable (every prime actually is odd or equals $2$), matching that the original quantified statement is true.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Prove ``If $n^2$ is even, then $n$ is even'' via its contrapositive.
+
+\ans{Proved via the contrapositive ``if $n$ is odd, then $n^2$ is odd'' (Day 1, B5).}
+\method{The contrapositive of ``if $n^2$ even then $n$ even'' is ``if $n$ odd then $n^2$ odd'', proved directly in Day 1 (B5): $n=2k+1 \Rightarrow n^2=4k^2+4k+1=2(2k^2+2k)+1$, odd. Since the contrapositive holds and is equivalent to the original, the original holds.}
+\inv{Combined with B5, both directions of ``$n$ even $\iff n^2$ even'' are now proved entirely by contrapositive, reusing Day 1's two direct proofs without any new algebra.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Which is the correct negation of ``If $x$ is rational, then $x^2$ is rational''?
+
+\ans{B) $x$ is rational and $x^2$ is irrational.}
+\method{The negation of ``if $P$ then $Q$'' is always ``$P$ and not $Q$'', never another conditional. Here $P$: ``$x$ rational'', $Q$: ``$x^2$ rational'', so the negation is ``$x$ rational and $x^2$ irrational'', option B.}
+\inv{This negation is actually satisfiable: it would require $x$ rational with $x^2$ irrational, which never happens (rationals are closed under squaring, Day 2's D2) --- so the original ``if...then'' is true, and this negation is correctly always false.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``There exists an integer $n$ such that $n$ is prime and $n$ is even.''
+
+\ans{``For all integers $n$, $n$ is not prime or $n$ is not even.''}
+\method{Negate the quantifier ($\exists \to \forall$, negate the inner statement) then apply De Morgan to the ``and'': $\text{not}(n\text{ prime and }n\text{ even}) = (n\text{ not prime})\text{ or }(n\text{ not even})$.}
+\inv{The original statement is true ($n=2$), so this negation is false --- it must fail specifically at $n=2$, where both ``not prime'' and ``not even'' are false.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item State and prove the contrapositive of: ``If $n$ is a multiple of $4$, then $n^2$ is a multiple of $16$.''
+
+\ans{Contrapositive: ``If $n^2$ is not a multiple of $16$, then $n$ is not a multiple of $4$.'' Proved (via the original): writing $n=4k$ gives $n^2=16k^2$, a multiple of $16$.}
+\method{Prove the original directly: if $n=4k$, then $n^2=(4k)^2=16k^2$, manifestly a multiple of $16$. Since the original is true and the contrapositive is logically equivalent to it (A9), the contrapositive is automatically also true --- no separate proof of the contrapositive's contrapositive form is needed.}
+\inv{Proving the easier direction (here, the original, via direct substitution) and getting the harder-looking direction (the contrapositive) for free is the entire point of the equivalence in A9.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item True or false, with justification: ``If a statement's contrapositive is false, the original statement must also be false.''
+
+\ans{True.}
+\method{By A9, a statement and its contrapositive always share the same truth value. If the contrapositive is false, the original --- being logically equivalent --- must be false too.}
+\inv{This is the contrapositive analogue of A7: just as a true statement's negation is always false, a false contrapositive always forces a false original, with no exceptions.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``There exists a positive integer $n$ such that $n$ is not a multiple of any prime less than $10$.''
+
+\ans{``For every positive integer $n$, $n$ is a multiple of some prime less than $10$.''}
+\method{Negate the quantifier ($\exists \to \forall$) and negate the inner statement: ``not (not a multiple of any prime less than $10$)'' simplifies (double negation) to ``a multiple of some prime less than $10$''.}
+\inv{This negation is false: $n=1$ is a positive integer that is not a multiple of any prime, so the original existential statement (true at $n=1$) has a genuinely false negation, as it must.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Prove ``If $n$ is not a multiple of $3$, then $n^2$ is not a multiple of $3$'' via its contrapositive.
+
+\ans{Proved via the contrapositive ``if $n^2$ is a multiple of $3$, then $n$ is a multiple of $3$'' (Day 1, C1's converse direction).}
+\method{The contrapositive of ``if $3\nmid n$ then $3\nmid n^2$'' is ``if $3\mid n^2$ then $3\mid n$''. Since $3$ is prime, if $3\mid n^2$ then $3$ must divide one of the two factors in $n \times n$, i.e.\ $3\mid n$. This is exactly Day 1's C1 discussion of the converse of ``$3\mid n \Rightarrow 9\mid n^2$'' being true because $3$ is prime.}
+\inv{This ``prime divides a square $\Rightarrow$ prime divides the number'' fact is the seed of unique factorisation, reused constantly in Number Theory.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Given the statement $S$: ``If $n$ is a multiple of $4$, then $n$ is even.'' Which of the following is the contrapositive of $S$?
+
+\ans{A) If $n$ is not even, then $n$ is not a multiple of $4$.}
+\method{Negate both clauses of $S$ and swap: hypothesis ``not even'' (from negating the conclusion), conclusion ``not a multiple of $4$'' (from negating the hypothesis). Option B is the converse (swap only), option C is the inverse (negate only, no swap), option D is an unrelated distractor.}
+\inv{All three wrong options correspond to a named, distinct operation (converse, inverse, nonsense) --- recognising which named trap each wrong answer represents is the actual TMUA skill being tested here.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contrapositive: ``If $n^2 - 2n$ is odd, then $n$ is odd.''
+
+\ans{Proved via the contrapositive ``if $n$ is even, then $n^2-2n$ is even.''}
+\method{Contrapositive: if $n$ is even, write $n=2k$; then $n^2-2n = n(n-2) = 2k(2k-2) = 4k(k-1)$, manifestly even. Since the contrapositive holds and is equivalent to the original (A9), the original holds.}
+\inv{Direct proof would require assuming $n^2-2n$ is odd and deducing $n$'s parity from an odd product $n(n-2)$ --- messier than simply proving the even case forces an even product, which is exactly why contrapositive is the natural tool here.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item On an island, every inhabitant either always tells the truth or always lies. You meet two people, $A$ and $B$. $A$ says: ``At least one of us is a liar.'' Determine, with justification, whether $A$ and $B$ are truth-tellers or liars.
+
+\ans{$A$ is a truth-teller, $B$ is a liar.}
+\method{Suppose $A$ is a liar. Then $A$'s statement ``at least one of us is a liar'' is false, meaning neither $A$ nor $B$ is a liar --- contradicting the assumption that $A$ is a liar. So $A$ must be a truth-teller, and $A$'s statement is true: at least one of $A,B$ is a liar. Since $A$ is not a liar, $B$ must be.}
+\inv{This is a proof by contradiction in miniature (Day 7's toolkit, previewed here): assuming $A$ is a liar and deriving a direct contradiction to that assumption forces the opposite conclusion.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Determine, with proof via contrapositive, whether the following is true: ``If $n^3$ is even, then $n$ is even.''
+
+\ans{True; proved via the contrapositive ``if $n$ is odd, then $n^3$ is odd.''}
+\method{Contrapositive: if $n$ is odd, write $n=2k+1$; then $n^3=(2k+1)^3$ is a product of three odd numbers, hence odd (odd $\times$ odd $\times$ odd $=$ odd). Since the contrapositive holds and is equivalent to the original (A9), the original is true.}
+\inv{The same contrapositive pattern extends to any odd power: ``if $n^m$ is even then $n$ is even'' for any positive integer $m$, since $n$ odd forces every power of $n$ to stay odd.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Statement $S$: ``If $n$ is a multiple of $15$, then $n$ is a multiple of $3$ and a multiple of $5$.'' (a) State the contrapositive of $S$. (b) Is ``$n$ is a multiple of $15$'' necessary and sufficient for ``$n$ is a multiple of $3$ and a multiple of $5$''? (c) Negate $S$ directly (without first simplifying via contrapositive).
+
+\ans{(a) ``If $n$ is not a multiple of $3$ or not a multiple of $5$, then $n$ is not a multiple of $15$.'' (b) Yes, necessary and sufficient. (c) ``$n$ is a multiple of $15$, and ($n$ is not a multiple of $3$ or $n$ is not a multiple of $5$).''}
+\method{(a) Negate both clauses of $S$ and swap; negating ``$n$ is a multiple of $3$ and a multiple of $5$'' gives, by De Morgan, ``not a multiple of $3$ or not a multiple of $5$''. (b) Sufficient: $15\mid n \Rightarrow 3\mid n$ and $5\mid n$ directly. Necessary: since $\gcd(3,5)=1$, $\mathrm{lcm}(3,5)=15$, so $3\mid n$ and $5\mid n$ together force $15\mid n$. Both directions hold. (c) Negating $S$ itself (``$P$ and not $Q$'' form): $P$ is ``$n$ multiple of $15$'', not $Q$ is the De Morgan negation from part (a)'s inner clause, giving ``$n$ multiple of $15$, and ($n$ not multiple of $3$ or $n$ not multiple of $5$)''.}
+\inv{Part (c)'s negation is unsatisfiable (any multiple of $15$ is automatically a multiple of both $3$ and $5$), consistent with $S$ being true --- three days of toolkit (contrapositive, necessary/sufficient, negation) converging on the same underlying fact from three different angles.}
+
+\end{enumerate}
+
+\end{document}

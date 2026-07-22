@@ -9,6 +9,7 @@ PILLARS = {
     'algebra': 'PILLAR_ALGEBRA',
     'combinatorics': 'PILLAR_COMBINATORICS',
     'number-theory': 'PILLAR_NUMBER_THEORY',
+    'logic': 'PILLAR_LOGIC',
     'geometry': 'PILLAR_GEOMETRY'
 }
 

@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#6 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$2$ is prime.'' II. ``$2$ is odd.'' Which are true?
+
+\ans{I only.}
+\method{$2$ is prime (I true). $2$ is even, not odd (II false).}
+\inv{$2$'s exceptional evenness (Day 1, B9) will keep showing up as the reason a statement about ``all primes'' needs independent per-statement checking rather than a blanket assumption.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$4$ is a perfect square.'' II. ``$4$ is prime.'' Which are true?
+
+\ans{I only.}
+\method{$4=2^2$ (I true). $4=2\times2$ is composite, not prime (II false).}
+\inv{Evaluating I and II here requires no shared reasoning at all --- they're entirely independent facts about the same number.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$9$ is odd.'' II. ``$9$ is prime.'' Which are true?
+
+\ans{I only.}
+\method{$9$ is odd (I true). $9=3\times3$ is composite (II false).}
+\inv{This is Day 4's A10 counterexample, now split into its two separate true/false components.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item I. ``Every square is a rectangle.'' II. ``Every rectangle is a square.'' Which are true?
+
+\ans{I only.}
+\method{I is true (Day 1, A3). II is false, e.g.\ a $2\times3$ rectangle (Day 1, A4).}
+\inv{This restates Day 1's opening pair as an explicit I/II evaluation --- the format is new, the content is a full sheet old.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$6$ is a multiple of $2$.'' II. ``$6$ is a multiple of $3$.'' Which are true?
+
+\ans{Both.}
+\method{$6=2\times3$, so $6$ is a multiple of both $2$ and $3$.}
+\inv{When both statements are true, the answer is simply ``both'' --- don't overthink combinations that don't require it.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$5$ is even.'' II. ``$5$ is prime.'' Which are true?
+
+\ans{II only.}
+\method{$5$ is odd, not even (I false). $5$ has exactly two divisors, $1$ and $5$ (II true).}
+\inv{The mirror image of A1: here it's the primality statement that survives, not the parity one.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$0$ is positive.'' II. ``$0$ is negative.'' Which are true?
+
+\ans{Neither.}
+\method{$0$ is neither positive nor negative by definition.}
+\inv{$0$ is a recurring ``breaks the pattern'' value across this pillar (Day 4's B5, B7) --- here it breaks a positive/negative dichotomy that every other real number satisfies.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If both statements I and II in a pair are false, the correct choice is `neither', not `I and II'.''
+
+\ans{True.}
+\method{``I and II'' means both are true; when both are false, the correct description is ``neither'' --- these are opposite answer choices, never interchangeable.}
+\inv{A7 is exactly this situation in practice: both I and II false, so ``neither'' is the only correct choice, not a careless ``I and II.''}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$n=2$ is a counterexample to `all primes are odd'.'' II. ``$n=9$ is a counterexample to `all odd numbers are prime'.'' Which are true?
+
+\ans{Both.}
+\method{I is true: $2$ is prime but even (Day 4, A1). II is true: $9$ is odd but composite (Day 4, A10).}
+\inv{This format --- checking whether a proposed instance genuinely is a counterexample --- is exactly Day 4's skill, now folded into the I/II evaluation habit.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item I. ``$1$ is a prime number.'' II. ``$1$ is a perfect square.'' Which are true?
+
+\ans{II only.}
+\method{$1$ is excluded from the primes by definition (a prime has exactly two distinct positive divisors; $1$ has only one) (I false). $1=1^2$ (II true).}
+\inv{$1$'s exclusion from primality (Day 4, B6) and its inclusion among perfect squares are both definitional facts worth having instantly available, not re-derived each time.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$n=4$ is a multiple of $4$.'' II. ``$n=4$ is a multiple of $8$.'' III. ``$n=4$ is a multiple of $2$.'' Which are true?
+
+\ans{I and III only.}
+\method{$4=4\times1$ (I true). $4$ is not a multiple of $8$ (II false). $4=2\times2$ (III true).}
+\inv{This is exactly the counterexample instance from Day 1's A9/Day 4's A5, now split into three independently-checked statements.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$n$ even $\Rightarrow n^2$ even'' is true. II. Its converse is also true. III. Together, I and II mean ``$n$ even $\iff n^2$ even.'' Which are true?
+
+\ans{All three.}
+\method{I is Day 1's B2. II is Day 1's B5-via-A5 (the converse ``$n^2$ even $\Rightarrow n$ even'' is also true). III is exactly Day 2's B4 classification (necessary and sufficient) restated as ``iff.''}
+\inv{This is a full recap of one entire thread running through Days 1--2, now confirmed as a single consistent package.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$\sqrt2$ is irrational.'' II. ``$\sqrt2+\sqrt2$ is irrational.'' III. ``$\sqrt2-\sqrt2$ is irrational.'' Which are true?
+
+\ans{I and II only.}
+\method{I is the classical fact (Day 5, D2). II: $\sqrt2+\sqrt2=2\sqrt2$, still irrational (a nonzero rational multiple of an irrational is irrational). III: $\sqrt2-\sqrt2=0$, which is rational, so III is false.}
+\inv{III is exactly Day 4's B2 cancellation trick in reverse --- the same construction that disproves ``irrational + irrational is always irrational'' shows up here as a deliberately-included false option.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item I. ``Every multiple of $9$ is a multiple of $3$.'' II. ``Every multiple of $3$ is a multiple of $9$.'' III. ```Multiple of $3$' is necessary for `multiple of $9$'.'' Which are true?
+
+\ans{I and III only.}
+\method{I is true ($9=3\times3$). II is false ($n=3$ is a multiple of $3$ but not $9$). III restates I in necessary/sufficient language (Day 2): ``multiple of $9$'' $\Rightarrow$ ``multiple of $3$'' is exactly I, so III is true.}
+\inv{I and III are the same fact in two vocabularies (Day 1's implication language and Day 2's necessary/sufficient language) --- recognising that is itself part of the test.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$2^{11}-1$ is prime.'' II. ``$11$ is prime.'' III. ``If $n$ is prime, $2^n-1$ is prime.'' Which are true?
+
+\ans{II only.}
+\method{I is false: $2^{11}-1=2047=23\times89$ (Day 4, C4). II is true. III is false, disproved by exactly this instance ($n=11$ prime, $2^{11}-1$ not prime).}
+\inv{I is literally the counterexample that disproves III --- when a statement provides its own disproof of another statement in the same list, use that connection rather than re-deriving from scratch.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$4!+1$ is prime.'' II. ``$5!+1$ is prime.'' III. ``$n!+1$ is prime for all $n$.'' Which are true?
+
+\ans{None of them.}
+\method{$4!+1=25=5^2$, not prime (I false, Day 4 A8). $5!+1=121=11^2$, not prime (II false). III is false, already disproved at $n=4$.}
+\inv{A ``none of the above'' answer is just as legitimate as any other combination --- don't assume at least one statement must be true.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$41$ is prime.'' II. ``$n=41$ is a counterexample to `$n^2+n+41$ is always prime'.'' III. ``$n=40$ is the smallest counterexample to `$n^2+n+41$ is always prime'.'' Which are true?
+
+\ans{All three.}
+\method{$41$ is prime (I true). $n=41$ gives $41\times43$, composite (II true, Day 4 B1). $n=40$ gives $1681=41^2$, the smallest failure (III true, Day 4 C1).}
+\inv{Statements about the same famous polynomial, checked at three different levels of precision (a background fact, a valid-but-not-minimal counterexample, and the genuinely smallest one) --- all can be true simultaneously without contradiction.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item I. ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' II. ``The negation of `for all $x$, $P(x)$' is `there exists $x$, not $P(x)$'.'' III. ``The negation of `there exists $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' Which are true?
+
+\ans{II and III only.}
+\method{I is false --- negating a $\forall$ gives an $\exists$, not another $\forall$ (Day 3, A5). II is the correct rule (Day 3, A5/B2). III is the correct rule for the other direction (Day 3, A6/C4).}
+\inv{I is a plausible-sounding but wrong ``fix'' of II --- exactly the kind of near-miss distractor a rushed reader mistakes for correct.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item I. ``The converse of a true statement is always true.'' II. ``The contrapositive of a true statement is always true.'' III. ``The negation of a true statement is always true.'' Which are true?
+
+\ans{II only.}
+\method{I is false (Day 1, A10). II is true (Day 3, A9). III is false --- the negation of a true statement is always \emph{false} (Day 3, A7), the opposite of what III claims.}
+\inv{III is a deliberate near-miss of a real fact (Day 3's A7): swapping ``false'' for ``true'' turns a correct statement into an incorrect one, exactly the kind of misread this format is built to catch.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item I. ``Affirming the consequent is a valid rule.'' II. ``Denying the antecedent is a valid rule.'' III. ``Modus ponens is a valid rule.'' Which are true?
+
+\ans{III only.}
+\method{I and II are both named fallacies, not valid rules (Day 5, A1/A3). III is the basic valid inference rule (Day 5, A4).}
+\inv{Two of these three names sound equally formal and rule-like as the third --- naming conventions alone don't tell you validity; you have to know which is which.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item For a positive integer $n$: I. ``$n$ divisible by $4$'' is necessary for ``$n$ divisible by $12$.'' II. ``$n$ divisible by $4$'' is sufficient for ``$n$ divisible by $12$.'' III. ``$n$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $8$.'' Which of I, II, III are true?
+
+\ans{A) I only.}
+\method{I is true: $12=4\times3$, so $12\mid n \Rightarrow 4\mid n$ (Day 2, C6). II is false: $n=4$ is divisible by $4$ but not $12$. III is false: $4\mid n$ is necessary for $8\mid n$ (since $8=4\times2$) but not sufficient ($n=4$ counterexample again), so it's not both.}
+\inv{The same value $n=4$ serves as the counterexample for both II and (half of) III --- a single well-chosen instance can carry a lot of weight across a whole question.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item I. ``There exists a real $x$ with $x^2<0$.'' II. ``For all reals $x$, $x^2\geq0$.'' III. ``The negation of II is I.'' Which are true?
+
+\ans{II and III only.}
+\method{I is false --- no real number squares to a negative value. II is the true universal fact. III is true: negating ``for all $x$, $x^2\geq0$'' gives ``there exists $x$, $x^2<0$'' (Day 3's quantifier-negation rule), which is exactly I.}
+\inv{I being false and III being true are fully compatible --- III only claims I is the \emph{correct negation} of II, not that I itself is true; a correct negation of a true statement is expected to be false (Day 3, A7).}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Recall the flawed argument ``$n^2$ multiple of $4$, therefore $n$ multiple of $4$'' (Day 5, B1). I. ``This argument commits the fallacy of affirming the consequent.'' II. ``$n=6$ is a valid counterexample to the underlying claim.'' III. ``The converse of the underlying claim (`$n$ mult.\ of $4 \Rightarrow n^2$ mult.\ of $4$') is what's actually true.'' Which are true?
+
+\ans{All three.}
+\method{I is true (Day 5, B1's diagnosis). II is true: $n=6$ gives $n^2=36$ (mult.\ of $4$) but $6$ is not. III is true: ``$n$ mult.\ $4 \Rightarrow n^2$ mult.\ $4$'' is the actual valid direction (Day 1, C5-style substitution), and the flawed argument mistakes its converse for a valid inference.}
+\inv{This question makes explicit what ``affirming the consequent'' means concretely: treating a true statement's converse as if it were the (also true) original.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$n=1$ is a counterexample to `every positive integer has a prime factor'.'' II. ``$n=1$ is a counterexample to `every integer greater than $1$ has a prime factor'.'' III. ``$1$ is neither prime nor composite.'' Which are true?
+
+\ans{I and III only.}
+\method{I is true (Day 4, B6): $1$ is a positive integer with no prime factor. II is false: $n=1$ does not satisfy the hypothesis ``greater than $1$'' at all, so it cannot be a counterexample to that (different, and true) claim --- a counterexample must make the hypothesis true and the conclusion false. III is the standard definitional fact.}
+\inv{II is a trap: reusing a familiar-looking value without checking it actually satisfies the hypothesis of \emph{this} particular claim is a common way to wrongly call something a counterexample.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item I. ``The statement `if $n^2-n$ is even, then $n$ is even' is false (Day 1, D5).'' II. ``$n^2-n$ is even for every integer $n$.'' III. ``$n(n-1)$ is even for every integer $n$.'' Which are true?
+
+\ans{All three.}
+\method{I is true (Day 1, D5, witnessed by $n=3$). II is true: $n^2-n=n(n-1)$, a product of consecutive integers, always even. III is the same fact as II, merely written in factored form rather than expanded form.}
+\inv{II and III are not two independent facts --- they're the identical claim under two different (but equal) algebraic expressions, worth recognising rather than re-deriving separately.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item I. ``Every quadratic with integer coefficients that has an integer root has two integer roots.'' II. ``$2x^2-3x+1$ is a counterexample to I.'' III. ``Monic quadratics (leading coefficient $1$) are never counterexamples to I.'' Which are true?
+
+\ans{II and III only.}
+\method{I is the false universal claim itself (false). II is true: $2x^2-3x+1=(2x-1)(x-1)$ has roots $1$ and $\tfrac12$ (Day 4, B4). III is true: for monic quadratics, an integer root forces the other root to also be an integer via Vieta's formulas (Day 4, B4's \inv{}).}
+\inv{I being the claim under test, and therefore false, doesn't stop II and III (statements \emph{about} I) from both being true --- keep track of what each statement is actually asserting.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item I. ``$3^5+2$ is composite (Day 4, C6).'' II. ``$3^5+2=245$.'' III. ``$245=5\times7^2$.'' Which are true?
+
+\ans{All three.}
+\method{$3^5=243$, so $3^5+2=245$ (II true). $245=5\times49=5\times7^2$ (III true), confirming $245$ is composite (I true).}
+\inv{This question is a pure arithmetic-verification chain --- each statement builds directly on confirming the previous one, the same discipline this pillar's verify scripts apply computationally.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item For real $x$: I. ``$x>0$'' is sufficient for ``$x^2>0$.'' II. ``$x>0$'' is necessary for ``$x^2>0$.'' III. ``$x\neq0$'' is necessary and sufficient for ``$x^2>0$.''
+
+\ans{C) I and III only.}
+\method{I is true (Day 2, D1). II is false: $x=-1$ gives $x^2=1>0$ without $x>0$ (Day 2, D1). III is true: $x\neq0 \Rightarrow x^2>0$ (sufficient), and $x^2>0 \Rightarrow x\neq0$ (necessary, since $x=0$ gives $x^2=0$) --- both directions hold.}
+\inv{I and III together show ``$x\neq0$'' is the tight (necessary-and-sufficient) characterisation, while ``$x>0$'' alone is only ever half the story --- exactly the ``weakest sufficient condition'' idea from Day 2, B9.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item For a positive integer $n$: I. ``$n$ divisible by $6$'' is necessary and sufficient for ``$n$ divisible by $2$ and by $3$.'' II. ``$n^2$ divisible by $9$'' is necessary and sufficient for ``$n$ divisible by $3$.'' III. ``$n^2$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $4$.'' Which of I, II, III are true?
+
+\ans{D) I and II only.}
+\method{I is true (Day 2, B2/C1). II is true: $3$ is prime, so $9\mid n^2 \Rightarrow 3\mid n^2 \Rightarrow 3\mid n$ (necessary, Day 1 C1/Day 3 C8), and $3\mid n \Rightarrow n^2=9k^2$ (sufficient, Day 1 C1) --- both directions hold. III is false: $4\mid n^2$ does not force $4\mid n$, witnessed by $n=6$ (the recurring counterexample from Day 1 C8, Day 4, Day 5).}
+\inv{The difference between II and III is exactly the difference between a prime modulus ($3$) and a prime-squared modulus ($4=2^2$) --- the entire reason Day 1's C1/C8 pair existed was to seed this exact distinction for today.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Three people, $X$, $Y$, $Z$, each make one statement. $X$ says: ``$Y$ is lying.'' $Y$ says: ``$Z$ is lying.'' $Z$ says: ``$X$ and $Y$ are both lying.'' Given that exactly one of them is telling the truth, determine who.
+
+\ans{$Y$ is the truth-teller; $X$ and $Z$ are lying.}
+\method{Suppose $X$ is the sole truth-teller: then ``$Y$ is lying'' is true, so $Y$ lies, meaning $Y$'s statement ``$Z$ is lying'' is false, so $Z$ tells the truth --- but then both $X$ and $Z$ are truthful, contradicting ``exactly one.'' Suppose $Z$ is the sole truth-teller: then ``$X$ and $Y$ are both lying'' is true, so $X$ lies, meaning $X$'s statement ``$Y$ is lying'' is false, so $Y$ tells the truth --- but then both $Z$ and $Y$ are truthful, again a contradiction. Suppose $Y$ is the sole truth-teller: then $Z$ lies (Y's statement true), and $X$ lies (since only $Y$ is truthful), so $X$'s statement ``$Y$ is lying'' is false, correctly meaning $Y$ is not lying --- consistent. $Z$'s statement ``$X$ and $Y$ are both lying'' is false (since $Y$ isn't lying), correctly making $Z$ a liar --- consistent. This is the only self-consistent case.}
+\inv{This is exactly Day 3's D3 truth-teller puzzle scaled up to three people --- the method (assume each person is the exceptional one in turn, check for self-contradiction) is identical, just with more cases to rule out.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Recall the flawed conclusion from Day 5, D2 (a student proves $\sqrt2$ irrational by contradiction, then writes ``therefore $\sqrt2$ is rational''). I. ``The algebraic derivation, up to the final sentence, is entirely correct.'' II. ``The final English conclusion correctly follows from the derived contradiction.'' III. ``A correctly-stated conclusion would be `$\sqrt2$ is irrational'.'' Which are true?
+
+\ans{I and III only.}
+\method{I is true --- every algebraic step (deriving $p,q$ both even) is valid (Day 5, D2). II is false --- the student's final sentence states the opposite of what the contradiction establishes. III is true --- a contradiction derived from assuming rationality correctly proves irrationality.}
+\inv{This question makes Day 5's D2 error explicit by isolating exactly which part (the algebra) was fine and which part (the one-sentence conclusion) was not.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Let $S$ be the statement: ``If $n$ is a multiple of $12$, then $n$ is a multiple of $3$ and a multiple of $4$.'' I. $S$ is true. II. $S$'s converse is true. III. ``Multiple of $12$'' is necessary and sufficient for ``multiple of $6$.'' Which are true?
+
+\ans{I and II only.}
+\method{I is true: $12=3\times4$, so $12\mid n \Rightarrow 3\mid n$ and $4\mid n$. II (the converse, ``multiple of $3$ and of $4$ $\Rightarrow$ multiple of $12$'') is true: $\gcd(3,4)=1$, so $\mathrm{lcm}(3,4)=12$. III is false: ``multiple of $12$'' is sufficient for ``multiple of $6$'' ($12=6\times2$) but not necessary --- $n=6$ is a multiple of $6$ but not of $12$.}
+\inv{I and II together establish $S$ is necessary and sufficient for ``multiple of $3$ and of $4$'' (Day 2's iff) --- III then tests whether that same strength of relationship carries over to a \emph{different} target (``multiple of $6$''), and it doesn't.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Statement $T$: ``If $2^n-1$ is prime, then $n$ is prime'' (Day 4, D5). I. $T$'s contrapositive is ``if $n$ is not prime, then $2^n-1$ is not prime.'' II. $T$'s converse is false, witnessed by $n=11$. III. ``$2^n-1$ is prime'' is necessary and sufficient for ``$n$ is prime.'' Which are true?
+
+\ans{I and II only.}
+\method{I is true --- negate and swap both clauses of $T$ to get exactly this (Day 3's construction rule). II is true: $T$'s converse is ``if $n$ prime then $2^n-1$ prime,'' and $n=11$ is prime with $2^{11}-1=2047=23\times89$ composite (Day 4, C4), a genuine counterexample. III is false: $T$ itself gives sufficiency, but the false converse (II) means necessity fails, so it's sufficient but not necessary, not both (Day 4, D5's exact classification).}
+\inv{This closing question is the pillar's own toolkit turned on itself: constructing a contrapositive (Day 3), witnessing a false converse (Day 1/Day 4), and classifying necessity/sufficiency (Day 2) all applied to one statement, in one place, to close the multi-statement-evaluation day.}
+
+\end{enumerate}
+
+\end{document}
