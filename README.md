@@ -3,6 +3,7 @@
 TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
 **Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets),
 **Logic** (done, 7 sheets), **Geometry** (not started).
+**Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets), **Geometry** (not started).
 
 ## Structure
 
