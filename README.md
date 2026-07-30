@@ -1,6 +1,8 @@
 # Speed Maths — Daily Drill Series
 
 TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
+**Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets),
+**Logic** (done, 7 sheets), **Geometry** (not started).
 **Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets), **Geometry** (not started).
 
 ## Structure
@@ -18,6 +20,9 @@ Speed-Maths/
 │   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
 │   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── number-theory/
+│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
+│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
+├── logic/
 │   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
 │   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
 ├── geometry/
@@ -90,6 +95,5 @@ While the initial four pillars cover the core Olympiad syllabus (SMC / BMO1), th
 
 Once the core pillars are complete, the project will expand to include:
 - **Speed Calculus**: Differentiation and integration (optimization, tangents, area).
-- **Speed Logic**: The foundation of TMUA Paper 2 (truth tables, necessary/sufficient conditions, counterexamples).
 - **Speed Sequences**: Arithmetic/geometric progressions, recurrence relations, and series.
 - **Speed Graphs**: Advanced curve sketching, trigonometric identities, and function intersections.

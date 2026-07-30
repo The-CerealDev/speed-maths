@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#7 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item To prove statement $P$ by contradiction, you should assume \_\_\_ and derive a contradiction.
+
+\ans{The negation of $P$ (i.e.\ ``not $P$'').}
+\method{Proof by contradiction assumes the statement you want to prove is false, then shows that assumption forces something impossible, so the assumption --- and hence the negation --- must itself be false, leaving $P$ true.}
+\inv{This relies directly on Day 3's fact (A7) that a true statement's negation is always false, and vice versa --- proof by contradiction is that fact, used as a proof engine.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``Proof by contradiction and proof by contrapositive are the same technique.''
+
+\ans{False.}
+\method{Contrapositive proves ``if $P$ then $Q$'' by proving ``if not $Q$ then not $P$'' directly --- no contradiction is ever reached, it's a direct proof of an equivalent statement. Contradiction instead assumes not-$P$ (or, for a conditional, $P$ and not-$Q$ together) and derives an impossibility.}
+\inv{Every contrapositive proof \emph{can} be rewritten as a contradiction proof (see A8), but they are not the same technique --- contrapositive never needs to name an explicit ``impossible'' outcome.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item What contradiction is reached in the classical proof that $\sqrt2$ is irrational?
+
+\ans{That $p$ and $q$ are both even, contradicting the assumption that $p/q$ was in lowest terms.}
+\method{Assuming $\sqrt2=p/q$ in lowest terms leads, via $2q^2=p^2$, to both $p$ and $q$ being even --- directly contradicting ``lowest terms,'' which requires $\gcd(p,q)=1$.}
+\inv{This is exactly Day 5's D2 derivation --- that question isolated the algebra as correct and only the final English sentence as wrong; this question asks for the contradiction itself.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If assuming `not $P$' leads to a statement that's always false, $P$ must be true.''
+
+\ans{True.}
+\method{This is the defining logical principle behind proof by contradiction: since ``not $P$'' cannot coexist with a genuine impossibility, ``not $P$'' must be false, and by A7-style reasoning (Day 3), $P$ is therefore true.}
+\inv{This is the formal statement of what A1 describes procedurally --- A1 is ``how to do it,'' A4 is ``why it works.''}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Give the first line you would write to prove ``there are infinitely many primes'' by contradiction.
+
+\ans{``Suppose, for contradiction, that there are only finitely many primes.''}
+\method{Proof by contradiction always opens by assuming the negation of the target statement --- here, negating ``infinitely many'' gives ``finitely many.''}
+\inv{The full classical proof (multiply all assumed primes together, add $1$, find a new prime factor not on the list) is a famous instance of this exact opening move --- naming the right negation is the hardest part.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``Deriving `$1=0$' partway through an argument is a valid contradiction to conclude the assumption was false.''
+
+\ans{True.}
+\method{Any statement that is unconditionally false (like $1=0$) is a valid contradiction --- it doesn't need to relate back to the original claim's subject matter at all, only to be something that can never be true.}
+\inv{This is why classic ``proofs'' that $1=2$ (Day 5, B3) are actually backwards: reaching $1=0$/$1=2$ genuinely does signal an error somewhere in the argument (usually an illegal division), exactly as this question implies.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``In a proof by contradiction of `if $P$ then $Q$', you assume $P$ is true and $Q$ is false simultaneously.''
+
+\ans{True.}
+\method{``If $P$ then $Q$'' is false exactly when $P$ is true and $Q$ is false (its only failure case); assuming that combined case and deriving an impossibility rules it out, leaving the implication true.}
+\inv{This connects directly to Day 3's fact that ``$P$ and not $Q$'' is the negation of ``if $P$ then $Q$'' --- proof by contradiction of a conditional always starts by assuming exactly that negation.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``Every valid proof by contrapositive can be rewritten as a proof by contradiction.''
+
+\ans{True.}
+\method{A contrapositive proof shows ``not $Q$ $\Rightarrow$ not $P$'' directly; the same content can always be repackaged as: assume $P$ and not $Q$ (A7's contradiction setup), use the same reasoning to derive not $P$, which directly contradicts the assumed $P$.}
+\inv{This is the precise sense in which the two techniques, while different (A2), are not unrelated --- contrapositive is a special, more efficient case of what contradiction can always do.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item To disprove a universal (``for all'') claim as fast as possible, should you generally reach for a counterexample or for proof by contradiction?
+
+\ans{A counterexample.}
+\method{Day 3's quantifier-negation rule says the negation of ``for all $x$, $P(x)$'' is ``there exists $x$, not $P(x)$'' --- a single explicit witness. Exhibiting one instance is always faster than setting up and deriving a contradiction.}
+\inv{Contradiction earns its keep proving a claim is \emph{true} (especially existence claims, like ``infinitely many primes,'' where no single witness could ever suffice) --- for disproving, Day 4's counterexample toolkit is almost always the quicker tool.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: ``If you can find a single counterexample to a claim, you never need a separate proof by contradiction to disprove that same claim.''
+
+\ans{True.}
+\method{One genuine counterexample is already a complete disproof of a universal claim (Day 4) --- contradiction would only be reaching the same conclusion by a slower, more roundabout route.}
+\inv{This is the practical payoff of A9: always check first whether a quick counterexample exists before reaching for the heavier machinery of contradiction.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``There is no smallest positive rational number.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $q>0$ is the smallest positive rational. Then $q/2$ is also a positive rational (rationals are closed under division by $2$), and $q/2<q$, contradicting that $q$ was the smallest.}
+\inv{The same halving trick shows there's no smallest positive real number either --- the argument never used that $q$ was specifically rational, only that it was a positive number in a set closed under halving.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $n^2$ is even, then $n$ is even.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $n^2$ is even but $n$ is odd. Then $n=2k+1$, so $n^2=4k^2+4k+1=2(2k^2+2k)+1$, which is odd --- contradicting that $n^2$ is even. So $n$ must be even.}
+\inv{This is the exact same fact proved by contrapositive in Day 3 (C2) --- comparing the two write-ups shows A8's claim in action: the contrapositive proof (``if $n$ odd then $n^2$ odd'') and this contradiction proof share identical algebra, differing only in framing.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``There is no largest even integer.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $N$ is the largest even integer. Then $N+2$ is also even, and $N+2>N$, contradicting that $N$ was the largest.}
+\inv{The structure is identical to B1 (assume an extreme value exists, construct something that beats it) --- this ``assume an extremum, then beat it'' pattern is the most common contradiction template for ``there is no largest/smallest'' claims.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $a,b$ are integers and $a+b$ is odd, then $a$ and $b$ cannot both be even.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $a+b$ is odd and both $a,b$ are even. Write $a=2j$, $b=2k$; then $a+b=2(j+k)$, which is even --- contradicting that $a+b$ is odd.}
+\inv{This is Day 1's B8 (``both even $\Rightarrow$ sum even'') used in its contrapositive-flavoured form, but framed here explicitly as a contradiction rather than named as one.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $p$ is prime and $p>3$, then $p$ is not divisible by $6$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $p>3$ is prime and $6\mid p$. Then $p=6k$ for some integer $k\geq1$, so $2\mid p$, meaning $p$ has a divisor ($2$) other than $1$ and itself (since $p>3>2$ means $p\neq2$) --- contradicting that $p$ is prime.}
+\inv{This is really the same underlying fact as Day 1's A9/Day 4's A5 (a multiple of $6$ is automatically a multiple of $2$), now used as the engine of a contradiction rather than stated as a bare implication.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``There is no integer $n$ satisfying both $n>5$ and $n<3$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that such an $n$ exists. Then $n>5$ and $n<3$ together give $5<n<3$, i.e.\ $5<3$ --- a numerically false statement, a valid contradiction (A6).}
+\inv{This is the simplest possible contradiction template: the ``impossibility'' reached is a bare false numerical inequality, needing no algebraic manipulation at all.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $x$ is a positive real number, then $x+\dfrac1x \geq 2$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $x>0$ and $x+\tfrac1x<2$. Multiplying both sides by $x>0$ (safe, since $x$ is positive --- Day 5, C4's exact justification) gives $x^2+1<2x$, i.e.\ $x^2-2x+1<0$, i.e.\ $(x-1)^2<0$. But a real square can never be negative --- contradiction.}
+\inv{This reuses Day 5's C8 identity $(x-1)^2=x^2-2x+1\geq0$ directly, just applied to the reversed (assumed-false) inequality to expose the impossibility.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $n$ is a positive integer, $n$ and $n+1$ share no common factor greater than $1$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $d>1$ divides both $n$ and $n+1$. Then $d$ divides their difference, $(n+1)-n=1$. But no integer $d>1$ divides $1$ --- contradiction.}
+\inv{``$d$ divides a difference of two multiples of $d$'' is a workhorse fact reused constantly in Number Theory's gcd toolkit (Euclidean algorithm), seen here in miniature.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``$\log_2 3$ is irrational.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $\log_2 3 = p/q$ for positive integers $p,q$. Then $2^{p/q}=3$, so $2^p=3^q$. But $2^p$ is even (for $p\geq1$) while $3^q$ is odd (for any $q\geq0$) --- an even number cannot equal an odd number, a contradiction.}
+\inv{This is structurally the same ``parity mismatch'' contradiction as $\sqrt2$'s irrationality (A3), just swapping the modular obstruction (even vs.\ odd) for the earlier one (even count of prime factors of $2$ vs.\ odd).}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $a,b$ are positive integers with $a<b$, then $a^2<b^2$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $a<b$ but $a^2\geq b^2$. Since $a,b>0$, $a^2\geq b^2 \iff a\geq b$ (both sides positive, so squaring/rooting preserves the inequality direction) --- but this directly contradicts the assumption $a<b$.}
+\inv{This relies on squaring being a strictly increasing, hence order-preserving, function specifically on the positive reals --- notably \emph{not} true on all reals (Day 5, B5's ``$x^2>4 \Rightarrow x>2$'' flaw is exactly what breaks once negative values are allowed).}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``$\sqrt2+\sqrt3$ is irrational.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $\sqrt2+\sqrt3=r$ for some rational $r$. Then $\sqrt3=r-\sqrt2$, so squaring both sides gives $3=r^2-2r\sqrt2+2$, i.e.\ $\sqrt2 = \dfrac{r^2-1}{2r}$ (valid since $r\neq0$, as $\sqrt2+\sqrt3>0$). The right-hand side is rational (a ratio of rationals), but $\sqrt2$ is irrational (Day 5, D2) --- contradiction.}
+\inv{The trick of isolating one surd, then squaring to expose the other, is a standard move whenever a sum of two different surds is claimed irrational --- naively squaring the whole sum at once leaves a stubborn cross-term ($2\sqrt6$) that this rearrangement avoids.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``There is no integer solution to $x^2+y^2=4z+3$.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, integers $x,y,z$ satisfy $x^2+y^2=4z+3$. Every integer square is $\equiv0$ or $1\pmod4$ (since $(2k)^2=4k^2\equiv0$ and $(2k+1)^2=4k^2+4k+1\equiv1$), so $x^2+y^2 \pmod4 \in \{0,1,2\}$. But $4z+3\equiv3\pmod4$, which is not in $\{0,1,2\}$ --- contradiction.}
+\inv{This ``sum of two squares mod $4$'' obstruction is a classical tool for ruling out entire families of Diophantine equations at once, without checking any individual case.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item You are given the identity $2^n-1=(2^a-1)(2^{n-a}+2^{n-2a}+\cdots+1)$ whenever $a$ divides $n$. Using proof by contradiction, show that if $2^n-1$ is prime then $n$ is prime.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $2^n-1$ is prime but $n$ is not prime. Since $n>1$ (as $2^1-1=1$ isn't prime), $n$ composite means $n=ab$ for integers $1<a,b<n$. Taking $a$ as a proper divisor of $n$ with $1<a<n$, the given identity factors $2^n-1$ as $(2^a-1)$ times a second factor, with $2^a-1 \geq 2^2-1=3>1$ and the second factor also $>1$ (a sum of at least two positive terms). This exhibits $2^n-1$ as a product of two integers each greater than $1$ --- contradicting that $2^n-1$ is prime.}
+\inv{This is $T$ from Day 4/Day 6's D5, finally proved rather than just cited --- Day 4 established the fact was true and explored its converse; this is the actual argument underneath it.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``If $n$ is a positive integer that is not a perfect square, then $\sqrt n$ is irrational.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $n$ is not a perfect square but $\sqrt n = p/q$ in lowest terms for positive integers $p,q$. Then $nq^2=p^2$. Every prime factor of $q$ appears to an even power in $q^2$, hence in $nq^2$; since $nq^2=p^2$, every prime factor of $n$ must also combine with $q^2$'s contribution to reach an even power overall. Because $\gcd(p,q)=1$, no prime divides both $p$ and $q$, so $q=1$ is forced (any prime dividing $q$ would have to divide $p$ too, to balance $nq^2=p^2$'s factorisation) --- meaning $\sqrt n = p$ is an integer, so $n=p^2$ is a perfect square. This contradicts the assumption that $n$ is not a perfect square.}
+\inv{This generalises the $\sqrt2$ argument (A3) --- $\sqrt2$ irrational is just the special case $n=2$ --- to every non-square positive integer at once, using prime factorisation instead of a single parity check.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Using proof by contradiction and the fact that $2$ is the only even prime (Day 1, B9), prove there do not exist two distinct primes $p,q$, both greater than $2$, with $p+q=5$.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that distinct primes $p,q>2$ exist with $p+q=5$. Since $p,q>2$, both are odd (the only even prime is $2$, Day 1's B9). But an odd plus an odd is even, so $p+q$ is even --- contradicting $p+q=5$, which is odd.}
+\inv{This uses B9's fact for at least the fourth distinct purpose across this pillar (Day 1's B9 itself, Day 4's A4/B9, Day 5's C7, and now here) --- a genuinely load-bearing fact worth having ready without re-deriving.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Using contradiction and the fact that $n^2-n$ is always even (Day 1, D5 / Day 6, C5), prove there is no positive integer $n$ for which $n^2-n=7$.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that a positive integer $n$ satisfies $n^2-n=7$. Since $n^2-n=n(n-1)$ is a product of two consecutive integers, it is always even (Day 1, D5). But $7$ is odd --- contradicting $n^2-n=7$.}
+\inv{No factoring or quadratic formula was needed at all --- the parity obstruction alone rules out every integer $n$ simultaneously, far faster than solving $n^2-n-7=0$ directly.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Prove by contradiction: ``The equation $x^2+y^2=3$ has no solution in positive integers.''
+
+\ans{Proved.}
+\method{Suppose, for contradiction, positive integers $x,y$ satisfy $x^2+y^2=3$. Since $x,y\geq1$, both $x^2,y^2\geq1$. If either $x\geq2$ or $y\geq2$, that term alone is $\geq4>3$, already too large. So $x=y=1$ is forced, giving $x^2+y^2=2\neq3$ --- contradiction.}
+\inv{This is a bounding argument (checking that the only candidates small enough to fit are $x=y=1$, then testing it) rather than a modular one --- both C2 and C7 disprove a Diophantine equation, but by genuinely different mechanisms.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Using contradiction, prove that if $a,b,c$ are positive integers with $a^2+b^2=c^2$ and $c$ is even, then $a$ and $b$ cannot both be odd.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $a,b$ are both odd and $c$ is even with $a^2+b^2=c^2$. An odd square is $\equiv1\pmod4$ (Day 3, C2), so $a^2+b^2\equiv1+1=2\pmod4$. But $c$ even means $c=2k$, so $c^2=4k^2\equiv0\pmod4$. Since $2\not\equiv0\pmod4$, this contradicts $a^2+b^2=c^2$.}
+\inv{This reuses Day 3's C2 fact (``odd$^2 \equiv1\pmod8$'', which in particular gives $\equiv1\pmod4$) to rule out an entire parity pattern in Pythagorean triples at once, without needing any specific triple.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Consider: I. ``Proof by contradiction and proof by contrapositive always produce identical proofs.'' II. ``A single counterexample is a special case of proof by contradiction.'' III. ``If a statement's negation leads to `$1=0$', the statement is proven true.'' Which are true?
+
+\ans{C) III only.}
+\method{I is false (A2: they are different techniques, even though A8 shows contrapositive can always be \emph{rewritten as} contradiction --- ``always producing identical proofs'' is a stronger, false claim). II is false: a counterexample directly falsifies a universal claim by exhibiting a witness (Day 4); it doesn't assume a negation and derive an impossibility, so it isn't itself an instance of contradiction, even though both are disproof tools. III is true (A6).}
+\inv{II is a tempting near-miss: counterexamples and contradiction both disprove things, but only one of them works by assuming a negation and finding an impossibility --- conflating ``both are disproof methods'' with ``one is a case of the other'' is the trap.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove, using proof by contradiction, that there is no positive integer $n$ for which both $n$ and $n+1$ are perfect squares.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, that $n=a^2$ and $n+1=b^2$ for positive integers $a,b$. Then $b^2-a^2=1$, i.e.\ $(b-a)(b+a)=1$. Since $a,b$ are positive integers with $b>a$ (as $b^2>a^2$), both $b-a$ and $b+a$ are positive integers, and their product is $1$, forcing $b-a=1$ and $b+a=1$. But $b-a=1$ and $b+a=1$ together give $a=0$ --- contradicting that $n=a^2$ is a positive integer (which requires $a\geq1$).}
+\inv{This is B8's ``consecutive integers share no common factor $>1$'' idea in a different guise: two consecutive perfect squares differ by exactly $1$, and factoring that difference of squares leaves essentially no room to be positive integers.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item In a room of at least $2$ people, every person is either a knight (always tells the truth) or a knave (always lies). Every person in the room says: ``Everyone else in this room is a knave.'' Using proof by contradiction, determine exactly how many knights are in the room.
+
+\ans{Exactly $1$ knight.}
+\method{Suppose, for contradiction, there are $0$ knights (everyone is a knave). Then any one knave's statement ``everyone else is a knave'' would be entirely true --- but knaves never tell the truth, contradiction. Suppose instead there are $\geq2$ knights. Take any one of these knights: their statement ``everyone else is a knave'' must be true, but a second knight in the room is not a knave --- contradiction. So the number of knights is neither $0$ nor $\geq2$, leaving exactly $1$.}
+\inv{This is Day 3's D3 and Day 6's D2 puzzles generalised to an arbitrary room size --- the method (rule out each alternative in turn via contradiction) scales even when the room size itself isn't fixed in advance.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Using proof by contradiction, prove that the equation $n^2=2^k$ has no solution in positive integers $n,k$ with $k$ odd.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, positive integers $n,k$ satisfy $n^2=2^k$ with $k$ odd. Write $n$'s prime factorisation as $n=2^m \times (\text{odd part})$; since $n^2=2^k$ has no odd prime factors, $n$'s odd part must be $1$, so $n=2^m$ for some non-negative integer $m$. Then $n^2=2^{2m}$, so $2^{2m}=2^k$, forcing $k=2m$ --- an even number. This contradicts the assumption that $k$ is odd.}
+\inv{This ``exponent of $2$ must double when you square'' fact is the engine behind the classical proof that $\sqrt2$ is irrational when phrased via prime factorisation (C4's method) --- D5 makes that connection explicit.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Give a second, different proof that $\sqrt2$ is irrational (Day 5, D2 gave one proof already), this time using the same $2$-adic valuation technique as D4.
+
+\ans{Proved.}
+\method{Suppose, for contradiction, $\sqrt2=p/q$ for positive integers $p,q$. Then $p^2=2q^2$. Let $k$ be the exponent of $2$ in $p^2$'s prime factorisation; by D4's reasoning, since $p^2$ is a perfect square, $k$ must be even. Now consider $2q^2$: the exponent of $2$ here is (exponent of $2$ in $q^2$, which is even by the same squaring argument) $+1$ (from the explicit factor of $2$ out front), which is therefore odd. So $p^2=2q^2$ requires an even exponent of $2$ on the left to equal an odd exponent of $2$ on the right --- contradiction, since a single integer has one well-defined prime factorisation.}
+\inv{This closes the pillar exactly where Day 5's D2 opened the topic: the same irrationality fact, now proved by counting prime factors of $2$ (an argument that generalises instantly to $\sqrt p$ for any prime $p$, unlike the original parity-only argument) rather than by the original's direct ``both $p,q$ even'' descent.}
+
+\end{enumerate}
+
+\end{document}
