@@ -4,261 +4,319 @@
 
 \begin{document}
 
-\SpeedTitleBlock{Daily Logic Drill \#5 --- Answers \& Investigations}{David Akinyele-Aje}
-\noindent\textit{Answers and Methods.}
+\SpeedTitleBlock{Answers: Logic Drill \#5}{David Akinyele-Aje}
 
-\section*{Section A \quad Rapid Recognition}
+\section*{Section A}
 
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item ``$P\Rightarrow Q$, and $Q$ is true; conclude $P$ is true.'' Is this reasoning valid?
+\item In the proof step ``If $a=b$, then $a(a-b)=(a-b)^2 \implies a = a-b$'', what operation was invalidly performed?
 
-\ans{No --- this is the fallacy of affirming the consequent.}
-\method{$P\Rightarrow Q$ says nothing about what happens when $Q$ is true; $Q$ could be true for reasons unrelated to $P$. Concretely: ``$n$ prime $\Rightarrow n$ odd,'' and $9$ is odd, but $9$ is not prime.}
-\inv{This is the single most common logical error on this sheet --- watch for it disguised inside longer arguments in Sections B and C.}
+\ans{Division by zero}
+\method{Since $a=b$, we have $a-b = 0$. Dividing both sides by $(a-b)$ is division by zero, which is algebraically undefined.}
+\inv{Why is division by zero forbidden in field axioms?}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item ``$P\Rightarrow Q$, and $Q$ is false; conclude $P$ is false.'' Is this reasoning valid?
+\item True or false: ``$\sqrt{x^2} = x$ for all real numbers $x$.''
 
-\ans{Yes --- this is modus tollens.}
-\method{This is exactly proof by contrapositive (Day 3): ``not $Q$, therefore not $P$'' is the contrapositive of $P\Rightarrow Q$, which is logically equivalent to the original (Day 3, A9).}
-\inv{Modus tollens and ``affirming the consequent'' (A1) look superficially similar --- both start from information about $Q$ --- but only one direction is valid.}
+\ans{False}
+\method{By definition, $\sqrt{x^2} = |x|$ for all real $x$. For negative $x$ (e.g.\ $x = -3$), $\sqrt{(-3)^2} = \sqrt{9} = 3 \neq -3$.}
+\inv{For which real numbers $x$ is $\sqrt{x^2} = x$ true?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item ``$P\Rightarrow Q$, and $P$ is false; conclude $Q$ is false.'' Is this reasoning valid?
+\item What fallacy is committed when one assumes the conclusion $P$ in order to prove $P$?
 
-\ans{No --- this is the fallacy of denying the antecedent.}
-\method{$P\Rightarrow Q$ says nothing about what happens when $P$ is false; $Q$ can still hold for other reasons. Concretely: ``$n$ divisible by $4 \Rightarrow n$ even,'' and $6$ is not divisible by $4$, but $6$ is still even.}
-\inv{This is the mirror image of A1: A1 wrongly runs the implication backwards, this wrongly runs its inverse forwards.}
+\ans{Begging the question (\textit{petitio principii} / circular reasoning)}
+\method{Assuming the very claim $P$ that needs to be established creates a circular argument where the truth of $P$ relies on $P$ itself.}
+\inv{How does circular reasoning differ from proof by contradiction?}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item ``$P\Rightarrow Q$, and $P$ is true; conclude $Q$ is true.'' Is this reasoning valid?
+\item A student writes: ``$x^2 > 9 \implies x > 3$.'' What case did the student miss?
 
-\ans{Yes --- this is modus ponens, the basic valid rule.}
-\method{This is the direct definition of what ``$P\Rightarrow Q$'' means: whenever $P$ holds, $Q$ is guaranteed to hold too.}
-\inv{Modus ponens (A4) and modus tollens (A2) are the two valid rules; affirming the consequent (A1) and denying the antecedent (A3) are the two corresponding fallacies --- all four questions here form a matched set.}
+\ans{The case $x < -3$}
+\method{$x^2 > 9 \iff |x| > 3 \iff x > 3 \text{ or } x < -3$. The student omitted the negative interval.}
+\inv{Solve $x^2 < 9$ over the real numbers.}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``$n$ is odd $\Rightarrow n^2$ is odd. $n^2=49$ is odd. Therefore $n=7$.''
+\item True or false: ``If $ac \equiv bc \pmod m$, then $a \equiv b \pmod m$ for all non-zero integers $c, m$.''
 
-\ans{Affirming the consequent --- $n$ could also be $-7$.}
-\method{From ``$n$ odd $\Rightarrow n^2$ odd'' and ``$n^2$ odd,'' the argument wrongly concludes ``$n$ odd,'' then wrongly narrows further to the single value $7$. Even granting $n$ odd, $(-7)^2=49$ too.}
-\inv{Even when a conclusion happens to be a correct possibility, the reasoning that produced it can still be invalid --- validity and truth of the conclusion are separate questions.}
+\ans{False}
+\method{Cancellation in modular arithmetic requires $\gcd(c, m) = 1$. For example, $2 \times 3 \equiv 4 \times 3 \pmod 6$ ($6 \equiv 12 \equiv 0 \pmod 6$), but $2 \not\equiv 4 \pmod 6$.}
+\inv{What is the general cancellation rule for $ac \equiv bc \pmod m$?}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``If a shape is a square, it's a rectangle. This shape is not a square. Therefore it's not a rectangle.''
+\item In the deduction ``If $x^2 = 4$, then $x=2$'', which direction of logical implication was omitted?
 
-\ans{Denying the antecedent --- a $2\times3$ rectangle is a counterexample.}
-\method{From ``square $\Rightarrow$ rectangle'' and ``not a square,'' the argument wrongly concludes ``not a rectangle.'' A $2\times3$ rectangle (Day 1, A4) is not a square but is still a rectangle.}
-\inv{This is the exact geometric instance of the general pattern named in A3.}
+\ans{The possibility $x = -2$}
+\method{$x^2 = 4 \implies x = 2 \text{ or } x = -2$. Omitting $x = -2$ assumes a one-sided implication that ignores the negative root.}
+\inv{Is $x=2 \implies x^2=4$ a true implication?}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If $P\Rightarrow Q$ and $Q\Rightarrow P$ are both true, then assuming $Q$ to conclude $P$ becomes valid reasoning.''
+\item Identify the error in: ``Since $-1 = (-1)^1 = (-1)^{2/2} = ((-1)^2)^{1/2} = 1^{1/2} = 1$.''
 
-\ans{True.}
-\method{If both directions hold (Day 2's ``iff''), then $Q\Rightarrow P$ is itself one of the given true statements, so concluding $P$ from $Q$ is just modus ponens (A4) applied to $Q\Rightarrow P$ --- no longer the fallacy of A1.}
-\inv{``Affirming the consequent'' is only ever a fallacy when the converse hasn't been separately established --- Day 2's necessary-and-sufficient language is exactly what licenses reasoning in both directions safely.}
+\ans{The exponent rule $(x^a)^b = x^{ab}$ fails when the base is negative and exponents involve fractions.}
+\method{$((-1)^2)^{1/2} = 1^{1/2} = 1$, but $(-1)^{2/2} = (-1)^1 = -1$. The law $(x^m)^n = x^{mn}$ requires a positive base when non-integer powers are used.}
+\inv{Why must non-integer exponents be defined carefully over negative real bases?}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item Divide both sides of $x^2=5x$ by $x$ to get $x=5$. Which solution got lost?
+\item True or false: ``Proving that the converse of a statement is true proves the original statement.''
 
-\ans{$x=0$.}
-\method{Dividing by $x$ silently assumes $x\neq0$. Rearranging instead as $x^2-5x=0 \Rightarrow x(x-5)=0$ gives both $x=0$ and $x=5$.}
-\inv{The fix is never to divide by an expression that could be zero --- factor and use the zero-product property instead, as Section C's C6 revisits.}
+\ans{False}
+\method{A statement $P \implies Q$ and its converse $Q \implies P$ are logically independent. The truth of $Q \implies P$ implies nothing about the truth of $P \implies Q$.}
+\inv{Which related statement always shares the exact same truth value as $P \implies Q$?}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``Squaring both sides of an equation can introduce extraneous (fake) solutions.''
+\item What is invalid about dividing both sides of $x^2 - x = 0$ by $x$ to conclude $x=1$?
 
-\ans{True.}
-\method{Squaring is not injective on the reals: $x=-2$ and $x=2$ both satisfy $x^2=4$, so squaring an equation like $x=-2$ to get $x^2=4$ and then solving $x^2=4$ produces the extra, invalid solution $x=2$.}
-\inv{Any solution obtained after squaring must be checked back in the \emph{original} (unsquared) equation before being accepted.}
+\ans{It loses the root $x=0$ (and divides by zero if $x=0$).}
+\method{Dividing by $x$ implicitly assumes $x \neq 0$, thereby discarding the valid solution $x = 0$. The correct approach is factorising $x(x-1) = 0 \implies x=0 \text{ or } x=1$.}
+\inv{When is dividing an equation by an algebraic expression valid?}
 
-%── A10 ─────────────────────────────────────────────────────────────────────────
-\item True or false: ``Dividing both sides of an equation by a variable expression can lose valid solutions.''
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item A student claims: ``$0 \times 1 = 0 \times 2$, so cancelling $0$ gives $1 = 2$.'' Which field axiom is violated?
 
-\ans{True.}
-\method{A8 is a direct instance: dividing $x^2=5x$ by $x$ silently discards the valid solution $x=0$, precisely because that expression could equal zero.}
-\inv{Together, A9 and A10 name the two most common ``the algebra looks fine but a solution disappeared or appeared'' traps --- squaring adds, dividing removes.}
+\ans{Existence of multiplicative inverse (only non-zero elements have multiplicative inverses).}
+\method{In a field, every element $a \neq 0$ has a multiplicative inverse $a^{-1}$. Zero has no multiplicative inverse, so cancellation by $0$ is undefined.}
+\inv{Prove from field axioms that $0 \times x = 0$ for all $x$.}
 
 \end{enumerate}
 
-\section*{Section B \quad Manipulation Drills}
+\section*{Section B}
 
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``$n^2$ is a multiple of $4$. Therefore $n$ is a multiple of $4$.''
+\item Consider the attempt to prove $2 = 1$:\\
+Line 1: Let $a = b$.\\
+Line 2: Then $a^2 = ab$.\\
+Line 3: Subtract $b^2$: $a^2 - b^2 = ab - b^2$.\\
+Line 4: Factorise: $(a-b)(a+b) = b(a-b)$.\\
+Line 5: Divide by $(a-b)$: $a+b = b$.\\
+Line 6: Substitute $a=b$: $b+b = b \implies 2b = b$.\\
+Line 7: Divide by $b$: $2 = 1$.\\
+Which line contains the first invalid step?
 
-\ans{Affirming the consequent --- $n=6$ is a counterexample.}
-\method{The true fact is ``$n$ multiple of $4 \Rightarrow n^2$ multiple of $4$''; the argument affirms the consequent ($n^2$ multiple of $4$) to wrongly conclude the hypothesis. $n=6$ gives $n^2=36$, a multiple of $4$, but $6$ is not.}
-\inv{This is Day 1's C8 fact, now correctly named as an instance of affirming the consequent.}
+\ans{Line 5}
+\method{Since $a = b$ (Line 1), $a - b = 0$. In Line 5, dividing by $(a-b)$ is division by zero, which is invalid.}
+\inv{Why does division by zero allow proving any false statement?}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``$\sqrt{x^2}=x$ for all real $x$.''
+\item Consider the attempt to prove $1 = -1$:\\
+Line 1: $-1 = \frac{-1}{1}$.\\
+Line 2: Taking square roots: $\sqrt{-1} = \sqrt{\frac{-1}{1}}$.\\
+Line 3: $\sqrt{-1} = \frac{\sqrt{-1}}{\sqrt{1}}$.\\
+Line 4: Also $\sqrt{-1} = \sqrt{\frac{1}{-1}} = \frac{\sqrt{1}}{\sqrt{-1}}$.\\
+Line 5: Equating gives $\frac{\sqrt{-1}}{1} = \frac{1}{\sqrt{-1}}$.\\
+Line 6: Cross-multiplying gives $(\sqrt{-1})^2 = 1 \times 1 \implies -1 = 1$.\\
+Which line contains the first invalid manipulation of square roots?
 
-\ans{False for negative $x$; the correct identity is $\sqrt{x^2}=|x|$.}
-\method{For $x=-3$: $\sqrt{x^2}=\sqrt9=3$, but $x=-3$. Since $\sqrt{\ }$ denotes the non-negative square root by convention, $\sqrt{x^2}$ must always be non-negative, so it can only equal $x$ itself when $x\geq0$.}
-\inv{This silent assumption of non-negativity resurfaces constantly --- B9 and B10 both trade on the same confusion between $\sqrt{\ }$ (single non-negative value) and ``square root of'' (two possible values, $\pm$).}
+\ans{Line 3 (or Line 4)}
+\method{The radical property $\sqrt{\frac{x}{y}} = \frac{\sqrt{x}}{\sqrt{y}}$ holds only when $x \ge 0$ and $y > 0$. Applying it to negative numbers introduces multivalued complex branch conflicts.}
+\inv{What is the principal value of $\sqrt{-1}$ in complex numbers?}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item A ``proof'' that $a=0$ for any $a=b$: Line I: $a=b$. Line II: $a^2=ab$. Line III: $a^2-b^2=ab-b^2$. Line IV: $(a-b)(a+b)=b(a-b)$. Line V: dividing both sides by $(a-b)$: $a+b=b$, so $a=0$. Which line introduces the flaw, and why?
+\item Consider the argument:\\
+Line 1: We want to show $x^2 + 1 > 0$ for all real $x$.\\
+Line 2: Assume $x^2 + 1 > 0$.\\
+Line 3: Subtract $1$: $x^2 > -1$.\\
+Line 4: Since $x^2 \ge 0$ for all real $x$, $x^2 > -1$ is true.\\
+Line 5: Therefore $x^2 + 1 > 0$ is proved.\\
+What is the logical defect in this structure?
 
-\ans{Line V --- dividing by $(a-b)$, which equals $0$ since $a=b$.}
-\method{Lines I--IV are all valid algebraic manipulations. Line V divides both sides of $(a-b)(a+b)=b(a-b)$ by $(a-b)$, but since $a=b$ was given, $a-b=0$ --- an unjustified division by zero, which is exactly the classical ``proof'' that $1=2$.}
-\inv{This is the multi-line version of A8's single-step warning: division is only ever safe once you've confirmed the divisor is nonzero, and here the very hypothesis of the problem guarantees it's zero.}
+\ans{Begging the question / working backwards without bi-implications}
+\method{Line 2 assumes the conclusion $x^2+1 > 0$ to derive a true statement $x^2 > -1$. Unless every step is explicitly shown to be reversible ($\iff$), starting from the desired conclusion does not prove it.}
+\inv{How should this proof be written correctly from first principles?}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``If it is sunny, I wear sunglasses. I am wearing sunglasses. Therefore it is sunny.''
+\item Consider the proof attempt for: ``For all real $x$, if $x^2 > 4$, then $x > 2$.''\\
+Line 1: Suppose $x^2 > 4$.\\
+Line 2: Take square roots: $\sqrt{x^2} > \sqrt{4}$.\\
+Line 3: Simplify: $x > 2$.\\
+Line 4: Hence the claim is proved.\\
+Which line contains the invalid simplification, and what should it be?
 
-\ans{Affirming the consequent --- sunglasses could be worn for other reasons (e.g.\ driving, indoor style).}
-\method{From ``sunny $\Rightarrow$ sunglasses'' and ``sunglasses,'' the argument wrongly concludes ``sunny,'' the same invalid pattern as A1 and B1, now in an everyday, non-mathematical setting.}
-\inv{Fallacies aren't specific to numbers --- the same structural error appears everywhere ``evidence consistent with a cause'' gets mistaken for ``proof of that cause.''}
+\ans{Line 3; it should be $|x| > 2$ (which means $x > 2$ or $x < -2$).}
+\method{$\sqrt{x^2} = |x|$, so Line 2 gives $|x| > 2$. Simplifying $|x| > 2$ yields $x > 2 \text{ or } x < -2$. Line 3 incorrectly drops the $x < -2$ branch.}
+\inv{Provide a counterexample to the claim ``if $x^2 > 4$ then $x > 2$''.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``$x^2>4$. Therefore $x>2$.''
+\item Consider the argument:\\
+Line 1: Let $S = 1 + 2 + 4 + 8 + 16 + \dots$\\
+Line 2: Then $2S = 2 + 4 + 8 + 16 + \dots$\\
+Line 3: Subtracting gives $S - 2S = 1 \implies -S = 1 \implies S = -1$.\\
+Line 4: Therefore $1 + 2 + 4 + 8 + \dots = -1$.\\
+Which line relies on an invalid assumption about infinite series?
 
-\ans{Incomplete case-split --- the correct conclusion is $x>2$ \emph{or} $x<-2$.}
-\method{$x^2>4 \iff |x|>2 \iff x>2 \text{ or } x<-2$. The argument silently drops the $x<-2$ branch; $x=-3$ satisfies $x^2=9>4$ but not $x>2$.}
-\inv{Any time squaring or absolute value is involved, check whether the ``obvious'' one-sided conclusion has quietly dropped a symmetric negative case --- this exact drop resurfaces in Section C's C2.}
+\ans{Line 1 (and Line 3)}
+\method{The geometric series $1+2+4+8+\dots$ has ratio $r=2 > 1$, so it diverges to $+\infty$. Assigning a real variable $S$ to a divergent series and performing linear algebra on it is invalid.}
+\inv{In $p$-adic analysis or analytic continuation, does $1+2+4+8+\dots = -1$ have a valid formal meaning?}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $2$ and of $3$. $n$ is a multiple of $2$. Therefore $n$ is a multiple of $6$.''
+\item Consider the attempt to prove every integer is even:\\
+Line 1: Let $P(n)$ be the statement ``$n$ is even''.\\
+Line 2: Assume $P(k)$ is true, so $k$ is even, i.e., $k = 2m$.\\
+Line 3: Then $k+2 = 2m+2 = 2(m+1)$, which is even, so $P(k+2)$ is true.\\
+Line 4: Since $P(0)$ is true ($0 = 2 \times 0$), $P(n)$ holds for all even $n$.\\
+Line 5: Therefore all integers are even.\\
+Which line makes an unjustified logical leap?
 
-\ans{Affirming (part of) the consequent --- $n=4$ is a counterexample.}
-\method{The argument only confirms one of the two conjuncts in the consequent (``multiple of $2$''), then wrongly concludes the full hypothesis anyway. $n=4$ is a multiple of $2$ but not of $6$.}
-\inv{Partially satisfying a compound consequent is just as invalid as fully satisfying it (B1) --- the fallacy doesn't get weaker by only affirming part of $Q$.}
+\ans{Line 5}
+\method{Lines 1--4 correctly prove by induction that $P(n)$ holds for all *even* non-negative integers. Line 5 falsely leaps to concluding that *all* integers (odd and negative) are even.}
+\inv{Why did the step $k \to k+2$ skip odd numbers?}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item Is there a flaw in this argument? ``$n$ is odd (given). Line 1: $n=2k+1$ for some integer $k$. Line 2: $n^2=4k^2+4k+1$. Line 3: $n^2=2(2k^2+2k)+1$. Line 4: therefore $n^2$ is odd.''
+\item Consider:\\
+Line 1: $a < b$.\\
+Line 2: Multiply both sides by $c$: $ac < bc$.\\
+Line 3: Subtract $ac$: $0 < bc - ac = c(b-a)$.\\
+Line 4: Divide by $b-a$ (which is $>0$): $0 < c \implies c > 0$.\\
+What condition on $c$ was implicitly assumed in Line 2?
 
-\ans{No flaw --- this is a correct, complete proof (Day 1, B5).}
-\method{Each line follows directly from the previous by valid algebra, and the conclusion matches exactly what was claimed. There is no fallacious step here.}
-\inv{Not every presented argument is flawed --- correctly identifying a valid proof as valid is just as important a skill as catching an invalid one, and exam questions test both.}
+\ans{That $c > 0$}
+\method{Multiplying an inequality by $c$ preserves the inequality sign ($ac < bc$) if and only if $c > 0$. If $c < 0$, the inequality sign flips ($ac > bc$).}
+\inv{What happens when $c=0$ in Line 2?}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``All multiples of $4$ are even. $n$ is even. Therefore $n$ is a multiple of $4$.''
+\item Consider the argument:\\
+Line 1: To prove $a=b$, it suffices to show $a^2 = b^2$.\\
+Line 2: Take $a = 3$ and $b = -3$.\\
+Line 3: $3^2 = (-3)^2 = 9$.\\
+Line 4: Therefore $3 = -3$.\\
+Which line contains a false logical equivalence?
 
-\ans{Affirming the consequent --- $n=6$ is a counterexample.}
-\method{From ``multiple of $4 \Rightarrow$ even'' and ``even,'' the argument wrongly concludes ``multiple of $4$.'' $n=6$ is even but not a multiple of $4$.}
-\inv{The same instance ($n=6$) that disproved B1 disproves this one too --- once you've found one good counterexample to a converse-error pattern, check whether it kills several related false claims at once.}
+\ans{Line 1}
+\method{$a^2 = b^2 \iff a = b \text{ or } a = -b$. $a^2 = b^2$ is necessary for $a=b$, but not sufficient because $a$ could equal $-b$.}
+\inv{Is $a=b \implies a^2=b^2$ a valid implication?}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``$\sqrt4=\pm2$, so $\sqrt4=2$ and $\sqrt4=-2$ simultaneously, meaning $2=-2$.''
+\item Consider the proof attempt for $\sqrt{2} + \sqrt{3} < \sqrt{10}$:\\
+Line 1: Square both sides: $(\sqrt{2}+\sqrt{3})^2 < 10$.\\
+Line 2: Expand: $2 + 2\sqrt{6} + 3 < 10 \implies 5 + 2\sqrt{6} < 10$.\\
+Line 3: Subtract $5$: $2\sqrt{6} < 5$.\\
+Line 4: Square both sides: $4 \times 6 < 25 \implies 24 < 25$.\\
+Line 5: Since $24 < 25$ is true, the original inequality holds.\\
+Why is this argument incomplete as written?
 
-\ans{Notation error --- $\sqrt4$ denotes only the non-negative root, $2$; it is never $-2$.}
-\method{By convention, $\sqrt{\ }$ is the \emph{principal} (non-negative) square root function, so $\sqrt4=2$ exactly, a single value. The ``$\pm$'' only appears when \emph{solving} an equation like $x^2=4$, which has two solutions $x=\pm2$ --- it is never part of the value of $\sqrt4$ itself.}
-\inv{Confusing ``the square root of $4$'' (a function, one output) with ``a number whose square is $4$'' (a solution set, two outputs) is the exact same confusion underlying B2's error.}
+\ans{It works backwards without explicitly stating that every squaring step is reversible for positive quantities.}
+\method{Squaring $A < B \implies A^2 < B^2$ is reversible ($\iff$) ONLY when both $A > 0$ and $B > 0$. Since all expressions are positive, the steps are reversible, but the proof must state this reversibility explicitly to be complete.}
+\inv{Re-write this proof starting from $24 < 25$ and working forward to $\sqrt{2}+\sqrt{3} < \sqrt{10}$.}
 
-%── B10 ─────────────────────────────────────────────────────────────────────────
-\item Spot the flaw: ``Since $(-2)^2=2^2=4$, we can cancel the squares to conclude $-2=2$.''
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Consider the argument:\\
+Line 1: $1^2 = 1$.\\
+Line 2: $2^2 = 1 + 3$.\\
+Line 3: $3^2 = 1 + 3 + 5$.\\
+Line 4: By pattern recognition, $n^2$ is the sum of the first $n$ odd positive integers.\\
+Line 5: Therefore the theorem is proved for all $n \in \mathbb{Z}^+$.\\
+Why is pattern recognition up to $n=3$ not a rigorous proof?
 
-\ans{Illegitimate cancellation --- squaring is not injective, so equal squares don't imply equal originals.}
-\method{$(-2)^2=4$ and $2^2=4$ are both true, but ``cancelling the square'' (taking square roots of both sides) only legitimately gives $|-2|=|2|$, i.e.\ $2=2$ --- true, but not $-2=2$.}
-\inv{This is B5 and C5's ``lost sign'' pattern one more time, now dressed up as a fake cancellation rule --- squares can always be safely compared for equality, but never safely ``rooted'' back without absolute values.}
+\ans{Checking a finite number of examples does not prove a universal statement for all $n \in \mathbb{Z}^+$.}
+\method{Empirical verification for $n=1,2,3$ demonstrates a pattern but does not constitute a proof for infinitely many integers. A complete proof requires mathematical induction or algebraic sum formula $\sum_{k=1}^n (2k-1) = n^2$.}
+\inv{Prove $\sum_{k=1}^n (2k-1) = n^2$ using mathematical induction.}
 
 \end{enumerate}
 
-\section*{Section C \quad Substitution \& Structure}
+\section*{Section C}
 
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Consider this argument. Line I: let $n$ be even, so $n=2k$. Line II: $n^3=8k^3$. Line III: $n^3=2(4k^3)$. Line IV: therefore $n^3$ is even and $n^3$ is a multiple of $8$. Which best describes this attempt?
+\item A student attempts to prove: ``For all real $x$, if $x^3 > x$, then $x > 1$.'' \textit{\small(after TMUA 2021 Paper 2 Q5)}
 
-\ans{A) Completely correct.}
-\method{Each line is valid: $n=2k \Rightarrow n^3=(2k)^3=8k^3$, and $8k^3=2(4k^3)$ shows evenness while $8k^3$ is manifestly $8$ times an integer, so both parts of the conclusion follow correctly with no gap.}
-\inv{Not every ``spot the flaw'' question has a flaw --- this is Section C's version of B7's lesson, at higher difficulty.}
+\ans{A) Line 3 is invalid when $x < 0$, and Line 4 misses the possibility $x < -1$.}
+\method{In Line 3, dividing $x(x^2-1) > 0$ by $x$ requires knowing the sign of $x$. If $x < 0$, dividing by $x$ flips the inequality to $x^2-1 < 0 \implies -1 < x < 0$. If $x > 0$, dividing by $x$ gives $x^2-1 > 0 \implies x > 1$. Furthermore, $x^2 > 1$ gives $x > 1 \text{ or } x < -1$. Thus $x^3 > x$ is satisfied for $x \in (-1,0) \cup (1,\infty)$.}
+\inv{What is the correct solution set to $x^3 > x$?}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: if $n$ is a positive integer and $n^2>100$, then $n>10$. `Proof': $n^2>100 \Rightarrow n>10$ (taking square roots of both sides).'' Is this proof valid? If not, give a counterexample.
+\item Consider the statement: ``If $n$ is an integer such that $n^2$ is divisible by $6$, then $n$ is divisible by $6$.'' \textit{\small(after TMUA 2018 Paper 2 Q6)}
 
-\ans{The claim itself is true for positive integers, but the given proof step is invalid in general (it silently uses positivity without saying so); as written for all integers it would fail at $n=-11$.}
-\method{Taking square roots of $n^2>100$ directly gives $|n|>10$, i.e.\ $n>10$ or $n<-10$ --- not $n>10$ alone. The claim is true only because the problem restricts to positive integers, which the ``proof'' never explicitly uses to rule out the $n<-10$ branch. As stated for all integers, $n=-11$ gives $n^2=121>100$ but $n>10$ is false.}
-\inv{This is B5's exact error, now embedded inside a claim that happens to be true for the intended domain --- always check whether a domain restriction is doing silent, unacknowledged work in a proof.}
+\ans{B) No, Line 3 assumes what it tries to prove by asserting $k = 6m^2$.}
+\method{Line 3 asserts $k = 6m^2$ without proof. Knowing $\sqrt{6k} \in \mathbb{Z}$ means $6k$ is a square, so $6k = 36m^2 \implies k = 6m^2$. But assuming $k=6m^2$ directly assumes that $6 \mid k$, which assumes that $36 \mid n^2 \implies 6 \mid n$, circular reasoning!}
+\inv{How do you correctly prove $6 \mid n^2 \implies 6 \mid n$ using prime factorisation?}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: if $a,b$ are integers with $a\mid b$ and $b\mid a$, then $a=b$.'' Spot the flaw and give a counterexample.
+\item A student writes a proof of the claim: ``For all positive integers $n$, $n^2 + 5n + 6$ is even.''
 
-\ans{Missing case $a=-b$; e.g.\ $a=3,b=-3$.}
-\method{$3\mid-3$ and $-3\mid3$ both hold, but $3\neq-3$. The correct conclusion from $a\mid b$ and $b\mid a$ is $a=\pm b$, since each divisibility forces $|a|=|b|$ but not a matching sign.}
-\inv{The same ``lost sign'' theme as B5, C2, B9, B10 --- divisibility, like squaring, only pins down magnitude, never sign, unless the domain is restricted to positive integers.}
+\ans{A) The proof is completely valid and correct.}
+\method{Line 1 factorises correctly to $(n+2)(n+3)$. Line 2 correctly notes that $n+2$ and $n+3$ are consecutive integers, so one is even and one is odd. Line 3 correctly uses the fact that even $\times$ odd = even. The proof is entirely sound.}
+\inv{Can you also prove $n^2+5n+6$ is even by testing $n$ even and $n$ odd separately?}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: for positive real $x$, if $x+\tfrac1x=2$, then $x=1$. `Proof': $x+\tfrac1x=2 \Rightarrow x^2+1=2x \Rightarrow x^2-2x+1=0 \Rightarrow (x-1)^2=0 \Rightarrow x=1$.'' Is this proof valid?
+\item A student attempts to prove: ``For all real $x$, $x^2 + 4x + 5 > 0$.''
 
-\ans{Yes, fully valid.}
-\method{Multiplying by $x$ is legitimate here because $x$ is given to be a positive real, hence nonzero --- no division-by-zero risk. Each subsequent step is a standard, reversible algebraic manipulation, and $(x-1)^2=0$ forces the unique solution $x=1$.}
-\inv{Contrast with B3 and A8: multiplying or dividing by an expression is only dangerous when that expression \emph{could} be zero --- here the problem's own hypothesis (``positive real $x$'') rules that out, so the step is safe.}
+\ans{A) The proof is completely valid and correct.}
+\method{Line 1 completes the square: $x^2+4x+5 = (x+2)^2+1$. Line 2 correctly uses $(x+2)^2 \ge 0 \implies (x+2)^2+1 \ge 1 > 0$. Line 3 correctly concludes $x^2+4x+5 > 0$. Every step is rigorous and valid.}
+\inv{What is the minimum value of $x^2+4x+5$, and for which $x$ does it occur?}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: if $n$ is an integer and $n^2$ is divisible by $4$, then $n$ is divisible by $4$. `Proof': $n^2$ divisible by $4$ $\Rightarrow n^2=4m$ for some integer $m$ $\Rightarrow n=2\sqrt{m}$, and since $n$ is an integer this is always even, hence $n$ is divisible by $4$.'' Identify exactly where this breaks down, and give a counterexample.
+\item A student attempts to prove: ``If $a > b > 0$, then $a^2 > b^2$.''
 
-\ans{The final leap from ``$n$ is even'' to ``$n$ is divisible by $4$'' is an unjustified non-sequitur; $n=6$ is a counterexample.}
-\method{Even granting that $n=2\sqrt m$ shows $n$ is even, evenness alone does not imply divisibility by $4$ (Day 1, C8). $n=6$: $n^2=36=4\times9$ is divisible by $4$, but $6$ is not divisible by $4$.}
-\inv{This is the same false claim as B1 and B8, but now dressed up inside a longer, more convincing-looking algebraic derivation --- length and complexity of an argument are no guarantee of correctness.}
+\ans{A) The proof is completely valid and correct.}
+\method{Since $a > 0$ and $b > 0$, multiplying $a > b$ by $a > 0$ preserves inequality: $a^2 > ab$. Multiplying $a > b$ by $b > 0$ preserves inequality: $ab > b^2$. Transitivity gives $a^2 > ab > b^2 \implies a^2 > b^2$. All steps are valid.}
+\inv{Why does this proof fail if $b < 0$?}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: the equation $x^3=x$ has exactly one real solution. `Proof': $x^3=x \Rightarrow x^3-x=0 \Rightarrow x(x^2-1)=0 \Rightarrow x=0$ (dividing by $(x^2-1)$).'' Spot the flaw.
+\item Consider the attempt to prove: ``If $x^2$ is irrational, then $x$ is irrational.''
 
-\ans{Dividing by $(x^2-1)$ instead of case-splitting on the zero-product property loses the solutions $x=\pm1$; there are three real solutions, not one.}
-\method{From $x(x^2-1)=0$, the zero-product property gives $x=0$ \emph{or} $x^2-1=0$ (i.e.\ $x=1$ or $x=-1$) --- three solutions total. Dividing by $(x^2-1)$ silently assumes it is nonzero, exactly the same error as A8, discarding the two solutions where it \emph{is} zero.}
-\inv{Whenever a product equals zero, always case-split via the zero-product property rather than dividing out one of the factors --- A8's warning generalises directly to any factored equation.}
+\ans{A) The proof is completely valid and correct.}
+\method{The contrapositive of $P \implies Q$ ($x^2 \notin \mathbb{Q} \implies x \notin \mathbb{Q}$) is $\neg Q \implies \neg P$ ($x \in \mathbb{Q} \implies x^2 \in \mathbb{Q}$). If $x = p/q \in \mathbb{Q}$, then $x^2 = p^2/q^2 \in \mathbb{Q}$. Since the contrapositive is true, the original statement is true.}
+\inv{Is the converse ``if $x$ is irrational then $x^2$ is irrational'' true?}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: if $p$ is prime and $p>2$, then $p+1$ is not prime. `Proof': $p$ is odd (Day 1, B9), so $p+1$ is even. Since $p+1>2$ is even, it cannot be prime, as the only even prime is $2$.'' Is this proof valid?
+\item A student attempts to prove: ``For all real $x \neq 1$, $\frac{x^2-1}{x-1} = x+1$.''
 
-\ans{Yes, fully valid.}
-\method{$p>2$ prime $\Rightarrow p$ odd (Day 1, B9) $\Rightarrow p+1$ even. Since $p>2$, $p+1>3>2$, so $p+1$ is an even number greater than $2$, and the only even prime is $2$ itself (Day 1, B9's underlying fact) --- so $p+1$ cannot be prime.}
-\inv{This reuses B9's ``$2$ is the exceptional even prime'' fact for the third distinct purpose in this pillar (Day 1's B9, Day 4's A4/B9, and now here) --- a genuinely load-bearing fact worth having instantly available.}
+\ans{A) The proof is completely valid and correct.}
+\method{For $x \neq 1$, $x-1 \neq 0$, so dividing numerator and denominator by $(x-1)$ is division by a non-zero number, which is valid. $\frac{(x-1)(x+1)}{x-1} = x+1$.}
+\inv{What happens to the expression at $x=1$?}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: for every positive integer $n$, $n^2 \geq 2n-1$, with equality only at $n=1$. `Proof': $n^2-2n+1=(n-1)^2\geq0$ always, with equality exactly when $n=1$.'' Is this proof valid?
+\item Consider the claim: ``For all integers $n$, $n^3 - n$ is divisible by $3$.''
 
-\ans{Yes, fully valid.}
-\method{$n^2-2n+1=(n-1)^2$ is an algebraic identity, and any real square is $\geq0$, with equality iff the base is $0$, i.e.\ $n=1$. Rearranging $n^2-2n+1\geq0$ gives exactly $n^2\geq2n-1$, with equality iff $n=1$.}
-\inv{Completing the square to turn an inequality into ``something squared $\geq0$'' is one of the cleanest and most reliable proof techniques available --- worth recognising on sight as a strong candidate for being fully correct.}
+\ans{A) The proof is completely valid and correct.}
+\method{$n^3-n = (n-1)n(n+1)$ is the product of three consecutive integers. In any three consecutive integers, exactly one is a multiple of $3$, so their product is divisible by $3$. The argument holds for all $n \in \mathbb{Z}$.}
+\inv{Is $n^3-n$ also always divisible by $6$?}
 
 \end{enumerate}
 
-\section*{Section D \quad Challenge}
+\section*{Section D}
 
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item A student is asked to prove: ``If $n$ is even, then $n^2$ is even.'' The student instead writes: ``Suppose $n^2$ is even. Then $n^2=2m$ for some integer $m$. If $n$ were odd, $n^2$ would be odd (Day 1, B5) --- contradiction. So $n$ is even.'' Which best describes this attempt?
+\item Consider the following attempt to prove: ``For all real numbers $x$, if $x^2 - 5x + 6 = 0$, then $x = 2$.'' \textit{\small(after TMUA 2016 Paper 2 Q11)}
 
-\ans{B) Incorrect --- the student has proved the converse of the original statement instead.}
-\method{The original target is ``$n$ even $\Rightarrow n^2$ even.'' The student's argument assumes $n^2$ even and concludes $n$ even, which is ``$n^2$ even $\Rightarrow n$ even'' --- exactly the converse (Day 1), not the original. The student's proof of that converse is itself valid (a correct proof by contradiction, previewing Day 7), but it proves the wrong target statement.}
-\inv{A perfectly valid proof can still be a wrong answer if it proves the converse instead of what was asked --- this is the deepest trap in the whole pillar, combining Day 1 (converse), Day 3/7-preview (contradiction), and this sheet's proof-critique skill all at once.}
+\ans{C) Line 4 does not follow because $x = 3$ is also a solution, so $x^2 - 5x + 6 = 0$ does not imply $x = 2$ exclusively.}
+\method{Line 1 factorises correctly to $(x-2)(x-3)=0$. Line 2 correctly states $x=2 \text{ or } x=3$. Line 3 correctly verifies that $x=2$ is a solution. However, Line 4 falsely concludes $x=2$ exclusively, ignoring $x=3$. Since $x=3$ is also a valid root, $x^2-5x+6=0$ does not imply $x=2$ (the statement is false for $x=3$).}
+\inv{What is the correct logical relationship between $x^2-5x+6=0$ and $x \in \{2, 3\}$?}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item A student ``proves'' that $\sqrt2$ is rational as follows: ``Suppose $\sqrt2=p/q$ in lowest terms. Then $2=p^2/q^2$, so $2q^2=p^2$, so $p^2$ is even, so $p$ is even, so $p=2r$. Then $2q^2=4r^2$, so $q^2=2r^2$, so $q$ is even too. But $p,q$ were in lowest terms, so they can't both be even --- contradiction. Hence $\sqrt2$ is rational.'' Spot the flaw in the final line's conclusion.
+\item A student attempts to prove: ``All horses are the same color'' using induction.
 
-\ans{The contradiction actually proves $\sqrt2$ is \emph{irrational}, not rational --- every step up to the contradiction is a correct classical proof of irrationality.}
-\method{The argument assumes $\sqrt2$ is rational (expressible as $p/q$ in lowest terms) and derives a genuine contradiction (both $p,q$ forced even, contradicting ``lowest terms''). In a proof by contradiction, reaching a contradiction from an assumption means that assumption is false --- so the correct conclusion is that $\sqrt2$ is \emph{not} rational, i.e.\ irrational. The student's final sentence inexplicably states the opposite of what the contradiction actually establishes.}
-\inv{This is the single most famous proof by contradiction in elementary mathematics, and the flaw here isn't in any line of algebra --- it's in correctly reading off what a completed contradiction actually proves, the exact skill Day 7's toolkit will name explicitly.}
+\ans{B) The transition from $k=1$ to $k=2$ fails because the two subsets $\{h_1\}$ and $\{h_2\}$ do not overlap.}
+\method{For $k=1$, the two subsets are $\{h_1\}$ and $\{h_2\}$. These two 1-element subsets share no common element ($h_2$ is not in $\{h_1\}$). Thus, the overlap argument that forces $h_1$ and $h_2$ to share the color of the overlapping element fails at $k=1 \to k=2$.}
+\inv{Why does the overlap argument work for $k \ge 2 \to k+3$ but fail at $k=1$?}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item ``Reasoning: for every positive integer $n$, $n^2+n$ is even; therefore, by strong induction, every polynomial in $n$ with integer coefficients is even.'' What is wrong with this reasoning, independent of whether the individual claim ``$n^2+n$ is even'' is itself true?
+\item Consider the attempt to prove: ``If $n^2$ is divisible by $3$, then $n$ is divisible by $3$.'' \textit{\small(after TMUA 2017 Paper 2 Q11)}
 
-\ans{This is not a valid use of induction at all --- induction proves a single indexed statement for all $n$, not an unrelated general claim about all polynomials from one example.}
-\method{Induction requires a base case and an inductive step for one specific statement $P(n)$, proving $P(n)$ holds for every $n$ in its intended range. Verifying that one particular expression ($n^2+n$) is even says nothing about a completely different, much broader claim (``every integer-coefficient polynomial in $n$ is even'') --- and that broader claim is in fact false, e.g.\ the polynomial $n$ itself is odd when $n=1$.}
-\inv{Invoking the \emph{name} of a valid technique (``induction'') does not make an argument valid --- always check that the technique is actually being applied to the statement it's supposed to prove.}
+\ans{A) The proof is completely valid and rigorous.}
+\method{Line 1 correctly states the contrapositive: $3 \nmid n \implies 3 \nmid n^2$. Line 2 covers all cases for $3 \nmid n$: $n \equiv 1 \pmod 3$ or $n \equiv 2 \pmod 3$. Line 3 shows $(3k+1)^2 = 3(3k^2+2k)+1 \not\equiv 0 \pmod 3$. Line 4 shows $(3k+2)^2 = 3(3k^2+4k+1)+1 \not\equiv 0 \pmod 3$. Line 5 correctly concludes the contrapositive holds, proving the theorem.}
+\inv{Why is proving by contrapositive easier than direct proof here?}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item ``Claim: a triangle has two equal angles if and only if it has two equal sides (isosceles); therefore, having two equal angles is logically equivalent to having a right angle.'' What is wrong with this argument?
+\item A student writes the following proof that $1 = 0$:\\
 
-\ans{Non-sequitur --- the conclusion about right angles doesn't follow from the premise about isosceles triangles at all.}
-\method{The premise (two equal angles $\iff$ isosceles) is a true geometric fact, but ``therefore...having a right angle'' introduces an entirely unrelated property with no logical connection established. A $70^\circ$-$70^\circ$-$40^\circ$ isosceles triangle has two equal angles and no right angle, immediately breaking the claimed equivalence.}
-\inv{Unlike every other flawed argument on this sheet, the premise here isn't wrong at all --- the entire flaw is a conclusion that simply doesn't connect to what came before it, the purest form of non-sequitur.}
+\ans{C) Line 5: division by $x-1$ is division by zero since $x=1$.}
+\method{In Line 1, $x=1$, so $x-1 = 0$. In Line 5, dividing both sides of $(x-1)(x+1) = x-1$ by $x-1$ is dividing by zero, which is algebraically invalid and produces the false identity $2=1$.}
+\inv{At which line does the proof first depart from valid field operations?}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item A student presents this argument: ``Claim: if $n$ is a positive integer with $n^2-n+41$ composite, then $n\geq40$. Proof: we showed (Day 4, C1) that $n^2+n+41$ is prime for $n=0,\dots,39$ and composite at $n=40$. Since $n^2-n+41$ is just $n^2+n+41$ with $n$ replaced by $-n$, the same primality pattern applies, so $n^2-n+41$ is composite exactly when $n\geq40$ too.'' Identify precisely what is wrong with this argument, and give a specific counterexample.
+\item Consider the statement: ``For all real numbers $x,y$, if $x+y > 0$, then $x > 0$ or $y > 0$.'' \textit{\small(after TMUA 2020 Paper 2 Q4)}
 
-\ans{Off-by-one substitution error: $n^2-n+41 = (n-1)^2+(n-1)+41$, so the ``shifted'' pattern actually starts breaking at $n=41$, not $n=40$. Counterexample to the student's claim: $n=40$ gives $n^2-n+41=1601$, which is prime, not composite.}
-\method{Setting $m=n-1$: $m^2+m+41 = (n-1)^2+(n-1)+41 = n^2-2n+1+n-1+41 = n^2-n+41$, exactly matching the claim's expression. Since $m^2+m+41$ is prime for $m=0,\dots,39$ (Day 4, C1) and first composite at $m=40$, the expression $n^2-n+41$ is prime for $n-1=0,\dots,39$ (i.e.\ $n=1,\dots,40$) and first composite at $n-1=40$, i.e.\ $n=41$ --- not $n=40$ as the student concluded. Directly: $n=40$ gives $40^2-40+41=1600-40+41=1601$, which is prime (not divisible by any prime up to $\sqrt{1601}\approx40$), directly contradicting the student's claim that composite values start at $n=40$.}
-\inv{Substituting $-n$ for $n$ inside a formula shifts \emph{where} a pattern occurs, not just its shape --- always re-derive the new threshold explicitly (here, via $m=n-1$) rather than assuming the old one carries over unchanged. This closes the pillar's counterexample-and-critique arc by catching an error in reasoning \emph{about} a fact from an earlier sheet, not just in a fresh claim.}
+\ans{A) The proof is completely valid and correct.}
+\method{The contrapositive of $P \implies (Q \lor R)$ is $\neg(Q \lor R) \implies \neg P$, which by De Morgan's law is $(\neg Q \land \neg R) \implies \neg P$. Here $\neg Q \land \neg R$ is $x \le 0 \land y \le 0$, and $\neg P$ is $x+y \le 0$. Adding $x \le 0$ and $y \le 0$ gives $x+y \le 0$. Since the contrapositive is true, the original statement is true.}
+\inv{Is the converse ``if $x > 0$ or $y > 0$, then $x+y > 0$'' true?}
 
 \end{enumerate}
 

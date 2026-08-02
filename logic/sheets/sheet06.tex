@@ -5,7 +5,7 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#6}{David Akinyele-Aje}
-\noindent\textit{New toolkit today: Evaluating Compound Claims $\cdot$ AND/OR Combinations $\cdot$ The ``Which Statements Are True'' Format $\cdot$ Quantifier Mixing.}
+\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Base Case Traps $\cdot$ Inductive Step Mechanics $\cdot$ Misapplied Induction.}
 
 \vspace{2pt}
 \noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
@@ -13,29 +13,29 @@
 \section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Evaluate each statement independently before combining. Pure recognition.}
+\noindent\textit{Induction structure, base cases, and inductive steps. Pure recognition.}
 
 \begin{enumerate}
 
-\item I. ``$2$ is prime.'' II. ``$2$ is odd.'' Which are true?
+\item What are the two essential components required for a proof by mathematical induction?
 
-\item I. ``$4$ is a perfect square.'' II. ``$4$ is prime.'' Which are true?
+\item To prove a statement $P(n)$ holds for all integers $n \ge 4$ by induction, what is the base case?
 
-\item I. ``$9$ is odd.'' II. ``$9$ is prime.'' Which are true?
+\item If $P(k) \implies P(k+1)$ is proved, but no base case $P(n_0)$ is established, is $P(n)$ proved for any $n$?
 
-\item I. ``Every square is a rectangle.'' II. ``Every rectangle is a square.'' Which are true?
+\item What is the inductive hypothesis in a proof of $\sum_{i=1}^n i = \frac{n(n+1)}{2}$?
 
-\item I. ``$6$ is a multiple of $2$.'' II. ``$6$ is a multiple of $3$.'' Which are true?
+\item True or false: ``Mathematical induction can be used to prove statements about all real numbers $x$.''
 
-\item I. ``$5$ is even.'' II. ``$5$ is prime.'' Which are true?
+\item In a proof that $2^n > n^2$ for $n \ge 5$, what is the smallest integer $n$ for which the base case must be checked?
 
-\item I. ``$0$ is positive.'' II. ``$0$ is negative.'' Which are true?
+\item What is the negation of the inductive step statement: ``For all $k \ge 1$, $P(k) \implies P(k+1)$''?
 
-\item True or false: ``If both statements I and II in a pair are false, the correct choice is `neither', not `I and II'.''
+\item True or false: ``If $P(1)$ is true and $P(k) \implies P(k+2)$ for all $k \ge 1$, then $P(n)$ is true for all positive integers $n$.''
 
-\item I. ``$n=2$ is a counterexample to `all primes are odd'.'' II. ``$n=9$ is a counterexample to `all odd numbers are prime'.'' Which are true?
+\item For which positive integers $n$ is $2^n > n$ true?
 
-\item I. ``$1$ is a prime number.'' II. ``$1$ is a perfect square.'' Which are true?
+\item What is the base case needed to prove $n! > 2^n$ by induction?
 
 \end{enumerate}
 
@@ -43,29 +43,29 @@
 \section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Three statements at once --- evaluate each on its own merits before combining.}
+\noindent\textit{Algebraic manipulations within inductive steps.}
 
 \begin{enumerate}
 
-\item I. ``$n=4$ is a multiple of $4$.'' II. ``$n=4$ is a multiple of $8$.'' III. ``$n=4$ is a multiple of $2$.'' Which are true?
+\item Express $\sum_{i=1}^{k+1} i^2$ in terms of $\sum_{i=1}^k i^2$.
 
-\item I. ``$n$ even $\Rightarrow n^2$ even'' is true. II. Its converse is also true. III. Together, I and II mean ``$n$ even $\iff n^2$ even.'' Which are true?
+\item Assuming $\sum_{i=1}^k i = \frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}$.
 
-\item I. ``$\sqrt2$ is irrational.'' II. ``$\sqrt2+\sqrt2$ is irrational.'' III. ``$\sqrt2-\sqrt2$ is irrational.'' Which are true?
+\item Prove by induction: $\sum_{i=1}^n (2i-1) = n^2$ for all positive integers $n$.
 
-\item I. ``Every multiple of $9$ is a multiple of $3$.'' II. ``Every multiple of $3$ is a multiple of $9$.'' III. ```Multiple of $3$' is necessary for `multiple of $9$'.'' Which are true?
+\item Assuming $3^{2k} - 1$ is divisible by $8$, express $3^{2(k+1)} - 1$ in a form that shows it is also divisible by $8$.
 
-\item I. ``$2^{11}-1$ is prime.'' II. ``$11$ is prime.'' III. ``If $n$ is prime, $2^n-1$ is prime.'' Which are true?
+\item Prove by induction: $2^n > n$ for all positive integers $n$.
 
-\item I. ``$4!+1$ is prime.'' II. ``$5!+1$ is prime.'' III. ``$n!+1$ is prime for all $n$.'' Which are true?
+\item Assuming $k! > 2^k$ for some $k \ge 4$, prove $(k+1)! > 2^{k+1}$.
 
-\item I. ``$41$ is prime.'' II. ``$n=41$ is a counterexample to `$n^2+n+41$ is always prime'.'' III. ``$n=40$ is the smallest counterexample to `$n^2+n+41$ is always prime'.'' Which are true?
+\item Prove by induction that $5^n - 1$ is divisible by $4$ for all positive integers $n$.
 
-\item I. ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' II. ``The negation of `for all $x$, $P(x)$' is `there exists $x$, not $P(x)$'.'' III. ``The negation of `there exists $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' Which are true?
+\item Assuming $\sum_{i=1}^k 2^i = 2^{k+1} - 2$, show that $\sum_{i=1}^{k+1} 2^i = 2^{k+2} - 2$.
 
-\item I. ``The converse of a true statement is always true.'' II. ``The contrapositive of a true statement is always true.'' III. ``The negation of a true statement is always true.'' Which are true?
+\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2) \times 180^\circ$ for $n \ge 3$.
 
-\item I. ``Affirming the consequent is a valid rule.'' II. ``Denying the antecedent is a valid rule.'' III. ``Modus ponens is a valid rule.'' Which are true?
+\item Show that if $P(k) \implies P(k+2)$ is proved, established base cases for both $n=1$ and $n=2$ are sufficient to prove $P(n)$ for all $n \ge 1$.
 
 \end{enumerate}
 
@@ -73,72 +73,119 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Harder combinations, drawing on facts from across the whole pillar so far.}
+\noindent\textit{Analyze induction fallacies and non-standard inductive setups with tricky MCQs.}
 
 \begin{enumerate}
 
-\item For a positive integer $n$: I. ``$n$ divisible by $4$'' is necessary for ``$n$ divisible by $12$.'' II. ``$n$ divisible by $4$'' is sufficient for ``$n$ divisible by $12$.'' III. ``$n$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $8$.'' Which of I, II, III are true?
+\item A student attempts to prove $P(n)$: ``$n^2 + 5n + 1$ is even'' for all $n \ge 1$.\\
+Inductive Step: Assume $P(k)$ is true, so $k^2 + 5k + 1 = 2m$.\\
+Then $(k+1)^2 + 5(k+1) + 1 = k^2 + 2k + 1 + 5k + 5 + 1 = (k^2 + 5k + 1) + 2k + 6 = 2m + 2(k+3) = 2(m + k + 3)$, which is even. So $P(k) \implies P(k+1)$ holds!\\
+However, $P(1) = 1 + 5 + 1 = 7$, which is odd!\\
+Which evaluation of this situation is correct? \textit{\small(after TMUA 2022 Paper 2 Q14)}
 \begin{itemize}
-\item[A)] I only
-\item[B)] II only
-\item[C)] III only
-\item[D)] I and II only
-\item[E)] I and III only
-\item[F)] II and III only
-\item[G)] I, II and III
-\item[H)] None of them
+\item[A)] The proof is complete because the inductive step was proven.
+\item[B)] $P(n)$ is false for all $n \ge 1$ despite the inductive step $P(k) \implies P(k+1)$ being completely valid.
+\item[C)] The inductive step $P(k) \implies P(k+1)$ contains an algebraic error.
+\item[D)] $P(n)$ is true for all $n \ge 2$.
+\item[E)] Mathematical induction cannot be applied to parity statements.
 \end{itemize}
 
-\item I. ``There exists a real $x$ with $x^2<0$.'' II. ``For all reals $x$, $x^2\geq0$.'' III. ``The negation of II is I.'' Which are true?
-
-\item Recall the flawed argument ``$n^2$ multiple of $4$, therefore $n$ multiple of $4$'' (Day 5, B1). I. ``This argument commits the fallacy of affirming the consequent.'' II. ``$n=6$ is a valid counterexample to the underlying claim.'' III. ``The converse of the underlying claim (`$n$ mult.\ of $4 \Rightarrow n^2$ mult.\ of $4$') is what's actually true.'' Which are true?
-
-\item I. ``$n=1$ is a counterexample to `every positive integer has a prime factor'.'' II. ``$n=1$ is a counterexample to `every integer greater than $1$ has a prime factor'.'' III. ``$1$ is neither prime nor composite.'' Which are true?
-
-\item I. ``The statement `if $n^2-n$ is even, then $n$ is even' is false (Day 1, D5).'' II. ``$n^2-n$ is even for every integer $n$.'' III. ``$n(n-1)$ is even for every integer $n$.'' Which are true?
-
-\item I. ``Every quadratic with integer coefficients that has an integer root has two integer roots.'' II. ``$2x^2-3x+1$ is a counterexample to I.'' III. ``Monic quadratics (leading coefficient $1$) are never counterexamples to I.'' Which are true?
-
-\item I. ``$3^5+2$ is composite (Day 4, C6).'' II. ``$3^5+2=245$.'' III. ``$245=5\times7^2$.'' Which are true?
-
-\item For real $x$: I. ``$x>0$'' is sufficient for ``$x^2>0$.'' II. ``$x>0$'' is necessary for ``$x^2>0$.'' III. ``$x\neq0$'' is necessary and sufficient for ``$x^2>0$.''
+\item Consider the claim $P(n)$: ``$2^n > n^2$.'' \textit{\small(after SMC 2018 Q22)}\\
+Base Case checking: $n=1 \implies 2 > 1$ (True); $n=2 \implies 4 > 4$ (False); $n=3 \implies 8 > 9$ (False); $n=4 \implies 16 > 16$ (False); $n=5 \implies 32 > 25$ (True).\\
+For which set of positive integers $n$ is $2^n > n^2$ actually true?
 \begin{itemize}
-\item[A)] I only
-\item[B)] I and II only
-\item[C)] I and III only
-\item[D)] II and III only
-\item[E)] I, II and III
+\item[A)] $n = 1$ and all $n \ge 5$
+\item[B)] all $n \ge 1$
+\item[C)] all $n \ge 5$ only
+\item[D)] $n = 1, 2, 3, 4, 5$
+\item[E)] no positive integers $n$
+\end{itemize}
+
+\item A student claims: ``To prove $P(n)$ for all $n \ge 1$, it is sufficient to prove $P(1)$ and $P(k) \implies P(2k)$ for all $k \ge 1$.''\\
+Is this claim true or false?
+\begin{itemize}
+\item[A)] True, because powers of $2$ cover all positive integers.
+\item[B)] False, because this only proves $P(n)$ for $n$ of the form $2^m$ ($m \ge 0$).
+\item[C)] True, by the Archimedean property.
+\item[D)] False, because $P(1)$ cannot be a base case.
+\item[E)] True, this is known as Cauchy induction.
+\end{itemize}
+
+\item Consider the Fibonacci sequence $F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, \dots$ defined by $F_{n+1} = F_n + F_{n-1}$.\\
+What is the value of $\sum_{i=1}^n F_i$?
+\begin{itemize}
+\item[A)] $F_{n+1} - 1$
+\item[B)] $F_{n+2} - 1$
+\item[C)] $F_{n+2}$
+\item[D)] $F_{n+1} + 1$
+\item[E)] $F_{n+3} - 2$
+\end{itemize}
+
+\item A student attempts to prove: ``For all positive integers $n$, $n! \le 2^n$.''\\
+Checking cases: $n=1 \implies 1 \le 2$ (True); $n=2 \implies 2 \le 4$ (True); $n=3 \implies 6 \le 8$ (True); $n=4 \implies 24 \le 16$ (False).\\
+Which of the following is true regarding $n!$ vs $2^n$?
+\begin{itemize}
+\item[A)] $n! \le 2^n$ for all $n \ge 1$.
+\item[B)] $n! \le 2^n$ for $n \in \{1, 2, 3\}$, but $n! > 2^n$ for all $n \ge 4$.
+\item[C)] $n! > 2^n$ for all $n \ge 1$.
+\item[D)] $n! \le 2^n$ for all even $n$.
+\item[E)] $n!$ and $2^n$ are equal for all $n \ge 4$.
+\end{itemize}
+
+\item Consider the sum $S_n = \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \dots + \frac{1}{n(n+1)}$.\\
+Using mathematical induction, what is the closed-form expression for $S_n$?
+\begin{itemize}
+\item[A)] $\frac{n}{n+1}$
+\item[B)] $\frac{1}{n+1}$
+\item[C)] $\frac{n+1}{n}$
+\item[D)] $\frac{n}{2(n+1)}$
+\item[E)] $\frac{n^2}{n+1}$
+\end{itemize}
+
+\item To prove $P(n)$ for all integers $n \ge 1$ using Strong Induction, what is the inductive hypothesis step?
+\begin{itemize}
+\item[A)] Assume $P(k)$ is true for a single integer $k$.
+\item[B)] Assume $P(1), P(2), \dots, P(k)$ are all true, and deduce $P(k+1)$.
+\item[C)] Assume $P(k+1)$ is true and deduce $P(k)$.
+\item[D)] Assume $P(k)$ is false and deduce a contradiction.
+\item[E)] Assume $P(n)$ holds for all real numbers $n \le k$.
+\end{itemize}
+
+\item For which positive integers $n$ is $n^2 < 2^n$ false?
+\begin{itemize}
+\item[A)] $n = 2, 3, 4$
+\item[B)] $n = 1, 5, 6$
+\item[C)] $n = 2$ only
+\item[D)] $n = 3$ only
+\item[E)] $n = 4$ only
 \end{itemize}
 
 \end{enumerate}
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Insight over computation. Each question has a short, elegant solution --- find it.}
+\noindent\textit{Subtle induction proofs and classic competition induction problems.}
 
 \begin{enumerate}
 
-\item For a positive integer $n$: I. ``$n$ divisible by $6$'' is necessary and sufficient for ``$n$ divisible by $2$ and by $3$.'' II. ``$n^2$ divisible by $9$'' is necessary and sufficient for ``$n$ divisible by $3$.'' III. ``$n^2$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $4$.'' Which of I, II, III are true?
+\item Prove by induction: Bernoulli's Inequality states that for all $x > -1$ and all positive integers $n$, $(1+x)^n \ge 1 + nx$. At which step in the inductive transition $(1+x)^k \ge 1+kx \implies (1+x)^{k+1} \ge 1+(k+1)x$ is the condition $x > -1$ strictly required?
 \begin{itemize}
-\item[A)] I only
-\item[B)] II only
-\item[C)] III only
-\item[D)] I and II only
-\item[E)] I and III only
-\item[F)] II and III only
-\item[G)] I, II and III
-\item[H)] None of them
+\item[A)] When establishing the base case $n=1$.
+\item[B)] When multiplying both sides of $(1+x)^k \ge 1+kx$ by $(1+x)$ without flipping the inequality sign.
+\item[C)] When expanding $(1+kx)(1+x) = 1 + (k+1)x + kx^2$.
+\item[D)] When dropping the term $kx^2 \ge 0$.
+\item[E)] The condition $x > -1$ is never required.
 \end{itemize}
 
-\item Three people, $X$, $Y$, $Z$, each make one statement. $X$ says: ``$Y$ is lying.'' $Y$ says: ``$Z$ is lying.'' $Z$ says: ``$X$ and $Y$ are both lying.'' Given that exactly one of them is telling the truth, determine who.
+\item Prove by induction that $a^n - b^n$ is divisible by $a - b$ for all positive integers $n$, where $a,b$ are distinct integers. Show the inductive step using the identity $a^{k+1} - b^{k+1} = a(a^k - b^k) + b^k(a - b)$.
 
-\item Recall the flawed conclusion from Day 5, D2 (a student proves $\sqrt2$ irrational by contradiction, then writes ``therefore $\sqrt2$ is rational''). I. ``The algebraic derivation, up to the final sentence, is entirely correct.'' II. ``The final English conclusion correctly follows from the derived contradiction.'' III. ``A correctly-stated conclusion would be `$\sqrt2$ is irrational'.'' Which are true?
+\item Consider a grid of $2^n \times 2^n$ squares with one single $1 \times 1$ square removed. Prove by mathematical induction that for every integer $n \ge 1$, the remaining region can be completely tiled by L-trominoes (shapes made of 3 squares forming an L).
 
-\item Let $S$ be the statement: ``If $n$ is a multiple of $12$, then $n$ is a multiple of $3$ and a multiple of $4$.'' I. $S$ is true. II. $S$'s converse is true. III. ``Multiple of $12$'' is necessary and sufficient for ``multiple of $6$.'' Which are true?
+\item Let $a_1 = 1$ and $a_{n+1} = \sqrt{2 + a_n}$ for $n \ge 1$. (a) Prove by induction that $a_n < 2$ for all $n \ge 1$. (b) Prove by induction that $a_n < a_{n+1}$ for all $n \ge 1$.
 
-\item Statement $T$: ``If $2^n-1$ is prime, then $n$ is prime'' (Day 4, D5). I. $T$'s contrapositive is ``if $n$ is not prime, then $2^n-1$ is not prime.'' II. $T$'s converse is false, witnessed by $n=11$. III. ``$2^n-1$ is prime'' is necessary and sufficient for ``$n$ is prime.'' Which are true?
+\item Prove by induction that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2 = \left[\frac{n(n+1)}{2}\right]^2$ for all positive integers $n$.
 
 \end{enumerate}
 

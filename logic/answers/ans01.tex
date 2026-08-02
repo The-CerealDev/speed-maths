@@ -12,74 +12,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item Identify the hypothesis and the conclusion of: ``If $n$ is divisible by $10$, then $n$ is divisible by $5$.''
+\item Negate: ``For all integers $n$, $n^2 \geq 0$.''
 
-\ans{Hypothesis: $n$ is divisible by $10$. Conclusion: $n$ is divisible by $5$.}
-\method{The clause following ``if'' is the hypothesis; the clause following ``then'' is the conclusion.}
-\inv{Every multiple of $10$ is a multiple of $5$ --- is the converse (``multiple of $5$ $\Rightarrow$ multiple of $10$'') also true? Test $n=15$.}
+\ans{``There exists an integer $n$ such that $n^2<0$.''}
+\method{Negating $\forall n, P(n)$ gives $\exists n, \text{not } P(n)$; here $P(n)$ is ``$n^2\geq0$'' and its negation is ``$n^2<0$''.}
+\inv{This negation happens to be false (no integer squares to a negative value) --- negation is a mechanical operation, independent of whether the result is true.}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $x = 3$, then $x^2 = 9$.''
+\item Negate: ``There exists a real number $x$ such that $x^2=-1$.''
 
-\ans{``If $x^2=9$, then $x=3$.''}
-\method{Swap the hypothesis and conclusion of the original conditional: the hypothesis $x=3$ becomes the converse's conclusion, and the conclusion $x^2=9$ becomes the converse's hypothesis.}
-\inv{This converse is false --- $x=-3$ also satisfies $x^2=9$. Section C's counterexample-hunting formalises exactly this kind of check.}
+\ans{``For all real numbers $x$, $x^2\neq-1$.''}
+\method{Negating $\exists x, P(x)$ gives $\forall x, \text{not } P(x)$; here not $P(x)$ is ``$x^2\neq-1$''.}
+\inv{This negation is true: every real square is non-negative, so $x^2=-1$ has no real solution.}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If a shape is a square, then it is a rectangle.''
+\item Negate: ``$n$ is even and $n$ is prime.''
 
-\ans{True.}
-\method{A square has four right angles, which is precisely the defining property of a rectangle; a square is simply a rectangle with the extra constraint of equal side lengths.}
-\inv{Is the converse (A4) also true?}
+\ans{``$n$ is odd, or $n$ is not prime.''}
+\method{De Morgan's law: $\text{not}(P\text{ and }Q) = (\text{not }P)\text{ or }(\text{not }Q)$.}
+\inv{The connective flips from ``and'' to ``or'' --- the single most common source of negation mistakes (see A6).}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If a shape is a rectangle, then it is a square.''
+\item Negate: ``$n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
 
-\ans{False.}
-\method{A $2\times 3$ rectangle has four right angles but unequal side lengths, so it is not a square. A single such example is enough to disprove a universal ``if...then'' claim.}
-\inv{A3 was true but its converse (A4) is false --- this asymmetry is the default, not the exception.}
+\ans{``$n$ is not a multiple of $4$, and $n$ is not a multiple of $6$.''}
+\method{De Morgan's law: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$.}
+\inv{The mirror image of A3: ``or'' flips to ``and.''}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $n$ is even, then $n^2$ is even.''
+\item True or false: ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.''
 
-\ans{``If $n^2$ is even, then $n$ is even.''}
-\method{Swap hypothesis and conclusion: the new hypothesis is ``$n^2$ is even'', the new conclusion is ``$n$ is even''.}
-\inv{Unlike A2's converse, this one is also true (see B2 and B5 for the direct proofs of both directions).}
+\ans{False.}
+\method{Negating a $\forall$ gives an $\exists$, not another $\forall$: the correct negation is ``there exists $x$ such that not $P(x)$''.}
+\inv{Keeping the same quantifier when negating is the single most common error with quantified statements --- the quantifier itself must flip.}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$n^2 > 0$ for every integer $n$.''
-
-\ans{False.}
-\method{The integer $n=0$ gives $n^2=0$, which is not greater than $0$. One counterexample disproves a ``for every'' claim.}
-\inv{Restrict to nonzero integers: is $n^2>0$ then true for every $n \neq 0$?}
-
-%── A7 ──────────────────────────────────────────────────────────────────────────
-\item In ``If $x>3$ then $x^2 > 9$'', which part is the hypothesis and which is the conclusion?
-
-\ans{Hypothesis: $x>3$. Conclusion: $x^2>9$.}
-\method{The clause following ``if'' is the hypothesis; the clause following ``then'' is the conclusion.}
-\inv{Is the converse ``$x^2>9 \Rightarrow x>3$'' true? Test $x=-4$.}
-
-%── A8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If $a=b$, then $a^2 = b^2$.''
+\item True or false: ``$\text{not}(P \text{ and } Q)$ is the same as $(\text{not } P) \text{ or } (\text{not } Q)$.''
 
 \ans{True.}
-\method{If $a=b$, substituting $a$ for $b$ in $a^2$ gives $a^2 = a \cdot a = b \cdot b = b^2$ directly.}
-\inv{Is the converse ``$a^2=b^2 \Rightarrow a=b$'' true? Test $a=2, b=-2$.}
+\method{This is exactly De Morgan's law, matching A3's worked example.}
+\inv{Section B, B8 extends this to a nested compound statement with three atoms.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$x>3$ and $x<10$.''
+
+\ans{``$x\leq3$ or $x\geq10$.''}
+\method{De Morgan's law applied to the compound inequality: negate each inequality (strict flips to non-strict, opposite direction) and flip ``and'' to ``or''.}
+\inv{Forgetting the ``or equal to'' when negating a strict inequality is a common slip --- $x<3$ would wrongly drop $x=3$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Is the statement ``some prime numbers are even'' a $\forall$-statement or a $\exists$-statement in form?
+
+\ans{$\exists$-statement.}
+\method{``Some'' means ``there exists at least one'', so this reads as ``there exists a prime number that is even'' --- an existential claim, and a true one, witnessed by $2$.}
+\inv{Recognising ``some'', ``at least one'', and ``there is a'' as all signalling $\exists$ is essential before Section B's nested statements.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $2$.''
-
-\ans{``If $n$ is a multiple of $2$, then $n$ is a multiple of $6$.''}
-\method{Swap hypothesis and conclusion.}
-\inv{This converse is false ($n=4$ is a multiple of $2$ but not $6$) --- Day 4's toolkit formalises this counterexample search.}
-
-%── A10 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``The converse of a true statement is always true.''
+\item True or false: ``$\exists x \, \forall y: x+y=0$'' and ``$\forall y \, \exists x: x+y=0$'' (both over the reals) mean the same thing.
 
 \ans{False.}
-\method{A2 and A9 each give an explicit true statement whose converse is false. One such example disproves the universal claim ``always.''}
-\inv{You've now seen both patterns: true statements with false converses (A2, A9) and, per A5, true statements with true converses. Section B starts building a feel for telling them apart.}
+\method{$\exists x\,\forall y: x+y=0$ claims a single $x$ works for every $y$ --- false, since $x+y=0$ would need to hold even as $y$ varies freely. $\forall y\,\exists x: x+y=0$ claims that for each $y$ a (possibly different) $x$ exists --- true, taking $x=-y$ every time.}
+\inv{Swapping the order of $\exists$ and $\forall$ can turn a false statement into a true one --- this is the central theme of today's toolkit, developed fully in Section C's C1 and Section D's D5.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Negate: ``$n$ is prime or $n=1$.''
+
+\ans{``$n$ is not prime, and $n\neq1$.''}
+\method{De Morgan's law: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$.}
+\inv{This negation describes exactly the composite numbers greater than $1$ --- a useful way to read ``not prime and not $1$'' concretely.}
 
 \end{enumerate}
 
@@ -88,74 +88,74 @@
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item Write the converse of: ``If $n$ is divisible by $4$ and by $3$, then $n$ is divisible by $12$.'' State whether the original statement and its converse are both true.
+\item Consider the statement about Fred: ``Every day next week, Fred will do at least one maths problem.'' State the negation.
 
-\ans{Converse: ``If $n$ is divisible by $12$, then $n$ is divisible by $4$ and by $3$.'' Both the original and the converse are true.}
-\method{Original: if $4\mid n$ and $3\mid n$, then since $\gcd(4,3)=1$, $\mathrm{lcm}(4,3)=12$ divides $n$. Converse: if $12\mid n$, then since $4\mid 12$ and $3\mid 12$, both $4\mid n$ and $3\mid n$ follow directly.}
-\inv{When a statement and its converse are both true, they can be joined with ``if and only if'' --- exactly Day 2's new tool.}
+\ans{``Some day next week, Fred will do no maths problems.''}
+\method{Negating $\forall d, P(d)$ gives $\exists d, \text{not } P(d)$; here $P(d)$ is ``Fred does at least one problem on day $d$'', so not $P(d)$ is ``Fred does no problems on day $d$''.}
+\inv{``At least one'' is itself an $\exists$-flavoured clause nested inside the outer $\forall$ --- negating the whole statement only flips the outer quantifier and the inner clause, not the day-by-day structure.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is an even integer, then $n^2$ is even.''
+\item True or false: ``$\text{not}(P \text{ or } Q \text{ or } R)$ is the same as $(\text{not } P) \text{ and } (\text{not } Q) \text{ and } (\text{not } R)$.''
 
-\ans{Proved: writing $n=2k$ gives $n^2=4k^2=2(2k^2)$, an even number.}
-\method{Let $n$ be even, so $n=2k$ for some integer $k$. Then $n^2=(2k)^2=4k^2=2(2k^2)$, which is twice an integer, hence even.}
-\inv{Compare with B5: does the converse ``$n^2$ even $\Rightarrow n$ even'' also hold?}
+\ans{True.}
+\method{De Morgan's law extends to any number of terms: negating a chain of ``or''s gives a chain of ``and''s of the individual negations.}
+\inv{The three-term version used directly in B3.}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $x>0$ and $y>0$, then $xy>0$.'' Is the converse true? Justify your answer.
+\item Negate: ``$n$ is a multiple of $2$ and $n$ is a multiple of $3$ and $n$ is a multiple of $5$.''
 
-\ans{Converse: ``If $xy>0$, then $x>0$ and $y>0$.'' The converse is false.}
-\method{Counterexample: $x=-1, y=-1$ gives $xy=1>0$, but neither $x$ nor $y$ is positive.}
-\inv{What two cases (not simply ``$x>0$ and $y>0$'') actually follow from $xy>0$? Day 6's OR-combinations will state this precisely.}
+\ans{``$n$ is not a multiple of $2$, or $n$ is not a multiple of $3$, or $n$ is not a multiple of $5$.''}
+\method{Extended De Morgan: negating a chain of ``and''s gives a chain of ``or''s of the individual negations.}
+\inv{At least one of the three inner clauses must fail --- not necessarily all three.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item True or false, with a one-line reason: ``If a number's digits sum to a multiple of $3$, then the number is a multiple of $3$.''
+\item Negate: ``For every real $x>0$, there exists a real $y>0$ with $y<x$.''
 
-\ans{True.}
-\method{Every power of $10$ leaves remainder $1$ modulo $3$ (since $10\equiv1\pmod3$), so a number is congruent to its digit sum modulo $3$. Hence the number is a multiple of $3$ exactly when its digit sum is.}
-\inv{The same argument modulo $9$ gives the familiar digit-sum-of-9 rule; modulo $11$ it becomes an alternating sum instead. Why does the sign alternate for $11$?}
+\ans{``There exists a real $x>0$ such that for every real $y>0$, $y\geq x$.''}
+\method{Negating $\forall x{>}0\,\exists y{>}0, P(x,y)$ gives $\exists x{>}0\,\forall y{>}0, \text{not } P(x,y)$; here not $P(x,y)$ is ``$y\geq x$''.}
+\inv{The original statement is true (halve $x$ to get a smaller positive $y$), so this negation is correctly false --- no positive $x$ is a strict lower bound for all positive $y$.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is an odd integer, then $n^2$ is odd.''
+\item True or false: ``$\text{`}\forall n\,\exists m: m>n\text{'}$ and $\text{`}\exists m\,\forall n: m>n\text{'}$ (both over the integers) mean the same thing.''
 
-\ans{Proved: writing $n=2k+1$ gives $n^2=4k^2+4k+1=2(2k^2+2k)+1$, an odd number.}
-\method{Let $n$ be odd, so $n=2k+1$ for some integer $k$. Then $n^2=4k^2+4k+1=2(2k^2+2k)+1$, one more than an even number, hence odd.}
-\inv{Together, B2 and B5 prove both directions of ``$n$ even $\iff n^2$ even'' --- a full biconditional, previewing Day 2.}
+\ans{False.}
+\method{$\forall n\,\exists m: m>n$ is true: for every integer, a larger integer exists. $\exists m\,\forall n: m>n$ is false: no single integer $m$ exceeds every integer $n$ (take $n=m$ itself, or larger).}
+\inv{The same swapped-quantifier trap as A9, now over an unbounded domain rather than an equation.}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item Consider: ``If $x^2 = 9$ then $x = 3$.'' Is this true? If false, give the value of $x$ that breaks it.
+\item Negate the nested statement: ``There exists a prime $p$ such that for every prime $q>p$, $q$ is odd.'' Is the original statement true or false?
 
-\ans{False; $x=-3$ also satisfies $x^2=9$.}
-\method{$(-3)^2=9$ but $-3\neq3$, so the implication fails for $x=-3$.}
-\inv{The correct biconditional is ``$x^2=9 \iff x=3 \text{ or } x=-3$'' --- note the OR, not a single value.}
+\ans{Negation: ``For every prime $p$, there exists a prime $q>p$ such that $q$ is even.'' The original statement is true.}
+\method{Negating $\exists p\,\forall q{>}p, P(q)$ gives $\forall p\,\exists q{>}p, \text{not }P(q)$. The original is true: taking $p=2$, every prime $q>2$ is automatically odd, since $2$ is the only even prime.}
+\inv{$2$'s exceptional evenness is exactly what makes the original true --- the negation (false) would require infinitely many even primes larger than some bound, which don't exist.}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of Pythagoras' theorem (``if a triangle has a right angle, then $a^2+b^2=c^2$ for its side lengths, with $c$ the longest''). Is this converse also a true geometric fact?
+\item Negate: ``$n$ is a multiple of $3$, or ($n$ is a multiple of $2$ and $n$ is a multiple of $5$).''
 
-\ans{Converse: ``If $a^2+b^2=c^2$ for a triangle's side lengths (with $c$ the longest), then the triangle has a right angle opposite $c$.'' Yes, this converse is also true.}
-\method{This is the Converse of Pythagoras' Theorem: by the Law of Cosines, $c^2=a^2+b^2-2ab\cos C$, so $a^2+b^2=c^2$ forces $\cos C=0$, i.e.\ $C=90^\circ$.}
-\inv{This is one of the rare ``both directions true'' pairs --- used constantly to test whether a triangle is right-angled purely from its side lengths (e.g.\ the $5$-$12$-$13$ triangle).}
+\ans{``$n$ is not a multiple of $3$, and ($n$ is not a multiple of $2$ or $n$ is not a multiple of $5$).''}
+\method{Outer De Morgan on the ``or'' gives ``(not multiple of 3) and not(multiple of 2 and multiple of 5)''; applying De Morgan again to the inner ``and'' gives ``not multiple of 2 or not multiple of 5''.}
+\inv{Nested compound statements need De Morgan applied at every level, working from the outside in.}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $a$ and $b$ are both even integers, then $a+b$ is even.''
-
-\ans{Proved: writing $a=2j$, $b=2k$ gives $a+b=2(j+k)$, an even number.}
-\method{Let $a=2j$ and $b=2k$ for integers $j,k$. Then $a+b=2j+2k=2(j+k)$, which is even.}
-\inv{Is the converse true --- does ``$a+b$ even'' force both $a,b$ to be even? Test $a=1,b=3$.}
-
-%── B9 ──────────────────────────────────────────────────────────────────────────
-\item True or false, with a one-line reason: ``If $p$ is a prime number and $p \neq 2$, then $p$ is odd.''
+\item True or false: ``$\text{not}(A \text{ and } (B \text{ or } C))$ is the same as $(\text{not } A) \text{ or } ((\text{not } B) \text{ and } (\text{not } C))$.''
 
 \ans{True.}
-\method{$2$ is the only even prime (every other even number $\geq4$ is divisible by $2$ and hence composite), so any prime other than $2$ must be odd.}
-\inv{Is the converse true --- is every odd number prime? Test $n=9$.}
+\method{Outer De Morgan: $\text{not}(A\text{ and }(B\text{ or }C)) = (\text{not }A)\text{ or }\text{not}(B\text{ or }C)$. Inner De Morgan on the second term: $\text{not}(B\text{ or }C) = (\text{not }B)\text{ and }(\text{not }C)$. Combining gives exactly the claimed form.}
+\inv{This is the general two-level pattern that B7 applies to a concrete divisibility statement.}
 
-%── B10 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $x=y$, then $x^3 = y^3$.'' Is the converse true?
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Negate: ``$x$ is rational, or ($x$ is irrational and $x>0$).''
 
-\ans{Converse: ``If $x^3=y^3$, then $x=y$.'' This converse is true.}
-\method{Cubing is a strictly increasing (hence injective) function on the reals, so $x^3=y^3$ forces $x=y$ --- unlike squaring, cubing carries no sign ambiguity.}
-\inv{Contrast with B6: squaring loses sign information (two possible roots), cubing does not (one real root). This odd-vs-even-power distinction reappears throughout the pillar.}
+\ans{``$x$ is irrational, and ($x$ is rational or $x\leq0$).''}
+\method{Outer De Morgan: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$, giving ``$x$ irrational and not($x$ irrational and $x>0$)''. Inner De Morgan: $\text{not}(x\text{ irrational}\text{ and }x{>}0) = (x\text{ rational})\text{ or }(x\leq0)$.}
+\inv{The raw De Morgan output is correct but not fully simplified --- since ``$x$ irrational'' and ``$x$ rational'' cannot both hold, the ``$x$ rational'' branch is automatically false here, so the negation is equivalent to ``$x$ is irrational and $x\leq0$''. Recognising when a mechanically-correct negation simplifies further is a genuine extra step.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Negate: ``For every prime $p>2$, $p$ is odd.'' Is the negation true or false?
+
+\ans{Negation: ``There exists a prime $p>2$ such that $p$ is even.'' The negation is false.}
+\method{Negating $\forall p, P(p)$ gives $\exists p, \text{not }P(p)$. The negation is false because the original is true: $2$ is the only even prime, and it is explicitly excluded by $p>2$.}
+\inv{A clean closer: the original statement, the negation, and the underlying fact ($2$ is the unique even prime) all reinforce each other.}
 
 \end{enumerate}
 
@@ -164,60 +164,60 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly that the square of any multiple of $3$ is itself a multiple of $9$.
+\item For real $x$ and positive integer $n$, consider: I. For all $x$ and for all $n$, $x^2<n$. II. For all $x$, there exists $n$ such that $x^2<n$. III. There exists $x$ such that for all $n$, $x^2<n$. Which of I, II, III are true?
 
-\ans{Proved: writing $n=3k$ gives $n^2=9k^2$, a multiple of $9$.}
-\method{Let $n=3k$ for an integer $k$. Then $n^2=(3k)^2=9k^2$, which is $9$ times an integer.}
-\inv{The converse (``$n^2$ multiple of $9 \Rightarrow n$ multiple of $3$'') is actually true, since $3$ is prime --- contrast with C8, where the analogous statement for $4$ fails.}
+\ans{II and III only.}
+\method{I is false: $x=5,n=1$ gives $x^2=25\not<1$. II is true: for any real $x$, $x^2$ is a fixed number, so a positive integer $n>x^2$ always exists (take $n$ to be the smallest integer exceeding $x^2$). III is true: taking $x=0$, $x^2=0<n$ holds for every positive integer $n$.}
+\inv{III is the subtle one --- the witness $x=0$ works precisely because $n$ ranges only over \emph{positive} integers (so $n\geq1$ always); restricting the quantifier's domain is what makes III true here.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is an odd integer, then $n^2 - 1$ is divisible by $8$.''
+\item Determine the complete set of real values of $k$ for which the following is true: ``For all real $x$, if $x<k$, then $x^2>k$.'' \textit{\small(after TMUA 2022 Paper 2 Q9)}
 
-\ans{Proved: writing $n=2k+1$ gives $n^2-1=4k(k+1)$, and since $k(k+1)$ is always even, $n^2-1$ is divisible by $8$.}
-\method{Let $n=2k+1$. Then $n^2-1=(2k+1)^2-1=4k^2+4k=4k(k+1)$. Since $k$ and $k+1$ are consecutive integers, one of them is always even, so $k(k+1)=2m$ for some integer $m$. Then $n^2-1=4(2m)=8m$, a multiple of $8$.}
-\inv{This is exactly why every odd square is $\equiv1\pmod8$ --- a workhorse identity in Number Theory Day 2's modular arithmetic toolkit.}
+\ans{C) $k\leq0$.}
+\method{Case $k\leq0$: for any $x<k$, $x^2\geq0$. If $k<0$, then $x^2\geq0>k$ automatically. If $k=0$, then $x<0$ means $x\neq0$, so $x^2>0=k$ strictly. Either way the implication holds for every $x<k$. Case $k>0$: take $x=0$. Then $x<k$ holds (since $k>0$), but $x^2=0$, and $0>k$ is false since $k>0$ --- so the implication fails at $x=0$. Hence the statement is true exactly for $k\leq0$, option C. Option B ($k<0$) misses the $k=0$ boundary; option D ($k\leq1$) overextends past where the argument still works; option A wrongly assumes no $k$ works at all (the real source question's own answer, for a subtly different claim); option E ignores case $k>0$ entirely; option F has the case split backwards.}
+\inv{This mirrors the real exam question's own case-split discipline (test $k\leq0$ and $k>0$ separately, and produce an explicit witness in each case) --- here the two cases genuinely split the answer rather than eliminating every $k$.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Which of the following is the correct converse of: ``If $x$ is rational and $y$ is irrational, then $x+y$ is irrational''?
+\item Which is the correct negation of ``For all primes $p$, $p$ is odd or $p=2$''?
 
-\ans{A) If $x+y$ is irrational, then $x$ is rational and $y$ is irrational.}
-\method{The converse of ``if $P$ then $Q$'' is ``if $Q$ then $P$'', formed by swapping the two clauses wholesale --- never by negating them (that gives the unrelated inverse) and never by swapping only one clause. Here $P=$``$x$ rational and $y$ irrational'', $Q=$``$x+y$ irrational'', so the converse is ``if $Q$ then $P$'', option A.}
-\inv{Option C is actually the \emph{contrapositive} of the original (negate and swap both clauses) --- always logically equivalent to the original. Day 3 shows why the contrapositive, unlike the converse, is never a separate claim to prove.}
+\ans{B) There exists a prime $p$ such that $p$ is not odd and $p\neq2$.}
+\method{Negating $\forall p, (P(p)\text{ or }Q(p))$ requires two steps: flip the quantifier ($\forall\to\exists$), then apply De Morgan to the inner ``or'' ($\text{not}(P\text{ or }Q)=(\text{not }P)\text{ and }(\text{not }Q)$). Each wrong option skips exactly one step: A flips the quantifier but leaves the inner clause completely unnegated; C applies De Morgan correctly but leaves the quantifier as $\forall$; D flips the quantifier correctly but keeps ``or'' instead of switching to ``and''.}
+\inv{This MCQ is designed so every single-step shortcut lands on a plausible wrong answer --- both steps are required together.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item True or false, with justification: ``If a statement is true, its converse must also be false.''
+\item Negate: ``There exists a positive integer $n$ such that $n^2+n+1$ is even.'' Is the negation true or false?
 
-\ans{False.}
-\method{B1, B7 and B10 (and A5) all exhibit true statements with true converses. One such example disproves the universal claim.}
-\inv{This misconception is worth naming explicitly: reversing a conditional says nothing by itself about truth --- the two directions are independent claims that sometimes happen to agree.}
+\ans{Negation: ``For every positive integer $n$, $n^2+n+1$ is odd.'' The negation is true.}
+\method{$n^2+n+1=n(n+1)+1$. Since $n(n+1)$ is a product of two consecutive integers, it is always even, so $n^2+n+1$ is always one more than an even number, i.e.\ always odd. The original existential claim is therefore false, and its negation is true.}
+\inv{This is a concrete instance where checking the underlying mathematics (not just the negation mechanics) is what actually settles the truth value.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is divisible by $6$, then $n^3$ is divisible by $216$.''
+\item Negate: ``There exists a positive integer $n$ such that for every positive integer $k\leq10$, $k$ divides $n$.'' Is the original statement true or false?
 
-\ans{Proved: writing $n=6k$ gives $n^3=216k^3$, a multiple of $216$.}
-\method{Let $n=6k$ for an integer $k$. Then $n^3=(6k)^3=216k^3$, since $6^3=216$.}
-\inv{More generally, if $d\mid n$ then $d^m \mid n^m$ for any positive integer $m$ --- the same substitution argument works for any power.}
+\ans{Negation: ``For every positive integer $n$, there exists a positive integer $k\leq10$ such that $k$ does not divide $n$.'' The original statement is true.}
+\method{Negating $\exists n\,\forall k{\leq}10, P(n,k)$ gives $\forall n\,\exists k{\leq}10, \text{not }P(n,k)$. The original is true: $n=\mathrm{lcm}(1,2,\dots,10)=2520$ is divisible by every $k$ from $1$ to $10$.}
+\inv{Since the original is true, the negation here is correctly false --- not every $n$ fails to be divisible by some $k\leq10$; $n=2520$ (and all its multiples) is a counterexample to the negation.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``For positive reals $x,y$: if $x \geq 2$ and $y \geq 2$, then $xy \geq x+y$.'' Determine whether the converse is true, giving a counterexample if it is false.
+\item Consider the statement about a real number $x$: ``There exists a real number $y$ such that $xy-x+y$ is positive.'' For how many real values of $x$ is this true? \textit{\small(after TMUA 2022 Paper 2 Q13)}
 
-\ans{Converse: ``For positive reals $x,y$: if $xy \geq x+y$, then $x \geq 2$ and $y \geq 2$.'' The converse is false; $x=1.5, y=10$ gives $xy=15 \geq x+y=11.5$, but $x<2$.}
-\method{Check the counterexample directly: $xy=1.5\times10=15$ and $x+y=11.5$, so $xy \geq x+y$ holds, yet $x=1.5<2$, breaking the converse's conclusion.}
-\inv{The true boundary condition is $\frac1x+\frac1y \leq 1$ (equivalent to $xy \geq x+y$ for positive $x,y$) --- a different, correct characterisation you'll meet again in Number Theory's Egyptian-fraction questions.}
+\ans{E) all values of $x$.}
+\method{Rewrite $xy-x+y$ as a function of $y$: $xy+y-x = y(x+1)-x$, of the form $my+c$ with $m=x+1$, $c=-x$. If $m\neq0$ (i.e.\ $x\neq-1$), this linear function of $y$ takes every real value as $y$ varies, including positive ones, so a suitable $y$ exists. If $m=0$ (i.e.\ $x=-1$), the expression is constantly $c=-x=1$, which is itself positive --- so a suitable $y$ (in fact every $y$) still exists. Every case gives a true statement, option E. The tempting wrong answer is C (``all except exactly one value''): the real exam question this is adapted from has exactly that answer, with its degenerate case failing rather than trivially succeeding --- picking C without re-checking the edge case here would be pattern-matching against the wrong source, not against this question's actual arithmetic.}
+\inv{The edge case ($x=-1$, where the ``line in $y$'' degenerates to a constant) is exactly the kind of boundary a hasty ``it's linear so obviously true'' argument would skip --- checking it explicitly is what turns a plausible answer into a proven one.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $x$ and $y$ are both perfect squares, then $xy$ is a perfect square.'' Is the converse true? Give a counterexample if it is false.
+\item Negate: ``There exists a real number $x$ such that for every real number $y$, $xy=y$.'' Is the original statement true or false?
 
-\ans{Converse: ``If $xy$ is a perfect square, then $x$ and $y$ are both perfect squares.'' The converse is false; $x=2, y=8$ gives $xy=16=4^2$, but neither $2$ nor $8$ is a perfect square.}
-\method{Check directly: $2 \times 8 = 16 = 4^2$, a perfect square, while $2$ and $8$ are individually not perfect squares --- a single counterexample disproves the converse.}
-\inv{What is actually forced is that $x$ and $y$'s prime factorisations combine to give even exponents overall, even when neither does individually --- Number Theory Day 4's prime factor algebra formalises this.}
+\ans{Negation: ``For every real number $x$, there exists a real number $y$ such that $xy\neq y$.'' The original statement is true.}
+\method{Negating $\exists x\,\forall y, P(x,y)$ gives $\forall x\,\exists y, \text{not }P(x,y)$. The original is true: taking $x=1$, $1\cdot y=y$ holds for every real $y$, so $x=1$ is a witness.}
+\inv{Recognising $x=1$ as ``the number that does nothing under multiplication'' is the same instinct needed later for identity elements in more general algebraic structures.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item True or false, with justification: ``If $n^2$ is a multiple of $4$, then $n$ is a multiple of $4$.''
+\item Negate: ``For every positive integer $n$, there exists a positive integer $m<n$ that is prime.'' Consider the cases $n=1$ and $n=2$ carefully. Is the original statement true or false?
 
-\ans{False.}
-\method{$n=6$ gives $n^2=36$, a multiple of $4$, but $6$ is not a multiple of $4$.}
-\inv{What is actually forced is that $n$ is even --- the correct, weaker conclusion. Contrast with C1, where the analogous statement for $3$ and $9$ genuinely holds, because $3$'s exponent bookkeeping (odd $\Rightarrow$ even after squaring $\Rightarrow$ still $\geq1$) works out differently from $2$'s.}
+\ans{Negation: ``There exists a positive integer $n$ such that no positive integer $m<n$ is prime.'' The original statement is false, witnessed by $n=1$ (and also $n=2$).}
+\method{At $n=1$, there is no positive integer $m<1$ at all, so no prime $m<1$ can exist --- the original's claim fails immediately. At $n=2$, the only candidate is $m=1$, which is not prime, so the claim fails there too. Both are valid witnesses for the negation.}
+\inv{Small edge cases ($n=1$ especially) are the most common place a ``for every $n$'' claim quietly breaks --- a pattern this pillar returns to when hunting counterexamples.}
 
 \end{enumerate}
 
@@ -226,39 +226,39 @@
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item Let $n$ be a positive integer. Consider the statements: I. If $n$ is divisible by $4$, then $n$ is divisible by $8$. II. If $n$ is divisible by $8$, then $n$ is divisible by $4$. III. The converse of statement I is statement II. Which of the statements I, II, III are true?
+\item Consider the statement: ``For every finite sequence of positive integers, there exists a positive integer $m$ such that every term of the sequence is at most $m$.'' Which of the following is the correct negation?
 
-\ans{F) II and III only.}
-\method{I: ``$4\mid n \Rightarrow 8\mid n$'' is false, since $n=4$ is divisible by $4$ but not $8$. II: ``$8\mid n \Rightarrow 4\mid n$'' is true, since $8=4\times2$. III: the converse of I (swap hypothesis and conclusion of ``$4\mid n \Rightarrow 8\mid n$'') is exactly ``$8\mid n \Rightarrow 4\mid n$'', which is statement II --- so III is true. Only II and III hold.}
-\inv{Statement I is false but its converse (II) is true --- alongside A2 and A9, a third example that a statement's truth tells you nothing about its converse's truth.}
+\ans{A) There exists a finite sequence of positive integers such that, for every positive integer $m$, some term exceeds $m$.}
+\method{Negating $\forall S\,\exists m\,\forall t{\in}S, (t\leq m)$ gives $\exists S\,\forall m\,\exists t{\in}S, (t>m)$ --- exactly option A. Option B fails to negate ``at most $m$''; option C fails to flip the outer quantifier; option D illegitimately changes ``finite'' to ``infinite'', which is not part of a correct negation at all.}
+\inv{The original statement is in fact true (any finite sequence has a maximum term, so $m$ can be taken to be that maximum) --- this question tests only the negation construction, not the truth value.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item Prove that if $n$ and $n+2$ are both prime numbers greater than $3$, then $n+1$ is divisible by $6$.
+\item Determine, with brief justification, whether the following is true or false: ``For every positive real number $\varepsilon$, there exists a positive integer $N$ such that for every integer $n\geq N$, $\dfrac1n<\varepsilon$.''
 
-\ans{Proved: $n+1$ is both even and a multiple of $3$, hence a multiple of $6$.}
-\method{Since $n$ and $n+2$ are primes greater than $3$, both are odd, so $n+1$ (sandwiched between two odd numbers) is even. Among the three consecutive integers $n, n+1, n+2$, exactly one is a multiple of $3$; since $n$ and $n+2$ are primes greater than $3$, neither is a multiple of $3$, so $n+1$ must be. Being both even and a multiple of $3$, $n+1$ is a multiple of $6$.}
-\inv{This is why every twin prime pair above $(3,5)$ sits symmetrically around a multiple of $6$ --- e.g.\ $(11,13)$ around $12$, $(17,19)$ around $18$.}
+\ans{True.}
+\method{Given any $\varepsilon>0$, choose $N$ to be any positive integer greater than $1/\varepsilon$. Then for every integer $n\geq N$, $\frac1n \leq \frac1N < \varepsilon$. Such an $N$ always exists because the positive integers are unbounded above (the same Archimedean idea as C1's II).}
+\inv{This is precisely the formal statement that $1/n \to 0$ as $n\to\infty$ --- the $\forall\varepsilon\,\exists N\,\forall n$ pattern here is the template for every ``limit equals a value'' definition met later in analysis.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Amy claims: ``If a positive integer is divisible by every one of $2,3,4,5,6$, then it is divisible by $60$.'' Determine whether Amy's claim is true, and justify your answer using the smallest positive integer for which it can be checked.
+\item A selection $S$ of $n$ terms is taken from the arithmetic sequence $2,5,8,11,\dots,92$. What is the smallest value of $n$ for which $S$ must contain two distinct terms summing to $94$? \textit{\small(after TMUA 2022 Paper 2 Q8)}
 
-\ans{True; the smallest positive integer divisible by all of $2,3,4,5,6$ is $60$ itself.}
-\method{Any integer divisible by each of $2,3,4,5,6$ must be divisible by their least common multiple. Since $4=2^2$ and $6=2\times3$, $\mathrm{lcm}(2,3,4,5,6)=2^2\times3\times5=60$. So being divisible by all five numbers is exactly equivalent to being divisible by $60$, proving Amy's claim directly for every such integer, the smallest being $60$ itself.}
-\inv{Amy's claim is actually an ``if and only if'' in disguise: divisible-by-all-five and divisible-by-$60$ are the same condition. Day 2 gives this equivalence a name.}
+\ans{C) $n=17$.}
+\method{The sequence has $\frac{92-2}{3}+1=31$ terms. Pair up terms summing to $94$: term $x$ pairs with $94-x$, and both lie in the sequence exactly when $2\leq x\leq92$ (since $94-x$ then also lies in $[2,92]$ and is $\equiv2\pmod3$). The self-paired term is $x=47$ (since $94-47=47$), which cannot form a distinct pair. Excluding $47$, the remaining $30$ terms split into $15$ pairs: $(2,92),(5,89),\dots,(44,50)$. A selection avoiding any such pair can include at most one term from each of the $15$ pairs, plus the unpaired $47$ itself: at most $15+1=16$ terms. So $17$ terms forces a pair, option C. This bound is tight: the $16$-term selection $\{47\}\cup\{2,5,\dots,44\}$ (one term per pair, plus $47$) contains no two distinct terms summing to $94$. Option B ($16$) is exactly that tight bound, tempting if you forget it's the largest \emph{avoiding} size, not the forcing size. Option A ($15$) is the pair count alone, forgetting the unpaired $47$. Option D ($18$) overshoots by one, as if the tight bound were $17$ rather than $16$. Option E ($24$) has no clean derivation from this argument. Option F ($31$) is just the total term count, ignoring the pairing structure entirely.}
+\inv{The self-paired ``middle'' term ($47$ here, the value with $94-47=47$) is easy to forget --- omitting it from the excluded count would silently overcount how many terms a pair-avoiding selection can hold.}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item Give an example of a true statement $S$ about divisibility of integers whose converse $S'$ is also true. State both $S$ and $S'$.
+\item Statement $(*)$: ``For every finite set of primes $\{p_1,\dots,p_k\}$, there exists a prime not in the set.'' (a) Negate $(*)$. (b) Is $(*)$ true or false? Justify briefly.
 
-\ans{$S$: ``If $n$ is a multiple of $12$, then $n$ is a multiple of $4$ and of $3$.'' $S'$ (converse): ``If $n$ is a multiple of $4$ and of $3$, then $n$ is a multiple of $12$.'' Both are true (this is exactly B1's pair). Any pair of coprime divisors $d_1,d_2$ works the same way.}
-\method{$S$ is true because $12=4\times3$, so any multiple of $12$ is automatically a multiple of both $4$ and $3$. $S'$ is true because $\gcd(4,3)=1$, so $\mathrm{lcm}(4,3)=12$ divides any number divisible by both $4$ and $3$.}
-\inv{Any answer where $S$'s hypothesis and conclusion are logically equivalent conditions is valid --- what matters is that both directions genuinely hold, not the specific numbers chosen.}
+\ans{(a) ``There exists a finite set of primes containing every prime.'' (b) $(*)$ is true.}
+\method{(a) Negating $\forall\{p_1,\dots,p_k\}\,\exists p\notin\{p_1,\dots,p_k\}$ gives $\exists\{p_1,\dots,p_k\}\,\forall p, p\in\{p_1,\dots,p_k\}$, i.e.\ a finite set containing all primes. (b) $(*)$ is true: given any finite list of primes $p_1,\dots,p_k$, the number $N=p_1p_2\cdots p_k+1$ is not divisible by any of $p_1,\dots,p_k$ (each leaves remainder $1$), so any prime factor of $N$ is a prime outside the list, proving one always exists.}
+\inv{$(*)$ and its negation are exactly the infinitude of primes stated two ways --- Euclid's construction ($N=p_1\cdots p_k+1$) is the whole proof in one line, and it is worth having ready on sight rather than re-derived from scratch.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Determine, with proof, whether the following statement is true or false: ``If $n^2 - n$ is even, then $n$ is even.''
+\item Let $f:\mathbb{R}\to\mathbb{R}$. Consider: I. ``For every $x$, there exists $y$ such that $f(y)=x$.'' II. ``There exists $y$ such that for every $x$, $f(y)=x$.'' (a) Are I and II logically equivalent? (b) Give a concrete function $f$ for which I is true but II is false.
 
-\ans{False; $n=3$ gives $n^2-n=6$ (even), but $n$ is odd.}
-\method{$n^2-n=n(n-1)$ is a product of two consecutive integers, so one of them is always even --- meaning $n^2-n$ is even for \emph{every} integer $n$, regardless of $n$'s own parity. Since the hypothesis is always true but the conclusion isn't (e.g.\ $n=3$), the implication fails.}
-\inv{A hypothesis that's always true makes an ``if...then'' statement collapse to asserting the conclusion outright --- spotting this pattern (a vacuously universal hypothesis) is a recurring TMUA trap.}
+\ans{(a) No, not equivalent. (b) $f(y)=y$ (the identity function on $\mathbb{R}$).}
+\method{(a) I says $f$ is surjective (every $x$ has a preimage, possibly different $y$ for different $x$); II says a single $y$ produces every possible $x$, which is impossible for an actual function once more than one value of $x$ is required. (b) For $f(y)=y$: I holds, since for any $x$, taking $y=x$ gives $f(y)=x$. II fails, since a function assigns each input exactly one output, so no single $y$ can satisfy $f(y)=x$ for every $x$ simultaneously (e.g.\ $f(y)=0$ and $f(y)=1$ cannot both hold).}
+\inv{This closes the day exactly where A9 opened it, now dressed in function notation: swapping $\exists y\,\forall x$ for $\forall x\,\exists y$ is the difference between ``every output is achieved, possibly by different inputs'' and ``one input achieves every output'' --- the second is almost never possible for a genuine function.}
 
 \end{enumerate}
 
