@@ -91,7 +91,7 @@
 
 \ans{$25$}
 \method{The star-sealed envelopes contain $6, 14, 25$. $6$ and $14$ are even, but $25$ is odd. The envelope containing $25$ is star-sealed yet contains an odd number, disproving the claim.}
-\inv{\textit{\small(after TMUA 2020 Paper 2 Q1)} How does this relate to Wason's Selection Task in logic?}
+\inv{How does this relate to Wason's Selection Task in logic?}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
 \item Give a counterexample to: ``If $a$ and $b$ are both irrational, then $a+b$ is irrational.''
@@ -190,7 +190,7 @@ Total counterexamples $= 5 + 8 = 13$.}
 
 \ans{Proof by contradiction}
 \method{Suppose toward a contradiction that there exist integers $x,y$ such that $x^2 - 3y^2 = 2$. Taking this equation modulo $3$, we get $x^2 \equiv 2 \pmod 3$. However, for any integer $x$, $x \equiv 0, 1, \text{ or } 2 \pmod 3$, which gives $x^2 \equiv 0, 1, \text{ or } 1 \pmod 3$. Thus $x^2 \pmod 3 \in \{0, 1\}$, so $x^2 \equiv 2 \pmod 3$ has no solutions. Contradiction.}
-\inv{\textit{\small(after TMUA 2017 Paper 2 Q6)} Which other integer remainders cannot be quadratic residues?}
+\inv{Which other integer remainders cannot be quadratic residues?}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
 \item Find the smallest positive integer $n$ for which $3^n+2$ is \emph{not} prime.
@@ -238,8 +238,7 @@ In both cases $a^2+b^2$ is even, contradicting $a^2+b^2$ being odd. Thus $a$ and
 \item Consider: I. ``$n=41$ is a counterexample to `$n^2+n+41$ is always prime'.'' II. ``$n=40$ is the smallest counterexample to `$n^2+n+41$ is always prime'.'' III. ``$n=4$ is a counterexample to `$n^2+n+41$ is always prime'.'' Which of I, II, III are true?
 
 \ans{E) I and II only}
-\method{\textit{\small(after TMUA 2018 Paper 2 Q3)} \\
-I: $41^2+41+41 = 41(41+1+1) = 41 \times 43$, composite. So I is true.\\
+\method{I: $41^2+41+41 = 41(41+1+1) = 41 \times 43$, composite. So I is true.\\
 II: For $1 \le n \le 39$, $n^2+n+41$ is prime. At $n=40$, $40^2+40+41 = 41^2$, composite. Thus $n=40$ is indeed the smallest positive integer counterexample. II is true.\\
 III: For $n=4$, $4^2+4+41 = 61$, which is prime. So $n=4$ is not a counterexample. III is false.\\
 Hence, I and II only are true.}
@@ -256,7 +255,7 @@ Hence, I and II only are true.}
 \item A student claims: ``For every positive integer $n$, at least one of $n,n+2,n+4$ is divisible by $3$.'' Determine, with proof, whether this claim is true.
 
 \ans{True}
-\method{\textit{\small(after SMC 2019 Q16)} Proof: Any positive integer $n$ can be written as $3k$, $3k+1$, or $3k+2$ for some integer $k \ge 0$.\\
+\method{Proof: Any positive integer $n$ can be written as $3k$, $3k+1$, or $3k+2$ for some integer $k \ge 0$.\\
 Case 1: If $n = 3k$, then $n$ is divisible by $3$.\\
 Case 2: If $n = 3k+1$, then $n+2 = (3k+1)+2 = 3k+3 = 3(k+1)$, which is divisible by $3$.\\
 Case 3: If $n = 3k+2$, then $n+4 = (3k+2)+4 = 3k+6 = 3(k+2)$, which is divisible by $3$.\\
@@ -274,8 +273,7 @@ In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is tr
 \item Statement $(*)$: ``For every positive integer $n\geq2$, there is a prime strictly between $n$ and $2n$.'' (a) Verify $(*)$ for $n=2,3,4,5$ by direct computation. (b) Does this verification constitute a proof of $(*)$? Justify your answer.
 
 \ans{(a) $n=2: 3$; $n=3: 5$; $n=4: 5$ or $7$; $n=5: 7$. (b) No, finite checking does not prove a universal statement.}
-\method{\textit{\small(after TMUA 2021 Paper 2 Q8)} \\
-(a) For $n=2$, prime $3 \in (2,4)$. For $n=3$, prime $5 \in (3,6)$. For $n=4$, prime $5 \in (4,8)$. For $n=5$, prime $7 \in (5,10)$. \\
+\method{(a) For $n=2$, prime $3 \in (2,4)$. For $n=3$, prime $5 \in (3,6)$. For $n=4$, prime $5 \in (4,8)$. For $n=5$, prime $7 \in (5,10)$. \\
 (b) No. Verification for finitely many cases ($n=2,3,4,5$) does not constitute a proof for infinitely many positive integers $n \ge 2$. A single unchecked value could be a counterexample. (The statement is true for all $n \ge 2$, known as Bertrand's Postulate, but proving it requires a general argument).}
 \inv{What is the formal name of the theorem stating that a prime always exists between $n$ and $2n$?}
 

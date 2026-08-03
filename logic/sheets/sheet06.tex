@@ -5,7 +5,7 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#6}{David Akinyele-Aje}
-\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Base Case Traps $\cdot$ Inductive Step Mechanics $\cdot$ Misapplied Induction.}
+\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Strong Induction $\cdot$ Base Case Traps $\cdot$ Misapplied Induction.}
 
 \vspace{2pt}
 \noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
@@ -19,23 +19,23 @@
 
 \item What are the two essential components required for a proof by mathematical induction?
 
-\item To prove a statement $P(n)$ holds for all integers $n \ge 4$ by induction, what is the base case?
+\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base case?
 
-\item If $P(k) \implies P(k+1)$ is proved, but no base case $P(n_0)$ is established, is $P(n)$ proved for any $n$?
+\item If $P(k)\implies P(k+1)$ is proved for all $k\geq1$, but no base case is ever established, has $P(n)$ been proved for any $n$?
 
-\item What is the inductive hypothesis in a proof of $\sum_{i=1}^n i = \frac{n(n+1)}{2}$?
+\item In a proof of $\sum_{i=1}^n i=\frac{n(n+1)}{2}$ by induction, what statement exactly is assumed as the inductive hypothesis?
 
-\item True or false: ``Mathematical induction can be used to prove statements about all real numbers $x$.''
+\item True or false: ``Mathematical induction can be used to prove statements about every real number $x\geq1$.''
 
-\item In a proof that $2^n > n^2$ for $n \ge 5$, what is the smallest integer $n$ for which the base case must be checked?
+\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest value of $n$ for which the base case must be verified?
 
-\item What is the negation of the inductive step statement: ``For all $k \ge 1$, $P(k) \implies P(k+1)$''?
+\item What is the negation of the inductive-step statement ``For all $k\geq1$, $P(k)\implies P(k+1)$''?
 
-\item True or false: ``If $P(1)$ is true and $P(k) \implies P(k+2)$ for all $k \ge 1$, then $P(n)$ is true for all positive integers $n$.''
+\item True or false: ``If $P(1)$ is true and $P(k)\implies P(k+2)$ holds for all $k\geq1$, then $P(n)$ is true for every positive integer $n$.''
 
-\item For which positive integers $n$ is $2^n > n$ true?
+\item What is the smallest positive integer $n$ for which $n!>3^n$?
 
-\item What is the base case needed to prove $n! > 2^n$ by induction?
+\item In a proof by strong induction, what may the inductive step assume that ordinary (``weak'') induction's inductive step may not?
 
 \end{enumerate}
 
@@ -43,29 +43,29 @@
 \section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Algebraic manipulations within inductive steps.}
+\noindent\textit{Algebraic manipulations within inductive steps, and short full inductions.}
 
 \begin{enumerate}
 
-\item Express $\sum_{i=1}^{k+1} i^2$ in terms of $\sum_{i=1}^k i^2$.
+\item Express $\sum_{i=1}^{k+1} i^3$ in terms of $\sum_{i=1}^k i^3$.
 
-\item Assuming $\sum_{i=1}^k i = \frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}$.
+\item Assuming $\sum_{i=1}^k i=\frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i=\frac{(k+1)(k+2)}{2}$.
 
-\item Prove by induction: $\sum_{i=1}^n (2i-1) = n^2$ for all positive integers $n$.
+\item Prove by induction: $\sum_{i=1}^n (2i-1)=n^2$ for all positive integers $n$.
 
-\item Assuming $3^{2k} - 1$ is divisible by $8$, express $3^{2(k+1)} - 1$ in a form that shows it is also divisible by $8$.
+\item Assuming $4^{2k}-1$ is divisible by $15$, express $4^{2(k+1)}-1$ in a form that shows it is also divisible by $15$.
 
-\item Prove by induction: $2^n > n$ for all positive integers $n$.
+\item Prove by induction that $5^n-1$ is divisible by $4$ for all positive integers $n$.
 
-\item Assuming $k! > 2^k$ for some $k \ge 4$, prove $(k+1)! > 2^{k+1}$.
+\item Assuming $k!>2^k$ for some $k\geq4$, prove $(k+1)!>2^{k+1}$.
 
-\item Prove by induction that $5^n - 1$ is divisible by $4$ for all positive integers $n$.
+\item Prove by induction: $2^n\geq n+1$ for all non-negative integers $n$.
 
-\item Assuming $\sum_{i=1}^k 2^i = 2^{k+1} - 2$, show that $\sum_{i=1}^{k+1} 2^i = 2^{k+2} - 2$.
+\item Assuming $\sum_{i=1}^k \frac1{i(i+1)}=\frac{k}{k+1}$, show that $\sum_{i=1}^{k+1}\frac1{i(i+1)}=\frac{k+1}{k+2}$.
 
-\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2) \times 180^\circ$ for $n \ge 3$.
+\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2)\times180^\circ$ for all $n\geq3$.
 
-\item Show that if $P(k) \implies P(k+2)$ is proved, established base cases for both $n=1$ and $n=2$ are sufficient to prove $P(n)$ for all $n \ge 1$.
+\item A student wants to prove $P(n)$ for all $n\geq1$ using base cases $P(1)$ and $P(2)$, with inductive step ``$P(k)$ and $P(k+1)$ together imply $P(k+2)$'' for $k\geq1$. Explain why establishing \emph{both} $P(1)$ and $P(2)$ (not just $P(1)$) is necessary here.
 
 \end{enumerate}
 
@@ -73,91 +73,80 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Analyze induction fallacies and non-standard inductive setups with tricky MCQs.}
+\noindent\textit{Misapplied induction and subtle inductive-step gaps. Tricky MCQs.}
 
 \begin{enumerate}
 
-\item A student attempts to prove $P(n)$: ``$n^2 + 5n + 1$ is even'' for all $n \ge 1$.\\
-Inductive Step: Assume $P(k)$ is true, so $k^2 + 5k + 1 = 2m$.\\
-Then $(k+1)^2 + 5(k+1) + 1 = k^2 + 2k + 1 + 5k + 5 + 1 = (k^2 + 5k + 1) + 2k + 6 = 2m + 2(k+3) = 2(m + k + 3)$, which is even. So $P(k) \implies P(k+1)$ holds!\\
-However, $P(1) = 1 + 5 + 1 = 7$, which is odd!\\
-Which evaluation of this situation is correct? \textit{\small(after TMUA 2022 Paper 2 Q14)}
+\item A student attempts to prove $P(n)$: ``in any group of $n$ people, everyone has the same favourite integer,'' by induction. Base case: $P(1)$ is trivially true. Inductive step: assume $P(k)$ holds for any group of $k$ people. Given a group of $k+1$ people, remove one person, leaving a group of $k$ people who all share a favourite by $P(k)$; then put that person back and remove a different person, leaving another group of $k$ people who also all share a favourite by $P(k)$. Since the two groups overlap, everyone must share the same favourite, so $P(k+1)$ holds. Which of the following identifies the flaw?
 \begin{itemize}
-\item[A)] The proof is complete because the inductive step was proven.
-\item[B)] $P(n)$ is false for all $n \ge 1$ despite the inductive step $P(k) \implies P(k+1)$ being completely valid.
-\item[C)] The inductive step $P(k) \implies P(k+1)$ contains an algebraic error.
-\item[D)] $P(n)$ is true for all $n \ge 2$.
-\item[E)] Mathematical induction cannot be applied to parity statements.
+\item[A)] The base case $P(1)$ is invalid.
+\item[B)] The inductive step secretly requires $k\geq2$ for the two subgroups of size $k$ to overlap; the very first application, from $P(1)$ to $P(2)$, has $k=1$, where the two subgroups do not overlap at all, so the chain of implications never actually gets started.
+\item[C)] The claim is actually true, and the proof is valid.
+\item[D)] The flaw is that people cannot have favourite integers.
+\item[E)] The inductive hypothesis is applied twice, which is never allowed.
 \end{itemize}
 
-\item Consider the claim $P(n)$: ``$2^n > n^2$.'' \textit{\small(after SMC 2018 Q22)}\\
-Base Case checking: $n=1 \implies 2 > 1$ (True); $n=2 \implies 4 > 4$ (False); $n=3 \implies 8 > 9$ (False); $n=4 \implies 16 > 16$ (False); $n=5 \implies 32 > 25$ (True).\\
-For which set of positive integers $n$ is $2^n > n^2$ actually true?
+\item A student attempts to prove: for all positive integers $n$, $n^3-n$ is divisible by $6$. Inductive step: ``Assume $k^3-k=6m$ for some integer $m$. Since $(k+1)^3-(k+1)$ is also divisible by $6$, by the general theory of consecutive-integer products, $P(k+1)$ holds.'' What is the flaw?
 \begin{itemize}
-\item[A)] $n = 1$ and all $n \ge 5$
-\item[B)] all $n \ge 1$
-\item[C)] all $n \ge 5$ only
-\item[D)] $n = 1, 2, 3, 4, 5$
-\item[E)] no positive integers $n$
+\item[A)] $n^3-n$ is not actually always divisible by $6$.
+\item[B)] The inductive step never actually derives $(k+1)^3-(k+1)$ from the assumption $k^3-k=6m$; it bypasses the inductive hypothesis entirely, appealing to an external fact instead of doing the algebra that connects $(k+1)^3-(k+1)$ back to $k^3-k$.
+\item[C)] The base case is missing.
+\item[D)] $m$ must be shown to be positive.
+\item[E)] There is no flaw.
 \end{itemize}
 
-\item A student claims: ``To prove $P(n)$ for all $n \ge 1$, it is sufficient to prove $P(1)$ and $P(k) \implies P(2k)$ for all $k \ge 1$.''\\
-Is this claim true or false?
+\item A student wants to prove $P(n)$: ``$n^2>3n+4$'' for all sufficiently large $n$, and sets the base case at $n=4$, checking $16>16$. Since this is false, the student concludes the claim can never be proved by induction. What is the actual smallest valid base case, and what was wrong with the student's reasoning?
 \begin{itemize}
-\item[A)] True, because powers of $2$ cover all positive integers.
-\item[B)] False, because this only proves $P(n)$ for $n$ of the form $2^m$ ($m \ge 0$).
-\item[C)] True, by the Archimedean property.
-\item[D)] False, because $P(1)$ cannot be a base case.
-\item[E)] True, this is known as Cauchy induction.
+\item[A)] $n=3$; the student made an arithmetic slip.
+\item[B)] $n=5$; $P(4)$ is false ($16>16$ fails), but $P(5)$ is true ($25>19$), and the inductive step $P(k)\implies P(k+1)$ can be verified to hold for $k\geq5$ --- a false $P(n_0)$ at one value doesn't mean no valid base case exists elsewhere.
+\item[C)] $n=6$; the student needed to check two consecutive cases before starting.
+\item[D)] There is no valid base case; the claim is false for all $n$.
+\item[E)] $n=4$ actually does work; $16>16$ should be interpreted as $\geq$.
 \end{itemize}
 
-\item Consider the Fibonacci sequence $F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, \dots$ defined by $F_{n+1} = F_n + F_{n-1}$.\\
-What is the value of $\sum_{i=1}^n F_i$?
+\item Every integer $n\geq2$ can be written as a product of primes. A student attempts ordinary (single-step) induction: base case $n=2$ (prime); inductive step: ``assume $k$ is a product of primes; show $k+1$ is a product of primes.'' What is the fundamental problem with this approach?
 \begin{itemize}
-\item[A)] $F_{n+1} - 1$
-\item[B)] $F_{n+2} - 1$
-\item[C)] $F_{n+2}$
-\item[D)] $F_{n+1} + 1$
-\item[E)] $F_{n+3} - 2$
+\item[A)] There is no problem; the proof works fine.
+\item[B)] If $k+1$ is composite, say $k+1=ab$ with $1<a,b<k+1$, knowing that $k$ (not $a$ or $b$) is a product of primes gives no information about $a$ or $b$ at all --- the inductive hypothesis about $k$ is simply irrelevant to factoring $k+1$. Strong induction (assuming the claim for \emph{all} of $2,\dots,k$, not just $k$ itself) is needed instead.
+\item[C)] The base case should be $n=1$.
+\item[D)] $k+1$ is always prime if $k$ is a product of primes.
+\item[E)] The inductive hypothesis needs to also assume $k-1$ is a product of primes.
 \end{itemize}
 
-\item A student attempts to prove: ``For all positive integers $n$, $n! \le 2^n$.''\\
-Checking cases: $n=1 \implies 1 \le 2$ (True); $n=2 \implies 2 \le 4$ (True); $n=3 \implies 6 \le 8$ (True); $n=4 \implies 24 \le 16$ (False).\\
-Which of the following is true regarding $n!$ vs $2^n$?
+\item A student is asked to determine the smallest positive integer $n_0$ such that $P(n)$: ``$\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}>\frac12$'' holds for all $n\geq n_0$. Checking $n=1$: the sum is just $\frac12$, so $P(1)$ is FALSE ($\frac12>\frac12$ fails). The student concludes: ``since $P(1)$ fails, no base case exists and induction cannot be used to establish $P(n)$ for any range of $n$.'' Is this conclusion correct?
 \begin{itemize}
-\item[A)] $n! \le 2^n$ for all $n \ge 1$.
-\item[B)] $n! \le 2^n$ for $n \in \{1, 2, 3\}$, but $n! > 2^n$ for all $n \ge 4$.
-\item[C)] $n! > 2^n$ for all $n \ge 1$.
-\item[D)] $n! \le 2^n$ for all even $n$.
-\item[E)] $n!$ and $2^n$ are equal for all $n \ge 4$.
+\item[A)] Yes.
+\item[B)] No --- $P(1)$ failing only rules out $n_0=1$; the claim could still be true from some larger $n_0$ onward (and indeed it is: at $n=2$, the sum is $\frac13+\frac14=\frac7{12}>\frac12$).
+\item[C)] Yes, because a failed base case always means the inductive step will also fail.
+\item[D)] No, because $\frac12>\frac12$ is actually a true statement.
+\item[E)] The claim is undecidable by induction in principle.
 \end{itemize}
 
-\item Consider the sum $S_n = \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \dots + \frac{1}{n(n+1)}$.\\
-Using mathematical induction, what is the closed-form expression for $S_n$?
+\item A student attempts to prove ``every amount of postage $n\geq8$ pence can be made using only $3$p and $5$p stamps'' by induction, using base cases $n=8,9,10$ (each directly constructible: $8=3+5$, $9=3+3+3$, $10=5+5$). What must the inductive step actually use to correctly bridge from an earlier case to $P(k+1)$ for $k\geq10$?
 \begin{itemize}
-\item[A)] $\frac{n}{n+1}$
-\item[B)] $\frac{1}{n+1}$
-\item[C)] $\frac{n+1}{n}$
-\item[D)] $\frac{n}{2(n+1)}$
-\item[E)] $\frac{n^2}{n+1}$
+\item[A)] $P(k+1)$ can be built by taking the construction for $P(k-2)$ (which holds since $k-2\geq8$, already established by an earlier base case or earlier inductive step) and adding one more $3$p stamp --- this is strong induction, using a case three steps back, not just $P(k)$ itself.
+\item[B)] $P(k+1)$ follows directly from $P(k)$ by adding a $1$p stamp.
+\item[C)] No inductive step is needed once three base cases are given.
+\item[D)] $P(k+1)$ cannot be constructed from any earlier case; a completely separate direct construction is required for every $n$.
+\item[E)] The base cases $8,9,10$ are unnecessary.
 \end{itemize}
 
-\item To prove $P(n)$ for all integers $n \ge 1$ using Strong Induction, what is the inductive hypothesis step?
+\item A student checks that $F_1+F_3+F_5+\cdots+F_{2n-1}=F_{2n}$ (where $F_i$ is the $i$-th Fibonacci number, $F_1=F_2=1$) for $n=1,2,3,4$ and concludes the identity holds for all positive integers $n$. Which of the following is the most accurate assessment?
 \begin{itemize}
-\item[A)] Assume $P(k)$ is true for a single integer $k$.
-\item[B)] Assume $P(1), P(2), \dots, P(k)$ are all true, and deduce $P(k+1)$.
-\item[C)] Assume $P(k+1)$ is true and deduce $P(k)$.
-\item[D)] Assume $P(k)$ is false and deduce a contradiction.
-\item[E)] Assume $P(n)$ holds for all real numbers $n \le k$.
+\item[A)] This is a complete and valid proof.
+\item[B)] Checking finitely many cases is not a proof; a full argument requires an inductive step showing $F_1+\cdots+F_{2k-1}=F_{2k}\implies F_1+\cdots+F_{2k-1}+F_{2k+1}=F_{2k+2}$, which follows directly from the Fibonacci recurrence $F_{2k+2}=F_{2k+1}+F_{2k}$.
+\item[C)] The identity is actually false, since Fibonacci numbers grow exponentially.
+\item[D)] No proof is possible since Fibonacci numbers are not well understood.
+\item[E)] Checking $n=1,\dots,4$ is sufficient because Fibonacci identities always stabilise after four terms.
 \end{itemize}
 
-\item For which positive integers $n$ is $n^2 < 2^n$ false?
+\item Which of the following correctly and precisely states what must be proved in the inductive step of a proof that $P(n)$ holds for all integers $n\geq1$?
 \begin{itemize}
-\item[A)] $n = 2, 3, 4$
-\item[B)] $n = 1, 5, 6$
-\item[C)] $n = 2$ only
-\item[D)] $n = 3$ only
-\item[E)] $n = 4$ only
+\item[A)] $P(n)$ is true for some particular large $n$.
+\item[B)] $P(k)$ is true for all $k$.
+\item[C)] For every integer $k\geq1$: if $P(k)$ is true, then $P(k+1)$ is true.
+\item[D)] There exists an integer $k\geq1$ such that $P(k)\implies P(k+1)$.
+\item[E)] $P(1)\implies P(n)$ for all $n$.
 \end{itemize}
 
 \end{enumerate}
@@ -166,26 +155,21 @@ Using mathematical induction, what is the closed-form expression for $S_n$?
 \section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Subtle induction proofs and classic competition induction problems.}
+\noindent\textit{Full olympiad-style induction proofs.}
 
 \begin{enumerate}
 
-\item Prove by induction: Bernoulli's Inequality states that for all $x > -1$ and all positive integers $n$, $(1+x)^n \ge 1 + nx$. At which step in the inductive transition $(1+x)^k \ge 1+kx \implies (1+x)^{k+1} \ge 1+(k+1)x$ is the condition $x > -1$ strictly required?
-\begin{itemize}
-\item[A)] When establishing the base case $n=1$.
-\item[B)] When multiplying both sides of $(1+x)^k \ge 1+kx$ by $(1+x)$ without flipping the inequality sign.
-\item[C)] When expanding $(1+kx)(1+x) = 1 + (k+1)x + kx^2$.
-\item[D)] When dropping the term $kx^2 \ge 0$.
-\item[E)] The condition $x > -1$ is never required.
-\end{itemize}
+\item Let $x$ be a real number such that $t=x+\dfrac1x$ is an integer greater than $2$. Define $t_n=x^n+\dfrac1{x^n}$ for each positive integer $n$ (and $t_0=2$). \textit{\small(after BMO1 2015 Q4)}\\
+(a) Show that $t_{n+1}=t\cdot t_n-t_{n-1}$ for all $n\geq1$.\\
+(b) Prove by strong induction that $t_n$ is an integer for every positive integer $n$.
 
-\item Prove by induction that $a^n - b^n$ is divisible by $a - b$ for all positive integers $n$, where $a,b$ are distinct integers. Show the inductive step using the identity $a^{k+1} - b^{k+1} = a(a^k - b^k) + b^k(a - b)$.
+\item A positive integer is called \emph{charming} if it equals $2$ or is of the form $3^i5^j$ for non-negative integers $i,j$. Prove, using strong induction, that every positive integer can be written as a sum of distinct charming integers. \textit{\small(after BMO1 2016 Q6)}
 
-\item Consider a grid of $2^n \times 2^n$ squares with one single $1 \times 1$ square removed. Prove by mathematical induction that for every integer $n \ge 1$, the remaining region can be completely tiled by L-trominoes (shapes made of 3 squares forming an L).
+\item Prove by induction that for all real $x>-1$ and all positive integers $n$, $(1+x)^n\geq1+nx$ (Bernoulli's Inequality). Identify precisely which step of your inductive argument requires the condition $x>-1$.
 
-\item Let $a_1 = 1$ and $a_{n+1} = \sqrt{2 + a_n}$ for $n \ge 1$. (a) Prove by induction that $a_n < 2$ for all $n \ge 1$. (b) Prove by induction that $a_n < a_{n+1}$ for all $n \ge 1$.
+\item Let $a_1=2$ and $a_{n+1}=a_n^2-a_n+1$ for $n\geq1$. Prove by induction that $a_1,a_2,\dots,a_n$ are pairwise coprime for every positive integer $n$ (i.e.\ $\gcd(a_i,a_j)=1$ whenever $i\neq j$).
 
-\item Prove by induction that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2 = \left[\frac{n(n+1)}{2}\right]^2$ for all positive integers $n$.
+\item Prove by induction that for all integers $n\geq2$, $\displaystyle\sum_{k=1}^n\frac1{k^2}<2-\frac1n$. (You may find it helpful to bound $\frac1{(n+1)^2}$ against $\frac1n-\frac1{n+1}$ in your inductive step.)
 
 \end{enumerate}
 
