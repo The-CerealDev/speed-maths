@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#1 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Identify the hypothesis and the conclusion of: ``If $n$ is divisible by $10$, then $n$ is divisible by $5$.''
+
+\ans{Hypothesis: $n$ is divisible by $10$. Conclusion: $n$ is divisible by $5$.}
+\method{The clause following ``if'' is the hypothesis; the clause following ``then'' is the conclusion.}
+\inv{Every multiple of $10$ is a multiple of $5$ --- is the converse (``multiple of $5$ $\Rightarrow$ multiple of $10$'') also true? Test $n=15$.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $x = 3$, then $x^2 = 9$.''
+
+\ans{``If $x^2=9$, then $x=3$.''}
+\method{Swap the hypothesis and conclusion of the original conditional: the hypothesis $x=3$ becomes the converse's conclusion, and the conclusion $x^2=9$ becomes the converse's hypothesis.}
+\inv{This converse is false --- $x=-3$ also satisfies $x^2=9$. Section C's counterexample-hunting formalises exactly this kind of check.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If a shape is a square, then it is a rectangle.''
+
+\ans{True.}
+\method{A square has four right angles, which is precisely the defining property of a rectangle; a square is simply a rectangle with the extra constraint of equal side lengths.}
+\inv{Is the converse (A4) also true?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If a shape is a rectangle, then it is a square.''
+
+\ans{False.}
+\method{A $2\times 3$ rectangle has four right angles but unequal side lengths, so it is not a square. A single such example is enough to disprove a universal ``if...then'' claim.}
+\inv{A3 was true but its converse (A4) is false --- this asymmetry is the default, not the exception.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $n$ is even, then $n^2$ is even.''
+
+\ans{``If $n^2$ is even, then $n$ is even.''}
+\method{Swap hypothesis and conclusion: the new hypothesis is ``$n^2$ is even'', the new conclusion is ``$n$ is even''.}
+\inv{Unlike A2's converse, this one is also true (see B2 and B5 for the direct proofs of both directions).}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``$n^2 > 0$ for every integer $n$.''
+
+\ans{False.}
+\method{The integer $n=0$ gives $n^2=0$, which is not greater than $0$. One counterexample disproves a ``for every'' claim.}
+\inv{Restrict to nonzero integers: is $n^2>0$ then true for every $n \neq 0$?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item In ``If $x>3$ then $x^2 > 9$'', which part is the hypothesis and which is the conclusion?
+
+\ans{Hypothesis: $x>3$. Conclusion: $x^2>9$.}
+\method{The clause following ``if'' is the hypothesis; the clause following ``then'' is the conclusion.}
+\inv{Is the converse ``$x^2>9 \Rightarrow x>3$'' true? Test $x=-4$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If $a=b$, then $a^2 = b^2$.''
+
+\ans{True.}
+\method{If $a=b$, substituting $a$ for $b$ in $a^2$ gives $a^2 = a \cdot a = b \cdot b = b^2$ directly.}
+\inv{Is the converse ``$a^2=b^2 \Rightarrow a=b$'' true? Test $a=2, b=-2$.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $2$.''
+
+\ans{``If $n$ is a multiple of $2$, then $n$ is a multiple of $6$.''}
+\method{Swap hypothesis and conclusion.}
+\inv{This converse is false ($n=4$ is a multiple of $2$ but not $6$) --- Day 4's toolkit formalises this counterexample search.}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``The converse of a true statement is always true.''
+
+\ans{False.}
+\method{A2 and A9 each give an explicit true statement whose converse is false. One such example disproves the universal claim ``always.''}
+\inv{You've now seen both patterns: true statements with false converses (A2, A9) and, per A5, true statements with true converses. Section B starts building a feel for telling them apart.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Write the converse of: ``If $n$ is divisible by $4$ and by $3$, then $n$ is divisible by $12$.'' State whether the original statement and its converse are both true.
+
+\ans{Converse: ``If $n$ is divisible by $12$, then $n$ is divisible by $4$ and by $3$.'' Both the original and the converse are true.}
+\method{Original: if $4\mid n$ and $3\mid n$, then since $\gcd(4,3)=1$, $\mathrm{lcm}(4,3)=12$ divides $n$. Converse: if $12\mid n$, then since $4\mid 12$ and $3\mid 12$, both $4\mid n$ and $3\mid n$ follow directly.}
+\inv{When a statement and its converse are both true, they can be joined with ``if and only if'' --- exactly Day 2's new tool.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly: ``If $n$ is an even integer, then $n^2$ is even.''
+
+\ans{Proved: writing $n=2k$ gives $n^2=4k^2=2(2k^2)$, an even number.}
+\method{Let $n$ be even, so $n=2k$ for some integer $k$. Then $n^2=(2k)^2=4k^2=2(2k^2)$, which is twice an integer, hence even.}
+\inv{Compare with B5: does the converse ``$n^2$ even $\Rightarrow n$ even'' also hold?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $x>0$ and $y>0$, then $xy>0$.'' Is the converse true? Justify your answer.
+
+\ans{Converse: ``If $xy>0$, then $x>0$ and $y>0$.'' The converse is false.}
+\method{Counterexample: $x=-1, y=-1$ gives $xy=1>0$, but neither $x$ nor $y$ is positive.}
+\inv{What two cases (not simply ``$x>0$ and $y>0$'') actually follow from $xy>0$? Day 6's OR-combinations will state this precisely.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item True or false, with a one-line reason: ``If a number's digits sum to a multiple of $3$, then the number is a multiple of $3$.''
+
+\ans{True.}
+\method{Every power of $10$ leaves remainder $1$ modulo $3$ (since $10\equiv1\pmod3$), so a number is congruent to its digit sum modulo $3$. Hence the number is a multiple of $3$ exactly when its digit sum is.}
+\inv{The same argument modulo $9$ gives the familiar digit-sum-of-9 rule; modulo $11$ it becomes an alternating sum instead. Why does the sign alternate for $11$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly: ``If $n$ is an odd integer, then $n^2$ is odd.''
+
+\ans{Proved: writing $n=2k+1$ gives $n^2=4k^2+4k+1=2(2k^2+2k)+1$, an odd number.}
+\method{Let $n$ be odd, so $n=2k+1$ for some integer $k$. Then $n^2=4k^2+4k+1=2(2k^2+2k)+1$, one more than an even number, hence odd.}
+\inv{Together, B2 and B5 prove both directions of ``$n$ even $\iff n^2$ even'' --- a full biconditional, previewing Day 2.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Consider: ``If $x^2 = 9$ then $x = 3$.'' Is this true? If false, give the value of $x$ that breaks it.
+
+\ans{False; $x=-3$ also satisfies $x^2=9$.}
+\method{$(-3)^2=9$ but $-3\neq3$, so the implication fails for $x=-3$.}
+\inv{The correct biconditional is ``$x^2=9 \iff x=3 \text{ or } x=-3$'' --- note the OR, not a single value.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of Pythagoras' theorem (``if a triangle has a right angle, then $a^2+b^2=c^2$ for its side lengths, with $c$ the longest''). Is this converse also a true geometric fact?
+
+\ans{Converse: ``If $a^2+b^2=c^2$ for a triangle's side lengths (with $c$ the longest), then the triangle has a right angle opposite $c$.'' Yes, this converse is also true.}
+\method{This is the Converse of Pythagoras' Theorem: by the Law of Cosines, $c^2=a^2+b^2-2ab\cos C$, so $a^2+b^2=c^2$ forces $\cos C=0$, i.e.\ $C=90^\circ$.}
+\inv{This is one of the rare ``both directions true'' pairs --- used constantly to test whether a triangle is right-angled purely from its side lengths (e.g.\ the $5$-$12$-$13$ triangle).}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly: ``If $a$ and $b$ are both even integers, then $a+b$ is even.''
+
+\ans{Proved: writing $a=2j$, $b=2k$ gives $a+b=2(j+k)$, an even number.}
+\method{Let $a=2j$ and $b=2k$ for integers $j,k$. Then $a+b=2j+2k=2(j+k)$, which is even.}
+\inv{Is the converse true --- does ``$a+b$ even'' force both $a,b$ to be even? Test $a=1,b=3$.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item True or false, with a one-line reason: ``If $p$ is a prime number and $p \neq 2$, then $p$ is odd.''
+
+\ans{True.}
+\method{$2$ is the only even prime (every other even number $\geq4$ is divisible by $2$ and hence composite), so any prime other than $2$ must be odd.}
+\inv{Is the converse true --- is every odd number prime? Test $n=9$.}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $x=y$, then $x^3 = y^3$.'' Is the converse true?
+
+\ans{Converse: ``If $x^3=y^3$, then $x=y$.'' This converse is true.}
+\method{Cubing is a strictly increasing (hence injective) function on the reals, so $x^3=y^3$ forces $x=y$ --- unlike squaring, cubing carries no sign ambiguity.}
+\inv{Contrast with B6: squaring loses sign information (two possible roots), cubing does not (one real root). This odd-vs-even-power distinction reappears throughout the pillar.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly that the square of any multiple of $3$ is itself a multiple of $9$.
+
+\ans{Proved: writing $n=3k$ gives $n^2=9k^2$, a multiple of $9$.}
+\method{Let $n=3k$ for an integer $k$. Then $n^2=(3k)^2=9k^2$, which is $9$ times an integer.}
+\inv{The converse (``$n^2$ multiple of $9 \Rightarrow n$ multiple of $3$'') is actually true, since $3$ is prime --- contrast with C8, where the analogous statement for $4$ fails.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly: ``If $n$ is an odd integer, then $n^2 - 1$ is divisible by $8$.''
+
+\ans{Proved: writing $n=2k+1$ gives $n^2-1=4k(k+1)$, and since $k(k+1)$ is always even, $n^2-1$ is divisible by $8$.}
+\method{Let $n=2k+1$. Then $n^2-1=(2k+1)^2-1=4k^2+4k=4k(k+1)$. Since $k$ and $k+1$ are consecutive integers, one of them is always even, so $k(k+1)=2m$ for some integer $m$. Then $n^2-1=4(2m)=8m$, a multiple of $8$.}
+\inv{This is exactly why every odd square is $\equiv1\pmod8$ --- a workhorse identity in Number Theory Day 2's modular arithmetic toolkit.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is the correct converse of: ``If $x$ is rational and $y$ is irrational, then $x+y$ is irrational''?
+
+\ans{A) If $x+y$ is irrational, then $x$ is rational and $y$ is irrational.}
+\method{The converse of ``if $P$ then $Q$'' is ``if $Q$ then $P$'', formed by swapping the two clauses wholesale --- never by negating them (that gives the unrelated inverse) and never by swapping only one clause. Here $P=$``$x$ rational and $y$ irrational'', $Q=$``$x+y$ irrational'', so the converse is ``if $Q$ then $P$'', option A.}
+\inv{Option C is actually the \emph{contrapositive} of the original (negate and swap both clauses) --- always logically equivalent to the original. Day 3 shows why the contrapositive, unlike the converse, is never a separate claim to prove.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item True or false, with justification: ``If a statement is true, its converse must also be false.''
+
+\ans{False.}
+\method{B1, B7 and B10 (and A5) all exhibit true statements with true converses. One such example disproves the universal claim.}
+\inv{This misconception is worth naming explicitly: reversing a conditional says nothing by itself about truth --- the two directions are independent claims that sometimes happen to agree.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Prove directly: ``If $n$ is divisible by $6$, then $n^3$ is divisible by $216$.''
+
+\ans{Proved: writing $n=6k$ gives $n^3=216k^3$, a multiple of $216$.}
+\method{Let $n=6k$ for an integer $k$. Then $n^3=(6k)^3=216k^3$, since $6^3=216$.}
+\inv{More generally, if $d\mid n$ then $d^m \mid n^m$ for any positive integer $m$ --- the same substitution argument works for any power.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``For positive reals $x,y$: if $x \geq 2$ and $y \geq 2$, then $xy \geq x+y$.'' Determine whether the converse is true, giving a counterexample if it is false.
+
+\ans{Converse: ``For positive reals $x,y$: if $xy \geq x+y$, then $x \geq 2$ and $y \geq 2$.'' The converse is false; $x=1.5, y=10$ gives $xy=15 \geq x+y=11.5$, but $x<2$.}
+\method{Check the counterexample directly: $xy=1.5\times10=15$ and $x+y=11.5$, so $xy \geq x+y$ holds, yet $x=1.5<2$, breaking the converse's conclusion.}
+\inv{The true boundary condition is $\frac1x+\frac1y \leq 1$ (equivalent to $xy \geq x+y$ for positive $x,y$) --- a different, correct characterisation you'll meet again in Number Theory's Egyptian-fraction questions.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item State the converse of: ``If $x$ and $y$ are both perfect squares, then $xy$ is a perfect square.'' Is the converse true? Give a counterexample if it is false.
+
+\ans{Converse: ``If $xy$ is a perfect square, then $x$ and $y$ are both perfect squares.'' The converse is false; $x=2, y=8$ gives $xy=16=4^2$, but neither $2$ nor $8$ is a perfect square.}
+\method{Check directly: $2 \times 8 = 16 = 4^2$, a perfect square, while $2$ and $8$ are individually not perfect squares --- a single counterexample disproves the converse.}
+\inv{What is actually forced is that $x$ and $y$'s prime factorisations combine to give even exponents overall, even when neither does individually --- Number Theory Day 4's prime factor algebra formalises this.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item True or false, with justification: ``If $n^2$ is a multiple of $4$, then $n$ is a multiple of $4$.''
+
+\ans{False.}
+\method{$n=6$ gives $n^2=36$, a multiple of $4$, but $6$ is not a multiple of $4$.}
+\inv{What is actually forced is that $n$ is even --- the correct, weaker conclusion. Contrast with C1, where the analogous statement for $3$ and $9$ genuinely holds, because $3$'s exponent bookkeeping (odd $\Rightarrow$ even after squaring $\Rightarrow$ still $\geq1$) works out differently from $2$'s.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Let $n$ be a positive integer. Consider the statements: I. If $n$ is divisible by $4$, then $n$ is divisible by $8$. II. If $n$ is divisible by $8$, then $n$ is divisible by $4$. III. The converse of statement I is statement II. Which of the statements I, II, III are true?
+
+\ans{F) II and III only.}
+\method{I: ``$4\mid n \Rightarrow 8\mid n$'' is false, since $n=4$ is divisible by $4$ but not $8$. II: ``$8\mid n \Rightarrow 4\mid n$'' is true, since $8=4\times2$. III: the converse of I (swap hypothesis and conclusion of ``$4\mid n \Rightarrow 8\mid n$'') is exactly ``$8\mid n \Rightarrow 4\mid n$'', which is statement II --- so III is true. Only II and III hold.}
+\inv{Statement I is false but its converse (II) is true --- alongside A2 and A9, a third example that a statement's truth tells you nothing about its converse's truth.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove that if $n$ and $n+2$ are both prime numbers greater than $3$, then $n+1$ is divisible by $6$.
+
+\ans{Proved: $n+1$ is both even and a multiple of $3$, hence a multiple of $6$.}
+\method{Since $n$ and $n+2$ are primes greater than $3$, both are odd, so $n+1$ (sandwiched between two odd numbers) is even. Among the three consecutive integers $n, n+1, n+2$, exactly one is a multiple of $3$; since $n$ and $n+2$ are primes greater than $3$, neither is a multiple of $3$, so $n+1$ must be. Being both even and a multiple of $3$, $n+1$ is a multiple of $6$.}
+\inv{This is why every twin prime pair above $(3,5)$ sits symmetrically around a multiple of $6$ --- e.g.\ $(11,13)$ around $12$, $(17,19)$ around $18$.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Amy claims: ``If a positive integer is divisible by every one of $2,3,4,5,6$, then it is divisible by $60$.'' Determine whether Amy's claim is true, and justify your answer using the smallest positive integer for which it can be checked.
+
+\ans{True; the smallest positive integer divisible by all of $2,3,4,5,6$ is $60$ itself.}
+\method{Any integer divisible by each of $2,3,4,5,6$ must be divisible by their least common multiple. Since $4=2^2$ and $6=2\times3$, $\mathrm{lcm}(2,3,4,5,6)=2^2\times3\times5=60$. So being divisible by all five numbers is exactly equivalent to being divisible by $60$, proving Amy's claim directly for every such integer, the smallest being $60$ itself.}
+\inv{Amy's claim is actually an ``if and only if'' in disguise: divisible-by-all-five and divisible-by-$60$ are the same condition. Day 2 gives this equivalence a name.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Give an example of a true statement $S$ about divisibility of integers whose converse $S'$ is also true. State both $S$ and $S'$.
+
+\ans{$S$: ``If $n$ is a multiple of $12$, then $n$ is a multiple of $4$ and of $3$.'' $S'$ (converse): ``If $n$ is a multiple of $4$ and of $3$, then $n$ is a multiple of $12$.'' Both are true (this is exactly B1's pair). Any pair of coprime divisors $d_1,d_2$ works the same way.}
+\method{$S$ is true because $12=4\times3$, so any multiple of $12$ is automatically a multiple of both $4$ and $3$. $S'$ is true because $\gcd(4,3)=1$, so $\mathrm{lcm}(4,3)=12$ divides any number divisible by both $4$ and $3$.}
+\inv{Any answer where $S$'s hypothesis and conclusion are logically equivalent conditions is valid --- what matters is that both directions genuinely hold, not the specific numbers chosen.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Determine, with proof, whether the following statement is true or false: ``If $n^2 - n$ is even, then $n$ is even.''
+
+\ans{False; $n=3$ gives $n^2-n=6$ (even), but $n$ is odd.}
+\method{$n^2-n=n(n-1)$ is a product of two consecutive integers, so one of them is always even --- meaning $n^2-n$ is even for \emph{every} integer $n$, regardless of $n$'s own parity. Since the hypothesis is always true but the conclusion isn't (e.g.\ $n=3$), the implication fails.}
+\inv{A hypothesis that's always true makes an ``if...then'' statement collapse to asserting the conclusion outright --- spotting this pattern (a vacuously universal hypothesis) is a recurring TMUA trap.}
+
+\end{enumerate}
+
+\end{document}

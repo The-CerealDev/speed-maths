@@ -1,0 +1,277 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Answers: Logic Drill \#6}{David Akinyele-Aje}
+
+\section*{Section A}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item What are the two essential components required for a proof by mathematical induction?
+
+\ans{The Base Case and the Inductive Step}
+\method{A proof by mathematical induction requires: (1) Base Case: establishing $P(n_0)$ for the initial value $n_0$, and (2) Inductive Step: proving $P(k) \implies P(k+1)$ for all $k \ge n_0$.}
+\inv{Why does combining the base case and inductive step cover all integers $n \ge n_0$?}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item To prove a statement $P(n)$ holds for all integers $n \ge 4$ by induction, what is the base case?
+
+\ans{$P(4)$}
+\method{The base case must be the smallest value of $n$ in the domain of the statement, which is $n = 4$.}
+\inv{What happens if you check $P(1)$ instead when $P(n)$ is only defined for $n \ge 4$?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item If $P(k) \implies P(k+1)$ is proved, but no base case $P(n_0)$ is established, is $P(n)$ proved for any $n$?
+
+\ans{No}
+\method{Without a base case to anchor the chain of implications, no value of $P(n)$ is known to be true. An unanchored inductive step proves only conditional relationships, not truth values.}
+\inv{Give an example of a false statement $P(n)$ where $P(k) \implies P(k+1)$ holds for all $k$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item What is the inductive hypothesis in a proof of $\sum_{i=1}^n i = \frac{n(n+1)}{2}$?
+
+\ans{Assume $\sum_{i=1}^k i = \frac{k(k+1)}{2}$ for some integer $k \ge 1$.}
+\method{The inductive hypothesis is the assumption that the target formula holds for a specific fixed integer $k$.}
+\inv{What is the next expression you must derive using this hypothesis?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``Mathematical induction can be used to prove statements about all real numbers $x$.''
+
+\ans{False}
+\method{Mathematical induction applies to discrete countable sets ordered by successor functions (like integers $\mathbb{Z}^+$), not continuous sets like $\mathbb{R}$.}
+\inv{What property of the natural numbers makes mathematical induction valid?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item In a proof that $2^n > n^2$ for $n \ge 5$, what is the smallest integer $n$ for which the base case must be checked?
+
+\ans{$n = 5$}
+\method{$2^5 = 32 > 5^2 = 25$ is true. For $n \in \{2,3,4\}$, $2^n > n^2$ is false ($4 \le 4, 8 < 9, 16 \le 16$). Thus $n=5$ is the first valid base case.}
+\inv{Why does the inductive step $2^k > k^2 \implies 2^{k+1} > (k+1)^2$ require $k \ge 5$?}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item What is the negation of the inductive step statement: ``For all $k \ge 1$, $P(k) \implies P(k+1)$''?
+
+\ans{There exists $k \ge 1$ such that $P(k)$ is true and $P(k+1)$ is false.}
+\method{Negating $\forall k, (P(k) \implies P(k+1))$ yields $\exists k, \neg(P(k) \implies P(k+1))$, which simplifies to $\exists k, (P(k) \land \neg P(k+1))$.}
+\inv{How does this relate to finding a break in an inductive chain?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: ``If $P(1)$ is true and $P(k) \implies P(k+2)$ for all $k \ge 1$, then $P(n)$ is true for all positive integers $n$.''
+
+\ans{False}
+\method{This step size of $2$ only proves $P(n)$ for all *odd* positive integers ($1, 3, 5, \dots$). Even positive integers remain unproved unless $P(2)$ is also established.}
+\inv{What extra base case would make $P(n)$ true for all positive integers?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item For which positive integers $n$ is $2^n > n$ true?
+
+\ans{All positive integers $n \ge 1$}
+\method{For $n=1$, $2^1 = 2 > 1$. Assuming $2^k > k$, we have $2^{k+1} = 2 \cdot 2^k > 2k = k + k \ge k + 1$ for all $k \ge 1$. Thus it holds for all $n \ge 1$.}
+\inv{Is $2^n > n^2$ true for all $n \ge 1$?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item What is the base case needed to prove $n! > 2^n$ by induction?
+
+\ans{$n = 4$}
+\method{For $n=1,2,3$: $1! = 1 < 2$, $2! = 2 < 4$, $3! = 6 < 8$. For $n=4$: $4! = 24 > 16 = 2^4$. Thus $n=4$ is the base case.}
+\inv{What is the ratio $(k+1)! / 2^{k+1}$ in terms of $k! / 2^k$?}
+
+\end{enumerate}
+
+\section*{Section B}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Express $\sum_{i=1}^{k+1} i^2$ in terms of $\sum_{i=1}^k i^2$.
+
+\ans{$\sum_{i=1}^{k+1} i^2 = \left(\sum_{i=1}^k i^2\right) + (k+1)^2$}
+\method{Splitting off the last term of the summation gives $\sum_{i=1}^{k+1} i^2 = \left(\sum_{i=1}^k i^2\right) + (k+1)^2$.}
+\inv{Why is splitting off the final term the fundamental first step in inductive sum proofs?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Assuming $\sum_{i=1}^k i = \frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}$.
+
+\ans{$\frac{k(k+1)}{2} + (k+1) = (k+1)\left[\frac{k}{2} + 1\right] = (k+1)\left[\frac{k+2}{2}\right] = \frac{(k+1)(k+2)}{2}$}
+\method{Factor out $(k+1)$: $\frac{k(k+1)}{2} + (k+1) = (k+1)\left(\frac{k}{2} + 1\right) = (k+1)\left(\frac{k+2}{2}\right) = \frac{(k+1)(k+2)}{2}$.}
+\inv{How does this complete the inductive step?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction: $\sum_{i=1}^n (2i-1) = n^2$ for all positive integers $n$.
+
+\ans{Proof by induction}
+\method{Base case $n=1$: $\sum_{i=1}^1 (2i-1) = 1 = 1^2$, true. \\
+Inductive step: Assume $\sum_{i=1}^k (2i-1) = k^2$. Then $\sum_{i=1}^{k+1} (2i-1) = k^2 + (2(k+1)-1) = k^2 + 2k + 1 = (k+1)^2$. By induction, the identity holds for all $n \ge 1$.}
+\inv{What is the geometric visualization of this sum using square grids?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Assuming $3^{2k} - 1$ is divisible by $8$, express $3^{2(k+1)} - 1$ in a form that shows it is also divisible by $8$.
+
+\ans{$3^{2(k+1)} - 1 = 9(3^{2k} - 1) + 8$}
+\method{$3^{2(k+1)} - 1 = 9 \cdot 3^{2k} - 1 = 9(3^{2k} - 1) + 8$. By IH, $3^{2k}-1 = 8m$, so $9(8m) + 8 = 8(9m+1)$, which is divisible by $8$.}
+\inv{Can you also write $3^{2(k+1)}-1 = (3^{2k}-1) + 8 \cdot 3^{2k}$?}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction: $2^n > n$ for all positive integers $n$.
+
+\ans{Proof by induction}
+\method{Base case $n=1$: $2^1 = 2 > 1$, true. \\
+Inductive step: Assume $2^k > k$. Then $2^{k+1} = 2 \cdot 2^k > 2k = k + k \ge k + 1$ (since $k \ge 1$). Thus $2^{k+1} > k+1$. By induction, $2^n > n$ for all $n \ge 1$.}
+\inv{Where was the assumption $k \ge 1$ used in the inequality chain?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Assuming $k! > 2^k$ for some $k \ge 4$, prove $(k+1)! > 2^{k+1}$.
+
+\ans{$(k+1)! = (k+1)k! > (k+1)2^k > 2 \cdot 2^k = 2^{k+1}$}
+\method{Since $k \ge 4$, $k+1 \ge 5 > 2$. Thus $(k+1)! = (k+1)k! > 2 \cdot k! > 2 \cdot 2^k = 2^{k+1}$.}
+\inv{Why was $k \ge 4$ essential to replace $k+1$ with $> 2$?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction that $5^n - 1$ is divisible by $4$ for all positive integers $n$.
+
+\ans{Proof by induction}
+\method{Base case $n=1$: $5^1 - 1 = 4$, divisible by $4$. \\
+Inductive step: Assume $5^k - 1 = 4m$. Then $5^{k+1} - 1 = 5 \cdot 5^k - 1 = 5(4m+1) - 1 = 20m + 4 = 4(5m+1)$, which is divisible by $4$. By induction, $4 \mid (5^n-1)$ for all $n \ge 1$.}
+\inv{How can this also be proved using modular arithmetic ($5 \equiv 1 \pmod 4$)?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Assuming $\sum_{i=1}^k 2^i = 2^{k+1} - 2$, show that $\sum_{i=1}^{k+1} 2^i = 2^{k+2} - 2$.
+
+\ans{$\sum_{i=1}^{k+1} 2^i = (2^{k+1} - 2) + 2^{k+1} = 2 \cdot 2^{k+1} - 2 = 2^{k+2} - 2$}
+\method{Add $2^{k+1}$ to both sides: $(2^{k+1}-2) + 2^{k+1} = 2(2^{k+1}) - 2 = 2^{k+2} - 2$.}
+\inv{What is the base case value for $n=1$?}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2) \times 180^\circ$ for $n \ge 3$.
+
+\ans{Proof by induction}
+\method{Base case $n=3$: A triangle has angle sum $(3-2) \times 180^\circ = 180^\circ$, true. \\
+Inductive step: Assume a convex $k$-gon has angle sum $(k-2) \times 180^\circ$. Adding a vertex to form a $(k+1)$-gon adds a triangle whose interior angles sum to $180^\circ$. Thus the new sum is $(k-2) \times 180^\circ + 180^\circ = (k-1) \times 180^\circ = ((k+1)-2) \times 180^\circ$.}
+\inv{Why does splitting a polygon by a diagonal create a triangle and a $(k)$-gon?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item Show that if $P(k) \implies P(k+2)$ is proved, established base cases for both $n=1$ and $n=2$ are sufficient to prove $P(n)$ for all $n \ge 1$.
+
+\ans{Proof by strong induction / parity split}
+\method{Base case $n=1 \implies P(1), P(3), P(5), \dots$ (all odd positive integers). Base case $n=2 \implies P(2), P(4), P(6), \dots$ (all even positive integers). Together, every positive integer is covered.}
+\inv{Generalise: How many base cases are needed if the inductive step is $P(k) \implies P(k+m)$?}
+
+\end{enumerate}
+
+\section*{Section C}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item A student attempts to prove $P(n)$: ``$n^2 + 5n + 1$ is even'' for all $n \ge 1$. \textit{\small(after TMUA 2022 Paper 2 Q14)}
+
+\ans{B) $P(n)$ is false for all $n \ge 1$ despite the inductive step $P(k) \implies P(k+1)$ being completely valid.}
+\method{The inductive step $P(k) \implies P(k+1)$ is mathematically valid: $(k+1)^2+5(k+1)+1 = (k^2+5k+1) + 2k+6 = 2m + 2(k+3) = 2(m+k+3)$, which is even if $P(k)$ is even. However, the base case $P(1) = 7$ is odd (false). In fact, $n^2+5n+1 = n(n+5)+1$ is always odd (even + odd = odd) for all $n \ge 1$. Thus $P(n)$ is false for all $n \ge 1$ despite an intact inductive step!}
+\inv{Why is an unanchored inductive step insufficient to prove a statement?}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Consider the claim $P(n)$: ``$2^n > n^2$.'' \textit{\small(after SMC 2018 Q22)}
+
+\ans{A) $n = 1$ and all $n \ge 5$}
+\method{Testing small cases: $n=1 \implies 2 > 1$ (True); $n=2 \implies 4 > 4$ (False); $n=3 \implies 8 > 9$ (False); $n=4 \implies 16 > 16$ (False); $n=5 \implies 32 > 25$ (True). For $n \ge 5$, $2^{k+1} = 2 \cdot 2^k > 2k^2 = k^2 + k^2 > k^2 + 2k + 1 = (k+1)^2$ (since $k^2 > 2k+1$ for $k \ge 5$). Thus $2^n > n^2$ holds for $n=1$ and all $n \ge 5$.}
+\inv{Why did the inequality fail for $n=2,3,4$?}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item A student claims: ``To prove $P(n)$ for all $n \ge 1$, it is sufficient to prove $P(1)$ and $P(k) \implies P(2k)$ for all $k \ge 1$.''
+
+\ans{B) False, because this only proves $P(n)$ for $n$ of the form $2^m$ ($m \ge 0$).}
+\method{$P(1) \implies P(2) \implies P(4) \implies P(8) \dots$ only proves $P(n)$ for powers of $2$. Non-power-of-two integers (like $n=3, 5, 6, 7$) are never reached.}
+\inv{What additional step (such as $P(k) \implies P(k-1)$) would complete Cauchy induction?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Consider the Fibonacci sequence $F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, \dots$ defined by $F_{n+1} = F_n + F_{n-1}$. What is the value of $\sum_{i=1}^n F_i$?
+
+\ans{B) $F_{n+2} - 1$}
+\method{Base case $n=1$: $\sum_{i=1}^1 F_i = F_1 = 1$; $F_{1+2}-1 = F_3-1 = 2-1 = 1$, true. \\
+Inductive step: Assume $\sum_{i=1}^k F_i = F_{k+2} - 1$. Then $\sum_{i=1}^{k+1} F_i = (F_{k+2} - 1) + F_{k+1} = (F_{k+2} + F_{k+1}) - 1 = F_{k+3} - 1 = F_{(k+1)+2} - 1$.}
+\inv{Verify for $n=4$: $1+1+2+3 = 7 = F_6 - 1 = 8 - 1 = 7$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item A student attempts to prove: ``For all positive integers $n$, $n! \le 2^n$.''
+
+\ans{B) $n! \le 2^n$ for $n \in \{1, 2, 3\}$, but $n! > 2^n$ for all $n \ge 4$.}
+\method{Testing $n=1: 1 \le 2$; $n=2: 2 \le 4$; $n=3: 6 \le 8$; $n=4: 24 > 16$. For $n \ge 4$, $(k+1)! = (k+1)k! > 2 \cdot 2^k = 2^{k+1}$ by induction. Thus $n! > 2^n$ for all $n \ge 4$.}
+\inv{At what rate does $n!$ grow compared to exponential functions $a^n$?}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Consider the sum $S_n = \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \dots + \frac{1}{n(n+1)}$. Using mathematical induction, what is the closed-form expression for $S_n$?
+
+\ans{A) $\frac{n}{n+1}$}
+\method{Base case $n=1$: $S_1 = \frac{1}{2} = \frac{1}{1+1}$. \\
+Inductive step: Assume $S_k = \frac{k}{k+1}$. Then $S_{k+1} = \frac{k}{k+1} + \frac{1}{(k+1)(k+2)} = \frac{k(k+2) + 1}{(k+1)(k+2)} = \frac{k^2+2k+1}{(k+1)(k+2)} = \frac{(k+1)^2}{(k+1)(k+2)} = \frac{k+1}{(k+1)+1}$.}
+\inv{How can this sum also be evaluated using partial fractions telescoping?}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item To prove $P(n)$ for all integers $n \ge 1$ using Strong Induction, what is the inductive hypothesis step?
+
+\ans{B) Assume $P(1), P(2), \dots, P(k)$ are all true, and deduce $P(k+1)$.}
+\method{In strong induction (complete induction), the inductive hypothesis assumes the statement holds for all values from the base case up to $k$, i.e., $P(1) \land P(2) \land \dots \land P(k) \implies P(k+1)$.}
+\inv{When is strong induction required instead of weak induction?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item For which positive integers $n$ is $n^2 < 2^n$ false?
+
+\ans{A) $n = 2, 3, 4$}
+\method{$n=1 \implies 1 < 2$ (True). $n=2 \implies 4 < 4$ (False, $4=4$). $n=3 \implies 9 < 8$ (False). $n=4 \implies 16 < 16$ (False, $16=16$). $n=5 \implies 25 < 32$ (True). Thus $n^2 < 2^n$ is false for $n \in \{2, 3, 4\}$.}
+\inv{What is the set of integer solutions to $n^2 = 2^n$?}
+
+\end{enumerate}
+
+\section*{Section D}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction: Bernoulli's Inequality states that for all $x > -1$ and all positive integers $n$, $(1+x)^n \ge 1 + nx$. At which step in the inductive transition $(1+x)^k \ge 1+kx \implies (1+x)^{k+1} \ge 1+(k+1)x$ is the condition $x > -1$ strictly required?
+
+\ans{B) When multiplying both sides of $(1+x)^k \ge 1+kx$ by $(1+x)$ without flipping the inequality sign.}
+\method{Multiplying an inequality by $(1+x)$ preserves the inequality sign if and only if $1+x > 0 \iff x > -1$. If $x < -1$, then $1+x < 0$, which would flip $\ge$ to $\le$, breaking the inductive transition.}
+\inv{What happens when $x = -1$?}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction that $a^n - b^n$ is divisible by $a - b$ for all positive integers $n$, where $a,b$ are distinct integers. Show the inductive step using the identity $a^{k+1} - b^{k+1} = a(a^k - b^k) + b^k(a - b)$.
+
+\ans{Proof by induction}
+\method{Base case $n=1$: $a^1 - b^1 = a-b$, divisible by $a-b$. \\
+Inductive step: Assume $a^k - b^k = m(a-b)$ for some integer $m$. \\
+Then $a^{k+1} - b^{k+1} = a(a^k - b^k) + b^k(a - b) = a \cdot m(a-b) + b^k(a-b) = (am + b^k)(a-b)$. Since $am + b^k \in \mathbb{Z}$, $a-b$ divides $a^{k+1} - b^{k+1}$. By induction, $(a-b) \mid (a^n-b^n)$ for all $n \ge 1$.}
+\inv{How does this generalize the algebraic identity $a^n-b^n = (a-b)(a^{n-1} + a^{n-2}b + \dots + b^{n-1})$?}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Consider a grid of $2^n \times 2^n$ squares with one single $1 \times 1$ square removed. Prove by mathematical induction that for every integer $n \ge 1$, the remaining region can be completely tiled by L-trominoes (shapes made of 3 squares forming an L).
+
+\ans{Proof by induction}
+\method{Base case $n=1$: A $2 \times 2$ grid with 1 square removed leaves 3 squares in an L-shape, which is 1 L-tromino. True. \\
+Inductive step: Divide a $2^{k+1} \times 2^{k+1}$ grid into four $2^k \times 2^k$ quadrants. One quadrant contains the missing square. Place 1 L-tromino at the center intersection so that it covers 1 square from each of the other three quadrants. Now each of the four $2^k \times 2^k$ quadrants has exactly 1 square removed. By IH, each quadrant can be tiled by L-trominoes. Thus the full grid is tiled.}
+\inv{Why must the grid dimensions be powers of 2 for this center-tiling strategy to work?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Let $a_1 = 1$ and $a_{n+1} = \sqrt{2 + a_n}$ for $n \ge 1$. (a) Prove by induction that $a_n < 2$ for all $n \ge 1$. (b) Prove by induction that $a_n < a_{n+1}$ for all $n \ge 1$.
+
+\ans{(a) $a_n < 2$ for all $n \ge 1$. (b) $a_n < a_{n+1}$ for all $n \ge 1$.}
+\method{(a) Base case $n=1$: $a_1 = 1 < 2$. IH: $a_k < 2 \implies a_{k+1} = \sqrt{2+a_k} < \sqrt{2+2} = 2$. \\
+(b) Base case $n=1$: $a_1 = 1, a_2 = \sqrt{3} > 1$, true. IH: $a_{k-1} < a_k \implies 2+a_{k-1} < 2+a_k \implies \sqrt{2+a_{k-1}} < \sqrt{2+a_k} \implies a_k < a_{k+1}$. \\
+Since $a_n$ is bounded above and monotonically increasing, $\lim_{n\to\infty} a_n = L$ exists, where $L = \sqrt{2+L} \implies L^2 - L - 2 = 0 \implies L = 2$.}
+\inv{What is the value of $\sqrt{2+\sqrt{2+\sqrt{2+\dots}}}$?}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Prove by induction that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2 = \left[\frac{n(n+1)}{2}\right]^2$ for all positive integers $n$.
+
+\ans{Proof by induction}
+\method{Base case $n=1$: $1^3 = 1^2 = 1$, true. \\
+Inductive step: Assume $\sum_{i=1}^k i^3 = \left[\frac{k(k+1)}{2}\right]^2$. \\
+Then $\sum_{i=1}^{k+1} i^3 = \left[\frac{k(k+1)}{2}\right]^2 + (k+1)^3 = (k+1)^2 \left[\frac{k^2}{4} + (k+1)\right] = (k+1)^2 \left[\frac{k^2+4k+4}{4}\right] = (k+1)^2 \left[\frac{k+2}{2}\right]^2 = \left[\frac{(k+1)(k+2)}{2}\right]^2$. By induction, the identity holds for all $n \ge 1$.}
+\inv{This is Nicomachus's theorem. How can it be visualized geometrically using nested square blocks?}
+
+\end{enumerate}
+
+\end{document}

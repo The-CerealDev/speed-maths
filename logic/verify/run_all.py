@@ -22,7 +22,7 @@ def main():
     failed = []
     for script in scripts:
         print(f"── {script.name} " + "─" * max(0, 50 - len(script.name)), flush=True)
-
+        
         # STRUCTURAL CHECK: Enforce that lazy AI agents haven't skipped questions
         with open(script, 'r') as f:
             content = f.read()

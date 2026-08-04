@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#4 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{Answers and Methods.}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``Every prime number is odd.''
+
+\ans{$n=2$.}
+\method{$2$ is prime but even, breaking the universal claim with a single instance.}
+\inv{$2$ is the unique even prime (Day 1, B9) --- almost every ``all primes are odd''-flavoured false claim in this pillar breaks exactly here.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``$n^2 \geq n$ for every real number $n$.''
+
+\ans{$n=0.5$.}
+\method{$n^2=0.25$ and $n=0.5$, so $n^2 < n$, breaking the claim. (Over the integers this claim is actually true, since $n^2-n=n(n-1)\geq0$ always --- the failure only appears strictly between $0$ and $1$.)}
+\inv{This is a genuinely different claim from its integer version --- restricting or widening the domain of a universal claim can flip it from true to false.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $n$ is prime, then $n+2$ is prime.''
+
+\ans{$n=7$.}
+\method{$7$ is prime, but $7+2=9=3^2$ is not prime.}
+\inv{This is exactly the twin-prime claim in reverse --- most primes do \emph{not} have a prime $2$ higher, which is why twin primes are notable rather than universal.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``The sum of two primes is always even.''
+
+\ans{$2+3=5$.}
+\method{$2$ and $3$ are both prime, and their sum $5$ is odd.}
+\inv{Every other pair of odd primes does sum to an even number --- $2$'s exceptional parity is again the single failure point.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``Every multiple of $4$ is a multiple of $8$.''
+
+\ans{$n=4$.}
+\method{$4$ is a multiple of $4$ but not of $8$.}
+\inv{This restates Day 1's A9/B6-style fact in explicit counterexample form --- the smallest possible instance is usually the cleanest counterexample.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``$\sqrt{a+b} = \sqrt{a}+\sqrt{b}$ for all $a,b \geq 0$.''
+
+\ans{$a=b=1$.}
+\method{$\sqrt{1+1}=\sqrt2 \approx 1.41$, but $\sqrt1+\sqrt1 = 2$; these are unequal.}
+\inv{The correct relationship is $\sqrt{a+b} \leq \sqrt a + \sqrt b$ (with equality only when $a=0$ or $b=0$) --- a genuine inequality, not an identity.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``$(x+y)^2 = x^2+y^2$ for all real $x,y$.''
+
+\ans{$x=y=1$.}
+\method{$(1+1)^2=4$, but $1^2+1^2=2$; these are unequal.}
+\inv{The correct expansion is $(x+y)^2=x^2+2xy+y^2$ --- the claim silently drops the cross term $2xy$, which vanishes only when $x=0$ or $y=0$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``$n!+1$ is always prime.''
+
+\ans{$n=4$.}
+\method{$4!+1 = 24+1 = 25 = 5^2$, which is not prime.}
+\inv{This is a famous near-miss pattern: $n!+1$ is prime for $n=1,2,3$, making the false universal claim tempting before it breaks at $n=4$ --- Section D revisits this exact claim.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If a number is not prime, it must be even.''
+
+\ans{$n=9$.}
+\method{$9=3\times3$ is not prime, but $9$ is odd.}
+\inv{Odd composite numbers (like $9, 15, 21, 25, \dots$) are the entire reason this claim fails --- ``not prime'' includes far more than ``even.''}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``All odd numbers greater than $1$ are prime.''
+
+\ans{$n=9$.}
+\method{$9$ is odd and greater than $1$, but $9=3\times3$ is not prime.}
+\inv{The same instance as A9 disproves both claims at once --- a good counterexample often kills more than one false universal simultaneously.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``$n^2+n+41$ is prime for every positive integer $n$.''
+
+\ans{$n=41$.}
+\method{At $n=41$: $n^2+n+41 = 41^2+41+41 = 41(41+1)+41 = 41\times42+41 = 41\times43$, manifestly divisible by $41$ and hence not prime.}
+\inv{Substituting $n=41$ (matching the constant term) is a structural trick, not luck: whenever $n \equiv 0 \pmod{41}$, every term in $n^2+n+41$ is divisible by $41$. Section C finds an even smaller failure.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $a$ and $b$ are both irrational, then $a+b$ is irrational.''
+
+\ans{$a=\sqrt2$, $b=-\sqrt2$.}
+\method{Both $\sqrt2$ and $-\sqrt2$ are irrational, but $a+b=0$, which is rational.}
+\inv{Deliberately choosing a pair that cancels is a standard counterexample-construction move whenever a claim involves addition.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $a$ and $b$ are both irrational, then $ab$ is irrational.''
+
+\ans{$a=b=\sqrt2$.}
+\method{$\sqrt2$ is irrational, but $ab = \sqrt2 \times \sqrt2 = 2$, which is rational.}
+\inv{The multiplicative cousin of B2: choosing $a=b$ (or reciprocal-like pairs) is the standard move when a claim involves a product.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``Every quadratic with integer coefficients that has an integer root must have two integer roots.''
+
+\ans{$2x^2-3x+1$.}
+\method{$2x^2-3x+1 = (2x-1)(x-1)$, with roots $x=1$ (an integer) and $x=\tfrac12$ (not an integer).}
+\inv{The claim is actually true for \emph{monic} quadratics (leading coefficient $1$): an integer root forces the other root to be $(-b - r)$, also an integer, by Vieta. Non-monic coefficients are exactly what breaks it.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample (using $n=0$) to: ``For every integer $n$, $n/n = 1$.''
+
+\ans{$n=0$.}
+\method{$0/0$ is undefined, not equal to $1$, so the claim fails at $n=0$.}
+\inv{Division by zero is the single most common source of ``for every $n$'' claims quietly failing --- always check $n=0$ first when a claim involves a fraction with $n$ in the denominator.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample (using $n=1$) to: ``Every positive integer has at least one prime factor.''
+
+\ans{$n=1$.}
+\method{$1$ has no prime factors at all (its only positive divisor is itself, and $1$ is not prime).}
+\inv{$1$ is neither prime nor composite --- it is the standard edge case that breaks ``every positive integer has property X (derived from prime factorisation)'' claims.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample (using $n=-1$) to: ``For all integers $n$, $n^n$ is positive.''
+
+\ans{$n=-1$.}
+\method{$(-1)^{-1} = \dfrac{1}{-1} = -1$, which is negative, not positive.}
+\inv{Negative exponents flip a base into a reciprocal, and a negative base raised to an odd power stays negative --- both effects compound at $n=-1$.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample (using a non-integer) to: ``If $x^2$ is an integer, then $x$ is an integer.''
+
+\ans{$x=\sqrt2$.}
+\method{$x^2=2$ is an integer, but $x=\sqrt2$ is irrational, hence not an integer.}
+\inv{This is exactly the converse-direction failure behind Day 2's D2 classification (``$x$ rational'' is sufficient but not necessary for ``$x^2$ rational'') --- here sharpened to integers specifically.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $p$ and $q$ are distinct primes, then $p+q$ is composite.''
+
+\ans{$p=2, q=3$.}
+\method{$2$ and $3$ are distinct primes, but $2+3=5$ is itself prime, not composite.}
+\inv{Once again $2$'s exceptional evenness is the entire failure --- for any two distinct \emph{odd} primes, the sum is even and $\geq 8$, hence genuinely composite.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``For every integer $n \geq 1$, $2^n - 1$ is prime.''
+
+\ans{$n=4$.}
+\method{$2^4-1 = 15 = 3\times5$, which is not prime.}
+\inv{Primes of the form $2^n-1$ (Mersenne primes) require $n$ itself to be prime as a necessary --- but, per C4, not sufficient --- condition; $n=4$ fails at the first hurdle since $4$ isn't even prime.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ for which $n^2+n+41$ is \emph{not} prime.
+
+\ans{$n=40$.}
+\method{At $n=40$: $40^2+40+41 = 1600+40+41 = 1681 = 41^2$, not prime. This is the smallest failure of Euler's famous prime-generating polynomial $n^2+n+41$, which is prime for every $n=0,1,\dots,39$ before failing here.}
+\inv{$n=41$ (B1) is an easier-to-justify failure algebraically, but $n=40$ is the genuinely smallest one --- ``a counterexample'' and ``the smallest counterexample'' can demand very different amounts of work.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $a \equiv b \pmod n$, then $a^2 \equiv b^2 \pmod{n^2}$.''
+
+\ans{$n=3, a=1, b=4$.}
+\method{$1 \equiv 4 \pmod 3$ (both leave remainder $1$). But $a^2=1$ and $b^2=16$, and modulo $n^2=9$: $16 \equiv 7 \pmod 9$, while $1 \equiv 1 \pmod 9$; since $1 \neq 7$, $a^2 \not\equiv b^2 \pmod 9$.}
+\inv{Squaring a congruence modulo $n$ only guarantees the square modulo $n$ itself (that part is always safe), never automatically modulo $n^2$.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following values of $n$ is a counterexample to ``$n^2-n+11$ is prime for every positive integer $n$''?
+
+\ans{C) $n=11$.}
+\method{At $n=11$: $n^2-n+11 = 11^2-11+11 = 11^2 = 121$, since the $-n+11$ terms cancel exactly when $n=11$, leaving a bare square. $121=11^2$ is not prime. (Options A, B, D give $11$, $31$, $101$ respectively, all prime --- only C fails.)}
+\inv{Whenever $n$ matches the constant term of $n^2-n+c$, the two linear terms cancel and the expression collapses to $n^2=c^2$ --- always a perfect square, and prime only if $c=1$.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $p$ is prime, then $2^p-1$ is prime.''
+
+\ans{$p=11$.}
+\method{$11$ is prime, but $2^{11}-1 = 2047 = 23\times89$, which is not prime.}
+\inv{This shows primality of $p$ is necessary but not sufficient for $2^p-1$ to be prime (Day 2's classification language) --- exactly the fact Day 4's D5 builds on.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $a^2 \equiv b^2 \pmod n$, then $a \equiv b \pmod n$.''
+
+\ans{$n=8, a=1, b=3$.}
+\method{$a^2=1$ and $b^2=9 \equiv 1 \pmod 8$, so $a^2 \equiv b^2 \pmod 8$. But $a \equiv 1$ and $b \equiv 3 \pmod 8$, and $1 \neq 3$, so $a \not\equiv b \pmod 8$.}
+\inv{The correct forced conclusion is only $a \equiv \pm b \pmod n$ (or more generally, that $n$ divides $(a-b)(a+b)$) --- exactly the ``lost sign'' pattern from Day 1's B6 (squaring loses sign information), now transplanted into modular arithmetic.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ for which $3^n+2$ is \emph{not} prime.
+
+\ans{$n=5$.}
+\method{$3^1+2=5$, $3^2+2=11$, $3^3+2=29$, $3^4+2=83$ are all prime. $3^5+2 = 243+2 = 245 = 5\times49 = 5\times7^2$, which is not prime.}
+\inv{Unlike C1's polynomial, this exponential claim fails much sooner --- there's no general reason to expect ``prime for small $n$'' patterns to persist, and checking a handful of small cases is often the fastest way to find (or rule out) a break.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $x$ and $y$ are both non-integers, then $x+y$ is a non-integer.''
+
+\ans{$x=y=0.5$.}
+\method{$0.5$ is not an integer, but $x+y=1$, which is an integer.}
+\inv{Just as with B2's irrational-cancellation trick, pairing two non-integers with complementary fractional parts is the standard move here.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``For all integers $a,b,c$: if $a \mid bc$, then $a \mid b$ or $a \mid c$.''
+
+\ans{$a=4, b=2, c=2$.}
+\method{$bc=4$, and $4\mid4$, so $a\mid bc$ holds. But $4\nmid2$ and $4\nmid2$, so neither $a\mid b$ nor $a\mid c$ holds.}
+\inv{This property (Euclid's Lemma) genuinely does hold whenever $a$ is prime --- $a=4$ breaks it precisely because $4$ is composite, foreshadowing why Number Theory's unique factorisation results all require primality as a hypothesis.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge}
+
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Consider the claims: I. ``$n^2+n+41$ is prime for every positive integer $n$.'' II. ``$2^n-1$ is prime whenever $n$ is prime.'' III. ``$n!+1$ is prime for every positive integer $n$.'' Which of I, II, III are true?
+
+\ans{H) None of them.}
+\method{I is false (C1: fails at $n=40$). II is false (C4: fails at $n=11$, a prime, since $2^{11}-1=2047=23\times89$). III is false (A8: fails at $n=4$, since $4!+1=25=5^2$). All three are false.}
+\inv{Each of I, II, III is a genuinely famous ``looks like it should always work'' claim in number theory --- this question is a reminder that a pattern holding for the first several small cases is never a proof.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Find the smallest positive integer $n$ for which $n^2+n+1$ is \emph{not} prime.
+
+\ans{$n=4$.}
+\method{$n=1: 3$ (prime). $n=2: 7$ (prime). $n=3: 13$ (prime). $n=4: 21 = 3\times7$, not prime.}
+\inv{Compare with C1's $n^2+n+41$: shrinking the constant term from $41$ to $1$ shrinks the ``run'' of consecutive primes from $40$ terms down to just $3$ --- the constant term controls how long the illusion of a pattern survives.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``The sum of any three consecutive prime numbers is always even.''
+
+\ans{$3+5+7=15$.}
+\method{$3,5,7$ are three consecutive primes, and their sum is $15$, which is odd.}
+\inv{The sum of three odd numbers is always odd; the claim is only ever true when $2$ is among the three primes (e.g.\ $2+3+5=10$), which happens exactly once in the entire sequence of primes --- yet another appearance of $2$'s exceptional parity.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Give a counterexample to: ``If $n$ is a positive integer such that $n^2+1$ is prime, then $n$ must be even.''
+
+\ans{$n=1$.}
+\method{$n=1$ gives $n^2+1=2$, which is prime, but $n=1$ is odd.}
+\inv{$n=1$ is the smallest positive integer, and (as in B6) is frequently the case a hastily-stated claim forgets to check --- most other small examples ($n=2$: $5$ prime, even $n$; $n=4$: $17$ prime, even $n$) do fit the pattern, which is exactly what makes $n=1$ easy to miss.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Statement $T$ (you may take this as given/true): ``If $2^n-1$ is prime, then $n$ is prime.'' (a) Explain why B10 and C4's counterexamples do \emph{not} contradict $T$. (b) State $T$'s converse, and determine whether it is true. (c) Is ``$2^n-1$ is prime'' necessary and sufficient for ``$n$ is prime''?
+
+\ans{(a) Neither counterexample has a true hypothesis and false conclusion for $T$ itself. (b) Converse: ``If $n$ is prime, then $2^n-1$ is prime.'' False (disproved by C4, $n=11$). (c) Sufficient but not necessary.}
+\method{(a) B10's $n=4$ has $2^4-1=15$ composite, so $T$'s hypothesis (``$2^n-1$ is prime'') is false there --- $T$ is not violated by a false hypothesis. C4's $n=11$ has $2^{11}-1=2047$ composite too, so again $T$'s hypothesis is false, not violated. Both examples in fact disprove the \emph{converse} of $T$ (a prime $n$ not forcing $2^n-1$ prime), not $T$ itself. (b) The converse swaps hypothesis and conclusion: ``if $n$ prime then $2^n-1$ prime.'' C4 is exactly a counterexample to this converse: $n=11$ is prime, but $2^{11}-1=2047$ is not. (c) Since $T$ (sufficiency direction, $2^n-1$ prime $\Rightarrow n$ prime) is true but $T$'s converse (necessity direction) is false, ``$2^n-1$ prime'' is sufficient but not necessary for ``$n$ prime.''}
+\inv{This question is the whole pillar in miniature: distinguishing a statement from its converse (Day 1) resolves directly into a necessary/sufficient classification (Day 2), using two counterexamples (Day 4) found earlier on this very sheet.}
+
+\end{enumerate}
+
+\end{document}

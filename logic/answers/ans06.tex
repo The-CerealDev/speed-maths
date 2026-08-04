@@ -4,261 +4,272 @@
 
 \begin{document}
 
-\SpeedTitleBlock{Daily Logic Drill \#6 --- Answers \& Investigations}{David Akinyele-Aje}
-\noindent\textit{Answers and Methods.}
+\SpeedTitleBlock{Answers: Logic Drill \#6}{David Akinyele-Aje}
 
-\section*{Section A \quad Rapid Recognition}
+\section*{Section A}
 
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$2$ is prime.'' II. ``$2$ is odd.'' Which are true?
+\item What are the two essential components required for a proof by mathematical induction?
 
-\ans{I only.}
-\method{$2$ is prime (I true). $2$ is even, not odd (II false).}
-\inv{$2$'s exceptional evenness (Day 1, B9) will keep showing up as the reason a statement about ``all primes'' needs independent per-statement checking rather than a blanket assumption.}
+\ans{A base case, and an inductive step.}
+\method{The base case establishes $P(n_0)$ for the starting value; the inductive step proves $P(k)\implies P(k+1)$ for all relevant $k$. Together these imply $P(n)$ for every $n\geq n_0$.}
+\inv{Why is neither component alone sufficient?}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$4$ is a perfect square.'' II. ``$4$ is prime.'' Which are true?
+\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base case?
 
-\ans{I only.}
-\method{$4=2^2$ (I true). $4=2\times2$ is composite, not prime (II false).}
-\inv{Evaluating I and II here requires no shared reasoning at all --- they're entirely independent facts about the same number.}
+\ans{$P(4)$}
+\method{The base case is always the smallest value in the claimed range.}
+\inv{If the claim were instead ``for all $n\geq4$ except $n=5$'', would ordinary induction still apply directly?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$9$ is odd.'' II. ``$9$ is prime.'' Which are true?
+\item If $P(k)\implies P(k+1)$ is proved for all $k\geq1$, but no base case is ever established, has $P(n)$ been proved for any $n$?
 
-\ans{I only.}
-\method{$9$ is odd (I true). $9=3\times3$ is composite (II false).}
-\inv{This is Day 4's A10 counterexample, now split into its two separate true/false components.}
+\ans{No.}
+\method{The inductive step alone is vacuous without a starting point --- it is entirely possible for $P(k)\implies P(k+1)$ to hold for every $k$ while $P(n)$ is false for every $n$ (e.g.\ if $P(n)$ is always false, $P(k)\implies P(k+1)$ holds vacuously).}
+\inv{Give an example of a statement $P(n)$ that is false for every $n$ but for which $P(k)\implies P(k+1)$ holds for all $k$.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item I. ``Every square is a rectangle.'' II. ``Every rectangle is a square.'' Which are true?
+\item In a proof of $\sum_{i=1}^n i=\frac{n(n+1)}{2}$ by induction, what statement exactly is assumed as the inductive hypothesis?
 
-\ans{I only.}
-\method{I is true (Day 1, A3). II is false, e.g.\ a $2\times3$ rectangle (Day 1, A4).}
-\inv{This restates Day 1's opening pair as an explicit I/II evaluation --- the format is new, the content is a full sheet old.}
+\ans{$\sum_{i=1}^k i=\frac{k(k+1)}{2}$, for some fixed (but arbitrary) $k$.}
+\method{The inductive hypothesis assumes the formula holds at $n=k$, in order to derive it at $n=k+1$.}
+\inv{Why must $k$ be treated as arbitrary rather than a specific number?}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$6$ is a multiple of $2$.'' II. ``$6$ is a multiple of $3$.'' Which are true?
+\item True or false: ``Mathematical induction can be used to prove statements about every real number $x\geq1$.''
 
-\ans{Both.}
-\method{$6=2\times3$, so $6$ is a multiple of both $2$ and $3$.}
-\inv{When both statements are true, the answer is simply ``both'' --- don't overthink combinations that don't require it.}
+\ans{False}
+\method{Induction proves statements indexed by the integers (or a well-ordered discrete set), stepping from $k$ to $k+1$. The real numbers between consecutive integers are never reached by this stepping process.}
+\inv{What technique is typically used instead for statements about all real $x$ in an interval?}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$5$ is even.'' II. ``$5$ is prime.'' Which are true?
+\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest value of $n$ for which the base case must be verified?
 
-\ans{II only.}
-\method{$5$ is odd, not even (I false). $5$ has exactly two divisors, $1$ and $5$ (II true).}
-\inv{The mirror image of A1: here it's the primality statement that survives, not the parity one.}
+\ans{$n=5$}
+\method{Check: $2^5=32>25=5^2$, true. (Note $2^4=16=4^2$ and $2^3=8<9=3^2$, so the claim genuinely fails before $n=5$ --- this is why the range starts at $5$.)}
+\inv{Verify that the claim fails at $n=4$ and $n=3$.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$0$ is positive.'' II. ``$0$ is negative.'' Which are true?
+\item What is the negation of the inductive-step statement ``For all $k\geq1$, $P(k)\implies P(k+1)$''?
 
-\ans{Neither.}
-\method{$0$ is neither positive nor negative by definition.}
-\inv{$0$ is a recurring ``breaks the pattern'' value across this pillar (Day 4's B5, B7) --- here it breaks a positive/negative dichotomy that every other real number satisfies.}
+\ans{There exists $k\geq1$ such that $P(k)$ is true and $P(k+1)$ is false.}
+\method{$\neg(\forall k\, (P(k)\implies P(k+1))) \equiv \exists k\,\neg(P(k)\implies P(k+1)) \equiv \exists k\,(P(k)\land\neg P(k+1))$.}
+\inv{Which earlier drill covered exactly this negation rule for implications?}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If both statements I and II in a pair are false, the correct choice is `neither', not `I and II'.''
+\item True or false: ``If $P(1)$ is true and $P(k)\implies P(k+2)$ holds for all $k\geq1$, then $P(n)$ is true for every positive integer $n$.''
 
-\ans{True.}
-\method{``I and II'' means both are true; when both are false, the correct description is ``neither'' --- these are opposite answer choices, never interchangeable.}
-\inv{A7 is exactly this situation in practice: both I and II false, so ``neither'' is the only correct choice, not a careless ``I and II.''}
+\ans{False}
+\method{$P(1)\implies P(3)\implies P(5)\implies\cdots$ only establishes $P(n)$ for odd $n$. $P(2)$ is never reached, since nothing in the chain starts from an even index.}
+\inv{What additional single fact would need to be assumed to fix this and cover every positive integer?}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$n=2$ is a counterexample to `all primes are odd'.'' II. ``$n=9$ is a counterexample to `all odd numbers are prime'.'' Which are true?
+\item What is the smallest positive integer $n$ for which $n!>3^n$?
 
-\ans{Both.}
-\method{I is true: $2$ is prime but even (Day 4, A1). II is true: $9$ is odd but composite (Day 4, A10).}
-\inv{This format --- checking whether a proposed instance genuinely is a counterexample --- is exactly Day 4's skill, now folded into the I/II evaluation habit.}
+\ans{$n=7$}
+\method{$6!=720$ vs $3^6=729$: $720<729$, fails. $7!=5040$ vs $3^7=2187$: $5040>2187$, holds. So $n=7$ is the smallest.}
+\inv{Verify $n!\leq3^n$ for $n=1,\dots,6$ explicitly.}
 
-%── A10 ─────────────────────────────────────────────────────────────────────────
-\item I. ``$1$ is a prime number.'' II. ``$1$ is a perfect square.'' Which are true?
+%── A10 ──────────────────────────────────────────────────────────────────────────
+\item In a proof by strong induction, what may the inductive step assume that ordinary (``weak'') induction's inductive step may not?
 
-\ans{II only.}
-\method{$1$ is excluded from the primes by definition (a prime has exactly two distinct positive divisors; $1$ has only one) (I false). $1=1^2$ (II true).}
-\inv{$1$'s exclusion from primality (Day 4, B6) and its inclusion among perfect squares are both definitional facts worth having instantly available, not re-derived each time.}
+\ans{The truth of $P(1),P(2),\dots,P(k)$ (all previous cases), not just $P(k)$ alone.}
+\method{Weak induction's inductive step assumes only $P(k)$ to derive $P(k+1)$; strong induction's inductive step may use any or all of $P(1),\dots,P(k)$.}
+\inv{Are weak and strong induction actually logically equivalent in what they can prove, despite the difference in what's assumed?}
 
 \end{enumerate}
 
-\section*{Section B \quad Manipulation Drills}
+\section*{Section B}
 
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$n=4$ is a multiple of $4$.'' II. ``$n=4$ is a multiple of $8$.'' III. ``$n=4$ is a multiple of $2$.'' Which are true?
+\item Express $\sum_{i=1}^{k+1} i^3$ in terms of $\sum_{i=1}^k i^3$.
 
-\ans{I and III only.}
-\method{$4=4\times1$ (I true). $4$ is not a multiple of $8$ (II false). $4=2\times2$ (III true).}
-\inv{This is exactly the counterexample instance from Day 1's A9/Day 4's A5, now split into three independently-checked statements.}
+\ans{$\sum_{i=1}^{k+1} i^3 = \sum_{i=1}^k i^3 + (k+1)^3$}
+\method{The sum up to $k+1$ terms equals the sum up to $k$ terms plus the new $(k+1)$-th term.}
+\inv{If $\sum_{i=1}^k i^3=\left(\frac{k(k+1)}2\right)^2$, verify the inductive step closes correctly.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$n$ even $\Rightarrow n^2$ even'' is true. II. Its converse is also true. III. Together, I and II mean ``$n$ even $\iff n^2$ even.'' Which are true?
+\item Assuming $\sum_{i=1}^k i=\frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i=\frac{(k+1)(k+2)}{2}$.
 
-\ans{All three.}
-\method{I is Day 1's B2. II is Day 1's B5-via-A5 (the converse ``$n^2$ even $\Rightarrow n$ even'' is also true). III is exactly Day 2's B4 classification (necessary and sufficient) restated as ``iff.''}
-\inv{This is a full recap of one entire thread running through Days 1--2, now confirmed as a single consistent package.}
+\ans{$\frac{k(k+1)}2+(k+1)=\frac{k(k+1)+2(k+1)}2=\frac{(k+1)(k+2)}2$}
+\method{Factor out $(k+1)$ from both terms in the numerator.}
+\inv{What is the base case for this induction, and does it check out?}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$\sqrt2$ is irrational.'' II. ``$\sqrt2+\sqrt2$ is irrational.'' III. ``$\sqrt2-\sqrt2$ is irrational.'' Which are true?
+\item Prove by induction: $\sum_{i=1}^n (2i-1)=n^2$ for all positive integers $n$.
 
-\ans{I and II only.}
-\method{I is the classical fact (Day 5, D2). II: $\sqrt2+\sqrt2=2\sqrt2$, still irrational (a nonzero rational multiple of an irrational is irrational). III: $\sqrt2-\sqrt2=0$, which is rational, so III is false.}
-\inv{III is exactly Day 4's B2 cancellation trick in reverse --- the same construction that disproves ``irrational + irrational is always irrational'' shows up here as a deliberately-included false option.}
+\ans{Proof by induction}
+\method{Base case $n=1$: LHS $=1$, RHS $=1^2=1$. Holds.\\
+Inductive step: assume $\sum_{i=1}^k(2i-1)=k^2$. Then $\sum_{i=1}^{k+1}(2i-1)=k^2+(2(k+1)-1)=k^2+2k+1=(k+1)^2$. So the formula holds for $k+1$. By induction, true for all positive integers $n$.}
+\inv{What is the geometric interpretation of this identity (sum of first $n$ odd numbers)?}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item I. ``Every multiple of $9$ is a multiple of $3$.'' II. ``Every multiple of $3$ is a multiple of $9$.'' III. ```Multiple of $3$' is necessary for `multiple of $9$'.'' Which are true?
+\item Assuming $4^{2k}-1$ is divisible by $15$, express $4^{2(k+1)}-1$ in a form that shows it is also divisible by $15$.
 
-\ans{I and III only.}
-\method{I is true ($9=3\times3$). II is false ($n=3$ is a multiple of $3$ but not $9$). III restates I in necessary/sufficient language (Day 2): ``multiple of $9$'' $\Rightarrow$ ``multiple of $3$'' is exactly I, so III is true.}
-\inv{I and III are the same fact in two vocabularies (Day 1's implication language and Day 2's necessary/sufficient language) --- recognising that is itself part of the test.}
+\ans{$4^{2(k+1)}-1=16(4^{2k}-1)+15$}
+\method{$4^{2(k+1)}-1=16\cdot4^{2k}-1=16(4^{2k}-1)+16-1=16(4^{2k}-1)+15$. Since $4^{2k}-1$ is divisible by $15$ (hypothesis) and $15$ is divisible by $15$, the sum is divisible by $15$.}
+\inv{Why does $4^{2k}=16^k\equiv1\pmod{15}$ make this pattern unsurprising?}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$2^{11}-1$ is prime.'' II. ``$11$ is prime.'' III. ``If $n$ is prime, $2^n-1$ is prime.'' Which are true?
+\item Prove by induction that $5^n-1$ is divisible by $4$ for all positive integers $n$.
 
-\ans{II only.}
-\method{I is false: $2^{11}-1=2047=23\times89$ (Day 4, C4). II is true. III is false, disproved by exactly this instance ($n=11$ prime, $2^{11}-1$ not prime).}
-\inv{I is literally the counterexample that disproves III --- when a statement provides its own disproof of another statement in the same list, use that connection rather than re-deriving from scratch.}
+\ans{Proof by induction}
+\method{Base case $n=1$: $5^1-1=4$, divisible by $4$.\\
+Inductive step: assume $5^k-1=4m$ for some integer $m$. Then $5^{k+1}-1=5\cdot5^k-1=5(4m+1)-1=20m+4=4(5m+1)$, divisible by $4$. By induction, true for all positive integers $n$.}
+\inv{Generalise: for which integer $a$ is $a^n-1$ divisible by $a-1$ for every positive integer $n$?}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$4!+1$ is prime.'' II. ``$5!+1$ is prime.'' III. ``$n!+1$ is prime for all $n$.'' Which are true?
+\item Assuming $k!>2^k$ for some $k\geq4$, prove $(k+1)!>2^{k+1}$.
 
-\ans{None of them.}
-\method{$4!+1=25=5^2$, not prime (I false, Day 4 A8). $5!+1=121=11^2$, not prime (II false). III is false, already disproved at $n=4$.}
-\inv{A ``none of the above'' answer is just as legitimate as any other combination --- don't assume at least one statement must be true.}
+\ans{Proof}
+\method{$(k+1)!=(k+1)\cdot k!>(k+1)\cdot2^k$ (using the hypothesis). Since $k\geq4$, $k+1\geq5>2$, so $(k+1)\cdot2^k>2\cdot2^k=2^{k+1}$. Combining, $(k+1)!>2^{k+1}$.}
+\inv{Check the base case $k=4$: is $4!>2^4$?}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$41$ is prime.'' II. ``$n=41$ is a counterexample to `$n^2+n+41$ is always prime'.'' III. ``$n=40$ is the smallest counterexample to `$n^2+n+41$ is always prime'.'' Which are true?
+\item Prove by induction: $2^n\geq n+1$ for all non-negative integers $n$.
 
-\ans{All three.}
-\method{$41$ is prime (I true). $n=41$ gives $41\times43$, composite (II true, Day 4 B1). $n=40$ gives $1681=41^2$, the smallest failure (III true, Day 4 C1).}
-\inv{Statements about the same famous polynomial, checked at three different levels of precision (a background fact, a valid-but-not-minimal counterexample, and the genuinely smallest one) --- all can be true simultaneously without contradiction.}
+\ans{Proof by induction}
+\method{Base case $n=0$: $2^0=1\geq0+1=1$. Holds (with equality).\\
+Inductive step: assume $2^k\geq k+1$. Then $2^{k+1}=2\cdot2^k\geq2(k+1)=2k+2=(k+2)+k\geq k+2$ (since $k\geq0$). So $2^{k+1}\geq(k+1)+1$. By induction, true for all $n\geq0$.}
+\inv{For which $n$ does equality $2^n=n+1$ actually hold?}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item I. ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' II. ``The negation of `for all $x$, $P(x)$' is `there exists $x$, not $P(x)$'.'' III. ``The negation of `there exists $x$, $P(x)$' is `for all $x$, not $P(x)$'.'' Which are true?
+\item Assuming $\sum_{i=1}^k \frac1{i(i+1)}=\frac{k}{k+1}$, show that $\sum_{i=1}^{k+1}\frac1{i(i+1)}=\frac{k+1}{k+2}$.
 
-\ans{II and III only.}
-\method{I is false --- negating a $\forall$ gives an $\exists$, not another $\forall$ (Day 3, A5). II is the correct rule (Day 3, A5/B2). III is the correct rule for the other direction (Day 3, A6/C4).}
-\inv{I is a plausible-sounding but wrong ``fix'' of II --- exactly the kind of near-miss distractor a rushed reader mistakes for correct.}
+\ans{$\frac{k}{k+1}+\frac1{(k+1)(k+2)}=\frac{k(k+2)+1}{(k+1)(k+2)}=\frac{(k+1)^2}{(k+1)(k+2)}=\frac{k+1}{k+2}$}
+\method{$k(k+2)+1=k^2+2k+1=(k+1)^2$, which cancels one factor of $(k+1)$ from the denominator.}
+\inv{This is a telescoping sum: write $\frac1{i(i+1)}=\frac1i-\frac1{i+1}$ and confirm the telescoping gives the same closed form directly.}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
-\item I. ``The converse of a true statement is always true.'' II. ``The contrapositive of a true statement is always true.'' III. ``The negation of a true statement is always true.'' Which are true?
+\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2)\times180^\circ$ for all $n\geq3$.
 
-\ans{II only.}
-\method{I is false (Day 1, A10). II is true (Day 3, A9). III is false --- the negation of a true statement is always \emph{false} (Day 3, A7), the opposite of what III claims.}
-\inv{III is a deliberate near-miss of a real fact (Day 3's A7): swapping ``false'' for ``true'' turns a correct statement into an incorrect one, exactly the kind of misread this format is built to catch.}
+\ans{Proof by induction}
+\method{Base case $n=3$: a triangle has angle sum $180^\circ=(3-2)\times180^\circ$. Holds.\\
+Inductive step: assume a convex $k$-gon has angle sum $(k-2)\times180^\circ$. A convex $(k+1)$-gon can be split, by drawing one diagonal from a vertex, into a convex $k$-gon and a triangle, whose angle sums combine to give the full $(k+1)$-gon's angle sum: $(k-2)\times180^\circ+180^\circ=(k-1)\times180^\circ=((k+1)-2)\times180^\circ$. By induction, true for all $n\geq3$.}
+\inv{Why does this diagonal-splitting argument require the $(k+1)$-gon to be convex?}
 
-%── B10 ─────────────────────────────────────────────────────────────────────────
-\item I. ``Affirming the consequent is a valid rule.'' II. ``Denying the antecedent is a valid rule.'' III. ``Modus ponens is a valid rule.'' Which are true?
+%── B10 ──────────────────────────────────────────────────────────────────────────
+\item A student wants to prove $P(n)$ for all $n\geq1$ using base cases $P(1)$ and $P(2)$, with inductive step ``$P(k)$ and $P(k+1)$ together imply $P(k+2)$'' for $k\geq1$. Explain why establishing \emph{both} $P(1)$ and $P(2)$ (not just $P(1)$) is necessary here.
 
-\ans{III only.}
-\method{I and II are both named fallacies, not valid rules (Day 5, A1/A3). III is the basic valid inference rule (Day 5, A4).}
-\inv{Two of these three names sound equally formal and rule-like as the third --- naming conventions alone don't tell you validity; you have to know which is which.}
+\ans{The inductive step requires two consecutive prior cases to fire; without $P(2)$ independently established, the chain can never produce $P(2)$ or anything depending on it.}
+\method{The step $P(k)\land P(k+1)\implies P(k+2)$ can only be applied once both $P(k)$ and $P(k+1)$ are already known. Starting from $P(1)$ alone gives no way to reach $P(2)$ --- the recursion needs two ``seeds'', exactly analogous to how the Fibonacci recurrence needs two initial terms, not one.}
+\inv{How many base cases would be needed for a step of the form ``$P(k),P(k+1),P(k+2)\implies P(k+3)$''?}
 
 \end{enumerate}
 
-\section*{Section C \quad Substitution \& Structure}
+\section*{Section C}
 
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item For a positive integer $n$: I. ``$n$ divisible by $4$'' is necessary for ``$n$ divisible by $12$.'' II. ``$n$ divisible by $4$'' is sufficient for ``$n$ divisible by $12$.'' III. ``$n$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $8$.'' Which of I, II, III are true?
+\item A flawed ``proof'' that everyone in any group shares a favourite integer.
 
-\ans{A) I only.}
-\method{I is true: $12=4\times3$, so $12\mid n \Rightarrow 4\mid n$ (Day 2, C6). II is false: $n=4$ is divisible by $4$ but not $12$. III is false: $4\mid n$ is necessary for $8\mid n$ (since $8=4\times2$) but not sufficient ($n=4$ counterexample again), so it's not both.}
-\inv{The same value $n=4$ serves as the counterexample for both II and (half of) III --- a single well-chosen instance can carry a lot of weight across a whole question.}
+\ans{B}
+\method{The overlap argument genuinely requires the two subgroups of size $k$ (formed by removing different people from a $(k+1)$-person group) to share at least one common member, which needs $k\geq2$. The transition from $P(1)$ to $P(2)$ uses $k=1$, where the ``two subgroups'' are single individuals that share no member --- so this specific step is invalid, and the whole chain never gets off the ground, regardless of how valid later steps might look in isolation.}
+\inv{Confirm that the step from $P(2)$ to $P(3)$ (i.e.\ $k=2$) would genuinely be valid in isolation, if only it could be reached.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item I. ``There exists a real $x$ with $x^2<0$.'' II. ``For all reals $x$, $x^2\geq0$.'' III. ``The negation of II is I.'' Which are true?
+\item Evaluate an inductive step for $n^3-n$ divisible by $6$ that appeals to ``the general theory'' instead of doing the algebra.
 
-\ans{II and III only.}
-\method{I is false --- no real number squares to a negative value. II is the true universal fact. III is true: negating ``for all $x$, $x^2\geq0$'' gives ``there exists $x$, $x^2<0$'' (Day 3's quantifier-negation rule), which is exactly I.}
-\inv{I being false and III being true are fully compatible --- III only claims I is the \emph{correct negation} of II, not that I itself is true; a correct negation of a true statement is expected to be false (Day 3, A7).}
+\ans{B}
+\method{A correct inductive step must actually derive $(k+1)^3-(k+1)$ algebraically from $k^3-k=6m$: $(k+1)^3-(k+1)=k^3+3k^2+3k+1-k-1=(k^3-k)+3k^2+3k=6m+3k(k+1)$. Since $k(k+1)$ is a product of consecutive integers, it is even, so $3k(k+1)$ is divisible by $6$, and the whole expression is $6m+6(\text{integer})$, divisible by $6$. The original ``proof'' skips this derivation entirely, merely asserting the conclusion.}
+\inv{Complete the missing step: why is $k(k+1)$ always even?}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Recall the flawed argument ``$n^2$ multiple of $4$, therefore $n$ multiple of $4$'' (Day 5, B1). I. ``This argument commits the fallacy of affirming the consequent.'' II. ``$n=6$ is a valid counterexample to the underlying claim.'' III. ``The converse of the underlying claim (`$n$ mult.\ of $4 \Rightarrow n^2$ mult.\ of $4$') is what's actually true.'' Which are true?
+\item Evaluate a base-case dispute for $n^2>3n+4$.
 
-\ans{All three.}
-\method{I is true (Day 5, B1's diagnosis). II is true: $n=6$ gives $n^2=36$ (mult.\ of $4$) but $6$ is not. III is true: ``$n$ mult.\ $4 \Rightarrow n^2$ mult.\ $4$'' is the actual valid direction (Day 1, C5-style substitution), and the flawed argument mistakes its converse for a valid inference.}
-\inv{This question makes explicit what ``affirming the consequent'' means concretely: treating a true statement's converse as if it were the (also true) original.}
+\ans{B}
+\method{$n^2-3n-4=(n-4)(n+1)$, positive exactly when $n>4$ (for positive $n$). So $P(4)$: $16>16$ is false (equality, not strict), but $P(5)$: $25>19$ is true. The inductive step holds for all $k\geq5$: assuming $k^2-3k-4>0$ (i.e.\ $P(k)$), we have $(k+1)^2-3(k+1)-4=k^2+2k+1-3k-3-4=(k^2-3k-4)+(2k-2)$, a sum of a positive quantity (the inductive hypothesis) and another positive quantity ($2k-2\geq8>0$ for $k\geq5$), hence positive, giving $P(k+1)$. A false $P(n_0)$ at one specific point does not mean induction is impossible --- it only means that particular $n_0$ cannot serve as the base case.}
+\inv{Verify directly that $P(5)\implies P(6)$: check $36>22$.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$n=1$ is a counterexample to `every positive integer has a prime factor'.'' II. ``$n=1$ is a counterexample to `every integer greater than $1$ has a prime factor'.'' III. ``$1$ is neither prime nor composite.'' Which are true?
+\item Evaluate a weak-induction attempt to prove every $n\geq2$ is a product of primes.
 
-\ans{I and III only.}
-\method{I is true (Day 4, B6): $1$ is a positive integer with no prime factor. II is false: $n=1$ does not satisfy the hypothesis ``greater than $1$'' at all, so it cannot be a counterexample to that (different, and true) claim --- a counterexample must make the hypothesis true and the conclusion false. III is the standard definitional fact.}
-\inv{II is a trap: reusing a familiar-looking value without checking it actually satisfies the hypothesis of \emph{this} particular claim is a common way to wrongly call something a counterexample.}
+\ans{B}
+\method{The fatal gap: weak induction's hypothesis only concerns $k$, but factoring $k+1$ (when composite) requires information about its proper factors $a,b<k+1$, which are generally unrelated to $k$ itself. Strong induction fixes this by assuming the claim for every integer from $2$ to $k$, so that whichever factors $a,b$ of $k+1$ arise, both are already covered by the (stronger) inductive hypothesis.}
+\inv{Write out the corrected strong-induction version of this proof in full.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item I. ``The statement `if $n^2-n$ is even, then $n$ is even' is false (Day 1, D5).'' II. ``$n^2-n$ is even for every integer $n$.'' III. ``$n(n-1)$ is even for every integer $n$.'' Which are true?
+\item Evaluate whether a failed $P(1)$ means no base case exists for $\frac1{n+1}+\cdots+\frac1{2n}>\frac12$.
 
-\ans{All three.}
-\method{I is true (Day 1, D5, witnessed by $n=3$). II is true: $n^2-n=n(n-1)$, a product of consecutive integers, always even. III is the same fact as II, merely written in factored form rather than expanded form.}
-\inv{II and III are not two independent facts --- they're the identical claim under two different (but equal) algebraic expressions, worth recognising rather than re-deriving separately.}
+\ans{B}
+\method{$P(1)$ gives exactly $\frac12$, so $\frac12>\frac12$ is false --- $n_0=1$ doesn't work. But $P(2)$: $\frac13+\frac14=\frac7{12}>\frac12$, true. In fact this sum is increasing in $n$ (each step replaces the smallest term with two smaller-but-larger-summing terms), so $n_0=2$ works as the base case.}
+\inv{Show algebraically that the sum strictly increases when going from $n$ to $n+1$.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item I. ``Every quadratic with integer coefficients that has an integer root has two integer roots.'' II. ``$2x^2-3x+1$ is a counterexample to I.'' III. ``Monic quadratics (leading coefficient $1$) are never counterexamples to I.'' Which are true?
+\item Evaluate the ``$3$p/$5$p postage'' strong-induction step.
 
-\ans{II and III only.}
-\method{I is the false universal claim itself (false). II is true: $2x^2-3x+1=(2x-1)(x-1)$ has roots $1$ and $\tfrac12$ (Day 4, B4). III is true: for monic quadratics, an integer root forces the other root to also be an integer via Vieta's formulas (Day 4, B4's \inv{}).}
-\inv{I being the claim under test, and therefore false, doesn't stop II and III (statements \emph{about} I) from both being true --- keep track of what each statement is actually asserting.}
+\ans{A}
+\method{Since every increment of $1$ in the target amount can be achieved by adding one $3$p stamp to a construction that is $3$ less, the inductive step must reach back to $P(k-2)$, not $P(k)$ --- this is why three consecutive base cases ($8,9,10$) are needed to seed every residue class mod $3$ before the ``step back by $3$'' induction can run indefinitely.}
+\inv{Which two-stamp combinations show that $11,12,13$ pence are also directly constructible, confirming the pattern from the base cases?}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item I. ``$3^5+2$ is composite (Day 4, C6).'' II. ``$3^5+2=245$.'' III. ``$245=5\times7^2$.'' Which are true?
+\item Evaluate a finite-case ``proof'' of the alternating Fibonacci sum identity.
 
-\ans{All three.}
-\method{$3^5=243$, so $3^5+2=245$ (II true). $245=5\times49=5\times7^2$ (III true), confirming $245$ is composite (I true).}
-\inv{This question is a pure arithmetic-verification chain --- each statement builds directly on confirming the previous one, the same discipline this pillar's verify scripts apply computationally.}
+\ans{B}
+\method{Direct check: $n=1$: $F_1=1=F_2$. $n=2$: $F_1+F_3=1+2=3=F_4$. $n=3$: $+F_5=3+5=8=F_6$. $n=4$: $+F_7=8+13=21=F_8$. All hold, but this is still only $4$ cases. The correct inductive step: assuming $F_1+\cdots+F_{2k-1}=F_{2k}$, add $F_{2k+1}$ to both sides: $F_1+\cdots+F_{2k-1}+F_{2k+1}=F_{2k}+F_{2k+1}=F_{2k+2}$ (by the Fibonacci recurrence itself), which is exactly the $n=k+1$ case.}
+\inv{Why does this identity's inductive step require essentially no extra algebra, unlike most sum identities?}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item For real $x$: I. ``$x>0$'' is sufficient for ``$x^2>0$.'' II. ``$x>0$'' is necessary for ``$x^2>0$.'' III. ``$x\neq0$'' is necessary and sufficient for ``$x^2>0$.''
+\item Which statement precisely captures the inductive step?
 
-\ans{C) I and III only.}
-\method{I is true (Day 2, D1). II is false: $x=-1$ gives $x^2=1>0$ without $x>0$ (Day 2, D1). III is true: $x\neq0 \Rightarrow x^2>0$ (sufficient), and $x^2>0 \Rightarrow x\neq0$ (necessary, since $x=0$ gives $x^2=0$) --- both directions hold.}
-\inv{I and III together show ``$x\neq0$'' is the tight (necessary-and-sufficient) characterisation, while ``$x>0$'' alone is only ever half the story --- exactly the ``weakest sufficient condition'' idea from Day 2, B9.}
+\ans{C}
+\method{The inductive step is itself a universally-quantified conditional statement: for every $k\geq1$, IF $P(k)$ holds THEN $P(k+1)$ holds. Options A, B, D, and E each misstate either the quantifier (existential instead of universal, or missing entirely) or the logical connective.}
+\inv{Which option (D) describes something logically much weaker than the actual inductive step, and why is it too weak to be useful?}
 
 \end{enumerate}
 
-\section*{Section D \quad Challenge}
+\section*{Section D}
 
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item For a positive integer $n$: I. ``$n$ divisible by $6$'' is necessary and sufficient for ``$n$ divisible by $2$ and by $3$.'' II. ``$n^2$ divisible by $9$'' is necessary and sufficient for ``$n$ divisible by $3$.'' III. ``$n^2$ divisible by $4$'' is necessary and sufficient for ``$n$ divisible by $4$.'' Which of I, II, III are true?
+\item $t=x+\frac1x$ integer $>2$; define $t_n=x^n+\frac1{x^n}$. \textit{\small(after BMO1 2015 Q4)}
 
-\ans{D) I and II only.}
-\method{I is true (Day 2, B2/C1). II is true: $3$ is prime, so $9\mid n^2 \Rightarrow 3\mid n^2 \Rightarrow 3\mid n$ (necessary, Day 1 C1/Day 3 C8), and $3\mid n \Rightarrow n^2=9k^2$ (sufficient, Day 1 C1) --- both directions hold. III is false: $4\mid n^2$ does not force $4\mid n$, witnessed by $n=6$ (the recurring counterexample from Day 1 C8, Day 4, Day 5).}
-\inv{The difference between II and III is exactly the difference between a prime modulus ($3$) and a prime-squared modulus ($4=2^2$) --- the entire reason Day 1's C1/C8 pair existed was to seed this exact distinction for today.}
+\ans{(a) $t_{n+1}=t\cdot t_n-t_{n-1}$. (b) Proof by strong induction below.}
+\method{(a) $t\cdot t_n=\left(x+\frac1x\right)\left(x^n+\frac1{x^n}\right)=x^{n+1}+x^{1-n}+x^{n-1}+\frac1{x^{n+1}}=\left(x^{n+1}+\frac1{x^{n+1}}\right)+\left(x^{n-1}+\frac1{x^{n-1}}\right)=t_{n+1}+t_{n-1}$. Rearranging gives $t_{n+1}=t\cdot t_n-t_{n-1}$.\\
+(b) Base cases: $t_0=2$ (integer) and $t_1=t$ (integer, given). Strong inductive step: assume $t_{n-1}$ and $t_n$ are both integers for some $n\geq1$. Since $t$ is an integer and $t_{n+1}=t\cdot t_n-t_{n-1}$ is a sum/product of integers, $t_{n+1}$ is also an integer. By strong induction, $t_n$ is an integer for every positive integer $n$.}
+\inv{Why does this proof genuinely need strong (two-step-back) induction rather than ordinary single-step induction?}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item Three people, $X$, $Y$, $Z$, each make one statement. $X$ says: ``$Y$ is lying.'' $Y$ says: ``$Z$ is lying.'' $Z$ says: ``$X$ and $Y$ are both lying.'' Given that exactly one of them is telling the truth, determine who.
+\item Prove every positive integer is a sum of distinct charming integers ($2$ or $3^i5^j$). \textit{\small(after BMO1 2016 Q6)}
 
-\ans{$Y$ is the truth-teller; $X$ and $Z$ are lying.}
-\method{Suppose $X$ is the sole truth-teller: then ``$Y$ is lying'' is true, so $Y$ lies, meaning $Y$'s statement ``$Z$ is lying'' is false, so $Z$ tells the truth --- but then both $X$ and $Z$ are truthful, contradicting ``exactly one.'' Suppose $Z$ is the sole truth-teller: then ``$X$ and $Y$ are both lying'' is true, so $X$ lies, meaning $X$'s statement ``$Y$ is lying'' is false, so $Y$ tells the truth --- but then both $Z$ and $Y$ are truthful, again a contradiction. Suppose $Y$ is the sole truth-teller: then $Z$ lies (Y's statement true), and $X$ lies (since only $Y$ is truthful), so $X$'s statement ``$Y$ is lying'' is false, correctly meaning $Y$ is not lying --- consistent. $Z$'s statement ``$X$ and $Y$ are both lying'' is false (since $Y$ isn't lying), correctly making $Z$ a liar --- consistent. This is the only self-consistent case.}
-\inv{This is exactly Day 3's D3 truth-teller puzzle scaled up to three people --- the method (assume each person is the exceptional one in turn, check for self-contradiction) is identical, just with more cases to rule out.}
+\ans{Proof by strong induction below, via the key gap lemma.}
+\method{\emph{Key lemma}: if $c<c'$ are consecutive charming integers (no charming integer strictly between them), then $c'<2c$. Spot-checking the sorted charming integers $1,2,3,5,9,15,25,27,45,75,81,\dots$ confirms every consecutive ratio is below $2$ (e.g.\ $9/5=1.8$, $15/9\approx1.67$, $27/25=1.08$); a full general proof requires bounding how far apart consecutive values of $3^i5^j$ can be, using that $5/3<2$ and $3<2\times2$ constrain how much any single-exponent increment can jump --- this gap-bound is the genuine crux of the problem's difficulty, exactly why it carries full marks as a BMO1 question rather than being a one-line observation.\\
+Base case $n=1$: $1=3^05^0$ is itself charming, so it trivially ``sums'' to itself.\\
+Strong inductive step: assume every positive integer less than $n$ (for some $n\geq2$) can be written as a sum of distinct charming integers. If $n$ is itself charming, it trivially works. Otherwise, let $c$ be the largest charming integer with $c<n$, and let $c'$ be the next charming integer above $c$. Since $c$ was chosen as the largest charming integer below $n$, we have $c'\geq n$; combined with the key lemma ($c'<2c$), this gives $n\leq c'<2c$, i.e.\ $n-c<c$. So $0<n-c<c<n$, and by the strong inductive hypothesis, $n-c$ is a sum of distinct charming integers, each of which is $\leq n-c<c$ and therefore cannot equal $c$ itself. Adding $c$ to this sum gives $n$ as a sum of distinct charming integers, completing the induction.}
+\inv{Verify the base cases $n=1,2,3,4$ explicitly by hand, and check the gap lemma holds for the first ten charming integers listed above.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Recall the flawed conclusion from Day 5, D2 (a student proves $\sqrt2$ irrational by contradiction, then writes ``therefore $\sqrt2$ is rational''). I. ``The algebraic derivation, up to the final sentence, is entirely correct.'' II. ``The final English conclusion correctly follows from the derived contradiction.'' III. ``A correctly-stated conclusion would be `$\sqrt2$ is irrational'.'' Which are true?
+\item Prove Bernoulli's Inequality: $(1+x)^n\geq1+nx$ for $x>-1$, $n$ a positive integer.
 
-\ans{I and III only.}
-\method{I is true --- every algebraic step (deriving $p,q$ both even) is valid (Day 5, D2). II is false --- the student's final sentence states the opposite of what the contradiction establishes. III is true --- a contradiction derived from assuming rationality correctly proves irrationality.}
-\inv{This question makes Day 5's D2 error explicit by isolating exactly which part (the algebra) was fine and which part (the one-sentence conclusion) was not.}
+\ans{Proof by induction below; the condition $x>-1$ is required when multiplying the inequality by $(1+x)$.}
+\method{Base case $n=1$: $(1+x)^1=1+x=1+1\cdot x$. Holds with equality.\\
+Inductive step: assume $(1+x)^k\geq1+kx$ for some $k\geq1$. Since $x>-1$, we have $1+x>0$, so multiplying both sides of the hypothesis by $(1+x)$ \emph{preserves} the inequality direction: $(1+x)^{k+1}\geq(1+kx)(1+x)=1+x+kx+kx^2=1+(k+1)x+kx^2$. Since $kx^2\geq0$, this gives $(1+x)^{k+1}\geq1+(k+1)x+kx^2\geq1+(k+1)x$. By induction, true for all positive integers $n$.}
+\inv{What would go wrong with the argument if $x<-1$ were allowed (i.e.\ $1+x<0$)?}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item Let $S$ be the statement: ``If $n$ is a multiple of $12$, then $n$ is a multiple of $3$ and a multiple of $4$.'' I. $S$ is true. II. $S$'s converse is true. III. ``Multiple of $12$'' is necessary and sufficient for ``multiple of $6$.'' Which are true?
+\item $a_1=2,a_{n+1}=a_n^2-a_n+1$. Prove $a_1,\dots,a_n$ pairwise coprime.
 
-\ans{I and II only.}
-\method{I is true: $12=3\times4$, so $12\mid n \Rightarrow 3\mid n$ and $4\mid n$. II (the converse, ``multiple of $3$ and of $4$ $\Rightarrow$ multiple of $12$'') is true: $\gcd(3,4)=1$, so $\mathrm{lcm}(3,4)=12$. III is false: ``multiple of $12$'' is sufficient for ``multiple of $6$'' ($12=6\times2$) but not necessary --- $n=6$ is a multiple of $6$ but not of $12$.}
-\inv{I and II together establish $S$ is necessary and sufficient for ``multiple of $3$ and of $4$'' (Day 2's iff) --- III then tests whether that same strength of relationship carries over to a \emph{different} target (``multiple of $6$''), and it doesn't.}
+\ans{Proof by induction below (via the lemma $a_n-1=\prod_{i=1}^{n-1}a_i$).}
+\method{\emph{Lemma}: $a_n-1=\prod_{i=1}^{n-1}a_i$ for all $n\geq2$, proved by induction on $n$.\\
+Base case $n=2$: $a_2-1=(2^2-2+1)-1=3-1=2=a_1$. Holds.\\
+Inductive step: assume $a_k-1=\prod_{i=1}^{k-1}a_i$. From the recurrence, $a_{k+1}-1=a_k^2-a_k=a_k(a_k-1)=a_k\prod_{i=1}^{k-1}a_i=\prod_{i=1}^{k}a_i$. Lemma holds for all $n\geq2$ by induction.\\
+\emph{Pairwise coprimality}: take any $i<j\leq n$. By the lemma, $a_j-1=\prod_{m=1}^{j-1}a_m$, a product that includes the factor $a_i$ (since $i\leq j-1$). So $a_i\mid(a_j-1)$, i.e.\ $a_j\equiv1\pmod{a_i}$. Hence $\gcd(a_i,a_j)=\gcd(a_i,a_j-1+1)=\gcd(a_i,1)=1$ (using that $a_j-1$ is a multiple of $a_i$). Since $i,j$ were arbitrary, $a_1,\dots,a_n$ are pairwise coprime.}
+\inv{Compute $a_1,a_2,a_3,a_4$ explicitly and verify they are pairwise coprime by direct inspection.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Statement $T$: ``If $2^n-1$ is prime, then $n$ is prime'' (Day 4, D5). I. $T$'s contrapositive is ``if $n$ is not prime, then $2^n-1$ is not prime.'' II. $T$'s converse is false, witnessed by $n=11$. III. ``$2^n-1$ is prime'' is necessary and sufficient for ``$n$ is prime.'' Which are true?
+\item Prove $\sum_{k=1}^n\frac1{k^2}<2-\frac1n$ for all integers $n\geq2$.
 
-\ans{I and II only.}
-\method{I is true --- negate and swap both clauses of $T$ to get exactly this (Day 3's construction rule). II is true: $T$'s converse is ``if $n$ prime then $2^n-1$ prime,'' and $n=11$ is prime with $2^{11}-1=2047=23\times89$ composite (Day 4, C4), a genuine counterexample. III is false: $T$ itself gives sufficiency, but the false converse (II) means necessity fails, so it's sufficient but not necessary, not both (Day 4, D5's exact classification).}
-\inv{This closing question is the pillar's own toolkit turned on itself: constructing a contrapositive (Day 3), witnessing a false converse (Day 1/Day 4), and classifying necessity/sufficiency (Day 2) all applied to one statement, in one place, to close the multi-statement-evaluation day.}
+\ans{Proof by induction below.}
+\method{Base case $n=2$: LHS $=1+\frac14=\frac54$. RHS $=2-\frac12=\frac32$. Since $\frac54<\frac32$, holds.\\
+Inductive step: assume $\sum_{k=1}^n\frac1{k^2}<2-\frac1n$ for some $n\geq2$. Then $\sum_{k=1}^{n+1}\frac1{k^2}<2-\frac1n+\frac1{(n+1)^2}$. It suffices to show $-\frac1n+\frac1{(n+1)^2}\leq-\frac1{n+1}$, i.e.\ $\frac1{(n+1)^2}\leq\frac1n-\frac1{n+1}=\frac1{n(n+1)}$. This holds because $(n+1)^2>n(n+1)$ (as $n+1>n$), so $\frac1{(n+1)^2}<\frac1{n(n+1)}$, strictly. Combining, $\sum_{k=1}^{n+1}\frac1{k^2}<2-\frac1n+\frac1{(n+1)^2}<2-\frac1n+\frac1{n(n+1)}=2-\frac1{n+1}$. By induction, true for all $n\geq2$.}
+\inv{What does this inequality suggest about the value of $\sum_{k=1}^\infty\frac1{k^2}$ as $n\to\infty$?}
 
 \end{enumerate}
 

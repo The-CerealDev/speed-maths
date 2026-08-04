@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Logic}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Logic Drill \#6}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Base Case Traps $\cdot$ Inductive Step Mechanics $\cdot$ Misapplied Induction.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Induction structure, base cases, and inductive steps. Pure recognition.}
+
+\begin{enumerate}
+
+\item What are the two essential components required for a proof by mathematical induction?
+
+\item To prove a statement $P(n)$ holds for all integers $n \ge 4$ by induction, what is the base case?
+
+\item If $P(k) \implies P(k+1)$ is proved, but no base case $P(n_0)$ is established, is $P(n)$ proved for any $n$?
+
+\item What is the inductive hypothesis in a proof of $\sum_{i=1}^n i = \frac{n(n+1)}{2}$?
+
+\item True or false: ``Mathematical induction can be used to prove statements about all real numbers $x$.''
+
+\item In a proof that $2^n > n^2$ for $n \ge 5$, what is the smallest integer $n$ for which the base case must be checked?
+
+\item What is the negation of the inductive step statement: ``For all $k \ge 1$, $P(k) \implies P(k+1)$''?
+
+\item True or false: ``If $P(1)$ is true and $P(k) \implies P(k+2)$ for all $k \ge 1$, then $P(n)$ is true for all positive integers $n$.''
+
+\item For which positive integers $n$ is $2^n > n$ true?
+
+\item What is the base case needed to prove $n! > 2^n$ by induction?
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Algebraic manipulations within inductive steps.}
+
+\begin{enumerate}
+
+\item Express $\sum_{i=1}^{k+1} i^2$ in terms of $\sum_{i=1}^k i^2$.
+
+\item Assuming $\sum_{i=1}^k i = \frac{k(k+1)}{2}$, add $(k+1)$ and simplify to show $\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}$.
+
+\item Prove by induction: $\sum_{i=1}^n (2i-1) = n^2$ for all positive integers $n$.
+
+\item Assuming $3^{2k} - 1$ is divisible by $8$, express $3^{2(k+1)} - 1$ in a form that shows it is also divisible by $8$.
+
+\item Prove by induction: $2^n > n$ for all positive integers $n$.
+
+\item Assuming $k! > 2^k$ for some $k \ge 4$, prove $(k+1)! > 2^{k+1}$.
+
+\item Prove by induction that $5^n - 1$ is divisible by $4$ for all positive integers $n$.
+
+\item Assuming $\sum_{i=1}^k 2^i = 2^{k+1} - 2$, show that $\sum_{i=1}^{k+1} 2^i = 2^{k+2} - 2$.
+
+\item Prove by induction that the sum of the interior angles of a convex $n$-gon is $(n-2) \times 180^\circ$ for $n \ge 3$.
+
+\item Show that if $P(k) \implies P(k+2)$ is proved, established base cases for both $n=1$ and $n=2$ are sufficient to prove $P(n)$ for all $n \ge 1$.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Analyze induction fallacies and non-standard inductive setups with tricky MCQs.}
+
+\begin{enumerate}
+
+\item A student attempts to prove $P(n)$: ``$n^2 + 5n + 1$ is even'' for all $n \ge 1$.\\
+Inductive Step: Assume $P(k)$ is true, so $k^2 + 5k + 1 = 2m$.\\
+Then $(k+1)^2 + 5(k+1) + 1 = k^2 + 2k + 1 + 5k + 5 + 1 = (k^2 + 5k + 1) + 2k + 6 = 2m + 2(k+3) = 2(m + k + 3)$, which is even. So $P(k) \implies P(k+1)$ holds!\\
+However, $P(1) = 1 + 5 + 1 = 7$, which is odd!\\
+Which evaluation of this situation is correct? \textit{\small(after TMUA 2022 Paper 2 Q14)}
+\begin{itemize}
+\item[A)] The proof is complete because the inductive step was proven.
+\item[B)] $P(n)$ is false for all $n \ge 1$ despite the inductive step $P(k) \implies P(k+1)$ being completely valid.
+\item[C)] The inductive step $P(k) \implies P(k+1)$ contains an algebraic error.
+\item[D)] $P(n)$ is true for all $n \ge 2$.
+\item[E)] Mathematical induction cannot be applied to parity statements.
+\end{itemize}
+
+\item Consider the claim $P(n)$: ``$2^n > n^2$.'' \textit{\small(after SMC 2018 Q22)}\\
+Base Case checking: $n=1 \implies 2 > 1$ (True); $n=2 \implies 4 > 4$ (False); $n=3 \implies 8 > 9$ (False); $n=4 \implies 16 > 16$ (False); $n=5 \implies 32 > 25$ (True).\\
+For which set of positive integers $n$ is $2^n > n^2$ actually true?
+\begin{itemize}
+\item[A)] $n = 1$ and all $n \ge 5$
+\item[B)] all $n \ge 1$
+\item[C)] all $n \ge 5$ only
+\item[D)] $n = 1, 2, 3, 4, 5$
+\item[E)] no positive integers $n$
+\end{itemize}
+
+\item A student claims: ``To prove $P(n)$ for all $n \ge 1$, it is sufficient to prove $P(1)$ and $P(k) \implies P(2k)$ for all $k \ge 1$.''\\
+Is this claim true or false?
+\begin{itemize}
+\item[A)] True, because powers of $2$ cover all positive integers.
+\item[B)] False, because this only proves $P(n)$ for $n$ of the form $2^m$ ($m \ge 0$).
+\item[C)] True, by the Archimedean property.
+\item[D)] False, because $P(1)$ cannot be a base case.
+\item[E)] True, this is known as Cauchy induction.
+\end{itemize}
+
+\item Consider the Fibonacci sequence $F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, \dots$ defined by $F_{n+1} = F_n + F_{n-1}$.\\
+What is the value of $\sum_{i=1}^n F_i$?
+\begin{itemize}
+\item[A)] $F_{n+1} - 1$
+\item[B)] $F_{n+2} - 1$
+\item[C)] $F_{n+2}$
+\item[D)] $F_{n+1} + 1$
+\item[E)] $F_{n+3} - 2$
+\end{itemize}
+
+\item A student attempts to prove: ``For all positive integers $n$, $n! \le 2^n$.''\\
+Checking cases: $n=1 \implies 1 \le 2$ (True); $n=2 \implies 2 \le 4$ (True); $n=3 \implies 6 \le 8$ (True); $n=4 \implies 24 \le 16$ (False).\\
+Which of the following is true regarding $n!$ vs $2^n$?
+\begin{itemize}
+\item[A)] $n! \le 2^n$ for all $n \ge 1$.
+\item[B)] $n! \le 2^n$ for $n \in \{1, 2, 3\}$, but $n! > 2^n$ for all $n \ge 4$.
+\item[C)] $n! > 2^n$ for all $n \ge 1$.
+\item[D)] $n! \le 2^n$ for all even $n$.
+\item[E)] $n!$ and $2^n$ are equal for all $n \ge 4$.
+\end{itemize}
+
+\item Consider the sum $S_n = \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \dots + \frac{1}{n(n+1)}$.\\
+Using mathematical induction, what is the closed-form expression for $S_n$?
+\begin{itemize}
+\item[A)] $\frac{n}{n+1}$
+\item[B)] $\frac{1}{n+1}$
+\item[C)] $\frac{n+1}{n}$
+\item[D)] $\frac{n}{2(n+1)}$
+\item[E)] $\frac{n^2}{n+1}$
+\end{itemize}
+
+\item To prove $P(n)$ for all integers $n \ge 1$ using Strong Induction, what is the inductive hypothesis step?
+\begin{itemize}
+\item[A)] Assume $P(k)$ is true for a single integer $k$.
+\item[B)] Assume $P(1), P(2), \dots, P(k)$ are all true, and deduce $P(k+1)$.
+\item[C)] Assume $P(k+1)$ is true and deduce $P(k)$.
+\item[D)] Assume $P(k)$ is false and deduce a contradiction.
+\item[E)] Assume $P(n)$ holds for all real numbers $n \le k$.
+\end{itemize}
+
+\item For which positive integers $n$ is $n^2 < 2^n$ false?
+\begin{itemize}
+\item[A)] $n = 2, 3, 4$
+\item[B)] $n = 1, 5, 6$
+\item[C)] $n = 2$ only
+\item[D)] $n = 3$ only
+\item[E)] $n = 4$ only
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC / BMO1 difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Subtle induction proofs and classic competition induction problems.}
+
+\begin{enumerate}
+
+\item Prove by induction: Bernoulli's Inequality states that for all $x > -1$ and all positive integers $n$, $(1+x)^n \ge 1 + nx$. At which step in the inductive transition $(1+x)^k \ge 1+kx \implies (1+x)^{k+1} \ge 1+(k+1)x$ is the condition $x > -1$ strictly required?
+\begin{itemize}
+\item[A)] When establishing the base case $n=1$.
+\item[B)] When multiplying both sides of $(1+x)^k \ge 1+kx$ by $(1+x)$ without flipping the inequality sign.
+\item[C)] When expanding $(1+kx)(1+x) = 1 + (k+1)x + kx^2$.
+\item[D)] When dropping the term $kx^2 \ge 0$.
+\item[E)] The condition $x > -1$ is never required.
+\end{itemize}
+
+\item Prove by induction that $a^n - b^n$ is divisible by $a - b$ for all positive integers $n$, where $a,b$ are distinct integers. Show the inductive step using the identity $a^{k+1} - b^{k+1} = a(a^k - b^k) + b^k(a - b)$.
+
+\item Consider a grid of $2^n \times 2^n$ squares with one single $1 \times 1$ square removed. Prove by mathematical induction that for every integer $n \ge 1$, the remaining region can be completely tiled by L-trominoes (shapes made of 3 squares forming an L).
+
+\item Let $a_1 = 1$ and $a_{n+1} = \sqrt{2 + a_n}$ for $n \ge 1$. (a) Prove by induction that $a_n < 2$ for all $n \ge 1$. (b) Prove by induction that $a_n < a_{n+1}$ for all $n \ge 1$.
+
+\item Prove by induction that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2 = \left[\frac{n(n+1)}{2}\right]^2$ for all positive integers $n$.
+
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}
