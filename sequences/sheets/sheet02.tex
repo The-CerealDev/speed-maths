@@ -1,0 +1,237 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#2}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Binomial \& Trinomial Expansion $\cdot$ Pascal's Triangle as a Sequence $\cdot$ The Generalized Binomial Series.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Pascal's triangle and binomial coefficients on sight.}
+
+\begin{enumerate}
+
+\item Write down row $5$ of Pascal's triangle (the coefficients of $(x+y)^5$).
+
+\item Evaluate $\dbinom{6}{2}$.
+
+\item Write down $\displaystyle\sum_{k=0}^{n}\binom nk$ in closed form.
+
+\item Expand $(1+x)^3$ fully.
+
+\item Find the coefficient of $x^2$ in $(1+x)^6$.
+
+\item Row $4$ of Pascal's triangle is $1,4,6,4,1$. Is this sequence of five numbers arithmetic? Justify with one check.
+
+\item Simplify $\dbinom n0+\dbinom n1$.
+
+\item State the value of $\displaystyle\sum_{k=0}^{n}(-1)^k\binom nk$ for $n\geq1$.
+
+\item Find the constant term in $(1+x)^5$.
+
+\item True or false: row $n$ of Pascal's triangle always has exactly $n+1$ entries.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Substitute into the binomial expansion; extract specific coefficients.}
+
+\begin{enumerate}
+
+\item Prove that $\dbinom n0+\dbinom n1+\cdots+\dbinom nn=2^n$ by substituting a value into the expansion of $(1+x)^n$.
+
+\item Row $10$ of Pascal's triangle sums to $2^{10}$. If instead you sum only its first four entries, $\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}$, is the result arithmetic, geometric, or neither, as a rule? Compute the value.
+
+\item Using $x=-1$ in $(1+x)^n$ ($n\geq1$), what is $\displaystyle\sum_{k=0}^n(-1)^k\binom nk$?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2^n$
+\item[D)] $(-1)^n$
+\end{itemize}
+
+\item Find the coefficient of $x^3$ in $(2+x)^5$.
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $40$
+\item[C)] $80$
+\item[D)] $20$
+\end{itemize}
+
+\item Find the coefficient of $x^4$ in $(1-2x)^6$.
+\begin{itemize}
+\item[A)] $60$
+\item[B)] $-240$
+\item[C)] $240$
+\item[D)] $-60$
+\end{itemize}
+
+\item Find the constant term in the expansion of $\left(x+\dfrac1x\right)^4$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $1$
+\end{itemize}
+
+\item In the expansion of $(1+x)^n$, the coefficient of $x^2$ is $21$ times the coefficient of $x^1$. Find $n$.
+\begin{itemize}
+\item[A)] $21$
+\item[B)] $42$
+\item[C)] $43$
+\item[D)] $44$
+\end{itemize}
+
+\item The coefficients of $x^2$ and $x^3$ in the expansion of $(1+x)^n$ are equal. Find $n$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $5$
+\item[C)] $6$
+\item[D)] Cannot be determined.
+\end{itemize}
+
+\item Find the coefficient of $x^2$ in the expansion of $(1+2x+3x^2)^3$.
+\begin{itemize}
+\item[A)] $15$
+\item[B)] $18$
+\item[C)] $21$
+\item[D)] $24$
+\end{itemize}
+
+\item The row-sums of Pascal's triangle are $1,2,4,8,16,\ldots$ Is this sequence of row-sums arithmetic, geometric, both, or neither? State the relevant ratio or difference.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Structure over computation --- what the binomial series is really telling you.}
+
+\begin{enumerate}
+
+\item Which of the following statements about partial sums of binomial coefficients is correct?
+\begin{itemize}
+\item[A)] $\binom n0+\binom n1+\cdots+\binom n{k-1}$ always equals $2^n$, for any $k\leq n$.
+\item[B)] There is no simple closed form for a general partial sum of binomial coefficients, unlike the full row sum.
+\item[C)] Partial sums of binomial coefficients are always arithmetic in $k$.
+\item[D)] Partial sums of binomial coefficients are always geometric in $k$.
+\end{itemize}
+
+\item Find the coefficient of $x$ in the expression $(1+x)^0+(1+x)^1+\cdots+(1+x)^{40}$. \textit{\small(after TMUA 2019 Paper 1 Q3)}
+\begin{itemize}
+\item[A)] $40$
+\item[B)] $41$
+\item[C)] $820$
+\item[D)] $1640$
+\item[E)] $1681$
+\end{itemize}
+
+\item Find, in terms of $n$, the coefficient of $x^2$ in the expression $(1+x)^0+(1+x)^1+\cdots+(1+x)^n$. \textit{\small(after TMUA 2019 Paper 1 Q3)}
+\begin{itemize}
+\item[A)] $\dbinom n3$
+\item[B)] $\dbinom{n+1}3$
+\item[C)] $\dbinom{n+1}2$
+\item[D)] $2^n-n-1$
+\end{itemize}
+
+\item In the expansion of $(1+x+x^2)^4$, what is the coefficient of $x^3$?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $16$
+\item[C)] $20$
+\item[D)] $24$
+\end{itemize}
+
+\item Which of the following is the expansion of $(1-x)^{-1}$ as an infinite series in $x$?
+\begin{itemize}
+\item[A)] $1-x+x^2-x^3+\cdots$
+\item[B)] $1+x+x^2+x^3+\cdots$
+\item[C)] $1-2x+3x^2-4x^3+\cdots$
+\item[D)] It cannot be expanded as a series.
+\end{itemize}
+
+\item The generalized binomial expansion gives $(1-x)^{-2}=\sum_{k=0}^\infty(k+1)x^k$. Find the coefficient of $x^3$.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $6$
+\item[D)] $10$
+\end{itemize}
+
+\item Which of the following is FALSE, for a positive integer $n$?
+\begin{itemize}
+\item[A)] $\displaystyle\sum_{k=0}^n\binom nk=2^n$
+\item[B)] $\displaystyle\sum_{k=0}^n(-1)^k\binom nk=0$
+\item[C)] $\dbinom nk=\dbinom n{n-k}$ for all $0\leq k\leq n$
+\item[D)] $\displaystyle\sum_{k=0}^n k\binom nk=2^n$
+\end{itemize}
+
+\item The infinite series $1+x+x^2+x^3+\cdots$ equals $(1-x)^{-1}$. Using $(1-x)^{-3}=\sum_{k=0}^\infty\binom{k+2}{2}x^k$, find the coefficient of $x^5$ in $(1-x)^{-3}$.
+\begin{itemize}
+\item[A)] $\dbinom52$
+\item[B)] $\dbinom62$
+\item[C)] $\dbinom72$
+\item[D)] $\dbinom82$
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant route --- find it.}
+
+\begin{enumerate}
+
+\item Find the coefficient of $x^2y^3$ in the expansion of $(1+x+y^2)^5$. \textit{\small(after TMUA 2020 Paper 1 Q13)}
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $10$
+\item[C)] $20$
+\item[D)] $30$
+\item[E)] $60$
+\end{itemize}
+
+\item The coefficient of $x^2$ in $(1+x+2x^2)^3$ equals the coefficient of $x^2$ in $(1-ax)^3$. Find the possible value(s) of $a$. \textit{\small(after TMUA Practice Paper 1 Q19)}
+\begin{itemize}
+\item[A)] $a=\pm\sqrt3$
+\item[B)] $a=\pm3$
+\item[C)] $a=\sqrt3$ only
+\item[D)] $a=3$ only
+\end{itemize}
+
+\item Prove that $\displaystyle\sum_{k=0}^n k\binom nk=n\cdot2^{n-1}$ for every positive integer $n$, by differentiating the binomial expansion of $(1+x)^n$.
+
+\item Expanding $(1+x)^n(1+x)^m$ two different ways --- first by combining the factors as $(1+x)^{n+m}$, then by multiplying the two separate expansions together and comparing the coefficient of $x^k$ on both sides --- produces which identity?
+\begin{itemize}
+\item[A)] Vandermonde's identity: $\displaystyle\sum_{i=0}^k\binom ni\binom m{k-i}=\binom{n+m}k$.
+\item[B)] $\dbinom nk+\dbinom mk=\dbinom{n+m}k$.
+\item[C)] $\dbinom nk\dbinom mk=\dbinom{n+m}k$.
+\item[D)] No identity results --- the two sides are unrelated.
+\end{itemize}
+
+\item The coefficients of $(1-x)^{-1}$ are all $1$ (constant in $k$). The coefficients of $(1-x)^{-2}$, namely $(k+1)$, form an arithmetic sequence in $k$. What kind of sequence, as a function of $k$, do the coefficients of $(1-x)^{-3}=\sum_{k=0}^\infty\binom{k+2}2x^k$ form?
+\begin{itemize}
+\item[A)] Arithmetic.
+\item[B)] Geometric.
+\item[C)] Quadratic in $k$ (neither arithmetic nor geometric).
+\item[D)] Constant.
+\end{itemize}
+
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}

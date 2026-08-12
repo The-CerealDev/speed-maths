@@ -4,6 +4,13 @@ New questions and new sheets are welcome. The bar is: a student aiming
 for BMO1 qualification and a TMUA 9 should be able to trust every sheet
 blind. These rules keep that true.
 
+**Building or refurbishing a whole pillar?** Read
+[`PILLAR-PLAYBOOK.md`](PILLAR-PLAYBOOK.md) first — it covers the process
+this file doesn't: how deep the research pass needs to go, the
+cross-pillar territory map (what technique belongs to which pillar
+already), the MCQ/proof format split, and the standing audit plan for
+pillars built before that playbook existed.
+
 ## The non-negotiables
 
 1. **Never hand-edit the header, footer, branding, or boxes.** All of it

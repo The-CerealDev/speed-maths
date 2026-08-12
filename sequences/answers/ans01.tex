@@ -1,0 +1,227 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#1 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Arithmetic Sequences \& Series $\cdot$ nth-term \& Sum Formulas $\cdot$ $S_n$ as a Quadratic in $n$.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{$3n+2$}
+\method{$a=5$, $d=3$. $a_n=a+(n-1)d=5+3(n-1)=3n+2$.}
+\inv{Check: $a_1=5$ \checkmark, $a_4=14$ \checkmark. Every AP's nth term is linear in $n$ --- the coefficient of $n$ is always the common difference.}
+
+\item
+\ans{$-50$}
+\method{$a_{20}=7+19(-3)=7-57=-50$.}
+\inv{A negative common difference just means the ``$n-1$ steps'' subtract instead of add. The formula never changes.}
+
+\item
+\ans{$265$}
+\method{$S_{10}=\frac{10}{2}(2(4)+9(5))=5(8+45)=5(53)=265$.}
+\inv{Cross-check with $S_n=\frac n2(a_1+a_n)$: $a_{10}=4+9(5)=49$, $S_{10}=5(4+49)=265$. \checkmark}
+
+\item
+\ans{$3,7,11$; arithmetic with $d=4$}
+\method{$a_1=3,a_2=7,a_3=11$. Consecutive differences are both $4$, so the sequence is arithmetic.}
+\inv{Any nth term of the form $pn+q$ is automatically arithmetic with $d=p$ --- this is worth recognising instantly rather than re-deriving each time.}
+
+\item
+\ans{$4$}
+\method{$a_5-a_1=4d=16\Rightarrow d=4$.}
+\inv{In general, $a_m-a_k=(m-k)d$ --- the number of ``steps'' between any two terms is the index difference, not one of the indices themselves.}
+
+\item
+\ans{$1275$}
+\method{$S_{50}=\frac{50\cdot51}{2}=1275$.}
+\inv{This is Gauss's schoolroom trick: pair the 1st and 50th, 2nd and 49th, etc. --- each pair sums to $51$, and there are $25$ pairs.}
+
+\item
+\ans{$4$}
+\method{$a_1=S_1=1^2+3(1)=4$.}
+\inv{More generally $a_n=S_n-S_{n-1}$ for $n\geq2$, but $a_1$ is just $S_1$ on its own --- a common slip is applying the subtraction formula to $n=1$ too, which needs $S_0$ (always $0$) instead.}
+
+\item
+\ans{True}
+\method{$a_n=a_1+(n-1)d$ is a sum of integers whenever $a_1,d,n$ are integers, so every term is an integer.}
+\inv{The converse is false: a sequence of all integers need not be arithmetic (e.g.\ $1,2,4,8,\ldots$).}
+
+\item
+\ans{$4$}
+\method{9th term $-$ 3rd term is $6$ steps of $d$: $37-13=24=6d\Rightarrow d=4$.}
+\inv{Always count steps as (index difference), not (larger index). Between the 3rd and 9th term there are $9-3=6$ gaps, not $9$ or $3$.}
+
+\item
+\ans{$5$}
+\method{6th term $-$ 1st term is $5$ steps: $29-4=25=5d\Rightarrow d=5$.}
+\inv{Same step-counting idea as A9, now anchored at the first term directly.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{$d=4$, $S_{15}=465$}
+\method{$l=a+(n-1)d\Rightarrow59=3+14d\Rightarrow d=4$. $S_{15}=\frac{15}{2}(3+59)=\frac{15}{2}(62)=465$.}
+\inv{Whenever you're given first term, last term, and count, $S_n=\frac n2(a+l)$ is faster than finding $d$ first and building back up through $S_n=\frac n2(2a+(n-1)d)$.}
+
+\item
+\ans{B) $70$}
+\method{$S_8-S_4$ is exactly the sum of terms $5$ through $8$, by definition of $S_n$ as a running total: $100-30=70$. No need to ever find $a$ or $d$.}
+\inv{The trap is trying to solve for $a,d$ from the two sums first --- possible, but a detour. $S_8-S_4$ is a direct subtraction of two given numbers.}
+
+\item
+\ans{Proof by the AP sum formula.}
+\method{$3,6,9,\ldots,3n$ is an AP with $a=3$, $d=3$, last term $3n$, and $n$ terms. $S_n=\frac n2(a+l)=\frac n2(3+3n)=\frac{3n(n+1)}{2}$. $\square$}
+\inv{This is exactly $3\times(1+2+\cdots+n)$ --- scaling every term of an AP by a constant $k$ scales the sum by $k$ too, since $S_n$ is linear in the terms.}
+
+\item
+\ans{A) $15$}
+\method{For an AP with an odd number of terms $n=2k+1$, the sum equals $n$ times the middle term (the terms pair up symmetrically around it, and the middle term is left over unpaired but equal to the pair-average). Here $315=21\times(\text{middle term})\Rightarrow\text{middle term}=15$.}
+\inv{This only works because $21$ is odd --- for an even-length AP there's no single middle term, and you'd need $S_n=\frac n2(a_1+a_n)$ instead, which needs both endpoints.}
+
+\item
+\ans{$1$ (the 4th term)}
+\method{$a_n=10-3(n-1)>0\Rightarrow n<\frac{13}{3}\approx4.33$, so the last positive term is $a_4=10-9=1$ (and $a_5=-2<0$ confirms the sequence has already crossed zero).}
+\inv{Always check the boundary term itself, not just the inequality's cutoff --- $n<4.33$ tells you $n=4$ is the last valid integer, but you still need to confirm $a_4$ is actually positive (it could in principle have landed exactly on $0$).}
+
+\item
+\ans{D) All terms are positive.}
+\method{$d>0$ guarantees the sequence is strictly increasing (A, true) and therefore unbounded above (C, true), and by definition $a_{n+1}-a_n=d$ always (B, true). But the first term $a_1$ can be any real number, including very negative --- e.g.\ $a_1=-100,d=1$ has plenty of negative terms. So D is the one that need not hold.}
+\inv{$d>0$ constrains the \emph{shape} of the sequence, not its starting position.}
+
+\item
+\ans{A) $6$}
+\method{Let the sequences be $a_n=a_1+(n-1)d$ and $b_n=b_1+(n-1)d$ (same $d$). Then $a_n-b_n=a_1-b_1=6$ for every $n$ --- the $(n-1)d$ terms cancel exactly because the common difference is shared.}
+\inv{If the common differences were different, the gap would grow (or shrink) linearly in $n$ instead of staying constant --- try it with $d_1=2,d_2=3$ to see the gap become $6+(n-1)$.}
+
+\item
+\ans{C) $5$}
+\method{$a_3+a_5=(a+2d)+(a+4d)=2a+6d=32\Rightarrow a+3d=16$. Subtracting $a_3=a+2d=11$: $(a+3d)-(a+2d)=16-11\Rightarrow d=5$.}
+\inv{Once $d=5$, back-substitute: $a=11-2(5)=1$. Always sanity-check by plugging both original conditions back in: $a_3=1+10=11$ \checkmark, $a_3+a_5=11+21=32$ \checkmark.}
+
+\item
+\ans{D) $(2,4)$}
+\method{Need $a+4d=17$ with $a,d$ positive integers. Check each: $13+4(1)=17$\checkmark, $9+4(2)=17$\checkmark, $5+4(3)=17$\checkmark, but $2+4(4)=18\neq17$ --- D fails the defining equation outright.}
+\inv{The three valid pairs follow the pattern ``$a$ drops by $4$ as $d$ rises by $1$'' (13,9,5,1,\ldots) --- option D's $a=2$ breaks that pattern, which is worth noticing as a sanity check even before computing.}
+
+\item
+\ans{B) $n=3$}
+\method{AP: $2,5,8,11,14,17$. GP: $2,4,8,16,32,64$. Comparing term by term, both give $8$ at the 3rd term.}
+\inv{After $n=3$ the GP overtakes the AP permanently and they never meet again --- geometric growth eventually dominates linear growth no matter the starting ratio, a theme this pillar returns to when comparing arithmetic and geometric series directly.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{A) none of them}
+\method{Writing $S_n=\frac n2(2a+(n-1)d)=15$ gives $n(2a+(n-1)d)=30$, so $n$ must divide $30$. Counterexamples kill every statement at once: with $n=3,a=4,d=1$ the sequence is $4,5,6$ (sum $15$) --- $n=3$ is odd (kills I) and $a=4$ is even (kills II). With $n=3,a=3,d=2$ the sequence is $3,5,7$ (sum $15$) --- $d=2$ is even (kills III). No single parity pattern is forced.}
+\inv{This is the real trap of ``must be true'' questions: checking one valid example never proves a statement false, but finding \emph{one} counterexample per statement is enough to rule each one out individually.}
+
+\item
+\ans{A) arithmetic with common difference $5$}
+\method{$c_n=(2n+1)+(3n-2)=5n-1$, which is linear in $n$ with slope $5$ --- so $(c_n)$ is arithmetic with $d=5$.}
+\inv{This generalises: the sum of two arithmetic sequences is always arithmetic, with common difference equal to the sum of the two original common differences ($2+3=5$ here). The same is not true for products, which is exactly what C3 tests next.}
+
+\item
+\ans{C) arithmetic only if $d=0$}
+\method{$a_n=a+(n-1)d$, so $b_n=(a+(n-1)d)^2$ is a quadratic in $n$ with leading coefficient $d^2$. A quadratic sequence is arithmetic (i.e.\ linear in $n$) only if its leading coefficient vanishes: $d^2=0\Rightarrow d=0$.}
+\inv{This is the flip side of C2: sums of AP's stay linear in $n$, but squaring introduces an $n^2$ term unless the original sequence was already constant.}
+
+\item
+\ans{A) $d$ must be positive}
+\method{$S_6=6a+15d$. Sum of terms $7$--$10$ is $4a+(6+7+8+9)d=4a+30d$. Setting equal: $6a+15d=4a+30d\Rightarrow2a=15d\Rightarrow a=7.5d$. For $a>0$ (all terms positive requires at least $a_1>0$), $d$ must be positive too, since $a=7.5d$ forces $d$ and $a$ to share a sign.}
+\inv{Positivity of \emph{all} terms is a stronger condition than just $a>0$ --- with $d>0$ every later term is even bigger, so once $a_1>0$ the rest follow automatically.}
+
+\item
+\ans{A) $(5,19)$}
+\method{Need $d\mid(100-a)$. Check: $100-5=95=19\times5$ \checkmark; $100-6=94$, $94/17$ is not an integer; $100-7=93$, $93/23$ is not an integer; $100-8=92$, $92/13$ is not an integer. Only A works.}
+\inv{This is the same divisibility idea as ``does an AP hit a target value'' in general: $100=a+(n-1)d$ for some positive integer $n$ exactly when $d\mid(100-a)$.}
+
+\item
+\ans{A) $d$ must equal $0$}
+\method{$S_{2n}=n(2a+(2n-1)d)$ and $2S_n=n(2a+(n-1)d)$. Setting them equal and dividing by $n>0$: $2a+(2n-1)d=2a+(n-1)d\Rightarrow nd=0$. Since $n>0$, this forces $d=0$.}
+\inv{This is a genuinely surprising result: doubling the term count can only double the sum if the sequence isn't actually changing at all. It's the reason $S_n$ growing quadratically (C7) matters --- a truly arithmetic (non-constant) sequence's sum grows faster than linearly, so doubling $n$ more than doubles $S_n$.}
+
+\item
+\ans{C) quadratic in $n$}
+\method{$S_n=\frac n2(2a+(n-1)d)=\frac d2n^2+\left(a-\frac d2\right)n$. Since $d\neq0$, the $n^2$ coefficient is nonzero, so $S_n$ is genuinely quadratic (not linear, and it does have a linear term unless $a=\frac d2$).}
+\inv{This is the single most useful fact in the whole sheet: any $S_n$ you're handed that's a quadratic with no constant term secretly comes from an AP, and you can read off $d$ and $a$ directly from its coefficients --- exactly what C8 and D4 ask you to do.}
+
+\item
+\ans{B) $6$}
+\method{Matching $S_n=3n^2-n$ to $S_n=\frac d2n^2+(a-\frac d2)n$: $\frac d2=3\Rightarrow d=6$, and $a-\frac d2=-1\Rightarrow a=2$.}
+\inv{The most common slip is answering $3$ (forgetting the $\frac12$ in front of $d$) or $-1$ (reporting the coefficient of $n$ instead of solving for $d$). Always solve $\frac d2=(\text{coefficient of }n^2)$, not $d=(\text{coefficient of }n^2)$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{A) $a=-8d$}
+\method{$S_6=S_{11}\Rightarrow\frac62(2a+5d)=\frac{11}{2}(2a+10d)\Rightarrow3(2a+5d)=5.5(2a+10d)\Rightarrow6a+15d=11a+55d\Rightarrow-5a=40d\Rightarrow a=-8d$.}
+\inv{The real TMUA question (2018 Paper 1 Q2) uses $S_5=S_8$ and lands on $a=-\frac{38}{3}d$ --- same technique, uglier numbers. Try that version by hand to see how the method scales.}
+
+\item
+\ans{C) $n=15$}
+\method{The sequence $2,5,\ldots,80$ has $27$ terms, $a_i=3i-1$. Two terms with indices $i,j$ sum to $82$ exactly when $i+j=28$. Pairing indices $1$--$27$ by this rule gives $13$ genuine pairs $(1,27),(2,26),\ldots,(13,15)$, plus one unpaired index ($14$, whose partner would be itself). A selection can safely take one element from each of the $13$ pairs plus the unpaired element --- $14$ terms with no pair summing to $82$. Any 15th term forces a complete pair. So the smallest guaranteeing $n$ is $15$.}
+\inv{This is the Pigeonhole Principle in disguise: the ``pairs'' are the pigeonholes, and once you must place more elements than there are safe one-per-pair slots (plus the singleton), a full pair is forced. The real TMUA question (2022 Paper 2 Q8) uses the AP $1,4,\ldots,70$ and target sum $74$, landing on $n=14$ --- work through why the singleton index shifts between the two versions.}
+
+\item
+\ans{$d$ must be a multiple of $6$.}
+\method{\emph{Mod 2:} since $p>3$ is prime, $p$ is odd. If $d$ were odd, $p+d$ would be even and greater than $2$, hence composite --- contradiction. So $d$ is even.\\
+\emph{Mod 3:} since $p>3$, $p\not\equiv0\pmod3$. If $d\not\equiv0\pmod3$, then $d$ is coprime to $3$, so $p,p+d,p+2d$ take all three residues mod $3$ (adding a unit repeatedly cycles through every residue) --- meaning one of them is $\equiv0\pmod3$. That term is greater than $3$ and divisible by $3$, hence composite --- contradiction. So $3\mid d$.\\
+Combining: $2\mid d$ and $3\mid d\Rightarrow6\mid d$. $\square$}
+\inv{The smallest example is $p=5,d=6$: $5,11,17,23$ --- all prime. Try to find the next one by hand, and notice how quickly $d=6$ stops being sufficient on its own (having $6\mid d$ is necessary, not sufficient, for four primes in AP).}
+
+\item
+\ans{A) $-4$}
+\method{$a_n=S_n-S_{n-1}=A(2n-1)+B$ (expand and simplify $An^2+Bn-A(n-1)^2-B(n-1)$). With $A=5$: $a_{10}=5(19)+B=95+B=91\Rightarrow B=-4$.}
+\inv{This formula $a_n=A(2n-1)+B$ is worth memorising directly: it's the general rule for reading off any term of an AP straight from its $S_n=An^2+Bn$ form, without ever finding $S_{n-1}$ by hand each time.}
+
+\item
+\ans{B) $a_n$ is a quadratic function of $n$.}
+\method{If the first differences $a_{n+1}-a_n$ form an AP, then the \emph{second} differences of $(a_n)$ are constant --- and a sequence with constant second differences is exactly a quadratic function of $n$ (the discrete analogue of a constant second derivative meaning a parabola).}
+\inv{This is C7 in reverse: there, an AP's partial sum $S_n$ turned out to be quadratic in $n$ because $S_n$'s first differences ($=a_n$) form an AP. This question generalises that observation to any sequence, not just partial sums --- the same idea will resurface when this pillar looks at general recurrence relations.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#1}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{nth-term formula: $a_n=a+(n-1)d$.} The foundation everything else builds on --- always count \emph{steps} (index differences), never raw indices. \seealso{A1, A2, A5, A9, A10}
+  \item \textbf{Sum formula: $S_n=\frac n2(2a+(n-1)d)=\frac n2(a+l)$.} Use the $(a+l)$ form whenever you're given the first and last term directly --- it skips finding $d$ entirely. \seealso{A3, A6, B1}
+  \item \textbf{$S_n$ is quadratic in $n$, with no constant term.} $S_n=\frac d2n^2+(a-\frac d2)n$ --- read $d$ and $a$ straight off the coefficients, and extract any term via $a_n=A(2n-1)+B$. \seealso{C7, C8, D4, D5}
+  \item \textbf{Middle-term trick for odd-length AP's.} When $n$ is odd, $S_n=n\times(\text{middle term})$ --- no need to find $a$ or $d$ at all. \seealso{B4}
+  \item \textbf{Pairing/Pigeonhole within an AP.} To force two terms to sum to a target, pair up indices by that target and count the leftover singleton --- the answer is always (safe pairs) $+$ (singletons) $+1$. \seealso{D2}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#1}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Forgetting the $\frac12$ in the sum formula.} Matching $S_n=3n^2-n$ to $\frac d2n^2+\cdots$ gives $d=6$, not $d=3$ --- always solve for $d$ from the \emph{halved} coefficient. \seealso{C8}
+  \item \textbf{Trusting one example for a ``must be true'' claim.} A single valid $(a,d,n)$ never proves a statement true --- you need a counterexample to rule one out, or a full argument to confirm one always holds. \seealso{C1}
+  \item \textbf{Assuming every quadratic $S_n$-like formula is automatically a valid AP sum.} The nth-term extraction $a_n=S_n-S_{n-1}$ only makes sense when $S_0=0$ is consistent with the formula --- check there's no stray constant term. \seealso{D4}
+  \item \textbf{Sign errors when solving simultaneous AP equations.} A negative common difference is completely valid --- don't discard a solution just because $d<0$ looks unusual. \seealso{D1, B6}
+  \item \textbf{Declaring a sequence arithmetic from a few terms without proving it for general $n$.} Checking three consecutive differences match is suggestive, not a proof --- squaring an AP (C3) is exactly the case where a plausible-looking pattern breaks down algebraically. \seealso{C3}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}

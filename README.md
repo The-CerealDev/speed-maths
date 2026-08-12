@@ -79,6 +79,11 @@ This repository doubles as a static PDF-archive website (like PMT or MadasMaths)
 
 ## Starting a new pillar
 
+**Read [`PILLAR-PLAYBOOK.md`](PILLAR-PLAYBOOK.md) first.** It covers the research-depth
+bar, the cross-pillar territory map (avoid re-teaching another pillar's signature
+technique), the MCQ/proof format split, and the build/ship process — all of which sit
+above the mechanical steps below.
+
 1. Copy the skeleton of `algebra/sheets/sheet01.tex`, swap `\SpeedHeader{Algebra}{1}`
    for `\SpeedHeader{Combinatorics}{1}` (etc.), and write new questions.
 2. Keep the same A/B/C/D difficulty-table structure unless the pillar
