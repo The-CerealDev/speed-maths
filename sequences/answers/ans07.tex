@@ -1,0 +1,230 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#7 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Mixed Synthesis Capstone $\cdot$ Every technique from Days 1--6, combined.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{$5n-1$}
+\method{$a=4,d=5$: $a_n=4+5(n-1)=5n-1$.}
+\inv{Day 1's nth-term formula, unchanged all week.}
+
+\item
+\ans{$32$}
+\method{$\sum_{k=0}^5\binom5k=2^5=32$ (Day 2's row-sum identity, $x=1$).}
+\inv{Same trick as Day 2, A3.}
+
+\item
+\ans{$9$}
+\method{$S_\infty=\dfrac6{1-1/3}=\dfrac6{2/3}=9$ (Day 3).}
+\inv{Same formula as Day 3, A5.}
+
+\item
+\ans{$x^2-7x+10=0$}
+\method{Substitute $x^2,x,1$ for $a_n,a_{n-1},a_{n-2}$ (Day 4).}
+\inv{Roots: $(x-2)(x-5)=0\Rightarrow x=2,5$.}
+
+\item
+\ans{$x=4$}
+\method{$x=3x-8\Rightarrow-2x=-8\Rightarrow x=4$ (Day 5/Day 6's fixed-point technique).}
+\inv{Same technique as Day 4 A7, Day 6 A3/A4.}
+
+\item
+\ans{Their sum must be a multiple of $5$.}
+\method{Integer mean $\iff$ sum divisible by count (Day 6).}
+\inv{Day 6's central definition, unchanged.}
+
+\item
+\ans{GP (ratio $3$)}
+\method{$6/2=18/6=54/18=3$, constant ratio.}
+\inv{Day 3's recognition skill.}
+
+\item
+\ans{Converges to $0$.}
+\method{Both roots inside the unit circle $\Rightarrow a_n=Ar_1^n+Br_2^n\to0$ (Day 4 D5, Day 5).}
+\inv{The result both Day 4 and Day 5 converge on independently.}
+
+\item
+\ans{$10$}
+\method{$\binom52=10$ (Day 2).}
+\inv{Same computation as Day 2, A2/A5.}
+
+\item
+\ans{$x=\dfrac c{r-1}$}
+\method{Solve $x=rx-c$ for $x$ (Day 6).}
+\inv{The formula used throughout Day 6.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{Verified: $a_n=3n-1$ satisfies $a_n=2a_{n-1}-a_{n-2}$.}
+\method{$2a_{n-1}-a_{n-2}=2(3(n-1)-1)-(3(n-2)-1)=2(3n-4)-(3n-7)=6n-8-3n+7=3n-1=a_n$. $\square$}
+\inv{Every AP satisfies $a_n=2a_{n-1}-a_{n-2}$ (characteristic equation $x^2-2x+1=(x-1)^2=0$, a repeated root at $1$) --- exactly Day 4's C7 result, now verified directly on a concrete AP.}
+
+\item
+\ans{A) $\tfrac43$}
+\method{$(1-x)^{-1}$ at $x=\tfrac14$: $\left(\tfrac34\right)^{-1}=\tfrac43$.}
+\inv{Day 2's identity plus Day 3's substitution technique, combined exactly as in Day 3's own B10/C7.}
+
+\item
+\ans{A) Converges to $0$.}
+\method{Both $\left(\tfrac12\right)^n\to0$ and $\left(\tfrac13\right)^n\to0$; with no forcing term, $a_n=A\left(\tfrac12\right)^n+B\left(\tfrac13\right)^n\to0$.}
+\inv{Day 4 D5's general fact, applied directly.}
+
+\item
+\ans{Fixed point $x=1$ (repeated); yes, $a_1=1$ gives a constant sequence.}
+\method{$x=\dfrac1{2-x}\Rightarrow x(2-x)=1\Rightarrow2x-x^2=1\Rightarrow x^2-2x+1=0\Rightarrow(x-1)^2=0\Rightarrow x=1$ (unique, repeated). Since $a_1=1$ is exactly this fixed point, $a_2=\dfrac1{2-1}=1=a_1$, and the sequence stays constant.}
+\inv{A rational (Möbius-style) map with a REPEATED fixed point behaves differently from Day 5's period-$3$/period-$4$ examples, which had no repeated fixed points --- worth noticing the distinction.}
+
+\item
+\ans{A) Summing a finite sequence.}
+\method{Both are instances of $\sum_{k}(\text{terms})$ --- the underlying operation (summation) is identical, even though the term-generating rules (binomial coefficients vs.\ an arithmetic rule) are completely different.}
+\inv{Recognising the SAME general operation underneath different-looking notation is a genuine synthesis skill, distinct from recognising when two things are actually unrelated (see B10).}
+
+\item
+\ans{A) A GP with ratio $r$.}
+\method{$b_n=a_n-\frac c{r-1}$ satisfies $b_{n+1}=rb_n$ exactly (Day 6's derivation, identical in form to Day 4's shift trick).}
+\inv{This is literally Day 4's A5/A6 mechanism, applied to Day 6's alternating process.}
+
+\item
+\ans{$a_k=x\cdot a_{k-1}$, a first-order GP recurrence with (single) characteristic root $x$.}
+\method{Since $a_k=x^k$, clearly $a_k=x\cdot x^{k-1}=x\cdot a_{k-1}$.}
+\inv{Every term of a geometric series is itself the closed-form solution of the simplest possible recurrence --- Day 3 and Day 4 were secretly describing the same object from two different angles all along.}
+
+\item
+\ans{A) Every AP with $d\neq0$ is monotonic.}
+\method{$a_{n+1}-a_n=d$ always, a fixed nonzero sign --- increasing if $d>0$, decreasing if $d<0$, with no exceptions.}
+\inv{Unlike Day 5's more exotic sequences (which needed real proof to establish monotonicity), an AP's monotonicity is immediate from its very definition.}
+
+\item
+\ans{A) No, unbounded.}
+\method{$|a_n|=|a||r|^n\to\infty$ when $|r|>1$, regardless of the sign of $a$ or $r$.}
+\inv{This is the direct opposite of Day 3's convergence condition $|r|<1$ --- the two cases ($|r|<1$ vs.\ $|r|>1$) are exact mirror images.}
+
+\item
+\ans{Independent observations.}
+\method{Day 6's construction concerns DIVISIBILITY of a running (incrementally-built) sum by its own index; Day 2's row sum concerns the TOTAL of a fixed, complete row of binomial coefficients. Different objects, different questions, no structural connection beyond both being ``a sum.''}
+\inv{Not every pair of similar-sounding facts from different days is actually related --- correctly identifying when two ideas are genuinely independent, rather than forcing a false connection, is exactly as important as spotting real synthesis (contrast with B5).}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{A) They never coincide again.}
+\method{AP: $3,7,11,15,19,23,\ldots$ GP: $3,6,12,24,48,\ldots$ Comparing term by term after the first: none match, and once the GP overtakes the AP (by term $4$: $24>15$), the exponentially-growing GP stays ahead of the linearly-growing AP forever.}
+\inv{This is Day 1's B10 insight (GP eventually and permanently overtakes AP) turned into a ``do they ever meet again'' question.}
+
+\item
+\ans{A) The binomial row sum grows faster.}
+\method{Day 6's sum is $\sum_{k=1}^n1=n$ (linear). Day 2's row sum is $2^n$ (exponential). Exponential growth eventually and permanently outpaces linear growth.}
+\inv{The exact same ``exponential beats linear eventually'' theme as C1 and Day 1's B10, now applied to two different sums rather than two sequences.}
+
+\item
+\ans{A) Linear growth in $n$.}
+\method{A repeated characteristic root of exactly $1$ gives closed form $a_n=(A+Bn)(1)^n=A+Bn$ --- linear in $n$ (Day 4's C7 result), regardless of how that root of $1$ arose.}
+\inv{This shows Day 4's C7 result is really about the VALUE of the repeated root ($=1$), not about how the recurrence was originally motivated (whether directly given, or arising from a Day 6-style fixed point).}
+
+\item
+\ans{A) $\tfrac94$}
+\method{$(1-x)^{-2}$ at $x=\tfrac13$: $\left(\tfrac23\right)^{-2}=\left(\tfrac32\right)^2=\tfrac94$.}
+\inv{Same technique as B2 and Day 3's C8, now with the ``$(k+1)$-weighted'' series instead of the plain geometric series.}
+
+\item
+\ans{A) Every starting value returns to itself after exactly $3$ applications.}
+\method{A Möbius transformation of finite order $m$ (as a transformation) satisfies $f^m=\text{identity}$ EVERYWHERE it's defined, not just at special points --- this is a property of the transformation itself, not of any particular starting value.}
+\inv{Contrast Day 5's C1/C2/D2: those specific maps were shown to have order $4$ and $3$ respectively by direct computation from ONE starting value, but the underlying fact (guaranteed for every valid starting point) is what this question makes explicit.}
+
+\item
+\ans{A) $0\leq r\leq1$.}
+\method{For $0<r<1$: decreasing toward $0$ (monotonic, convergent). $r=1$: constant (trivially both). $r=0$: the sequence is $a,0,0,0,\ldots$, trivially monotonic (non-increasing) and convergent. For $-1<r<0$: convergent to $0$ but NOT monotonic (alternates sign). For $|r|\geq1$ (excluding $r=1$): not convergent (Day 3/B9).}
+\inv{The boundary cases ($r=0$ and $r=1$) are exactly where ``monotonic'' and ``convergent'' stop being in tension with each other --- everywhere else in $(-1,1)$, oscillation (for negative $r$) breaks monotonicity even though convergence still holds.}
+
+\item
+\ans{A) $|r|<1,=1,>1$ entirely determines the size of $r^k$.}
+\method{Both Day 6's search (where $|u|=\frac c{r^k-1}\to0$ because $r\geq2>1$) and Day 4's convergence condition (roots need $|r|<1$ to shrink to $0$) are direct consequences of this single fact about exponentials.}
+\inv{This is the SAME underlying fact used in two superficially different-looking arguments across two different days.}
+
+\item
+\ans{A) Geometric series convergence, recurrence convergence, GP boundedness.}
+\method{All three are direct restatements of ``the size of $r^n$ as $n\to\infty$ depends entirely on whether $|r|$ is less than, equal to, or greater than $1$'' --- Day 3's $|r|<1$ convergence condition, Day 4's root-magnitude convergence condition, and today's B9 boundedness fact are the same underlying idea in three different costumes.}
+\inv{Naming this shared idea explicitly is the whole point of a synthesis day --- the individual techniques were taught separately across the week precisely so that noticing they're the same idea, here, lands with real weight.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{$252$}
+\method{Let $d=\gcd(4,n)$. Since the product of every $4$ consecutive terms is constant, $a_i=a_{i+4}$ (indices mod $n$) for every $i$ --- so $a_i$ depends only on $i\bmod d$. Write $x_0,\ldots,x_{d-1}$ for the values on each residue class. Since $d\mid4$ always (a gcd divides both its arguments), every window of $4$ consecutive terms covers each $x_j$ exactly $4/d$ times, regardless of where the window starts. So the constant product is $(x_0x_1\cdots x_{d-1})^{4/d}$, and setting this equal to $n$: a valid $n$-necklace exists exactly when $n$ is a perfect $(4/d)$-th power, where $d=\gcd(4,n)$.\\
+\emph{Case $4\mid n$} ($d=4$): need $n$ to be a perfect $1$st power --- always true. Every multiple of $4$ works.\\
+\emph{Case $n\equiv2\pmod4$} ($d=2$): need $n$ to be a perfect square. But every perfect square is $\equiv0$ or $1\pmod4$ (even$^2\equiv0$, odd$^2\equiv1$), never $\equiv2$ --- so this case is NEVER possible.\\
+\emph{Case $n$ odd} ($d=1$): need $n$ to be a perfect $4$th power (automatically odd, since an odd 4th root gives an odd 4th power).\\
+Counting $4\leq n\leq1000$: multiples of $4$ number $250$. Odd perfect $4$th powers in range: $3^4=81$ and $5^4=625$ (checking $1^4=1<4$ excluded, $7^4=2401>1000$ excluded) --- $2$ more. Total: $250+2=252$.}
+\inv{The real BMO1 question (2019 Q2) uses windows of $3$ instead of $4$, over the range $3\leq n\leq2018$. Since $3$ is prime, $\gcd(3,n)\in\{1,3\}$ only, giving just two cases (multiples of $3$ always work; non-multiples need $n$ to be a perfect cube) --- the real answer is $679$. Using $4$ instead of a prime window introduces the extra $n\equiv2\pmod4$ case, which turns out to NEVER contribute --- an example of how changing one number in a BMO1 problem can add real extra casework, not just bigger numbers.}
+
+\item
+\ans{Proof by induction using Day 6's construction.}
+\method{Base case: $a_1$ given, trivially satisfies $S_1=a_1$ divisible by $1$. Inductive step: given a valid $a_1<\cdots<a_k$ with $S_k$ divisible by $k$, Day 6's C7 argument shows some $a_{k+1}\equiv-S_k\pmod{k+1}$ makes $S_{k+1}$ divisible by $k+1$ --- and since there are infinitely many integers in that residue class (differing by multiples of $k+1$), we can always choose one that ALSO exceeds $a_k$ (just add enough multiples of $k+1$ to the smallest valid residue). This gives a valid $a_{k+1}>a_k$. By induction, a strictly increasing valid sequence of any desired length $n$ can always be built, starting from any $a_1$. $\square$}
+\inv{This upgrades Day 6's C7 (``a valid next term always exists'') to also guarantee it can be chosen larger than the previous term --- the same idea, with one extra degree of freedom (choosing among infinitely many equivalent residues) doing the extra work.}
+
+\item
+\ans{A) No --- a particular-solution technique is needed instead.}
+\method{The equation $L=rL-c_n$ would need $L$ to depend on $n$ (since $c_n$ changes every step), contradicting the requirement that $L$ be a single fixed constant --- exactly Day 4's C5 situation (a non-constant forcing term defeats the simple constant-shift trick).}
+\inv{Recognising that Day 4's C5 insight (forcing term type determines the fix needed) applies just as much to Day 6's alternating process as to Day 4's own recurrences is real cross-day transfer, not just pattern-completion.}
+
+\item
+\ans{$a_1,\ldots,a_5=1,3,5,7,9$; conjectured closed form $a_n=2n-1$.}
+\method{$a_1=1$ ($S_1=1$). For $a_2$: try $2$ first ($S_2=3$, not divisible by $2$); try $3$ ($S_2=4$, divisible by $2$) --- so $a_2=3$. For $a_3$: try $4$ ($S_3=8$, not divisible by $3$); try $5$ ($S_3=9$, divisible by $3$) --- $a_3=5$. For $a_4$: try $6$ ($S_4=15$, not divisible by $4$); try $7$ ($S_4=16$, divisible by $4$) --- $a_4=7$. For $a_5$: try $8$ ($S_5=24$, not divisible by $5$); try $9$ ($S_5=25$, divisible by $5$) --- $a_5=9$.\\
+The pattern $1,3,5,7,9$ is exactly the consecutive-odd-numbers sequence from Day 6's B1, where $S_k=k^2$ always --- and $k^2/k=k$ is always an integer, so this sequence is always valid. The conjecture $a_n=2n-1$ is consistent with every computed term, and the fact that the ``next even integer'' candidate fails at every single step (checked above for $n=2,3,4,5$) strongly suggests it is genuinely the SMALLEST valid choice at each stage, not a coincidence.}
+\inv{This is Day 6's B1 construction (built there by deliberate choice) rediscovered here as the UNIQUE greedy outcome of a simple local rule (``smallest integer bigger than the last term, keeping the mean an integer'') --- a satisfying full-circle moment to end the week on.}
+
+\item
+\ans{A) Day 2 (Binomial \& Trinomial Expansion).}
+\method{D1's proof rests entirely on periodicity ($a_i=a_{i+4}$, an orbit-structure argument closely related to Day 5's periodicity toolkit) and number-theoretic perfect-power reasoning --- binomial coefficients never enter the argument at any point.}
+\inv{Recognising which tools are genuinely load-bearing for a given problem (and which aren't) is itself a mature strategic skill --- not every day's toolkit is meant to be forced into every problem, and knowing that saves real time under exam pressure.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Identify which day's toolkit a question wants before diving into algebra.} Misapplying Day 4's heavy machinery to a Day 1/3 problem (or vice versa) wastes real time. \seealso{A7, B1, B3, B6, B8, C1, C6}
+  \item \textbf{The single unifying idea behind Days 3, 4, and 5: whether a magnitude is $<1$, $=1$, or $>1$ controls everything.} \seealso{B3, B9, C6, C7, C8}
+  \item \textbf{Series-manipulation from Day 2 ($(1-x)^{-m}$ substitutions) combines directly with Day 3's convergence toolkit.} Always look for this bridge on an ``evaluate this infinite series'' question. \seealso{B2, C4}
+  \item \textbf{Day 6's shift-to-fixed-point trick is Day 3's GP toolkit, applied one level up via Day 4's shift technique.} \seealso{B6, B7, D3}
+  \item \textbf{Not every technique is relevant to every problem.} Identifying which day's toolkit is genuinely load-bearing (and which isn't) is itself a tested skill on a synthesis day. \seealso{C2, C3, D5}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Reaching for Day 4's characteristic equation on a recurrence that's secretly just an AP or GP in disguise.} \seealso{B1, B6}
+  \item \textbf{Assuming every sum/series question is ``the same kind of sum.''} Day 2's binomial row sums and Day 6's integer-mean partial sums are structurally unrelated, despite superficial similarity. \seealso{B10, C2}
+  \item \textbf{Forgetting that convergence and boundedness are different properties.} $|r|>1$ makes a GP unbounded, not just ``not converging to a specific value.'' \seealso{B9}
+  \item \textbf{Assuming a repeated-root or fixed-point coincidence is special/impossible rather than checking what it actually implies.} \seealso{C3}
+  \item \textbf{In a full synthesis proof, skipping the general case-by-case argument in favour of pattern-matching from a few small examples.} A genuine BMO1 proof needs the general argument. \seealso{D1}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}
