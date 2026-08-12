@@ -1,0 +1,228 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#6 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: BMO1 Capstone I --- Constrained Integer Sequences $\cdot$ Extremal Construction $\cdot$ Alternating Recurrences.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{It must be a multiple of $3$.}
+\method{An integer mean $\dfrac{a_1+a_2+a_3}3$ requires the numerator to be divisible by $3$.}
+\inv{This is the defining relationship the whole sheet is built on: integer mean $\iff$ sum divisible by count.}
+
+\item
+\ans{Odd}
+\method{$a_1+a_2$ must be even. Since $a_1=5$ is odd, $a_2$ must also be odd (odd $+$ odd $=$ even).}
+\inv{Parity constraints like this are the simplest version of the divisibility conditions D1's proof relies on.}
+
+\item
+\ans{$x=0$}
+\method{$x=2x\Rightarrow x=0$.}
+\inv{A purely multiplicative map (no subtraction) always has $0$ as its only fixed point, unless the multiplier is exactly $1$.}
+
+\item
+\ans{$x=10$}
+\method{$x=2x-10\Rightarrow-x=-10\Rightarrow x=10$.}
+\inv{Compare to A3: adding a subtraction term shifts the fixed point away from $0$.}
+
+\item
+\ans{$b_n=a_n-10$ is a GP with ratio $2$; $a_n=(a_1-10)2^{n-1}+10$.}
+\method{Let $b_n=a_n-10$. Then $b_{n+1}=a_{n+1}-10=(2a_n-10)-10=2a_n-20=2(a_n-10)=2b_n$ --- a pure GP.}
+\inv{This is exactly Day 4's constant-shift technique, now the starting point for this sheet's alternating-recurrence work in B3 onward.}
+
+\item
+\ans{E.g.\ $1,2,3$ (average $2$).}
+\method{Any three consecutive integers work, since their sum is always $3\times(\text{middle term})$.}
+\inv{This is the ``middle term'' trick from Day 1, Section B, resurfacing here.}
+
+\item
+\ans{True}
+\method{This is the definition of an integer average: $\frac{\text{sum}}n\in\mathbb Z\iff n\mid\text{sum}$.}
+\inv{Every question in Sections A and B about ``integer mean'' is really a divisibility statement in disguise.}
+
+\item
+\ans{Yes ($20/4=5$).}
+\method{$20$ is divisible by $4$, so the mean is the integer $5$.}
+\inv{A sanity-check question --- always verify divisibility directly rather than assuming it.}
+
+\item
+\ans{Not necessarily.}
+\method{$f(L)=L$ specifically requires the SAME function to be applied every step. In an alternating process (like B3 onward), two different operations take turns, so a value repeating doesn't correspond to a fixed point of either operation alone --- it corresponds to returning to the same point after a full CYCLE of the alternating process.}
+\inv{This is the key conceptual difference this sheet introduces beyond Day 5: today's ``repeating'' behaviour is about cycles of an alternating process, not single-function fixed points.}
+
+\item
+\ans{Yes; yes.}
+\method{$S_2=8$ is divisible by $2$, so the mean of the first two terms is $8/2=4$, an integer.}
+\inv{A direct application of A1's definition to specific numbers.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{$1,3,5,7$ (partial sums $1,4,9,16$, divisible by $1,2,3,4$ respectively).}
+\method{Build term by term: $a_1=1$ ($S_1=1$, trivially divisible by $1$). Need $S_2$ even: pick $a_2=3$ ($S_2=4$, divisible by $2$). Need $S_3$ divisible by $3$: pick $a_3=5$ ($S_3=9$, divisible by $3$). Need $S_4$ divisible by $4$: pick $a_4=7$ ($S_4=16$, divisible by $4$).}
+\inv{Consecutive odd numbers work because $S_k=k^2$ for this specific construction --- always a perfect square, and $k^2$ is always divisible by $k$.}
+
+\item
+\ans{A) $4$}
+\method{$S_4=16$, mean $=16/4=4$.}
+\inv{Direct arithmetic on B1's result.}
+
+\item
+\ans{$x=6$}
+\method{$x=3x-12\Rightarrow-2x=-12\Rightarrow x=6$.}
+\inv{Same technique as A4, with $r=3,c=12$ instead of $r=2,c=10$.}
+
+\item
+\ans{A) Every Alice-turn writes exactly $6$ forever; Bob alternates writing $18$.}
+\method{$a=6$ is the fixed point, so Bob writes $3(6)=18$, and Alice writes $18-12=6=a$ again --- the cycle repeats identically forever.}
+\inv{Once a process starting from a fixed point returns to that same value, it must repeat identically, since the entire future is determined by the current value alone.}
+
+\item
+\ans{A) $(a-6)3^k+6$}
+\method{Let $b_n=a_n-6$ (the shift trick from A5, now with $r=3$): $b_{n+1}=3b_n$, so $b_k=(a-6)3^k$ after $k$ applications, giving $a_k=(a-6)3^k+6$.}
+\inv{This is the general closed form for ANY ``multiply-then-subtract'' recurrence, with the fixed point playing the role Day 4's GP-shift constant played.}
+
+\item
+\ans{Only if $a$ already equals $6$.}
+\method{Setting $(a-6)3^k+6=a$ (Alice's own $k$-th value equals $a$): $(a-6)3^k=(a-6)\Rightarrow(a-6)(3^k-1)=0$. Since $k\geq1$ means $3^k-1\neq0$, this forces $a-6=0$, i.e.\ $a=6$.}
+\inv{This confirms Alice's own sequence (ignoring Bob's turns) can never return to a non-fixed-point value --- any repeat must come from Bob's turns instead, motivating B7.}
+
+\item
+\ans{A) $u(3^k-1)=-12$}
+\method{Bob's $k$-th value $=3\left[(a-6)3^{k-1}+6\right]=(a-6)3^k+18$. Setting this equal to $a=u+6$: $u\cdot3^k+18=u+6\Rightarrow u\cdot3^k-u=-12\Rightarrow u(3^k-1)=-12$.}
+\inv{This is the key equation the rest of the sheet's alternating-recurrence work depends on --- always re-derive it rather than memorising the final formula, since the constants change between questions.}
+
+\item
+\ans{$k=1$ gives $a=0$ (no other $k$ works); possible values: $a\in\{0,6\}$.}
+\method{$k=1$: $u=\dfrac{-12}{3-1}=-6\Rightarrow a=0$. $k=2$: $u=\dfrac{-12}{9-1}=-1.5$, not an integer. $k=3$: $u=\dfrac{-12}{27-1}=-\dfrac{12}{26}$, not an integer. For $k\geq3$, $3^k-1>12$, so $|u|<1$ and can never be a nonzero integer again.}
+\inv{Combined with B6, the complete answer is: $a=6$ (Alice's fixed point) or $a=0$ (from Bob's first turn) --- exactly two possible values for this choice of $r,c$.}
+
+\item
+\ans{A) Exactly $1$ candidate, though it may not be an integer.}
+\method{Setting Bob's first value $ra$ equal to $a$ gives $ra=a\Rightarrow a(r-1)=0\Rightarrow a=0$ (for $r\neq1$) --- always exactly one candidate value, though whether it's consistent with the rest of the setup depends on $r,c$.}
+\inv{This generalises B7's $k=1$ case directly --- always exactly one linear equation, hence at most one solution, at each fixed $k$.}
+
+\item
+\ans{E.g.\ $2,4,6,8,10,12$ (partial sums $2,6,12,20,30,42$).}
+\method{Consecutive even numbers starting from $2$ give $S_k=2+4+\cdots+2k=k(k+1)$, which is always divisible by $k$ (since $S_k/k=k+1$, an integer).}
+\inv{This is B1's odd-number trick's ``twin'' --- consecutive even numbers give $S_k=k(k+1)$ instead of $k^2$, an equally clean always-divisible form.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{C) $a_k=1$ for all $k$.}
+\method{With $a_k=1$ always, $S_k=k$, and $k/k=1$ always an integer --- works for every $n$. A) fails for even $k$ (e.g.\ $k=2$: $S_2=3$, not divisible by $2$). B) fails (e.g.\ $k=3$: $S_3=1+2+4=7$? recompute: $a_k=2^k$ gives $S_3=2+4+8=14$, not divisible by $3$). D) fails (e.g.\ $k=2$: $S_2=1+4=5$, not divisible by $2$).}
+\inv{The simplest possible construction (all $1$s) is also the most robust --- always check the trivial case before assuming a construction needs to be clever.}
+
+\item
+\ans{A) $x=\dfrac c{r-1}$}
+\method{$x=rx-c\Rightarrow x(1-r)=-c\Rightarrow x=\dfrac c{r-1}$ (for $r\neq1$).}
+\inv{This single formula covers every fixed point computed so far in this sheet: A3/A4 ($r=2$), B3 ($r=3$) --- always the same derivation, just different numbers.}
+
+\item
+\ans{A) $5$}
+\method{$x=\dfrac{20}{5-1}=\dfrac{20}4=5$.}
+\inv{Direct application of C2's formula.}
+
+\item
+\ans{A) $x=\dfrac c{r-1}$}
+\method{Same derivation as C2.}
+\inv{This question and C2 are deliberately identical --- recognising a repeated question instantly (rather than re-deriving) is itself a speed skill.}
+
+\item
+\ans{B) At most one candidate per $k$, but only finitely many $k$ give integer solutions.}
+\method{$|u|=\dfrac c{r^k-1}\to0$ as $k\to\infty$ (since $r\geq2$), so eventually $|u|<1$, which is impossible for a nonzero integer --- meaning only finitely many small $k$ need to be checked at all.}
+\inv{This is exactly what B8 computed concretely, and what D3 proves formally --- always a finite, bounded search, never an infinite one.}
+
+\item
+\ans{A) $a_1+a_2$ is even.}
+\method{$S_2=a_1+a_2$ must be divisible by $2$ --- this is the only condition forced; $a_2$'s exact value, its size relative to $a_1$, or whether it's individually even are all unconstrained beyond the parity-matching requirement.}
+\inv{Distinguishing what's actually forced from what merely happens to be true in one example is the core skill Section C tests all sheet.}
+
+\item
+\ans{A) Yes, a valid next term always exists.}
+\method{Given any $S_n$ divisible by $n$, choose $a_{n+1}$ to be the smallest positive integer with $a_{n+1}\equiv-S_n\pmod{n+1}$ (or any larger integer with that same residue) --- then $S_{n+1}=S_n+a_{n+1}\equiv S_n+(-S_n)\equiv0\pmod{n+1}$, valid by construction.}
+\inv{This proves the divisibility condition itself never runs out of solutions --- C8 explains what DOES cause the real problem (D1) to eventually get stuck.}
+
+\item
+\ans{A) No, with unlimited supply the process never gets stuck.}
+\method{C7's construction works for any $S_n$, using any sufficiently large unused integer with the right residue --- with infinitely many integers available, such a choice always exists.}
+\inv{This is the crux of the real BMO1 problem (D1): the divisibility condition is never the obstacle in the abstract, but a FINITE deck of specific numbers can run out of valid choices, forcing an early stop --- exactly the tension D1 explores.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+\item
+\ans{The minimum is exactly $3$; e.g.\ $1,3,5$.}
+\method{\emph{Length $1$ is never stuck:} after placing any single card $a_1$, the remaining $5$ cards from $\{1,\ldots,6\}$ include at least one of each parity (removing one card from three of each parity leaves at least two of the needed parity), so a card $c$ with $a_1+c$ even always exists.\\
+\emph{Length $2$ is never stuck:} split $\{1,\ldots,6\}$ into residue classes mod $3$: $\{3,6\},\{1,4\},\{2,5\}$. Crucially, in every one of these three classes, the two members have DIFFERENT parities (e.g.\ $3$ is odd, $6$ is even). Since a valid $2$-card start needs $a_1+a_2$ even (same parity), $a_1,a_2$ can never both come from the same residue class --- so no residue class mod $3$ can ever be fully used up by a valid $2$-card start, meaning a valid $c$ with $S_2+c\equiv0\pmod3$ always remains available.\\
+\emph{Length $3$ can be stuck:} take $1,3,5$. $S_1=1$ (divisible by $1$), $S_2=4$ (divisible by $2$), $S_3=9$ (divisible by $3$) --- valid so far. Remaining cards $\{2,4,6\}$: check $9+2=11$, $9+4=13$, $9+6=15$ --- none divisible by $4$. Stuck.\\
+Since lengths $1$ and $2$ can never be stuck, and length $3$ CAN be stuck, the minimum possible stopping length is exactly $3$. $\square$}
+\inv{The real BMO1 question (2018 Q6) uses cards $1$ to $300$ instead of $1$ to $6$ --- the same two ideas (a parity argument for ruling out length $1$, a residue-class pigeonhole argument for ruling out length $2$, and beyond) scale up, but the full argument for exactly how long the sequence can be forced to survive requires substantially more casework at that size.}
+
+\item
+\ans{$a\in\{0,30,42,45\}$}
+\method{The combined map is $f(x)=2x-45$, fixed point $x=\dfrac{45}{2-1}=45$ (Alice's own branch: only $a=45$ can repeat via her own values, by the same argument as B6). For Bob's-turn branch, with $u=a-45$: $u(2^k-1)=-45$. Since $2^k-1>45$ once $k\geq6$ ($2^6-1=63$), only $k=1,\ldots,5$ need checking: $k{=}1$: $u=-45\Rightarrow a=0$. $k{=}2$: $u=-15\Rightarrow a=30$. $k{=}3$: $u=-45/7$, not integer. $k{=}4$: $u=-3\Rightarrow a=42$. $k{=}5$: $u=-45/31$, not integer. So the Bob-branch gives $a\in\{0,30,42\}$, and combined with Alice's fixed point $a=45$: the full set is $\{0,30,42,45\}$.}
+\inv{This is B3--B8's exact method, applied with the real question's numbers ($r=2,c=45$) instead of the practice numbers ($r=3,c=12$) --- the SAME general argument, just larger, uglier constants. All four values were independently confirmed by direct simulation of the writing process.}
+
+\item
+\ans{Proof via the finite-$k$ bound.}
+\method{From the Bob-branch equation (B7's derivation, general form): $u(r^k-1)=-c$, so $|u|=\dfrac c{r^k-1}$. Since $r\geq2$, $r^k-1$ is strictly increasing in $k$ and $\to\infty$. So there exists some $K$ (depending only on $r,c$) beyond which $r^k-1>c$, forcing $|u|<1$ for all $k>K$ --- impossible for a nonzero integer $u$ (recall $a\neq\frac c{r-1}$ means $u\neq0$). Hence only $k=1,\ldots,K$ can possibly give an integer solution: finitely many candidates, and the search terminates. $\square$}
+\inv{This is exactly the bound used concretely in B8 ($K=2$, since $3^3-1=26>12$) and D2 ($K=5$, since $2^6-1=63>45$) --- the proof explains why those specific small cutoffs were correct without needing to check arbitrarily large $k$ by hand.}
+
+\item
+\ans{A) True.}
+\method{For $N\geq4$: the two parity classes among $\{1,\ldots,N\}$ have sizes $\lceil N/2\rceil$ and $\lfloor N/2\rfloor$, and for $N\geq4$, $\lfloor N/2\rfloor\geq2$. Removing any single card $a_1$ (from whichever parity class) leaves at least $\lfloor N/2\rfloor-1\geq1$ cards of that same parity remaining, so a valid extension $c$ (with $a_1+c$ even) always exists.}
+\inv{This argument fails exactly at $N=3$ (where the minority parity class has size $1$): choosing $a_1=2$ from $\{1,2,3\}$ leaves $\{1,3\}$, both odd, with no even card left to pair with --- length-$1$-stuck IS possible there, which is why D1's argument needed $N\geq6$ (comfortably past the $N=3$ edge case) to guarantee length $1$ is never stuck.}
+
+\item
+\ans{A) A finite or shrinking set of possibilities cannot satisfy an ever-tightening condition forever.}
+\method{In D1, the pool of available cards is literally finite and shrinks by one each turn. In D2/D3, the ``room to manoeuvre'' shrinks because $|u|=\frac c{r^k-1}$ strictly decreases toward $0$, eventually leaving no integer solution. Both are instances of the same principle: when the space of remaining valid options is forced to shrink (whether by physically running out of objects, or by an inequality tightening), the process cannot continue satisfying its constraint indefinitely.}
+\inv{This ``finiteness forces termination or repetition'' principle is one of the most common proof strategies in BMO1-level combinatorics and number theory --- recognising it as the same idea across two very differently-dressed problems is exactly the kind of pattern-matching this capstone day is building toward Day 7's full synthesis.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#6}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Integer-mean construction: choose $a_{n+1}\equiv-S_n\pmod{n+1}$.} A valid extension always exists in the abstract --- getting stuck needs a genuinely finite, already-used pool. \seealso{A1, A7, A10, B1, B10, C1, C7}
+  \item \textbf{Alternating-recurrence fixed point: $x=\dfrac c{r-1}$} solves the combined per-cycle map $f(x)=rx-c$. \seealso{A3, A4, B3, C2, C4}
+  \item \textbf{Two-branch search for ``$a$ reappears'': check the map's own fixed point, then solve $u(r^k-1)=-c$ for each small $k$.} The search is always finite, since $|u|\to0$. \seealso{B5, B7, B8, C5, D2, D3}
+  \item \textbf{Finiteness/shrinking-magnitude arguments force termination or repetition} --- the unifying BMO1 proof idea of this whole sheet. \seealso{D1, D2, D5}
+  \item \textbf{Parity/residue-class pigeonhole rules out getting stuck too early.} Count how many of each needed residue REMAIN, not just whether any exist in the full set. \seealso{C6, D1, D4}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#6}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Confusing ``eventually forced to stop'' with ``the condition itself is impossible.''} The integer-mean condition can always be satisfied with infinite supply --- it's the finite deck that forces a stop. \seealso{C7, C8}
+  \item \textbf{Forgetting to also check the map's own fixed point.} Focusing only on the other branch's equation misses a valid solution. \seealso{B6, D2}
+  \item \textbf{Assuming the search over $k$ is infinite.} It's always finite, since $|u|=\frac c{r^k-1}\to0$ eventually forces $u$ out of integer range. \seealso{B8, D3}
+  \item \textbf{Trusting a computed example as proof of a minimum, without ruling out every shorter case.} \seealso{D1}
+  \item \textbf{Assuming a stated numeric bound (like ``$N\geq4$'') is arbitrary rather than load-bearing.} Small edge cases can behave genuinely differently. \seealso{D4}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing.
+Every shortcut is a pattern you have internalised.''}
+
+\end{document}
