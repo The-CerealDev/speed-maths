@@ -12,52 +12,72 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Write down row $5$ of Pascal's triangle (the coefficients of $(x+y)^5$).
+
 \ans{$1,5,10,10,5,1$}
 \method{Pascal's rule: each entry is the sum of the two above it. Row $4$ is $1,4,6,4,1$; row $5$ adds them pairwise with $1$'s at the ends.}
 \inv{Row $n$ always has $n+1$ entries and is symmetric: $\binom nk=\binom n{n-k}$.}
 
-\item
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $\dbinom{6}{2}$.
+
 \ans{$15$}
 \method{$\binom62=\frac{6\times5}{2!}=15$.}
 \inv{Equivalently $\binom62=\binom64$ by symmetry --- always check whether the ``short side'' of the ratio is faster to compute.}
 
-\item
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Write down $\displaystyle\sum_{k=0}^{n}\binom nk$ in closed form.
+
 \ans{$2^n$}
 \method{Setting $x=1$ in $(1+x)^n=\sum_k\binom nkx^k$ gives $2^n=\sum_k\binom nk$.}
 \inv{This is the single most useful substitution trick in the whole sheet --- see the Top 5 Patterns below.}
 
-\item
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Expand $(1+x)^3$ fully.
+
 \ans{$1+3x+3x^2+x^3$}
 \method{Row $3$ of Pascal's triangle is $1,3,3,1$.}
 \inv{Notice the coefficients are literally read off Pascal's triangle --- no need to multiply out $(1+x)(1+x)(1+x)$ by hand.}
 
-\item
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^2$ in $(1+x)^6$.
+
 \ans{$15$}
 \method{$\binom62=15$ (row $6$: $1,6,15,20,15,6,1$).}
 \inv{Same computation as A2 --- recognising when two questions are secretly the same arithmetic saves real time.}
 
-\item
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Row $4$ of Pascal's triangle is $1,4,6,4,1$. Is this sequence of five numbers arithmetic? Justify with one check.
+
 \ans{No.}
 \method{Consecutive differences are $4-1=3$, $6-4=2$, $4-6=-2$, $1-4=-3$ --- not constant, so the sequence is not arithmetic.}
 \inv{Pascal's triangle rows are symmetric and unimodal (rise then fall), which already rules out being arithmetic for any row with more than $2$ entries and not all equal.}
 
-\item
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Simplify $\dbinom n0+\dbinom n1$.
+
 \ans{$1+n$}
 \method{$\binom n0=1$, $\binom n1=n$, so the sum is $1+n$.}
 \inv{This is just the first two terms of the row-sum $2^n$ --- compare to B2, which asks for the first four terms instead.}
 
-\item
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item State the value of $\displaystyle\sum_{k=0}^{n}(-1)^k\binom nk$ for $n\geq1$.
+
 \ans{$0$}
 \method{Setting $x=-1$ in $(1+x)^n$: $(1-1)^n=0^n=0$ for $n\geq1$, and this equals $\sum_k(-1)^k\binom nk$.}
 \inv{This is the ``twin'' substitution to A3 --- $x=1$ gives the row sum, $x=-1$ gives the alternating sum. Both are worth having on instant recall.}
 
-\item
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Find the constant term in $(1+x)^5$.
+
 \ans{$1$}
 \method{The constant term of $(1+x)^5$ is the $x^0$ term, $\binom50=1$.}
 \inv{Every binomial expansion of $(1+x)^n$ has constant term exactly $1$, since $\binom n0=1$ always.}
 
-\item
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item True or false: row $n$ of Pascal's triangle always has exactly $n+1$ entries.
+
 \ans{True}
 \method{Row $n$ has entries $\binom n0,\binom n1,\ldots,\binom nn$ --- that's $n+1$ entries, from $k=0$ to $k=n$ inclusive.}
 \inv{A common off-by-one slip is saying row $n$ has $n$ entries --- always count inclusively from $0$.}
@@ -69,52 +89,114 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $\dbinom n0+\dbinom n1+\cdots+\dbinom nn=2^n$ by substituting a value into the expansion of $(1+x)^n$.
+
 \ans{Proof by substitution $x=1$.}
 \method{$(1+x)^n=\sum_{k=0}^n\binom nkx^k$. Setting $x=1$: $(1+1)^n=2^n=\sum_{k=0}^n\binom nk(1)^k=\sum_{k=0}^n\binom nk$. $\square$}
 \inv{This is the cleanest possible proof of the identity --- no induction needed, just one well-chosen substitution.}
 
-\item
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Row $10$ of Pascal's triangle sums to $2^{10}$. If instead you sum only its first four entries, $\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}$, is the result arithmetic, geometric, or neither, as a rule? Compute the value.
+
 \ans{Neither, in general; the value is $176$.}
 \method{$\binom{10}0+\binom{10}1+\binom{10}2+\binom{10}3=1+10+45+120=176$. The four terms themselves ($1,10,45,120$) have differences $9,35,75$ (not constant) and ratios $10,4.5,2.\overline{6}$ (not constant), so the partial sum follows no simple pattern.}
 \inv{Contrast with A6: individual binomial coefficients within a row are neither arithmetic nor geometric --- only the \emph{full} row sum ($2^n$) and the full alternating sum ($0$) have clean closed forms.}
 
-\item
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Using $x=-1$ in $(1+x)^n$ ($n\geq1$), what is $\displaystyle\sum_{k=0}^n(-1)^k\binom nk$?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2^n$
+\item[D)] $(-1)^n$
+\end{itemize}
+
 \ans{A) $0$}
 \method{$(1+(-1))^n=0^n=0$ for $n\geq1$.}
 \inv{At $n=0$ the sum is just $\binom00=1$, not $0$ --- the identity needs $n\geq1$ exactly because $0^0$ is being avoided, not computed.}
 
-\item
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^3$ in $(2+x)^5$.
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $40$
+\item[C)] $80$
+\item[D)] $20$
+\end{itemize}
+
 \ans{B) $40$}
 \method{General term: $\binom5k2^{5-k}x^k$. At $k=3$: $\binom532^2=10\times4=40$.}
 \inv{Don't forget the $2^{5-k}$ factor --- the common slip is answering $\binom53=10$, treating the expansion as if it were $(1+x)^5$.}
 
-\item
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^4$ in $(1-2x)^6$.
+\begin{itemize}
+\item[A)] $60$
+\item[B)] $-240$
+\item[C)] $240$
+\item[D)] $-60$
+\end{itemize}
+
 \ans{C) $240$}
 \method{General term: $\binom6k(-2x)^k$. At $k=4$: $\binom64(-2)^4=15\times16=240$. The sign is positive since $(-2)^4$ is positive (even power).}
 \inv{The trap is B) $-240$, from forgetting that an even power of a negative number is positive.}
 
-\item
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the constant term in the expansion of $\left(x+\dfrac1x\right)^4$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $1$
+\end{itemize}
+
 \ans{B) $6$}
 \method{General term: $\binom4kx^{4-k}x^{-k}=\binom4kx^{4-2k}$. Constant term needs $4-2k=0\Rightarrow k=2$: $\binom42=6$.}
 \inv{Whenever a binomial has both positive and negative powers of $x$, set the total exponent to zero and solve for $k$ first --- don't try to spot the constant term by expanding everything.}
 
-\item
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item In the expansion of $(1+x)^n$, the coefficient of $x^2$ is $21$ times the coefficient of $x^1$. Find $n$.
+\begin{itemize}
+\item[A)] $21$
+\item[B)] $42$
+\item[C)] $43$
+\item[D)] $44$
+\end{itemize}
+
 \ans{C) $43$}
 \method{$\dfrac{\binom n2}{\binom n1}=\dfrac{n-1}{2}=21\Rightarrow n-1=42\Rightarrow n=43$.}
 \inv{This ratio trick --- $\binom n2/\binom n1=(n-1)/2$ --- is worth memorising directly rather than writing out both binomial coefficients in full every time.}
 
-\item
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item The coefficients of $x^2$ and $x^3$ in the expansion of $(1+x)^n$ are equal. Find $n$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $5$
+\item[C)] $6$
+\item[D)] Cannot be determined.
+\end{itemize}
+
 \ans{B) $5$}
 \method{$\binom n2=\binom n3\Rightarrow$ (by the symmetry $\binom nk=\binom n{n-k}$) $2$ and $3$ must be complementary: $n-2=3\Rightarrow n=5$. Check: $\binom52=10=\binom53$. \checkmark}
 \inv{This only works because $2\neq3$ forces the symmetry route --- if the two given exponents were equal, any $n$ would trivially work, and the question would be ill-posed.}
 
-\item
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^2$ in the expansion of $(1+2x+3x^2)^3$.
+\begin{itemize}
+\item[A)] $15$
+\item[B)] $18$
+\item[C)] $21$
+\item[D)] $24$
+\end{itemize}
+
 \ans{C) $21$}
 \method{Trinomial theorem: terms $(1)^a(2x)^b(3x^2)^c$ with $a+b+c=3$, exponent $b+2c=2$. Case $(b,c)=(2,0),a=1$: coefficient $\frac{3!}{1!2!0!}2^2=3\times4=12$. Case $(b,c)=(0,1),a=2$: coefficient $\frac{3!}{2!0!1!}3^1=3\times3=9$. Total: $12+9=21$.}
 \inv{Every valid $(a,b,c)$ triple with $a+b+c=3$ and $b+2c=2$ must be found systematically --- missing a case is the single most common trinomial-expansion error.}
 
-\item
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item The row-sums of Pascal's triangle are $1,2,4,8,16,\ldots$ Is this sequence of row-sums arithmetic, geometric, both, or neither? State the relevant ratio or difference.
+
 \ans{Geometric, common ratio $2$.}
 \method{Row sums are $2^0,2^1,2^2,\ldots=1,2,4,8,16,\ldots$ --- each term is exactly double the previous one.}
 \inv{This directly answers A3 in sequence-language: the row sums themselves form a geometric sequence, even though no single row's entries do.}
@@ -126,42 +208,107 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following statements about partial sums of binomial coefficients is correct?
+\begin{itemize}
+\item[A)] $\binom n0+\binom n1+\cdots+\binom n{k-1}$ always equals $2^n$, for any $k\leq n$.
+\item[B)] There is no simple closed form for a general partial sum of binomial coefficients, unlike the full row sum.
+\item[C)] Partial sums of binomial coefficients are always arithmetic in $k$.
+\item[D)] Partial sums of binomial coefficients are always geometric in $k$.
+\end{itemize}
+
 \ans{B) There is no simple closed form for a general partial sum of binomial coefficients, unlike the full row sum.}
 \method{The full sum ($k=n+1$ terms) collapses via $x=1$ substitution to $2^n$; a partial sum has no equivalent single substitution trick, and in general must be computed term by term (as in B2's $176$).}
 \inv{The one genuine exception worth knowing: summing binomial coefficients down a \emph{column} across many rows (rather than across one row) does have a closed form --- the hockey-stick identity, which C3 explores.}
 
-\item
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x$ in the expression $(1+x)^0+(1+x)^1+\cdots+(1+x)^{40}$. \textit{\small(after TMUA 2019 Paper 1 Q3)}
+\begin{itemize}
+\item[A)] $40$
+\item[B)] $41$
+\item[C)] $820$
+\item[D)] $1640$
+\item[E)] $1681$
+\end{itemize}
+
 \ans{C) $820$}
 \method{The coefficient of $x$ in $(1+x)^k$ is $\binom k1=k$. Summing over $k=0$ to $40$: $\sum_{k=0}^{40}k=\frac{40\times41}2=820$.}
 \inv{The real TMUA question (2019 Paper 1 Q3) sums to $k=80$ instead of $40$, giving $\frac{80\times81}2=3240$. This is exactly Day 1's arithmetic series sum formula, now extracting information from a \emph{sum of binomial expansions} rather than a plain AP --- the two toolkits meet here.}
 
-\item
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Find, in terms of $n$, the coefficient of $x^2$ in the expression $(1+x)^0+(1+x)^1+\cdots+(1+x)^n$. \textit{\small(after TMUA 2019 Paper 1 Q3)}
+\begin{itemize}
+\item[A)] $\dbinom n3$
+\item[B)] $\dbinom{n+1}3$
+\item[C)] $\dbinom{n+1}2$
+\item[D)] $2^n-n-1$
+\end{itemize}
+
 \ans{B) $\dbinom{n+1}3$}
 \method{The coefficient of $x^2$ in $(1+x)^k$ is $\binom k2$ (zero for $k<2$). Summing $\sum_{k=2}^n\binom k2=\binom{n+1}3$ is the hockey-stick identity: summing a column of Pascal's triangle from its start lands one row down and one column right.}
 \inv{Try proving the hockey-stick identity itself by induction on $n$, using Pascal's rule $\binom k2+\binom{k+1}2\cdots$ --- or revisit C2, which is the same trick one column to the left ($\binom k1=k$ instead of $\binom k2$).}
 
-\item
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item In the expansion of $(1+x+x^2)^4$, what is the coefficient of $x^3$?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $16$
+\item[C)] $20$
+\item[D)] $24$
+\end{itemize}
+
 \ans{B) $16$}
 \method{Trinomial theorem on $(1+x+x^2)^4$: terms $(1)^a(x)^b(x^2)^c$, $a+b+c=4$, exponent $b+2c=3$. Case $(b,c)=(3,0),a=1$: $\frac{4!}{1!3!0!}=4$. Case $(b,c)=(1,1),a=2$: $\frac{4!}{2!1!1!}=12$. Total: $4+12=16$.}
 \inv{Same systematic case-finding as B9, now with a larger power --- always list every $(b,c)$ pair satisfying the exponent equation before computing any coefficient.}
 
-\item
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is the expansion of $(1-x)^{-1}$ as an infinite series in $x$?
+\begin{itemize}
+\item[A)] $1-x+x^2-x^3+\cdots$
+\item[B)] $1+x+x^2+x^3+\cdots$
+\item[C)] $1-2x+3x^2-4x^3+\cdots$
+\item[D)] It cannot be expanded as a series.
+\end{itemize}
+
 \ans{B) $1+x+x^2+x^3+\cdots$}
 \method{Long division, or the generalized binomial series $(1-x)^{-1}=\sum_{k=0}^\infty\binom{-1}kx^k$ with $(-x)^k$ sign conventions, both give every coefficient equal to $1$.}
 \inv{This is the geometric series with $a=1,r=x$ in disguise --- the entire next sheet is built on recognising this connection. Check: multiplying $(1-x)(1+x+x^2+\cdots)$ should telescope to exactly $1$.}
 
-\item
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item The generalized binomial expansion gives $(1-x)^{-2}=\sum_{k=0}^\infty(k+1)x^k$. Find the coefficient of $x^3$.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $6$
+\item[D)] $10$
+\end{itemize}
+
 \ans{B) $4$}
 \method{At $k=3$: coefficient is $k+1=4$.}
 \inv{The coefficients $1,2,3,4,\ldots$ (i.e.\ $k+1$) are themselves an arithmetic sequence in $k$ with common difference $1$ --- differentiating $(1-x)^{-1}$ once (which is exactly how $(1-x)^{-2}$ arises) turns a constant coefficient sequence into a linear one.}
 
-\item
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is FALSE, for a positive integer $n$?
+\begin{itemize}
+\item[A)] $\displaystyle\sum_{k=0}^n\binom nk=2^n$
+\item[B)] $\displaystyle\sum_{k=0}^n(-1)^k\binom nk=0$
+\item[C)] $\dbinom nk=\dbinom n{n-k}$ for all $0\leq k\leq n$
+\item[D)] $\displaystyle\sum_{k=0}^n k\binom nk=2^n$
+\end{itemize}
+
 \ans{D) $\displaystyle\sum_{k=0}^n k\binom nk=2^n$}
 \method{The true identity is $\sum_{k=0}^nk\binom nk=n\cdot2^{n-1}$ (proved in D3), not $2^n$. Check $n=3$: true value is $3\times4=12$, but D claims $2^3=8\neq12$.}
 \inv{A) is the row-sum identity (A3), B) is the alternating-sum identity (A8), C) is the symmetry identity (A1) --- three genuine facts sitting beside one fabricated-looking but plausible fourth. Always test a small case rather than trusting a familiar-looking formula.}
 
-\item
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item The infinite series $1+x+x^2+x^3+\cdots$ equals $(1-x)^{-1}$. Using $(1-x)^{-3}=\sum_{k=0}^\infty\binom{k+2}{2}x^k$, find the coefficient of $x^5$ in $(1-x)^{-3}$.
+\begin{itemize}
+\item[A)] $\dbinom52$
+\item[B)] $\dbinom62$
+\item[C)] $\dbinom72$
+\item[D)] $\dbinom82$
+\end{itemize}
+
 \ans{C) $\dbinom72$}
 \method{$(1-x)^{-3}=\sum_{k=0}^\infty\binom{k+2}2x^k$. At $k=5$: $\binom{5+2}2=\binom72=21$.}
 \inv{Compare the exponents across $(1-x)^{-1},(1-x)^{-2},(1-x)^{-3}$: the coefficient of $x^k$ is $\binom{k}{0},\binom{k+1}1,\binom{k+2}2$ respectively --- a clean pattern worth remembering as ``stars and bars in series form.''}
@@ -173,27 +320,62 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^2y^3$ in the expansion of $(1+x+y^2)^5$. \textit{\small(after TMUA 2020 Paper 1 Q13)}
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $10$
+\item[C)] $20$
+\item[D)] $30$
+\item[E)] $60$
+\end{itemize}
+
 \ans{A) $0$}
 \method{General term of $(1+x+y^2)^5$: $(1)^a(x)^b(y^2)^c$ with $a+b+c=5$, contributing $x^by^{2c}$. The power of $y$ is always $2c$ --- an even number. Since $3$ is odd, there is no valid $(a,b,c)$ giving $x^2y^3$, so its coefficient is $0$.}
 \inv{This is the real trap the real TMUA question (2020 Paper 1 Q13, which instead asks for the achievable $x^2y^4$) is built to reward: recognising an \emph{impossible} target power instantly, without attempting any case-by-case expansion, is faster and more reliable than grinding through the trinomial theorem only to find every case empty.}
 
-\item
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item The coefficient of $x^2$ in $(1+x+2x^2)^3$ equals the coefficient of $x^2$ in $(1-ax)^3$. Find the possible value(s) of $a$. \textit{\small(after TMUA Practice Paper 1 Q19)}
+\begin{itemize}
+\item[A)] $a=\pm\sqrt3$
+\item[B)] $a=\pm3$
+\item[C)] $a=\sqrt3$ only
+\item[D)] $a=3$ only
+\end{itemize}
+
 \ans{A) $a=\pm\sqrt3$}
 \method{Coefficient of $x^2$ in $(1+x+2x^2)^3$: cases $(b,c)=(2,0),a{=}1$ gives $\frac{3!}{1!2!0!}1^2=3$; $(b,c)=(0,1),a{=}2$ gives $\frac{3!}{2!0!1!}2^1=6$. Total $3+6=9$. Coefficient of $x^2$ in $(1-ax)^3$: $\binom32(-a)^2=3a^2$. Setting equal: $3a^2=9\Rightarrow a^2=3\Rightarrow a=\pm\sqrt3$.}
 \inv{The real TMUA question (Practice Paper 1 Q19) matches the coefficient of $x^3$ in $(1+2x+3x^2)^6$ against \emph{twice} the coefficient of $x^4$ in $(1-ax^2)^5$, giving $a=\pm\sqrt{17}$ --- same technique, larger trinomial power and an extra factor of $2$. Work through that version by hand.}
 
-\item
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $\displaystyle\sum_{k=0}^n k\binom nk=n\cdot2^{n-1}$ for every positive integer $n$, by differentiating the binomial expansion of $(1+x)^n$.
+
 \ans{Proof by differentiating $(1+x)^n$.}
 \method{$(1+x)^n=\sum_{k=0}^n\binom nkx^k$. Differentiating both sides with respect to $x$: $n(1+x)^{n-1}=\sum_{k=0}^nk\binom nkx^{k-1}$ (the $k=0$ term vanishes since it has no $x$). Setting $x=1$: $n\cdot2^{n-1}=\sum_{k=0}^nk\binom nk$. $\square$}
 \inv{This is the standard trick for ``weighted'' binomial sums --- differentiate first, then substitute. Try the same approach on $\sum_{k=0}^nk^2\binom nk$ by differentiating twice (or by differentiating $x\cdot n(1+x)^{n-1}$ once more).}
 
-\item
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Expanding $(1+x)^n(1+x)^m$ two different ways --- first by combining the factors as $(1+x)^{n+m}$, then by multiplying the two separate expansions together and comparing the coefficient of $x^k$ on both sides --- produces which identity?
+\begin{itemize}
+\item[A)] Vandermonde's identity: $\displaystyle\sum_{i=0}^k\binom ni\binom m{k-i}=\binom{n+m}k$.
+\item[B)] $\dbinom nk+\dbinom mk=\dbinom{n+m}k$.
+\item[C)] $\dbinom nk\dbinom mk=\dbinom{n+m}k$.
+\item[D)] No identity results --- the two sides are unrelated.
+\end{itemize}
+
 \ans{A) Vandermonde's identity.}
 \method{$(1+x)^n(1+x)^m=\left(\sum_i\binom nix^i\right)\left(\sum_j\binom mjx^j\right)$. The coefficient of $x^k$ on the right is $\sum_{i=0}^k\binom ni\binom m{k-i}$ (pairing every way $i+j=k$). Since the left side is also $(1+x)^{n+m}$, whose coefficient of $x^k$ is $\binom{n+m}k$, the two must be equal.}
 \inv{Vandermonde's identity has a clean combinatorial reading too: choosing $k$ people from a group of $n$ men and $m$ women, split by how many men are chosen --- but this derivation gets there purely from series manipulation, no counting argument needed.}
 
-\item
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item The coefficients of $(1-x)^{-1}$ are all $1$ (constant in $k$). The coefficients of $(1-x)^{-2}$, namely $(k+1)$, form an arithmetic sequence in $k$. What kind of sequence, as a function of $k$, do the coefficients of $(1-x)^{-3}=\sum_{k=0}^\infty\binom{k+2}2x^k$ form?
+\begin{itemize}
+\item[A)] Arithmetic.
+\item[B)] Geometric.
+\item[C)] Quadratic in $k$ (neither arithmetic nor geometric).
+\item[D)] Constant.
+\end{itemize}
+
 \ans{C) Quadratic in $k$ (neither arithmetic nor geometric).}
 \method{$\binom{k+2}2=\dfrac{(k+2)(k+1)}2=\dfrac12k^2+\dfrac32k+1$, a genuine quadratic in $k$ (nonzero $k^2$ coefficient).}
 \inv{This is exactly Day 1's ``$S_n$ is quadratic in $n$'' pattern (Day 1, C7/C8) reappearing in a completely different context: the coefficients of $(1-x)^{-1},(1-x)^{-2},(1-x)^{-3}$ are degree $0,1,2$ polynomials in $k$ respectively --- each higher inverse power of $(1-x)$ raises the degree by exactly one.}

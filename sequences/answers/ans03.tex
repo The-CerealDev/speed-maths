@@ -12,52 +12,72 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Write down the common ratio of the GP $3,6,12,24,\ldots$
+
 \ans{$2$}
 \method{$6/3=2$, $12/6=2$, $24/12=2$ --- constant ratio $2$.}
 \inv{A GP's ratio is always \emph{next term} $\div$ \emph{current term}, never the other way round.}
 
-\item
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $5$ and common ratio $2$. Find the 6th term.
+
 \ans{$160$}
 \method{$a_6=5\times2^5=5\times32=160$.}
 \inv{Compare to an AP's $a_n=a+(n-1)d$: a GP's nth term is $a\times r^{n-1}$ --- multiplication replaces addition throughout.}
 
-\item
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $2$ and common ratio $3$. Find $S_5$.
+
 \ans{$242$}
 \method{$S_5=\dfrac{2(3^5-1)}{3-1}=\dfrac{2\times242}{2}=242$.}
 \inv{Check by direct addition: $2+6+18+54+162=242$. \checkmark}
 
-\item
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item State the condition on $r$ for an infinite GP's sum to converge.
+
 \ans{$|r|<1$}
 \method{The infinite sum $a+ar+ar^2+\cdots$ only settles to a finite value when each term shrinks toward $0$, which needs $|r|<1$.}
 \inv{This is the single condition the entire sheet is built around --- see Common Traps below for what goes wrong when it's skipped.}
 
-\item
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $8$ and common ratio $\tfrac12$. Find its sum to infinity.
+
 \ans{$16$}
 \method{$S_\infty=\dfrac{8}{1-\frac12}=\dfrac8{\frac12}=16$.}
 \inv{Sanity check: partial sums $8,12,14,15,15.5,\ldots$ climb toward $16$ but never reach it.}
 
-\item
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Which of these three sequences is geometric: (i) $2,4,6,8$ \quad (ii) $2,4,8,16$ \quad (iii) $2,4,7,11$?
+
 \ans{(ii) $2,4,8,16$ is geometric (ratio $2$).}
 \method{(i) has constant difference $2$ --- arithmetic, not geometric. (iii) has differences $2,3,4$ and ratios $2,1.75,1.57\ldots$ --- neither.}
 \inv{Always test a sequence against \emph{both} AP and GP definitions before concluding it's neither --- (iii) genuinely fits neither pattern here.}
 
-\item
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Write down the sum-to-infinity formula for a GP with first term $a$ and ratio $r$ (where $|r|<1$).
+
 \ans{$S_\infty=\dfrac a{1-r}$}
 \method{Take the finite-sum formula $S_n=\dfrac{a(1-r^n)}{1-r}$ and let $n\to\infty$: since $|r|<1$, $r^n\to0$, leaving $S_\infty=\dfrac a{1-r}$.}
 \inv{This derivation --- taking a limit of the finite formula --- is worth remembering, since it's exactly how D1's proof works too.}
 
-\item
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: a GP with common ratio $r=1$ has a well-defined sum to infinity.
+
 \ans{False}
 \method{At $r=1$ every term equals $a$, so the sum after $n$ terms is $na$, which grows without bound (unless $a=0$) --- it never settles to a finite value.}
 \inv{$r=1$ is exactly the boundary case excluded by $|r|<1$ --- it's a common slip to think ``ratio equals something reasonable'' is enough without checking it's strictly less than $1$ in magnitude.}
 
-\item
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $100$ and common ratio $-\tfrac12$. Find its sum to infinity.
+
 \ans{$\dfrac{200}3$}
 \method{$S_\infty=\dfrac{100}{1-(-\frac12)}=\dfrac{100}{\frac32}=\dfrac{200}3$.}
 \inv{Subtracting a negative ratio increases the denominator's effective size compared to a positive ratio of the same magnitude --- always expand $1-(-\frac12)$ to $1+\frac12$ carefully rather than rushing the sign.}
 
-\item
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Write the next term of the GP $81, 27, 9, 3, \ldots$
+
 \ans{$1$}
 \method{Ratio is $\tfrac13$: $81,27,9,3,1,\ldots$}
 \inv{This GP's terms shrink toward $0$ forever without ever reaching it --- exactly the behaviour that makes a sum-to-infinity possible.}
@@ -69,52 +89,114 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $4$ and common ratio $3$. Find the smallest $n$ for which $S_n>1000$.
+
 \ans{$n=6$}
 \method{$S_n=\dfrac{4(3^n-1)}{2}=2(3^n-1)>1000\Rightarrow3^n>501$. $3^5=243$ (too small), $3^6=729>501$. So $n=6$.}
 \inv{Always test the boundary powers directly rather than trying to solve the inequality with logarithms by hand under time pressure --- for small bases, a quick doubling/tripling table is faster.}
 
-\item
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item For which values of $r$ does the infinite GP with first term $5$ have a finite sum?
+\begin{itemize}
+\item[A)] all real $r$
+\item[B)] $r>0$ only
+\item[C)] $-1<r<1$
+\item[D)] $r\neq1$
+\end{itemize}
+
 \ans{C) $-1<r<1$}
 \method{The sum-to-infinity formula $S_\infty=\dfrac5{1-r}$ is only valid, i.e.\ only converges, when $|r|<1$ --- the first term's value ($5$) plays no role in whether convergence happens.}
 \inv{This is worth internalising as a general rule: convergence depends \emph{only} on $r$, never on $a$.}
 
-\item
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $3$ and common ratio $\tfrac23$. Find its sum to infinity.
+
 \ans{$9$}
 \method{$S_\infty=\dfrac3{1-\frac23}=\dfrac3{\frac13}=9$.}
 \inv{Cross-check: the terms are $3,2,\tfrac43,\tfrac89,\ldots$, and their running total climbs toward $9$.}
 
-\item
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item A GP has sum to infinity $20$ and first term $5$. Find $r$.
+\begin{itemize}
+\item[A)] $\tfrac34$
+\item[B)] $\tfrac14$
+\item[C)] $\tfrac45$
+\item[D)] $-\tfrac34$
+\end{itemize}
+
 \ans{A) $\tfrac34$}
 \method{$20=\dfrac5{1-r}\Rightarrow1-r=\dfrac5{20}=\dfrac14\Rightarrow r=\dfrac34$.}
 \inv{Always isolate $(1-r)$ first by cross-multiplying, then solve for $r$ last --- rearranging in the wrong order is where sign slips creep in.}
 
-\item
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $1$ and sum to infinity $2$. Find the second term.
+\begin{itemize}
+\item[A)] $\tfrac12$
+\item[B)] $\tfrac14$
+\item[C)] $2$
+\item[D)] $1$
+\end{itemize}
+
 \ans{A) $\tfrac12$}
 \method{$2=\dfrac1{1-r}\Rightarrow1-r=\dfrac12\Rightarrow r=\dfrac12$. Second term $=1\times\dfrac12=\dfrac12$.}
 \inv{Don't stop at finding $r$ --- the question asks for the second \emph{term}, not the ratio itself, even though here they coincide numerically.}
 
-\item
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item An AP and a GP both have first term $4$. The AP has common difference $2$; the GP has common ratio $2$. Which sequence has the larger 10th term?
+\begin{itemize}
+\item[A)] The AP
+\item[B)] The GP
+\item[C)] They are equal
+\item[D)] Cannot be determined
+\end{itemize}
+
 \ans{B) The GP}
 \method{AP 10th term: $4+9(2)=22$. GP 10th term: $4\times2^9=4\times512=2048$. $2048\gg22$.}
 \inv{This is the geometric-eventually-beats-arithmetic theme from Day 1's B10, now made explicit and quantitative: by the 10th term the gap is already close to two orders of magnitude.}
 
-\item
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item A GP has all terms positive and common ratio $r>1$. Does its sum to infinity exist?
+\begin{itemize}
+\item[A)] Yes, always.
+\item[B)] No, never --- it diverges.
+\item[C)] Only if the first term is small.
+\item[D)] Only if $r<2$.
+\end{itemize}
+
 \ans{B) No, never --- it diverges.}
 \method{$r>1$ means $|r|>1$, which is exactly the case excluded from convergence --- each term is strictly bigger than the last, so the partial sums grow without bound.}
 \inv{``All terms positive'' is a red herring here --- positivity says nothing about convergence; only the size of $|r|$ does.}
 
-\item
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Express the recurring decimal $0.\overline3=0.333\ldots$ as a fraction, using the geometric series sum-to-infinity formula.
+
 \ans{$\dfrac13$}
 \method{$0.\overline3=\dfrac3{10}+\dfrac3{100}+\dfrac3{1000}+\cdots$, a GP with $a=\dfrac3{10}$, $r=\dfrac1{10}$. $S_\infty=\dfrac{3/10}{1-1/10}=\dfrac{3/10}{9/10}=\dfrac39=\dfrac13$.}
 \inv{Every recurring decimal is secretly a geometric series with $a=$ (the repeating block, as a fraction of its place value) and $r=10^{-(\text{block length})}$ --- C5 generalises this to base $2$.}
 
-\item
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $2$ and common ratio $-3$. Find $S_4$.
+\begin{itemize}
+\item[A)] $40$
+\item[B)] $-40$
+\item[C)] $160$
+\item[D)] $-160$
+\end{itemize}
+
 \ans{B) $-40$}
 \method{$S_4=\dfrac{2((-3)^4-1)}{-3-1}=\dfrac{2(81-1)}{-4}=\dfrac{160}{-4}=-40$.}
 \inv{The trap is A) $40$, from mishandling the sign of the denominator $r-1=-4$ --- always compute $r-1$ (or $1-r$, matching whichever form of the formula you're using) as a signed number before dividing.}
 
-\item
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Recall from Day 2 that $(1-x)^{-1}=1+x+x^2+\cdots$ for $|x|<1$. Using $x=\tfrac13$, what does this series sum to?
+\begin{itemize}
+\item[A)] $\tfrac32$
+\item[B)] $\tfrac23$
+\item[C)] $3$
+\item[D)] $2$
+\end{itemize}
+
 \ans{A) $\tfrac32$}
 \method{$(1-x)^{-1}=\dfrac1{1-x}$. At $x=\dfrac13$: $\dfrac1{1-1/3}=\dfrac1{2/3}=\dfrac32$.}
 \inv{This is literally B3's GP with $a=1,r=\frac13$ in different notation --- $(1-x)^{-1}$ at a specific $x$ \emph{is} a sum-to-infinity calculation.}
@@ -126,42 +208,107 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item A GP has first term $1$ and unknown common ratio $r$. Its sum to infinity exists and equals $4$. What must be true about $r$?
+\begin{itemize}
+\item[A)] $r=\tfrac34$ exactly.
+\item[B)] $-1<r<1$, but no exact value is determinable.
+\item[C)] $r=\tfrac43$.
+\item[D)] Infinitely many values of $r$ satisfy this.
+\end{itemize}
+
 \ans{A) $r=\tfrac34$ exactly}
 \method{$\dfrac1{1-r}=4\Rightarrow1-r=\dfrac14\Rightarrow r=\dfrac34$ --- a single equation in one unknown has exactly one solution.}
 \inv{The trap (D) imagines the equation is somehow underdetermined --- it isn't: with $a$ fixed, $S_\infty=4$ pins down $r$ uniquely.}
 
-\item
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item A geometric sequence has first term $a$ and common ratio $r$, both positive integers with $r>1$. Let $S_n$ denote the sum of the first $n$ terms. Given $S_{18}-S_{12}=kS_6$ for some positive integer $k$, find the smallest possible value of $k$. \textit{\small(after TMUA 2022 Paper 1 Q8)}
+\begin{itemize}
+\item[A)] $2^6$
+\item[B)] $2^{12}$
+\item[C)] $2^{18}$
+\item[D)] $\dfrac{2^6}{2^6-1}$
+\item[E)] $2^6(2^6-1)$
+\end{itemize}
+
 \ans{B) $2^{12}$}
 \method{$S_{18}-S_{12}=\dfrac{a(r^{18}-r^{12})}{r-1}=\dfrac{ar^{12}(r^6-1)}{r-1}=r^{12}\cdot\dfrac{a(r^6-1)}{r-1}=r^{12}S_6$. So $k=r^{12}$, minimised over integers $r>1$ at $r=2$: $k=2^{12}=4096$.}
 \inv{The real TMUA question (2022 Paper 1 Q8) uses $S_{30}-S_{20}=kS_{10}$, giving $k=r^{20}$, minimised to $2^{20}$ --- same mechanism, the exponent is always (index gap between the two subtracted sums).}
 
-\item
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item An infinite geometric series has first term $a=6$ and common ratio $r=\dfrac{3k}{10}$, where $k$ is chosen uniformly at random from the integers $-5,-4,\ldots,4,5$ (11 equally likely values). Find the probability that the series converges \emph{and} its sum to infinity exceeds $5$. \textit{\small(after TMUA 2023 Paper 1 Q18)}
+\begin{itemize}
+\item[A)] $\tfrac4{11}$
+\item[B)] $\tfrac5{11}$
+\item[C)] $\tfrac7{11}$
+\item[D)] $\tfrac3{11}$
+\end{itemize}
+
 \ans{A) $\tfrac4{11}$}
 \method{Convergence needs $|r|<1$: $\left|\frac{3k}{10}\right|<1\Rightarrow|k|<\frac{10}3\approx3.33\Rightarrow k\in\{-3,\ldots,3\}$ ($7$ of the $11$ values). Among all $11$ possible $k$, $S_\infty=\dfrac6{1-3k/10}=\dfrac{60}{10-3k}>5$ requires $60>5(10-3k)\Rightarrow60>50-15k\Rightarrow15k>-10\Rightarrow k>-\tfrac23\Rightarrow k\geq0$ (since $10-3k>0$ throughout the converging range, the inequality direction is preserved). Combined with convergence, valid $k\in\{0,1,2,3\}$ --- $4$ values. Probability $=\dfrac4{11}$.}
 \inv{The real TMUA question (2023 Paper 1 Q18) uses $a=4$, $r=\frac{2k}7$, threshold $S>3$, landing on $\frac5{11}$ --- the denominator is always the \emph{full} sample space ($11$), not just the converging subset, because a non-converging $k$ automatically fails the ``sum exceeds the threshold'' condition rather than being excluded from the count.}
 
-\item
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The series $\sum_{k=1}^\infty ar^{k-1}$ converges (for real $a,r$) when $|r|<1$. If $a$ and $r$ are instead allowed to be complex numbers, which is the correct convergence condition?
+\begin{itemize}
+\item[A)] $|r|<1$ (the same condition, using the complex magnitude).
+\item[B)] $r<1$ (a real inequality).
+\item[C)] $a<1$.
+\item[D)] There is no meaningful convergence condition for complex $r$.
+\end{itemize}
+
 \ans{A) $|r|<1$ (using the complex magnitude)}
 \method{The geometric series' convergence proof relies only on $|r^n|\to0$, and $|r^n|=|r|^n$ holds identically whether $r$ is real or complex --- so the same magnitude condition transfers directly.}
 \inv{This is a genuine abstraction check: convergence of a geometric series is fundamentally about the \emph{size} of $r$ shrinking powers to $0$, a concept that doesn't care whether $r$ lives on the real line or in the complex plane.}
 
-\item
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Convert the recurring base-2 number $0.\overline{0111}=0.0111\,0111\,0111\ldots$ (base $2$) to a fraction in base $10$. \textit{\small(after TMUA 2023 Paper 2 Q15)}
+\begin{itemize}
+\item[A)] $\tfrac13$
+\item[B)] $\tfrac15$
+\item[C)] $\tfrac7{15}$
+\item[D)] $\tfrac7{16}$
+\end{itemize}
+
 \ans{C) $\dfrac7{15}$}
 \method{The repeating block $0111$ (base $2$) has integer value $0\times8+1\times4+1\times2+1\times1=7$, over a $4$-bit block. This is a GP with $a=\dfrac7{16}$, $r=\dfrac1{16}$: $S_\infty=\dfrac{7/16}{1-1/16}=\dfrac{7/16}{15/16}=\dfrac7{15}$.}
 \inv{The real TMUA question (2023 Paper 2 Q15) uses the block $0011$ (value $3$), giving $\dfrac3{15}=\dfrac15$ --- same mechanism as B8's base-10 recurring decimal, just with block value and place value both computed in base $2$ instead of base $10$.}
 
-\item
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following statements about arithmetic and geometric series is FALSE?
+\begin{itemize}
+\item[A)] An AP's terms grow linearly in $n$; a GP's terms with $|r|>1$ grow exponentially in $n$.
+\item[B)] An AP diverges to $\pm\infty$ (or stays constant) as $n\to\infty$, unless $d=0$.
+\item[C)] A GP can converge to a finite sum to infinity even though no individual term is exactly zero, provided $|r|<1$.
+\item[D)] Every convergent GP has all its terms equal to zero eventually.
+\end{itemize}
+
 \ans{D) Every convergent GP has all its terms equal to zero eventually.}
 \method{A convergent GP's terms $ar^{n-1}\to0$ as a \emph{limit}, but for any finite $n$ and $r\neq0$, $ar^{n-1}\neq0$ exactly --- the terms get arbitrarily small without ever reaching zero. A), B), C) are all genuinely true statements.}
 \inv{This is the same ``limit vs.\ actually reaching a value'' idea as D2's $0.\overline9=1$ --- a convergent sequence's terms approach $0$, and its partial sums approach $S_\infty$, but neither is literally attained at any finite step.}
 
-\item
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Using $(1-x)^{-1}=\sum_{k=0}^\infty x^k$ from Day 2, evaluate $\displaystyle\sum_{k=0}^\infty\dfrac1{5^k}$ by choosing an appropriate value of $x$.
+\begin{itemize}
+\item[A)] $\tfrac54$
+\item[B)] $\tfrac45$
+\item[C)] $5$
+\item[D)] $\tfrac14$
+\end{itemize}
+
 \ans{A) $\tfrac54$}
 \method{$\displaystyle\sum_{k=0}^\infty\frac1{5^k}=\sum_{k=0}^\infty\left(\frac15\right)^k=(1-\tfrac15)^{-1}$ at $x=\tfrac15$: $(1-\tfrac15)^{-1}=(\tfrac45)^{-1}=\dfrac54$.}
 \inv{Recognising $\sum\frac1{5^k}$ as $\sum x^k$ with $x=\frac15$ turns a series-summing problem into a one-line substitution --- exactly Day 2's payoff.}
 
-\item
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Let $S=1+2x+3x^2+4x^3+\cdots$. Recall from Day 2 that this is exactly $(1-x)^{-2}=\sum_{k=0}^\infty(k+1)x^k$. Evaluate $S$ at $x=\tfrac14$.
+\begin{itemize}
+\item[A)] $\tfrac{16}9$
+\item[B)] $\tfrac43$
+\item[C)] $\tfrac9{16}$
+\item[D)] $\tfrac34$
+\end{itemize}
+
 \ans{A) $\tfrac{16}9$}
 \method{$(1-x)^{-2}$ at $x=\tfrac14$: $(1-\tfrac14)^{-2}=(\tfrac34)^{-2}=\left(\tfrac43\right)^2=\dfrac{16}9$.}
 \inv{This series $1+2x+3x^2+\cdots$ is literally the derivative of $1+x+x^2+\cdots$ term-by-term (each $x^{k}$ becomes $kx^{k-1}$, then re-indexed) --- Day 2's D3 proved the finite analogue of exactly this differentiation trick.}
@@ -173,27 +320,61 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $\displaystyle\sum_{k=1}^\infty\dfrac1{2^k}=1$ exactly (not merely ``approaches $1$''), using the sum-to-infinity formula. Then explain why the partial sum $S_n=\sum_{k=1}^n\dfrac1{2^k}=1-\dfrac1{2^n}$ never actually equals $1$ for any finite $n$.
+
 \ans{Proof via the sum-to-infinity formula; partial sums approach but never reach $1$.}
 \method{$a=\frac12,r=\frac12$: $S_\infty=\dfrac{1/2}{1-1/2}=\dfrac{1/2}{1/2}=1$ exactly, by the formula itself (not an approximation). Separately, $S_n=\dfrac{a(1-r^n)}{1-r}=\dfrac{\frac12(1-(\frac12)^n)}{\frac12}=1-\dfrac1{2^n}$, which is strictly less than $1$ for every finite $n$ (since $\frac1{2^n}>0$ always) --- the infinite sum is the \emph{limit} of these partial sums, not a partial sum itself.}
 \inv{This is the precise resolution of the ``does $0.999\ldots$ really equal $1$'' confusion in D2: the infinite sum is defined as exactly the limit, and the limit is exactly $1$, even though no finite partial sum ever is.}
 
-\item
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Let $x=0.\overline9=0.999\ldots$ (a recurring $9$). Writing $x$ as an infinite geometric series and summing it, determine $x$ exactly.
+\begin{itemize}
+\item[A)] $x=1$ exactly.
+\item[B)] $x$ is infinitesimally less than $1$ but not equal to it.
+\item[C)] $0.\overline9$ is undefined.
+\item[D)] $x=\tfrac9{10}$.
+\end{itemize}
+
 \ans{A) $x=1$ exactly.}
 \method{$0.\overline9=\dfrac9{10}+\dfrac9{100}+\cdots$, a GP with $a=\dfrac9{10},r=\dfrac1{10}$. $S_\infty=\dfrac{9/10}{1-1/10}=\dfrac{9/10}{9/10}=1$.}
 \inv{Exactly D1's mechanism, applied to a famous ``paradox'' --- there is no meaningful sense in which $0.\overline9$ is ``slightly less than $1$''; it is defined as the limit of its partial sums, and that limit is exactly $1$.}
 
-\item
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item A ball is dropped from height $h$. Each time it bounces, it rebounds to a fraction $r$ of its previous height ($0<r<1$). Find, in terms of $h$ and $r$, the total distance the ball travels (up and down, forever) before coming to rest.
+\begin{itemize}
+\item[A)] $h\cdot\dfrac{1+r}{1-r}$
+\item[B)] $h\cdot\dfrac2{1-r}$
+\item[C)] $h\cdot\dfrac1{1-r}$
+\item[D)] $h(1+2r)$
+\end{itemize}
+
 \ans{A) $h\cdot\dfrac{1+r}{1-r}$}
 \method{Total distance $=$ (initial drop $h$) $+$ (every rebound-and-fall pair, each pair covering $2\times$ that rebound's height). Rebound heights are $hr,hr^2,hr^3,\ldots$, a GP with first term $hr$, ratio $r$. Distance from rebounds $=2\times\dfrac{hr}{1-r}$. Total $=h+\dfrac{2hr}{1-r}=\dfrac{h(1-r)+2hr}{1-r}=\dfrac{h(1+r)}{1-r}$.}
 \inv{The factor of $2$ per rebound (up then down) is the easiest part to forget --- always separate the one unpaired initial drop from the infinitely many paired bounces before summing.}
 
-\item
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item The sum to infinity of a GP equals the sum of its first two terms. What can be said about the common ratio $r$?
+\begin{itemize}
+\item[A)] $r=0$ (the ``GP'' is actually constant).
+\item[B)] $r=\pm1$.
+\item[C)] $r=\tfrac12$.
+\item[D)] No such $r$ exists.
+\end{itemize}
+
 \ans{A) $r=0$}
 \method{$S_\infty=a(1+r)\Rightarrow\dfrac a{1-r}=a(1+r)\Rightarrow\dfrac1{1-r}=1+r$ (for $a\neq0$) $\Rightarrow1=(1+r)(1-r)=1-r^2\Rightarrow r^2=0\Rightarrow r=0$.}
 \inv{$r=0$ makes every term after the first equal to $0$, so the ``GP'' is really just the constant $a$ --- a degenerate edge case, but the algebra forces it uniquely rather than allowing it as one option among several.}
 
-\item
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_1=3$ and $a_{n+1}=\tfrac12a_n$ for $n\geq1$. Using the sum-to-infinity formula, evaluate $\displaystyle\sum_{n=1}^\infty a_n$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $3$
+\item[C)] $4.5$
+\item[D)] It cannot be summed, since it's defined by a recurrence, not a formula.
+\end{itemize}
+
 \ans{A) $6$}
 \method{The recurrence $a_{n+1}=\frac12a_n$ with $a_1=3$ generates exactly the GP $3,\frac32,\frac34,\ldots$ (each term is half the last, matching $r=\frac12$). $S_\infty=\dfrac3{1-\frac12}=6$.}
 \inv{This is worth noticing directly: a recurrence relation defined by ``multiply by a constant each time'' is always secretly a GP in disguise, solvable with today's toolkit rather than needing anything new --- Day 4 tackles recurrences that \emph{aren't} this simple.}

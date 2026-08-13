@@ -12,55 +12,75 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item If the mean of the first $3$ terms of a sequence is an integer, what can be said about $a_1+a_2+a_3$?
+
 \ans{It must be a multiple of $3$.}
 \method{An integer mean $\dfrac{a_1+a_2+a_3}3$ requires the numerator to be divisible by $3$.}
 \inv{This is the defining relationship the whole sheet is built on: integer mean $\iff$ sum divisible by count.}
 
-\item
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item A sequence starts $a_1=5$. For the mean of the first two terms to be an integer, what parity must $a_2$ have?
+
 \ans{Odd}
 \method{$a_1+a_2$ must be even. Since $a_1=5$ is odd, $a_2$ must also be odd (odd $+$ odd $=$ even).}
 \inv{Parity constraints like this are the simplest version of the divisibility conditions D1's proof relies on.}
 
-\item
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Two players alternately write numbers; the second player always writes twice the first player's last number. What is the fixed point of the combined ``doubling'' operation?
+
 \ans{$x=0$}
 \method{$x=2x\Rightarrow x=0$.}
 \inv{A purely multiplicative map (no subtraction) always has $0$ as its only fixed point, unless the multiplier is exactly $1$.}
 
-\item
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence has $a_{n+1}=2a_n-10$. Find its fixed point.
+
 \ans{$x=10$}
 \method{$x=2x-10\Rightarrow-x=-10\Rightarrow x=10$.}
 \inv{Compare to A3: adding a subtraction term shifts the fixed point away from $0$.}
 
-\item
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Recall Day 4's shift trick: express the solution to $a_{n+1}=2a_n-10$ as a GP shifted by its fixed point.
+
 \ans{$b_n=a_n-10$ is a GP with ratio $2$; $a_n=(a_1-10)2^{n-1}+10$.}
 \method{Let $b_n=a_n-10$. Then $b_{n+1}=a_{n+1}-10=(2a_n-10)-10=2a_n-20=2(a_n-10)=2b_n$ --- a pure GP.}
 \inv{This is exactly Day 4's constant-shift technique, now the starting point for this sheet's alternating-recurrence work in B3 onward.}
 
-\item
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Give an example of $3$ distinct positive integers whose average is an integer.
+
 \ans{E.g.\ $1,2,3$ (average $2$).}
 \method{Any three consecutive integers work, since their sum is always $3\times(\text{middle term})$.}
-\inv{This is the ``middle term'' trick from Day 1, Section B, resurfacing here.}
+\inv{This is Day 1 B4's ``middle term'' trick resurfacing, but stripped of the arithmetic-sequence dressing: any odd-length run of integers with a well-defined middle value has sum $n\times(\text{middle term})$, whether the common gap is $1$ (consecutive integers, here) or $2$ (D1's actual $1,3,5$) or anything else --- the AP structure was never the point, only the middle-term symmetry was.}
 
-\item
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item True or false: if $n$ integers have an integer average, their sum must be a multiple of $n$.
+
 \ans{True}
 \method{This is the definition of an integer average: $\frac{\text{sum}}n\in\mathbb Z\iff n\mid\text{sum}$.}
 \inv{Every question in Sections A and B about ``integer mean'' is really a divisibility statement in disguise.}
 
-\item
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item A sequence of positive integers has running sum $20$ after $4$ terms. Is the mean of these $4$ terms an integer?
+
 \ans{Yes ($20/4=5$).}
 \method{$20$ is divisible by $4$, so the mean is the integer $5$.}
 \inv{A sanity-check question --- always verify divisibility directly rather than assuming it.}
 
-\item
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Recall Day 5's fixed-point theorem: if $a_{n+1}=f(a_n)$ converges to $L$, then $f(L)=L$. If a sequence instead must eventually \emph{repeat} a value (not necessarily converge), does $f(L)=L$ still have to apply at the repeated value?
+
 \ans{Not necessarily.}
 \method{$f(L)=L$ specifically requires the SAME function to be applied every step. In an alternating process (like B3 onward), two different operations take turns, so a value repeating doesn't correspond to a fixed point of either operation alone --- it corresponds to returning to the same point after a full CYCLE of the alternating process.}
 \inv{This is the key conceptual difference this sheet introduces beyond Day 5: today's ``repeating'' behaviour is about cycles of an alternating process, not single-function fixed points.}
 
-\item
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A sequence of $5$ integers has partial sums with $S_1=3,S_2=8$. Is $S_2$ divisible by $2$? Is the mean of the first two terms an integer?
+
 \ans{Yes; yes.}
 \method{$S_2=8$ is divisible by $2$, so the mean of the first two terms is $8/2=4$, an integer.}
-\inv{A direct application of A1's definition to specific numbers.}
+\inv{Notice this only needed $S_2$, never $a_1$ or $a_2$ individually --- the integer-mean condition lives entirely at the level of partial sums. That's exactly why D1's card-stacking argument can be run as a proof about sums and residues, without ever having to track which specific cards were placed.}
 
 \end{enumerate}
 
@@ -69,52 +89,102 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Construct a sequence of $4$ distinct positive integers such that every partial sum $S_1,S_2,S_3,S_4$ is divisible by its index.
+
 \ans{$1,3,5,7$ (partial sums $1,4,9,16$, divisible by $1,2,3,4$ respectively).}
 \method{Build term by term: $a_1=1$ ($S_1=1$, trivially divisible by $1$). Need $S_2$ even: pick $a_2=3$ ($S_2=4$, divisible by $2$). Need $S_3$ divisible by $3$: pick $a_3=5$ ($S_3=9$, divisible by $3$). Need $S_4$ divisible by $4$: pick $a_4=7$ ($S_4=16$, divisible by $4$).}
 \inv{Consecutive odd numbers work because $S_k=k^2$ for this specific construction --- always a perfect square, and $k^2$ is always divisible by $k$.}
 
-\item
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Using your sequence from B1, if it is $1,3,5,7$, what is $S_4/4$ (the mean of all four terms)?
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $16$
+\item[C)] $7$
+\item[D)] $2$
+\end{itemize}
+
 \ans{A) $4$}
 \method{$S_4=16$, mean $=16/4=4$.}
-\inv{Direct arithmetic on B1's result.}
+\inv{$S_4=16$ being divisible by $4$ isn't luck --- it's exactly the constraint B1's construction was built to satisfy at every step, not just the last one. The same guarantee is what D1's proof has to establish from scratch, without a construction handed to it in advance.}
 
-\item
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Alice writes $a$, Bob writes $3a$, Alice writes $3a-12$ (Bob's value minus $12$), and this two-step pattern repeats (Bob triples, Alice subtracts $12$). Find the fixed point of Alice's combined per-turn map $f(x)=3x-12$.
+
 \ans{$x=6$}
 \method{$x=3x-12\Rightarrow-2x=-12\Rightarrow x=6$.}
-\inv{Same technique as A4, with $r=3,c=12$ instead of $r=2,c=10$.}
+\inv{$f(x)=3x-12$ is Alice's map for one FULL cycle (her own turn, then Bob tripling, then her next turn) --- not just ``the same technique as A4,'' but the reason the two-player alternating process reduces to a single-player fixed-point problem at all. B6--B8 build directly on this reduction to search for every value of $a$ that reappears, not just the fixed point $6$.}
 
-\item
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item If $a=6$ exactly (the fixed point from B3), what happens to every subsequent number written?
+\begin{itemize}
+\item[A)] Every Alice-turn writes exactly $6$ forever; Bob alternates writing $18$.
+\item[B)] The numbers grow without bound.
+\item[C)] The numbers eventually reach $0$.
+\item[D)] The sequence is not well-defined.
+\end{itemize}
+
 \ans{A) Every Alice-turn writes exactly $6$ forever; Bob alternates writing $18$.}
 \method{$a=6$ is the fixed point, so Bob writes $3(6)=18$, and Alice writes $18-12=6=a$ again --- the cycle repeats identically forever.}
 \inv{Once a process starting from a fixed point returns to that same value, it must repeat identically, since the entire future is determined by the current value alone.}
 
-\item
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item For a general starting value $a$, express Alice's value after $k$ applications of $f(x)=3x-12$ in closed form, using the shift-to-fixed-point trick.
+\begin{itemize}
+\item[A)] $(a-6)3^k+6$
+\item[B)] $a\cdot3^k-6$
+\item[C)] $3^ka-6k$
+\item[D)] $(a+6)3^k-6$
+\end{itemize}
+
 \ans{A) $(a-6)3^k+6$}
 \method{Let $b_n=a_n-6$ (the shift trick from A5, now with $r=3$): $b_{n+1}=3b_n$, so $b_k=(a-6)3^k$ after $k$ applications, giving $a_k=(a-6)3^k+6$.}
 \inv{This is the general closed form for ANY ``multiply-then-subtract'' recurrence, with the fixed point playing the role Day 4's GP-shift constant played.}
 
-\item
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Using B5's formula, show that Alice's OWN sequence of values (ignoring Bob's separately-written numbers) can only return to the original $a$ again if $a$ already equals the fixed point $6$.
+
 \ans{Only if $a$ already equals $6$.}
 \method{Setting $(a-6)3^k+6=a$ (Alice's own $k$-th value equals $a$): $(a-6)3^k=(a-6)\Rightarrow(a-6)(3^k-1)=0$. Since $k\geq1$ means $3^k-1\neq0$, this forces $a-6=0$, i.e.\ $a=6$.}
 \inv{This confirms Alice's own sequence (ignoring Bob's turns) can never return to a non-fixed-point value --- any repeat must come from Bob's turns instead, motivating B7.}
 
-\item
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item So if $a\neq6$ is ever going to reappear, it must happen at one of Bob's turns. Bob's $k$-th value is $3\left[(a-6)3^{k-1}+6\right]$. Setting this equal to $a$ and writing $u=a-6$, which equation results?
+\begin{itemize}
+\item[A)] $u(3^k-1)=-12$
+\item[B)] $u(3^k-1)=12$
+\item[C)] $u(3^k+1)=-12$
+\item[D)] $u=12(3^k-1)$
+\end{itemize}
+
 \ans{A) $u(3^k-1)=-12$}
 \method{Bob's $k$-th value $=3\left[(a-6)3^{k-1}+6\right]=(a-6)3^k+18$. Setting this equal to $a=u+6$: $u\cdot3^k+18=u+6\Rightarrow u\cdot3^k-u=-12\Rightarrow u(3^k-1)=-12$.}
 \inv{This is the key equation the rest of the sheet's alternating-recurrence work depends on --- always re-derive it rather than memorising the final formula, since the constants change between questions.}
 
-\item
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Using B7's equation $u=\dfrac{-12}{3^k-1}$, find all integer values of $k\geq1$ giving integer $u$, and hence all possible values of $a=u+6$ (besides the trivial $a=6$).
+
 \ans{$k=1$ gives $a=0$ (no other $k$ works); possible values: $a\in\{0,6\}$.}
 \method{$k=1$: $u=\dfrac{-12}{3-1}=-6\Rightarrow a=0$. $k=2$: $u=\dfrac{-12}{9-1}=-1.5$, not an integer. $k=3$: $u=\dfrac{-12}{27-1}=-\dfrac{12}{26}$, not an integer. For $k\geq3$, $3^k-1>12$, so $|u|<1$ and can never be a nonzero integer again.}
 \inv{Combined with B6, the complete answer is: $a=6$ (Alice's fixed point) or $a=0$ (from Bob's first turn) --- exactly two possible values for this choice of $r,c$.}
 
-\item
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item In general, for the process ``multiply by $r$, then subtract $c$,'' how many possible values of $a$ can cause $a$ to reappear at exactly Bob's first turn ($k=1$)?
+\begin{itemize}
+\item[A)] Exactly $1$ candidate (from solving one linear equation), though it may not be an integer for given $r,c$.
+\item[B)] Always $2$.
+\item[C)] Infinitely many.
+\item[D)] It depends on the sign of $a$.
+\end{itemize}
+
 \ans{A) Exactly $1$ candidate, though it may not be an integer.}
 \method{Setting Bob's first value $ra$ equal to $a$ gives $ra=a\Rightarrow a(r-1)=0\Rightarrow a=0$ (for $r\neq1$) --- always exactly one candidate value, though whether it's consistent with the rest of the setup depends on $r,c$.}
 \inv{This generalises B7's $k=1$ case directly --- always exactly one linear equation, hence at most one solution, at each fixed $k$.}
 
-\item
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item A sequence of $6$ positive integers has every partial sum $S_1,\ldots,S_6$ divisible by its index. Given $a_1=2$, construct one valid choice for $a_2,\ldots,a_6$.
+
 \ans{E.g.\ $2,4,6,8,10,12$ (partial sums $2,6,12,20,30,42$).}
 \method{Consecutive even numbers starting from $2$ give $S_k=2+4+\cdots+2k=k(k+1)$, which is always divisible by $k$ (since $S_k/k=k+1$, an integer).}
 \inv{This is B1's odd-number trick's ``twin'' --- consecutive even numbers give $S_k=k(k+1)$ instead of $k^2$, an equally clean always-divisible form.}
@@ -126,42 +196,106 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is a general construction of positive integers $a_1,a_2,\ldots,a_n$ (for any $n$) that ALWAYS makes every partial sum $S_k$ divisible by $k$?
+\begin{itemize}
+\item[A)] $a_k=k$ for all $k$.
+\item[B)] $a_k=2^k$ for all $k$.
+\item[C)] $a_k=1$ for all $k$.
+\item[D)] $a_k=k^2$ for all $k$.
+\end{itemize}
+
 \ans{C) $a_k=1$ for all $k$.}
 \method{With $a_k=1$ always, $S_k=k$, and $k/k=1$ always an integer --- works for every $n$. A) fails for even $k$ (e.g.\ $k=2$: $S_2=3$, not divisible by $2$). B) fails (e.g.\ $k=3$: $S_3=1+2+4=7$? recompute: $a_k=2^k$ gives $S_3=2+4+8=14$, not divisible by $3$). D) fails (e.g.\ $k=2$: $S_2=1+4=5$, not divisible by $2$).}
 \inv{The simplest possible construction (all $1$s) is also the most robust --- always check the trivial case before assuming a construction needs to be clever.}
 
-\item
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item In the alternating ``multiply by $r$, subtract $c$'' process, the fixed point of Alice's per-turn map $f(x)=rx-c$ is always which formula (for $r\neq1$)?
+\begin{itemize}
+\item[A)] $x=\dfrac c{r-1}$
+\item[B)] $x=\dfrac c{r+1}$
+\item[C)] $x=c(r-1)$
+\item[D)] $x=\dfrac r{c-1}$
+\end{itemize}
+
 \ans{A) $x=\dfrac c{r-1}$}
 \method{$x=rx-c\Rightarrow x(1-r)=-c\Rightarrow x=\dfrac c{r-1}$ (for $r\neq1$).}
 \inv{This single formula covers every fixed point computed so far in this sheet: A3/A4 ($r=2$), B3 ($r=3$) --- always the same derivation, just different numbers.}
 
-\item
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item For $r=5,c=20$, what is the fixed point?
+\begin{itemize}
+\item[A)] $5$
+\item[B)] $4$
+\item[C)] $20$
+\item[D)] $25$
+\end{itemize}
+
 \ans{A) $5$}
 \method{$x=\dfrac{20}{5-1}=\dfrac{20}4=5$.}
-\inv{Direct application of C2's formula.}
+\inv{Notice the fixed point $5$ sits strictly between $0$ and $c=20$ whenever $r>1$ --- worth checking why: $\frac c{r-1}<c$ exactly when $r-1>1$, i.e.\ $r>2$, and it stays positive as long as $c,r-1$ share a sign.}
 
-\item
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Which is the correct general formula for Alice's fixed point (same setup as C2)?
+\begin{itemize}
+\item[A)] $x=\dfrac c{r-1}$
+\item[B)] $x=\dfrac c{r+1}$
+\item[C)] $x=c(r-1)$
+\item[D)] $x=\dfrac r{c-1}$
+\end{itemize}
+
 \ans{A) $x=\dfrac c{r-1}$}
 \method{Same derivation as C2.}
 \inv{This question and C2 are deliberately identical --- recognising a repeated question instantly (rather than re-deriving) is itself a speed skill.}
 
-\item
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Values of $a$ that cause $a$ to reappear come from two sources: Alice's own fixed point, and (at most) finitely many solutions from Bob's-turn-matches-$a$ equations. Which statement about the second source is always true?
+\begin{itemize}
+\item[A)] It has infinitely many integer solutions in general.
+\item[B)] It has at most one candidate value of $a$ for each choice of $k$, but only finitely many $k$ can give an integer solution, since $|u|=\frac c{r^k-1}\to0$ as $k\to\infty$.
+\item[C)] It never has any integer solutions.
+\item[D)] It always has exactly one integer solution for every $r,c$.
+\end{itemize}
+
 \ans{B) At most one candidate per $k$, but only finitely many $k$ give integer solutions.}
 \method{$|u|=\dfrac c{r^k-1}\to0$ as $k\to\infty$ (since $r\geq2$), so eventually $|u|<1$, which is impossible for a nonzero integer --- meaning only finitely many small $k$ need to be checked at all.}
 \inv{This is exactly what B8 computed concretely, and what D3 proves formally --- always a finite, bounded search, never an infinite one.}
 
-\item
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item A sequence of positive integers has $S_n$ divisible by $n$ for every $n$ up to some large value. Given $a_1$ is known, which must be true about $a_2$?
+\begin{itemize}
+\item[A)] $a_1+a_2$ is even.
+\item[B)] $a_2=a_1$.
+\item[C)] $a_2$ must be even.
+\item[D)] $a_2$ must be a multiple of $a_1$.
+\end{itemize}
+
 \ans{A) $a_1+a_2$ is even.}
 \method{$S_2=a_1+a_2$ must be divisible by $2$ --- this is the only condition forced; $a_2$'s exact value, its size relative to $a_1$, or whether it's individually even are all unconstrained beyond the parity-matching requirement.}
 \inv{Distinguishing what's actually forced from what merely happens to be true in one example is the core skill Section C tests all sheet.}
 
-\item
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item A sequence of positive integers is built one at a time, maintaining $S_n$ divisible by $n$ at each step. At each step, does a valid next term always exist?
+\begin{itemize}
+\item[A)] Yes --- choosing $a_{n+1}\equiv-S_n\pmod{n+1}$ (the least positive such residue, or any larger value with that residue) always gives a valid $S_{n+1}$.
+\item[B)] No --- eventually the sequence must get stuck.
+\item[C)] It depends on whether $n$ is prime.
+\item[D)] Only if all previous terms were even.
+\end{itemize}
+
 \ans{A) Yes, a valid next term always exists.}
 \method{Given any $S_n$ divisible by $n$, choose $a_{n+1}$ to be the smallest positive integer with $a_{n+1}\equiv-S_n\pmod{n+1}$ (or any larger integer with that same residue) --- then $S_{n+1}=S_n+a_{n+1}\equiv S_n+(-S_n)\equiv0\pmod{n+1}$, valid by construction.}
 \inv{This proves the divisibility condition itself never runs out of solutions --- C8 explains what DOES cause the real problem (D1) to eventually get stuck.}
 
-\item
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Given an UNLIMITED supply of positive integers to choose from (no finite deck), must the construction from C7 eventually get stuck?
+\begin{itemize}
+\item[A)] No --- with unlimited supply the process can always continue forever; getting stuck is only possible with a FINITE pool of available numbers.
+\item[B)] Yes, it must get stuck within finitely many steps regardless of supply.
+\item[C)] It depends on the value of $a_1$.
+\item[D)] The process is stuck immediately after the first step.
+\end{itemize}
+
 \ans{A) No, with unlimited supply the process never gets stuck.}
 \method{C7's construction works for any $S_n$, using any sufficiently large unused integer with the right residue --- with infinitely many integers available, such a choice always exists.}
 \inv{This is the crux of the real BMO1 problem (D1): the divisibility condition is never the obstacle in the abstract, but a FINITE deck of specific numbers can run out of valid choices, forcing an early stop --- exactly the tension D1 explores.}
@@ -173,7 +307,9 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item A deck contains cards numbered $1$ to $6$. Cards are drawn one at a time and placed in a row (each new card added to the right), maintaining that at every stage the mean of the numbers placed so far is an integer. Play stops when no remaining card can be validly added. Prove that the smallest possible number of cards in the row when play stops is exactly $3$, and give an example achieving it. \textit{\small(after BMO1 2018 Q6)}
+
 \ans{The minimum is exactly $3$; e.g.\ $1,3,5$.}
 \method{\emph{Length $1$ is never stuck:} after placing any single card $a_1$, the remaining $5$ cards from $\{1,\ldots,6\}$ include at least one of each parity (removing one card from three of each parity leaves at least two of the needed parity), so a card $c$ with $a_1+c$ even always exists.\\
 \emph{Length $2$ is never stuck:} split $\{1,\ldots,6\}$ into residue classes mod $3$: $\{3,6\},\{1,4\},\{2,5\}$. Crucially, in every one of these three classes, the two members have DIFFERENT parities (e.g.\ $3$ is odd, $6$ is even). Since a valid $2$-card start needs $a_1+a_2$ even (same parity), $a_1,a_2$ can never both come from the same residue class --- so no residue class mod $3$ can ever be fully used up by a valid $2$-card start, meaning a valid $c$ with $S_2+c\equiv0\pmod3$ always remains available.\\
@@ -181,22 +317,42 @@
 Since lengths $1$ and $2$ can never be stuck, and length $3$ CAN be stuck, the minimum possible stopping length is exactly $3$. $\square$}
 \inv{The real BMO1 question (2018 Q6) uses cards $1$ to $300$ instead of $1$ to $6$ --- the same two ideas (a parity argument for ruling out length $1$, a residue-class pigeonhole argument for ruling out length $2$, and beyond) scale up, but the full argument for exactly how long the sequence can be forced to survive requires substantially more casework at that size.}
 
-\item
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Alice and Bob take turns writing numbers on a board. Alice starts by writing an integer $a$ with $-100\leq a\leq100$. On each of Bob's turns, he writes twice the number Alice wrote last. On each of Alice's subsequent turns, she writes the number $45$ less than the number Bob wrote last. At some point, the number $a$ is written on the board for a second time. Find all possible values of $a$. \textit{\small(after BMO1 2021 Q1)}
+
 \ans{$a\in\{0,30,42,45\}$}
 \method{The combined map is $f(x)=2x-45$, fixed point $x=\dfrac{45}{2-1}=45$ (Alice's own branch: only $a=45$ can repeat via her own values, by the same argument as B6). For Bob's-turn branch, with $u=a-45$: $u(2^k-1)=-45$. Since $2^k-1>45$ once $k\geq6$ ($2^6-1=63$), only $k=1,\ldots,5$ need checking: $k{=}1$: $u=-45\Rightarrow a=0$. $k{=}2$: $u=-15\Rightarrow a=30$. $k{=}3$: $u=-45/7$, not integer. $k{=}4$: $u=-3\Rightarrow a=42$. $k{=}5$: $u=-45/31$, not integer. So the Bob-branch gives $a\in\{0,30,42\}$, and combined with Alice's fixed point $a=45$: the full set is $\{0,30,42,45\}$.}
 \inv{This is B3--B8's exact method, applied with the real question's numbers ($r=2,c=45$) instead of the practice numbers ($r=3,c=12$) --- the SAME general argument, just larger, uglier constants. All four values were independently confirmed by direct simulation of the writing process.}
 
-\item
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item Prove, in general, that for the alternating process with integer ratio $r\geq2$ and positive integer subtraction constant $c$, a starting value $a\neq\frac c{r-1}$ can cause $a$ to reappear at Bob's $k$-th turn for at most finitely many values of $k$ --- and hence that the full search for all valid $a$ always terminates.
+
 \ans{Proof via the finite-$k$ bound.}
 \method{From the Bob-branch equation (B7's derivation, general form): $u(r^k-1)=-c$, so $|u|=\dfrac c{r^k-1}$. Since $r\geq2$, $r^k-1$ is strictly increasing in $k$ and $\to\infty$. So there exists some $K$ (depending only on $r,c$) beyond which $r^k-1>c$, forcing $|u|<1$ for all $k>K$ --- impossible for a nonzero integer $u$ (recall $a\neq\frac c{r-1}$ means $u\neq0$). Hence only $k=1,\ldots,K$ can possibly give an integer solution: finitely many candidates, and the search terminates. $\square$}
 \inv{This is exactly the bound used concretely in B8 ($K=2$, since $3^3-1=26>12$) and D2 ($K=5$, since $2^6-1=63>45$) --- the proof explains why those specific small cutoffs were correct without needing to check arbitrarily large $k$ by hand.}
 
-\item
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item For the card-sequencing problem (as in D1), with cards numbered $1$ to $N$: is it always true that at least $2$ cards can be placed (i.e.\ length-$1$-stuck is impossible) whenever $N\geq4$?
+\begin{itemize}
+\item[A)] True --- for $N\geq4$, both parity classes have at least $2$ members, so removing any single card always leaves at least one same-parity card remaining.
+\item[B)] False --- length-$1$-stuck remains possible for some $N\geq4$.
+\item[C)] It depends on whether $N$ is prime.
+\item[D)] True only for even $N$.
+\end{itemize}
+
 \ans{A) True.}
 \method{For $N\geq4$: the two parity classes among $\{1,\ldots,N\}$ have sizes $\lceil N/2\rceil$ and $\lfloor N/2\rfloor$, and for $N\geq4$, $\lfloor N/2\rfloor\geq2$. Removing any single card $a_1$ (from whichever parity class) leaves at least $\lfloor N/2\rfloor-1\geq1$ cards of that same parity remaining, so a valid extension $c$ (with $a_1+c$ even) always exists.}
 \inv{This argument fails exactly at $N=3$ (where the minority parity class has size $1$): choosing $a_1=2$ from $\{1,2,3\}$ leaves $\{1,3\}$, both odd, with no even card left to pair with --- length-$1$-stuck IS possible there, which is why D1's argument needed $N\geq6$ (comfortably past the $N=3$ edge case) to guarantee length $1$ is never stuck.}
 
-\item
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item In both the card-sequencing problem (D1) and the alternating-writing problem (D2), the eventual stopping/repeating behaviour was forced by a finiteness argument --- a finite pool of cards, or a shrinking magnitude $|u|\to0$. What is the common underlying principle?
+\begin{itemize}
+\item[A)] A process constrained to a finite or shrinking set of possibilities cannot continue satisfying an ever-tightening condition forever --- it must eventually terminate or repeat.
+\item[B)] Every recurrence relation eventually becomes periodic.
+\item[C)] Integer sequences are always bounded.
+\item[D)] There is no common principle; the two problems are unrelated.
+\end{itemize}
+
 \ans{A) A finite or shrinking set of possibilities cannot satisfy an ever-tightening condition forever.}
 \method{In D1, the pool of available cards is literally finite and shrinks by one each turn. In D2/D3, the ``room to manoeuvre'' shrinks because $|u|=\frac c{r^k-1}$ strictly decreases toward $0$, eventually leaving no integer solution. Both are instances of the same principle: when the space of remaining valid options is forced to shrink (whether by physically running out of objects, or by an inequality tightening), the process cannot continue satisfying its constraint indefinitely.}
 \inv{This ``finiteness forces termination or repetition'' principle is one of the most common proof strategies in BMO1-level combinatorics and number theory --- recognising it as the same idea across two very differently-dressed problems is exactly the kind of pattern-matching this capstone day is building toward Day 7's full synthesis.}

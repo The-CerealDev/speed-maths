@@ -12,52 +12,72 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Write down the nth term of the arithmetic sequence $5, 8, 11, 14, \ldots$
+
 \ans{$3n+2$}
 \method{$a=5$, $d=3$. $a_n=a+(n-1)d=5+3(n-1)=3n+2$.}
 \inv{Check: $a_1=5$ \checkmark, $a_4=14$ \checkmark. Every AP's nth term is linear in $n$ --- the coefficient of $n$ is always the common difference.}
 
-\item
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $7$ and common difference $-3$. Find the 20th term.
+
 \ans{$-50$}
 \method{$a_{20}=7+19(-3)=7-57=-50$.}
 \inv{A negative common difference just means the ``$n-1$ steps'' subtract instead of add. The formula never changes.}
 
-\item
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $4$ and common difference $5$. Find the sum of the first $10$ terms.
+
 \ans{$265$}
 \method{$S_{10}=\frac{10}{2}(2(4)+9(5))=5(8+45)=5(53)=265$.}
 \inv{Cross-check with $S_n=\frac n2(a_1+a_n)$: $a_{10}=4+9(5)=49$, $S_{10}=5(4+49)=265$. \checkmark}
 
-\item
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence has nth term $4n-1$. Write down its first three terms, and state whether the sequence is arithmetic.
+
 \ans{$3,7,11$; arithmetic with $d=4$}
 \method{$a_1=3,a_2=7,a_3=11$. Consecutive differences are both $4$, so the sequence is arithmetic.}
 \inv{Any nth term of the form $pn+q$ is automatically arithmetic with $d=p$ --- this is worth recognising instantly rather than re-deriving each time.}
 
-\item
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $a_1=2$ and $a_5=18$. Find the common difference.
+
 \ans{$4$}
 \method{$a_5-a_1=4d=16\Rightarrow d=4$.}
 \inv{In general, $a_m-a_k=(m-k)d$ --- the number of ``steps'' between any two terms is the index difference, not one of the indices themselves.}
 
-\item
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $1+2+3+\cdots+50$.
+
 \ans{$1275$}
 \method{$S_{50}=\frac{50\cdot51}{2}=1275$.}
 \inv{This is Gauss's schoolroom trick: pair the 1st and 50th, 2nd and 49th, etc. --- each pair sums to $51$, and there are $25$ pairs.}
 
-\item
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $S_n = n^2+3n$. Find the first term $a_1$.
+
 \ans{$4$}
 \method{$a_1=S_1=1^2+3(1)=4$.}
 \inv{More generally $a_n=S_n-S_{n-1}$ for $n\geq2$, but $a_1$ is just $S_1$ on its own --- a common slip is applying the subtraction formula to $n=1$ too, which needs $S_0$ (always $0$) instead.}
 
-\item
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: every arithmetic sequence with integer first term and integer common difference consists entirely of integers.
+
 \ans{True}
 \method{$a_n=a_1+(n-1)d$ is a sum of integers whenever $a_1,d,n$ are integers, so every term is an integer.}
 \inv{The converse is false: a sequence of all integers need not be arithmetic (e.g.\ $1,2,4,8,\ldots$).}
 
-\item
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item An AP has 3rd term $13$ and 9th term $37$. Find the common difference.
+
 \ans{$4$}
 \method{9th term $-$ 3rd term is $6$ steps of $d$: $37-13=24=6d\Rightarrow d=4$.}
 \inv{Always count steps as (index difference), not (larger index). Between the 3rd and 9th term there are $9-3=6$ gaps, not $9$ or $3$.}
 
-\item
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item An AP has first term $4$ and 6th term $29$. Find the common difference.
+
 \ans{$5$}
 \method{6th term $-$ 1st term is $5$ steps: $29-4=25=5d\Rightarrow d=5$.}
 \inv{Same step-counting idea as A9, now anchored at the first term directly.}
@@ -69,52 +89,114 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $3$, last term $59$, and $15$ terms. Find the common difference and the sum of all $15$ terms.
+
 \ans{$d=4$, $S_{15}=465$}
 \method{$l=a+(n-1)d\Rightarrow59=3+14d\Rightarrow d=4$. $S_{15}=\frac{15}{2}(3+59)=\frac{15}{2}(62)=465$.}
 \inv{Whenever you're given first term, last term, and count, $S_n=\frac n2(a+l)$ is faster than finding $d$ first and building back up through $S_n=\frac n2(2a+(n-1)d)$.}
 
-\item
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item The sum of the first $8$ terms of an AP is $100$, and the sum of the first $4$ terms is $30$. What is the sum of terms $5$ through $8$?
+\begin{itemize}
+\item[A)] $50$
+\item[B)] $70$
+\item[C)] $130$
+\item[D)] $100$
+\end{itemize}
+
 \ans{B) $70$}
 \method{$S_8-S_4$ is exactly the sum of terms $5$ through $8$, by definition of $S_n$ as a running total: $100-30=70$. No need to ever find $a$ or $d$.}
 \inv{The trap is trying to solve for $a,d$ from the two sums first --- possible, but a detour. $S_8-S_4$ is a direct subtraction of two given numbers.}
 
-\item
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $3+6+9+\cdots+3n = \dfrac{3n(n+1)}{2}$ using the arithmetic series sum formula.
+
 \ans{Proof by the AP sum formula.}
 \method{$3,6,9,\ldots,3n$ is an AP with $a=3$, $d=3$, last term $3n$, and $n$ terms. $S_n=\frac n2(a+l)=\frac n2(3+3n)=\frac{3n(n+1)}{2}$. $\square$}
 \inv{This is exactly $3\times(1+2+\cdots+n)$ --- scaling every term of an AP by a constant $k$ scales the sum by $k$ too, since $S_n$ is linear in the terms.}
 
-\item
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $21$ terms summing to $315$. Find the middle (11th) term.
+\begin{itemize}
+\item[A)] $15$
+\item[B)] $315$
+\item[C)] $21$
+\item[D)] It cannot be determined without knowing $a$ and $d$.
+\end{itemize}
+
 \ans{A) $15$}
 \method{For an AP with an odd number of terms $n=2k+1$, the sum equals $n$ times the middle term (the terms pair up symmetrically around it, and the middle term is left over unpaired but equal to the pair-average). Here $315=21\times(\text{middle term})\Rightarrow\text{middle term}=15$.}
 \inv{This only works because $21$ is odd --- for an even-length AP there's no single middle term, and you'd need $S_n=\frac n2(a_1+a_n)$ instead, which needs both endpoints.}
 
-\item
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $10$ and common difference $-3$. Find the last term of the sequence that is still positive.
+
 \ans{$1$ (the 4th term)}
 \method{$a_n=10-3(n-1)>0\Rightarrow n<\frac{13}{3}\approx4.33$, so the last positive term is $a_4=10-9=1$ (and $a_5=-2<0$ confirms the sequence has already crossed zero).}
 \inv{Always check the boundary term itself, not just the inequality's cutoff --- $n<4.33$ tells you $n=4$ is the last valid integer, but you still need to confirm $a_4$ is actually positive (it could in principle have landed exactly on $0$).}
 
-\item
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is NOT necessarily true for an arithmetic sequence with common difference $d>0$?
+\begin{itemize}
+\item[A)] The sequence is strictly increasing.
+\item[B)] $a_{n+1}-a_n=d$ for every $n$.
+\item[C)] The sequence is unbounded above.
+\item[D)] All terms are positive.
+\end{itemize}
+
 \ans{D) All terms are positive.}
 \method{$d>0$ guarantees the sequence is strictly increasing (A, true) and therefore unbounded above (C, true), and by definition $a_{n+1}-a_n=d$ always (B, true). But the first term $a_1$ can be any real number, including very negative --- e.g.\ $a_1=-100,d=1$ has plenty of negative terms. So D is the one that need not hold.}
 \inv{$d>0$ constrains the \emph{shape} of the sequence, not its starting position.}
 
-\item
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Two APs share the same common difference $d$. Their first terms differ by $6$. What is the difference between their nth terms, for any $n$?
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $6+(n-1)d$
+\item[C)] $6n$
+\item[D)] It depends on $d$.
+\end{itemize}
+
 \ans{A) $6$}
 \method{Let the sequences be $a_n=a_1+(n-1)d$ and $b_n=b_1+(n-1)d$ (same $d$). Then $a_n-b_n=a_1-b_1=6$ for every $n$ --- the $(n-1)d$ terms cancel exactly because the common difference is shared.}
 \inv{If the common differences were different, the gap would grow (or shrink) linearly in $n$ instead of staying constant --- try it with $d_1=2,d_2=3$ to see the gap become $6+(n-1)$.}
 
-\item
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $a_3=11$ and $a_3+a_5=32$. Find the common difference.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $5$
+\item[D)] $6$
+\end{itemize}
+
 \ans{C) $5$}
 \method{$a_3+a_5=(a+2d)+(a+4d)=2a+6d=32\Rightarrow a+3d=16$. Subtracting $a_3=a+2d=11$: $(a+3d)-(a+2d)=16-11\Rightarrow d=5$.}
 \inv{Once $d=5$, back-substitute: $a=11-2(5)=1$. Always sanity-check by plugging both original conditions back in: $a_3=1+10=11$ \checkmark, $a_3+a_5=11+21=32$ \checkmark.}
 
-\item
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $a$ and common difference $d$, both positive integers, and its 5th term equals $17$. Which pair $(a,d)$ is NOT possible?
+\begin{itemize}
+\item[A)] $(13,1)$
+\item[B)] $(9,2)$
+\item[C)] $(5,3)$
+\item[D)] $(2,4)$
+\end{itemize}
+
 \ans{D) $(2,4)$}
 \method{Need $a+4d=17$ with $a,d$ positive integers. Check each: $13+4(1)=17$\checkmark, $9+4(2)=17$\checkmark, $5+4(3)=17$\checkmark, but $2+4(4)=18\neq17$ --- D fails the defining equation outright.}
 \inv{The three valid pairs follow the pattern ``$a$ drops by $4$ as $d$ rises by $1$'' (13,9,5,1,\ldots) --- option D's $a=2$ breaks that pattern, which is worth noticing as a sanity check even before computing.}
 
-\item
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item An AP with first term $2$ and common difference $3$ (terms $2,5,8,11,\ldots$) and a GP with first term $2$ and common ratio $2$ (terms $2,4,8,16,\ldots$) are compared term by term. At which term number do they next agree, within the first 6 terms of each?
+\begin{itemize}
+\item[A)] $n=2$
+\item[B)] $n=3$
+\item[C)] $n=4$
+\item[D)] They never agree again within 6 terms.
+\end{itemize}
+
 \ans{B) $n=3$}
 \method{AP: $2,5,8,11,14,17$. GP: $2,4,8,16,32,64$. Comparing term by term, both give $8$ at the 3rd term.}
 \inv{After $n=3$ the GP overtakes the AP permanently and they never meet again --- geometric growth eventually dominates linear growth no matter the starting ratio, a theme this pillar returns to when comparing arithmetic and geometric series directly.}
@@ -126,42 +208,115 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $n$ integer terms ($n\geq2$) summing to $15$. Which of the following must be true? \textit{\small(after TMUA 2019 Paper 2 Q11)}
+\begin{itemize}
+\item[I.] $n$ is even.
+\item[II.] The first term is odd.
+\item[III.] The common difference is odd.
+\end{itemize}
+\begin{itemize}
+\item[A)] none of them
+\item[B)] I only
+\item[C)] II only
+\item[D)] III only
+\item[E)] I and II only
+\item[F)] I and III only
+\item[G)] II and III only
+\item[H)] I, II and III
+\end{itemize}
+
 \ans{A) none of them}
 \method{Writing $S_n=\frac n2(2a+(n-1)d)=15$ gives $n(2a+(n-1)d)=30$, so $n$ must divide $30$. Counterexamples kill every statement at once: with $n=3,a=4,d=1$ the sequence is $4,5,6$ (sum $15$) --- $n=3$ is odd (kills I) and $a=4$ is even (kills II). With $n=3,a=3,d=2$ the sequence is $3,5,7$ (sum $15$) --- $d=2$ is even (kills III). No single parity pattern is forced.}
 \inv{This is the real trap of ``must be true'' questions: checking one valid example never proves a statement false, but finding \emph{one} counterexample per statement is enough to rule each one out individually.}
 
-\item
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item The sequences $a_n=2n+1$ and $b_n=3n-2$ are both arithmetic. Let $c_n=a_n+b_n$. Which is true about $(c_n)$?
+\begin{itemize}
+\item[A)] It is arithmetic with common difference $5$.
+\item[B)] It is arithmetic with common difference $6$.
+\item[C)] It is not arithmetic in general.
+\item[D)] It is geometric.
+\end{itemize}
+
 \ans{A) arithmetic with common difference $5$}
 \method{$c_n=(2n+1)+(3n-2)=5n-1$, which is linear in $n$ with slope $5$ --- so $(c_n)$ is arithmetic with $d=5$.}
 \inv{This generalises: the sum of two arithmetic sequences is always arithmetic, with common difference equal to the sum of the two original common differences ($2+3=5$ here). The same is not true for products, which is exactly what C3 tests next.}
 
-\item
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item An AP $(a_n)$ has common difference $d$. What can be said about $b_n=a_n^2$?
+\begin{itemize}
+\item[A)] $(b_n)$ is always arithmetic.
+\item[B)] $(b_n)$ is always geometric.
+\item[C)] $(b_n)$ is arithmetic only if $d=0$.
+\item[D)] $(b_n)$ is arithmetic only if $a_1=0$.
+\end{itemize}
+
 \ans{C) arithmetic only if $d=0$}
 \method{$a_n=a+(n-1)d$, so $b_n=(a+(n-1)d)^2$ is a quadratic in $n$ with leading coefficient $d^2$. A quadratic sequence is arithmetic (i.e.\ linear in $n$) only if its leading coefficient vanishes: $d^2=0\Rightarrow d=0$.}
 \inv{This is the flip side of C2: sums of AP's stay linear in $n$, but squaring introduces an $n^2$ term unless the original sequence was already constant.}
 
-\item
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item An AP has all terms positive. The sum of the first $6$ terms equals the sum of terms $7$ through $10$. Which must be true?
+\begin{itemize}
+\item[A)] The common difference $d$ must be positive.
+\item[B)] $d$ must be negative.
+\item[C)] $d$ must be zero.
+\item[D)] $d$ can have either sign.
+\end{itemize}
+
 \ans{A) $d$ must be positive}
 \method{$S_6=6a+15d$. Sum of terms $7$--$10$ is $4a+(6+7+8+9)d=4a+30d$. Setting equal: $6a+15d=4a+30d\Rightarrow2a=15d\Rightarrow a=7.5d$. For $a>0$ (all terms positive requires at least $a_1>0$), $d$ must be positive too, since $a=7.5d$ forces $d$ and $a$ to share a sign.}
 \inv{Positivity of \emph{all} terms is a stronger condition than just $a>0$ --- with $d>0$ every later term is even bigger, so once $a_1>0$ the rest follow automatically.}
 
-\item
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item An AP has positive integer first term $a$ and common difference $d$ with $a<d$. Which pair $(a,d)$ gives a sequence that contains the term $100$ exactly?
+\begin{itemize}
+\item[A)] $(5,19)$
+\item[B)] $(6,17)$
+\item[C)] $(7,23)$
+\item[D)] $(8,13)$
+\end{itemize}
+
 \ans{A) $(5,19)$}
 \method{Need $d\mid(100-a)$. Check: $100-5=95=19\times5$ \checkmark; $100-6=94$, $94/17$ is not an integer; $100-7=93$, $93/23$ is not an integer; $100-8=92$, $92/13$ is not an integer. Only A works.}
 \inv{This is the same divisibility idea as ``does an AP hit a target value'' in general: $100=a+(n-1)d$ for some positive integer $n$ exactly when $d\mid(100-a)$.}
 
-\item
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item An AP with first term $a$ and common difference $d$ satisfies $S_{2n}=2S_n$ for some particular $n>0$. What does this force?
+\begin{itemize}
+\item[A)] $d$ must equal $0$.
+\item[B)] $a$ must equal $0$.
+\item[C)] $n$ must be even.
+\item[D)] No constraint --- this holds automatically for every AP.
+\end{itemize}
+
 \ans{A) $d$ must equal $0$}
 \method{$S_{2n}=n(2a+(2n-1)d)$ and $2S_n=n(2a+(n-1)d)$. Setting them equal and dividing by $n>0$: $2a+(2n-1)d=2a+(n-1)d\Rightarrow nd=0$. Since $n>0$, this forces $d=0$.}
 \inv{This is a genuinely surprising result: doubling the term count can only double the sum if the sequence isn't actually changing at all. It's the reason $S_n$ growing quadratically (C7) matters --- a truly arithmetic (non-constant) sequence's sum grows faster than linearly, so doubling $n$ more than doubles $S_n$.}
 
-\item
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item For an AP with common difference $d\neq0$, the sum $S_n$ of the first $n$ terms, viewed as a function of $n$, is:
+\begin{itemize}
+\item[A)] linear in $n$.
+\item[B)] quadratic in $n$ with no linear term.
+\item[C)] quadratic in $n$.
+\item[D)] exponential in $n$.
+\end{itemize}
+
 \ans{C) quadratic in $n$}
 \method{$S_n=\frac n2(2a+(n-1)d)=\frac d2n^2+\left(a-\frac d2\right)n$. Since $d\neq0$, the $n^2$ coefficient is nonzero, so $S_n$ is genuinely quadratic (not linear, and it does have a linear term unless $a=\frac d2$).}
 \inv{This is the single most useful fact in the whole sheet: any $S_n$ you're handed that's a quadratic with no constant term secretly comes from an AP, and you can read off $d$ and $a$ directly from its coefficients --- exactly what C8 and D4 ask you to do.}
 
-\item
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item $S_n=3n^2-n$ is the sum of the first $n$ terms of an arithmetic sequence. Find its common difference.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $6$
+\item[C)] $-1$
+\item[D)] $2$
+\end{itemize}
+
 \ans{B) $6$}
 \method{Matching $S_n=3n^2-n$ to $S_n=\frac d2n^2+(a-\frac d2)n$: $\frac d2=3\Rightarrow d=6$, and $a-\frac d2=-1\Rightarrow a=2$.}
 \inv{The most common slip is answering $3$ (forgetting the $\frac12$ in front of $d$) or $-1$ (reporting the coefficient of $n$ instead of solving for $d$). Always solve $\frac d2=(\text{coefficient of }n^2)$, not $d=(\text{coefficient of }n^2)$.}
@@ -173,29 +328,66 @@
 %═══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-\item
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $a$ and common difference $d$. The sum of the first $6$ terms equals the sum of the first $11$ terms. Which relationship between $a$ and $d$ does this force? \textit{\small(after TMUA 2018 Paper 1 Q2)}
+\begin{itemize}
+\item[A)] $a=-8d$
+\item[B)] $a=8d$
+\item[C)] $a=-\dfrac{17}{2}d$
+\item[D)] $a=\dfrac{17}{6}d$
+\item[E)] $a=-4d$
+\end{itemize}
+
 \ans{A) $a=-8d$}
 \method{$S_6=S_{11}\Rightarrow\frac62(2a+5d)=\frac{11}{2}(2a+10d)\Rightarrow3(2a+5d)=5.5(2a+10d)\Rightarrow6a+15d=11a+55d\Rightarrow-5a=40d\Rightarrow a=-8d$.}
 \inv{The real TMUA question (2018 Paper 1 Q2) uses $S_5=S_8$ and lands on $a=-\frac{38}{3}d$ --- same technique, uglier numbers. Try that version by hand to see how the method scales.}
 
-\item
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item A selection $S$ of $n$ terms is taken from the arithmetic sequence $2,5,8,\ldots,80$. What is the smallest value of $n$ for which there must be two distinct terms in $S$ summing to $82$? \textit{\small(after TMUA 2022 Paper 2 Q8)}
+\begin{itemize}
+\item[A)] $13$
+\item[B)] $14$
+\item[C)] $15$
+\item[D)] $22$
+\item[E)] $23$
+\item[F)] $24$
+\end{itemize}
+
 \ans{C) $n=15$}
 \method{The sequence $2,5,\ldots,80$ has $27$ terms, $a_i=3i-1$. Two terms with indices $i,j$ sum to $82$ exactly when $i+j=28$. Pairing indices $1$--$27$ by this rule gives $13$ genuine pairs $(1,27),(2,26),\ldots,(13,15)$, plus one unpaired index ($14$, whose partner would be itself). A selection can safely take one element from each of the $13$ pairs plus the unpaired element --- $14$ terms with no pair summing to $82$. Any 15th term forces a complete pair. So the smallest guaranteeing $n$ is $15$.}
 \inv{This is the Pigeonhole Principle in disguise: the ``pairs'' are the pigeonholes, and once you must place more elements than there are safe one-per-pair slots (plus the singleton), a full pair is forced. The real TMUA question (2022 Paper 2 Q8) uses the AP $1,4,\ldots,70$ and target sum $74$, landing on $n=14$ --- work through why the singleton index shifts between the two versions.}
 
-\item
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item The first four terms of an arithmetic sequence $p,\,p+d,\,p+2d,\,p+3d$ (with $d>0$) are all prime, and $p>3$. Prove that $d$ must be a multiple of $6$.
+
 \ans{$d$ must be a multiple of $6$.}
 \method{\emph{Mod 2:} since $p>3$ is prime, $p$ is odd. If $d$ were odd, $p+d$ would be even and greater than $2$, hence composite --- contradiction. So $d$ is even.\\
 \emph{Mod 3:} since $p>3$, $p\not\equiv0\pmod3$. If $d\not\equiv0\pmod3$, then $d$ is coprime to $3$, so $p,p+d,p+2d$ take all three residues mod $3$ (adding a unit repeatedly cycles through every residue) --- meaning one of them is $\equiv0\pmod3$. That term is greater than $3$ and divisible by $3$, hence composite --- contradiction. So $3\mid d$.\\
 Combining: $2\mid d$ and $3\mid d\Rightarrow6\mid d$. $\square$}
 \inv{The smallest example is $p=5,d=6$: $5,11,17,23$ --- all prime. Try to find the next one by hand, and notice how quickly $d=6$ stops being sufficient on its own (having $6\mid d$ is necessary, not sufficient, for four primes in AP).}
 
-\item
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item An AP has $S_n=An^2+Bn$. Given $A=5$ and that the 10th term of the sequence is $91$, find $B$.
+\begin{itemize}
+\item[A)] $-4$
+\item[B)] $4$
+\item[C)] $-9$
+\item[D)] $9$
+\end{itemize}
+
 \ans{A) $-4$}
 \method{$a_n=S_n-S_{n-1}=A(2n-1)+B$ (expand and simplify $An^2+Bn-A(n-1)^2-B(n-1)$). With $A=5$: $a_{10}=5(19)+B=95+B=91\Rightarrow B=-4$.}
 \inv{This formula $a_n=A(2n-1)+B$ is worth memorising directly: it's the general rule for reading off any term of an AP straight from its $S_n=An^2+Bn$ form, without ever finding $S_{n-1}$ by hand each time.}
 
-\item
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item A sequence $(a_n)$ (not assumed arithmetic) is such that its first differences $a_{n+1}-a_n$ themselves form an arithmetic sequence in $n$. What can be said about $a_n$ as a function of $n$?
+\begin{itemize}
+\item[A)] $(a_n)$ must itself be arithmetic.
+\item[B)] $a_n$ is a quadratic function of $n$.
+\item[C)] $(a_n)$ must be geometric.
+\item[D)] No general conclusion can be drawn.
+\end{itemize}
+
 \ans{B) $a_n$ is a quadratic function of $n$.}
 \method{If the first differences $a_{n+1}-a_n$ form an AP, then the \emph{second} differences of $(a_n)$ are constant --- and a sequence with constant second differences is exactly a quadratic function of $n$ (the discrete analogue of a constant second derivative meaning a parabola).}
 \inv{This is C7 in reverse: there, an AP's partial sum $S_n$ turned out to be quadratic in $n$ because $S_n$'s first differences ($=a_n$) form an AP. This question generalises that observation to any sequence, not just partial sums --- the same idea will resurface when this pillar looks at general recurrence relations.}
