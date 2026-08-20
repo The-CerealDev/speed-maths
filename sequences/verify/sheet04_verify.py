@@ -57,7 +57,7 @@ def check_A4():
     assert roots[0] * roots[1] == 6
 
 def check_A5():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(50):
         A = random.randint(-10, 10)
         B = random.randint(-10, 10)
@@ -89,7 +89,7 @@ def check_A7():
     assert -2*L == 4
 
 def check_A8():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(50):
         r1 = random.randint(-5, 5)
         r2 = random.randint(-5, 5)
@@ -111,14 +111,14 @@ def check_A8():
             assert a(n) == a_closed(n)
 
 def check_A9():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     def a(n): return 2**n + 3**n
     p, q = 5, -6
     for n in range(3, 10):
         assert a(n) == p * a(n-1) + q * a(n-2)
 
 def check_A10():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     def a(n): return n * 2**n
     for n in range(3, 10):
         assert a(n) == 4 * a(n-1) - 4 * a(n-2)
@@ -355,7 +355,7 @@ def check_C7():
             assert a_rec(n, a1, a2) == a1 + (n - 1) * d
 
 def check_C8():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(50):
         r = random.uniform(-5, 5)
         if abs(r) < 0.01: continue
@@ -365,7 +365,7 @@ def check_C8():
         assert abs(p) >= 2 - 1e-9
 
 def check_D1():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     a_prev2 = Fraction(1, 1)
     a_prev1 = Fraction(2, 1)
     for n in range(3, 100):
@@ -425,7 +425,7 @@ def check_D2():
     assert a_closed(3) == 27
     
 def check_D3():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     def a_rec(n):
         if n == 1: return 1
         if n == 2: return 0
@@ -470,7 +470,7 @@ def check_D4():
     assert 2**2 - 3*(2) - (-2) == 0
 
 def check_D5():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(50):
         r1 = random.uniform(-0.99, 0.99)
         r2 = random.uniform(-0.99, 0.99)

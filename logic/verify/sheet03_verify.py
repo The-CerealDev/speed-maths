@@ -827,7 +827,9 @@ def check_D2():
 
 # D3 -- Prove directly: "If n>4 with n-1,n+1 both prime, then 6|n."
 def check_D3():
-    """EXHAUSTIVE within the searched bound (all n>4 up to 300000 with
+    """SAMPLED CHECK beyond the search bound.
+
+    EXHAUSTIVE within the searched bound (all n>4 up to 300000 with
     n-1,n+1 both prime are found via sieve and every single one is
     confirmed a multiple of 6 -- exhaustive search over that finite range,
     not sampling), SAMPLED beyond it (the argument itself -- n even because

@@ -1,0 +1,66 @@
+name: "🔴 Wrong answer or method"
+description: An answer, method or investigation is incorrect. Highest priority — please open one even if you are not certain.
+title: "[<pillar> ans<NN>] <section+number>: "
+labels: ["wrong-answer"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A wrong answer key actively damages someone mid-revision, so this is the
+        most valuable report you can file. **You do not need to be sure.** If it
+        looks wrong, say so — being talked through why it is right costs nothing.
+
+        You need no Git, no LaTeX and no Python for this.
+
+  - type: input
+    id: where
+    attributes:
+      label: Which question?
+      description: Pillar, file and question label.
+      placeholder: "algebra ans03, B7"
+    validations:
+      required: true
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: What does the sheet say, and what do you get?
+      description: Quote the printed answer, then give yours.
+      placeholder: |
+        The booklet gives 14.
+        I get −2.
+    validations:
+      required: true
+
+  - type: textarea
+    id: working
+    attributes:
+      label: Your working
+      description: >
+        Rough is fine — enough that someone can follow the disagreement. Plain
+        text or LaTeX both work.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: What looks wrong?
+      description: A correct answer above a flawed method still teaches the wrong thing.
+      multiple: true
+      options:
+        - "The \\ans{} value"
+        - "The \\method{} reasoning (answer may still be right)"
+        - "The \\inv{} extension"
+        - "The question itself is ambiguous or unanswerable"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the current PDF on the site, not a downloaded copy that may be out of date.
+          required: true

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Worksheet Verification Scripts Validator.
-This script checks that all sheetNN_verify.py scripts in algebra/verify/ and combinatorics/verify/
+This script checks that every sheetNN_verify.py script in any <pillar>/verify/
 conform to speed-maths project requirements:
 1. Run without -O flag exits with code 0.
 2. Run with -O flag exits with code 2.
@@ -78,16 +78,21 @@ def validate_script(script_path):
     if not main_node:
         errors.append("Function 'main()' is not defined.")
     else:
+        # `not __debug__` anywhere in the guard's condition counts. Requiring
+        # the test to be *exactly* `not __debug__` rejected the equivalent
+        # `if "-O" in sys.argv or not __debug__:`, which exits 2 correctly.
         has_guard = False
         for child in ast.walk(main_node):
             if isinstance(child, ast.If):
-                test = child.test
-                if (isinstance(test, ast.UnaryOp) and 
-                    isinstance(test.op, ast.Not) and 
-                    isinstance(test.operand, ast.Name) and 
-                    test.operand.id == '__debug__'):
-                    has_guard = True
-                    break
+                for sub in ast.walk(child.test):
+                    if (isinstance(sub, ast.UnaryOp) and
+                        isinstance(sub.op, ast.Not) and
+                        isinstance(sub.operand, ast.Name) and
+                        sub.operand.id == '__debug__'):
+                        has_guard = True
+                        break
+            if has_guard:
+                break
         if not has_guard:
             errors.append("Function 'main()' is missing the optimization guard: 'if not __debug__:'")
 
@@ -179,14 +184,12 @@ def validate_script(script_path):
 
 def main():
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    search_patterns = [
-        os.path.join(project_root, "algebra", "verify", "sheet[0-9][0-9]_verify.py"),
-        os.path.join(project_root, "combinatorics", "verify", "sheet[0-9][0-9]_verify.py")
-    ]
-    
-    scripts = []
-    for pattern in search_patterns:
-        scripts.extend(glob.glob(pattern))
+    # Discover every pillar rather than listing them. The previous version
+    # hardcoded algebra and combinatorics, so the three pillars added after it
+    # was written were silently never validated.
+    scripts = glob.glob(
+        os.path.join(project_root, "*", "verify", "sheet[0-9][0-9]_verify.py")
+    )
     scripts = sorted(list(set(scripts)))
     
     if not scripts:

@@ -312,7 +312,8 @@ CHECKS = {
 
 def main():
     if not __debug__:
-        raise Exception("Do not run with -O! Assertions are disabled.")
+        print("ERROR: run without -O / PYTHONOPTIMIZE — assertions are the entire verification mechanism.")
+        raise SystemExit(2)
 
     passed = 0
     for name, func in CHECKS.items():

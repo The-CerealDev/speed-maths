@@ -25,7 +25,16 @@ All 33 checks passed.
 ```
 
 **1,155 questions. 1,155 checks. Currently all passing.** You can run them
-yourself — they need nothing but Python.
+yourself — they need nothing but Python, and no packages:
+
+```console
+$ python3 algebra/verify/run_all.py
+All 7 sheet verify scripts passed.
+```
+
+Every check declares in its docstring whether it is an `EXHAUSTIVE PROOF` (all
+cases tested) or a `SAMPLED CHECK` (spot-tested), so you can see how strong any
+individual guarantee is. `tools/validate_verify_scripts.py` enforces that.
 
 This is the whole reason the project exists. An earlier version of these sheets
 was drafted through a chat window with no verification step, and some of its
@@ -64,29 +73,47 @@ tool that later days assume you have.
 
 ## Contributing
 
-Contributions are genuinely welcome, and there are two separate doors.
+Three doors, and the first two need no Git, no LaTeX and no Python.
 
-### 🧮 I want to add a maths question
+### 🔴 Something is wrong
 
-You need no coding and no Git. Open any sheet's `.tex` on GitHub, press the edit
-pencil, make your change, and choose **Propose changes** — that opens a pull
-request from your browser.
+Open a [wrong answer report](https://github.com/The-CerealDev/speed-maths/issues/new?template=wrong-answer.yml).
+You do not need to be certain — if it looks wrong, say so. A wrong answer key
+damages someone mid-revision, so these get looked at first.
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first. The two rules that get PRs
-turned down are:
+### 🧮 I have a question to add
 
-- **No verbatim past-paper questions.** Adapt them, and credit the source —
-  `(after TMUA 2019 Paper 2 Q4)`.
-- **A question needs a check.** Add a case to the pillar's `verify/` script so
-  your answer proves itself. If you can't write Python, say so in the PR and
-  someone will add it.
+Write it in plain text via
+[propose a question](https://github.com/The-CerealDev/speed-maths/issues/new?template=new-question.yml)
+and someone will handle the LaTeX. You keep the credit.
+
+Prefer to do it yourself? Open any sheet's `.tex` on GitHub, press the edit
+pencil, and choose **Propose changes** — that opens a pull request from your
+browser. You will not be able to compile the PDF that way, and that is fine:
+CI compiles it for you and attaches the result to your PR. Say in the PR that
+you need it committed.
+
+Two rules decide whether a question can be used at all:
+
+- **No verbatim past-paper questions.** UKMT/TMUA/MAT papers are copyrighted
+  and this repo is public. Adapt the structure, change the numbers, and credit
+  the source — `(after TMUA 2019 Paper 2 Q4)`.
+- **Every question needs a check** in the pillar's `verify/` script, so its
+  answer proves itself. If you cannot write Python, say so in the PR — that is
+  a normal thing to say, and someone will add it with you.
 
 ### 🛠 I want to work on the tooling
 
 `tools/build_website.py` builds the site, the `verify/` scripts check the maths,
-and `shared/preamble.tex` holds every macro. Issues tagged
+`tools/validate_verify_scripts.py` checks *those*, and `shared/preamble.tex`
+holds every macro. Issues tagged
 [`good first issue`](https://github.com/The-CerealDev/speed-maths/labels/good%20first%20issue)
 are scoped to one file each.
+
+[`CONTRIBUTING.md`](CONTRIBUTING.md) has the full standard, including the
+reviewer checklist and the AI-disclosure policy. It is long because the bar is
+"a student can trust every sheet blind" — but you do not need to read it to
+report a mistake.
 
 ## Building it yourself
 
@@ -153,6 +180,7 @@ seven-day build process, written down.
 ## Roadmap
 
 - **Calculus** and **Graphs** — drafted, held back pending review.
+- Questions as HTML as well as PDF, so they are searchable and linkable.
 - Broader coverage of the UK admissions ecosystem (TMUA, MAT, STEP).
 
 Note that MAT is discontinued from 2026 entry, so Oxford maths and CS applicants

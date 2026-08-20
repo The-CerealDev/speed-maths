@@ -221,7 +221,7 @@ def check_C6():
         assert a(n) == n % 3
 
 def check_C7():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(100):
         a = fractions.Fraction(random.randint(-100, 100), random.randint(1, 10))
         for _ in range(10):
@@ -294,7 +294,7 @@ def check_D4():
     assert abs(seq[-1] - 2.0) < 1e-9
 
 def check_D5():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     a = fractions.Fraction(1, 2)
     assert a * (1 - a) == fractions.Fraction(1, 4)
     a2 = fractions.Fraction(1, 4)

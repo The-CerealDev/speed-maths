@@ -387,7 +387,7 @@ def check_D2():
     assert max_subset_size == 14
 
 def check_D3():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     def sieve(limit):
         is_prime = [True] * limit
         is_prime[0] = is_prime[1] = False

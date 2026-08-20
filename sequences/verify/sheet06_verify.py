@@ -197,7 +197,7 @@ def check_C6():
                 assert (a1 % 2) == (a2 % 2)
 
 def check_C7():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(1000):
         n = random.randint(1, 1000)
         S_n = random.randint(1, 10000)

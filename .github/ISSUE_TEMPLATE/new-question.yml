@@ -1,0 +1,75 @@
+name: "🧮 Propose a question"
+description: Suggest a question for an existing sheet. No LaTeX or Git needed — write it in plain text.
+title: "[<pillar> sheet<NN>] proposed <section> question: "
+labels: ["new-question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write the maths; someone else can handle the LaTeX. This is the lowest-friction
+        way to contribute actual mathematical content.
+
+        Two rules decide whether a question can be used at all, so please read them:
+
+        - **No verbatim past-paper questions.** UKMT / TMUA / MAT papers are
+          copyrighted and this repo is public. Adapt the *structure*, change the
+          numbers and the context, and name the source below.
+        - **No calculators** in any target exam. Numbers must cancel, factor or
+          telescope cleanly. If the arithmetic gets ugly, the question needs redesigning.
+
+  - type: input
+    id: target
+    attributes:
+      label: Which sheet and section?
+      description: "Section A/B is recall speed, C is the sheet's new tool, D is the challenge ramp."
+      placeholder: "number-theory sheet04, Section C"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: Plain text is fine — `x^2` and `sqrt(3)` read perfectly well.
+    validations:
+      required: true
+
+  - type: textarea
+    id: answer
+    attributes:
+      label: The answer, and the fast route to it
+      description: >
+        The fast route, not the textbook route — these sheets are timed. If a
+        step only works because of how the numbers were chosen, say so.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: origin
+    attributes:
+      label: Where did it come from?
+      options:
+        - "Entirely my own"
+        - "Adapted from a past paper (named below)"
+        - "Drafted with AI help, then solved and checked by me"
+    validations:
+      required: true
+
+  - type: input
+    id: credit
+    attributes:
+      label: Source, if adapted
+      description: "Goes into the sheet as a credit line. Leave blank if the question is entirely yours."
+      placeholder: "after TMUA 2019 Paper 2 Q4"
+
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have solved this myself, start to finish, without help.
+          required: true
+        - label: It is not a verbatim copy of a past-paper question.
+          required: true
+        - label: It needs no calculator.
+          required: true

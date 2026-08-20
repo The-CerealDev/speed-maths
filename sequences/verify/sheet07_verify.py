@@ -42,7 +42,7 @@ def check_A5():
     assert -2 * x == -8
 
 def check_A6():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(1000):
         seq = [random.randint(-100, 100) for _ in range(5)]
         mean = sum(seq) / 5
@@ -57,7 +57,7 @@ def check_A7():
     assert seq[3] / seq[2] == 3
 
 def check_A8():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(100):
         r1 = random.uniform(-0.9, 0.9)
         r2 = random.uniform(-0.9, 0.9)
@@ -99,7 +99,7 @@ def check_B2():
     assert abs((3/4)**-1 - 4/3) < 1e-9
 
 def check_B3():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(10):
         a = [random.uniform(-10, 10), random.uniform(-10, 10)]
         for i in range(100):
@@ -155,7 +155,7 @@ def check_B8():
             assert all(seq[i] > seq[i+1] for i in range(9))
 
 def check_B9():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     for _ in range(100):
         a = random.uniform(0.1, 10)
         if random.random() > 0.5: a = -a
@@ -211,7 +211,7 @@ def check_C5():
     pass
 
 def check_C6():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     def is_monotonic(seq):
         inc = all(seq[i] <= seq[i+1] for i in range(len(seq)-1))
         dec = all(seq[i] >= seq[i+1] for i in range(len(seq)-1))

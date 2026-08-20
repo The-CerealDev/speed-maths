@@ -17,9 +17,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # geometry/ is still fully gitignored (empty
-        # pillar) — add it here once it has real content to check out.
-        pillar: [algebra, combinatorics, number-theory, logic]
+        # calculus/ and graphs/ are still gitignored (drafted, held back for
+        # review) — add them here once they have real content to check out.
+        pillar: [algebra, combinatorics, number-theory, logic, sequences]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,9 +34,10 @@ jobs:
           fi
 
   new-sheets-must-ship-a-verify-script:
-    # CONTRIBUTING.md requires every NEW sheet to ship a verify script.
-    # This does not retroactively fail on the 13 sheets published before
-    # the pipeline existed — only on sheets touched in *this* PR.
+    # CONTRIBUTING.md requires every sheet to ship a verify script. All 35
+    # published sheets now have one, so there is nothing left to exempt; this
+    # job only inspects sheets touched in *this* PR, which keeps the failure
+    # message pointed at the contributor's own change.
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:

@@ -1,0 +1,103 @@
+name: Compile
+
+# A contributor editing a .tex through the GitHub web UI cannot run pdflatex,
+# so without this their PR is stuck: the site serves PDFs, and a .tex-only
+# change would leave the published PDF stale and silently wrong.
+#
+# This job compiles every sheet or answer file touched by the PR and, if the
+# committed PDF does not match, uploads the correct one as an artifact and
+# says so. It does not push — a workflow writing to a fork's branch needs
+# permissions that a public repo should not hand to arbitrary PRs.
+
+on:
+  pull_request:
+    paths:
+      - "**/sheets/*.tex"
+      - "**/answers/*.tex"
+      - "shared/preamble.tex"
+
+permissions:
+  contents: read
+
+jobs:
+  compile-changed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended \
+            poppler-utils
+
+      - name: Work out which files to compile
+        id: changed
+        run: |
+          base='${{ github.event.pull_request.base.sha }}'
+          head='${{ github.event.pull_request.head.sha }}'
+          # A preamble change affects every sheet, so compile everything.
+          if git diff --name-only "$base" "$head" | grep -q '^shared/preamble\.tex$'; then
+            echo "Preamble changed — compiling all sheets and answers."
+            files=$(ls */sheets/*.tex */answers/*.tex)
+          else
+            files=$(git diff --name-only "$base" "$head" \
+                    -- '*/sheets/*.tex' '*/answers/*.tex')
+          fi
+          {
+            echo 'files<<EOF'
+            echo "$files"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Compile, and compare against the committed PDF
+        id: build
+        run: |
+          mkdir -p /tmp/out
+          stale=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            dir=$(dirname "$f"); base=$(basename "$f" .tex)
+            # pdflatex must run from the file's own directory: the sheets use
+            # \input{../../shared/preamble}, a path relative to themselves.
+            ( cd "$dir" && pdflatex -interaction=nonstopmode -halt-on-error "$base.tex" >/dev/null 2>&1 \
+                        && pdflatex -interaction=nonstopmode -halt-on-error "$base.tex" >/dev/null 2>&1 ) || {
+              echo "::error file=$f::$f does not compile. Full log in the artifact."
+              cp "$dir/$base.log" "/tmp/out/$base.FAILED.log" 2>/dev/null || true
+              exit 1
+            }
+            # Compare extracted text, not bytes: pdflatex embeds a build
+            # timestamp, so two correct builds are never byte-identical and a
+            # byte comparison would flag every PR.
+            git show "HEAD:$dir/$base.pdf" > /tmp/committed.pdf 2>/dev/null || : > /tmp/committed.pdf
+            if ! diff -q <(pdftotext /tmp/committed.pdf - 2>/dev/null) \
+                         <(pdftotext "$dir/$base.pdf" - 2>/dev/null) >/dev/null; then
+              echo "::notice file=$f::$base.pdf is out of date with $f — the freshly built PDF is in this run's artifact."
+              cp "$dir/$base.pdf" "/tmp/out/$base.pdf"
+              stale=1
+            fi
+            git checkout -- "$dir/$base.pdf" 2>/dev/null || true
+            rm -f "$dir/$base.aux" "$dir/$base.log" "$dir/$base.out"
+          done <<< '${{ steps.changed.outputs.files }}'
+          echo "stale=$stale" >> "$GITHUB_OUTPUT"
+
+      - name: Upload freshly built PDFs
+        if: always() && hashFiles('/tmp/out/*') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdfs
+          path: /tmp/out/
+
+      - name: Report
+        run: |
+          if [ '${{ steps.build.outputs.stale }}' = '1' ]; then
+            echo "Some PDFs are out of date with their .tex."
+            echo "That is expected if you edited in the browser — download the"
+            echo "'compiled-pdfs' artifact from this run and commit it, or ask a"
+            echo "maintainer to do it. Not a failure."
+          else
+            echo "Every changed .tex compiles, and its committed PDF is current."
+          fi

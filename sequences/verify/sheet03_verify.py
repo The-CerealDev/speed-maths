@@ -315,7 +315,7 @@ def check_D2():
         assert S_n < 1
 
 def check_D3():
-    """STRONG EVIDENCE"""
+    """SAMPLED CHECK: randomised parameters and/or a finite index range."""
     h = 10.0
     r = 0.6
     
