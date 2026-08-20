@@ -4,306 +4,617 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Maths Archive</title>
-    <link rel="stylesheet" href="style.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="archive.css">
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div>
-                <h1>Speed Maths</h1>
-                <p class="subtitle">Computationally verified competition-level mathematics (TMUA, MAT, SMC, BMO1)</p>
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <span class="brand">Speed Maths</span>
+            <div class="site-nav">
+                <a href="#algebra">Algebra<span class="count">7</span></a>
+<a href="#combinatorics">Combinatorics<span class="count">7</span></a>
+<a href="#number-theory">Number Theory<span class="count">7</span></a>
+<a href="#logic">Logic<span class="count">7</span></a>
+<a href="#sequences">Sequences<span class="count">7</span></a>
             </div>
-            <a href="https://github.com/The-CerealDev/speed-maths" class="github-link" target="_blank" rel="noopener noreferrer">
-                <svg height="20" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="20" data-view-component="true" class="octicon octicon-mark-github">
-                    <path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-                </svg>
-                GitHub
-            </a>
+            <div class="nav-right">
+                <a href="https://github.com/The-CerealDev/speed-maths" class="github-link"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1">
+                        <path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <main class="container">
-        <div class="alert">
-            <strong>Welcome.</strong> All sheets are free to download as PDFs. Attempt the questions under timed conditions before checking the methods.
+        <header class="page">
+            <h1>The archive</h1>
+            <p class="subtitle">
+                Computationally verified competition-level mathematics &mdash; TMUA, MAT, SMC, BMO1.
+                All sheets are free PDFs; attempt under timed conditions before checking the methods.
+            </p>
+        </header>
+
+        <div class="filter-bar">
+            <div class="search">
+                <span class="search-ic">/</span>
+                <input id="q" type="search" autocomplete="off"
+                       placeholder="Search sheets by topic or tool&hellip;"
+                       aria-label="Search sheets">
+            </div>
         </div>
 
-        <div class="grid">
-            <!-- ALGEBRA -->
-            <section class="pillar-card">
-                <h2>Algebra</h2>
-                <p class="pillar-desc">Polynomials, inequalities, and functional equations.</p>
-                <ul class="sheet-list">
-
-                    <li>
-                        <span class="sheet-name">Sheet 01</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 02</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 03</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 04</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 05</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 06</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 07</span>
-                        <div class="links">
-                            <a href="algebra/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="algebra/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-</ul>
-            </section>
-
-            <!-- COMBINATORICS -->
-            <section class="pillar-card">
-                <h2>Combinatorics</h2>
-                <p class="pillar-desc">Counting, probability, and discrete structures.</p>
-                <ul class="sheet-list">
-
-                    <li>
-                        <span class="sheet-name">Sheet 01</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 02</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 03</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 04</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 05</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 06</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 07</span>
-                        <div class="links">
-                            <a href="combinatorics/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="combinatorics/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-</ul>
-            </section>
-
-            <!-- NUMBER THEORY -->
-            <section class="pillar-card">
-                <h2>Number Theory</h2>
-                <p class="pillar-desc">Divisibility, modular arithmetic, and primes.</p>
-                <ul class="sheet-list">
-
-                    <li>
-                        <span class="sheet-name">Sheet 01</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 02</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 03</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 04</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 05</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 06</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 07</span>
-                        <div class="links">
-                            <a href="number-theory/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="number-theory/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-</ul>
-            </section>
-
-            <!-- LOGIC -->
-            <section class="pillar-card">
-                <h2>Logic</h2>
-                <p class="pillar-desc">Conditionals, proof techniques, and counterexamples.</p>
-                <ul class="sheet-list">
-
-                    <li>
-                        <span class="sheet-name">Sheet 01</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 02</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 03</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 04</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 05</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 06</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <span class="sheet-name">Sheet 07</span>
-                        <div class="links">
-                            <a href="logic/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
-                            <a href="logic/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
-                        </div>
-                    </li>
-</ul>
-            </section>
-
-            <!-- GEOMETRY -->
-            <section class="pillar-card">
-                <h2>Geometry</h2>
-                <p class="pillar-desc">Euclidean geometry, trigonometry, and vectors.</p>
-                
-                <div class="coming-soon">
-                    Currently under construction. Want to contribute? <a href="https://github.com/The-CerealDev/speed-maths">View GitHub repo</a>
-                </div>
-            
-            </section>
+        
+      <section class="pillar" id="algebra">
+        <div class="pillar-head">
+          <div>
+            <h2>Algebra</h2>
+            <p class="pillar-desc">Polynomials, inequalities, and functional equations.</p>
+          </div>
+          <span class="stats"><b>7</b> sheets &middot; <b>231</b> questions</span>
         </div>
+        <ul class="sheet-list">
+          <li class="sheet-row">
+            <span class="sheet-num">01</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Quadratic in disguise: substitution and symmetric sums</span>
+              <span class="tools"><span class="tool">difference of squares</span><span class="tool">quadratic in disguise</span><span class="tool">x + 1/x symmetry</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">02</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Paired products and denesting surds</span>
+              <span class="tools"><span class="tool">pairing factors</span><span class="tool">denesting radicals</span><span class="tool">biquadratic substitution</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">03</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Exponential substitution and the first inequalities</span>
+              <span class="tools"><span class="tool">exponential substitution</span><span class="tool">constrained minimum</span><span class="tool">sum-of-squares trick</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">04</span>
+            <span class="sheet-body">
+              <span class="sheet-name">The t = x + 1/x device and AM–GM minima</span>
+              <span class="tools"><span class="tool">t-substitution</span><span class="tool">AM–GM</span><span class="tool">reciprocal minima</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">05</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Symmetric systems and constrained inequalities</span>
+              <span class="tools"><span class="tool">x - 1/x form</span><span class="tool">symmetric systems</span><span class="tool">constraint substitution</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">06</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Completing the square in two variables, and counterexamples</span>
+              <span class="tools"><span class="tool">surd substitution</span><span class="tool">two-variable completing the square</span><span class="tool">disproof by counterexample</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">07</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Weighted AM–GM and harder proof structure</span>
+              <span class="tools"><span class="tool">weighted AM–GM</span><span class="tool">Cauchy–Schwarz</span><span class="tool">equality cases</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="algebra/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="algebra/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li></ul>
+      </section>
+
+      <section class="pillar" id="combinatorics">
+        <div class="pillar-head">
+          <div>
+            <h2>Combinatorics</h2>
+            <p class="pillar-desc">Counting, probability, and discrete structures.</p>
+          </div>
+          <span class="stats"><b>7</b> sheets &middot; <b>231</b> questions</span>
+        </div>
+        <ul class="sheet-list">
+          <li class="sheet-row">
+            <span class="sheet-num">01</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Arrangements and the block method</span>
+              <span class="tools"><span class="tool">block method</span><span class="tool">digit constraints</span><span class="tool">grid counting</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">02</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Complementary counting and non-consecutive selection</span>
+              <span class="tools"><span class="tool">complementary counting</span><span class="tool">at-least conditions</span><span class="tool">non-consecutive selection</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">03</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Blocks with refusals, and circular arrangements</span>
+              <span class="tools"><span class="tool">internal block order</span><span class="tool">refusal constraints</span><span class="tool">circular arrangements</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">04</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Binomial identities and double counting</span>
+              <span class="tools"><span class="tool">binomial coefficients</span><span class="tool">greatest coefficient</span><span class="tool">double counting</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">05</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Capped stars and bars, and inclusion–exclusion</span>
+              <span class="tools"><span class="tool">stars and bars</span><span class="tool">inclusion–exclusion</span><span class="tool">derangements</span><span class="tool">compositions</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">06</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Pigeonhole: guarantees, pairings and lattice points</span>
+              <span class="tools"><span class="tool">pigeonhole principle</span><span class="tool">pairing argument</span><span class="tool">lattice parity</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">07</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Recurrences, tilings and invariants</span>
+              <span class="tools"><span class="tool">linear recurrence</span><span class="tool">tiling recurrence</span><span class="tool">invariant</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="combinatorics/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="combinatorics/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li></ul>
+      </section>
+
+      <section class="pillar" id="number-theory">
+        <div class="pillar-head">
+          <div>
+            <h2>Number Theory</h2>
+            <p class="pillar-desc">Divisibility, modular arithmetic, and primes.</p>
+          </div>
+          <span class="stats"><b>7</b> sheets &middot; <b>231</b> questions</span>
+        </div>
+        <ul class="sheet-list">
+          <li class="sheet-row">
+            <span class="sheet-num">01</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Divisibility by rewriting, and reciprocal equations</span>
+              <span class="tools"><span class="tool">polynomial remainder</span><span class="tool">divisor pairs</span><span class="tool">reciprocal Diophantine</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">02</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Factorising to force primality</span>
+              <span class="tools"><span class="tool">factorising for primality</span><span class="tool">difference of squares</span><span class="tool">remainder trick</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">03</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Difference of squares and lcm–gcd pairs</span>
+              <span class="tools"><span class="tool">difference of squares</span><span class="tool">lcm–gcd pairs</span><span class="tool">minimal solutions</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">04</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Diophantine equations and the Sophie Germain identity</span>
+              <span class="tools"><span class="tool">Sophie Germain identity</span><span class="tool">exponential Diophantine</span><span class="tool">prime constraints</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">05</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Remainders, geometric sums and mod arguments</span>
+              <span class="tools"><span class="tool">polynomial remainder</span><span class="tool">geometric sum factoring</span><span class="tool">mod 3 argument</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">06</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Simon's factoring trick, and gcd by Euclid</span>
+              <span class="tools"><span class="tool">Simon's favourite factoring trick</span><span class="tool">Euclidean algorithm</span><span class="tool">factorial digits</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">07</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Counting divisors</span>
+              <span class="tools"><span class="tool">divisor-count formula</span><span class="tool">prime squares</span><span class="tool">parity of exponents</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="number-theory/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="number-theory/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li></ul>
+      </section>
+
+      <section class="pillar" id="logic">
+        <div class="pillar-head">
+          <div>
+            <h2>Logic</h2>
+            <p class="pillar-desc">Conditionals, proof techniques, and counterexamples.</p>
+          </div>
+          <span class="stats"><b>7</b> sheets &middot; <b>231</b> questions</span>
+        </div>
+        <ul class="sheet-list">
+          <li class="sheet-row">
+            <span class="sheet-num">01</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Quantifiers: order and negation</span>
+              <span class="tools"><span class="tool">quantifier order</span><span class="tool">negating quantifiers</span><span class="tool">counterexample</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">02</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Necessary, sufficient, and equivalence chains</span>
+              <span class="tools"><span class="tool">necessary vs sufficient</span><span class="tool">biconditional chains</span><span class="tool">converse</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">03</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Contrapositive and contradiction</span>
+              <span class="tools"><span class="tool">contrapositive</span><span class="tool">proof by contradiction</span><span class="tool">sufficient conditions</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">04</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Counterexamples, and what actually refutes a claim</span>
+              <span class="tools"><span class="tool">counterexample</span><span class="tool">refuting a universal</span><span class="tool">contradiction</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">05</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Spotting the flaw: the converse error</span>
+              <span class="tools"><span class="tool">converse error</span><span class="tool">affirming the consequent</span><span class="tool">flawed-proof analysis</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">06</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Induction, and where the base case fails</span>
+              <span class="tools"><span class="tool">induction</span><span class="tool">base case failure</span><span class="tool">strong induction</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">07</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Equivalence, set claims and invariants</span>
+              <span class="tools"><span class="tool">logical equivalence</span><span class="tool">invariant argument</span><span class="tool">extremal principle</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="logic/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="logic/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li></ul>
+      </section>
+
+      <section class="pillar" id="sequences">
+        <div class="pillar-head">
+          <div>
+            <h2>Sequences</h2>
+            <p class="pillar-desc">Recurrences, series, and limiting behaviour.</p>
+          </div>
+          <span class="stats"><b>7</b> sheets &middot; <b>231</b> questions</span>
+        </div>
+        <ul class="sheet-list">
+          <li class="sheet-row">
+            <span class="sheet-num">01</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Arithmetic sequences, and the sum as a quadratic in n</span>
+              <span class="tools"><span class="tool">nth-term formula</span><span class="tool">arithmetic series sum</span><span class="tool">sum as a quadratic</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans01.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">02</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Binomial expansion, and Pascal's triangle as a sequence</span>
+              <span class="tools"><span class="tool">binomial expansion</span><span class="tool">Pascal's triangle</span><span class="tool">generalised binomial series</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet02.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans02.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">03</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Geometric series, and when a sum to infinity exists</span>
+              <span class="tools"><span class="tool">geometric series</span><span class="tool">sum to infinity</span><span class="tool">convergence condition</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet03.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans03.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">04</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Recurrence relations, and solving them in closed form</span>
+              <span class="tools"><span class="tool">recurrence relations</span><span class="tool">characteristic equation</span><span class="tool">closed-form solution</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet04.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans04.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">05</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Monotonicity, bounds and fixed points</span>
+              <span class="tools"><span class="tool">monotonicity</span><span class="tool">boundedness</span><span class="tool">fixed points</span><span class="tool">floor and ceiling sequences</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet05.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans05.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">06</span>
+            <span class="sheet-body">
+              <span class="sheet-name">BMO1 capstone: constrained integer sequences</span>
+              <span class="tools"><span class="tool">extremal construction</span><span class="tool">constrained integer sequences</span><span class="tool">alternating recurrences</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet06.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans06.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li>
+
+          <li class="sheet-row">
+            <span class="sheet-num">07</span>
+            <span class="sheet-body">
+              <span class="sheet-name">Mixed synthesis: every technique from Days 1–6</span>
+              <span class="tools"><span class="tool">mixed synthesis</span><span class="tool">capstone</span><span class="tool">technique selection</span></span>
+            </span>
+            <span class="qcount">33 questions</span>
+            <span class="links">
+              <a href="sequences/sheets/sheet07.pdf" class="pdf-link" target="_blank">Questions</a>
+              <a href="sequences/answers/ans07.pdf" class="pdf-link ans" target="_blank">Answers</a>
+            </span>
+          </li></ul>
+      </section>
+
+        <p class="no-match" id="nomatch" hidden>No sheets match that search.</p>
     </main>
 
     <footer>
         <div class="container">
-            <p>Open source and computationally verified. <a href="https://github.com/The-CerealDev/speed-maths">GitHub</a></p>
+            <p>
+                Open source and computationally verified.
+                <a href="https://github.com/The-CerealDev/speed-maths">GitHub</a>
+                &middot; <a href="classic.html">Classic view</a>
+            </p>
         </div>
     </footer>
+
+<script>
+// Client-side filter over what is already on the page. The archive is a static
+// site with no backend, so search must work off the rendered DOM rather than an
+// endpoint — which also means it keeps working with JavaScript disabled, just
+// without filtering, because every sheet is present in the HTML to begin with.
+(function () {
+    var q = document.getElementById('q');
+    var nomatch = document.getElementById('nomatch');
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.sheet-row'));
+    var pillars = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
+
+    rows.forEach(function (r) {
+        r.dataset.hay = r.textContent.toLowerCase().replace(/\s+/g, ' ');
+    });
+
+    function apply() {
+        var term = q.value.trim().toLowerCase();
+        var shown = 0;
+        rows.forEach(function (r) {
+            var hit = !term || r.dataset.hay.indexOf(term) !== -1;
+            r.hidden = !hit;
+            if (hit) shown++;
+        });
+        // A pillar whose every row is filtered out is noise, not information.
+        pillars.forEach(function (p) {
+            var any = p.querySelector('.sheet-row:not([hidden])');
+            p.hidden = !!term && !any;
+        });
+        nomatch.hidden = shown !== 0;
+    }
+
+    q.addEventListener('input', apply);
+
+    // "/" focuses search, the convention the placeholder advertises.
+    document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && document.activeElement !== q) {
+            e.preventDefault();
+            q.focus();
+        } else if (e.key === 'Escape' && document.activeElement === q) {
+            q.value = '';
+            apply();
+            q.blur();
+        }
+    });
+})();
+</script>
 </body>
 </html>

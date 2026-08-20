@@ -19,6 +19,9 @@
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % ── Colours ───────────────────────────────────────────────────────────────────
 \definecolor{darkgray}{gray}{0.15}
@@ -81,6 +84,29 @@
   \end{center}
 }
 
+% ── Sheet metadata: topic + the day's new tools ────────────────────────────────
+% Usage (immediately after \SpeedTitleBlock, sheets only):
+%   \SpeedMeta{Expanding, factorising, and the identity toolkit}
+%             {difference of squares, sum/product form, completing the square}
+%
+% Arg 1 = the sheet's topic in one line. The website lists this instead of
+%         "Sheet 03", so write the thing a reader would actually search for.
+% Arg 2 = comma-separated, at most five: the tools this sheet introduces that
+%         earlier sheets in the pillar did not. These become the website's tags.
+%         Leave out anything the reader already met — the tags are meant to say
+%         what is new today, not to summarise the sheet.
+%
+% Both are parsed straight out of this file by tools/build_website.py, so the
+% sheet stays the single source of truth and the site cannot drift from it.
+%
+% This renders NOTHING. It is a declaration for the build script, not a piece of
+% the sheet's layout: adding it to a sheet must not change that sheet's PDF, so
+% the 25 existing sheets can be annotated without a single one of them being
+% reissued. If the toolkit should also appear on the page, that is a separate
+% decision about the sheet design — make it deliberately, here, not by leaving
+% this macro printing something nobody asked it to.
+\newcommand{\SpeedMeta}[2]{}
+
 % ── Answer / Method / Investigate-further boxes (answer files only) ────────────
 \newmdenv[
   backgroundcolor=lightgray,
@@ -118,6 +144,23 @@
 
 % ── Misc helpers ────────────────────────────────────────────────────────────────
 \newcommand{\qn}[1]{\textbf{#1.}\;}
+
+% Mistake-linking: attach a Top 5 Patterns / Common Traps bullet to the question
+% label(s) in this sheet where it actually shows up, e.g. \seealso{B6, D2}
+\newcommand{\seealso}[1]{\hfill\textit{\footnotesize(see #1)}}
+
+% ── Graph options macro ─────────────────────────────────────────────────────────
+% Usage: \GraphOptions{tikz code for A}{tikz code for B}{tikz code for C}{tikz code for D}
+\newcommand{\GraphOptions}[4]{%
+  \begin{center}
+    \begin{tabular}{cc}
+      \textbf{A)} & \textbf{B)} \\
+      #1 & #2 \\[10pt]
+      \textbf{C)} & \textbf{D)} \\
+      #3 & #4
+    \end{tabular}
+  \end{center}
+}
 
 % ── Closing motivational rule + cross-promo footer (sheets only) ────────────────
 % Usage: \SpeedClosing{"Quote text."}

@@ -1,0 +1,392 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#7 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Mixed Synthesis Capstone $\cdot$ Every technique from Days 1--6, combined.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Write down the nth term of the AP $4,9,14,19,\ldots$
+
+\ans{$5n-1$}
+\method{$a=4,d=5$: $a_n=4+5(n-1)=5n-1$.}
+\inv{Seen through Day 4's lens, an AP is the recurrence $a_n=a_{n-1}+d$ with characteristic root $x=1$ and a constant forcing term $d$ that happens to match that root --- exactly the ``resonance'' case from Day 4 C5, where the particular solution is linear in $n$ rather than a plain constant. That's the real reason $a_n$ comes out linear instead of exponential. \textbf{Which single value of $d$ makes an AP geometric as well as arithmetic, and what does the sequence look like then?}}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $\dbinom50+\dbinom51+\dbinom52+\dbinom53+\dbinom54+\dbinom55$.
+
+\ans{$32$}
+\method{$\sum_{k=0}^5\binom5k=2^5=32$ (Day 2's row-sum identity, $x=1$).}
+\inv{This identity counts every subset of a $5$-element set by size --- and C2 later in this sheet puts the resulting $2^n$ head to head against Day 6's simplest possible sum, $a_k=1$ repeated $n$ times: the row sum's exponential growth completely dwarfs that linear one, even though both are ``just adding up $n+1$ (or $n$) numbers.'' \textbf{Of those $32$ subsets, how many have \emph{even} size?} Add the $x=1$ and $x=-1$ substitutions and halve --- then check your answer against $\binom50+\binom52+\binom54$.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item A GP has $a=6,r=\tfrac13$. Find its sum to infinity.
+
+\ans{$9$}
+\method{$S_\infty=\dfrac6{1-1/3}=\dfrac6{2/3}=9$ (Day 3).}
+\inv{$S_\infty$ is really just $\lim_{n\to\infty}S_n=\lim_{n\to\infty}a\frac{1-r^n}{1-r}$ --- the exact same ``$r^n\to0$ when $|r|<1$'' mechanism that makes a Day 4 recurrence's roots die out and its sequence converge. A GP is secretly the simplest possible linear recurrence ($a_n=ra_{n-1}$, one root, no forcing term), so this isn't a coincidence. \textbf{How many terms are needed before the partial sum is within $0.01$ of $9$?} The shortfall is $9\left(\tfrac13\right)^n$, so this is one inequality in a power of $3$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Write down the characteristic equation of $a_n=7a_{n-1}-10a_{n-2}$.
+
+\ans{$x^2-7x+10=0$}
+\method{Substitute $x^2,x,1$ for $a_n,a_{n-1},a_{n-2}$ (Day 4).}
+\inv{The coefficients $7$ and $-10$ are not arbitrary: by Vieta's formulas on $x^2-7x+10=0$, the roots must sum to $7$ and multiply to $10$ --- so spotting $2+5=7,\ 2\times5=10$ finds both roots without the quadratic formula at all, the same shortcut Day 4 A4 relies on. \textbf{Now build the recurrence with roots $2$ and $-5$ instead.} Use $p=r_1+r_2$ and $q=-r_1r_2$, then expand $(x-2)(x+5)$ to confirm the signs came out right.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Find the fixed point of $f(x)=3x-8$.
+
+\ans{$x=4$}
+\method{$x=3x-8\Rightarrow-2x=-8\Rightarrow x=4$ (Day 5/Day 6's fixed-point technique).}
+\inv{This is the exact value a Day 5 iteration $a_{n+1}=f(a_n)$ would converge to if it ever converged, and the exact value Day 6's alternating process would get permanently stuck at if it were ever written down --- three days, three different-looking setups, one shared idea: a fixed point is wherever ``apply the map'' stops changing anything. \textbf{Is this fixed point attracting or repelling --- start at $a_1=4.1$ and iterate.} What does $|f'(x)|=3$ predict, and hence how many starting values actually converge to $4$?}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item If the mean of the first $5$ terms of a sequence is an integer, what can be said about their sum?
+
+\ans{Their sum must be a multiple of $5$.}
+\method{Integer mean $\iff$ sum divisible by count (Day 6).}
+\inv{This single equivalence --- integer mean $\iff$ sum divisible by count --- is the entire engine behind Day 6's capstone constructions (B1's $1,3,5,7$, C7's greedy step, D1's card-stacking proof) and D4 later today: everything in that whole strand of questions is this one fact, applied at a different index each time. \textbf{Can all five terms be odd and still give an integer mean?} Consider the parity of a sum of five odd numbers, then find an explicit example or prove none exists.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Is $2,6,18,54,\ldots$ an AP or a GP?
+
+\ans{GP (ratio $3$)}
+\method{$6/2=18/6=54/18=3$, constant ratio.}
+\inv{The two tests are mirror images: an AP is spotted by constant \emph{differences}, a GP by constant \emph{ratios}. Both need only three consecutive terms to check --- but as Day 1's C3 (squaring an AP) showed, confirming ``arithmetic'' or ``geometric'' from a handful of terms is suggestive, not a proof, unless a general nth-term formula backs it up. \textbf{Could any sequence be both an AP and a GP at once?} Impose both definitions simultaneously and describe every sequence that survives.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has both characteristic roots with magnitude $<1$. What happens to the sequence as $n\to\infty$?
+
+\ans{Converges to $0$.}
+\method{Both roots inside the unit circle $\Rightarrow a_n=Ar_1^n+Br_2^n\to0$ (Day 4 D5, Day 5).}
+\inv{Day 4 gets here algebraically ($a_n=Ar_1^n+Br_2^n$ with $|r_1|,|r_2|<1$ forces both terms to $0$); Day 5 would get to the same place by showing the sequence is eventually monotonic and bounded below by $0$. Two completely different-looking arguments landing on the identical conclusion is exactly the kind of thing worth double-checking rather than dismissing as coincidence. \textbf{What changes if one root has magnitude exactly $1$ while the other stays inside?} Treat $r=1$ and $r=-1$ separately --- one gives convergence to a non-zero limit, the other does not converge at all.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Find the coefficient of $x^2$ in $(1+x)^5$.
+
+\ans{$10$}
+\method{$\binom52=10$ (Day 2).}
+\inv{By symmetry $\binom52=\binom53$, so this is also ``the coefficient of $x^3$'' for free --- and C4 later today reuses this exact extraction skill on a weighted series $(k+1)\left(\tfrac13\right)^k$, where the binomial coefficient sits one layer deeper inside a generating-function identity. \textbf{For which $n$ is $\binom n2$ a perfect square?} You know $n=2$ works; find the next one, and note it is the same square-triangular pattern that appeared on Day 1.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Write down the fixed-point formula for $f(x)=rx-c$ ($r\neq1$).
+
+\ans{$x=\dfrac c{r-1}$}
+\method{Solve $x=rx-c$ for $x$ (Day 6).}
+\inv{Compare this single-map fixed point to Day 6's two-player version: there, Alice's own combined per-turn map is $f(x)=rx-c$ too, so her fixed point is this exact same formula --- the alternating writer/Bob structure only matters for finding the OTHER values that reappear (B6--B8), not for the fixed point itself. \textbf{For which integer pairs $(r,c)$ is that fixed point itself an integer?} State it as a divisibility condition on $r-1$ and $c$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item An AP has first term $2$, common difference $3$. Verify that it also satisfies the recurrence $a_n=2a_{n-1}-a_{n-2}$.
+
+\ans{Verified: $a_n=3n-1$ satisfies $a_n=2a_{n-1}-a_{n-2}$.}
+\method{$2a_{n-1}-a_{n-2}=2(3(n-1)-1)-(3(n-2)-1)=2(3n-4)-(3n-7)=6n-8-3n+7=3n-1=a_n$. $\square$}
+\inv{Every AP satisfies $a_n=2a_{n-1}-a_{n-2}$ (characteristic equation $x^2-2x+1=(x-1)^2=0$, a repeated root at $1$) --- exactly Day 4's C7 result, now verified directly on a concrete AP. \textbf{Is there a single fixed recurrence, with constant coefficients, satisfied by \emph{every} GP regardless of $r$ --- as $a_n=2a_{n-1}-a_{n-2}$ is for every AP?} Try to build one and see exactly what obstructs it.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Using $(1-x)^{-1}=\sum x^k$ and $x=\tfrac14$, evaluate $\displaystyle\sum_{k=0}^\infty\left(\dfrac14\right)^k$.
+\begin{itemize}
+\item[A)] $\tfrac43$
+\item[B)] $\tfrac34$
+\item[C)] $4$
+\item[D)] $\tfrac14$
+\end{itemize}
+
+\ans{A) $\tfrac43$}
+\method{$(1-x)^{-1}$ at $x=\tfrac14$: $\left(\tfrac34\right)^{-1}=\tfrac43$.}
+\inv{Day 2's identity plus Day 3's substitution technique, combined exactly as in Day 3's own B10/C7. \textbf{For which $x$ does this series sum to exactly $2$, and for which does it sum to $1$?} Solve $\frac1{1-x}=S$ for $x$, then check the answer lies inside the interval of validity.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $\tfrac12$ and $\tfrac13$, with no forcing term. Does the sequence converge, and to what?
+\begin{itemize}
+\item[A)] Converges to $0$.
+\item[B)] Converges to $\tfrac12+\tfrac13=\tfrac56$.
+\item[C)] Diverges.
+\item[D)] Oscillates without converging.
+\end{itemize}
+
+\ans{A) Converges to $0$.}
+\method{Both $\left(\tfrac12\right)^n\to0$ and $\left(\tfrac13\right)^n\to0$; with no forcing term, $a_n=A\left(\tfrac12\right)^n+B\left(\tfrac13\right)^n\to0$.}
+\inv{If a constant forcing term were bolted on instead --- say $a_n=\tfrac56a_{n-1}-\tfrac16a_{n-2}+k$ --- the limit would shift from $0$ to whatever fixed point that forcing term produces (Day 4 C5's territory), not stay at $0$. The ``no forcing term'' condition here is doing real work, not just decoration. \textbf{Which of the two roots governs the approach to $0$, and after how many steps is the $\left(\tfrac13\right)^n$ term below $1\%$ of the $\left(\tfrac12\right)^n$ term?} Form their ratio --- it is itself a geometric sequence.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=\dfrac1{2-a_n}$. Find its fixed point(s), and determine whether $a_1=1$ leads to a constant sequence.
+
+\ans{Fixed point $x=1$ (repeated); yes, $a_1=1$ gives a constant sequence.}
+\method{$x=\dfrac1{2-x}\Rightarrow x(2-x)=1\Rightarrow2x-x^2=1\Rightarrow x^2-2x+1=0\Rightarrow(x-1)^2=0\Rightarrow x=1$ (unique, repeated). Since $a_1=1$ is exactly this fixed point, $a_2=\dfrac1{2-1}=1=a_1$, and the sequence stays constant.}
+\inv{A rational (Möbius-style) map with a REPEATED fixed point behaves differently from Day 5's period-$3$/period-$4$ examples, which had no repeated fixed points --- worth noticing the distinction. \textbf{Which starting values make this sequence undefined at some step?} Find the value that sends $2-a_n$ to zero, then work backwards one step to find its predecessor.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item The sum of a binomial row, $\sum_k\binom nk$, and the sum of an AP's terms, $\sum_k a_k$, are both examples of what general mathematical operation?
+\begin{itemize}
+\item[A)] Summing a finite sequence.
+\item[B)] They are unrelated concepts.
+\item[C)] Both are geometric series.
+\item[D)] Both require calculus.
+\end{itemize}
+
+\ans{A) Summing a finite sequence.}
+\method{Both are instances of $\sum_{k}(\text{terms})$ --- the underlying operation (summation) is identical, even though the term-generating rules (binomial coefficients vs.\ an arithmetic rule) are completely different.}
+\inv{Recognising the SAME general operation underneath different-looking notation is a genuine synthesis skill, distinct from recognising when two things are actually unrelated (see B10). \textbf{Name an operation on a sequence that is \emph{not} a special case of this one.} Taking products is the obvious candidate --- say precisely what fails.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item In the alternating multiply-subtract process (Day 6), the shift $b_n=a_n-\frac c{r-1}$ turns Alice's map into exactly which type of sequence from Day 3?
+\begin{itemize}
+\item[A)] A GP with ratio $r$.
+\item[B)] An AP with difference $r$.
+\item[C)] A GP with ratio $c$.
+\item[D)] Neither.
+\end{itemize}
+
+\ans{A) A GP with ratio $r$.}
+\method{$b_n=a_n-\frac c{r-1}$ satisfies $b_{n+1}=rb_n$ exactly (Day 6's derivation, identical in form to Day 4's shift trick).}
+\inv{This shift trick relies on the subtracted term being a genuine constant --- D3 later today asks what breaks if it isn't (a term $c_n=cn$ that grows every turn instead), and the answer is that a single fixed constant $L$ can no longer absorb a moving target: Day 4 C5's particular-solution machinery, not this shift, is what's actually needed then. \textbf{What breaks if $r=1$?} Locate the exact division that becomes illegal, and identify which Day 1 sequence the process generates in that case.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item The series $(1-x)^{-1}=\sum x^k$ is the closed form of which simple recurrence? State the recurrence and its characteristic root.
+
+\ans{$a_k=x\cdot a_{k-1}$, a first-order GP recurrence with (single) characteristic root $x$.}
+\method{Since $a_k=x^k$, clearly $a_k=x\cdot x^{k-1}=x\cdot a_{k-1}$.}
+\inv{Every term of a geometric series is itself the closed-form solution of the simplest possible recurrence --- Day 3 and Day 4 were secretly describing the same object from two different angles all along. \textbf{Which recurrence has $(1-x)^{-2}$ as its closed form?} Its characteristic equation should have a repeated root --- write it down and expand to check.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Which of Day 1's arithmetic sequences is also strictly monotonic (Day 5's sense) for every valid common difference $d\neq0$?
+\begin{itemize}
+\item[A)] Every AP with $d\neq0$ is monotonic.
+\item[B)] Only APs with $d>0$.
+\item[C)] No AP is ever monotonic.
+\item[D)] Only APs with integer $d$.
+\end{itemize}
+
+\ans{A) Every AP with $d\neq0$ is monotonic.}
+\method{$a_{n+1}-a_n=d$ always, a fixed nonzero sign --- increasing if $d>0$, decreasing if $d<0$, with no exceptions.}
+\inv{Unlike Day 5's more exotic sequences (which needed real proof to establish monotonicity), an AP's monotonicity is immediate from its very definition. \textbf{Is the converse true --- must every strictly monotonic sequence be an AP?} One counterexample settles it.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item A GP has $|r|>1$. Is the sequence bounded?
+\begin{itemize}
+\item[A)] No --- it diverges in magnitude, unbounded.
+\item[B)] Yes, always bounded.
+\item[C)] Bounded only if $a>0$.
+\item[D)] Bounded only if $r$ is an integer.
+\end{itemize}
+
+\ans{A) No, unbounded.}
+\method{$|a_n|=|a||r|^n\to\infty$ when $|r|>1$, regardless of the sign of $a$ or $r$.}
+\inv{This is the direct opposite of Day 3's convergence condition $|r|<1$ --- the two cases ($|r|<1$ vs.\ $|r|>1$) are exact mirror images. \textbf{What about the boundary $|r|=1$?} Handle $r=1$ and $r=-1$ separately, and say which is bounded, which converges, and which is neither.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Day 6's ``$a_k=1$ for all $k$'' construction and Day 2's binomial row-sum fact $\sum_k\binom nk=2^n$ are both about sums. Are these two facts related, or independent observations?
+
+\ans{Independent observations.}
+\method{Day 6's construction concerns DIVISIBILITY of a running (incrementally-built) sum by its own index; Day 2's row sum concerns the TOTAL of a fixed, complete row of binomial coefficients. Different objects, different questions, no structural connection beyond both being ``a sum.''}
+\inv{Not every pair of similar-sounding facts from different days is actually related --- correctly identifying when two ideas are genuinely independent, rather than forcing a false connection, is exactly as important as spotting real synthesis (contrast with B5). \textbf{Settle it quantitatively: what does $\dfrac{2^n}n$ do as $n\to\infty$?} If the two facts really were comparable, that ratio would have to stay bounded.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item An AP and a GP both have first term $3$; the AP has $d=4$, the GP has $r=2$. After how many terms (if ever) could they next coincide?
+\begin{itemize}
+\item[A)] They never coincide again.
+\item[B)] At term $4$.
+\item[C)] At term $6$.
+\item[D)] At term $10$.
+\end{itemize}
+
+\ans{A) They never coincide again.}
+\method{AP: $3,7,11,15,19,23,\ldots$ GP: $3,6,12,24,48,\ldots$ Comparing term by term after the first: none match, and once the GP overtakes the AP (by term $4$: $24>15$), the exponentially-growing GP stays ahead of the linearly-growing AP forever.}
+\inv{This is Day 1's B10 insight (GP eventually and permanently overtakes AP) turned into a ``do they ever meet again'' question. \textbf{Prove they never meet again: show the GP's term exceeds the AP's for every $n\geq3$.} Induction on the ratio of consecutive terms is the clean route.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Compare the growth of $\sum_{k=1}^na_k$ where $a_k=1$ for all $k$ (Day 6's construction) against $\sum_{k=0}^n\binom nk$ (Day 2's row sum) as $n\to\infty$. Which grows faster?
+\begin{itemize}
+\item[A)] The binomial row sum grows faster (exponentially vs.\ linearly).
+\item[B)] They grow at the same rate.
+\item[C)] The Day 6 sum grows faster.
+\item[D)] Neither grows --- both are constant.
+\end{itemize}
+
+\ans{A) The binomial row sum grows faster.}
+\method{Day 6's sum is $\sum_{k=1}^n1=n$ (linear). Day 2's row sum is $2^n$ (exponential). Exponential growth eventually and permanently outpaces linear growth.}
+\inv{The exact same ``exponential beats linear eventually'' theme as C1 and Day 1's B10, now applied to two different sums rather than two sequences. \textbf{Make it concrete --- what is the smallest $n$ with $2^n>100n$?} The answer is smaller than most people expect, which is the whole point about exponential growth.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence $a_n=pa_{n-1}+qa_{n-2}$ has both characteristic roots equal to a Day 6-style fixed point $\frac c{r-1}$. If $\frac c{r-1}=1$, what does Day 4's result about repeated roots equal to $1$ tell us about the long-term behaviour of $(a_n)$?
+\begin{itemize}
+\item[A)] Linear growth in $n$ (effectively an AP).
+\item[B)] Exponential growth.
+\item[C)] Convergence to $0$.
+\item[D)] Periodic oscillation.
+\end{itemize}
+
+\ans{A) Linear growth in $n$.}
+\method{A repeated characteristic root of exactly $1$ gives closed form $a_n=(A+Bn)(1)^n=A+Bn$ --- linear in $n$ (Day 4's C7 result), regardless of how that root of $1$ arose.}
+\inv{This shows Day 4's C7 result is really about the VALUE of the repeated root ($=1$), not about how the recurrence was originally motivated (whether directly given, or arising from a Day 6-style fixed point). \textbf{What if the repeated root were $2$ rather than $1$?} Write the closed form and say whether the growth is still linear.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $\displaystyle\sum_{k=0}^\infty(k+1)\left(\dfrac13\right)^k$ using Day 2's identity $(1-x)^{-2}=\sum_{k=0}^\infty(k+1)x^k$.
+\begin{itemize}
+\item[A)] $\tfrac94$
+\item[B)] $\tfrac32$
+\item[C)] $\tfrac49$
+\item[D)] $\tfrac23$
+\end{itemize}
+
+\ans{A) $\tfrac94$}
+\method{$(1-x)^{-2}$ at $x=\tfrac13$: $\left(\tfrac23\right)^{-2}=\left(\tfrac32\right)^2=\tfrac94$.}
+\inv{Same technique as B2 and Day 3's C8, now with the ``$(k+1)$-weighted'' series instead of the plain geometric series. \textbf{Now evaluate the same weighted series at $x=\tfrac12$ instead.} Use $(1-x)^{-2}$ directly, and note how much faster it grows than the plain geometric series at the same $x$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item A M\"obius map (Day 5) is used as the combined operation in an alternating writing process (Day 6). If the map has order exactly $3$ under iteration, what is guaranteed about EVERY starting value (where the map is defined)?
+\begin{itemize}
+\item[A)] Every starting value returns to itself after exactly $3$ applications.
+\item[B)] Only some starting values return; others diverge.
+\item[C)] The map converges to a fixed point instead.
+\item[D)] Nothing general can be said.
+\end{itemize}
+
+\ans{A) Every starting value returns to itself after exactly $3$ applications.}
+\method{A Möbius transformation of finite order $m$ (as a transformation) satisfies $f^m=\text{identity}$ EVERYWHERE it's defined, not just at special points --- this is a property of the transformation itself, not of any particular starting value.}
+\inv{Contrast Day 5's C1/C2/D2: those specific maps were shown to have order $4$ and $3$ respectively by direct computation from ONE starting value, but the underlying fact (guaranteed for every valid starting point) is what this question makes explicit. \textbf{Produce such a map explicitly and verify the claim.} Day 5's $f(x)=\frac1{1-x}$ is the standard example --- compose it three times and check you recover $x$ for every valid input.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item For a GP with ratio $r$, for which values of $r$ is the sequence BOTH monotonic AND convergent?
+\begin{itemize}
+\item[A)] $0\leq r\leq1$.
+\item[B)] $-1<r<1$.
+\item[C)] Only $r=1$.
+\item[D)] $r>1$ only.
+\end{itemize}
+
+\ans{A) $0\leq r\leq1$.}
+\method{For $0<r<1$: decreasing toward $0$ (monotonic, convergent). $r=1$: constant (trivially both). $r=0$: the sequence is $a,0,0,0,\ldots$, trivially monotonic (non-increasing) and convergent. For $-1<r<0$: convergent to $0$ but NOT monotonic (alternates sign). For $|r|\geq1$ (excluding $r=1$): not convergent (Day 3/B9).}
+\inv{The boundary cases ($r=0$ and $r=1$) are exactly where ``monotonic'' and ``convergent'' stop being in tension with each other --- everywhere else in $(-1,1)$, oscillation (for negative $r$) breaks monotonicity even though convergence still holds. \textbf{What happens for $-1<r<0$ --- does the sequence still converge, and is it still monotonic?} The two properties come apart here, which is exactly why the answer excludes that range.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item Day 6's two-branch search ($u(r^k-1)=-c$) and Day 4's root-magnitude convergence condition are both examples of what general principle about a term $r^k$ (or $r^n$)?
+\begin{itemize}
+\item[A)] Whether $|r|<1$, $=1$, or $>1$ entirely determines the long-term size of $r^k$ --- shrinking to $0$, staying constant, or blowing up.
+\item[B)] Exponential terms are always eventually periodic.
+\item[C)] Exponential terms never affect convergence.
+\item[D)] There is no shared principle.
+\end{itemize}
+
+\ans{A) $|r|<1,=1,>1$ entirely determines the size of $r^k$.}
+\method{Both Day 6's search (where $|u|=\frac c{r^k-1}\to0$ because $r\geq2>1$) and Day 4's convergence condition (roots need $|r|<1$ to shrink to $0$) are direct consequences of this single fact about exponentials.}
+\inv{The trichotomy has a fourth corner the method doesn't mention: complex $r$ with $|r|=1$ exactly. That's Day 5's Möbius maps of exact order $3$ or $4$ (C1, D2) --- neither shrinking nor growing, just orbiting forever, which is exactly what ``staying constant'' looks like once magnitude stops being the whole story. \textbf{Give a concrete $r$ with $|r|=1$ that is neither $1$ nor $-1$, and describe what its powers do.} Try $r=i$ and list $r^1$ through $r^5$.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item Which set of results from this week are all secretly governed by the SAME underlying idea --- long-term behaviour controlled by whether a key magnitude is $<1$, $=1$, or $>1$?
+\begin{itemize}
+\item[A)] Geometric series convergence (Day 3); recurrence convergence via characteristic roots (Day 4); GP boundedness (today's B9).
+\item[B)] Arithmetic sequences, binomial coefficients, integer means.
+\item[C)] All seven days equally.
+\item[D)] None of the sheet's content shares a common idea.
+\end{itemize}
+
+\ans{A) Geometric series convergence, recurrence convergence, GP boundedness.}
+\method{All three are direct restatements of ``the size of $r^n$ as $n\to\infty$ depends entirely on whether $|r|$ is less than, equal to, or greater than $1$'' --- Day 3's $|r|<1$ convergence condition, Day 4's root-magnitude convergence condition, and today's B9 boundedness fact are the same underlying idea in three different costumes.}
+\inv{Naming this shared idea explicitly is the whole point of a synthesis day --- the individual techniques were taught separately across the week precisely so that noticing they're the same idea, here, lands with real weight. \textbf{State the shared principle in a single sentence covering all three cases $<1$, $=1$, $>1$ --- then find the one day this week whose main result it does \emph{not} govern.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item For each positive integer $n\geq4$, define an $n$-necklace to be a circular arrangement of $n$ (not necessarily distinct) positive integers such that the product of every $4$ neighbouring integers equals $n$. Determine the number of integers $n$ in the range $4\leq n\leq1000$ for which it is possible to form an $n$-necklace. \textit{\small(after BMO1 2019 Q2)}
+
+\ans{$252$}
+\method{Let $d=\gcd(4,n)$. Since the product of every $4$ consecutive terms is constant, $a_i=a_{i+4}$ (indices mod $n$) for every $i$ --- so $a_i$ depends only on $i\bmod d$. Write $x_0,\ldots,x_{d-1}$ for the values on each residue class. Since $d\mid4$ always (a gcd divides both its arguments), every window of $4$ consecutive terms covers each $x_j$ exactly $4/d$ times, regardless of where the window starts. So the constant product is $(x_0x_1\cdots x_{d-1})^{4/d}$, and setting this equal to $n$: a valid $n$-necklace exists exactly when $n$ is a perfect $(4/d)$-th power, where $d=\gcd(4,n)$.\\
+\emph{Case $4\mid n$} ($d=4$): need $n$ to be a perfect $1$st power --- always true. Every multiple of $4$ works.\\
+\emph{Case $n\equiv2\pmod4$} ($d=2$): need $n$ to be a perfect square. But every perfect square is $\equiv0$ or $1\pmod4$ (even$^2\equiv0$, odd$^2\equiv1$), never $\equiv2$ --- so this case is NEVER possible.\\
+\emph{Case $n$ odd} ($d=1$): need $n$ to be a perfect $4$th power (automatically odd, since an odd 4th root gives an odd 4th power).\\
+Counting $4\leq n\leq1000$: multiples of $4$ number $250$. Odd perfect $4$th powers in range: $3^4=81$ and $5^4=625$ (checking $1^4=1<4$ excluded, $7^4=2401>1000$ excluded) --- $2$ more. Total: $250+2=252$.}
+\inv{The real BMO1 question (2019 Q2) uses windows of $3$ instead of $4$, over the range $3\leq n\leq2018$. Since $3$ is prime, $\gcd(3,n)\in\{1,3\}$ only, giving just two cases (multiples of $3$ always work; non-multiples need $n$ to be a perfect cube) --- the real answer is $679$. Using $4$ instead of a prime window introduces the extra $n\equiv2\pmod4$ case, which turns out to NEVER contribute --- an example of how changing one number in a BMO1 problem can add real extra casework, not just bigger numbers. \textbf{Now do the easiest case of the same framework: for a window of $2$, which $n$ admit an $n$-necklace?} Work out $\gcd(2,n)$ in the even and odd cases separately; one case always works and the other needs a perfect square.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item Prove that for any starting value $a_1$ (a positive integer), there exists a strictly increasing sequence of positive integers $a_1<a_2<\cdots<a_n$, of any desired length $n$, such that every partial sum $S_k$ is divisible by $k$.
+
+\ans{Proof by induction using Day 6's construction.}
+\method{Base case: $a_1$ given, trivially satisfies $S_1=a_1$ divisible by $1$. Inductive step: given a valid $a_1<\cdots<a_k$ with $S_k$ divisible by $k$, Day 6's C7 argument shows some $a_{k+1}\equiv-S_k\pmod{k+1}$ makes $S_{k+1}$ divisible by $k+1$ --- and since there are infinitely many integers in that residue class (differing by multiples of $k+1$), we can always choose one that ALSO exceeds $a_k$ (just add enough multiples of $k+1$ to the smallest valid residue). This gives a valid $a_{k+1}>a_k$. By induction, a strictly increasing valid sequence of any desired length $n$ can always be built, starting from any $a_1$. $\square$}
+\inv{This upgrades Day 6's C7 (``a valid next term always exists'') to also guarantee it can be chosen larger than the previous term --- the same idea, with one extra degree of freedom (choosing among infinitely many equivalent residues) doing the extra work. \textbf{Can the next term always be chosen within $n+1$ of the previous one --- that is, is $a_{n+1}\leq a_n+(n+1)$ always achievable?} Think about how many consecutive integers you must scan to hit a given residue class.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item In Day 6's alternating recurrence, suppose the subtracted term is not a fixed constant $c$ but grows every turn, $c_n=cn$. Does the shift-to-fixed-point trick (a single constant $L=\frac c{r-1}$) still work directly?
+\begin{itemize}
+\item[A)] No --- a single fixed constant $L$ cannot absorb a forcing term that changes every step; a particular-solution technique (Day 4's C5) matching the forcing term's form would be needed instead.
+\item[B)] Yes, exactly the same $L$ still works.
+\item[C)] The process becomes undefined.
+\item[D)] It only works if $r=1$.
+\end{itemize}
+
+\ans{A) No --- a particular-solution technique is needed instead.}
+\method{The equation $L=rL-c_n$ would need $L$ to depend on $n$ (since $c_n$ changes every step), contradicting the requirement that $L$ be a single fixed constant --- exactly Day 4's C5 situation (a non-constant forcing term defeats the simple constant-shift trick).}
+\inv{Recognising that Day 4's C5 insight (forcing term type determines the fix needed) applies just as much to Day 6's alternating process as to Day 4's own recurrences is real cross-day transfer, not just pattern-completion. \textbf{So what form should the particular solution take for a forcing term $c_n=cn$?} Try $a_n=An+B$, substitute, and solve for $A$ and $B$.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_1=1$ and, for $n\geq1$, $a_{n+1}$ is the SMALLEST positive integer greater than $a_n$ such that $S_{n+1}$ is divisible by $n+1$. Find $a_1,\ldots,a_5$, and conjecture (with justification) a general closed form for $a_n$.
+
+\ans{$a_1,\ldots,a_5=1,3,5,7,9$; conjectured closed form $a_n=2n-1$.}
+\method{$a_1=1$ ($S_1=1$). For $a_2$: try $2$ first ($S_2=3$, not divisible by $2$); try $3$ ($S_2=4$, divisible by $2$) --- so $a_2=3$. For $a_3$: try $4$ ($S_3=8$, not divisible by $3$); try $5$ ($S_3=9$, divisible by $3$) --- $a_3=5$. For $a_4$: try $6$ ($S_4=15$, not divisible by $4$); try $7$ ($S_4=16$, divisible by $4$) --- $a_4=7$. For $a_5$: try $8$ ($S_5=24$, not divisible by $5$); try $9$ ($S_5=25$, divisible by $5$) --- $a_5=9$.\\
+The pattern $1,3,5,7,9$ is exactly the consecutive-odd-numbers sequence from Day 6's B1, where $S_k=k^2$ always --- and $k^2/k=k$ is always an integer, so this sequence is always valid. The conjecture $a_n=2n-1$ is consistent with every computed term, and the fact that the ``next even integer'' candidate fails at every single step (checked above for $n=2,3,4,5$) strongly suggests it is genuinely the SMALLEST valid choice at each stage, not a coincidence.}
+\inv{This is Day 6's B1 construction (built there by deliberate choice) rediscovered here as the UNIQUE greedy outcome of a simple local rule (``smallest integer bigger than the last term, keeping the mean an integer'') --- a satisfying full-circle moment to end the week on. \textbf{Run the same greedy rule from $a_1=2$ instead.} Compute five terms, conjecture the closed form, and say how it relates to the $a_1=1$ answer.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Looking back across all seven days: which day's toolkit would be LEAST directly useful for tackling D1's $n$-necklace problem?
+\begin{itemize}
+\item[A)] Day 2 (Binomial \& Trinomial Expansion) --- D1's argument uses periodicity and perfect-power number theory, not binomial coefficients.
+\item[B)] Day 5 (Behaviour of Sequences).
+\item[C)] Day 1 (Arithmetic Sequences).
+\item[D)] All seven days are equally essential to D1.
+\end{itemize}
+
+\ans{A) Day 2 (Binomial \& Trinomial Expansion).}
+\method{D1's proof rests entirely on periodicity ($a_i=a_{i+4}$, an orbit-structure argument closely related to Day 5's periodicity toolkit) and number-theoretic perfect-power reasoning --- binomial coefficients never enter the argument at any point.}
+\inv{Recognising which tools are genuinely load-bearing for a given problem (and which aren't) is itself a mature strategic skill --- not every day's toolkit is meant to be forced into every problem, and knowing that saves real time under exam pressure. \textbf{Turn the question round --- which day's toolkit is \emph{most} load-bearing for D1, and is any single day strictly necessary?} Identify the one idea the proof genuinely cannot be run without.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Identify which day's toolkit a question wants before diving into algebra.} Misapplying Day 4's heavy machinery to a Day 1/3 problem (or vice versa) wastes real time. \seealso{A7, B1, B3, B6, B8, C1, C6}
+  \item \textbf{The single unifying idea behind Days 3, 4, and 5: whether a magnitude is $<1$, $=1$, or $>1$ controls everything.} \seealso{B3, B9, C6, C7, C8}
+  \item \textbf{Series-manipulation from Day 2 ($(1-x)^{-m}$ substitutions) combines directly with Day 3's convergence toolkit.} Always look for this bridge on an ``evaluate this infinite series'' question. \seealso{B2, C4}
+  \item \textbf{Day 6's shift-to-fixed-point trick is Day 3's GP toolkit, applied one level up via Day 4's shift technique.} \seealso{B6, B7, D3}
+  \item \textbf{Not every technique is relevant to every problem.} Identifying which day's toolkit is genuinely load-bearing (and which isn't) is itself a tested skill on a synthesis day. \seealso{C2, C3, D5}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Reaching for Day 4's characteristic equation on a recurrence that's secretly just an AP or GP in disguise.} \seealso{B1, B6}
+  \item \textbf{Assuming every sum/series question is ``the same kind of sum.''} Day 2's binomial row sums and Day 6's integer-mean partial sums are structurally unrelated, despite superficial similarity. \seealso{B10, C2}
+  \item \textbf{Forgetting that convergence and boundedness are different properties.} $|r|>1$ makes a GP unbounded, not just ``not converging to a specific value.'' \seealso{B9}
+  \item \textbf{Assuming a repeated-root or fixed-point coincidence is special/impossible rather than checking what it actually implies.} \seealso{C3}
+  \item \textbf{In a full synthesis proof, skipping the general case-by-case argument in favour of pattern-matching from a few small examples.} A genuine BMO1 proof needs the general argument. \seealso{D1}
+\end{enumerate}
+
+\SpeedClosing{``Days 3, 4 and 5 were the same question asked three times:
+is the magnitude below one, at one, or above it.''}
+
+\end{document}

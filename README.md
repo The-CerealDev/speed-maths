@@ -1,98 +1,164 @@
-# Speed Maths — Daily Drill Series
+# Speed Maths
 
-TMUA & SMC preparation, built one pillar at a time: **Algebra** (done, 7 sheets),
-**Combinatorics** (done, 7 sheets), **Number Theory** (done, 7 sheets),
-**Logic** (done, 7 sheets), **Geometry** (not started).
+Daily drill worksheets for **TMUA**, **SMC** and **BMO1** — 35 sheets, 1,155
+questions, every answer checked by a script that has to agree with it.
 
-## Structure
+**📄 [Browse and download the sheets](https://the-cerealdev.github.io/speed-maths/)**
+
+Free, open source, and made to be printed. One sheet is one sitting.
+
+---
+
+## Why the answers are trustworthy
+
+Worked solutions written by hand — or by a language model — are wrong more often
+than anyone admits, and a wrong answer in a revision resource is worse than no
+resource at all: you lose the question *and* trust the mistake.
+
+So every question here has a matching check in `<pillar>/verify/sheetNN_verify.py`
+that computes the answer independently of the text. If the sheet says 240 and the
+script says 238, the sheet does not ship.
+
+```console
+$ python3 algebra/verify/sheet01_verify.py
+All 33 checks passed.
+```
+
+**1,155 questions. 1,155 checks. Currently all passing.** You can run them
+yourself — they need nothing but Python.
+
+This is the whole reason the project exists. An earlier version of these sheets
+was drafted through a chat window with no verification step, and some of its
+solutions were confidently wrong. Everything here was rebuilt against scripts.
+
+## What's in it
+
+| Pillar | Sheets | Questions | Covers |
+|---|---|---|---|
+| **Algebra** | 7 | 231 | Polynomials, inequalities, functional equations |
+| **Combinatorics** | 7 | 231 | Counting, probability, discrete structures |
+| **Number Theory** | 7 | 231 | Divisibility, modular arithmetic, primes |
+| **Logic** | 7 | 231 | Conditionals, proof techniques, counterexamples |
+| **Sequences** | 7 | 231 | Recurrences, series, limiting behaviour |
+
+Every sheet is the same shape, so the difficulty ramp is predictable:
+
+| Section | Questions | Target time | What it is |
+|---|---|---|---|
+| **A** — Rapid Recognition | 10 | ≤ 15s each | Should be automatic |
+| **B** — Manipulation Drills | 10 | ≤ 50s each | Standard technique, under time |
+| **C** — Substitution & Structure | 8 | ≤ 90s each | The day's new tool |
+| **D** — Challenge | 5 | — | TMUA / SMC / BMO1 difficulty |
+
+Each sheet also comes with an answer booklet containing a full method, not just
+a final value, plus an *Investigate further* prompt that extends the idea.
+
+## How to use it
+
+1. Download a sheet from [the archive](https://the-cerealdev.github.io/speed-maths/).
+2. Do it **timed**, in one sitting, without notes.
+3. Only then open the answers.
+
+Work a pillar in order — sheet 1 to 7 — because each day's Section C introduces a
+tool that later days assume you have.
+
+## Contributing
+
+Contributions are genuinely welcome, and there are two separate doors.
+
+### 🧮 I want to add a maths question
+
+You need no coding and no Git. Open any sheet's `.tex` on GitHub, press the edit
+pencil, make your change, and choose **Propose changes** — that opens a pull
+request from your browser.
+
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first. The two rules that get PRs
+turned down are:
+
+- **No verbatim past-paper questions.** Adapt them, and credit the source —
+  `(after TMUA 2019 Paper 2 Q4)`.
+- **A question needs a check.** Add a case to the pillar's `verify/` script so
+  your answer proves itself. If you can't write Python, say so in the PR and
+  someone will add it.
+
+### 🛠 I want to work on the tooling
+
+`tools/build_website.py` builds the site, the `verify/` scripts check the maths,
+and `shared/preamble.tex` holds every macro. Issues tagged
+[`good first issue`](https://github.com/The-CerealDev/speed-maths/labels/good%20first%20issue)
+are scoped to one file each.
+
+## Building it yourself
+
+```bash
+# Compile one sheet — run from inside the sheets/ folder, the
+# \input{../../shared/preamble} path is relative to it
+cd algebra/sheets && pdflatex sheet01.tex
+
+# Check the maths
+python3 algebra/verify/sheet01_verify.py
+
+# Rebuild the website
+python3 tools/build_website.py
+```
+
+`index.html` and `classic.html` are **generated** — edit `template-archive.html`
+or `template.html` instead, then re-run the build. Sheet titles and topic tags
+come from a `\SpeedMeta{topic}{tools}` line in each sheet's own `.tex`, so the
+site can never disagree with the repo.
+
+## Repository layout
 
 ```
-Speed-Maths/
-├── shared/
-│   ├── preamble.tex      ← single source of truth for header, footer,
-│   │                        colours, answer/investigate boxes, title table
-│   └── speed-logo.png    ← logo asset (not currently wired into the header)
-├── algebra/
-│   ├── sheets/           sheet01.tex … sheet07.tex  (+ compiled .pdf)
-│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
-├── combinatorics/
-│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
-│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
-├── number-theory/
-│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
-│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
-├── logic/
-│   ├── sheets/           sheet01.tex … sheet07.tex (+ compiled .pdf)
-│   └── answers/          ans01.tex  … ans07.tex     (+ compiled .pdf)
-├── geometry/
-│   ├── sheets/
-│   └── answers/
-├── prompts/
-│   ├── AI_PROMPTS.md          ← Instructions for LLMs generating content
-│   └── BUILD_CORPUS_PROMPT.md ← Instructions for LLMs scraping past papers
+speed-maths/
+├── shared/preamble.tex     single source of truth for every macro and style
+├── <pillar>/
+│   ├── sheets/             sheet01.tex … sheet07.tex  (+ compiled .pdf)
+│   ├── answers/            ans01.tex   … ans07.tex    (+ compiled .pdf)
+│   └── verify/             sheetNN_verify.py — the checks
 ├── tools/
-│   ├── build_website.py       ← Statically builds the frontend index.html
-│   ├── compile_pdfs.sh        ← Bulk recompiles all LaTeX sheets
-│   └── similarity_check.py    ← Plagiarism checker against research corpus
-├── template.html              ← The HTML skeleton of the website
-├── style.css                  ← CSS for the website frontend
-└── index.html                 ← Auto-generated frontend (DO NOT manually edit)
+│   ├── build_website.py    scans the repo, writes index.html + classic.html
+│   ├── compile_pdfs.sh     bulk recompile
+│   └── similarity_check.py plagiarism check against a research corpus
+├── template-archive.html   layout for index.html      ← edit this
+├── template.html           layout for classic.html    ← or this
+├── tokens.css              colours, radii, shadows — the only place hexes live
+├── archive.css             layout for the current design
+└── style.css               layout for the classic design
 ```
 
-## Website Architecture
+## Writing conventions
 
-This repository doubles as a static PDF-archive website (like PMT or MadasMaths). The website is served completely automatically without any database or client-side JavaScript.
-
-- **`template.html`**: This is the source code for the website's layout. If you want to change the title, add a footer, or redesign the UI, edit this file.
-- **`style.css`**: The extremely minimal, academic stylesheet.
-- **`tools/build_website.py`**: When run, this Python script reads `template.html`, scans the repo for `.pdf` files, dynamically injects the download links, and saves the final result as `index.html`.
-- **`index.html`**: The final artifact. It is automatically overwritten every time the build script runs. **Do not manually edit this file.**
-
-## Conventions
-
-- **Numbering:** two-digit, zero-padded (`sheet01`, not `sheet1`) so ordering
-  stays correct past sheet 9.
-- **Branding:** locked to `\textbf{Speed Maths:} Competition \& Exam Prep` everywhere. Edit
-  `\SpeedExamLine` in `shared/preamble.tex` once if this ever needs to change.
-- **Series Editor credit:** `\SpeedCredit` in `shared/preamble.tex`. This stays on every page.
-- **Sheet Author credit:** Passed as the second argument to `\SpeedTitleBlock`.
-- **Every sheet/answer file starts the same way:**
+- **Numbering** is two-digit and zero-padded (`sheet01`), so order survives past 9.
+- **Every sheet opens the same way:**
   ```latex
   \documentclass[11pt,a4paper]{article}
   \input{../../shared/preamble}
-  \SpeedHeader{<Pillar>}{<worksheet number>}
+  \SpeedHeader{<Pillar>}{<N>}
 
   \begin{document}
 
-  \SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Author Name>}
+  \SpeedTitleBlock{Daily <Pillar> Drill \#<N>}{<Author>}
+  \SpeedMeta{<what this sheet teaches>}{<tool, tool, tool>}
   \noindent\textit{New toolkit today: ...}
   ```
-  Answer files use `\SpeedTitleBlock{Daily <Pillar> Drill \#<N> --- Answers \& Investigations}{<Author Name>}`
-  and the `\ans{}` / `\method{}` / `\inv{}` commands for each question.
-- **Closing block:** every sheet/answer ends with
-  `\SpeedClosing{<quote text>}` — this generates the rule/quote/cross-promo
-  block consistently; don't hand-write it.
-- **Compiling:** run `pdflatex` from inside the `sheets/` or `answers/`
-  folder itself (the `\input{../../shared/preamble}` path is relative to
-  that). If uploading to Overleaf, keep the whole `Speed-Maths/` folder
-  structure intact — don't flatten it.
+- **Answer files** use `\SpeedTitleBlock{... --- Answers \& Investigations}` with
+  `\ans{}` / `\method{}` / `\inv{}` per question.
+- **Closing block:** end with `\SpeedClosing{<quote>}` — never hand-write it.
+- **Branding** lives in `\SpeedExamLine` and `\SpeedCredit`. Change it once, there.
 
-## Starting a new pillar
+Starting a whole new pillar? [`PILLAR-PLAYBOOK.md`](PILLAR-PLAYBOOK.md) is the
+seven-day build process, written down.
 
-1. Copy the skeleton of `algebra/sheets/sheet01.tex`, swap `\SpeedHeader{Algebra}{1}`
-   for `\SpeedHeader{Combinatorics}{1}` (etc.), and write new questions.
-2. Keep the same A/B/C/D difficulty-table structure unless the pillar
-   genuinely needs different section names — if so, just write the
-   `tabular` directly instead of calling `\SpeedTitleBlock`.
-3. Match it with an answer file using `\ans` / `\method` / `\inv`.
+## Roadmap
 
+- **Calculus** and **Graphs** — drafted, held back pending review.
+- Broader coverage of the UK admissions ecosystem (TMUA, MAT, STEP).
 
+Note that MAT is discontinued from 2026 entry, so Oxford maths and CS applicants
+now sit TMUA — the sheets are weighted accordingly.
 
-## Roadmap (Planned Expansions)
+## Licence
 
-While the initial four pillars cover the core Olympiad syllabus (SMC / BMO1), the ultimate vision for this repository is to provide 100% comprehensive coverage of the UK university admissions ecosystem (TMUA, MAT, STEP). 
-
-Once the core pillars are complete, the project will expand to include:
-- **Speed Calculus**: Differentiation and integration (optimization, tangents, area).
-- **Speed Sequences**: Arithmetic/geometric progressions, recurrence relations, and series.
-- **Speed Graphs**: Advanced curve sketching, trigonometric identities, and function intersections.
+[MIT](LICENSE) for the code and the sheets. Questions adapted from past papers
+are credited inline; the papers themselves belong to their respective boards.

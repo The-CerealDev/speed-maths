@@ -1,0 +1,407 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#5 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Monotonicity \& Boundedness $\cdot$ Fixed Points $\cdot$ Non-Modular Periodicity $\cdot$ Floor/Ceiling Sequences.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Is the sequence $a_n=5-n$ increasing, decreasing, or neither?
+
+\ans{Decreasing}
+\method{$a_{n+1}-a_n=(5-(n+1))-(5-n)=-1<0$ for every $n$.}
+\inv{Every AP with $d<0$ decreases --- Day 1's definition in new language. \textbf{Is this sequence bounded? Decide above and below separately, and say which of the two fails.} Then state the general rule: for an AP, exactly which of ``bounded above'' and ``bounded below'' can hold, and what does $d=0$ do to the answer?}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Is the sequence $a_n=n^2$ bounded above? Bounded below?
+
+\ans{Not bounded above; bounded below (by $1$).}
+\method{$n^2\to\infty$ as $n\to\infty$, so no upper bound exists. But $n^2\geq1$ for every positive integer $n$, so $1$ is a lower bound.}
+\inv{A sequence can be bounded on one side only, so check each direction separately. \textbf{Now find a sequence that is bounded above but not below, and one bounded below but not above --- then decide whether a sequence bounded on \emph{neither} side must be non-monotonic.} The last one is the interesting case; try to build a counterexample before assuming.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Find the fixed point of $f(x)=2x-3$ (i.e.\ solve $f(x)=x$).
+
+\ans{$x=3$}
+\method{$x=2x-3\Rightarrow-x=-3\Rightarrow x=3$.}
+\inv{Check $f(3)=3$ \checkmark: once the sequence lands on $3$ it stays forever. \textbf{But is $3$ attracting or repelling? Start at $a_1=3.1$ and iterate a few times, then try $a_1=2.9$.} Work out what $|f'(x)|=2$ predicts, and hence why almost every starting value runs \emph{away} from this fixed point.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=\dfrac1{a_n}$. If $a_1=2$, find $a_2,a_3,a_4$.
+
+\ans{$a_2=\tfrac12,a_3=2,a_4=\tfrac12$}
+\method{$a_2=\tfrac1{a_1}=\tfrac12$. $a_3=\tfrac1{a_2}=2$. $a_4=\tfrac1{a_3}=\tfrac12$.}
+\inv{Period $2$: odd terms $2$, even terms $\tfrac12$, forever. \textbf{Which starting values $a_1$ make this sequence constant rather than genuinely period-$2$?} Solve $f(x)=x$ for $f(x)=\frac1x$ --- and note there are two answers, which is already unlike the linear map in A3.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Compute $\lfloor3.7\rfloor$ and $\lceil3.2\rceil$.
+
+\ans{$\lfloor3.7\rfloor=3$, $\lceil3.2\rceil=4$}
+\method{Floor rounds down to the nearest integer; ceiling rounds up.}
+\inv{Both operations fix an integer: $\lfloor5\rfloor=\lceil5\rceil=5$. \textbf{So for which real $x$ is $\lceil x\rceil-\lfloor x\rfloor=0$, and what is it for every other $x$?} The function takes only two values ever --- state both cases precisely, and be careful about negative $x$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Recall from Day 4 that a recurrence with both characteristic roots inside the unit circle converges to $0$. Does $a_n=\left(\tfrac12\right)^n+\left(\tfrac13\right)^n$ converge as $n\to\infty$? To what value?
+
+\ans{Yes, converges to $0$.}
+\method{Both $\left(\tfrac12\right)^n\to0$ and $\left(\tfrac13\right)^n\to0$ as $n\to\infty$, since both bases have magnitude less than $1$. Their sum also $\to0$.}
+\inv{Day 4's D5 with $A=B=1$ and both roots inside the unit circle. \textbf{Which of the two terms dies away faster, and roughly how many steps until the $\left(\tfrac13\right)^n$ part is negligible against the $\left(\tfrac12\right)^n$ part?} Form their ratio and watch it shrink --- this is why the \emph{largest} root governs long-run behaviour.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Is the sequence $a_n=(-1)^n$ bounded? Does it converge?
+
+\ans{Bounded (yes); does not converge.}
+\method{Every term is either $1$ or $-1$, so $-1\leq a_n\leq1$ always (bounded). But the sequence never settles near a single value --- it alternates forever.}
+\inv{The standard counterexample to ``bounded implies convergent''. \textbf{Sharpen it: this sequence has two subsequences that each converge, to different limits. Identify them, and explain why that is exactly what stops the whole sequence converging.} A limit, if it exists, must be shared by every subsequence.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: every bounded sequence converges.
+
+\ans{False}
+\method{$a_n=(-1)^n$ (A7) is a direct counterexample: bounded, but not convergent.}
+\inv{The correct statement pairs bounded \emph{with} monotonic; boundedness alone is not enough. \textbf{Check the converse before trusting it --- must every convergent sequence be monotonic?} Find a convergent sequence that is not, and then say which of the two implications is actually true.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item Is the sequence $a_n=\dfrac n{n+1}$ increasing or decreasing? (Check $a_1,a_2,a_3$.)
+
+\ans{Increasing}
+\method{$a_1=\tfrac12,a_2=\tfrac23,a_3=\tfrac34$ --- each term is bigger than the last.}
+\inv{B1 proves this for all $n$, not just the first three terms. \textbf{Before turning the page: three terms establish a pattern but never a proof --- construct a sequence that increases for its first three terms and then decreases.} That is exactly why B1 has to do algebra rather than arithmetic.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Find the smallest $n$ for which $\lfloor\sqrt n\rfloor=4$.
+
+\ans{$16$}
+\method{$\lfloor\sqrt n\rfloor=4$ needs $4\leq\sqrt n<5$, i.e.\ $16\leq n<25$. The smallest such $n$ is $16$.}
+\inv{Convert a floor equation into a double inequality on $n$ before searching. \textbf{Do it in general: for which $n$ is $\lfloor\sqrt n\rfloor=k$, and how many such $n$ are there for each $k$?} Your count should come out as a simple linear expression in $k$ --- which is precisely what C5 then adds up.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Prove that $a_n=\dfrac n{n+1}$ is increasing for all $n\geq1$ by showing $a_{n+1}-a_n>0$.
+
+\ans{Proof: $a_{n+1}-a_n=\dfrac1{(n+1)(n+2)}>0$.}
+\method{$a_{n+1}-a_n=\dfrac{n+1}{n+2}-\dfrac n{n+1}=\dfrac{(n+1)^2-n(n+2)}{(n+2)(n+1)}=\dfrac{n^2+2n+1-n^2-2n}{(n+2)(n+1)}=\dfrac1{(n+1)(n+2)}$, which is positive for every $n\geq1$. $\square$}
+\inv{The ``common denominator, then simplify'' route to $a_{n+1}-a_n>0$ works on almost any rational sequence. \textbf{Practise it on $a_n=\frac{2n+1}{n+3}$: is it increasing or decreasing, and what is its limit?} Compute the difference as a single fraction and check only the numerator's sign --- the denominator is positive throughout.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item Is $a_n=\dfrac n{n+1}$ bounded above? If so, by what value (the supremum)?
+\begin{itemize}
+\item[A)] Yes, supremum $1$.
+\item[B)] Yes, supremum $2$.
+\item[C)] No, unbounded.
+\item[D)] Yes, supremum $\tfrac12$.
+\end{itemize}
+
+\ans{A) Yes, supremum $1$.}
+\method{$a_n=\dfrac n{n+1}=1-\dfrac1{n+1}<1$ for every $n$, and $a_n\to1$ as $n\to\infty$ --- so $1$ is the smallest possible upper bound (the supremum), even though no term ever equals it exactly.}
+\inv{Rewriting $\frac n{n+1}$ as $1-\frac1{n+1}$ makes both the increase and the bound obvious at a glance. \textbf{Is that supremum $1$ ever actually attained? And is there a smaller upper bound that works?} Distinguish ``an upper bound'' from ``the least upper bound'' --- the sequence never reaches $1$, yet nothing below $1$ bounds it.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=\dfrac1{a_n}$ with $a_1=3$. Find $a_{100}$.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $\tfrac13$
+\item[C)] $100$
+\item[D)] $\tfrac1{100}$
+\end{itemize}
+
+\ans{B) $\tfrac13$}
+\method{The sequence has period $2$: $a_1=3,a_2=\tfrac13,a_3=3,a_4=\tfrac13,\ldots$ --- odd indices give $3$, even indices give $\tfrac13$. Since $100$ is even, $a_{100}=\tfrac13$.}
+\inv{Reduce a large index modulo the period first: $100\equiv0$, the even case. \textbf{Now handle the general reciprocal map: for $a_{n+1}=\frac1{a_n}$ with any $a_1\neq0$, write $a_n$ in closed form using the parity of $n$.} Then say which starting values collapse the period-$2$ pattern to a constant sequence.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the fixed point(s) of $f(x)=\dfrac1x$ (i.e.\ solve $f(x)=x$).
+
+\ans{$x=\pm1$}
+\method{$\dfrac1x=x\Rightarrow x^2=1\Rightarrow x=\pm1$.}
+\inv{$f(x)=\frac1x$ has two fixed points, unlike the linear map in A3 which has exactly one. \textbf{Explain why any non-identity linear $f(x)=mx+c$ can have at most one --- and identify the single case where it has infinitely many.} Solve $mx+c=x$ and look hard at what makes that equation degenerate.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=f(a_n)$ where $f$ has a fixed point at $x=5$. If $a_1=5$, what is $a_n$ for every $n$?
+\begin{itemize}
+\item[A)] $a_n=5$ for all $n$.
+\item[B)] $a_n=5n$.
+\item[C)] $a_n\to5$ but never equals it.
+\item[D)] Cannot be determined.
+\end{itemize}
+
+\ans{A) $a_n=5$ for all $n$.}
+\method{$a_1=5$ is exactly the fixed point, so $a_2=f(5)=5$, and by the same reasoning every later term stays at $5$ forever.}
+\inv{The simplest case of C8: start at a fixed point and you never leave. \textbf{But is the converse true --- if a sequence is eventually constant, must that constant be a fixed point of $f$?} Consider what $a_{n+1}=f(a_n)$ forces once two consecutive terms agree.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following sequences is monotonic (always increasing or always decreasing)?
+\begin{itemize}
+\item[A)] $a_n=(-1)^n$
+\item[B)] $a_n=\sin(n)$
+\item[C)] $a_n=\dfrac1n$
+\item[D)] $a_n=n\bmod3$
+\end{itemize}
+
+\ans{C) $\dfrac1n$}
+\method{$\dfrac1n$ strictly decreases as $n$ increases. A) and B) oscillate without settling into one direction; D) cycles through $1,2,0,1,2,0,\ldots$ forever.}
+\inv{Monotonic means \emph{every} consecutive pair moves the same way; one exception disqualifies it. \textbf{Prove the claim that lurks behind this: show a periodic sequence can only be monotonic if it is constant.} Suppose it increases somewhere, then use periodicity to return to an earlier value and derive a contradiction.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Evaluate $\lfloor-2.3\rfloor$.
+\begin{itemize}
+\item[A)] $-2$
+\item[B)] $-3$
+\item[C)] $2$
+\item[D)] $3$
+\end{itemize}
+
+\ans{B) $-3$}
+\method{Floor always rounds toward $-\infty$, not toward $0$: the greatest integer that is still $\leq-2.3$ is $-3$, not $-2$.}
+\inv{The classic slip: for negatives, ``round down'' means \emph{more} negative, not toward zero. \textbf{So is $\lfloor-x\rfloor=-\lfloor x\rfloor$ always, sometimes, or never true?} Test it on an integer and a non-integer, then write down the correct identity relating $\lfloor-x\rfloor$ to $\lceil x\rceil$.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_n=\left\lfloor\dfrac n2\right\rfloor$. Find $a_1,a_2,a_3,a_4,a_5$.
+\begin{itemize}
+\item[A)] $0,1,1,2,2$
+\item[B)] $1,1,2,2,3$
+\item[C)] $0,0,1,1,2$
+\item[D)] $0,1,2,2,3$
+\end{itemize}
+
+\ans{A) $0,1,1,2,2$}
+\method{$a_1=\lfloor0.5\rfloor=0$, $a_2=\lfloor1\rfloor=1$, $a_3=\lfloor1.5\rfloor=1$, $a_4=\lfloor2\rfloor=2$, $a_5=\lfloor2.5\rfloor=2$.}
+\inv{Floor division compresses the sequence, repeating each value twice. \textbf{Generalise: for $a_n=\left\lfloor\frac nk\right\rfloor$, how many times does each value repeat, and what is the smallest $n$ with $a_n=m$?} Check your formula against $k=2$ here before trusting it.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Determine whether $a_n=\dfrac{(-1)^n}n$ converges, and if so, to what limit.
+
+\ans{Converges to $0$.}
+\method{$\left|\dfrac{(-1)^n}n\right|=\dfrac1n\to0$ as $n\to\infty$, and since $-\dfrac1n\leq a_n\leq\dfrac1n$, the sequence is squeezed to $0$ regardless of the alternating sign.}
+\inv{Unlike $(-1)^n$, here the magnitude shrinks as the sign alternates, so the oscillation dies out. \textbf{Is this sequence monotonic? And does it therefore contradict the ``bounded and monotonic'' theorem from A8?} Answer both carefully --- the theorem gives a sufficient condition, not a necessary one, and that distinction is the whole point.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item For an AP with common difference $d$, under what condition on $d$ is the sequence strictly increasing?
+\begin{itemize}
+\item[A)] $d>0$
+\item[B)] $d<0$
+\item[C)] $d\neq0$
+\item[D)] $d\geq0$
+\end{itemize}
+
+\ans{A) $d>0$}
+\method{$a_{n+1}-a_n=d$ for every $n$ in an AP --- strictly increasing means this difference must be positive, i.e.\ $d>0$.}
+\inv{Day 1's fact in this sheet's language. \textbf{Now combine the two ideas: can an AP ever be both strictly increasing \emph{and} bounded above?} Argue from the $n$th-term formula rather than intuition --- and note this is exactly why the ``bounded and monotonic'' theorem never applies to a non-constant AP.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=\dfrac{a_n-1}{a_n+1}$, with $a_1=2$. Find $a_5$.
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $\tfrac13$
+\item[C)] $-\tfrac12$
+\item[D)] $-3$
+\end{itemize}
+
+\ans{A) $2$}
+\method{$a_1=2$. $a_2=\dfrac{2-1}{2+1}=\dfrac13$. $a_3=\dfrac{1/3-1}{1/3+1}=\dfrac{-2/3}{4/3}=-\dfrac12$. $a_4=\dfrac{-1/2-1}{-1/2+1}=\dfrac{-3/2}{1/2}=-3$. $a_5=\dfrac{-3-1}{-3+1}=\dfrac{-4}{-2}=2$.}
+\inv{Exact period $4$: the cycle $2,\tfrac13,-\tfrac12,-3$ repeats forever. \textbf{Is that period a property of the starting value or of the map itself? Try $a_1=5$ and see whether you again return after exactly $4$ steps.} Then find the one starting value in this cycle's orbit that the map cannot accept at all.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Continuing C1's sequence, what is $a_{101}$?
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $\tfrac13$
+\item[C)] $-\tfrac12$
+\item[D)] $-3$
+\end{itemize}
+
+\ans{A) $2$}
+\method{The sequence has period $4$ (from C1). $101=4(25)+1$, so $101\equiv1\pmod4$, meaning $a_{101}=a_1=2$.}
+\inv{Same index reduction as B3, now with period $4$. \textbf{State the rule in general: if a sequence has period $p$, which term equals $a_N$, and what is the right convention when $N\equiv0\pmod p$?} Off-by-one errors here are the main hazard --- test your rule on $N=4,5$ against the cycle you already know.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_1=1$ and $a_{n+1}=\sqrt{a_n+2}$. Which is true about $(a_n)$?
+\begin{itemize}
+\item[A)] Increasing and bounded above by $2$; converges to $2$.
+\item[B)] Decreasing and bounded below by $1$.
+\item[C)] Not monotonic; oscillates.
+\item[D)] Unbounded, diverges to infinity.
+\end{itemize}
+
+\ans{A) Increasing and bounded above by $2$; converges to $2$.}
+\method{Computing terms: $a_1=1,a_2=\sqrt3\approx1.73,a_3\approx1.93,a_4\approx1.98,\ldots$ --- visibly increasing and approaching $2$. (D1 proves this rigorously.)}
+\inv{Solving $x=\sqrt{x+2}$ gives $x^2-x-2=0$, so $x=2$ (rejecting $x=-1$, since $f\geq0$). \textbf{Squaring can introduce false roots --- so check directly why $-1$ fails, then investigate whether the limit depends on the start: try $a_1=100$ and $a_1=0$.} Does every non-negative starting value reach the same limit?}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The first seven terms of a sequence of positive integers are: $w_1=10,w_2=15,w_3=18,w_4=22,w_5=31,w_6=36,w_7=41$. Consider the statement $(*)$: ``If $n$ is prime, then $w_n$ is a multiple of $3$ or a multiple of $5$.'' What is the smallest value of $n$ that provides a counterexample to $(*)$? \textit{\small(after TMUA 2021 Paper 2 Q10)}
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $5$
+\item[D)] $7$
+\end{itemize}
+
+\ans{C) $5$}
+\method{Check the primes in order: $n=2$: $w_2=15=3\times5$, a multiple of both --- not a counterexample. $n=3$: $w_3=18=3\times6$, a multiple of $3$ --- not a counterexample. $n=5$: $w_5=31$, which is neither a multiple of $3$ ($31=3\times10+1$) nor of $5$ --- this IS a counterexample. Since $5$ is the smallest prime that fails, it's the answer.}
+\inv{Check the candidate indices in increasing order and stop at the first failure rather than testing every term. \textbf{Having found the smallest counterexample, ask whether it is the only one --- are there further indices where the claim also fails?} \textbf{Then try the real TMUA version (2021 Paper 2 Q10)}: sequence $15,21,30,37,44,51,59$, claim ``multiple of $3$ or $5$'', which also breaks first at $n=5$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_n=\lfloor\sqrt n\rfloor$. For how many values of $n$ in the range $1\leq n\leq100$ does $a_n=7$?
+\begin{itemize}
+\item[A)] $13$
+\item[B)] $14$
+\item[C)] $15$
+\item[D)] $16$
+\end{itemize}
+
+\ans{C) $15$}
+\method{$a_n=7$ needs $7\leq\sqrt n<8$, i.e.\ $49\leq n<64$. The integers from $49$ to $63$ inclusive number $63-49+1=15$.}
+\inv{A10's boundary technique extended to counting a range. \textbf{Push it to the full sum: over $1\leq n\leq100$, how many $n$ give each value of $\lfloor\sqrt n\rfloor$, and do your counts add to exactly $100$?} That total is the check that catches an off-by-one at the top end, where the last block is cut short.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_n=n-\lfloor n/3\rfloor\cdot3$ (the remainder when $n$ is divided by $3$, written using floor notation). Is $(a_n)$ periodic? If so, what is its period?
+\begin{itemize}
+\item[A)] Periodic, period $3$.
+\item[B)] Periodic, period $2$.
+\item[C)] Not periodic.
+\item[D)] Periodic, period $1$ (constant).
+\end{itemize}
+
+\ans{A) Periodic, period $3$.}
+\method{$a_n=n-3\lfloor n/3\rfloor$ is exactly the remainder of $n$ divided by $3$: for $n=1,2,3,4,5,6,\ldots$ this gives $1,2,0,1,2,0,\ldots$ --- repeating every $3$ terms.}
+\inv{$n\bmod3$ and $n-3\lfloor n/3\rfloor$ are the same formula written twice. \textbf{This sequence is periodic --- state its period and its repeating block, then decide whether the identity still holds for negative $n$.} Python and most mathematicians agree on negative $n$ here; some calculators do not, which is worth knowing before you trust one.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=a_n^2-a_n+1$ for $n\geq1$, with $0<a_1<1$. Is $(a_n)$ increasing, decreasing, or could it be either depending on $a_1$?
+\begin{itemize}
+\item[A)] Always increasing (or constant), for any starting value.
+\item[B)] Always decreasing.
+\item[C)] Depends on $a_1$.
+\item[D)] Cannot be determined without more information.
+\end{itemize}
+
+\ans{A) Always increasing (or constant), for any starting value.}
+\method{$a_{n+1}-a_n=(a_n^2-a_n+1)-a_n=a_n^2-2a_n+1=(a_n-1)^2\geq0$ always, regardless of $a_n$'s value --- so $a_{n+1}\geq a_n$ for every $n$, for \emph{any} real starting value, not just $0<a_1<1$.}
+\inv{The stated restriction $0<a_1<1$ is a red herring: the algebra $a_{n+1}-a_n=(a_n-1)^2\geq0$ holds unconditionally. \textbf{So find the one starting value for which the sequence does \emph{not} strictly increase, and confirm it is the map's fixed point.} Then decide what the sequence does for $a_1>1$ --- does it still converge?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item For a sequence defined by $a_{n+1}=f(a_n)$ with $f$ continuous, if $(a_n)$ converges to a limit $L$, what must be true about $L$?
+\begin{itemize}
+\item[A)] $f(L)=L$ --- $L$ must be a fixed point of $f$.
+\item[B)] $L=a_1$ always.
+\item[C)] $f(L)=0$.
+\item[D)] No general statement can be made.
+\end{itemize}
+
+\ans{A) $f(L)=L$ --- $L$ must be a fixed point of $f$.}
+\method{Taking the limit of both sides of $a_{n+1}=f(a_n)$ as $n\to\infty$: the left side $\to L$, and since $f$ is continuous, the right side $\to f(L)$. So $L=f(L)$.}
+\inv{This theorem sits under every fixed-point computation on the sheet. \textbf{But note what it does \emph{not} say --- construct a sequence $a_{n+1}=f(a_n)$ where $f$ has a perfectly good fixed point yet the sequence never converges.} A3's repelling fixed point is one route in; C1's period-$4$ map is another.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_1=1$ and $a_{n+1}=\sqrt{a_n+2}$ (as in C3). Prove rigorously, by induction, that $(a_n)$ is bounded above by $2$ for all $n$; then prove $(a_n)$ is strictly increasing; and hence explain why the sequence must converge, identifying its limit.
+
+\ans{Bounded above by $2$, strictly increasing, converges to $2$.}
+\method{\emph{Bounded above by $2$ (induction):} Base case $a_1=1<2$. Inductive step: assume $a_k<2$; then $a_{k+1}=\sqrt{a_k+2}<\sqrt{2+2}=2$. By induction, $a_n<2$ for all $n$.\\
+\emph{Strictly increasing:} Since $0<a_n<2$, we have $(a_n-2)<0$ and $(a_n+1)>0$, so $(a_n-2)(a_n+1)<0$, i.e.\ $a_n^2-a_n-2<0$, i.e.\ $a_n+2>a_n^2$. Since $a_n\geq0$, taking square roots preserves the inequality: $\sqrt{a_n+2}>a_n$, i.e.\ $a_{n+1}>a_n$.\\
+\emph{Convergence:} An increasing sequence bounded above must converge (Monotone Convergence Theorem). Taking the limit $L$ of $a_{n+1}=\sqrt{a_n+2}$: $L=\sqrt{L+2}\Rightarrow L^2=L+2\Rightarrow(L-2)(L+1)=0\Rightarrow L=2$ or $L=-1$. Since every $a_n>0$, $L\geq0$, so $L=2$. $\square$}
+\inv{The rigorous version of C3's numerical observation, combining induction, factoring and the fixed-point theorem. \textbf{Now identify which of the three ingredients actually fails if the recurrence is changed to $a_{n+1}=\sqrt{a_n+6}$ --- and find the new limit.} Redo the fixed-point equation first; the structure of the proof should survive unchanged.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item A M\"obius map $f(x)=\dfrac1{1-x}$ generates a sequence via $a_{n+1}=f(a_n)$. Starting from $a_1=2$, find the period of the resulting sequence (the smallest $k>0$ such that $a_{n+k}=a_n$ for all $n$).
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $4$
+\item[D)] $6$
+\end{itemize}
+
+\ans{B) $3$}
+\method{$a_1=2$. $a_2=\dfrac1{1-2}=-1$. $a_3=\dfrac1{1-(-1)}=\dfrac12$. $a_4=\dfrac1{1-\frac12}=2=a_1$.}
+\inv{$f(x)=\frac1{1-x}$ has order $3$ under composition, where C1's map had order $4$ --- both exact cycles. \textbf{Compute $f(f(f(x)))$ symbolically and confirm it simplifies to $x$ for every $x$ in the domain. Then find the two values of $x$ this map cannot be applied to.} Order-$3$ means the identity is reached in three steps, for \emph{all} valid $x$, not just $a_1=2$.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_1=100$ and $a_{n+1}=\lfloor a_n/2\rfloor$. Find the smallest $n$ for which $a_n=0$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $7$
+\item[C)] $8$
+\item[D)] $9$
+\end{itemize}
+
+\ans{C) $8$}
+\method{$a_1=100,a_2=50,a_3=25,a_4=12,a_5=6,a_6=3,a_7=1,a_8=0$.}
+\inv{Floor-halving reaches $0$ in about $\log_2(a_1)$ steps: $\log_2100\approx6.6$, and indeed $a_8=0$. \textbf{Make it exact --- find a formula for the number of steps in terms of $a_1$, and identify which starting values are the worst case.} Write $a_1$ in binary; the step count is reading off something very simple about that representation.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_1=3$ and $a_{n+1}=\dfrac{a_n+\frac4{a_n}}2$. Which best describes its behaviour?
+\begin{itemize}
+\item[A)] Decreasing (after the first term) and bounded below by $2$; converges rapidly to $2$.
+\item[B)] Increasing, converges to $2$.
+\item[C)] Oscillates between values above and below $2$.
+\item[D)] Diverges to infinity.
+\end{itemize}
+
+\ans{A) Decreasing (after the first term) and bounded below by $2$; converges rapidly to $2$.}
+\method{$a_1=3$, $a_2=\dfrac{3+4/3}2=\dfrac{13/3}2=\dfrac{13}6\approx2.167$, $a_3\approx2.006$, $a_4\approx2.00002$ --- rapidly approaching $2$ from above. The fixed point solves $x=\dfrac{x+4/x}2\Rightarrow2x=x+\dfrac4x\Rightarrow x=\dfrac4x\Rightarrow x^2=4\Rightarrow x=2$ (taking the positive root, since all terms stay positive).}
+\inv{This is the Babylonian (Newton) iteration for $\sqrt4$; $a_{n+1}=\frac12\left(a_n+\frac c{a_n}\right)$ computes $\sqrt c$ for any $c>0$. \textbf{Run it for $c=2$ from $a_1=1$ and count how many decimal places are correct at each step.} \textbf{Then ask: what happens if you start at a negative value?} The fixed-point equation has two roots, and the start decides which one you reach.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item A sequence satisfies $a_{n+1}=a_n(1-a_n)$ with $a_1=\tfrac12$. Compute $a_2,a_3$, and determine whether the sequence is monotonic.
+\begin{itemize}
+\item[A)] Decreasing for all $n$, since $a_{n+1}-a_n=-a_n^2\leq0$ always.
+\item[B)] Increasing for all $n$.
+\item[C)] Not monotonic.
+\item[D)] Constant.
+\end{itemize}
+
+\ans{A) Decreasing for all $n$.}
+\method{$a_2=\tfrac12\left(1-\tfrac12\right)=\tfrac14$. $a_3=\tfrac14\left(1-\tfrac14\right)=\tfrac14\cdot\tfrac34=\tfrac3{16}$. In general, $a_{n+1}-a_n=a_n(1-a_n)-a_n=a_n(1-a_n-1)=-a_n^2\leq0$ always, so the sequence never increases.}
+\inv{C7 in reverse: there $(a_n-1)^2\geq0$ forced the sequence up, here $-a_n^2\leq0$ forces it down --- writing $a_{n+1}-a_n$ as $\pm(\text{something})^2$ settles monotonicity instantly. \textbf{This sequence decreases and is bounded below by $0$, so it converges --- to what?} Solve $L=L(1-L)$, then check your answer against the terms you computed.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Monotonicity via the sign of $a_{n+1}-a_n$.} Often collapses to $\pm(\text{something})^2$, settling the direction instantly without computing terms. \seealso{A1, A9, B1, C7, D5}
+  \item \textbf{Fixed points: solve $f(L)=L$.} If a sequence converges, its limit must be a fixed point of the generating function. \seealso{A3, B4, B5, C8, D4}
+  \item \textbf{Boundedness $+$ monotonicity together imply convergence.} Neither alone is enough --- see Common Trap 1. \seealso{C3, D1}
+  \item \textbf{M\"obius maps can have small, exact periods under repeated composition.} Check by direct iteration --- don't assume a map is aperiodic just because it looks complicated. \seealso{C1, C2, D2}
+  \item \textbf{Floor/ceiling notation is just an explicit ``round down/up.''} Expressions like $\lfloor n/k\rfloor$ often secretly encode periodicity (a remainder) or a counting bound. \seealso{A5, A10, B7, B8, C5, C6, D3}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Assuming boundedness alone implies convergence.} $(-1)^n$ is bounded but never converges --- monotonicity is also needed. \seealso{A7, A8}
+  \item \textbf{Forgetting floor rounds DOWN even for negative numbers.} $\lfloor-2.3\rfloor=-3$, not $-2$. \seealso{B7}
+  \item \textbf{Assuming a sequence must be eventually constant or simply diverging.} Some sequences are genuinely, exactly periodic with period $>1$ forever. \seealso{C1, C2, D2}
+  \item \textbf{Trusting a few computed terms as proof of monotonicity.} Numerical evidence is not a proof --- always confirm the sign of $a_{n+1}-a_n$ algebraically for all $n$. \seealso{D1}
+  \item \textbf{Assuming a stated restriction on initial conditions is load-bearing.} Some monotonicity results hold far more generally than a question implies --- check whether the algebra actually needs the stated constraint. \seealso{C7}
+\end{enumerate}
+
+\SpeedClosing{``Solving $f(L)=L$ tells you where the limit would be, not that there is one.
+The fixed point is a suspect, not a confession.''}
+
+\end{document}

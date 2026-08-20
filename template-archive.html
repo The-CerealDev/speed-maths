@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Maths Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="archive.css">
+</head>
+<body>
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <span class="brand">Speed Maths</span>
+            <div class="site-nav">
+                <!-- NAV -->
+            </div>
+            <div class="nav-right">
+                <a href="https://github.com/The-CerealDev/speed-maths" class="github-link"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1">
+                        <path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page">
+            <h1>The archive</h1>
+            <p class="subtitle">
+                Computationally verified competition-level mathematics &mdash; TMUA, MAT, SMC, BMO1.
+                All sheets are free PDFs; attempt under timed conditions before checking the methods.
+            </p>
+        </header>
+
+        <div class="filter-bar">
+            <div class="search">
+                <span class="search-ic">/</span>
+                <input id="q" type="search" autocomplete="off"
+                       placeholder="Search sheets by topic or tool&hellip;"
+                       aria-label="Search sheets">
+            </div>
+        </div>
+
+        <!-- PILLARS -->
+
+        <p class="no-match" id="nomatch" hidden>No sheets match that search.</p>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                Open source and computationally verified.
+                <a href="https://github.com/The-CerealDev/speed-maths">GitHub</a>
+                &middot; <a href="classic.html">Classic view</a>
+            </p>
+        </div>
+    </footer>
+
+<script>
+// Client-side filter over what is already on the page. The archive is a static
+// site with no backend, so search must work off the rendered DOM rather than an
+// endpoint — which also means it keeps working with JavaScript disabled, just
+// without filtering, because every sheet is present in the HTML to begin with.
+(function () {
+    var q = document.getElementById('q');
+    var nomatch = document.getElementById('nomatch');
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.sheet-row'));
+    var pillars = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
+
+    rows.forEach(function (r) {
+        r.dataset.hay = r.textContent.toLowerCase().replace(/\s+/g, ' ');
+    });
+
+    function apply() {
+        var term = q.value.trim().toLowerCase();
+        var shown = 0;
+        rows.forEach(function (r) {
+            var hit = !term || r.dataset.hay.indexOf(term) !== -1;
+            r.hidden = !hit;
+            if (hit) shown++;
+        });
+        // A pillar whose every row is filtered out is noise, not information.
+        pillars.forEach(function (p) {
+            var any = p.querySelector('.sheet-row:not([hidden])');
+            p.hidden = !!term && !any;
+        });
+        nomatch.hidden = shown !== 0;
+    }
+
+    q.addEventListener('input', apply);
+
+    // "/" focuses search, the convention the placeholder advertises.
+    document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && document.activeElement !== q) {
+            e.preventDefault();
+            q.focus();
+        } else if (e.key === 'Escape' && document.activeElement === q) {
+            q.value = '';
+            apply();
+            q.blur();
+        }
+    });
+})();
+</script>
+</body>
+</html>

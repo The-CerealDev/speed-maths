@@ -1,0 +1,36 @@
+/* Speed Maths design tokens — the single source of truth for colour, radius
+   and shadow across the archive site and the retriever app.
+
+   These values were already identical in both halves of the project, but they
+   were identical by copy-paste: `style.css` and `variant_retriever/static/
+   style.css` each declared their own :root with the same hexes under different
+   names (--bg-color vs --bg, --card-bg vs --surface, --border-color vs
+   --border). That matches until someone changes one of them.
+
+   Names here follow the retriever's, which is the more complete set. */
+:root {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --border: #e2e8f0;
+    /* One step darker than --text-main, for the GitHub button's hover. */
+    --text-strong: #1a202c;
+
+    --primary: #2b6cb0;
+    --primary-hover: #2c5282;
+    --primary-fg: #ffffff;
+
+    --secondary: #edf2f7;
+    --secondary-hover: #e2e8f0;
+
+    /* Answers are deliberately a different colour from Questions: the whole
+       instruction on the page is to attempt before checking, so the two links
+       must never look interchangeable. */
+    --danger: #c53030;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+}

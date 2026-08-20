@@ -1,0 +1,236 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#5}{David Akinyele-Aje}
+\SpeedMeta{Monotonicity, bounds and fixed points}{monotonicity, boundedness, fixed points, floor and ceiling sequences}
+\noindent\textit{New toolkit today: Monotonicity \& Boundedness $\cdot$ Fixed Points $\cdot$ Non-Modular Periodicity $\cdot$ Floor/Ceiling Sequences.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Behaviour, not formulas: is it going up, down, or nowhere?}
+
+\begin{enumerate}
+
+\item Is the sequence $a_n=5-n$ increasing, decreasing, or neither?
+
+\item Is the sequence $a_n=n^2$ bounded above? Bounded below?
+
+\item Find the fixed point of $f(x)=2x-3$ (i.e.\ solve $f(x)=x$).
+
+\item A sequence satisfies $a_{n+1}=\dfrac1{a_n}$. If $a_1=2$, find $a_2,a_3,a_4$.
+
+\item Compute $\lfloor3.7\rfloor$ and $\lceil3.2\rceil$.
+
+\item Recall from Day 4 that a recurrence with both characteristic roots inside the unit circle converges to $0$. Does $a_n=\left(\tfrac12\right)^n+\left(\tfrac13\right)^n$ converge as $n\to\infty$? To what value?
+
+\item Is the sequence $a_n=(-1)^n$ bounded? Does it converge?
+
+\item True or false: every bounded sequence converges.
+
+\item Is the sequence $a_n=\dfrac n{n+1}$ increasing or decreasing? (Check $a_1,a_2,a_3$.)
+
+\item Find the smallest $n$ for which $\lfloor\sqrt n\rfloor=4$.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Prove monotonicity properly; find fixed points; handle floors carefully.}
+
+\begin{enumerate}
+
+\item Prove that $a_n=\dfrac n{n+1}$ is increasing for all $n\geq1$ by showing $a_{n+1}-a_n>0$.
+
+\item Is $a_n=\dfrac n{n+1}$ bounded above? If so, by what value (the supremum)?
+\begin{itemize}
+\item[A)] Yes, supremum $1$.
+\item[B)] Yes, supremum $2$.
+\item[C)] No, unbounded.
+\item[D)] Yes, supremum $\tfrac12$.
+\end{itemize}
+
+\item A sequence satisfies $a_{n+1}=\dfrac1{a_n}$ with $a_1=3$. Find $a_{100}$.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $\tfrac13$
+\item[C)] $100$
+\item[D)] $\tfrac1{100}$
+\end{itemize}
+
+\item Find the fixed point(s) of $f(x)=\dfrac1x$ (i.e.\ solve $f(x)=x$).
+
+\item A sequence satisfies $a_{n+1}=f(a_n)$ where $f$ has a fixed point at $x=5$. If $a_1=5$, what is $a_n$ for every $n$?
+\begin{itemize}
+\item[A)] $a_n=5$ for all $n$.
+\item[B)] $a_n=5n$.
+\item[C)] $a_n\to5$ but never equals it.
+\item[D)] Cannot be determined.
+\end{itemize}
+
+\item Which of the following sequences is monotonic (always increasing or always decreasing)?
+\begin{itemize}
+\item[A)] $a_n=(-1)^n$
+\item[B)] $a_n=\sin(n)$
+\item[C)] $a_n=\dfrac1n$
+\item[D)] $a_n=n\bmod3$
+\end{itemize}
+
+\item Evaluate $\lfloor-2.3\rfloor$.
+\begin{itemize}
+\item[A)] $-2$
+\item[B)] $-3$
+\item[C)] $2$
+\item[D)] $3$
+\end{itemize}
+
+\item A sequence is defined by $a_n=\left\lfloor\dfrac n2\right\rfloor$. Find $a_1,a_2,a_3,a_4,a_5$.
+\begin{itemize}
+\item[A)] $0,1,1,2,2$
+\item[B)] $1,1,2,2,3$
+\item[C)] $0,0,1,1,2$
+\item[D)] $0,1,2,2,3$
+\end{itemize}
+
+\item Determine whether $a_n=\dfrac{(-1)^n}n$ converges, and if so, to what limit.
+
+\item For an AP with common difference $d$, under what condition on $d$ is the sequence strictly increasing?
+\begin{itemize}
+\item[A)] $d>0$
+\item[B)] $d<0$
+\item[C)] $d\neq0$
+\item[D)] $d\geq0$
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Iterate carefully --- some maps cycle exactly, some sequences hide a red herring.}
+
+\begin{enumerate}
+
+\item A sequence satisfies $a_{n+1}=\dfrac{a_n-1}{a_n+1}$, with $a_1=2$. Find $a_5$.
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $\tfrac13$
+\item[C)] $-\tfrac12$
+\item[D)] $-3$
+\end{itemize}
+
+\item Continuing C1's sequence, what is $a_{101}$?
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $\tfrac13$
+\item[C)] $-\tfrac12$
+\item[D)] $-3$
+\end{itemize}
+
+\item A sequence satisfies $a_1=1$ and $a_{n+1}=\sqrt{a_n+2}$. Which is true about $(a_n)$?
+\begin{itemize}
+\item[A)] Increasing and bounded above by $2$; converges to $2$.
+\item[B)] Decreasing and bounded below by $1$.
+\item[C)] Not monotonic; oscillates.
+\item[D)] Unbounded, diverges to infinity.
+\end{itemize}
+
+\item The first seven terms of a sequence of positive integers are: $w_1=10,w_2=15,w_3=18,w_4=22,w_5=31,w_6=36,w_7=41$. Consider the statement $(*)$: ``If $n$ is prime, then $w_n$ is a multiple of $3$ or a multiple of $5$.'' What is the smallest value of $n$ that provides a counterexample to $(*)$? \textit{\small(after TMUA 2021 Paper 2 Q10)}
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $5$
+\item[D)] $7$
+\end{itemize}
+
+\item A sequence is defined by $a_n=\lfloor\sqrt n\rfloor$. For how many values of $n$ in the range $1\leq n\leq100$ does $a_n=7$?
+\begin{itemize}
+\item[A)] $13$
+\item[B)] $14$
+\item[C)] $15$
+\item[D)] $16$
+\end{itemize}
+
+\item A sequence is defined by $a_n=n-\lfloor n/3\rfloor\cdot3$ (the remainder when $n$ is divided by $3$, written using floor notation). Is $(a_n)$ periodic? If so, what is its period?
+\begin{itemize}
+\item[A)] Periodic, period $3$.
+\item[B)] Periodic, period $2$.
+\item[C)] Not periodic.
+\item[D)] Periodic, period $1$ (constant).
+\end{itemize}
+
+\item A sequence satisfies $a_{n+1}=a_n^2-a_n+1$ for $n\geq1$, with $0<a_1<1$. Is $(a_n)$ increasing, decreasing, or could it be either depending on $a_1$?
+\begin{itemize}
+\item[A)] Always increasing (or constant), for any starting value.
+\item[B)] Always decreasing.
+\item[C)] Depends on $a_1$.
+\item[D)] Cannot be determined without more information.
+\end{itemize}
+
+\item For a sequence defined by $a_{n+1}=f(a_n)$ with $f$ continuous, if $(a_n)$ converges to a limit $L$, what must be true about $L$?
+\begin{itemize}
+\item[A)] $f(L)=L$ --- $L$ must be a fixed point of $f$.
+\item[B)] $L=a_1$ always.
+\item[C)] $f(L)=0$.
+\item[D)] No general statement can be made.
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant route --- find it.}
+
+\begin{enumerate}
+
+\item A sequence satisfies $a_1=1$ and $a_{n+1}=\sqrt{a_n+2}$ (as in C3). Prove rigorously, by induction, that $(a_n)$ is bounded above by $2$ for all $n$; then prove $(a_n)$ is strictly increasing; and hence explain why the sequence must converge, identifying its limit.
+
+\item A M\"obius map $f(x)=\dfrac1{1-x}$ generates a sequence via $a_{n+1}=f(a_n)$. Starting from $a_1=2$, find the period of the resulting sequence (the smallest $k>0$ such that $a_{n+k}=a_n$ for all $n$).
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $4$
+\item[D)] $6$
+\end{itemize}
+
+\item A sequence is defined by $a_1=100$ and $a_{n+1}=\lfloor a_n/2\rfloor$. Find the smallest $n$ for which $a_n=0$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $7$
+\item[C)] $8$
+\item[D)] $9$
+\end{itemize}
+
+\item A sequence satisfies $a_1=3$ and $a_{n+1}=\dfrac{a_n+\frac4{a_n}}2$. Which best describes its behaviour?
+\begin{itemize}
+\item[A)] Decreasing (after the first term) and bounded below by $2$; converges rapidly to $2$.
+\item[B)] Increasing, converges to $2$.
+\item[C)] Oscillates between values above and below $2$.
+\item[D)] Diverges to infinity.
+\end{itemize}
+
+\item A sequence satisfies $a_{n+1}=a_n(1-a_n)$ with $a_1=\tfrac12$. Compute $a_2,a_3$, and determine whether the sequence is monotonic.
+\begin{itemize}
+\item[A)] Decreasing for all $n$, since $a_{n+1}-a_n=-a_n^2\leq0$ always.
+\item[B)] Increasing for all $n$.
+\item[C)] Not monotonic.
+\item[D)] Constant.
+\end{itemize}
+
+\end{enumerate}
+
+\SpeedClosing{``A sequence that is bounded and monotonic converges.
+A student who is bounded and monotonic does not.''}
+
+\end{document}

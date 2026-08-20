@@ -1,0 +1,405 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#4 --- Answers \& Investigations}{David Akinyele-Aje}
+\noindent\textit{New toolkit today: Recurrence Relations $\cdot$ The Characteristic Equation $\cdot$ Closed-Form Solutions.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has $a_1=2$ and $a_{n+1}=3a_n-1$. Find $a_2$ and $a_3$.
+
+\ans{$a_2=5$, $a_3=14$}
+\method{$a_2=3(2)-1=5$. $a_3=3(5)-1=14$.}
+\inv{A first-order recurrence with a constant additive term --- the shape C1/C2 solve properly later. \textbf{Get ahead of them: find the fixed point of $a_{n+1}=3a_n-1$, shift by it, and write down a closed form for $a_n$.} Check it reproduces $a_2$ and $a_3$. The fixed point here is not an integer, which is exactly why shifting beats guessing.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has $a_1=1$ and $a_{n+1}=2a_n+1$. Find $a_4$.
+
+\ans{$15$}
+\method{$a_2=2(1)+1=3$. $a_3=2(3)+1=7$. $a_4=2(7)+1=15$.}
+\inv{The pattern $1,3,7,15,\ldots$ is one less than each power of $2$, so $a_n=2^n-1$. \textbf{Now replace the $+1$ by a general constant $c$: solve $a_{n+1}=2a_n+c$ in closed form, and find the one starting value for which the sequence never changes.} That value is the fixed point, and it explains the $-1$ in $2^n-1$.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Write down the characteristic equation of $a_n=5a_{n-1}-6a_{n-2}$.
+
+\ans{$x^2=5x-6$ (i.e.\ $x^2-5x+6=0$)}
+\method{Replace $a_n,a_{n-1},a_{n-2}$ with $x^2,x^1,x^0$ respectively in $a_n=5a_{n-1}-6a_{n-2}$.}
+\inv{The substitution is purely formal: linear constant-coefficient recurrences admit solutions $a_n=x^n$, which forces this polynomial exactly. \textbf{So does the characteristic equation depend at all on the starting values $a_1,a_2$?} Take two sequences obeying the same recurrence but starting differently, and say precisely what they share and what they do not.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Solve $x^2-5x+6=0$ for its roots.
+
+\ans{$x=2,3$}
+\method{$x^2-5x+6=(x-2)(x-3)=0$.}
+\inv{Vieta again: the roots sum to $5$ and multiply to $6$, the recurrence's own coefficients. \textbf{Use it backwards --- build a recurrence whose two roots sum to $0$, and describe what its sequences look like.} With $p=0$ the recurrence relates $a_n$ only to $a_{n-2}$; work out what that does to odd and even terms.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $2$ and $3$. Write down the general form of its closed-form solution.
+
+\ans{$a_n=A\cdot2^n+B\cdot3^n$}
+\method{Two distinct real roots $r_1,r_2$ give a general solution $a_n=Ar_1^n+Br_2^n$, with $A,B$ determined by initial conditions.}
+\inv{The discrete analogue of a second-order ODE's general solution: two independent basis sequences, combined linearly. \textbf{For which pairs $(A,B)$ does $a_n=A\cdot2^n+B\cdot3^n$ stay bounded as $n\to\infty$?} The answer is far more restrictive than it first looks --- consider which term dominates, then what has to happen to the other.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item The recurrence $a_{n+1}=\tfrac12a_n$, $a_1=8$ is secretly which type of sequence from an earlier day? Write its closed form.
+
+\ans{A GP; $a_n=8\left(\tfrac12\right)^{n-1}$}
+\method{$a_{n+1}=\tfrac12a_n$ is a constant-ratio recurrence, i.e.\ exactly a geometric sequence with $a=8,r=\tfrac12$ (Day 3's toolkit).}
+\inv{Recognising this without reaching for a characteristic equation is the point of B9/C6. \textbf{This is a GP with $|r|<1$, so it has a sum to infinity --- compute it, and check it against Day 3's A5, which is the identical sequence.} Two days, two toolkits, one sequence: worth confirming they agree exactly.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item Find the fixed point $L$ of the recurrence $a_{n+1}=3a_n+4$ (i.e.\ solve $L=3L+4$).
+
+\ans{$L=-2$}
+\method{$L=3L+4\Rightarrow-2L=4\Rightarrow L=-2$.}
+\inv{$L$ is where the recurrence would sit forever if it ever landed there --- the anchor for the whole shift-to-GP trick. \textbf{But the trick needs $L$ to exist. For which $p$ does $a_{n+1}=pa_n+c$ have no fixed point at all, and what does the sequence do in that case?} Solve $L=pL+c$ and watch for the division that fails.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item True or false: every recurrence $a_n=pa_{n-1}+qa_{n-2}$ with real, distinct characteristic roots has a closed form that's a combination of two exponential terms.
+
+\ans{True}
+\method{This is exactly the general solution form derived in A5: two distinct real roots give a linear combination of two exponential sequences.}
+\inv{This fails the moment the roots repeat or go complex --- A10 and C4 handle those. \textbf{Why exactly two initial conditions? Explain why one is not enough to pin down $A$ and $B$, and why a third would generally be inconsistent.} Count unknowns against equations, then say what a third condition would have to satisfy to be compatible.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item The sequence $a_n=2^n+3^n$ satisfies a recurrence $a_n=pa_{n-1}+qa_{n-2}$. Find $p$ and $q$.
+
+\ans{$p=5,q=-6$}
+\method{Since $a_n=2^n+3^n$ is built from roots $2$ and $3$, its characteristic equation is $(x-2)(x-3)=x^2-5x+6=0$, i.e.\ $x^2=5x-6$, giving $a_n=5a_{n-1}-6a_{n-2}$.}
+\inv{A3/A4 run backwards: reconstruct the recurrence from the roots rather than solve one. \textbf{Now push it up a degree --- which recurrence does $a_n=2^n+3^n+5^n$ satisfy?} Build the cubic with roots $2,3,5$, expand it, and read the coefficients off; the order of the recurrence always matches the number of distinct roots.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A recurrence has a repeated characteristic root $r=2$. Write down the general form of its closed-form solution.
+
+\ans{$a_n=(A+Bn)2^n$}
+\method{A repeated root $r$ needs a second, genuinely independent solution alongside $r^n$ --- multiplying by $n$ (giving $nr^n$) supplies it, so the general solution is $a_n=(A+Bn)r^n$.}
+\inv{An extra factor of $n$ keeps the two basis solutions independent. \textbf{See why it is forced: try the naive form $a_n=A\cdot2^n+B\cdot2^n$ instead and show it collapses to a single constant.} Then explain why that collapse makes it impossible to satisfy two independent initial conditions.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Solve the recurrence $a_n=5a_{n-1}-6a_{n-2}$ with $a_1=1,a_2=4$, for the constants $A,B$ in $a_n=A\cdot2^n+B\cdot3^n$.
+
+\ans{$A=-\tfrac12,B=\tfrac23$}
+\method{$n=1$: $2A+3B=1$. $n=2$: $4A+9B=4$. Doubling the first: $4A+6B=2$; subtracting from the second: $3B=2\Rightarrow B=\tfrac23$. Then $2A+2=1\Rightarrow A=-\tfrac12$.}
+\inv{Always re-check both conditions: $a_1=-1+2=1$ \checkmark, $a_2=-2+6=4$ \checkmark. \textbf{Now the degenerate case: solve the same recurrence with $a_1=a_2=0$. What are $A$ and $B$, and is the zero sequence the only one with those starting values?} This is the discrete version of ``the only solution with zero initial data is zero''.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item For $a_{n+1}=3a_n+4$, the fixed point is $L=-2$. Letting $b_n=a_n-L=a_n+2$, what type of sequence is $(b_n)$?
+\begin{itemize}
+\item[A)] A GP with ratio $3$.
+\item[B)] An AP with common difference $3$.
+\item[C)] A GP with ratio $-2$.
+\item[D)] Neither.
+\end{itemize}
+
+\ans{A) A GP with ratio $3$.}
+\method{$b_{n+1}=a_{n+1}+2=(3a_n+4)+2=3a_n+6=3(a_n+2)=3b_n$ --- so $(b_n)$ satisfies a pure geometric recurrence.}
+\inv{Subtracting the fixed point cancels the additive constant, leaving pure multiplication. \textbf{Test the method's limits: try to run the same shift on $a_{n+1}=a_n+4$ and watch it fail.} Identify the exact step that breaks, and say which sequence from Day 1 that recurrence actually generates.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Continuing from B2: given $a_1=1$ (so $b_1=3$), find $a_5$.
+\begin{itemize}
+\item[A)] $241$
+\item[B)] $243$
+\item[C)] $239$
+\item[D)] $245$
+\end{itemize}
+
+\ans{A) $241$}
+\method{$b_1=a_1+2=3$, and $(b_n)$ is a GP with ratio $3$: $b_n=3\cdot3^{n-1}=3^n$. So $b_5=3^5=243$, and $a_5=b_5-2=241$.}
+\inv{Convert back from $b_n$ to $a_n$ at the very end --- forgetting the shift is the classic slip. \textbf{With the closed form in hand, find the smallest $n$ for which $a_n$ exceeds $1000$.} Solve the inequality in the power of $3$ rather than tabulating, and mind the shift when you compare against $1000$.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the characteristic equation and its roots for $a_n=a_{n-1}+2a_{n-2}$.
+
+\ans{$x^2-x-2=0$; roots $x=2,-1$}
+\method{$x^2=x+2\Rightarrow x^2-x-2=0=(x-2)(x+1)\Rightarrow x=2,-1$.}
+\inv{A negative root is perfectly normal --- it contributes a sign-alternating $B(-1)^n$. \textbf{Solve this recurrence with $a_1=a_2=1$ and find its closed form.} You should get a single fraction with a $2^n$ and a $(-1)^n$ in it; check it returns whole numbers at $n=1,2,3$ despite the division.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $2$ and $-1$, with $a_1=1,a_2=5$. Which closed form fits?
+\begin{itemize}
+\item[A)] $a_n=2^n+(-1)^n$
+\item[B)] $a_n=2^n-(-1)^n$
+\item[C)] $a_n=2\cdot2^n-(-1)^n$
+\item[D)] $a_n=2^{n-1}+(-1)^{n-1}$
+\end{itemize}
+
+\ans{A) $a_n=2^n+(-1)^n$}
+\method{Check $n=1$: $2+(-1)=1$ \checkmark. Check $n=2$: $4+1=5$ \checkmark. The other options fail at $n=1$: B) gives $2-(-1)=3$, C) gives $4+1=5$, D) gives $1+1=2$ --- none match $a_1=1$.}
+\inv{Two conditions, two unknowns, so the closed form is unique --- always check it against \emph{both} given terms. \textbf{Here it comes out as $a_n=2^n+(-1)^n$. Prove that every term is odd.} A parity argument on the two pieces settles it in one line, with no need to compute any further terms.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following recurrences does NOT have a characteristic equation with two distinct real roots?
+\begin{itemize}
+\item[A)] $a_n=5a_{n-1}-6a_{n-2}$
+\item[B)] $a_n=4a_{n-1}-4a_{n-2}$
+\item[C)] $a_n=a_{n-1}+2a_{n-2}$
+\item[D)] $a_n=3a_{n-1}-2a_{n-2}$
+\end{itemize}
+
+\ans{B) $a_n=4a_{n-1}-4a_{n-2}$}
+\method{Its characteristic equation is $x^2-4x+4=(x-2)^2=0$ --- a repeated root, discriminant $16-16=0$. The other three all have positive discriminant (A: $25-24=1$; C: $1+8=9$; D: $9-8=1$), giving distinct real roots.}
+\inv{The discriminant $p^2+4q$ decides it faster than factorising each option. \textbf{Use it to answer a general question: for which $q$ does $a_n=a_{n-1}+qa_{n-2}$ have two distinct real roots?} You should get a single inequality with a fractional boundary --- and it is worth checking what happens exactly at that boundary.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has repeated characteristic root $r=3$, with $a_1=6,a_2=27$. Using $a_n=(A+Bn)3^n$, find $A$ and $B$.
+\begin{itemize}
+\item[A)] $A=1,B=1$
+\item[B)] $A=2,B=1$
+\item[C)] $A=1,B=2$
+\item[D)] $A=0,B=2$
+\end{itemize}
+
+\ans{A) $A=1,B=1$}
+\method{$(A+B\cdot1)\cdot3^1=6\Rightarrow A+B=2$. $(A+B\cdot2)\cdot3^2=27\Rightarrow A+2B=3$. Subtracting: $B=1$, then $A=1$.}
+\inv{Double-check: $a_1=2\cdot3=6$ \checkmark, $a_2=3\cdot9=27$ \checkmark, so $a_n=(n+1)3^n$. \textbf{Compute the ratio $a_{n+1}/a_n$ as a formula in $n$. Does it ever equal $3$ exactly, and what does it approach?} The gap between ``tends to $3$'' and ``equals $3$'' is exactly what the repeated root introduces.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item Using the closed form from B7, find $a_4$.
+
+\ans{$405$}
+\method{$a_n=(1+n)3^n$. $a_4=(1+4)\cdot3^4=5\times81=405$.}
+\inv{The extra factor of $n$ makes this outgrow any plain $c\cdot3^n$. \textbf{Show that decisively: form the ratio $\frac{(n+1)3^n}{c\cdot3^n}$ and explain why no constant $c$ can keep pace as $n$ grows.} Then note $a_4=405$ happens to equal $5\cdot3^4$ --- a coincidence at one value of $n$, not a general match.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence is defined by $a_{n+1}=a_n+5$, $a_1=2$. Is this recurrence's closed form better found using the AP toolkit (Day 1) or the characteristic-equation toolkit (Day 4)?
+\begin{itemize}
+\item[A)] The AP toolkit --- it's simply $a_n=2+5(n-1)$.
+\item[B)] The characteristic-equation toolkit --- solve $x=x+5$.
+\item[C)] Both give the same closed form, but the characteristic equation is faster.
+\item[D)] Neither toolkit applies.
+\end{itemize}
+
+\ans{A) The AP toolkit --- it's simply $a_n=2+5(n-1)$.}
+\method{A constant additive step ($+5$ every time, no multiplication) is precisely Day 1's arithmetic sequence definition --- the characteristic-equation machinery is unnecessary (and its ``fixed point'' equation $x=x+5$ has no solution, signalling this recurrence sits outside that method's normal use case).}
+\inv{Knowing when a lighter toolkit suffices matters as much as knowing the heavy one. \textbf{Solve this both ways --- once with Day 1's AP formula, once by treating it as a recurrence with root $1$ and a constant forcing term --- and confirm they agree.} The second route should show you why the answer is linear in $n$ rather than exponential.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic equation $x^2-6x+9=0$. What is special about its roots?
+\begin{itemize}
+\item[A)] Two distinct real roots.
+\item[B)] A repeated real root.
+\item[C)] Two complex roots.
+\item[D)] No real roots.
+\end{itemize}
+
+\ans{B) A repeated real root.}
+\method{$x^2-6x+9=(x-3)^2=0$ --- discriminant $36-36=0$.}
+\inv{Same structure as B7's $a_n=6a_{n-1}-9a_{n-2}$. \textbf{Confirm it: expand $(x-3)^2$ and check it really is $x^2-6x+9$, then state the general rule for reading a repeated root straight off $x^2+px+q$.} The condition is a statement about the discriminant --- write it as an equation in $p$ and $q$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item Which substitution transforms $a_{n+1}=4a_n-3$ into a pure geometric recurrence $b_{n+1}=4b_n$?
+\begin{itemize}
+\item[A)] $b_n=a_n-1$
+\item[B)] $b_n=a_n+1$
+\item[C)] $b_n=a_n-3$
+\item[D)] $b_n=a_n/4$
+\end{itemize}
+
+\ans{A) $b_n=a_n-1$}
+\method{Fixed point: $L=4L-3\Rightarrow-3L=-3\Rightarrow L=1$. So $b_n=a_n-1$, giving $b_{n+1}=a_{n+1}-1=(4a_n-3)-1=4a_n-4=4(a_n-1)=4b_n$.}
+\inv{The fixed point is always $L=\frac c{1-p}$ for $p\neq1$ --- worth having on recall. \textbf{For the family $a_{n+1}=4a_n-c$, exactly which $c$ give an integer fixed point?} Write $L$ in terms of $c$ and impose integrality; the answer is a divisibility condition, not an inequality.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item The recurrence $a_{n+1}=4a_n-3$ with $a_1=2$ has closed form $a_n=1+c\cdot4^{n-1}$. Find $c$.
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $3$
+\item[D)] $4$
+\end{itemize}
+
+\ans{A) $1$}
+\method{At $n=1$: $a_1=1+c\cdot4^0=1+c=2\Rightarrow c=1$.}
+\inv{This $c$ is exactly $b_1$ from the shift-to-GP method --- the two approaches are one technique in two notations. \textbf{So which starting value $a_1$ makes this sequence constant, and what happens to the sequence when $a_1$ is below that value?} Describe the behaviour in both directions from the fixed point.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $r_1=5$ and $r_2=-2$. Using $p=r_1+r_2$ and $q=-r_1r_2$, write down the recurrence $a_n=pa_{n-1}+qa_{n-2}$.
+\begin{itemize}
+\item[A)] $a_n=3a_{n-1}+10a_{n-2}$
+\item[B)] $a_n=3a_{n-1}-10a_{n-2}$
+\item[C)] $a_n=-3a_{n-1}+10a_{n-2}$
+\item[D)] $a_n=7a_{n-1}-10a_{n-2}$
+\end{itemize}
+
+\ans{A) $a_n=3a_{n-1}+10a_{n-2}$}
+\method{$p=5+(-2)=3$. $q=-(5)(-2)=10$. Check via the characteristic equation directly: $(x-5)(x+2)=x^2-3x-10=0\Rightarrow x^2=3x+10\Rightarrow a_n=3a_{n-1}+10a_{n-2}$.}
+\inv{Rebuild the characteristic equation from its roots rather than trusting $p=r_1+r_2$, $q=-r_1r_2$ from memory. \textbf{Do exactly that here: expand $(x-5)(x+2)$ and confirm it matches the recurrence you wrote.} Then say why the sign of $q$ flips relative to the product of the roots --- that sign is the most common error in this direction.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic equation $x^2-2x+5=0$. What can be said about its roots?
+\begin{itemize}
+\item[A)] Two distinct real roots.
+\item[B)] A repeated real root.
+\item[C)] Two complex conjugate roots, $1\pm2i$.
+\item[D)] No roots exist.
+\end{itemize}
+
+\ans{C) Two complex conjugate roots, $1\pm2i$.}
+\method{Discriminant $=(-2)^2-4(1)(5)=4-20=-16<0$, so the roots are complex: $x=\dfrac{2\pm\sqrt{-16}}2=\dfrac{2\pm4i}2=1\pm2i$.}
+\inv{A negative discriminant does not mean ``no solution'' --- the recurrence still has a well-defined, real, oscillating closed form. \textbf{Find the two roots explicitly and compute their modulus. Does this sequence's magnitude grow, shrink, or hold steady?} The modulus, not the real part, is what decides it --- compare with Day 3's $|r|<1$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Which technique is most appropriate for solving $a_{n+1}=2a_n+3^n$ (note the non-constant additive term)?
+\begin{itemize}
+\item[A)] The constant-shift trick ($b_n=a_n-L$ for a fixed $L$) --- works directly.
+\item[B)] The homogeneous characteristic-equation method, plus a particular solution of the form $C\cdot3^n$ added to the general solution.
+\item[C)] Treating it as a plain AP.
+\item[D)] It cannot be solved by any method covered so far.
+\end{itemize}
+
+\ans{B) The homogeneous method plus a particular solution $C\cdot3^n$.}
+\method{The constant-shift trick only cancels a \emph{constant} forcing term --- here the forcing term $3^n$ grows with $n$, so no fixed constant $L$ can absorb it. The standard fix is to add a particular solution of the same form as the forcing term ($C\cdot3^n$) to the homogeneous general solution.}
+\inv{The discrete analogue of ``guess a particular solution matching the forcing term''. \textbf{Now break it deliberately: what goes wrong if the forcing term is $2^n$ instead of $3^n$, given that $2$ is already a characteristic root?} Try the obvious guess $C\cdot2^n$, watch it fail, and work out what extra factor rescues it.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following recurrences is secretly equivalent to an arithmetic sequence --- Day 1's toolkit is sufficient, no characteristic equation needed?
+\begin{itemize}
+\item[A)] $a_{n+1}=a_n+7$
+\item[B)] $a_{n+1}=2a_n$
+\item[C)] $a_{n+1}=2a_n+7$
+\item[D)] $a_n=5a_{n-1}-6a_{n-2}$
+\end{itemize}
+
+\ans{A) $a_{n+1}=a_n+7$}
+\method{A) is a constant additive step --- an AP, Day 1's toolkit exactly. B) is a constant-ratio step --- a GP (Day 3). C) needs the shift-to-GP trick (still not a plain AP). D) genuinely needs the full characteristic equation.}
+\inv{Triage in miniature: ask whether Day 1 or Day 3 already covers it before reaching for the heavy machinery. \textbf{Make the test precise --- for exactly which $(p,q)$ does $a_n=pa_{n-1}+qa_{n-2}$ reduce to an arithmetic sequence?} Work out what both roots must be, then convert that back into a single pair of coefficients.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence $a_n=pa_{n-1}+qa_{n-2}$ has BOTH characteristic roots equal to $1$. What does this imply about $a_n$ as $n\to\infty$ (assuming $(a_n)$ is not identically zero)?
+\begin{itemize}
+\item[A)] Exponential growth.
+\item[B)] Linear growth in $n$ (or constant) --- effectively an AP.
+\item[C)] The sequence must be periodic.
+\item[D)] The sequence must converge to a finite limit.
+\end{itemize}
+
+\ans{B) Linear growth in $n$ (or constant) --- effectively an AP.}
+\method{A repeated root $r=1$ gives closed form $a_n=(A+Bn)(1)^n=A+Bn$ --- exactly linear in $n$ (an AP) if $B\neq0$, or constant if $B=0$.}
+\inv{The two-exponential structure collapses to Day 1's AP exactly when both roots equal $1$. \textbf{Write out the closed form in that case and identify the AP's common difference in terms of $A$ and $B$.} Then answer the natural follow-up: which choice of $A,B$ gives a constant sequence rather than a genuinely increasing one?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $r$ and $\tfrac1r$ (reciprocal roots, $r\neq\pm1$). What can be said about $p$ and $q$ in $a_n=pa_{n-1}+qa_{n-2}$?
+\begin{itemize}
+\item[A)] $q=-1$ always, while $p=r+\tfrac1r$ can be any value with $|p|\geq2$.
+\item[B)] $p=-1$ always.
+\item[C)] $p$ and $q$ must both equal $1$.
+\item[D)] No general statement can be made.
+\end{itemize}
+
+\ans{A) $q=-1$ always, $p=r+\tfrac1r$ can be any value with $|p|\geq2$.}
+\method{$q=-r_1r_2=-r\cdot\tfrac1r=-1$, independent of $r$. And $p=r+\tfrac1r$, which by AM--GM-style reasoning satisfies $\left|r+\tfrac1r\right|\geq2$ for any nonzero real $r$ (with equality only at $r=\pm1$).}
+\inv{The bound $\left|r+\frac1r\right|\geq2$ is an Algebra-pillar tool resurfacing to describe reciprocal roots. \textbf{Given that $p=r+\frac1r$, for which \emph{integer} values of $p$ is $r$ itself rational?} Solve the quadratic for $r$ and ask when its discriminant is a perfect square --- the surviving cases are precisely the ones the question already excludes.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item A sequence is defined by $a_1=1,a_2=2$, and for $n\geq3$: $a_n=\dfrac{a_{n-1}+a_{n-2}}2$. Find $\displaystyle\lim_{n\to\infty}a_n$.
+
+\ans{$\dfrac53$}
+\method{Characteristic equation: $2x^2=x+1\Rightarrow2x^2-x-1=0=(2x+1)(x-1)\Rightarrow x=1,-\tfrac12$. General solution: $a_n=A+B\left(-\tfrac12\right)^n$. Using $a_1=1$: $A-\tfrac B2=1$. Using $a_2=2$: $A+\tfrac B4=2$. Subtracting: $\tfrac{3B}4=1\Rightarrow B=\tfrac43$, then $A=1+\tfrac23=\tfrac53$. As $n\to\infty$, $\left(-\tfrac12\right)^n\to0$, so $a_n\to A=\dfrac53$.}
+\inv{The terms $1,2,1.5,1.75,1.625,\ldots$ oscillate in on $\tfrac53$; a root of exactly $1$ alongside a decaying one gives a finite non-zero limit. \textbf{Find the general formula for that limit in terms of $a_1$ and $a_2$, then test it on $a_1=0,a_2=3$.} Solve the characteristic equation first --- the limit is the coefficient of the root-$1$ term, and it is a weighted average, not a plain one.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence satisfies $a_{n+1}=6a_n-9a_{n-1}$ (for $n\geq2$), with $a_1=1,a_2=6$. Using the repeated-root closed form $a_n=(A+Bn)3^n$, find $a_5$.
+\begin{itemize}
+\item[A)] $405$
+\item[B)] $243$
+\item[C)] $324$
+\item[D)] $486$
+\end{itemize}
+
+\ans{A) $405$}
+\method{Characteristic equation $x^2-6x+9=(x-3)^2=0$ --- repeated root $3$. Solving $a_n=(A+Bn)3^n$: $n=1$: $(A+B)(3)=1\Rightarrow A+B=\tfrac13$. $n=2$: $(A+2B)(9)=6\Rightarrow A+2B=\tfrac23$. Subtracting: $B=\tfrac13$, so $A=0$. Thus $a_n=\tfrac n3\cdot3^n=n\cdot3^{n-1}$. $a_5=5\times3^4=5\times81=405$.}
+\inv{$a_n=n\cdot3^{n-1}$ gives $1,6,27,108,405,\ldots$, and $a_3=6(6)-9(1)=27$ \checkmark. \textbf{Compare this with B7, which had the same repeated root $3$ but closed form $(n+1)3^n$. Why do two sequences with identical characteristic equations look so different?} The answer is entirely in the initial conditions --- state precisely what the characteristic equation does and does not determine.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic equation $x^2+4=0$ (i.e.\ $a_n=-4a_{n-2}$). What is true about its behaviour?
+\begin{itemize}
+\item[A)] The sequence oscillates in sign while its magnitude grows like $2^n$ --- consistent with complex roots of magnitude $2$.
+\item[B)] The sequence converges to $0$.
+\item[C)] The sequence is eventually constant.
+\item[D)] The sequence is purely real-valued growth with no oscillation.
+\end{itemize}
+
+\ans{A) The sequence oscillates in sign while its magnitude grows like $2^n$.}
+\method{$x^2=-4\Rightarrow x=\pm2i$, purely imaginary roots of magnitude $2$. Testing directly with $a_1=1,a_2=0$: $a_3=-4a_1=-4$, $a_4=-4a_2=0$, $a_5=-4a_3=16$, $a_6=-4a_4=0$, $a_7=-4a_5=-64$ --- the nonzero terms alternate sign and grow by a factor of $4$ every two steps (i.e.\ magnitude $2$ per step), exactly matching complex roots of modulus $2$.}
+\inv{For complex roots $re^{i\theta}$ the magnitude grows like $r^n$ while the sign cycles with $\theta$; purely imaginary roots give a full cycle every $4$ steps. \textbf{Verify the period directly: using $a_n=-4a_{n-2}$, compute $a_9$ in terms of $a_1$.} Apply the recurrence four times and watch both the sign pattern and the factor of $4$ per step accumulate.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item For which of the following $(p,q)$ pairs does $a_n=pa_{n-1}+qa_{n-2}$ produce a closed form that reduces exactly to Day 1's arithmetic-sequence form (i.e.\ $a_n$ linear in $n$), for suitable initial conditions?
+\begin{itemize}
+\item[A)] $(p,q)=(2,-1)$
+\item[B)] $(p,q)=(1,1)$
+\item[C)] $(p,q)=(-2,1)$
+\item[D)] $(p,q)=(3,-2)$
+\end{itemize}
+
+\ans{A) $(p,q)=(2,-1)$}
+\method{Linear-in-$n$ behaviour needs a repeated root of exactly $1$: $(x-1)^2=x^2-2x+1=0$, giving $p=2,q=-1$ (matching $x^2-px-q=0$). Checking D: $(p,q)=(3,-2)$ gives $x^2-3x+2=(x-1)(x-2)=0$ --- roots $1,2$, distinct, so the general solution $A+B\cdot2^n$ is linear in $n$ only in the degenerate special case $B=0$, not for suitable general initial conditions.}
+\inv{C7 read backwards: from the desired linear growth, deduce the characteristic equation and hence $(p,q)$. \textbf{Having found the pair, check the edge case --- what does that recurrence produce when $a_1=a_2$?} An AP with a repeated root at $1$ still has one degree of freedom left, and this is where it shows.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item A recurrence has characteristic roots $r_1,r_2$ with $|r_1|<1$ and $|r_2|<1$. What happens to $a_n$ as $n\to\infty$, regardless of initial conditions?
+\begin{itemize}
+\item[A)] $a_n\to0$ always.
+\item[B)] $a_n$ diverges to infinity.
+\item[C)] $a_n$ oscillates forever without settling.
+\item[D)] It depends on the initial conditions.
+\end{itemize}
+
+\ans{A) $a_n\to0$ always.}
+\method{$a_n=Ar_1^n+Br_2^n$ (or the repeated-root analogue). Since $|r_1|<1$ and $|r_2|<1$, both $r_1^n\to0$ and $r_2^n\to0$ as $n\to\infty$, regardless of the constants $A,B$ (which are fixed by the initial conditions but don't affect whether the limit is $0$).}
+\inv{The recurrence version of Day 3's $|r|<1$: \emph{both} roots must lie inside the unit circle, not just one. \textbf{So what happens in the boundary case where $|r_1|<1$ but $|r_2|=1$ exactly?} Decide whether the sequence still converges, merely stays bounded, or neither --- and note that $r_2=1$ and $r_2=-1$ behave differently.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Characteristic equation: turn $a_n=pa_{n-1}+qa_{n-2}$ into $x^2-px-q=0$.} The entire toolkit starts here. \seealso{A3, A4, A9, B4, C3}
+  \item \textbf{Distinct real roots $\to a_n=Ar_1^n+Br_2^n$; repeated root $\to a_n=(A+Bn)r^n$.} Always check the discriminant first to know which shape applies. \seealso{A5, A10, B5, B7, C7}
+  \item \textbf{First-order recurrences $a_{n+1}=pa_n+c$ shift to a pure GP via the fixed point $L=\frac c{1-p}$.} Let $b_n=a_n-L$, solve the GP, shift back. \seealso{A7, B2, B3, C1, C2}
+  \item \textbf{Recognise the degenerate cases first.} Constant-difference recurrences are Day 1's AP; constant-ratio recurrences are Day 3's GP --- don't reach for the characteristic equation when a lighter toolkit already solves it. \seealso{A6, B9, C6}
+  \item \textbf{Complex characteristic roots signal oscillation with exponentially changing magnitude}, not simple convergence or divergence. \seealso{C4, D3}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Forgetting to check for a repeated root before using the two-distinct-roots closed form.} A zero discriminant needs $(A+Bn)r^n$ instead. \seealso{B6, B10}
+  \item \textbf{Mixing up the sign convention when reading $p,q$ off from given roots.} Remember $x^2-px-q=0$, not $x^2+px+q=0$. \seealso{C3, D4}
+  \item \textbf{Applying the constant-shift trick to a recurrence with a non-constant forcing term.} $b_n=a_n-L$ only cancels a fixed constant --- it does nothing against a term like $3^n$. \seealso{C5}
+  \item \textbf{Assuming every recurrence converges to a finite limit.} Convergence needs \emph{every} characteristic root to have magnitude strictly less than $1$. \seealso{D5}
+  \item \textbf{Solving for $A,B$ using only one initial condition.} A second-order recurrence's closed form has two free constants and needs two equations to pin them both down. \seealso{B1, B5, B7}
+\end{enumerate}
+
+\SpeedClosing{``A repeated root does not give you $Ar^n+Br^n$. It gives you $(A+Bn)r^n$,
+and the $n$ is not decoration.''}
+
+\end{document}

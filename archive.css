@@ -1,0 +1,176 @@
+/* Archive layout. Tokens live in tokens.css — add no raw hexes here. */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); }
+
+.container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+/* ── top bar ─────────────────────────────────────────────────────────────── */
+.topbar { background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 20px;
+    height: 46px; display: flex; align-items: stretch; gap: .15rem;
+}
+.brand {
+    display: flex; align-items: center; font-weight: 700; font-size: .95rem;
+    color: var(--text-main); padding-right: 1rem; white-space: nowrap;
+}
+.site-nav {
+    display: flex; align-items: stretch; gap: .15rem; flex: 1; min-width: 0;
+    overflow-x: auto; scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a {
+    display: flex; align-items: center; color: var(--text-muted);
+    font-size: .85rem; font-weight: 500; padding: 0 .8rem; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--text-main); border-bottom-color: var(--border); }
+.site-nav .count {
+    margin-left: .4rem; font-size: .72rem; color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+.nav-right {
+    display: flex; align-items: center; gap: .9rem; margin-left: auto;
+    padding-left: .8rem; font-size: .8rem; white-space: nowrap;
+}
+/* Same octicon and solid button as the classic view. A bare "GitHub ↗" text
+   link read as an afterthought next to it, and the repo is the point of the
+   site — the two views should not disagree about how prominent it is. */
+.github-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .3rem .7rem; border-radius: var(--radius-sm);
+    background: var(--text-main); color: var(--primary-fg);
+    font-size: .82rem; font-weight: 500;
+    transition: background-color .2s;
+}
+.github-link:hover { background: var(--text-strong); color: var(--primary-fg); }
+
+/* ── page head ───────────────────────────────────────────────────────────── */
+header.page { padding: 2rem 0 1.25rem; }
+header.page h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.035em; }
+header.page .subtitle {
+    font-size: 1.02rem; color: var(--text-muted); max-width: 52rem;
+    margin-top: .35rem;
+}
+
+/* ── search ──────────────────────────────────────────────────────────────── */
+.filter-bar {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 1rem 1.2rem;
+    box-shadow: var(--shadow-sm); margin: 1.25rem 0 1.75rem;
+}
+.search { position: relative; }
+.search input {
+    width: 100%; padding: .55rem .8rem .55rem 2rem;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); font-family: inherit; font-size: .9rem;
+    color: var(--text-main);
+}
+.search input:focus { outline: none; border-color: var(--primary); }
+.search-ic {
+    position: absolute; left: .6rem; top: 50%; transform: translateY(-50%);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .8rem; color: var(--text-muted);
+    border: 1px solid var(--border); border-radius: 4px; padding: 0 .3rem;
+}
+
+/* ── pillar block ────────────────────────────────────────────────────────── */
+.pillar {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+    padding: 1.4rem 1.5rem; margin-bottom: 1.5rem;
+}
+.pillar-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1rem; border-bottom: 1px solid var(--border);
+    padding-bottom: .8rem; margin-bottom: .4rem;
+}
+.pillar-head h2 { font-size: 1.3rem; font-weight: 700; }
+.pillar-desc { font-size: .85rem; color: var(--text-muted); margin-top: .15rem; }
+.stats {
+    font-size: .78rem; color: var(--text-muted); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+.stats b { color: var(--text-main); font-weight: 600; }
+
+/* ── sheet rows ──────────────────────────────────────────────────────────── */
+.sheet-list { list-style: none; }
+.sheet-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .7rem 0; border-bottom: 1px solid var(--border);
+}
+.sheet-row:last-child { border-bottom: none; }
+/* Inter with tabular figures, not a monospace stack. The numbers only need to
+   line up, and the coding fonts that ui-monospace resolves to draw a slashed
+   or dotted zero — a programmer's disambiguation mark that means nothing on a
+   worksheet index. tabular-nums gives the alignment without it. */
+.sheet-num {
+    font-variant-numeric: tabular-nums;
+    font-size: .78rem; color: var(--text-muted); width: 1.8rem; flex-shrink: 0;
+}
+.sheet-body { flex: 1; min-width: 0; }
+.sheet-name { display: block; font-size: .95rem; font-weight: 500; }
+
+/* The day's new tools. These replaced exam-source labels deliberately: a tag
+   saying "TMUA P1" tells a reader nothing they cannot get from the pillar, but
+   a tag naming the tool the sheet introduces is the reason to open it. */
+.tools { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
+.tool {
+    font-size: .72rem; color: var(--text-muted);
+    background: var(--secondary); border: 1px solid var(--border);
+    border-radius: 999px; padding: .1rem .55rem; white-space: nowrap;
+}
+.qcount {
+    font-size: .78rem; color: var(--text-muted); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+.links { display: flex; gap: .5rem; flex-shrink: 0; }
+.pdf-link {
+    display: inline-block; padding: .25rem .75rem; background: var(--bg);
+    color: var(--primary); font-size: .82rem; font-weight: 600;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    transition: background-color .15s, color .15s, border-color .15s;
+}
+.pdf-link:hover {
+    background: var(--primary); color: var(--primary-fg);
+    border-color: var(--primary);
+}
+.pdf-link.ans { color: var(--danger); }
+.pdf-link.ans:hover {
+    background: var(--danger); color: var(--primary-fg); border-color: var(--danger);
+}
+
+.coming-soon {
+    background: var(--bg); padding: 1rem; text-align: center;
+    border-radius: var(--radius-sm); font-size: .88rem; color: var(--text-muted);
+    margin-top: .8rem;
+}
+.no-match {
+    padding: 1.5rem; text-align: center; color: var(--text-muted);
+    font-size: .9rem;
+}
+
+footer {
+    text-align: center; padding: 1.5rem 0 2.5rem;
+    color: var(--text-muted); font-size: .82rem;
+}
+
+@media (max-width: 720px) {
+    header.page h1 { font-size: 1.7rem; }
+    .pillar { padding: 1.1rem; }
+    .sheet-row { flex-wrap: wrap; gap: .5rem 1rem; }
+    .qcount { order: 3; }
+    .links { order: 4; margin-left: auto; }
+}

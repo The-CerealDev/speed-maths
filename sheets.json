@@ -1,0 +1,478 @@
+[
+  {
+    "slug": "algebra",
+    "name": "Algebra",
+    "desc": "Polynomials, inequalities, and functional equations.",
+    "status": "live",
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Quadratic in disguise: substitution and symmetric sums",
+        "tools": [
+          "difference of squares",
+          "quadratic in disguise",
+          "x + 1/x symmetry"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet01.pdf",
+        "answers": "algebra/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Paired products and denesting surds",
+        "tools": [
+          "pairing factors",
+          "denesting radicals",
+          "biquadratic substitution"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet02.pdf",
+        "answers": "algebra/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Exponential substitution and the first inequalities",
+        "tools": [
+          "exponential substitution",
+          "constrained minimum",
+          "sum-of-squares trick"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet03.pdf",
+        "answers": "algebra/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "The t = x + 1/x device and AM–GM minima",
+        "tools": [
+          "t-substitution",
+          "AM–GM",
+          "reciprocal minima"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet04.pdf",
+        "answers": "algebra/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Symmetric systems and constrained inequalities",
+        "tools": [
+          "x - 1/x form",
+          "symmetric systems",
+          "constraint substitution"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet05.pdf",
+        "answers": "algebra/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "Completing the square in two variables, and counterexamples",
+        "tools": [
+          "surd substitution",
+          "two-variable completing the square",
+          "disproof by counterexample"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet06.pdf",
+        "answers": "algebra/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Weighted AM–GM and harder proof structure",
+        "tools": [
+          "weighted AM–GM",
+          "Cauchy–Schwarz",
+          "equality cases"
+        ],
+        "questions": 33,
+        "pdf": "algebra/sheets/sheet07.pdf",
+        "answers": "algebra/answers/ans07.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "combinatorics",
+    "name": "Combinatorics",
+    "desc": "Counting, probability, and discrete structures.",
+    "status": "live",
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Arrangements and the block method",
+        "tools": [
+          "block method",
+          "digit constraints",
+          "grid counting"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet01.pdf",
+        "answers": "combinatorics/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Complementary counting and non-consecutive selection",
+        "tools": [
+          "complementary counting",
+          "at-least conditions",
+          "non-consecutive selection"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet02.pdf",
+        "answers": "combinatorics/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Blocks with refusals, and circular arrangements",
+        "tools": [
+          "internal block order",
+          "refusal constraints",
+          "circular arrangements"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet03.pdf",
+        "answers": "combinatorics/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "Binomial identities and double counting",
+        "tools": [
+          "binomial coefficients",
+          "greatest coefficient",
+          "double counting"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet04.pdf",
+        "answers": "combinatorics/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Capped stars and bars, and inclusion–exclusion",
+        "tools": [
+          "stars and bars",
+          "inclusion–exclusion",
+          "derangements",
+          "compositions"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet05.pdf",
+        "answers": "combinatorics/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "Pigeonhole: guarantees, pairings and lattice points",
+        "tools": [
+          "pigeonhole principle",
+          "pairing argument",
+          "lattice parity"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet06.pdf",
+        "answers": "combinatorics/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Recurrences, tilings and invariants",
+        "tools": [
+          "linear recurrence",
+          "tiling recurrence",
+          "invariant"
+        ],
+        "questions": 33,
+        "pdf": "combinatorics/sheets/sheet07.pdf",
+        "answers": "combinatorics/answers/ans07.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "number-theory",
+    "name": "Number Theory",
+    "desc": "Divisibility, modular arithmetic, and primes.",
+    "status": "live",
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Divisibility by rewriting, and reciprocal equations",
+        "tools": [
+          "polynomial remainder",
+          "divisor pairs",
+          "reciprocal Diophantine"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet01.pdf",
+        "answers": "number-theory/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Factorising to force primality",
+        "tools": [
+          "factorising for primality",
+          "difference of squares",
+          "remainder trick"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet02.pdf",
+        "answers": "number-theory/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Difference of squares and lcm–gcd pairs",
+        "tools": [
+          "difference of squares",
+          "lcm–gcd pairs",
+          "minimal solutions"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet03.pdf",
+        "answers": "number-theory/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "Diophantine equations and the Sophie Germain identity",
+        "tools": [
+          "Sophie Germain identity",
+          "exponential Diophantine",
+          "prime constraints"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet04.pdf",
+        "answers": "number-theory/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Remainders, geometric sums and mod arguments",
+        "tools": [
+          "polynomial remainder",
+          "geometric sum factoring",
+          "mod 3 argument"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet05.pdf",
+        "answers": "number-theory/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "Simon's factoring trick, and gcd by Euclid",
+        "tools": [
+          "Simon's favourite factoring trick",
+          "Euclidean algorithm",
+          "factorial digits"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet06.pdf",
+        "answers": "number-theory/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Counting divisors",
+        "tools": [
+          "divisor-count formula",
+          "prime squares",
+          "parity of exponents"
+        ],
+        "questions": 33,
+        "pdf": "number-theory/sheets/sheet07.pdf",
+        "answers": "number-theory/answers/ans07.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "logic",
+    "name": "Logic",
+    "desc": "Conditionals, proof techniques, and counterexamples.",
+    "status": "live",
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Quantifiers: order and negation",
+        "tools": [
+          "quantifier order",
+          "negating quantifiers",
+          "counterexample"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet01.pdf",
+        "answers": "logic/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Necessary, sufficient, and equivalence chains",
+        "tools": [
+          "necessary vs sufficient",
+          "biconditional chains",
+          "converse"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet02.pdf",
+        "answers": "logic/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Contrapositive and contradiction",
+        "tools": [
+          "contrapositive",
+          "proof by contradiction",
+          "sufficient conditions"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet03.pdf",
+        "answers": "logic/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "Counterexamples, and what actually refutes a claim",
+        "tools": [
+          "counterexample",
+          "refuting a universal",
+          "contradiction"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet04.pdf",
+        "answers": "logic/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Spotting the flaw: the converse error",
+        "tools": [
+          "converse error",
+          "affirming the consequent",
+          "flawed-proof analysis"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet05.pdf",
+        "answers": "logic/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "Induction, and where the base case fails",
+        "tools": [
+          "induction",
+          "base case failure",
+          "strong induction"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet06.pdf",
+        "answers": "logic/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Equivalence, set claims and invariants",
+        "tools": [
+          "logical equivalence",
+          "invariant argument",
+          "extremal principle"
+        ],
+        "questions": 33,
+        "pdf": "logic/sheets/sheet07.pdf",
+        "answers": "logic/answers/ans07.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "sequences",
+    "name": "Sequences",
+    "desc": "Recurrences, series, and limiting behaviour.",
+    "status": "live",
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Arithmetic sequences, and the sum as a quadratic in n",
+        "tools": [
+          "nth-term formula",
+          "arithmetic series sum",
+          "sum as a quadratic"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet01.pdf",
+        "answers": "sequences/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Binomial expansion, and Pascal's triangle as a sequence",
+        "tools": [
+          "binomial expansion",
+          "Pascal's triangle",
+          "generalised binomial series"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet02.pdf",
+        "answers": "sequences/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Geometric series, and when a sum to infinity exists",
+        "tools": [
+          "geometric series",
+          "sum to infinity",
+          "convergence condition"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet03.pdf",
+        "answers": "sequences/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "Recurrence relations, and solving them in closed form",
+        "tools": [
+          "recurrence relations",
+          "characteristic equation",
+          "closed-form solution"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet04.pdf",
+        "answers": "sequences/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Monotonicity, bounds and fixed points",
+        "tools": [
+          "monotonicity",
+          "boundedness",
+          "fixed points",
+          "floor and ceiling sequences"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet05.pdf",
+        "answers": "sequences/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "BMO1 capstone: constrained integer sequences",
+        "tools": [
+          "extremal construction",
+          "constrained integer sequences",
+          "alternating recurrences"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet06.pdf",
+        "answers": "sequences/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Mixed synthesis: every technique from Days 1–6",
+        "tools": [
+          "mixed synthesis",
+          "capstone",
+          "technique selection"
+        ],
+        "questions": 33,
+        "pdf": "sequences/sheets/sheet07.pdf",
+        "answers": "sequences/answers/ans07.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "calculus",
+    "name": "Calculus",
+    "desc": "Differentiation, integration, and rates of change.",
+    "status": "draft",
+    "sheets": []
+  },
+  {
+    "slug": "graphs",
+    "name": "Graphs",
+    "desc": "Curve sketching, transformations, and asymptotics.",
+    "status": "draft",
+    "sheets": []
+  }
+]

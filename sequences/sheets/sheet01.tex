@@ -1,0 +1,248 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Sequences}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Sequences Drill \#1}{David Akinyele-Aje}
+\SpeedMeta{Arithmetic sequences, and the sum as a quadratic in n}{nth-term formula, arithmetic series sum, sum as a quadratic}
+\noindent\textit{New toolkit today: Arithmetic Sequences \& Series $\cdot$ nth-term \& Sum Formulas $\cdot$ $S_n$ as a Quadratic in $n$.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{The nth-term and sum formulas on sight. Pure recognition, full speed.}
+
+\begin{enumerate}
+
+\item Write down the nth term of the arithmetic sequence $5, 8, 11, 14, \ldots$
+
+\item An AP has first term $7$ and common difference $-3$. Find the 20th term.
+
+\item An AP has first term $4$ and common difference $5$. Find the sum of the first $10$ terms.
+
+\item A sequence has nth term $4n-1$. Write down its first three terms, and state whether the sequence is arithmetic.
+
+\item An AP has $a_1=2$ and $a_5=18$. Find the common difference.
+
+\item Evaluate $1+2+3+\cdots+50$.
+
+\item An AP has $S_n = n^2+3n$. Find the first term $a_1$.
+
+\item True or false: every arithmetic sequence with integer first term and integer common difference consists entirely of integers.
+
+\item An AP has 3rd term $13$ and 9th term $37$. Find the common difference.
+
+\item An AP has first term $4$ and 6th term $29$. Find the common difference.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Two-step setups: solve for the sequence's parameters, then use them.}
+
+\begin{enumerate}
+
+\item An AP has first term $3$, last term $59$, and $15$ terms. Find the common difference and the sum of all $15$ terms.
+
+\item The sum of the first $8$ terms of an AP is $100$, and the sum of the first $4$ terms is $30$. What is the sum of terms $5$ through $8$?
+\begin{itemize}
+\item[A)] $50$
+\item[B)] $70$
+\item[C)] $130$
+\item[D)] $100$
+\end{itemize}
+
+\item Prove that $3+6+9+\cdots+3n = \dfrac{3n(n+1)}{2}$ using the arithmetic series sum formula.
+
+\item An AP has $21$ terms summing to $315$. Find the middle (11th) term.
+\begin{itemize}
+\item[A)] $15$
+\item[B)] $315$
+\item[C)] $21$
+\item[D)] It cannot be determined without knowing $a$ and $d$.
+\end{itemize}
+
+\item An AP has first term $10$ and common difference $-3$. Find the last term of the sequence that is still positive.
+
+\item Which of the following is NOT necessarily true for an arithmetic sequence with common difference $d>0$?
+\begin{itemize}
+\item[A)] The sequence is strictly increasing.
+\item[B)] $a_{n+1}-a_n=d$ for every $n$.
+\item[C)] The sequence is unbounded above.
+\item[D)] All terms are positive.
+\end{itemize}
+
+\item Two APs share the same common difference $d$. Their first terms differ by $6$. What is the difference between their nth terms, for any $n$?
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $6+(n-1)d$
+\item[C)] $6n$
+\item[D)] It depends on $d$.
+\end{itemize}
+
+\item An AP has $a_3=11$ and $a_3+a_5=32$. Find the common difference.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $5$
+\item[D)] $6$
+\end{itemize}
+
+\item An AP has first term $a$ and common difference $d$, both positive integers, and its 5th term equals $17$. Which pair $(a,d)$ is NOT possible?
+\begin{itemize}
+\item[A)] $(13,1)$
+\item[B)] $(9,2)$
+\item[C)] $(5,3)$
+\item[D)] $(2,4)$
+\end{itemize}
+
+\item An AP with first term $2$ and common difference $3$ (terms $2,5,8,11,\ldots$) and a GP with first term $2$ and common ratio $2$ (terms $2,4,8,16,\ldots$) are compared term by term. At which term number do they next agree, within the first 6 terms of each?
+\begin{itemize}
+\item[A)] $n=2$
+\item[B)] $n=3$
+\item[C)] $n=4$
+\item[D)] They never agree again within 6 terms.
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Structure over computation --- what must be true, not just what is true for one example.}
+
+\begin{enumerate}
+
+\item An AP has $n$ integer terms ($n\geq2$) summing to $15$. Which of the following must be true? \textit{\small(after TMUA 2019 Paper 2 Q11)}
+\begin{itemize}
+\item[I.] $n$ is even.
+\item[II.] The first term is odd.
+\item[III.] The common difference is odd.
+\end{itemize}
+\begin{itemize}
+\item[A)] none of them
+\item[B)] I only
+\item[C)] II only
+\item[D)] III only
+\item[E)] I and II only
+\item[F)] I and III only
+\item[G)] II and III only
+\item[H)] I, II and III
+\end{itemize}
+
+\item The sequences $a_n=2n+1$ and $b_n=3n-2$ are both arithmetic. Let $c_n=a_n+b_n$. Which is true about $(c_n)$?
+\begin{itemize}
+\item[A)] It is arithmetic with common difference $5$.
+\item[B)] It is arithmetic with common difference $6$.
+\item[C)] It is not arithmetic in general.
+\item[D)] It is geometric.
+\end{itemize}
+
+\item An AP $(a_n)$ has common difference $d$. What can be said about $b_n=a_n^2$?
+\begin{itemize}
+\item[A)] $(b_n)$ is always arithmetic.
+\item[B)] $(b_n)$ is always geometric.
+\item[C)] $(b_n)$ is arithmetic only if $d=0$.
+\item[D)] $(b_n)$ is arithmetic only if $a_1=0$.
+\end{itemize}
+
+\item An AP has all terms positive. The sum of the first $6$ terms equals the sum of terms $7$ through $10$. Which must be true?
+\begin{itemize}
+\item[A)] The common difference $d$ must be positive.
+\item[B)] $d$ must be negative.
+\item[C)] $d$ must be zero.
+\item[D)] $d$ can have either sign.
+\end{itemize}
+
+\item An AP has positive integer first term $a$ and common difference $d$ with $a<d$. Which pair $(a,d)$ gives a sequence that contains the term $100$ exactly?
+\begin{itemize}
+\item[A)] $(5,19)$
+\item[B)] $(6,17)$
+\item[C)] $(7,23)$
+\item[D)] $(8,13)$
+\end{itemize}
+
+\item An AP with first term $a$ and common difference $d$ satisfies $S_{2n}=2S_n$ for some particular $n>0$. What does this force?
+\begin{itemize}
+\item[A)] $d$ must equal $0$.
+\item[B)] $a$ must equal $0$.
+\item[C)] $n$ must be even.
+\item[D)] No constraint --- this holds automatically for every AP.
+\end{itemize}
+
+\item For an AP with common difference $d\neq0$, the sum $S_n$ of the first $n$ terms, viewed as a function of $n$, is:
+\begin{itemize}
+\item[A)] linear in $n$.
+\item[B)] quadratic in $n$ with no linear term.
+\item[C)] quadratic in $n$.
+\item[D)] exponential in $n$.
+\end{itemize}
+
+\item $S_n=3n^2-n$ is the sum of the first $n$ terms of an arithmetic sequence. Find its common difference.
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $6$
+\item[C)] $-1$
+\item[D)] $2$
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Insight over computation. Each question has a short, elegant route --- find it.}
+
+\begin{enumerate}
+
+\item An AP has first term $a$ and common difference $d$. The sum of the first $6$ terms equals the sum of the first $11$ terms. Which relationship between $a$ and $d$ does this force? \textit{\small(after TMUA 2018 Paper 1 Q2)}
+\begin{itemize}
+\item[A)] $a=-8d$
+\item[B)] $a=8d$
+\item[C)] $a=-\dfrac{17}{2}d$
+\item[D)] $a=\dfrac{17}{6}d$
+\item[E)] $a=-4d$
+\end{itemize}
+
+\item A selection $S$ of $n$ terms is taken from the arithmetic sequence $2,5,8,\ldots,80$. What is the smallest value of $n$ for which there must be two distinct terms in $S$ summing to $82$? \textit{\small(after TMUA 2022 Paper 2 Q8)}
+\begin{itemize}
+\item[A)] $13$
+\item[B)] $14$
+\item[C)] $15$
+\item[D)] $22$
+\item[E)] $23$
+\item[F)] $24$
+\end{itemize}
+
+\item The first four terms of an arithmetic sequence $p,\,p+d,\,p+2d,\,p+3d$ (with $d>0$) are all prime, and $p>3$. Prove that $d$ must be a multiple of $6$.
+
+\item An AP has $S_n=An^2+Bn$. Given $A=5$ and that the 10th term of the sequence is $91$, find $B$.
+\begin{itemize}
+\item[A)] $-4$
+\item[B)] $4$
+\item[C)] $-9$
+\item[D)] $9$
+\end{itemize}
+
+\item A sequence $(a_n)$ (not assumed arithmetic) is such that its first differences $a_{n+1}-a_n$ themselves form an arithmetic sequence in $n$. What can be said about $a_n$ as a function of $n$?
+\begin{itemize}
+\item[A)] $(a_n)$ must itself be arithmetic.
+\item[B)] $a_n$ is a quadratic function of $n$.
+\item[C)] $(a_n)$ must be geometric.
+\item[D)] No general conclusion can be drawn.
+\end{itemize}
+
+\end{enumerate}
+
+\SpeedClosing{``An AP is linear in $n$; its sum is quadratic in $n$.
+Most of the errors today will be confusing the two.''}
+
+\end{document}
