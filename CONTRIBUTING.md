@@ -64,12 +64,16 @@ Always remember: **No calculators are allowed in any of these exams.** Design nu
 New sheets must be grounded in real past papers, not written from memory
 of "what these exams are like":
 
-1. **Fetch before you write.** A local corpus lives in `research/`
-   (SMC, BMO1, TMUA, MAT papers + mark schemes, with text extracts in 
-   `research/txt/`). **To automatically generate this corpus**, simply hand the 
-   `prompts/BUILD_CORPUS_PROMPT.md` file to your AI agent (Cursor, Devin, etc.). 
-   It will dynamically download the copyrighted past papers and compile the 
-   corpus locally for you.
+1. **Read before you write.** A local corpus lives in `research/`
+   (SMC, BMO1, TMUA, MAT papers + mark schemes, with text extracts in
+   `research/txt/`). It is assembled from papers *you* already lawfully hold —
+   see [`prompts/BUILD_CORPUS_PROMPT.md`](prompts/BUILD_CORPUS_PROMPT.md) for the
+   directory layout and extraction steps, which an agent can run for you once the
+   PDFs are in place. This repo does not tell anyone, human or agent, to go and
+   acquire copyrighted papers, and it does not ask you to strip rights notices out
+   of anything: `similarity_check.py` filters page furniture at comparison time
+   instead. If you have no corpus, say so in the PR and rely on rule 2 of the
+   non-negotiables; it costs you one check, not your contribution.
 2. **Ground every section.** Each sheet's question archetypes must be
    ones that actually occur in the corpus for its target competition
    (A/B ↔ TMUA/SMC-early, C ↔ SMC-mid, D ↔ SMC-late/BMO1). Close
