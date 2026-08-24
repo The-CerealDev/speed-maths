@@ -88,8 +88,8 @@ another pillar — pull back toward the series/algebraic-behavior framing below.
 ## The 7-day arc
 
 Grounded in `research/INDEX-tmua-sequences.md` (dedicated corpus pass, corrected —
-see note on TMUA "2016" below) plus frequency counts over the 1305-question community
-corpus (`variant_retriever/open_coded2.json`).
+see note on TMUA "2016" below) plus frequency counts over a local 1305-question
+community-paper corpus. Both are local-only and gitignored; neither is committed.
 
 **Citation correction to carry forward:** `tmua_2016_1.txt`/`tmua_2016_2.txt` are
 byte-identical to the TMUA Practice Paper (same paper code D513/11) — there is no real

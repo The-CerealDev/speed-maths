@@ -1,6 +1,6 @@
 # Project Pitch / UCAS Personal Statement Guide
 
-*This document outlines how to frame the "Speed Maths" and "Variant Retriever" projects for a Pure Mathematics university application (e.g., Cambridge, Imperial) and a future Quant Research career.*
+*This document outlines how to frame the "Speed Maths" project for a Pure Mathematics university application (e.g., Cambridge, Imperial) and a future Quant Research career.*
 
 ---
 
@@ -9,9 +9,6 @@ Talk about how you used SymPy to build formal algebraic equivalence checkers. Ex
 
 ## 2. Property-Based Fuzz Testing (Combinatorial Logic)
 Talk about how you mapped abstract mathematical properties (like the symmetry of a polynomial or a combinatorics recurrence relation) into integer domains to computationally fuzz-test them using `hypothesis`. You used adversarial automated testing to prove identities like Derangements ($D_4=9$), the Hockey Stick Identity, and Ramsey numbers ($R(3,3)=6$).
-
-## 3. The Variant Retriever (Applied Linear Algebra)
-You can describe the Retriever as a direct application of Linear Algebra. You took human cognitive errors (e.g., "forgot to flip the inequality"), mapped them into a 384-dimensional continuous vector space using Sentence Transformers, and used cosine similarity to cluster mathematical "traps". 
 
 ---
 

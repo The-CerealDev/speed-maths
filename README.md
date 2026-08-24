@@ -68,5 +68,7 @@ We are extremely confident in the CI pipeline. If you find a mathematical error 
 
 ## Roadmap
 
-The static PDF corpus is open source. 
-Development is currently focused on the Variant Retriever: an error-based semantic search engine that encodes human cognitive errors into 384-dimensional continuous vector spaces to map mistakes to past paper distractors. It remains in closed beta.
+The static PDF corpus is open source, and it is the whole of what this repo
+publishes. Five pillars are live (Algebra, Combinatorics, Logic, Number Theory,
+Sequences); Calculus and Graphs are drafted and held back for review. See
+`sheets.json` for the current state of each.

@@ -1,13 +1,11 @@
 /* Speed Maths design tokens — the single source of truth for colour, radius
-   and shadow across the archive site and the retriever app.
+   and shadow across the archive site.
 
-   These values were already identical in both halves of the project, but they
-   were identical by copy-paste: `style.css` and `variant_retriever/static/
-   style.css` each declared their own :root with the same hexes under different
-   names (--bg-color vs --bg, --card-bg vs --surface, --border-color vs
-   --border). That matches until someone changes one of them.
-
-   Names here follow the retriever's, which is the more complete set. */
+   New values go here, never in a stylesheet's own :root. `style.css` still
+   carries a legacy block declaring the same hexes under older names
+   (--bg-color vs --bg, --card-bg vs --surface, --border-color vs --border);
+   that matches right up until someone edits one of them. Fold it into these
+   names when classic.html next gets touched. */
 :root {
     --bg: #f8f9fa;
     --surface: #ffffff;
