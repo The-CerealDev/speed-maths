@@ -11,6 +11,7 @@ require `bind()` to reject it. That is what gives the mutation suite something
 to kill in tools/answer_binding.py: break the comparison and these fail.
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -75,7 +76,19 @@ def test_the_published_value_is_accepted(raw):
     published = parse_tex_math(raw)
     if is_proof_marker(raw):
         return
-    expected = mcq_letter(raw) if mcq_letter(raw) else published
+    if mcq_letter(raw):
+        expected = mcq_letter(raw)
+    elif isinstance(published, bool):
+        # A True/False answer binds as a bool, which is stronger than comparing
+        # the word, so a check for one of these must return a bool.
+        expected = published
+    elif not re.search(r"\$|\\[a-zA-Z]", raw):
+        # Plain prose. The value a check should produce is the wording itself,
+        # not whatever parse_latex made of it — it mangles prose into products
+        # of one-letter symbols.
+        expected = raw
+    else:
+        expected = published
     assert bind(raw, published, expected).ok, (
         f"bind() rejected the published answer {raw!r} compared against itself"
     )

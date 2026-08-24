@@ -46,6 +46,10 @@ _MCQ_LETTER = re.compile(r"^\s*\(?([A-G])\)")
 
 _YES_NO = re.compile(r"^\s*(yes|no|true|false)\b", re.IGNORECASE)
 
+# Any maths at all: a `$...$` span or a LaTeX command. Its absence means the
+# printed answer is plain prose.
+_HAS_MATHS = re.compile(r"\$|\\[a-zA-Z]")
+
 
 @dataclass(frozen=True)
 class BindResult:
@@ -221,6 +225,21 @@ def bind(published_raw, published, computed):
         ok = bool(published) == bool(computed)
         return BindResult(ok, EXACT,
                           "" if ok else f"published {published!r}, computed {computed!r}")
+
+    # An answer with no maths markup at all is prose, whatever the parser made
+    # of it. parse_tex_math runs parse_latex over everything and will happily
+    # turn "Independent observations." into a product of one-letter symbols;
+    # comparing against that is meaningless, and treating it as a value would
+    # report DRIFT_ONLY work as EXACT.
+    if not _HAS_MATHS.search(str(published_raw)):
+        got = normalise_prose(computed)
+        ok = got == normalise_prose(published_raw)
+        return BindResult(
+            ok, DRIFT_ONLY,
+            "" if ok else
+            f"prose answer changed: .tex says {normalise_prose(published_raw)!r}, "
+            f"check says {got!r}",
+        )
 
     if isinstance(published, (list, tuple)):
         if not isinstance(computed, (list, tuple, set, frozenset)):

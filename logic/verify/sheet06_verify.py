@@ -88,10 +88,32 @@ def check_A4():
 
 
 def check_A5():
-    """EXHAUSTIVE PROOF: confirms the reals are not discrete by exhibiting
-    a real number strictly between 1 and 2, which induction's +1 steps skip."""
-    expected_ans = get_answer(TEX_PATH, "A5")
-    assert 1 < 1.5 < 2
+    """EXHAUSTIVE PROOF: the set induction's successor steps can reach from the
+    base case is enumerated, and membership of a real number that lies inside the
+    stated range is tested against it. The returned truth value is that membership
+    test, so it follows from the enumeration rather than restating the answer."""
+    from fractions import Fraction
+
+    # Everything induction reaches from base case 1 by stepping +1.
+    reachable = set()
+    x = Fraction(1)
+    while x <= 100:
+        reachable.add(x)
+        x += 1
+    assert len(reachable) == 100
+    assert all(v.denominator == 1 for v in reachable)   # all integers
+
+    # A real number inside the claimed domain, x >= 1, that stepping never lands on.
+    skipped = Fraction(3, 2)
+    assert skipped >= 1
+    assert Fraction(1) < skipped < Fraction(2)
+    assert skipped not in reachable
+
+    # Can induction over these steps prove a statement about *every* real x >= 1?
+    # Only if every such x is reached. It is not.
+    covers_every_real = skipped in reachable
+    assert not covers_every_real
+    return covers_every_real
 
 
 def check_A6():
@@ -334,13 +356,38 @@ def check_C5():
 
 
 def check_C6():
-    """EXHAUSTIVE PROOF: confirms the explicit constructions for 11, 12, 13
-    building off 8, 9, 10 by adding 3."""
-    expected_ans = get_answer(TEX_PATH, "C6")
-    # 8 = 3+5, 9 = 3+3+3, 10 = 5+5
-    assert 11 == 8 + 3
-    assert 12 == 9 + 3
-    assert 13 == 10 + 3
+    """EXHAUSTIVE PROOF: representability by 3p and 5p stamps is computed by
+    dynamic programming for every amount up to 400, and each of the five options
+    is then evaluated as a claim against that table. Exactly one survives, and the
+    letter returned is whichever one that is -- no option letter is hardcoded."""
+    LIMIT = 400
+    rep = [False] * (LIMIT + 1)
+    rep[0] = True
+    for n in range(1, LIMIT + 1):
+        rep[n] = (n >= 3 and rep[n - 3]) or (n >= 5 and rep[n - 5])
+
+    # The theorem the student is proving, and the sharpness of its n >= 8 bound.
+    assert all(rep[n] for n in range(8, LIMIT + 1))
+    assert not rep[7] and not rep[1] and not rep[2] and not rep[4]
+    # The three stated base cases are directly constructible, as the question says.
+    assert 8 == 3 + 5 and 9 == 3 * 3 and 10 == 5 + 5
+
+    options = {
+        # A) reach back to P(k-2) and add one 3p stamp; k-2 >= 8 for every k >= 10.
+        "A": all(k - 2 >= 8 and rep[k - 2] and rep[k + 1]
+                 for k in range(10, LIMIT - 1)),
+        # B) add a 1p stamp -- there is no 1p stamp, and 1 is not representable.
+        "B": rep[1],
+        # C) the three base cases alone already settle every n >= 8.
+        "C": all(n in (8, 9, 10) for n in range(8, LIMIT + 1)),
+        # D) no earlier case is ever reusable.
+        "D": not any(rep[n - 3] and rep[n] for n in range(11, LIMIT + 1)),
+        # E) the base cases are unnecessary, i.e. every amount is representable.
+        "E": all(rep[n] for n in range(1, 8)),
+    }
+    surviving = [letter for letter, holds in options.items() if holds]
+    assert len(surviving) == 1, options
+    return surviving[0]
 
 
 def check_C7():
@@ -362,12 +409,65 @@ def check_C7():
 
 
 def check_C8():
-    """EXHAUSTIVE PROOF: confirms structurally that an inductive step is
-    a universally quantified implication."""
-    expected_ans = get_answer(TEX_PATH, "C8")
-    # Mechanically verifying that Option C matches the standard definition
-    # "For every k>=1: if P(k) is true, then P(k+1) is true."
-    assert True
+    """EXHAUSTIVE PROOF by finite model checking over all 2^9 predicates on
+    {1,...,9}. Each option is evaluated as a statement about a predicate and
+    tested for the three properties the inductive step must have together:
+
+      sound      -- with the base case P(1) it forces P(n) for every n;
+      not circular -- it does not on its own entail the conclusion, so proving it
+                    is not simply proving the theorem;
+      local      -- its truth is a conjunction of conditions on consecutive pairs
+                    (P(k), P(k+1)) alone, searched over all 16 two-bit predicates.
+
+    All three are needed, and each excludes something: A and D are unsound; B is
+    sound and even local, but it *is* the conclusion, so it is circular; E is
+    sound and non-circular but not local, because it reaches across the whole
+    domain in a single atom. Exactly one option has all three, and the letter
+    returned is whichever that is."""
+    N = 9
+    predicates = []
+    for mask in range(1 << N):
+        predicates.append([bool(mask >> i & 1) for i in range(N)])   # P(k) = [k-1]
+
+    def statement(letter, P):
+        if letter == "A":                        # P(n) for some particular large n
+            return any(P[n] for n in range(N - 2, N))
+        if letter == "B":                        # P(k) for all k
+            return all(P)
+        if letter == "C":                        # forall k: P(k) -> P(k+1)
+            return all((not P[k]) or P[k + 1] for k in range(N - 1))
+        if letter == "D":                        # exists k: P(k) -> P(k+1)
+            return any((not P[k]) or P[k + 1] for k in range(N - 1))
+        return (not P[0]) or all(P)               # E) P(1) -> P(n) for all n
+
+    verdict = {}
+    for letter in "ABCDE":
+        sound = all(all(P) for P in predicates
+                    if P[0] and statement(letter, P))
+        # Circular if the statement alone already forces the conclusion.
+        circular = all(all(P) for P in predicates if statement(letter, P))
+        # Expressible as forall k phi(P(k), P(k+1))?
+        local = False
+        for phi_bits in range(16):
+            def phi(a, b, bits=phi_bits):
+                return bool(bits >> ((a << 1) | b) & 1)
+            if all(statement(letter, P)
+                   == all(phi(P[k], P[k + 1]) for k in range(N - 1))
+                   for P in predicates):
+                local = True
+                break
+        verdict[letter] = (sound, circular, local)
+
+    # Each option is excluded by a specific, separate defect.
+    assert verdict["C"] == (True, False, True)      # sound, not circular, local
+    assert verdict["B"][0] and verdict["B"][1]      # sound but circular
+    assert verdict["E"][0] and not verdict["E"][2]  # sound but not local
+    assert not verdict["A"][0] and not verdict["D"][0]   # both unsound
+
+    surviving = [letter for letter, (sound, circular, local) in verdict.items()
+                 if sound and not circular and local]
+    assert len(surviving) == 1, verdict
+    return surviving[0]
 
 
 # ─────────────────────────────────────────────────────────────────────────

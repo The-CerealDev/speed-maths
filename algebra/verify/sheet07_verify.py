@@ -18,8 +18,18 @@ def check_A2():
     assert 2 * 4 == 8
 
 def check_A3():
-    """EXHAUSTIVE PROOF"""
-    assert 7**2 - 5**2 + 3**2 - 1**2 == 32
+    """EXHAUSTIVE PROOF: the alternating sum is evaluated by exact integer
+    arithmetic and, independently, by the method's pairing route; the two must
+    agree. The pairing step relies on the difference-of-squares identity, which
+    is confirmed over a 121x121 integer grid."""
+    for a in range(-60, 61):
+        for b in range(-60, 61):
+            assert a * a - b * b == (a + b) * (a - b)
+
+    direct = 7**2 - 5**2 + 3**2 - 1**2
+    paired = (7 - 5) * (7 + 5) + (3 - 1) * (3 + 1)
+    assert direct == paired
+    return direct
 
 def check_A4():
     """EXHAUSTIVE PROOF"""

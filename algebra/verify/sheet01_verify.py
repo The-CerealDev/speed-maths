@@ -19,8 +19,19 @@ def check_A2():
 
 # A3
 def check_A3():
-    """ EXHAUSTIVE PROOF: Direct evaluation """
-    assert 103**2 - 97**2 == 1200
+    """EXHAUSTIVE PROOF: exact integer arithmetic for this instance, computed by
+    two independent routes that must agree -- direct squaring, and the factored
+    form the method uses. The difference-of-squares identity itself is confirmed
+    over a 121x121 integer grid, which for a degree-2 polynomial identity in two
+    variables is conclusive."""
+    for a in range(-60, 61):
+        for b in range(-60, 61):
+            assert a * a - b * b == (a + b) * (a - b)
+
+    direct = 103**2 - 97**2                  # the long way
+    factored = (103 + 97) * (103 - 97)       # the method's route
+    assert direct == factored
+    return direct
 
 # A4
 def check_A4():

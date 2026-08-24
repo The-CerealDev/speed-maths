@@ -256,8 +256,37 @@ def check_B7():
 # \method claims: 24-1=23
 # ─────────────────────────────────────────────────────────────────────────
 def check_B8():
-    """EXHAUSTIVE PROOF"""
-    assert 4 * 6 - 1 == 23
+    """EXHAUSTIVE PROOF: every snapping strategy is enumerated by recursion over
+    rectangles, memoised. The fewest and the most snaps are computed separately;
+    they coincide at mn-1 for every rectangle up to 6x6, which is exactly the
+    method's claim that the count cannot depend on the order or pattern of
+    breaks. Verified for the 4x6 bar and returned."""
+    from functools import lru_cache
+
+    @lru_cache(maxsize=None)
+    def snaps(m, n, pick):
+        # Snap along any horizontal or vertical line; the two pieces are then
+        # independent. `pick` selects fewest or most so both bounds are found.
+        if m == 1 and n == 1:
+            return 0
+        options = []
+        for k in range(1, m):
+            options.append(1 + snaps(k, n, pick) + snaps(m - k, n, pick))
+        for k in range(1, n):
+            options.append(1 + snaps(m, k, pick) + snaps(m, n - k, pick))
+        return pick(options)
+
+    for m in range(1, 7):
+        for n in range(1, 7):
+            fewest = snaps(m, n, min)
+            most = snaps(m, n, max)
+            # Strategy-independence: no order does better or worse.
+            assert fewest == most == m * n - 1, (m, n, fewest, most)
+
+    computed = snaps(4, 6, min)
+    assert computed == snaps(4, 6, max)
+    assert 4 * 6 == 24                      # the bar really is 24 squares
+    return computed
 
 # ─────────────────────────────────────────────────────────────────────────
 # B9 — Least moves, Towers of Hanoi, 6 disks? \ans{63}

@@ -16,10 +16,6 @@
     "algebra/sheet01 A2": [
       "UNBOUND"
     ],
-    "algebra/sheet01 A3": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "algebra/sheet01 A4": [
       "UNBOUND"
     ],
@@ -132,10 +128,6 @@
       "UNBOUND"
     ],
     "algebra/sheet07 A2": [
-      "UNBOUND"
-    ],
-    "algebra/sheet07 A3": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "algebra/sheet07 A4": [
@@ -372,10 +364,6 @@
     "combinatorics/sheet07 B7": [
       "UNBOUND"
     ],
-    "combinatorics/sheet07 B8": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "combinatorics/sheet07 B9": [
       "UNBOUND"
     ],
@@ -545,10 +533,6 @@
       "UNBOUND"
     ],
     "logic/sheet02 B10": [
-      "UNBOUND"
-    ],
-    "logic/sheet02 B2": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "logic/sheet02 B3": [
@@ -833,10 +817,6 @@
     "logic/sheet06 A4": [
       "UNBOUND"
     ],
-    "logic/sheet06 A5": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "logic/sheet06 A6": [
       "UNBOUND"
     ],
@@ -879,15 +859,7 @@
     "logic/sheet06 C5": [
       "UNBOUND"
     ],
-    "logic/sheet06 C6": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "logic/sheet06 C7": [
-      "UNBOUND"
-    ],
-    "logic/sheet06 C8": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "logic/sheet06 D1": [
@@ -998,10 +970,6 @@
     "number-theory/sheet05 B10": [
       "UNBOUND"
     ],
-    "number-theory/sheet05 B4": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "number-theory/sheet05 B8": [
       "UNBOUND"
     ],
@@ -1012,14 +980,6 @@
       "UNBOUND"
     ],
     "number-theory/sheet05 D2": [
-      "UNBOUND"
-    ],
-    "number-theory/sheet06 A7": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
-    "number-theory/sheet07 A10": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "number-theory/sheet07 B5": [

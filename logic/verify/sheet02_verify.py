@@ -310,11 +310,37 @@ def check_B1():
 # B2 -- Classify "n=6" for "n is a multiple of 3".
 # \ans: Sufficient but not necessary.
 def check_B2():
-    """EXHAUSTIVE PROOF: "n=6" is a single fixed value, so sufficiency is a
-    one-shot computation, and necessity is disproved by n=9."""
-    expected_ans = get_answer(TEX_PATH, "B2")
-    assert 6 % 3 == 0
+    """EXHAUSTIVE PROOF over n in -1000..1000: sufficiency and necessity are each
+    evaluated from their definitions across the whole range rather than asserted
+    at a chosen witness, and the classification returned is read off from those
+    two computed booleans. The range is finite, but the conclusion is not
+    range-dependent: sufficiency has a single instance to check (n=6), and one
+    counterexample is enough to refute necessity."""
+    domain = range(-1000, 1001)
+
+    def hypothesis(n):
+        return n == 6
+
+    def conclusion(n):
+        return n % 3 == 0
+
+    sufficient = all(conclusion(n) for n in domain if hypothesis(n))
+    necessary = all(hypothesis(n) for n in domain if conclusion(n))
+    assert sufficient
+    assert not necessary
+
+    # The method's counterexample must really be one.
+    witness = next(n for n in domain if conclusion(n) and not hypothesis(n))
+    assert witness % 3 == 0 and witness != 6
     assert 9 % 3 == 0 and 9 != 6
+
+    classification = {
+        (True, True): "Necessary and sufficient.",
+        (True, False): "Sufficient but not necessary.",
+        (False, True): "Necessary but not sufficient.",
+        (False, False): "Neither necessary nor sufficient.",
+    }[(sufficient, necessary)]
+    return classification
 
 
 # B3 -- Classify "6|n" for "2|n and 3|n".

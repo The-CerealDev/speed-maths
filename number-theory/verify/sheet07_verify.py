@@ -99,9 +99,22 @@ def check_A9():
 
 
 def check_A10():
-    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for comparing 2^30 and 3^20."""
-    expected_ans = get_answer(TEX_PATH, 'A10')
-    assert 3**20 > 2**30
+    """EXHAUSTIVE PROOF: both powers are evaluated exactly as integers and the
+    larger is selected by comparison rather than asserted. The method's
+    common-exponent rewriting is checked as an identity."""
+    a = sympy.Integer(2)**30
+    b = sympy.Integer(3)**20
+
+    assert a == sympy.Integer(8)**10
+    assert b == sympy.Integer(9)**10
+    assert 2**3 == 8 and 3**2 == 9
+    assert 9 > 8
+    for e in range(1, 12):
+        assert sympy.Integer(9)**e > sympy.Integer(8)**e
+
+    larger = a if a > b else b
+    assert larger == b
+    return larger
 
 
 # ═══════════════════════════════════════════════════════════════════════

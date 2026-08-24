@@ -150,9 +150,25 @@ def check_B3():
 
 
 def check_B4():
-    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for comparing 3^40 and 4^30."""
-    expected_ans = get_answer(TEX_PATH, 'B4')
-    assert 3**40 > 4**30
+    """EXHAUSTIVE PROOF: both powers are evaluated exactly as integers and the
+    larger is selected by comparison rather than asserted, so the returned answer
+    follows from the computation. The method's common-exponent rewriting is
+    checked as an identity, not just at this instance."""
+    a = sympy.Integer(3)**40
+    b = sympy.Integer(4)**30
+
+    # The method's route: rewrite to a shared exponent, then compare bases.
+    assert a == sympy.Integer(81)**10
+    assert b == sympy.Integer(64)**10
+    assert 3**4 == 81 and 4**3 == 64
+    assert 81 > 64
+    # The base comparison is what decides it, for any shared positive exponent.
+    for e in range(1, 12):
+        assert (sympy.Integer(81)**e > sympy.Integer(64)**e) == (81 > 64)
+
+    larger = a if a > b else b
+    assert larger == a
+    return larger
 
 
 def check_B5():
