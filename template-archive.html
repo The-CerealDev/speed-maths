@@ -74,7 +74,8 @@
     var pillars = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
 
     rows.forEach(function (r) {
-        r.dataset.hay = r.textContent.toLowerCase().replace(/\s+/g, ' ');
+        var pillarName = r.closest('.pillar').querySelector('h2').textContent;
+        r.dataset.hay = (pillarName + ' ' + r.textContent).toLowerCase().replace(/\s+/g, ' ');
     });
 
     function apply() {
