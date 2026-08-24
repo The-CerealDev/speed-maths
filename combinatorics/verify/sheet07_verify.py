@@ -45,6 +45,7 @@ def check_A1():
     assert brute(4) == f(4)
     assert [f(k) for k in range(1, 5)] == [1, 2, 3, 5]
     assert f(4) == 5
+    return f(4)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -62,6 +63,7 @@ def check_A2():
     assert f(4) == 5
     assert f(3) == 3
     assert f(5) == 8
+    return f(5)
 
 # ─────────────────────────────────────────────────────────────────────────
 # A3 — Binary strings of length 4, no two adjacent 1s? \ans{8}
@@ -75,6 +77,7 @@ def check_A3():
     assert brute(2) == 3
     assert brute(3) == 5
     assert brute(4) == 8
+    return brute(4)
     
 # ─────────────────────────────────────────────────────────────────────────
 # A4 — Domino tilings of 2x3? \ans{3}
@@ -89,6 +92,7 @@ def check_A4():
     assert t(1) == 1
     assert t(2) == 2
     assert t(3) == 3
+    return t(3)
 
 # ─────────────────────────────────────────────────────────────────────────
 # A5 — Domino tilings of 2x4? \ans{5}
@@ -104,6 +108,7 @@ def check_A5():
     assert t(3) == 3
     assert t(2) == 2
     assert t(4) == 5
+    return t(4)
 
 # ─────────────────────────────────────────────────────────────────────────
 # A6 — Regions from 3 lines in general position? \ans{7}
@@ -116,6 +121,7 @@ def check_A6():
         return R(n-1) + n
     assert [R(k) for k in range(4)] == [1, 2, 4, 7]
     assert R(3) == 7
+    return R(3)
 
 # ─────────────────────────────────────────────────────────────────────────
 # A7 — Correctly matched arrangements of 3 bracket pairs? \ans{5}
@@ -132,6 +138,7 @@ def check_A7():
     ans = sum(1 for p in itertools.product("()", repeat=6) if is_valid(p))
     assert ans == 5
     assert math.comb(6, 3) // 4 == 5
+    return ans
 
 # ─────────────────────────────────────────────────────────────────────────
 # A8 — a_1=1, a_{n+1}=2a_n+1: find a_4. \ans{15}
@@ -143,6 +150,7 @@ def check_A8():
     for i in range(2, 5):
         a.append(2 * a[-1] + 1)
     assert a[1:] == [1, 3, 7, 15]
+    return a[-1]
 
 # ─────────────────────────────────────────────────────────────────────────
 # A9 — Write F_8. \ans{21}
@@ -155,6 +163,7 @@ def check_A9():
         f.append(f[-1] + f[-2])
     assert f[1:] == [1, 1, 2, 3, 5, 8, 13, 21]
     assert f[8] == 21
+    return f[8]
 
 # ─────────────────────────────────────────────────────────────────────────
 # A10 — True or false: F_1+...+F_8=54. \ans{True}
@@ -167,6 +176,7 @@ def check_A10():
         f.append(f[-1] + f[-2])
     assert sum(f[1:9]) == 54
     assert f[10] - 1 == 54
+    return sum(f[1:9])
 
 # ─────────────────────────────────────────────────────────────────────────
 # B1 — Climb 10 stairs, steps of 1 or 2? \ans{89}
@@ -184,6 +194,7 @@ def check_B1():
     while len(f_seq) <= 11:
         f_seq.append(f_seq[-1] + f_seq[-2])
     assert f_seq[11] == 89
+    return f(10)
 
 # ─────────────────────────────────────────────────────────────────────────
 # B2 — Binary strings of length 8, no two adjacent 1s? \ans{55}
@@ -194,6 +205,7 @@ def check_B2():
     def brute(n):
         return sum(1 for p in itertools.product((0,1), repeat=n) if (1,1) not in zip(p, p[1:]))
     assert brute(8) == 55
+    return brute(8)
 
 # ─────────────────────────────────────────────────────────────────────────
 # B3 — Domino tilings of 2x10? \ans{89}
@@ -206,6 +218,7 @@ def check_B3():
         if n == 1: return 1
         return t(n-1) + t(n-2)
     assert t(10) == 89
+    return t(10)
 
 # ─────────────────────────────────────────────────────────────────────────
 # B4 — Regions from 10 lines in general position? \ans{56}
@@ -218,6 +231,7 @@ def check_B4():
         return R(n-1) + n
     assert R(10) == 56
     assert 1 + math.comb(11, 2) == 56
+    return R(10)
 
 # ─────────────────────────────────────────────────────────────────────────
 # B5 — a_1=2, a_n=3a_{n-1}-1: find a_4. \ans{41}
@@ -229,6 +243,7 @@ def check_B5():
     for i in range(2, 5):
         a.append(3 * a[-1] - 1)
     assert a[1:] == [2, 5, 14, 41]
+    return a[-1]
 
 # ─────────────────────────────────────────────────────────────────────────
 # B6 — Climb 6 stairs, steps of 1, 2, or 3? \ans{24}
@@ -241,6 +256,7 @@ def check_B6():
         if n < 0: return 0
         return brute(n-1) + brute(n-2) + brute(n-3)
     assert [brute(k) for k in range(1, 7)] == [1, 2, 4, 7, 13, 24]
+    return brute(6)
 
 # ─────────────────────────────────────────────────────────────────────────
 # B7 — Regions of a disc from 5 points, all chords? \ans{16}
@@ -250,6 +266,7 @@ def check_B7():
     """EXHAUSTIVE PROOF"""
     ans = 1 + math.comb(5, 2) + math.comb(5, 4)
     assert ans == 16
+    return ans
 
 # ─────────────────────────────────────────────────────────────────────────
 # B8 — Snaps to break a 4x6 bar into 24 squares? \ans{23}
@@ -298,6 +315,7 @@ def check_B9():
     for i in range(2, 7):
         h.append(2 * h[-1] + 1)
     assert h[1:] == [1, 3, 7, 15, 31, 63]
+    return h[-1]
 
 # ─────────────────────────────────────────────────────────────────────────
 # B10 — Use F_1+...+F_n=F_{n+2}-1 to evaluate F_4+...+F_12. \ans{372}
@@ -312,6 +330,7 @@ def check_B10():
     assert f[14] - f[5] == 372
     assert f[14] == 377
     assert f[5] == 5
+    return sum(f[4:13])
 
 # ─────────────────────────────────────────────────────────────────────────
 # C1 — Climb 8 stairs, steps 1 or 2, no two 2-steps in a row? \ans{19}
@@ -328,6 +347,7 @@ def check_C1():
             ans += brute(n-2, True)
         return ans
     assert brute(8, False) == 19
+    return brute(8, False)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C2 — Tile a 2x6 strip with dominoes and 2x2 squares? \ans{43}
@@ -339,6 +359,7 @@ def check_C2():
     for _ in range(5):
         a.append(a[-1] + 2 * a[-2])
     assert a == [1, 1, 3, 5, 11, 21, 43]
+    return a[-1]
 
 # ─────────────────────────────────────────────────────────────────────────
 # C3 — Lattice paths (0,0)->(4,4), never above y=x? \ans{14}
@@ -356,6 +377,7 @@ def check_C3():
     assert math.comb(8, 4) // 5 == 14
     assert math.comb(8, 4) == 70
     assert math.comb(8, 3) == 56
+    return count(0, 0)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C4 — Regions of a disc from 6 points, all chords? \ans{31}
@@ -366,6 +388,7 @@ def check_C4():
     assert 1 + math.comb(6, 2) + math.comb(6, 4) == 31
     assert math.comb(6, 2) == 15
     assert math.comb(6, 4) == 15
+    return 1 + math.comb(6, 2) + math.comb(6, 4)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C5 — Ordered sums of 8 into odd parts? \ans{21}
@@ -379,6 +402,7 @@ def check_C5():
         return sum(d(n-k) for k in range(1, n+1, 2))
     assert d(8) == 21
     assert [d(k) for k in range(1, 9)] == [1, 1, 2, 3, 5, 8, 13, 21]
+    return d(8)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C6 — Length-6 strings over {0,1,2} with no two adjacent 0s? \ans{448}
@@ -395,6 +419,7 @@ def check_C6():
     for _ in range(4):
         a.append(2 * a[-1] + 2 * a[-2])
     assert a == [3, 8, 22, 60, 164, 448]
+    return brute(6)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C7 — Domino tilings of a 3x4 grid? \ans{11}
@@ -421,6 +446,7 @@ def check_C7():
             ans += dp(i+1, (mask >> 1) | 4)
         return ans
     assert dp(0, 0) == 11
+    return dp(0, 0)
 
 # ─────────────────────────────────────────────────────────────────────────
 # C8 — Binary strings of length 10 with no three consecutive 1s? \ans{504}
@@ -438,6 +464,7 @@ def check_C8():
     for _ in range(4, 11):
         h.append(h[-1] + h[-2] + h[-3])
     assert h[10] == 504
+    return brute(10)
 
 # ─────────────────────────────────────────────────────────────────────────
 # D1 — Permutations with |p(i)-i|<=1: a_6. \ans{13}
@@ -450,6 +477,7 @@ def check_D1():
     assert count(1) == 1
     assert count(2) == 2
     assert count(6) == 13
+    return count(6)
 
 # ─────────────────────────────────────────────────────────────────────────
 # D2 — Erase two numbers 1..10, write |a-b|, repeat; prove last number odd.
@@ -482,6 +510,7 @@ def check_D3():
         return sum(T(i) * T(n-1-i) for i in range(n))
     assert T(4) == 14
     assert math.comb(8, 4) // 5 == 14
+    return T(4)
 
 # ─────────────────────────────────────────────────────────────────────────
 # D4 — Prove any 2^n x 2^n board minus one square is L-tromino tileable.
@@ -519,7 +548,13 @@ def check_D5():
         is_losing[n] = not any(is_losing[n - q] for q in powers if q <= n)
 
     assert all(is_losing[n] == (n % 3 == 0) for n in range(M + 1))
-    assert 2025 % 3 == 0
+
+    # 2025 is a multiple of 3, so it is a losing position for whoever must move --
+    # that is the first player. The winner is read off the pattern, not named.
+    starting_position_is_losing = (N % 3 == 0)
+    assert starting_position_is_losing
+    return ("The second player." if starting_position_is_losing
+            else "The first player.")
 
 
 CHECKS = {

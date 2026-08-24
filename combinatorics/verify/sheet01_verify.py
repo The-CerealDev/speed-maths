@@ -23,6 +23,8 @@ import functools
 import itertools
 import math
 
+import sympy
+
 # ═══════════════════════════════════════════════════════════════════════
 # Section A — Rapid Recognition
 # ═══════════════════════════════════════════════════════════════════════
@@ -44,6 +46,7 @@ def check_A1():
     for k, expected_val in expected_factorials.items():
         perms_len = len(list(itertools.permutations(range(k))))
         assert perms_len == expected_val, f"Expected {k}! to be {expected_val}, got {perms_len}"
+    return ans_val
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -57,6 +60,7 @@ def check_A2():
     ans_val = len(list(itertools.permutations(range(8), 2)))
     assert ans_val == 56, f"Expected 8!/6! to be 56, got {ans_val}"
     assert 8 * 7 == 56, "8*7 calculation mismatch"
+    return ans_val
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -69,6 +73,7 @@ def check_A3():
     meals = list(itertools.product(range(4), range(5), range(3)))
     assert len(meals) == 60, f"Expected 60 meals, got {len(meals)}"
     assert 4 * 5 * 3 == 60, "4*5*3 calculation mismatch"
+    return len(meals)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -81,6 +86,7 @@ def check_A4():
     arrangements = list(itertools.permutations(range(4)))
     assert len(arrangements) == 24, f"Expected 24 arrangements, got {len(arrangements)}"
     assert 4 * 3 * 2 * 1 == 24, "4! calculation mismatch"
+    return len(arrangements)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -93,6 +99,7 @@ def check_A5():
     combs = list(itertools.combinations(range(6), 2))
     assert len(combs) == 15, f"Expected C(6,2) to be 15, got {len(combs)}"
     assert (6 * 5) // 2 == 15, "(6*5)/2 calculation mismatch"
+    return len(combs)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -105,6 +112,7 @@ def check_A6():
     strings = list(itertools.product(range(26), repeat=3))
     assert len(strings) == 17576, f"Expected 26^3 to be 17576, got {len(strings)}"
     assert 26 * 26 * 26 == 17576, "26*26*26 calculation mismatch"
+    return len(strings)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -117,6 +125,7 @@ def check_A7():
     strings = list(itertools.permutations(range(26), 3))
     assert len(strings) == 15600, f"Expected P(26,3) to be 15600, got {len(strings)}"
     assert 26 * 25 * 24 == 15600, "26*25*24 calculation mismatch"
+    return len(strings)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -132,6 +141,7 @@ def check_A8():
     assert len(solutions) == 1, f"Expected exactly one solution, got {solutions}"
     assert solutions[0] == 6, f"Expected solution n=6, got {solutions[0]}"
     assert len(list(itertools.permutations(range(6)))) == 720, "6! is not 720"
+    return solutions[0]
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -147,6 +157,7 @@ def check_A9():
     assert len(odd_digits) == 5, "Number of odd digits is not 5"
     assert 5 * 5 == 25, "5*5 calculation mismatch"
     assert all(d != 0 for d in odd_digits), "Found zero in odd digits set"
+    return count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -164,6 +175,19 @@ def check_A10():
         assert lhs == rhs, f"Identity failed for n={n}: {lhs} != {rhs}"
         assert math.factorial(n + 1) == (n + 1) * n * math.factorial(n - 1), \
             f"Factorial expansion failed for n={n}"
+
+    # The identity itself, symbolically, so what gets returned is the closed form
+    # the sheet prints rather than one of its numeric instances. combsimp is the
+    # simplifier that knows about factorials; expand leaves the ratio untouched.
+    k = sympy.Symbol('k', positive=True, integer=True)
+    ratio = sympy.factorial(k + 1) / sympy.factorial(k - 1)
+    closed_form = sympy.combsimp(ratio)
+    assert closed_form == k * (k + 1)
+    assert sympy.combsimp(ratio - k * (k + 1)) == 0
+    # combsimp needs the positive-integer assumption, but a symbol carrying
+    # assumptions is a different object from the plain `n` the answer key parses
+    # to, so hand back the identity in the sheet's own variable.
+    return closed_form.subs(k, sympy.Symbol('n'))
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -188,6 +212,7 @@ def check_B1():
 
     assert amara_first_ways * 6 == total_ways, "Amara-first count should be exactly 1/6 of total"
     assert math.factorial(6) == 720 and math.factorial(5) == 120, "6! / 5! claims wrong"
+    return [total_ways, amara_first_ways]
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -209,6 +234,10 @@ def check_B2():
     assert solutions[0] == 7, f"Expected solution n=7, got {solutions[0]}"
     assert 7 * 6 == 42, "Consecutive integers product check failed"
 
+    n_sym = sympy.Symbol('n')
+    simplification = n_sym * (n_sym - 1)
+    return [simplification, sympy.Eq(n_sym, solutions[0])]
+
 
 # ─────────────────────────────────────────────────────────────────────────
 # B3 — 4-digit code, digits 0-9, no repeats. \ans{10*9*8*7=5040}
@@ -221,6 +250,7 @@ def check_B3():
     assert len(codes) == 5040, f"Expected 5040 unique codes, got {len(codes)}"
     assert 10 * 9 * 8 * 7 == 5040, "Formula 10*9*8*7 should equal 5040"
     assert any(p[0] == 0 for p in codes), "Codes starting with 0 should be present (it's a code, not a number)"
+    return len(codes)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -239,6 +269,7 @@ def check_B4():
                     count += 1
     assert count == 648, f"Expected 648 three-digit numbers with unique digits, got {count}"
     assert 9 * 9 * 8 == 648, "Formula 9*9*8 should equal 648"
+    return count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -252,6 +283,7 @@ def check_B5():
     assert len(arrangements) == 336, f"Expected 336 ways, got {len(arrangements)}"
     assert 8 * 7 * 6 == 336, "8*7*6 should be 336"
     assert math.factorial(8) // math.factorial(5) == 336, "8!/5! should be 336"
+    return len(arrangements)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -269,6 +301,7 @@ def check_B6():
     unique_words = set("".join(p) for p in itertools.permutations(word))
     assert len(unique_words) == 60, f"Expected 60 distinct words, got {len(unique_words)}"
     assert math.factorial(5) // math.factorial(2) == 60, "5!/2! should be 60"
+    return len(unique_words)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -281,6 +314,7 @@ def check_B7():
     valid_flags = [f for f in itertools.product(range(5), repeat=3) if f[0] != f[1] and f[1] != f[2]]
     assert len(valid_flags) == 80, f"Expected 80 flags, got {len(valid_flags)}"
     assert 5 * 4 * 4 == 80, "Formula 5*4*4 should equal 80"
+    return len(valid_flags)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -298,6 +332,7 @@ def check_B8():
     assert 2 ** 6 == 64, "Formula 2^6 should equal 64"
     assert () in subsets, "Empty set should be in subsets"
     assert tuple(range(6)) in subsets, "Whole set should be in subsets"
+    return len(subsets)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -317,6 +352,7 @@ def check_B9():
     assert len(solutions) == 1, f"Expected unique solution, found {solutions}"
     assert solutions[0] == 3, f"Expected solution n=3, got {solutions[0]}"
     assert 4 * 3 == 12, "Consecutive integers product check failed"
+    return solutions[0]
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -336,6 +372,7 @@ def check_B10():
     total_plates = len(letter_pairs) * len(digit_triples)
     assert total_plates == 650000, f"Expected 650000 plates, got {total_plates}"
     assert 26 * 25 * (10 ** 3) == 650000, "Formula 26*25*10^3 should equal 650000"
+    return total_plates
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -369,6 +406,7 @@ def check_C1():
     assert case_units_0 == 72, f"Expected 72 with units=0, got {case_units_0}"
     assert case_units_even_nz == 256, f"Expected 256 with units in {{2,4,6,8}}, got {case_units_even_nz}"
     assert case_units_0 + case_units_even_nz == total, "Sub-cases should partition the total"
+    return total
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -386,6 +424,7 @@ def check_C2():
     adjacent_count = sum(1 for p in all_perms if abs(p.index(0) - p.index(1)) == 1)
     assert adjacent_count == 240, f"Expected 240 arrangements with Priya & Quinn adjacent, got {adjacent_count}"
     assert 2 * math.factorial(5) == 240, "2*5! should equal 240"
+    return adjacent_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -413,6 +452,7 @@ def check_C3():
     assert not_adjacent_count == 480, f"Expected 480 arrangements NOT adjacent, got {not_adjacent_count}"
     assert total_perms - adjacent_count == not_adjacent_count, "Complementary identity failed"
     assert adjacent_count == 240, "Adjacent count should match C2's 240"
+    return not_adjacent_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -426,6 +466,7 @@ def check_C4():
     palindrome_count = sum(1 for n in range(10000, 100000) if str(n) == str(n)[::-1])
     assert palindrome_count == 900, f"Expected 900 five-digit palindromes, got {palindrome_count}"
     assert 9 * 10 * 10 == 900, "9*10*10 should equal 900"
+    return palindrome_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -450,6 +491,7 @@ def check_C5():
     )
     assert valid_count == 48, f"Expected 48 seating arrangements, got {valid_count}"
     assert math.factorial(3) * (2 ** 3) == 48, "3!*2^3 should equal 48"
+    return valid_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -464,6 +506,7 @@ def check_C6():
     divisor_count = sum(1 for d in range(1, 361) if 360 % d == 0)
     assert divisor_count == 24, f"Expected 24 positive divisors of 360, got {divisor_count}"
     assert (3 + 1) * (2 + 1) * (1 + 1) == 24, "(3+1)(2+1)(1+1) should equal 24"
+    return divisor_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -480,6 +523,7 @@ def check_C7():
             total += 1
     assert total == 2240, f"Expected 2240 four-digit odd distinct-digit numbers, got {total}"
     assert 5 * 8 * 8 * 7 == 2240, "5*8*8*7 should equal 2240"
+    return total
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -498,6 +542,7 @@ def check_C8():
     assert len(solutions) == 1, f"Expected exactly one solution, found {solutions}"
     assert solutions[0] == 5, f"Expected unique solution n=5, got n={solutions[0]}"
     assert 5 * 4 == 20, "5*4 should equal 20"
+    return solutions[0]
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -544,6 +589,7 @@ def check_D1():
         structural_total += count
 
     assert structural_total == 20 == brute_count
+    return brute_count
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -579,6 +625,7 @@ def check_D2():
 
     expected_pairs = set(itertools.combinations([0, 1, 2, 3], 2))
     assert x_pairs == expected_pairs and y_pairs == expected_pairs
+    return len(rectangles)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -618,6 +665,7 @@ def check_D3():
         assert covered == set(range(8))
 
     assert len(all_matchings) == 105, f"Enumerated {len(all_matchings)} perfect matchings, expected 105"
+    return len(all_matchings)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -652,6 +700,7 @@ def check_D4():
     assert power_of_2 == 97
     assert min(power_of_2, power_of_5) == trailing_zeros
     assert power_of_2 > power_of_5, "Method's claim '2s vastly outnumber 5s' failed"
+    return trailing_zeros
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -707,6 +756,7 @@ def check_D5():
     assert len(min_example) == 9
 
     assert 15 in total_counts and 9 in total_counts
+    return max_shaded - min_shaded
 
 
 CHECKS = {

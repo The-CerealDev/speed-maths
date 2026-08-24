@@ -385,6 +385,7 @@ def check_D3():
     odd_indices = [k for k in range(13) if math.comb(12, k) % 2 == 1]
     assert odd_indices == [0, 4, 8, 12]
     assert len(odd_indices) == 4
+    return odd_indices
 
 
 def check_D4():
