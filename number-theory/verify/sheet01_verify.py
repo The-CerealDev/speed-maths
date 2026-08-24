@@ -314,7 +314,8 @@ def check_C7():
     expected_ans = get_answer(TEX_PATH, 'C7')
     primes = [2, 3, 5, 7, 11, 13, 17, 19]
     sols = [(p, q) for p in primes for q in primes if p**2 - 2 * q**2 == 1]
-    assert sols == [(3, 2)]
+    assert len(sols) == 1
+    return sols
 
 
 def check_C8():
@@ -391,7 +392,8 @@ def check_D5():
         sq = math.isqrt(math.factorial(y) + 2016)
         if sq * sq == math.factorial(y) + 2016:
             sols.append((sq, y))
-    assert sols == [(84, 7)]
+    assert len(sols) == 1
+    return sols
 
 
 CHECKS = {

@@ -22,7 +22,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from tools.answer_binding import (  # noqa: E402
-    DRIFT_ONLY, EXACT, EXEMPT, bind, is_proof_marker, mcq_letter, normalise_prose,
+    DRIFT_ONLY, EXACT, EXEMPT, as_tuple_list, bind, is_proof_marker, mcq_letter,
+    normalise_prose,
 )
 from tools.latex_bridge import extract_tex_answers, parse_tex_math  # noqa: E402
 
@@ -78,6 +79,10 @@ def test_the_published_value_is_accepted(raw):
         return
     if mcq_letter(raw):
         expected = mcq_letter(raw)
+    elif as_tuple_list(raw) is not None:
+        # A solution set binds as numbers, so the value a check should produce is
+        # the tuples themselves.
+        expected = as_tuple_list(raw)
     elif isinstance(published, bool):
         # A True/False answer binds as a bool, which is stronger than comparing
         # the word, so a check for one of these must return a bool.
@@ -158,6 +163,42 @@ def test_bool_answers_compare_as_bools():
 def test_normalise_prose_folds_latex_spelling_but_not_content():
     assert normalise_prose("$k=\\tfrac{1}{2}$") == normalise_prose("$k= 1 2 $")
     assert normalise_prose("all integers") != normalise_prose("no integers")
+
+
+def test_solution_tuples_bind_as_numbers_not_text():
+    raw = r"$(4,12), (6,6), (12,4)$"
+    published = parse_tex_math(raw)
+    got = [(4, 12), (6, 6), (12, 4)]
+    result = bind(raw, published, got)
+    assert result.ok and result.kind == EXACT, (
+        "a Diophantine solution set must compare as numbers; comparing it as "
+        "prose would force every check to echo the printed spelling"
+    )
+    # Order is not meaningful in a solution set.
+    assert bind(raw, published, [(12, 4), (4, 12), (6, 6)]).ok
+    # But membership and multiplicity are.
+    assert not bind(raw, published, [(4, 12), (6, 6)]).ok
+    assert not bind(raw, published, [(4, 12), (6, 6), (12, 5)]).ok
+    assert not bind(raw, published, [(4, 12), (6, 6), (6, 6)]).ok
+
+
+def test_a_lone_solution_tuple_may_be_returned_bare():
+    raw = "$(3,2)$"
+    published = parse_tex_math(raw)
+    assert bind(raw, published, (3, 2)).ok
+    assert bind(raw, published, [(3, 2)]).ok
+    assert not bind(raw, published, (2, 3)).ok
+    assert not bind(raw, published, (3, 2, 1)).ok
+
+
+def test_tuples_embedded_in_prose_are_not_half_read():
+    # Anything beyond tuples and separators must fall through to the prose path,
+    # rather than being silently reduced to the tuples it happens to contain.
+    assert as_tuple_list("$(1,2)$") == [(1, 2)]
+    assert as_tuple_list("$(1,2), (3,4)$") == [(1, 2), (3, 4)]
+    assert as_tuple_list("exactly one solution, $(1,2)$") is None
+    assert as_tuple_list("$x=5$") is None
+    assert as_tuple_list("Proof: see method.") is None
 
 
 def test_exact_is_reported_for_values_and_drift_for_prose():

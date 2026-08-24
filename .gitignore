@@ -43,3 +43,6 @@ variant_retriever/
 **/.env
 **/.session_secret
 mutants/
+
+# Personal notes, not for publication.
+PITCH.md

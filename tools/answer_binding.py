@@ -50,6 +50,59 @@ _YES_NO = re.compile(r"^\s*(yes|no|true|false)\b", re.IGNORECASE)
 # printed answer is plain prose.
 _HAS_MATHS = re.compile(r"\$|\\[a-zA-Z]")
 
+# A coordinate tuple of integers: (3,2), (-16, -2), (1, 2, 3).
+_TUPLE_RE = re.compile(r"\(\s*-?\d+(?:\s*,\s*-?\d+)+\s*\)")
+
+
+def as_tuple_list(published_raw):
+    """Read a solution-set answer as actual numbers, or None if it is not one.
+
+    Answers like "$(3,2)$" and "$(4,12), (6,6), (12,4)$" are the natural output of
+    a Diophantine search, and they are extremely common in number theory. SymPy's
+    LaTeX parser does not read them as values -- `parse_tex_math` hands back the
+    raw string -- so without this they could only ever be compared as prose, and a
+    check would have to format its solutions back into the printed spelling to
+    bind. Reading them properly means a check can just return what it computed.
+
+    Only accepts an answer that is *entirely* tuples and separators, so
+    "$(2,3)$ and nothing else" or a tuple embedded in a sentence falls through to
+    the prose path rather than being silently half-read.
+    """
+    body = str(published_raw).replace("$", "").strip()
+    found = _TUPLE_RE.findall(body)
+    if not found:
+        return None
+    if _TUPLE_RE.sub("", body).strip(" ,;.\t\n"):
+        return None                      # there was more than tuples in there
+    return [tuple(int(n) for n in re.findall(r"-?\d+", t)) for t in found]
+
+
+def _tuple_sets_match(published, computed):
+    """Compare two collections of coordinate tuples, ignoring order.
+
+    A solution set has no canonical order -- the sheet may print ascending in x
+    where a search yields ascending in y -- so order is not required. Duplicates
+    are still significant, hence a multiset rather than a set.
+    """
+    if isinstance(computed, (tuple, list)) and computed and \
+            all(isinstance(v, (int, float)) for v in computed):
+        computed = [tuple(computed)]     # a lone solution, returned bare
+    if not isinstance(computed, (list, tuple, set, frozenset)):
+        return False
+    try:
+        got = [tuple(int(v) for v in item) for item in computed]
+    except (TypeError, ValueError):
+        return False
+    remaining = list(got)
+    if len(remaining) != len(published):
+        return False
+    for want in published:
+        if want in remaining:
+            remaining.remove(want)
+        else:
+            return False
+    return True
+
 
 @dataclass(frozen=True)
 class BindResult:
@@ -225,6 +278,17 @@ def bind(published_raw, published, computed):
         ok = bool(published) == bool(computed)
         return BindResult(ok, EXACT,
                           "" if ok else f"published {published!r}, computed {computed!r}")
+
+    # A solution set of coordinate tuples, which the LaTeX parser cannot read as
+    # values. Compared as numbers rather than as text, so this is EXACT.
+    published_tuples = as_tuple_list(published_raw)
+    if published_tuples is not None:
+        ok = _tuple_sets_match(published_tuples, computed)
+        return BindResult(
+            ok, EXACT,
+            "" if ok else
+            f"published solutions {published_tuples!r}, check computed {computed!r}",
+        )
 
     # An answer with no maths markup at all is prose, whatever the parser made
     # of it. parse_tex_math runs parse_latex over everything and will happily
