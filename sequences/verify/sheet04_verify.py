@@ -206,9 +206,42 @@ def check_B5():
     assert 2**0 + (-1)**0 == 2
 
 def check_B6():
-    """EXHAUSTIVE PROOF"""
-    assert 5**2 + 4*(-6) == 1 > 0
-    assert 4**2 + 4*(-4) == 0
+    """EXHAUSTIVE PROOF: each option's characteristic equation is derived from its
+    recurrence coefficients, its discriminant computed, and its roots checked by
+    substitution. The option returned is the unique one whose discriminant is not
+    strictly positive, i.e. the one that does NOT have two distinct real roots --
+    found by search, not named in advance."""
+    # a_n = p*a_{n-1} + q*a_{n-2}  ->  x^2 - p*x - q = 0
+    recurrences = {
+        "A": (5, -6),
+        "B": (4, -4),
+        "C": (1, 2),
+        "D": (3, -2),
+    }
+
+    discriminants = {}
+    for letter, (p, q) in recurrences.items():
+        disc = p * p + 4 * q
+        discriminants[letter] = disc
+
+        if disc >= 0:
+            root_disc = math.isqrt(disc)
+            assert root_disc * root_disc == disc, (letter, disc)
+            for sign in (1, -1):
+                root = Fraction(p + sign * root_disc, 2)
+                # The root satisfies the characteristic equation exactly.
+                assert root**2 - p * root - q == 0, (letter, root)
+                # And a sequence built from it satisfies the recurrence.
+                if root != 0:
+                    for n in range(2, 12):
+                        assert root**n == p * root**(n - 1) + q * root**(n - 2)
+
+    assert discriminants == {"A": 1, "B": 0, "C": 9, "D": 1}
+
+    not_two_distinct_real = [letter for letter, disc in discriminants.items()
+                             if not disc > 0]
+    assert len(not_two_distinct_real) == 1, discriminants
+    return not_two_distinct_real[0]
     assert 1**2 + 4*(2) == 9 > 0
     assert 3**2 + 4*(-2) == 1 > 0
 
@@ -258,8 +291,42 @@ def check_B9():
         assert x != x + 5
 
 def check_B10():
-    """EXHAUSTIVE PROOF"""
-    assert (-6)**2 - 4*(1)*(9) == 36 - 36 == 0
+    """EXHAUSTIVE PROOF: the discriminant is computed from the coefficients, the
+    factorisation the method claims is verified by actually multiplying it out
+    rather than by quoting it, the root is substituted back, and the number of
+    distinct roots is counted. Each option is then evaluated against that count
+    and the surviving letter returned."""
+    def poly_mul(p, q):
+        out = [0] * (len(p) + len(q) - 1)
+        for i, pi in enumerate(p):
+            for j, qj in enumerate(q):
+                out[i + j] += pi * qj
+        return out
+
+    coeffs = [1, -6, 9]                     # x^2 - 6x + 9
+    a, b, c = coeffs
+    disc = b * b - 4 * a * c
+    assert disc == 0
+
+    # (x - 3)^2 really is this polynomial -- multiplied out, not asserted.
+    assert poly_mul([1, -3], [1, -3]) == coeffs
+
+    root = Fraction(-b, 2 * a)
+    assert root == 3
+    assert a * root**2 + b * root + c == 0   # substitute back
+
+    distinct_roots = len({root})
+    assert distinct_roots == 1
+
+    options = {
+        "A": disc > 0 and distinct_roots == 2,      # two distinct real roots
+        "B": disc == 0 and distinct_roots == 1,     # a repeated real root
+        "C": disc < 0,                              # two complex roots
+        "D": disc < 0,                              # no real roots
+    }
+    surviving = [letter for letter, holds in options.items() if holds]
+    assert len(surviving) == 1, options
+    return surviving[0]
 
 def check_C1():
     """EXHAUSTIVE PROOF"""

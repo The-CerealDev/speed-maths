@@ -72,8 +72,11 @@ jobs:
       - name: Binding gate (ratcheted against verify/BINDING_BASELINE.json)
         run: python3 tools/check_binding.py
 
+      # --strict because the count is now zero. Every published check asserts
+      # something that depends on a value it computed, so any regression here is
+      # a new facade and should fail the build rather than print a warning.
       - name: Facade detector
-        run: python3 tools/analyze_facades.py
+        run: python3 tools/analyze_facades.py --strict
 
       - name: Verify-script structure
         run: python3 tools/validate_verify_scripts.py

@@ -1180,10 +1180,6 @@
     "sequences/sheet02 D5": [
       "UNBOUND"
     ],
-    "sequences/sheet03 A1": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "sequences/sheet03 A10": [
       "UNBOUND"
     ],
@@ -1193,18 +1189,10 @@
     "sequences/sheet03 A3": [
       "UNBOUND"
     ],
-    "sequences/sheet03 A4": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet03 A5": [
       "UNBOUND"
     ],
     "sequences/sheet03 A6": [
-      "UNBOUND"
-    ],
-    "sequences/sheet03 A7": [
-      "EMPTY_BODY",
       "UNBOUND"
     ],
     "sequences/sheet03 A8": [
@@ -1219,10 +1207,6 @@
     "sequences/sheet03 B10": [
       "UNBOUND"
     ],
-    "sequences/sheet03 B2": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet03 B3": [
       "UNBOUND"
     ],
@@ -1233,10 +1217,6 @@
       "UNBOUND"
     ],
     "sequences/sheet03 B6": [
-      "UNBOUND"
-    ],
-    "sequences/sheet03 B7": [
-      "EMPTY_BODY",
       "UNBOUND"
     ],
     "sequences/sheet03 B8": [
@@ -1254,15 +1234,7 @@
     "sequences/sheet03 C3": [
       "UNBOUND"
     ],
-    "sequences/sheet03 C4": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet03 C5": [
-      "UNBOUND"
-    ],
-    "sequences/sheet03 C6": [
-      "EMPTY_BODY",
       "UNBOUND"
     ],
     "sequences/sheet03 C7": [
@@ -1316,10 +1288,6 @@
     "sequences/sheet04 B1": [
       "UNBOUND"
     ],
-    "sequences/sheet04 B10": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "sequences/sheet04 B2": [
       "UNBOUND"
     ],
@@ -1330,10 +1298,6 @@
       "UNBOUND"
     ],
     "sequences/sheet04 B5": [
-      "UNBOUND"
-    ],
-    "sequences/sheet04 B6": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "sequences/sheet04 B7": [
@@ -1504,10 +1468,6 @@
     "sequences/sheet06 A7": [
       "UNBOUND"
     ],
-    "sequences/sheet06 A8": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "sequences/sheet06 A9": [
       "UNBOUND"
     ],
@@ -1515,10 +1475,6 @@
       "UNBOUND"
     ],
     "sequences/sheet06 B10": [
-      "UNBOUND"
-    ],
-    "sequences/sheet06 B2": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "sequences/sheet06 B3": [
@@ -1539,10 +1495,6 @@
     "sequences/sheet06 B8": [
       "UNBOUND"
     ],
-    "sequences/sheet06 B9": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "sequences/sheet06 C1": [
       "UNBOUND"
     ],
@@ -1555,18 +1507,10 @@
     "sequences/sheet06 C4": [
       "UNBOUND"
     ],
-    "sequences/sheet06 C5": [
-      "VACUOUS_ASSERT",
-      "UNBOUND"
-    ],
     "sequences/sheet06 C6": [
       "UNBOUND"
     ],
     "sequences/sheet06 C7": [
-      "UNBOUND"
-    ],
-    "sequences/sheet06 C8": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "sequences/sheet06 D1": [
@@ -1575,14 +1519,7 @@
     "sequences/sheet06 D2": [
       "UNBOUND"
     ],
-    "sequences/sheet06 D3": [
-      "VACUOUS_ASSERT"
-    ],
     "sequences/sheet06 D4": [
-      "UNBOUND"
-    ],
-    "sequences/sheet06 D5": [
-      "VACUOUS_ASSERT",
       "UNBOUND"
     ],
     "sequences/sheet07 A1": [
@@ -1618,10 +1555,6 @@
     "sequences/sheet07 B1": [
       "UNBOUND"
     ],
-    "sequences/sheet07 B10": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet07 B2": [
       "UNBOUND"
     ],
@@ -1629,10 +1562,6 @@
       "UNBOUND"
     ],
     "sequences/sheet07 B4": [
-      "UNBOUND"
-    ],
-    "sequences/sheet07 B5": [
-      "EMPTY_BODY",
       "UNBOUND"
     ],
     "sequences/sheet07 B6": [
@@ -1659,33 +1588,13 @@
     "sequences/sheet07 C4": [
       "UNBOUND"
     ],
-    "sequences/sheet07 C5": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet07 C6": [
-      "UNBOUND"
-    ],
-    "sequences/sheet07 C7": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
-    "sequences/sheet07 C8": [
-      "EMPTY_BODY",
       "UNBOUND"
     ],
     "sequences/sheet07 D1": [
       "UNBOUND"
     ],
-    "sequences/sheet07 D3": [
-      "EMPTY_BODY",
-      "UNBOUND"
-    ],
     "sequences/sheet07 D4": [
-      "UNBOUND"
-    ],
-    "sequences/sheet07 D5": [
-      "EMPTY_BODY",
       "UNBOUND"
     ]
   }
