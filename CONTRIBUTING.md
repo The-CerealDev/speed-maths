@@ -108,7 +108,24 @@ committed, re-runnable script, not by self-report.
   2. **Independently re-derive the value:** Use brute force, dynamic programming, or algorithmic generation.
   3. **Assert Equivalence with SymPy:** Use `sympy.simplify(computed - expected) == 0` to mathematically prove the Python result matches the parsed LaTeX string.
   4. **Use Hypothesis:** For property-based algebraic identities, use the `@given` decorator from `hypothesis` rather than writing brittle `for _ in range(50): a = random.randint()` loops.
-- **No Facade Tests:** Do not write tautologies (`p**2 == p**2`), trivial math (`2+2==4`), or `pass`. The CI runs **mutation testing (`mutmut`)**, which will intentionally mutate your Python script. If your test still passes after its logic is broken, the mutant survives, and your PR will be rejected.
+- **Bind the answer.** `return` the value your check verified. The harness in
+  `tests/test_answer_binding.py` compares it against the `\ans{}` in the `.tex`
+  for you, using one reviewed comparison instead of every author writing their
+  own. A check that returns nothing, and does not assert against `get_answer()`
+  either, can compute beautifully and still pass with a wrong answer key — that
+  was true of 622 of the 1,155 published questions before the gate existed.
+- **No Facade Tests:** do not write tautologies (`p**2 == p**2`), trivial maths
+  (`2+2==4`), or `pass`. **CI runs `tools/check_binding.py` and
+  `tools/analyze_facades.py --strict`**, which read your script's AST and fail the
+  build if a check has an empty body, no assertions, only assertions between
+  literals, or no link to its answer key. `verify/BINDING_BASELINE.json` records
+  the questions that predate the gate; it may only ever shrink, and regenerating
+  it to silence a failure defeats the point.
+- **Mutation testing** (`mutmut`) targets `tools/`, not the check scripts, and is
+  a manual job rather than a CI gate — a full run takes far longer than a PR
+  should wait. Do not point it at `*/verify/`: a check function cannot be both
+  the mutant and its own test, and when it was configured that way all 9,016
+  mutants reported "no tests" and nothing was ever killed.
 - **Every script's `main()` must open with an `if not __debug__:` guard
   that refuses to run**. `python -O` or `PYTHONOPTIMIZE=1` strips every `assert` at compile
   time.

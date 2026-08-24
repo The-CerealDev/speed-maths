@@ -1,29 +1,51 @@
 # Speed Maths
 
-Computationally verified corpus for TMUA and Competition(SMC, BMO1) preparation.
+Computationally verified corpus for TMUA and competition (SMC, BMO1) preparation.
 
 ## For Students (TMUA & Competition Prep)
 
-If you are revising for university admissions tests, you know the two biggest problems: past papers run out fast, and textbook answer keys are constantly wrong. 
+If you are revising for university admissions tests, you know the two biggest problems: past papers run out fast, and textbook answer keys are constantly wrong.
 
-This repository contains over 1,000 original questions across 4 pillars (Algebra, Combinatorics, Logic, Number Theory). **Every single solution in this repository is mathematically proven.** You will never waste an hour doubting your sanity because a textbook printed `56` instead of `65`.
+This repository contains 1,155 original questions across 5 pillars — Algebra, Combinatorics, Logic, Number Theory and Sequences — at 33 questions on each of 7 daily sheets per pillar. Every answer has a committed, re-runnable Python script behind it, and a machine gate checks that the script actually compares its own result against the answer printed in the PDF.
 
 **How to use this:**
 1. Navigate to the `sheets/` directory of any pillar.
 2. Do one daily drill.
-3. Check your work against the `answers/` directory. If the answer key says you are wrong, you are wrong. The answers have been proven by a computational compiler.
+3. Check your work against the `answers/` directory. If you disagree with the answer key, check the pillar's `verify/sheetNN_verify.py` for that question — it shows exactly what was computed and how. If it turns out to be wrong, that is a bug worth reporting; see the Bounty below.
+
+### How much is verified, exactly
+
+Every claim below is produced by `python3 tools/check_binding.py`, not asserted by hand.
+
+| | questions | |
+|---|---|---|
+| answer compared against the printed `\ans{}` | **548** | 47% |
+| answer is "Proof: see method" — a pointer, not a value | 77 | 7% |
+| independently computed, but not yet compared to the PDF | 530 | 46% |
+| **total** | **1,155** | |
+
+Of the 548 that are compared, 484 are exact mathematical equality and 64 can only detect the answer key being edited, because the printed answer is prose that no parser reads as a value.
+
+The 530 in the third row are the honest gap. Their maths is verified — the scripts compute the answer independently, and they run in CI — but nothing yet ties that computation to the number printed in the PDF, so in principle the two could disagree. They are enumerated in [`verify/BINDING_BASELINE.json`](verify/BINDING_BASELINE.json), the gate refuses to let that list grow, and the list can only shrink. Until it reaches zero this README will not claim the corpus is fully proven.
+
+What *is* now true everywhere: no published question has a check that verifies nothing. That count was 33 as recently as this month — 13 empty bodies, 3 `assert True`, 17 whose only assertions compared literals — and it is 0 now, enforced by `tools/analyze_facades.py --strict` in CI.
 
 ---
 
 ## Architecture (For Engineers & Contributors)
 
-The solutions in this repository are verified by a strict CI pipeline operating under `verify/` within each pillar.
+Two halves, because they catch different things.
 
-1. **AST Parsing (`tools/latex_bridge.py`)**: Strips `.tex` formatting, handles juxtaposition edge cases, and compiles expressions (e.g., `\ans{\frac{x(x+1)}{2}}`) into symbolic SymPy nodes.
-2. **Property-Based Testing (`hypothesis`)**: Fuzz-tests abstract combinatorial recurrence relations and algebraic identities across randomized integer boundaries.
-3. **Mutation Testing (`mutmut`)**: The CI suite mutates the Python checks across 900+ tests to guarantee no trivial tautologies or facade tests falsely pass the suite.
+**Runtime**, in `tests/`: one parametrised test over all 1,155 questions. It imports each pillar's verify script, runs the check for a question, and compares the value it returns against the `\ans{}` in the `.tex`.
 
-If a math error exists in the PDFs, it means SymPy was beaten.
+1. **AST parsing** (`tools/latex_bridge.py`): strips `.tex` formatting, handles juxtaposition edge cases, and compiles expressions like `\ans{\frac{x(x+1)}{2}}` into SymPy nodes.
+2. **Comparison** (`tools/answer_binding.py`): one reviewed comparison for the whole corpus rather than 1,155 authors each improvising one. Handles expressions, value lists, booleans and multiple-choice letters, and reports honestly which of those it managed — `EXACT`, `DRIFT_ONLY` or `EXEMPT`.
+3. **Property-based testing** (`hypothesis`): fuzz-tests combinatorial recurrences and algebraic identities across randomised integer boundaries.
+4. **Negative controls** (`tests/test_binding_rejects_wrong_answers.py`): every answer is perturbed and the comparison required to reject it. Without this, a comparison that returned `True` unconditionally would pass all 1,155 cases and the whole gate would be decorative.
+
+**Static**, in `tools/check_binding.py`: a passing suite cannot detect a check that passes while verifying nothing, because the check passes. So that is checked in the source instead — every published question must have a non-empty body, at least one assertion that depends on a value it computed, and a link to its answer key.
+
+**Mutation testing** (`mutmut`) targets `tools/`, where the library code lives and `tests/` is its consumer. It is a manual and nightly job, not a CI gate — a full run is far slower than a pull request should wait for. It is *not* pointed at the check scripts: a check function cannot be both the mutant and its own test, and when it was configured that way every one of 9,016 generated mutants came back "no tests" and nothing was ever killed.
 
 ## Layout
 
@@ -31,44 +53,54 @@ If a math error exists in the PDFs, it means SymPy was beaten.
 Speed-Maths/
 ├── shared/
 │   └── preamble.tex           (LaTeX styles and macros)
-├── algebra/
-│   ├── sheets/ & answers/     (100% verified)
-│   └── verify/                (CI proofs)
-├── combinatorics/
-│   ├── sheets/ & answers/     (100% verified)
-│   └── verify/                (CI proofs)
-├── number-theory/
-│   ├── sheets/ & answers/     (100% verified)
-│   └── verify/                (CI proofs)
-├── logic/
-│   ├── sheets/ & answers/     (100% verified)
-│   └── verify/                (CI proofs)
+├── algebra/                   (live: 7 sheets, 231 questions)
+│   ├── sheets/ & answers/
+│   └── verify/                (one script per sheet, 33 checks each)
+├── combinatorics/             (live)
+├── logic/                     (live)
+├── number-theory/             (live)
+├── sequences/                 (live)
+├── tests/
+│   ├── test_answer_binding.py             (all 1,155 answers vs their checks)
+│   └── test_binding_rejects_wrong_answers.py   (negative controls)
 ├── tools/
-│   ├── latex_bridge.py        (LaTeX AST compiler)
-│   ├── validate_verify_scripts.py 
-│   └── build_website.py       
-├── template.html              
-└── index.html                 (Auto-generated artifact)
+│   ├── latex_bridge.py        (LaTeX -> SymPy)
+│   ├── answer_binding.py      (the comparison, and its honest strength)
+│   ├── check_binding.py       (static gate + ratchet)
+│   ├── analyze_facades.py     (checks that verify nothing)
+│   ├── validate_verify_scripts.py
+│   └── build_website.py
+├── verify/
+│   ├── BINDING_BASELINE.json  (the 530 not yet compared; may only shrink)
+│   └── BINDING_EXEMPTIONS.md  (the 77 "Proof: see method" answers)
+├── template.html
+└── index.html                 (auto-generated artifact)
 ```
+
+Calculus and Graphs are drafted and held back for review; `sheets.json` is the source of truth for which pillars are live.
 
 ## Conventions
 
-New pillars (Calculus, Sequences, Graphs) cannot be merged without a passing Python verification script. See `CONTRIBUTING.md` for verification guidelines using `tools.latex_bridge.get_answer()`.
+A new sheet cannot be merged without a verify script that passes and binds. See `CONTRIBUTING.md` for the pipeline.
 
-- **Numbering:** Two-digit, zero-padded (`sheet01`).
-- **LaTeX:** Include `\input{../../shared/preamble}`.
-- **Answers:** Wrap in `\ans{...}` for `latex_bridge` parsing.
-- **Compilation:** Execute `pdflatex` from within `sheets/` or `answers/`.
+- **Numbering:** two-digit, zero-padded (`sheet01`).
+- **LaTeX:** include `\input{../../shared/preamble}`.
+- **Answers:** wrap in `\ans{...}` for `latex_bridge` parsing.
+- **Checks:** `return` the value you verified, so the harness compares it to the `.tex`.
+- **Compilation:** run `pdflatex` from within `sheets/` or `answers/`.
 
 ## The Bounty (Hall of Fame)
 
-We are extremely confident in the CI pipeline. If you find a mathematical error in any of the compiled answer keys, open a GitHub Issue. If you can successfully prove that a mathematically incorrect answer bypassed the SymPy/Hypothesis verification scripts, your name will be permanently added to the Hall of Fame below.
+If you find a mathematical error in a compiled answer key, open a GitHub Issue — that is the most valuable contribution to this repo, and it is worth being precise about what the bounty covers.
 
-*No bounties claimed yet.*
+**A wrong answer is claimable.** Any question, including the 530 not yet compared against their PDFs. Those are exactly where a wrong answer is most likely to have survived, so they are fair game and interesting.
+
+**Beating the pipeline is the harder claim.** If you can show a mathematically incorrect answer surviving a check that the gate reports as *bound* — one where the script does compare its result against the printed answer — that is a defect in the verification itself, not just in one sheet. Your name goes in the Hall of Fame below either way; say which kind you think you have.
+
+*No bounties claimed yet.* One cosmetic issue has been reported and is open.
 
 ## Roadmap
 
-The static PDF corpus is open source, and it is the whole of what this repo
-publishes. Five pillars are live (Algebra, Combinatorics, Logic, Number Theory,
-Sequences); Calculus and Graphs are drafted and held back for review. See
-`sheets.json` for the current state of each.
+The static PDF corpus is open source, and it is the whole of what this repo publishes.
+
+Next, in order: clear `verify/BINDING_BASELINE.json` from 530 to zero, pillar by pillar, so every printed answer is compared against a computation; then reduce the 77 exemptions by rewriting "Proof: see method" answers as the identity or bound they actually establish, which is better for students as well as for the pipeline.

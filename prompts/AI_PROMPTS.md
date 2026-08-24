@@ -216,7 +216,7 @@ Now that the AI has the context of the 33 questions, ask it to generate the Answ
 > **Rules:**
 > 1. You MUST use the `tools.latex_bridge.get_answer(filepath, label)` function to parse the expected answer directly from the `.tex` file. Do NOT hardcode the expected answer string or integer.
 > 2. You MUST use `sympy` and `hypothesis` (Property-Based Testing) where applicable. Do NOT use `random.randint` loops.
-> 3. Your assertions must be strictly derived. Do not write "facade" tests or tautologies (e.g. `assert 2+2=4` or `p**2 == p**2`). The codebase uses `mutmut` mutation testing to automatically catch and fail fake tests.
+> 3. Your assertions must be strictly derived. Do not write "facade" tests or tautologies (e.g. `assert 2+2=4` or `p**2 == p**2`), and do not leave a body as `pass`. End each check with `return` giving the value you verified, so the harness can compare it against the `\ans{}` in the `.tex`. CI runs `tools/check_binding.py` and `tools/analyze_facades.py --strict`, which read the AST and fail the build on an empty body, on assertions that only compare literals, or on a check with no link to its answer key.
 > 4. You MUST mimic this exact structural sample from the repository. Note the exact docstring required:
 > 
 > ```python
