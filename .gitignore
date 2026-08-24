@@ -32,6 +32,13 @@ __pycache__/
 # Worksheets rendered from past papers — copyrighted question text.
 worksheets/
 
+# Variant Retriever. Never on a branch that reaches this public repo: its
+# data/ holds account records and invite codes, and .hydrate_cache/,
+# .page_cache/ and official.json hold verbatim text and page images of
+# third-party and official papers. The retriever's own source lives on an
+# unpushed local branch; nothing about it belongs here.
+variant_retriever/
+
 # Security
 **/.env
 **/.session_secret
