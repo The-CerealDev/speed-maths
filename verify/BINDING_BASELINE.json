@@ -1,0 +1,1732 @@
+{
+  "_comment": [
+    "Violations of tools/check_binding.py that predate the gate.",
+    "This file may only ever shrink. Removing an entry means the",
+    "check was fixed; a label that leaves must never come back.",
+    "Regenerating it to silence a new failure defeats the point."
+  ],
+  "total_published_checks": 1155,
+  "violations": {
+    "algebra/sheet01 A1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A10": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A3": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 A9": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B10": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 B9": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 C8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 D1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 D2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 D3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 D4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet01 D5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet02 C1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet02 C5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet03 B1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet03 C1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet04 C1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet05 A9": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A10": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A3": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 A9": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B10": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B5": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 B8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C6": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C7": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 C8": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 D1": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 D2": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 D3": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 D4": [
+      "UNBOUND"
+    ],
+    "algebra/sheet07 D5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A10": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A8": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 A9": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B10": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B8": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 B9": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 C8": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 D1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 D2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 D3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 D4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet01 D5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet04 D3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A10": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A8": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 A9": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B10": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B8": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 B9": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C2": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C4": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C5": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C6": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C7": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 C8": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 D1": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 D3": [
+      "UNBOUND"
+    ],
+    "combinatorics/sheet07 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A5": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B1": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B2": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B3": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B4": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B5": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B6": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B7": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B8": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 B9": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C2": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C4": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C6": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C7": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 D2": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 D3": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 D4": [
+      "UNBOUND"
+    ],
+    "logic/sheet01 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A5": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B1": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B2": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "logic/sheet02 B3": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B4": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B5": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B6": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B7": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B8": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 B9": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C4": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C6": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C7": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 D2": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 D3": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 D4": [
+      "UNBOUND"
+    ],
+    "logic/sheet02 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 B3": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 B7": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet03 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A5": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B1": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B2": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B3": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B5": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B6": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B8": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 B9": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C2": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C6": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 D3": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 D4": [
+      "UNBOUND"
+    ],
+    "logic/sheet04 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A5": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B1": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B2": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B3": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B4": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B5": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B6": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B7": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B8": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 B9": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C2": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C4": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C6": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C7": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 D2": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 D3": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 D4": [
+      "UNBOUND"
+    ],
+    "logic/sheet05 D5": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A5": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "logic/sheet06 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 B1": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 B2": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 B4": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 B8": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C2": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C4": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C6": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "logic/sheet06 C7": [
+      "UNBOUND"
+    ],
+    "logic/sheet06 C8": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "logic/sheet06 D1": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A1": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A10": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A2": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A3": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A4": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A5": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A6": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A7": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A8": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 A9": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 B10": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 B4": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 B5": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 B6": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 B9": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C1": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C2": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C3": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C4": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C5": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C6": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C7": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 C8": [
+      "UNBOUND"
+    ],
+    "logic/sheet07 D5": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet01 C7": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet01 D5": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet03 C1": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet03 C2": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet03 C3": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet03 C4": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet03 D2": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet04 C1": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet04 C5": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet04 D1": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 B10": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 B4": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 B8": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 C3": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 C7": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet05 D2": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet06 A7": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "number-theory/sheet07 A10": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "number-theory/sheet07 B5": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet07 C7": [
+      "UNBOUND"
+    ],
+    "number-theory/sheet07 D3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 C8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 D3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet01 D5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 C8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet02 D5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A1": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A4": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A7": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B2": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B7": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C4": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C6": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 C8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 D3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet03 D5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B10": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B6": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 C8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 D3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet04 D5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 C8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 D3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet05 D5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A8": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet06 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B2": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 B9": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C5": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 C8": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet06 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 D2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 D3": [
+      "VACUOUS_ASSERT"
+    ],
+    "sequences/sheet06 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet06 D5": [
+      "VACUOUS_ASSERT",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A10": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A5": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 A9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B10": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B5": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B7": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B8": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 B9": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C2": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C3": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C5": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C6": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C7": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 C8": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 D1": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 D3": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ],
+    "sequences/sheet07 D4": [
+      "UNBOUND"
+    ],
+    "sequences/sheet07 D5": [
+      "EMPTY_BODY",
+      "UNBOUND"
+    ]
+  }
+}

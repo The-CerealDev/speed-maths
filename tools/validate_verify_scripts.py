@@ -17,6 +17,28 @@ import glob
 import ast
 import subprocess
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from tools.check_binding import _assert_is_vacuous, _own_statements
+
+
+def analyse_strength(func_node):
+    """Describe how a check's body falls short of any claimed strength.
+
+    Returns (reason, None) when the body verifies nothing, else (None, None).
+    """
+    body = [s for s in func_node.body
+            if not (isinstance(s, ast.Expr)
+                    and isinstance(s.value, ast.Constant)
+                    and isinstance(s.value.value, str))]
+    if not body or all(isinstance(s, ast.Pass) for s in body):
+        return "is empty or only `pass`", None
+    asserts = [s for s in _own_statements(func_node) if isinstance(s, ast.Assert)]
+    if not asserts:
+        return "contains no assertions", None
+    if all(_assert_is_vacuous(a) for a in asserts):
+        return "only asserts relations between literals, which hold regardless of the code", None
+    return None, None
+
 def get_expected_labels():
     expected = []
     for letter, count in [('A', 10), ('B', 10), ('C', 8), ('D', 5)]:
@@ -153,6 +175,17 @@ def validate_script(script_path):
                     f"{func_name} docstring does not contain either 'EXHAUSTIVE PROOF' or 'SAMPLED CHECK'. "
                     f"Got: {repr(doc)}"
                 )
+            else:
+                # The docstring states a strength; the body has to earn it.
+                # Checking only that the phrase is *present* is what let 16
+                # checks ship with `"""EXHAUSTIVE PROOF"""` above a bare `pass`.
+                claim = "EXHAUSTIVE PROOF" if "EXHAUSTIVE PROOF" in doc_upper else "SAMPLED CHECK"
+                verdict, _ = analyse_strength(func_node)
+                if verdict:
+                    bad_docstrings.append(
+                        f"{func_name} claims '{claim}' but its body {verdict}. "
+                        f"A docstring is not a proof."
+                    )
 
         if checks_dict is not None:
             if label not in checks_dict:
@@ -201,15 +234,19 @@ def main():
                 else:
                     scripts.extend(glob.glob(arg))
     else:
-        search_patterns = [
-            os.path.join(project_root, "algebra", "verify", "sheet[0-9][0-9]_verify.py"),
-            os.path.join(project_root, "combinatorics", "verify", "sheet[0-9][0-9]_verify.py"),
-            os.path.join(project_root, "logic", "verify", "sheet[0-9][0-9]_verify.py"),
-            os.path.join(project_root, "number-theory", "verify", "sheet[0-9][0-9]_verify.py"),
-        ]
+        # Derived from sheets.json rather than hardcoded. The hardcoded list
+        # omitted sequences, so for the whole life of that pillar its 7 scripts
+        # were never structurally validated — which is how 13 `pass`-only check
+        # bodies reached a published PDF while this tool reported success.
+        import json
+        with open(os.path.join(project_root, "sheets.json"), encoding="utf-8") as f:
+            pillars = json.load(f)
         scripts = []
-        for pattern in search_patterns:
-            scripts.extend(glob.glob(pattern))
+        for pillar in pillars:
+            if pillar.get("status") != "live":
+                continue
+            scripts.extend(glob.glob(os.path.join(
+                project_root, pillar["slug"], "verify", "sheet[0-9][0-9]_verify.py")))
 
     scripts = sorted(list(set(scripts)))
     

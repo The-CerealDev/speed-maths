@@ -1,88 +1,124 @@
-import os
-import re
-import glob
+#!/usr/bin/env python3
+"""Report checks whose assertions cannot fail because of the code under test.
 
-def get_tex_answers(tex_file):
-    answers = {}
-    if not os.path.exists(tex_file): return answers
-    with open(tex_file, 'r') as f:
-        content = f.read()
-    
-    sections = re.finditer(r'%[─=]+\s*([A-D][0-9]+)\s*[─=]+', content)
-    sec_pos = [(m.group(1), m.start()) for m in sections]
-    
-    ans_matches = list(re.finditer(r'\\ans\{([^}]*)\}', content))
-    
-    for m in ans_matches:
-        pos = m.start()
-        ans_text = m.group(1)
-        closest_sec = None
-        for sec, spos in sec_pos:
-            if spos < pos:
-                closest_sec = sec
-            else:
-                break
-        if closest_sec:
-            answers[closest_sec] = ans_text
-    return answers
+    python3 tools/analyze_facades.py            # advisory report, exit 0
+    python3 tools/analyze_facades.py --strict   # exit 1 if anything is flagged
 
-def get_py_checks(py_file):
-    checks = {}
-    if not os.path.exists(py_file): return checks
-    with open(py_file, 'r') as f:
-        content = f.read()
-    
-    matches = re.finditer(r'def (check_[A-D][0-9]+)\(\):', content)
-    starts = [(m.group(1), m.start()) for m in matches]
-    
-    for i, (name, pos) in enumerate(starts):
-        end_pos = starts[i+1][1] if i+1 < len(starts) else len(content)
-        checks[name] = content[pos:end_pos].strip()
-    return checks
+This is the *detailed* view. `tools/check_binding.py` is the gate — it owns the
+baseline and the exit code that CI depends on, so there is only ever one list to
+keep honest. Use this tool to see which individual assertions are the problem in
+a check the gate flagged.
 
-def check_facade(func_str):
-    if "assert True" in func_str: return "assert True"
-    
-    asserts = re.findall(r'assert\s+(.*)', func_str)
-    for a in asserts:
-        if '==' in a:
-            left, right = a.split('==', 1)
-            # Remove comments
-            right = right.split('#')[0]
-            if left.strip() == right.strip():
-                return f"Tautology: {a}"
-    
-    trivial_math = re.findall(r'assert\s+\d+\s*[\*\+\-\/]\s*\d+\s*==\s*\d+', func_str)
-    if trivial_math:
-        return f"Trivial Math: {trivial_math[0]}"
-        
-    # Check for empty checks (no assertions)
+What counts as a facade here:
+
+  EMPTY           body is empty or only `pass`.
+  NO_ASSERTION    no `assert` anywhere in the check's own body.
+  ALL_TRIVIAL     every assertion compares literals, so it is true no matter
+                  what the check computed:
+
+                      expected_ans = get_answer(TEX_PATH, 'B4')
+                      assert 3**40 > 4**30
+
+                  Both lines are inert. The first is never read; the second is a
+                  fact about two constants that holds whether or not the answer
+                  key agrees. 33 published questions are in this state.
+
+The previous version of this tool was regex-based and reported 11 facades. It
+missed every `pass`-only body (13 of them), skipped the sequences pillar
+entirely, only recognised a trivial assertion of the exact shape `\\d+ op \\d+ ==
+\\d+`, and always exited 0 — so it could never gate anything, and its "11" was
+read as the whole problem for as long as it was believed.
+"""
+
+import argparse
+import ast
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from tools.check_binding import (  # noqa: E402
+    _assert_is_vacuous, _own_statements, published_sheets,
+)
+
+EMPTY = "EMPTY"
+NO_ASSERTION = "NO_ASSERTION"
+ALL_TRIVIAL = "ALL_TRIVIAL"
+
+
+def analyse(fn, source):
+    """(verdict, [rendered trivial assertions]) for one check, or (None, []).."""
+    body = [s for s in fn.body
+            if not (isinstance(s, ast.Expr)
+                    and isinstance(s.value, ast.Constant)
+                    and isinstance(s.value.value, str))]
+    if not body or all(isinstance(s, ast.Pass) for s in body):
+        return EMPTY, []
+
+    asserts = [s for s in _own_statements(fn) if isinstance(s, ast.Assert)]
     if not asserts:
-        return "No assertions found"
+        return NO_ASSERTION, []
 
-    return False
+    trivial = [a for a in asserts if _assert_is_vacuous(a)]
+    rendered = []
+    for a in trivial:
+        try:
+            rendered.append(ast.get_source_segment(source, a).strip())
+        except Exception:
+            rendered.append(f"line {a.lineno}")
 
-pillars = ['combinatorics', 'algebra', 'logic', 'number-theory']
-for pillar in pillars:
-    for i in range(7, 0, -1):
-        num = f"{i:02d}"
-        tex_file = f"{pillar}/answers/ans{num}.tex"
-        py_file = f"{pillar}/verify/sheet{num}_verify.py"
-        
-        if not os.path.exists(tex_file) or not os.path.exists(py_file):
-            continue
-            
-        tex_answers = get_tex_answers(tex_file)
-        py_checks = get_py_checks(py_file)
-        
-        facades = []
-        for q, func in py_checks.items():
-            qid = q.replace('check_', '')
-            is_facade = check_facade(func)
-            if is_facade:
-                facades.append((qid, is_facade))
-        
-        if facades:
-            print(f"\n[{pillar} sheet {num}] Found {len(facades)} facade checks:")
-            for q, reason in facades:
-                print(f"  {q}: {reason}")
+    if len(trivial) == len(asserts):
+        return ALL_TRIVIAL, rendered
+    return None, rendered      # has real assertions; trivia is just padding
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--strict", action="store_true",
+                    help="exit 1 if any check verifies nothing")
+    args = ap.parse_args()
+
+    facades = []
+    padding = 0
+    checks = 0
+
+    for pillar, num, path in published_sheets():
+        source = path.read_text(encoding="utf-8")
+        tree = ast.parse(source)
+        flagged = []
+        for fn in tree.body:
+            if not (isinstance(fn, ast.FunctionDef) and fn.name.startswith("check_")):
+                continue
+            checks += 1
+            verdict, trivial = analyse(fn, source)
+            if verdict:
+                label = fn.name[len("check_"):]
+                flagged.append((label, verdict, trivial))
+                facades.append(f"{pillar}/sheet{num} {label}")
+            elif trivial:
+                padding += len(trivial)
+        if flagged:
+            print(f"\n[{pillar} sheet {num}] {len(flagged)} check(s) verify nothing:")
+            for label, verdict, trivial in sorted(flagged):
+                print(f"  {label}: {verdict}")
+                for line in trivial[:3]:
+                    print(f"      {line}")
+                if len(trivial) > 3:
+                    print(f"      ... and {len(trivial) - 3} more trivial assertion(s)")
+
+    print(f"\n{checks} published checks examined.")
+    print(f"  verify nothing:            {len(facades)}")
+    print(f"  trivial assertions used as"
+          f" padding beside real ones: {padding}")
+    if facades:
+        print("\nA check must assert something that depends on a value it computed.")
+        print("See CONTRIBUTING.md -> Verification pipeline. The gate that fails a")
+        print("build for these is tools/check_binding.py.")
+        return 1 if args.strict else 0
+    print("\nNo facade checks.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
