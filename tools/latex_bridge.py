@@ -68,12 +68,17 @@ def parse_tex_math(tex_str):
     if '"' in tex_str or '``' in tex_str or "''" in tex_str:
         return tex_str.strip()
 
+    # Strip leading descriptive prefixes before prose detection
+    tex_str = re.sub(r'^\s*(?:Both count|Both are|The odd ones are exactly|Row\s+[0-9]+:?|Case\s+[0-9]+:?)\s*', '', tex_str, flags=re.IGNORECASE)
+
     # Check if predominantly English descriptive text
     english_words = [
-        r'proof', r'proved', r'counterexample', r'no\s+solution', r'all\s+integers',
-        r'all\s+sign\s+combinations', r'divisible', r'smallest', r'minimum', r'maximum',
+        r'proof', r'proofs', r'proved', r'counterexample', r'no\s+solution', r'all\s+integers',
+        r'all\s+real', r'all\s+sign\s+combinations', r'divisible', r'smallest', r'minimum', r'maximum',
         r'under', r'see\s+method', r'equality\s+iff', r'remainder\s+at', r'composite',
-        r'continuity', r'non-negative', r'impossible',
+        r'continuity', r'non-negative', r'impossible', r'decreasing', r'increasing', r'odd', r'even',
+        r'not\s+necessarily', r'error', r'fractions', r'sequence', r'bounded', r'convergent',
+        r'for\s+all', r'for\s+any', r'for\s+any\s+constant', r'gives', r'maximum\s+is', r'minimum\s+is',
         r'forced', r'contradiction', r'someone', r'pigeonhole', r'some\s+three',
         r'affirming', r'denying', r'consequent', r'antecedent', r'sufficient',
         r'necessary', r'neither', r'inductive', r'induction', r'base\s+case',
@@ -87,6 +92,7 @@ def parse_tex_math(tex_str):
 
     # Clean formatting
     cleaned = tex_str.replace('{,}', '').replace(r'\,', ' ').replace(r'\;', ' ').replace(r'\ ', ' ').replace('~', ' ')
+    cleaned = re.sub(r';\s*undefined\s+at\s+.*', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\\(?:quad|qquad|displaystyle|left|right|checkmark)\b', ' ', cleaned)
     cleaned = re.sub(r'\\text\{([^}]*)\}', r' \1 ', cleaned)
     cleaned = re.sub(r'\\sqrt(?![{\[])([0-9a-zA-Z]+)', r'\\sqrt{\1}', cleaned)

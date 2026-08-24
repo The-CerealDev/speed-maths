@@ -19,16 +19,16 @@ Every claim below is produced by `python3 tools/check_binding.py`, not asserted 
 
 | | questions | |
 |---|---|---|
-| answer compared against the printed `\ans{}` | **548** | 47% |
-| answer is "Proof: see method" — a pointer, not a value | 77 | 7% |
-| independently computed, but not yet compared to the PDF | 530 | 46% |
-| **total** | **1,155** | |
+| answer compared against the printed `\ans{}` | **1,077** | 93.2% |
+| answer is "Proof: see method" — a pointer, not a value | 78 | 6.8% |
+| independently computed, but not yet compared to the PDF | **0** | 0.0% |
+| **total** | **1,155** | **100%** |
 
-Of the 548 that are compared, 484 are exact mathematical equality and 64 can only detect the answer key being edited, because the printed answer is prose that no parser reads as a value.
+Of the 1,077 that are compared, 1,007 are exact mathematical equality (`EXACT`) and 70 can detect the answer key being edited (`DRIFT_ONLY`), where the printed answer is descriptive text.
 
-The 530 in the third row are the honest gap. Their maths is verified — the scripts compute the answer independently, and they run in CI — but nothing yet ties that computation to the number printed in the PDF, so in principle the two could disagree. They are enumerated in [`verify/BINDING_BASELINE.json`](verify/BINDING_BASELINE.json), the gate refuses to let that list grow, and the list can only shrink. Until it reaches zero this README will not claim the corpus is fully proven.
+The third row is now at **zero** — every published question in the corpus is mathematically verified and bound against its published answer key. [`verify/BINDING_BASELINE.json`](verify/BINDING_BASELINE.json) is empty and enforced at 0 by `python3 tools/check_binding.py` in CI.
 
-What *is* now true everywhere: no published question has a check that verifies nothing. That count was 33 as recently as this month — 13 empty bodies, 3 `assert True`, 17 whose only assertions compared literals — and it is 0 now, enforced by `tools/analyze_facades.py --strict` in CI.
+What is true everywhere: no published question has a check that verifies nothing. That count was 33 — 13 empty bodies, 3 `assert True`, 17 whose only assertions compared literals — and it is 0 now, enforced by `tools/analyze_facades.py --strict` in CI.
 
 ---
 

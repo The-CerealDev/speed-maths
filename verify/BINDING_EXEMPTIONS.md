@@ -31,7 +31,7 @@ Rows are `pillar/sheetNN LABEL` so `check_binding.py` can find them, followed by
 the answer text as printed.
 
 
-## algebra (12)
+## algebra (13)
 
 - `algebra/sheet03 C3` — Proof: see method.
 - `algebra/sheet03 D3` — Proof via AM--GM: see method.
@@ -44,6 +44,7 @@ the answer text as printed.
 - `algebra/sheet06 D1` — Proved below.
 - `algebra/sheet07 B9` — Proved below.
 - `algebra/sheet07 C1` — Proved below.
+- `algebra/sheet07 C3` — All three inequalities proved below.
 - `algebra/sheet07 C5` — Proved below.
 
 ## combinatorics (10)
@@ -124,11 +125,11 @@ the answer text as printed.
 
 | pillar | exempt |
 |---|---|
-| algebra | 12 |
+| algebra | 13 |
 | combinatorics | 10 |
 | logic | 48 |
 | sequences | 7 |
-| **total** | **77** |
+| **total** | **78** |
 
 Every one of these is a candidate for removal by rewriting the `\ans{}` as
 a value. The count going down is a real improvement to the corpus; it going

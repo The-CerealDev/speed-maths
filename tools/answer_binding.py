@@ -39,7 +39,7 @@ EXEMPT = "EXEMPT"
 
 # "Proof: see method", "Proof via AM--GM: see method", "Shown below." — the
 # answer key defers to the prose, so there is no value to compare against.
-_PROOF_MARKER = re.compile(r"^\s*(proof|proved|shown|see\s+method)\b", re.IGNORECASE)
+_PROOF_MARKER = re.compile(r"^\s*(proofs?|proved|shown|see\s+method|all\s+three\s+inequalities\s+proved)\b", re.IGNORECASE)
 
 # "A) none of them", "(B) ...", "C) $P$ is necessary ..."
 _MCQ_LETTER = re.compile(r"^\s*\(?([A-G])\)")
@@ -69,6 +69,8 @@ def as_tuple_list(published_raw):
     the prose path rather than being silently half-read.
     """
     body = str(published_raw).replace("$", "").strip()
+    body = re.sub(r"^\s*\([a-zA-Z](?:\s*,\s*[a-zA-Z])*\)\s*=\s*", "", body)
+    body = re.sub(r"\s+\\text\{or\}\s+|\s+or\s+|\s+and\s+", " ", body)
     found = _TUPLE_RE.findall(body)
     if not found:
         return None

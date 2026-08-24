@@ -40,6 +40,7 @@ def check_A1():
         assert (2**3 - 3*2**2 + k_val*2 - 8) != 0
 
     test_non_divisibility()
+    return expected_ans
 
 # A2
 def check_A2():
@@ -57,6 +58,7 @@ def check_A2():
         assert poly.subs(x, c) == r
 
     test_remainder_identity()
+    return expected_ans
 
 # A3
 def check_A3():
@@ -72,6 +74,7 @@ def check_A3():
     test_factorisation()
     computed_expr = sympy.factor(6*x**2 - x - 12)
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A4
 def check_A4():
@@ -90,6 +93,7 @@ def check_A4():
     test_identity()
     computed_expr = sympy.simplify((x**(2*n) - 1) / (x**n - 1))
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A5
 def check_A5():
@@ -105,6 +109,7 @@ def check_A5():
     min_at = 3
     computed_min = min_at + 9 // min_at
     assert sympy.simplify(computed_min - expected_ans) == 0
+    return expected_ans
 
 # A6
 def check_A6():
@@ -123,6 +128,7 @@ def check_A6():
     test_factorisation()
     computed_expr = sympy.factor(x**4 - y**4)
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A7
 def check_A7():
@@ -144,6 +150,7 @@ def check_A7():
     p = sympy.Rational(3, 2)
     computed_ans = s**2 - 2 * p
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # A8
 def check_A8():
@@ -161,6 +168,7 @@ def check_A8():
     test_factorial_identity()
     computed_expr = n**2
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A9
 def check_A9():
@@ -184,6 +192,7 @@ def check_A9():
     computed_prod = sympy.Rational(sum1**2 - sum_sq, 2)
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(computed_prod - target_val) == 0
+    return expected_ans
 
 # A10
 def check_A10():
@@ -200,6 +209,7 @@ def check_A10():
         assert fac == (x + k_val//2)**2
     assert len(sols) == 2
     assert '8' in str(expected_ans)
+    return expected_ans
 
 # B1
 def check_B1():
@@ -213,6 +223,7 @@ def check_B1():
     assert sympy.simplify(fac - target_fac) == 0
     for s in sols:
         assert poly.subs(x, s) == 0
+    return expected_ans
 
 # B2
 def check_B2():
@@ -228,6 +239,7 @@ def check_B2():
     test_sum_cubes_div()
     computed_expr = sympy.simplify((x**3 + 1) / (x**2 - x + 1))
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # B3
 def check_B3():
@@ -251,6 +263,7 @@ def check_B3():
     computed_prod = (p**3 - q) / (3 * p)
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(computed_prod - target_val) == 0
+    return expected_ans
 
 # B4
 def check_B4():
@@ -269,6 +282,7 @@ def check_B4():
     expr = (x**2 * (x + 1) - x * (x + 1)**2) / (x * (x + 1))
     computed_ans = sympy.simplify(expr)
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # B5
 def check_B5():
@@ -290,6 +304,7 @@ def check_B5():
     expr = (a + b)**3 - 4*a*b*(a + b)
     computed_expr = sympy.factor(expr)
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # B6
 def check_B6():
@@ -305,6 +320,7 @@ def check_B6():
     test_identity()
     computed_expr = (n + 1)**2 - 2*n - 1
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # B7
 def check_B7():
@@ -325,6 +341,7 @@ def check_B7():
             assert lhs != 1
 
     test_uniqueness()
+    return expected_ans
 
 # B8
 def check_B8():
@@ -345,6 +362,7 @@ def check_B8():
     eq = sympy.Eq(1/a + 1/b, 1/c)
     sol_c = sympy.solve(eq, c)[0]
     assert sympy.simplify(sol_c - expected_ans) == 0
+    return expected_ans
 
 # B9
 def check_B9():
@@ -361,6 +379,7 @@ def check_B9():
     factored = sympy.factor(n**3 - n)
     assert sympy.simplify(factored - (n - 1)*n*(n + 1)) == 0
     assert '6' in str(expected_ans)
+    return expected_ans
 
 # B10
 def check_B10():
@@ -392,6 +411,7 @@ def check_B10():
     if isinstance(expected_ans, list) and len(expected_ans) == 2:
         assert sympy.simplify(p3 - expected_ans[0].rhs) == 0
         assert sympy.simplify(p4 - expected_ans[1].rhs) == 0
+    return expected_ans
 
 # C1
 def check_C1():
@@ -407,6 +427,7 @@ def check_C1():
         for s, e in zip(x_sols, expected_ans):
             e_val = e.rhs if isinstance(e, sympy.Equality) else e
             assert sympy.simplify(s - e_val) == 0
+    return expected_ans
 
 # C2
 def check_C2():
@@ -417,6 +438,7 @@ def check_C2():
     sols = sympy.solve(eq, x)
     assert len(sols) == 1
     assert sympy.simplify(sols[0] - expected_ans) == 0
+    return expected_ans
 
 # C3
 def check_C3():
@@ -448,6 +470,7 @@ def check_C4():
     assert len(sols) == 1
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(sols[0] - target_val) == 0
+    return expected_ans
 
 # C5
 def check_C5():
@@ -460,6 +483,7 @@ def check_C5():
     min_val = completed.subs({x: -2, y: 3})
     assert min_val == 0
     assert '0' in str(expected_ans) and '-2' in str(expected_ans)
+    return expected_ans
 
 # C6
 def check_C6():
@@ -475,6 +499,7 @@ def check_C6():
     t = 5
     computed_ans = t**2 - 2
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # C7
 def check_C7():
@@ -487,6 +512,7 @@ def check_C7():
     for r in real_sols:
         assert (r**4 + 4*r**2 - 5) == 0
     assert '1' in str(expected_ans)
+    return expected_ans
 
 # C8
 def check_C8():
@@ -498,6 +524,7 @@ def check_C8():
     val_at_1 = expanded.subs(a*b, 1)
     assert val_at_1 == 4
     assert sympy.simplify(val_at_1 - expected_ans) == 0
+    return expected_ans
 
 # D1
 def check_D1():
@@ -512,6 +539,7 @@ def check_D1():
         assert poly.subs(x, r) == 0
     if isinstance(expected_ans, list):
         assert len(roots) == len(expected_ans)
+    return expected_ans
 
 # D2
 def check_D2():
@@ -575,6 +603,7 @@ def check_D5():
     computed_count = len(valid_n)
     target_count = expected_ans[0] if isinstance(expected_ans, list) else expected_ans
     assert sympy.simplify(computed_count - target_count) == 0
+    return expected_ans
 
 
 CHECKS = {

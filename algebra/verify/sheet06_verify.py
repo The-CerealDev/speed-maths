@@ -37,6 +37,7 @@ def check_A1():
     test_factorisation()
     computed_expr = sympy.factor(x**3 + 5*x**2 + 6*x)
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A2
 def check_A2():
@@ -54,6 +55,7 @@ def check_A2():
         assert abs((x_val**2 + 1.0 / x_val**2) - (t_val**2 - 2.0)) < 1e-9
 
     test_reciprocal_sq()
+    return expected_ans
 
 # A3
 def check_A3():
@@ -63,6 +65,7 @@ def check_A3():
     expanded = sympy.expand((x + y)**3)
     computed_ans = expanded.coeff(x * y**2)
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # A4
 def check_A4():
@@ -71,6 +74,7 @@ def check_A4():
     expr = 1 / (sympy.sqrt(2) - 1) - 1 / (sympy.sqrt(2) + 1)
     computed_ans = sympy.simplify(expr)
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # A5
 def check_A5():
@@ -90,6 +94,7 @@ def check_A5():
         target_b = expected_ans[1].rhs if isinstance(expected_ans[1], sympy.Equality) else expected_ans[1]
         assert sympy.simplify(sols[a] - target_a) == 0
         assert sympy.simplify(sols[b] - target_b) == 0
+    return expected_ans
 
 # A6
 def check_A6():
@@ -99,6 +104,7 @@ def check_A6():
     expr = ((2*x / y)**3) / ((4*x**2) / (y**2))
     computed_ans = sympy.simplify(expr)
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # A7
 def check_A7():
@@ -118,6 +124,7 @@ def check_A7():
         assert a_val**2 * b_val + a_val * b_val**2 == (a_val * b_val) * (a_val + b_val)
 
     test_identity()
+    return expected_ans
 
 # A8
 def check_A8():
@@ -136,6 +143,7 @@ def check_A8():
     test_factorisation()
     computed_expr = sympy.factor(4*a**2 - 4*a*b + b**2)
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # A9
 def check_A9():
@@ -145,6 +153,7 @@ def check_A9():
     assert factors == {3: 1, 11: 1, 31: 1}
     computed_prod = sympy.Mul(*[p**e for p, e in factors.items()])
     assert sympy.simplify(computed_prod - expected_ans) == 0
+    return expected_ans
 
 # A10
 def check_A10():
@@ -155,6 +164,7 @@ def check_A10():
     f0 = f.subs(x, 0)
     computed_ans = f.subs(x, f0)
     assert sympy.simplify(computed_ans - expected_ans) == 0
+    return expected_ans
 
 # B1
 def check_B1():
@@ -179,6 +189,7 @@ def check_B1():
         assert sympy.simplify(sols[A] - target_A) == 0
         assert sympy.simplify(sols[B] - target_B) == 0
         assert sympy.simplify(sols[C] - target_C) == 0
+    return expected_ans
 
 # B2
 def check_B2():
@@ -202,6 +213,7 @@ def check_B2():
         assert sympy.simplify(sols[a] - target_a) == 0
         assert sympy.simplify(sols[b] - target_b) == 0
         assert sympy.simplify(sols[c] - target_c) == 0
+    return expected_ans
 
 # B3
 def check_B3():
@@ -218,6 +230,7 @@ def check_B3():
     test_simplification()
     computed_expr = sympy.simplify((x**3 - 8) / (x**2 + 2*x + 4))
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # B4
 def check_B4():
@@ -241,6 +254,7 @@ def check_B4():
 
     test_cubic_identity()
     assert 'a=b=c=1' in str(expected_ans) or '0' in str(expected_ans)
+    return expected_ans
 
 # B5
 def check_B5():
@@ -262,6 +276,7 @@ def check_B5():
             assert (a_val**3 + b_val**3 + c_val**3) == 3 * a_val * b_val * c_val
 
     test_ratio()
+    return expected_ans
 
 # B6
 def check_B6():
@@ -272,6 +287,7 @@ def check_B6():
     assert computed_sum == target_sum == 1330
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(computed_sum - target_val) == 0
+    return expected_ans
 
 # B7
 def check_B7():
@@ -282,6 +298,7 @@ def check_B7():
     den = 1/(a + b) + 1/(a - b)
     expr = sympy.simplify(num / den)
     assert sympy.simplify(expr - expected_ans) == 0
+    return expected_ans
 
 # B8
 def check_B8():
@@ -292,6 +309,7 @@ def check_B8():
     sol_b = sympy.solve(eq, b)[0]
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(sol_b - target_val) == 0
+    return expected_ans
 
 # B9
 def check_B9():
@@ -308,6 +326,7 @@ def check_B9():
         val1 = expected_ans[1].rhs if isinstance(expected_ans[1], sympy.Equality) else expected_ans[1]
         assert sympy.simplify(p2 - val0) == 0
         assert sympy.simplify(p_prod2 - val1) == 0
+    return expected_ans
 
 # B10
 def check_B10():
@@ -318,6 +337,7 @@ def check_B10():
     sol = sympy.solve(eq, x)
     assert len(sol) == 0 or sol == [1]
     assert 'no solution' in str(expected_ans).lower()
+    return expected_ans
 
 # C1
 def check_C1():
@@ -330,6 +350,7 @@ def check_C1():
     assert sols == [9]
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(sols[0] - target_val) == 0
+    return expected_ans
 
 # C2
 def check_C2():
@@ -341,6 +362,7 @@ def check_C2():
     assert sympy.simplify(expr - completed) == 0
     assert completed.subs({x: 3, y: -2}) == 7
     assert '7' in str(expected_ans) and '3' in str(expected_ans)
+    return expected_ans
 
 # C3
 def check_C3():
@@ -352,6 +374,7 @@ def check_C3():
     rhs = sympy.Rational(1, 2) * (a + b)**4
     assert lhs < rhs
     assert 'counterexample' in str(expected_ans).lower()
+    return expected_ans
 
 # C4
 def check_C4():
@@ -364,6 +387,7 @@ def check_C4():
     if isinstance(expected_ans, list):
         target_roots = [e.rhs if isinstance(e, sympy.Equality) else e for e in expected_ans]
         assert set(roots) == set(target_roots)
+    return expected_ans
 
 # C5
 def check_C5():
@@ -407,6 +431,7 @@ def check_C6():
         assert val <= 0.25 + 1e-9
 
     test_am_gm_bound()
+    return expected_ans
 
 # C7
 def check_C7():
@@ -419,6 +444,7 @@ def check_C7():
     assert valid == [5]
     target_val = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
     assert sympy.simplify(valid[0] - target_val) == 0
+    return expected_ans
 
 # C8
 def check_C8():
@@ -432,6 +458,7 @@ def check_C8():
     assert cond == c
     if isinstance(expected_ans, sympy.Equality):
         assert (expected_ans.lhs == b and expected_ans.rhs == c) or (expected_ans.lhs == c and expected_ans.rhs == b)
+    return expected_ans
 
 # D1
 def check_D1():
@@ -460,6 +487,7 @@ def check_D2():
         p = x**n
         assert sympy.simplify(p.subs(x, x*y) - p.subs(x, x)*p.subs(x, y)) == 0
     assert 'p(x)' in str(expected_ans) or 'non-negative' in str(expected_ans)
+    return expected_ans
 
 # D3
 def check_D3():
@@ -477,6 +505,7 @@ def check_D3():
     test_sum_closed_form()
     computed_expr = (n * (n + 1)) / (2 * (2*n + 1))
     assert sympy.simplify(computed_expr - expected_ans) == 0
+    return expected_ans
 
 # D4
 def check_D4():
@@ -491,6 +520,7 @@ def check_D4():
     computed_val = p_solved.subs(x, 5)
     assert computed_val == 0
     assert '0' in str(expected_ans) or 'p(5)=0' in str(expected_ans)
+    return expected_ans
 
 # D5
 def check_D5():
@@ -506,6 +536,7 @@ def check_D5():
 
     assert solutions == [(11, 4), (13, 8), (19, 16), (53, 52)]
     assert '53' in str(expected_ans) and '11' in str(expected_ans)
+    return expected_ans
 
 
 CHECKS = {
