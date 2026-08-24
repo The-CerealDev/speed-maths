@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans07.tex'
 """Computational verification for logic/answers/ans07.tex.
 
 Convention: one check_<label>() function per question, matching the
@@ -40,6 +47,7 @@ def is_prime(n):
 
 def check_A1():
     """EXHAUSTIVE PROOF: truth table confirms that P=>Q is logically equivalent to (not Q)=>(not P)."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     for P, Q in all_assignments(2):
         orig = implies(P, Q)
         contra = implies(not Q, not P)
@@ -49,6 +57,7 @@ def check_A1():
 def check_A2():
     """EXHAUSTIVE PROOF: confirms the negation of 'forall x, not P(x)' 
     is 'exists x, P(x)' over abstract truth assignments for a small domain."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     for P_vals in itertools.product([False, True], repeat=4):
         orig = all(not p for p in P_vals)
         negation = any(p for p in P_vals)
@@ -58,6 +67,7 @@ def check_A2():
 def check_A3():
     """SAMPLED CHECK over n=1..100: confirms 'multiple of 6' implies 'multiple of 2',
     but not the reverse (e.g. n=4). Thus, sufficient but not necessary."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     for n in range(1, 101):
         if n % 6 == 0:
             assert n % 2 == 0
@@ -69,12 +79,14 @@ def check_A4():
     """EXHAUSTIVE PROOF: logic structural check. Proof by contradiction 
     assumes the negation of the goal. Goal: 'not exists largest prime'.
     Negation: 'exists largest prime'."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     goal_is_false = False # we want to prove it's true, so we assume it's false
     assert not goal_is_false
 
 
 def check_A5():
     """EXHAUSTIVE PROOF: confirms 9 is odd but composite, refuting 'every odd is prime'."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     assert 9 % 2 == 1
     assert not is_prime(9)
     assert 9 == 3 * 3
@@ -83,6 +95,7 @@ def check_A5():
 def check_A6():
     """EXHAUSTIVE PROOF: truth table confirms affirming the consequent 
     (P=>Q, Q |- P) is an invalid argument form."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     counterexample = any(
         implies(P, Q) and Q and not P
         for P, Q in all_assignments(2)
@@ -92,6 +105,7 @@ def check_A6():
 
 def check_A7():
     """EXHAUSTIVE PROOF: truth-table check verifies that P=>Q is NOT in general equivalent to Q=>P."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     mismatch = False
     for P, Q in all_assignments(2):
         orig = implies(P, Q)
@@ -103,6 +117,7 @@ def check_A7():
 
 def check_A8():
     """SAMPLED CHECK: confirms computationally that n=7k implies n^2 is a multiple of 49."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     for k in range(-50, 50):
         n = 7 * k
         n_sq = n**2
@@ -113,6 +128,7 @@ def check_A8():
 def check_A9():
     """SAMPLED CHECK over bounded range: confirms 'exists x forall y (x<y)' is false
     while 'forall y exists x (x<y)' is true (witness x=y-1)."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     # forall y, exists x < y
     for y in range(-50, 50):
         x = y - 1
@@ -126,6 +142,7 @@ def check_A9():
 
 def check_A10():
     """EXHAUSTIVE PROOF: verifies n=6 is a multiple of 3 and is even (not odd), a valid counterexample."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     n = 6
     assert n % 3 == 0
     assert n % 2 == 0
@@ -137,6 +154,7 @@ def check_A10():
 
 def check_B1():
     """SAMPLED CHECK: confirms over a range of n that every multiple of 15 is indeed a multiple of 3 and of 5."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     for n in range(1, 201):
         if n % 15 == 0:
             assert n % 3 == 0
@@ -146,6 +164,7 @@ def check_B1():
 def check_B2():
     """SAMPLED CHECK: confirms n^2+n is always even for all n, contradicting
     the assumption that it can be odd."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     for n in range(1, 100):
         assert n**2 + n == n * (n + 1)
         assert (n**2 + n) % 2 == 0
@@ -154,6 +173,7 @@ def check_B2():
 def check_B3():
     """SAMPLED CHECK over n=1..50: confirms sum of squares formula and its 
     algebraic step in the method."""
+    expected_ans = get_answer(TEX_PATH, "B3")
     for n in range(1, 51):
         lhs = sum(i**2 for i in range(1, n + 1))
         rhs = n * (n + 1) * (2 * n + 1) // 6
@@ -174,6 +194,7 @@ def check_B3():
 
 def check_B4():
     """EXHAUSTIVE PROOF: truth table confirms that (not A => not B) is NOT logically equivalent to (A => B), proving the student's proof structure is invalid."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     mismatch = any(
         implies(not A, not B) != implies(A, B)
         for A, B in all_assignments(2)
@@ -184,12 +205,14 @@ def check_B4():
 def check_B5():
     """EXHAUSTIVE PROOF: confirms n=2 is prime but not odd, showing 'prime' 
     is not sufficient for 'odd'."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     assert is_prime(2)
     assert 2 % 2 == 0
 
 
 def check_B6():
     """SAMPLED CHECK: confirms using Python's set type that for any sample A, taking B=frozenset() gives empty intersection."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     sample_As = [set([1, 2, 3]), set(['a', 'b']), set()]
     B = frozenset()
     for A in sample_As:
@@ -199,6 +222,7 @@ def check_B6():
 def check_B7():
     """SAMPLED CHECK over n=1..50: confirms n^3+2n is divisible by 3, and 
     verifies the algebraic manipulation in the inductive step."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     for n in range(1, 51):
         assert (n**3 + 2 * n) % 3 == 0
         
@@ -213,6 +237,7 @@ def check_B8():
     """EXHAUSTIVE PROOF over bounded search: verifies the infinite descent logic 
     that no coprime p,q < 500 satisfy 6q^2 = p^2. Also verifies the logical structure:
     2|6q^2 => 2|p^2 => 2|p."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     for p in range(1, 500):
         for q in range(1, 500):
             if 6 * q**2 == p**2:
@@ -234,6 +259,7 @@ def check_B8():
 def check_B9():
     """SAMPLED CHECK: confirms f(x) = -(x^2+1) has no real roots and is never > 0,
     showing f(x)>0 is sufficient but not necessary for having no real roots."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     def f(x): return -(x**2 + 1)
     for x in range(-50, 50):
         assert f(x) < 0
@@ -243,6 +269,7 @@ def check_B9():
 def check_B10():
     """EXHAUSTIVE PROOF: structure check that P(k)=>P(k+1) for k>=2 fails 
     to connect P(1) to P(3) and beyond, because P(2) is missing."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     known = {1}
     # Inductive step only applies for k>=2
     for _ in range(5):
@@ -259,6 +286,7 @@ def check_B10():
 def check_C1():
     """EXHAUSTIVE PROOF: verifies n=8 satisfies P (div by 4) but not Q (div by 2 and 6); 
     n=6 satisfies Q but not P."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     n = 8
     assert n % 4 == 0
     assert not (n % 2 == 0 and n % 6 == 0)
@@ -271,6 +299,7 @@ def check_C1():
 def check_C2():
     """EXHAUSTIVE PROOF: confirms S={1,3} gives sum 4 (even) while elements are odd,
     disproving the converse of 'all even => sum even'."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     S = {1, 3}
     assert all(x % 2 != 0 for x in S)
     assert sum(S) == 4
@@ -279,6 +308,7 @@ def check_C2():
 
 def check_C3():
     """EXHAUSTIVE PROOF: verifies n=6 yields 6^2+3*6+1 = 55 = 5*11, confirming this is a valid witness."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     n = 6
     val = n**2 + 3 * n + 1
     assert val == 55
@@ -289,6 +319,7 @@ def check_C3():
 def check_C4():
     """SAMPLED CHECK over n=1..1000: confirms 'multiple of 9 <=> digit sum multiple of 9',
     and verifies 10^k = 1 mod 9."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     for n in range(1, 1000):
         digit_sum = sum(int(d) for d in str(n))
         assert (n % 9 == 0) == (digit_sum % 9 == 0)
@@ -301,6 +332,7 @@ def check_C4():
 def check_C5():
     """SAMPLED CHECK over n=1..50: confirms the contrapositive equivalence: 
     'n even => 4|n^2'."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     for n in range(1, 50):
         # A: 4|n^2, B: n is odd
         A = (n**2 % 4 == 0)
@@ -316,6 +348,7 @@ def check_C5():
 
 def check_C6():
     """SAMPLED CHECK: confirms induction step algebra and n(n+5)+2 is even for sampled range."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     for k in range(-50, 50):
         lhs = (k**2 + 5 * k + 2) + (2 * k + 6)
         rhs = (k + 1)**2 + 5 * (k + 1) + 2
@@ -330,6 +363,7 @@ def check_C6():
 
 def check_C7():
     """EXHAUSTIVE PROOF: checks that Euclid's lemma being true implies no counterexample exists."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     # This is a meta-level check similar to Section A
     euclids_lemma_true = True
     counterexample_exists = not euclids_lemma_true
@@ -338,6 +372,7 @@ def check_C7():
 
 def check_C8():
     """EXHAUSTIVE PROOF: verifies x^3-1 factors as (x-1)(x^2+x+1), that x^2+x+1 has no real roots, and x=1 is the unique real solution."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     a, b, c = 1, 1, 1
     disc = b**2 - 4 * a * c
     assert disc == -3
@@ -362,6 +397,7 @@ def check_D1():
     If x^2+y != x+y^2, no other integer point produces the same recorded pair.
     Also verifies the degenerate counterexample x1=2,y1=-1 and x2=-1,y2=2 
     both give (3,3) when x^2+y = x+y^2."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     for x1 in range(-20, 20):
         for y1 in range(-20, 20):
             if x1**2 + y1 != x1 + y1**2:
@@ -385,6 +421,7 @@ def check_D1():
 def check_D2():
     """SAMPLED CHECK over bounded pairs: verifies the m-n mod 2 invariant is 
     preserved by removal (m-k, n-k) and tripling (3m, n)."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     for m in range(1, 20):
         for n in range(1, 20):
             mod_val = (m - n) % 2
@@ -401,6 +438,7 @@ def check_D2():
 def check_D3():
     """EXHAUSTIVE PROOF over bounded search: verifies the UNIQUE positive-integer 
     triple a<b<c with 1/a+1/b+1/c=1 is (2,3,6), and confirms b=3 is odd."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     solutions = []
     # 1/a + 1/b + 1/c = 1 with a < b < c. 
     # 1/a > 1/3 => a < 3 => a = 2 (since a=1 implies 1/b+1/c=0).
@@ -421,6 +459,7 @@ def check_D4():
     """SAMPLED CHECK: verifies the concrete algebraic steps in the uniqueness proof.
     Specifically, if n has two factorisations p_1...p_r = q_1...q_s, and p_1=q_1,
     then dividing both sides by p_1 preserves equality."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     # Verify cancellation property used in the proof:
     for p in range(2, 20):
         for A in range(1, 50):
@@ -432,6 +471,7 @@ def check_D4():
 def check_D5():
     """SAMPLED CHECK over integer samples: verifies the identity pbx+aby = b 
     numerically for p,a,b,x,y satisfying px+ay=1 and p|ab. Shows that p|b."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     for p in range(2, 20):
         if not is_prime(p): continue
         for a in range(1, 20):

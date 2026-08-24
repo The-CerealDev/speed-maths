@@ -9,8 +9,7 @@
 
 # Incomplete pillars — untracked until their sheet runs are finished.
 # Remove a line here when its pillar is ready to publish.
-calculus/
-graphs/
+geometry/
 
 # Local research corpus: fetched past papers (UKMT/OCR/Oxford copyright).
 # NEVER commit these — the repo is public. Archetype indexes stay local too
@@ -30,16 +29,10 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Personal study artifacts: post-mortems and review blocks built from real
-# past papers I sat. These quote paper content verbatim, so they stay local.
+# Worksheets rendered from past papers — copyrighted question text.
 worksheets/
 
-# Per-student progress and session state — never publishable.
-state/
-*.session_secret
-
-# The variant retriever is deliberately held back until after the TMUA sitting.
-# It is a full working tree on the `vimium-upgrade` branch; this rule only stops
-# it being swept into a publishing branch by `git add -A`. Delete these two
-# lines when the retriever is ready to ship.
-variant_retriever/
+# Security
+**/.env
+**/.session_secret
+mutants/

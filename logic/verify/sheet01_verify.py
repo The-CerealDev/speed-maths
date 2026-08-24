@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans01.tex'
 """Computational verification for logic/answers/ans01.tex.
 
 Convention: one check_<label>() function per question, matching the
@@ -86,6 +93,7 @@ def check_A1():
     product of two nonnegatives hence >=0; for n<0, writing m=-n>0, n*n=m*m
     is again a product of two positives. That case split covers every
     integer, not just the sampled range."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     for n in range(-100000, 100001):
         orig = (n * n >= 0)          # inner predicate of the forall
         neg = (n * n < 0)            # inner predicate of the claimed negation
@@ -106,6 +114,7 @@ def check_A2():
     plus edge cases, not literally every real), backed by an exact argument:
     x*x >= 0 for every real x (product of two same-sign numbers), and
     0 > -1, so x*x can never equal -1, for any real x whatsoever."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     random.seed(1)
     xs = ([random.uniform(-10**6, 10**6) for _ in range(5000)]
           + [0.0, 1.0, -1.0, 1e-9, -1e-9, 1e12, -1e12])
@@ -125,6 +134,7 @@ def check_A3():
     """EXHAUSTIVE PROOF: enumerates all 4 truth assignments of the two
     atoms P = 'n even', Q = 'n prime' -- fully exhaustive, since there are
     only 2^2 = 4 possible truth combinations."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     for P, Q in all_assignments(2):
         orig = P and Q
         claimed_neg = (not P) or (not Q)
@@ -136,6 +146,7 @@ def check_A3():
 def check_A4():
     """EXHAUSTIVE PROOF: all 2^2 = 4 truth assignments of P = 'mult of 4',
     Q = 'mult of 6'."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     for P, Q in all_assignments(2):
         orig = P or Q
         claimed_neg = (not P) and (not Q)
@@ -149,6 +160,7 @@ def check_A5():
     not P(x)' (the claimed but wrong negation) disagrees with the true
     negation 'exists x, not P(x)' -- a single disagreement fully disproves
     the claimed equivalence; two independent domains rule out a fluke."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     def truth_values(domain, P):
         orig = all(P(x) for x in domain)
         true_neg = any(not P(x) for x in domain)
@@ -165,6 +177,7 @@ def check_A5():
 # \ans: True.
 def check_A6():
     """EXHAUSTIVE PROOF: all 2^2 = 4 truth assignments of P, Q."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     for P, Q in all_assignments(2):
         assert (not (P and Q)) == ((not P) or (not Q))
 
@@ -176,6 +189,7 @@ def check_A7():
     exact boundary values 3 and 10, not literally every real), backed by
     the exact trichotomy facts not(x>3)==(x<=3) and not(x<10)==(x>=10),
     which hold for the entire real line by total ordering, not sampling."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     random.seed(2)
     xs = ([random.uniform(-10**6, 10**6) for _ in range(5000)]
           + [3.0, 10.0, 3.0000001, 9.9999999, 0.0, -10**6, 10**6])
@@ -195,6 +209,7 @@ def check_A8():
     (2 is prime and even), and that the alternative forall-reading would
     be false (3 is prime and odd) -- exactly why 'some' must mean
     'there exists', not 'for all'."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     assert is_prime(2) and 2 % 2 == 0
     assert is_prime(3) and 3 % 2 == 1
 
@@ -208,6 +223,7 @@ def check_A9():
     satisfies x+y=0, proving forall-y-exists-x. Verified via exact
     Fraction arithmetic on a representative sample of x, y as an
     arithmetic sanity check of the (already-general) closed forms."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     sample = [(0, 1), (1, 1), (-3, 2), (7, 5), (100, 1), (-1, 1000), (1, 3), (22, 7)]
     for a, b in sample:
         x = Fraction(a, b)
@@ -227,6 +243,7 @@ def check_A10():
     literally every positive integer), though the per-n identity itself
     (De Morgan: not(A or B) == (not A) and (not B)) is exact Boolean
     algebra, true for every n regardless of range."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     LIMIT = 200000
     for n in range(1, LIMIT):
         A = is_prime(n)
@@ -249,6 +266,7 @@ def check_B1():
     """EXHAUSTIVE PROOF: full enumeration of all 2^7 = 128 possible weekly
     patterns of whether Fred does a problem each day -- fully exhaustive,
     not sampled."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     for pattern in itertools.product([False, True], repeat=7):
         orig = all(pattern)
         neg = any(not d for d in pattern)
@@ -259,6 +277,7 @@ def check_B1():
 # \ans: True.
 def check_B2():
     """EXHAUSTIVE PROOF: all 2^3 = 8 truth assignments of P, Q, R."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     for P, Q, R in all_assignments(3):
         orig = P or Q or R
         claimed_neg = (not P) and (not Q) and (not R)
@@ -270,6 +289,7 @@ def check_B2():
 def check_B3():
     """EXHAUSTIVE PROOF: all 2^3 = 8 truth assignments of the three
     divisibility atoms, treated abstractly."""
+    expected_ans = get_answer(TEX_PATH, "B3")
     for P, Q, R in all_assignments(3):
         orig = P and Q and R
         claimed_neg = (not P) or (not Q) or (not R)
@@ -285,6 +305,7 @@ def check_B4():
     (not just for the sampled values): it witnesses exists-y for the
     original at every x, and simultaneously shows no candidate x can
     serve as an outer witness for the (false) negation."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     random.seed(3)
     xs = ([Fraction(1, k) for k in range(1, 200)]
           + [Fraction(k, 1) for k in range(1, 200)]
@@ -305,6 +326,7 @@ def check_B5():
     integers: m=n+1 always beats n (proving forall-n-exists-m); taking
     n:=m always breaks m>n (since m>m is always false), which disproves
     exists-m-forall-n for every candidate m, not just the sampled ones."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     for n in range(-5000, 5000):
         m = n + 1
         assert m > n
@@ -325,6 +347,7 @@ def check_B6():
     composite) rather than trusting the method's assertion, then checks
     the witness p=2 makes the original true and the negation's inner claim
     fails at p=2 within the checked range."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     LIMIT = 100000
     assert is_prime(2) and 2 % 2 == 0
     for q in range(3, LIMIT):
@@ -342,6 +365,7 @@ def check_B6():
 def check_B7():
     """EXHAUSTIVE PROOF: all 2^3 = 8 truth assignments of P='mult of 3',
     Q='mult of 2', R='mult of 5'."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     for P, Q, R in all_assignments(3):
         orig = P or (Q and R)
         claimed_neg = (not P) and ((not Q) or (not R))
@@ -352,6 +376,7 @@ def check_B7():
 # \ans: True.
 def check_B8():
     """EXHAUSTIVE PROOF: all 2^3 = 8 truth assignments of A, B, C."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     for A, B, C in all_assignments(3):
         orig = A and (B or C)
         claimed = (not A) or ((not B) and (not C))
@@ -366,6 +391,7 @@ def check_B9():
     the mechanical De Morgan check -- the real-world relationship between
     P and Q (they can't both hold) is a further simplification noted only
     in the \\inv, and is deliberately not assumed here."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     for P, Q, R in all_assignments(3):
         orig = P or (Q and R)
         claimed_neg = (not P) and ((not Q) or (not R))
@@ -379,6 +405,7 @@ def check_B10():
     B6, applied here without the extra existential layer) -- checked up
     to 10**5, not literally all primes, but the underlying divisibility
     argument is domain-independent."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     LIMIT = 100000
     for p in range(3, LIMIT):
         if is_prime(p):
@@ -400,6 +427,7 @@ def check_C1():
     counterexample fully refutes a forall-forall claim (I), and x=0 is an
     exact witness valid for literally every positive integer n, not just
     the sampled ones (III)."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     # I is false: a single concrete counterexample suffices
     assert not (5 * 5 < 1)
     # II is true: for sampled real x, n = floor(x^2)+1 is a positive integer > x^2
@@ -422,6 +450,7 @@ def check_C2():
     verified as an exact identity over all 2^9 possible truth-matrices on
     an abstract 3x3 domain, not tied to actual primes -- this validates
     the transcription's logical form, independent of any numeric example."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     Ns = range(3)
     Ps = range(3)
     cells = [(n, p) for n in Ns for p in Ps]
@@ -440,6 +469,7 @@ def check_C3():
     checking all 2^6 = 64 possible (P,Q) truth assignments -- full
     enumeration, not tied to actual primes, so it validates the logical
     form independent of any specific numeric example."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     n = 3
     mismatches = {"A": 0, "C": 0, "D": 0}
     for bits in itertools.product([False, True], repeat=2 * n):
@@ -484,6 +514,7 @@ def check_C4():
     the argument used (n and n+1 always have different parities, so one
     of them is even) is definitionally true for every integer n, not just
     the sampled range."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     for n in range(1, 10**6):
         assert (n % 2 == 0) != ((n + 1) % 2 == 0)     # exactly one of n, n+1 is even
         assert (n * (n + 1)) % 2 == 0
@@ -502,6 +533,7 @@ def check_C5():
     quantifier identity, and the original statement's truth (n=2520
     works) is checked directly for all 10 concrete divisors k=1..10 --
     only 10 cases, fully exhaustive."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     Ns = range(3)
     Ks = range(3)
     cells = [(n, k) for n in Ns for k in Ks]
@@ -522,6 +554,7 @@ def check_C6():
     """EXHAUSTIVE PROOF: verified as an exact finite-quantifier identity
     over all 2^6 possible (P,Q) truth assignments on a 3-element abstract
     domain -- full enumeration."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     n = 3
     for bits in itertools.product([False, True], repeat=2 * n):
         P, Q = bits[:n], bits[n:]
@@ -538,6 +571,7 @@ def check_C7():
     satisfy both x>0 and x<0 simultaneously, and every real satisfies
     x<=0 or x>=0 (x=0 satisfies both) -- both facts hold for the entire
     real line, not merely the sample."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     random.seed(5)
     xs = [random.uniform(-10**6, 10**6) for _ in range(5000)] + [0.0]
     for x in xs:
@@ -557,6 +591,7 @@ def check_C8():
     needed, and both are checked directly and completely -- n=1 has no
     positive integer m<1 at all (the candidate range is empty), and n=2's
     only candidate m=1 is not prime."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     assert list(range(1, 1)) == []
     assert not any(is_prime(m) for m in range(1, 1))     # vacuously true
     assert list(range(1, 2)) == [1]
@@ -578,6 +613,7 @@ def check_D1():
     change from 'finite' to 'infinite' is a domain change outside the
     vocabulary of negation, and is rejected on that structural ground
     (demonstrated separately below), not via the truth matrix."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     Ss = range(3)
     Ms = range(3)
     cells = [(s, m) for s in Ss for m in Ms]
@@ -618,6 +654,7 @@ def check_D2():
     but the argument itself -- N := any integer > 1/epsilon, giving
     1/N < epsilon exactly -- is a closed form verified with exact
     Fraction arithmetic, not floating-point sampling."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     for eps in [Fraction(1, 10), Fraction(1, 100), Fraction(1, 1000), Fraction(1, 10**9)]:
         N = eps.denominator // eps.numerator + 2       # > 1/eps, exactly
         assert Fraction(N) > 1 / eps
@@ -638,6 +675,7 @@ def check_D3():
     (9 < 10), independent of which integers are chosen. Tested here on
     hundreds of random and structured sets to confirm the implementation
     matches the argument."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     assert 9 < 10   # the abstract counting fact underlying pigeonhole
 
     def find_collision(S):
@@ -674,6 +712,7 @@ def check_D4():
     each list, forms N = product+1, confirms N is coprime to every prime
     in the list, finds an actual prime factor of N by trial division, and
     confirms that factor lies outside the original list."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     # (a) structural negation
     Fs = range(3)
     Ps = range(3)
@@ -715,6 +754,7 @@ def check_D5():
     force f(y0)=0 and f(y0)=1 simultaneously, i.e. 0=1, a contradiction.
     Separately confirms I holds for the concrete witness f(y)=y. Together
     these prove I does not imply II, so I and II are not equivalent."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     # II is impossible for any real-valued function: a single value f(y0)
     # cannot equal two different reals at once.
     assert 0 != 1

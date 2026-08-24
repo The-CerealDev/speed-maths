@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans05.tex'
 """Computational verification for logic/answers/ans05.tex.
 
 This sheet's toolkit: Spot the Flaw / Common Fallacies / Proof Critique /
@@ -95,6 +102,7 @@ def check_A1():
     genuinely invalid. Concrete instantiation with n=15: divisible by 3
     (Q true) but not by 6 (P false), and the general premise 'divisible by
     6 => divisible by 3' is checked on a sample of multiples of 6."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     counterexample_exists = any(
         implies(P, Q) and Q and not P
         for P, Q in all_assignments(2)
@@ -114,6 +122,7 @@ def check_A2():
     Q=True) where both premises hold but the conclusion fails. Concrete
     instantiation with x=5: x<=10 (not P true) but x>0 (Q true, so not Q
     is false); the premise 'x>10 => x>0' is checked on a sample of reals."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     counterexample_exists = any(
         implies(P, Q) and (not P) and Q
         for P, Q in all_assignments(2)
@@ -136,6 +145,7 @@ def check_A3():
     while a deliberately flawed one-line 'argument' for it ('n is always
     even') is shown to rest on a false premise, i.e. it genuinely fails as
     a proof despite the target claim being true."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     flawed_premise = lambda n: n % 2 == 0     # asserts n is always even -- false in general
     assert not all(flawed_premise(n) for n in range(1, 200)), \
         "the flawed premise must not be universally true, or the argument would not be flawed"
@@ -149,6 +159,7 @@ def check_A4():
     (only) flaw at line 4, lines 5-6 inherit its untrustworthiness even
     though their own algebra could be locally correct -- so exactly lines
     1-3 (3 lines) remain trustworthy."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     flawed_line = 4
     n_lines = 6
     flaw_seen = False
@@ -167,6 +178,7 @@ def check_A5():
     x=-2 as an extraneous solution introduced when squaring the equation
     x=2: -2 does not satisfy x=2, but (-2)^2 = 4 = 2^2, so it satisfies the
     squared equation."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     assert (-2) ** 2 == 4
     assert 2 ** 2 == 4
     assert -2 != 2
@@ -185,6 +197,7 @@ def check_A6():
     false, the tautology's contrapositive forces NOT(premises_true AND
     argument_valid) -- i.e. an error (false premise or invalid step) must
     exist somewhere in the chain."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     for A, B, C in itertools.product([False, True], repeat=3):
         rule_holds = implies(A and B, C)
         if rule_holds and not C:
@@ -201,6 +214,7 @@ def check_A7():
     demonstrating finite verification never entails a universal claim. (i)
     the trivial P(n): n<11. (ii) the richer 2n^2+11, prime for n=1..4 but
     composite at n=11 (reused from B7's fact, 253 = 11*23)."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     P = lambda n: n < 11
     assert all(P(n) for n in range(1, 11))
     assert not P(11)
@@ -216,6 +230,7 @@ def check_A8():
     division IS valid (forces a=b) whenever x!=0. Dividing ax=bx by x
     silently assumes x!=0; at x=0 the equation 0=0 holds for every a,b, so
     a=b need not follow."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     a, b, x = 2, 5, 0
     assert a * x == b * x       # 0 == 0, regardless of a, b
     assert a != b                # yet a != b here -- the division step is unjustified
@@ -232,6 +247,7 @@ def check_A9():
     'unusual-looking but not impossible' result (a large but perfectly
     satisfiable equation) which has an actual satisfying instance and is
     therefore NOT a contradiction."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     for P in (False, True):
         assert (P and (not P)) is False   # unsatisfiable in every case: a genuine contradiction
     # "unusual" but satisfiable: x + 1 = 1000000 has an actual witness, x = 999999
@@ -246,6 +262,7 @@ def check_A10():
     """EXHAUSTIVE PROOF for a concrete counterexample; confirms the cross-multiplication
     identity ad=bc holds even when a!=c and b!=d. Specifically, a/b = c/d does
     not imply a=c and b=d, using the counterexample 1/2 = 2/4."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     a, b, c, d = 1, 2, 2, 4
     assert Fraction(a, b) == Fraction(c, d)
     assert a != c
@@ -262,6 +279,7 @@ def check_B1():
     valid for every integer k, not just the sampled range): confirms
     (2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1 exactly, and that this is always
     odd -- the proof as given is fully valid, with no flaw."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     for k in range(-500, 501):
         n = 2 * k + 1
         assert n ** 2 == 4 * k ** 2 + 4 * k + 1
@@ -274,6 +292,7 @@ def check_B2():
     x^2=3x has at most 2 real roots, both integers here, so a bounded
     search finds all of them): x^2-3x=0 has roots x=0 and x=3, but the
     given proof (divide by x) silently loses x=0 -- invalid when x=0."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     roots = [r for r in range(-30, 31) if r ** 2 == 3 * r]
     assert roots == [0, 3]
     assert 0 ** 2 == 3 * 0        # x=0 genuinely satisfies the original equation
@@ -291,6 +310,7 @@ def check_B3():
     equation sqrt(x+7)=x-5, while x=2 does not (its RHS is negative, so it
     can never equal a non-negative square root) -- confirming x=2 is a
     genuine extraneous root introduced by squaring."""
+    expected_ans = get_answer(TEX_PATH, "B3")
     roots = [r for r in range(-30, 31) if r ** 2 - 11 * r + 18 == 0]
     assert set(roots) == {9, 2}
     assert math.isclose(math.sqrt(9 + 7), 9 - 5)   # x=9 checks out
@@ -309,6 +329,7 @@ def check_B4():
     the true value (9n+12) and Line 3's erroneous value (9n-6) happen to
     be multiples of 3, since the outer factor of 3 is untouched by the
     error -- exactly as the \\method{} notes."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     for n in range(-200, 201):
         A = Fraction(4 * n + 1, 2)
         B = Fraction(n - 3, 2)
@@ -337,6 +358,7 @@ def check_B5():
     \\method{}'s parenthetical) -- so the claim is true overall, but the
     given proof is still incomplete as written since it never establishes
     the odd case."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     for k in range(-200, 201):
         n = 2 * k
         val = n ** 2 + n + 2
@@ -355,6 +377,7 @@ def check_B6():
     real roots): confirms x=3 => x^2=9 (the direction actually shown), but
     x^2=9 does NOT imply x=3, since x=-3 is a genuine counterexample
     satisfying x^2=9 without satisfying x=3."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     assert 3 ** 2 == 9
     assert (-3) ** 2 == 9
     assert -3 != 3
@@ -366,6 +389,7 @@ def check_B7():
     """EXHAUSTIVE PROOF: computes Fibonacci numbers up to F6 to confirm the given
     values (F3, F4, F5) are prime, then confirms F6=8 is neither 1 nor prime, 
     serving as a counterexample to the universal claim."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     F = [0, 1, 1]  # F_0=0 (unused), F_1=1, F_2=1
     for n in range(3, 7):
         F.append(F[n - 1] + F[n - 2])
@@ -390,6 +414,7 @@ def check_B8():
     that A=>B is NOT logically equivalent, in general, to either the
     original claim (notA=>notB) or its contrapositive (B=>A) -- exhibiting
     a concrete truth assignment where they diverge."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     for n in range(-300, 301):
         if n % 3 == 0:
             assert (n ** 2) % 3 == 0
@@ -416,6 +441,7 @@ def check_B9():
     a=2j, b=2k directly gives a+b=2(j+k), even -- WITHOUT ever assuming
     a+b is even up front, demonstrating the flawed proof's opening
     assumption (a+b=2m) was logically unnecessary, i.e. circular."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     for j in range(-200, 201):
         for k in range(-50, 51):
             a, b = 2 * j, 2 * k
@@ -433,6 +459,7 @@ def check_B10():
     identity not(forall x P(x)) == exists x, not P(x), verified exhaustively
     over all 2^5 = 32 possible pass/fail patterns of 5 students, contrasted
     against the (non-equivalent) forall x, not P(x)."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     passed = [True, True, True, False, False]
     every_passed = all(passed)
     assert every_passed is False
@@ -465,6 +492,7 @@ def check_C1():
     actual failure point: n=3 gives 2(9)+6+1=25=5^2, composite. This is
     exactly the category error the \\method{} identifies: irreducibility
     over the reals says nothing about primality of integer outputs."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     a, b, c = 2, 2, 1
     disc = b ** 2 - 4 * a * c
     assert disc == -4
@@ -484,6 +512,7 @@ def check_C2():
     roots): x^2-5x+6 factors exactly as (x-2)(x-3), confirmed for many x.
     x=2 satisfies P (so Q=>P holds), but x=3 ALSO satisfies P without
     satisfying Q, so P=>Q genuinely fails -- confirming the flaw."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     for x in range(-50, 51):
         assert x ** 2 - 5 * x + 6 == (x - 2) * (x - 3)
     assert 2 ** 2 - 5 * 2 + 6 == 0    # x=2 satisfies P (backs Q=>P)
@@ -498,6 +527,7 @@ def check_C3():
     n^2+n = n(n+1), a product of two consecutive integers, always even for
     every integer n): confirms the claim is true for BOTH parities, while
     the proof as given establishes only the even case explicitly."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     for n in range(-300, 301):
         assert n ** 2 + n == n * (n + 1)
         assert (n * (n + 1)) % 2 == 0
@@ -515,6 +545,7 @@ def check_C4():
     1 each step, so exactly one is divisible by 3): confirms Lines I-II,
     then confirms Line III's gap concretely -- 3 itself is divisible by 3
     yet prime, and n=5 gives the all-prime trio 3,5,7."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     for n in range(-500, 501):
         vals = [n - 2, n, n + 2]
         divisible_by_3 = [v % 3 == 0 for v in vals]
@@ -531,6 +562,7 @@ def check_C5():
     every n; separately, for ANY candidate M, taking n:=M breaks M>n --
     disproving 'exists M forall n, M>n' for every candidate, confirming
     the quantifier swap is invalid."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     for n in range(-2000, 2000):
         m = n + 1
         assert m > n
@@ -546,6 +578,7 @@ def check_C6():
     which is NOT a rhombus (its two distinct side lengths differ) --
     exactly the counterexample the \\method{} cites to disprove the
     converse."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     A, B, C, D = (0, 2), (-1, 0), (0, -1), (1, 0)
     AB, BC, CD, DA = dist(A, B), dist(B, C), dist(C, D), dist(D, A)
     assert math.isclose(AB, DA)      # kite: one pair of adjacent sides equal
@@ -563,6 +596,7 @@ def check_C7():
     the STRICT inequality 7<7 genuinely fails -- a fully valid single
     counterexample to a universal strict-inequality claim, confirming the
     student's disproof is correct as it stands."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     x, y = -2, -5
     assert abs(x + y) == 7
     assert abs(x) + abs(y) == 7
@@ -580,6 +614,7 @@ def check_C8():
     length 5) whose diagonals are UNEQUAL in length (6 vs 8), confirming
     it is not a square -- a genuine counterexample to sufficiency
     ('four equal sides => square')."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     verts = [(-3, 0), (0, 4), (3, 0), (0, -4)]
     sides = [dist(verts[i], verts[(i + 1) % 4]) for i in range(4)]
     assert all(math.isclose(s, 5) for s in sides)
@@ -601,6 +636,7 @@ def check_D1():
     and derives s^2>=4p FROM them). Separately confirms the CORRECT
     construction: for s,p with s^2>=4p, the roots of t^2-st+p=0 are real
     and satisfy Vieta's formulas u+v=s, uv=p, on several concrete cases."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     for u in range(-30, 31):
         for v in range(-30, 31):
             s, p = u + v, u * v
@@ -624,6 +660,7 @@ def check_D2():
     verification actually observed), then confirms the claim genuinely
     fails at n=10: 101 (prime, premise true) vs 121=11^2 (composite,
     conclusion false)."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     for n in range(1, 10):
         left = n ** 2 - n + 11
         right = n ** 2 + n + 11
@@ -648,6 +685,7 @@ def check_D3():
     assignments), combined with the fact that what is directly derived
     (odd,odd => odd) is exactly the contrapositive's antecedent/consequent
     of the original claim (ab even => a even or b even)."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     for j in range(-100, 101):
         for k in range(-50, 51):
             lhs = (2 * j + 1) * (2 * k + 1)
@@ -678,6 +716,7 @@ def check_D4():
     stated only asserts necessity. Also confirms the k=0 edge case (6*0+3
     = 3, itself prime) is correctly excluded by the hypothesis 'greater
     than 3'."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     for m in range(0, 3000):
         r = m % 6
         if r in (0, 2, 4):
@@ -700,6 +739,7 @@ def check_D5():
     and n=2 is the unique exception where n^2-1 is not composite. For every n>=3,
     n-1>=2 and n+1>=4, making both factors >=2, which genuinely proves n^2-1 is
     composite for all n>=3. Checked here exhaustively up to n=50."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     for n in range(2, 51):
         assert n ** 2 - 1 == (n - 1) * (n + 1)
 

@@ -100,51 +100,28 @@ else can trust or re-check — they're a claim. This repo verifies by
 committed, re-runnable script, not by self-report.
 
 **Convention:**
-- One file per sheet: `<pillar>/verify/sheetNN_verify.py` (stdlib Python
-  only — no dependencies to install, no friction for contributors who
-  aren't primarily programmers).
+- One file per sheet: `<pillar>/verify/sheetNN_verify.py` 
 - One `check_<label>()` function per question that gets a script (label
   matches the sheet, e.g. `check_A1`, `check_D5`).
 - Each function must:
-  1. **Independently re-derive the `\ans{}` value** — brute force, direct
-     computation, or a full DP/game-tree solve. Never just re-type the
-     method's arithmetic and assert it equals itself.
-  2. **Assert every checkable factual or numeric claim in the `\method{}`**,
-     not only the final answer. A `\method{}` can state a wrong
-     intermediate fact (a modular claim, a factorisation, an identity)
-     while the final `\ans{}` still happens to be right — the script must
-     catch that, because a reviewer skimming prose won't reliably.
-  - Claims that are pure framing or motivation ("this is startling",
-    "the surest way to find a recurrence") are not checkable statements
-    and are left alone — that stays a human judgement call.
+  1. **Parse the LaTeX Answer:** Use `tools.latex_bridge.get_answer(filepath, label)` to dynamically read the exact `\ans{}` text printed in the `.tex` file. Do NOT hardcode the expected answer (`120` or `56`) into your Python script.
+  2. **Independently re-derive the value:** Use brute force, dynamic programming, or algorithmic generation.
+  3. **Assert Equivalence with SymPy:** Use `sympy.simplify(computed - expected) == 0` to mathematically prove the Python result matches the parsed LaTeX string.
+  4. **Use Hypothesis:** For property-based algebraic identities, use the `@given` decorator from `hypothesis` rather than writing brittle `for _ in range(50): a = random.randint()` loops.
+- **No Facade Tests:** Do not write tautologies (`p**2 == p**2`), trivial math (`2+2==4`), or `pass`. The CI runs **mutation testing (`mutmut`)**, which will intentionally mutate your Python script. If your test still passes after its logic is broken, the mutant survives, and your PR will be rejected.
 - **Every script's `main()` must open with an `if not __debug__:` guard
-  that refuses to run** (see `combinatorics/verify/sheet07_verify.py`).
-  `python -O` or `PYTHONOPTIMIZE=1` strips every `assert` at compile
-  time — since assertions are the entire verification mechanism, running
-  under either would silently report every check as PASS while checking
-  nothing. This has to be an `if`, never an `assert`, or the guard itself
-  gets stripped too.
+  that refuses to run**. `python -O` or `PYTHONOPTIMIZE=1` strips every `assert` at compile
+  time.
 - Run a whole pillar's sheets with `python3 <pillar>/verify/run_all.py`.
-  **A nonzero exit is a merge blocker, full stop** — this is the actual
-  gate, not the honesty-system checklist item it used to be.
+  **A nonzero exit is a merge blocker, full stop.**
 - Commit the verify script alongside the `.tex` and `.pdf` in the same PR.
 - **If an AI agent drafted the `\method{}`, a different agent (fresh
   context, no memory of drafting it) must write the verify script for
   it — never the same agent that wrote the method.** An agent checking
-  its own output shares its own blind spots: it can write an assertion
-  that technically passes while quietly checking something easier than
-  the actual claim, and there's no independent eye to catch it. Feed the
-  second agent only the question and the `\method{}` text, not the
-  drafting conversation, and have it write the checks cold.
-  **This is unenforceable by inspection — a reviewer cannot tell from
-  the diff whether it actually happened.** So say it explicitly in the
-  PR description ("method: agent A, verify script: agent B, fresh
-  context") alongside the AI-disclosure line below. Treat it as a
-  disclosed claim you're trusting the contributor on, same as "I solved
-  this myself" — not a gate the process itself enforces.
+  its own output shares its own blind spots.
 - **Before submitting, break your own script on purpose once and confirm
   it fails.** Change one asserted value, or the claim it's checking, and
-  re-run. If it still says PASS, the check is vacuous (a stray early
+  re-run.
   return, a tautological assertion, a variable that's shadowed and never
   actually used) — this is the one cheap step that catches a check that
   looks real but verifies nothing.

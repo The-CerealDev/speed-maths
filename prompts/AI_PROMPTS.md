@@ -209,27 +209,37 @@ Now that the AI has the context of the 33 questions, ask it to generate the Answ
 
 **Copy & Paste this Prompt:**
 > You are verifying a mathematical worksheet for the Speed Maths project.
-> I have a question labeled `[Question ID, e.g., A1]` with the following answer and method:
+> I have a question labeled `[Question ID, e.g., A1]` in the sheet `[pillar]/answers/ans[XX].tex`.
 > 
-> **[PASTE THE \ans{} AND \method{} TEXT HERE]**
->
 > Please write a Python test function named `def check_[Question ID]():` that computationally verifies this answer.
 > 
 > **Rules:**
-> 1. Use ONLY the Python Standard Library. No external packages.
-> 2. Independently re-derive the `\ans{}` value using brute force, dynamic programming, or random sampling.
-> 3. You MUST mimic this exact structural sample from the repository. Note the exact docstring required:
+> 1. You MUST use the `tools.latex_bridge.get_answer(filepath, label)` function to parse the expected answer directly from the `.tex` file. Do NOT hardcode the expected answer string or integer.
+> 2. You MUST use `sympy` and `hypothesis` (Property-Based Testing) where applicable. Do NOT use `random.randint` loops.
+> 3. Your assertions must be strictly derived. Do not write "facade" tests or tautologies (e.g. `assert 2+2=4` or `p**2 == p**2`). The codebase uses `mutmut` mutation testing to automatically catch and fail fake tests.
+> 4. You MUST mimic this exact structural sample from the repository. Note the exact docstring required:
 > 
 > ```python
 > # A2
 > def check_A2():
->     """ SAMPLED CHECK: Random rational testing """
->     for _ in range(50):
->         a = fractions.Fraction(random.randint(-10, 10), random.randint(1, 10))
->         b = fractions.Fraction(random.randint(-10, 10), random.randint(1, 10))
->         if a + b != 0:
->             assert (a**2 - b**2) / (a**2 + 2*a*b + b**2) == (a - b) / (a + b)
+>     """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing."""
+>     # 1. Parse the expected answer directly from the LaTeX file
+>     expected_ans = get_answer('algebra/answers/ans07.tex', 'A2')
+>     
+>     # 2. Define the generic mathematical property using Hypothesis
+>     @given(
+>         st.integers(min_value=-100, max_value=100),
+>         st.integers(min_value=-100, max_value=100),
+>         st.integers(min_value=-100, max_value=100)
+>     )
+>     def test_identity(a, b, c):
+>         computed_ans = 2 * 4  # (Independent computation logic here)
+>         
+>         # 3. Assert using SymPy equivalence
+>         assert sympy.simplify(computed_ans - expected_ans) == 0
+>
+>     test_identity()
 > ```
-> *(Use `"""EXHAUSTIVE PROOF"""` if you do not use sampling).*
+> *(Use `"""SAMPLED CHECK"""` if you do not use exhaustive generation).*
 
 *(Manual Step: Copy the Python function and append it to `[pillar]/verify/sheetXX_verify.py`)*

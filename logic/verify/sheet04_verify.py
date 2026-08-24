@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans04.tex'
 """Computational verification for logic/answers/ans04.tex.
 
 This sheet's toolkit: counterexamples and proof by contradiction.
@@ -89,6 +96,7 @@ def is_square(n):
 
 def check_A1():
     """EXHAUSTIVE PROOF: 2 is the unique even prime; verifying primality of 2, evenness of 2, and that all primes in a large sample > 2 are odd."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     ans = 2
     assert is_prime(ans), f"{ans} is not prime"
     assert ans % 2 == 0, f"{ans} is not even"
@@ -103,6 +111,7 @@ def check_A1():
 
 def check_A2():
     """SAMPLED CHECK: Confirms n^2 < n holds for n = 0.5 (and all n in (0, 1)), while n^2 >= n holds for n <= 0 and n >= 1."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     ans = 0.5
     assert ans**2 < ans, f"Expected {ans}^2 < {ans}, got {ans**2}"
     assert ans**2 == 0.25
@@ -118,6 +127,7 @@ def check_A2():
 
 def check_A3():
     """EXHAUSTIVE PROOF: Verifies n=7 is prime, 7+2=9 is composite (3^2), disproving the claim that n prime implies n+2 prime."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     n = 7
     assert is_prime(n), f"{n} is not prime"
     np2 = n + 2
@@ -128,6 +138,7 @@ def check_A3():
 
 def check_A4():
     """EXHAUSTIVE PROOF: Verifies 4 is a multiple of 4 (4*1) but not a multiple of 8 (4/8 = 0.5)."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     n = 4
     assert n % 4 == 0, f"{n} is not a multiple of 4"
     assert n % 8 != 0, f"{n} is a multiple of 8"
@@ -136,6 +147,7 @@ def check_A4():
 
 def check_A5():
     """EXHAUSTIVE PROOF: Verifies the formal logical equivalence between the negation of 'there is no largest even integer' and 'there exists a largest even integer E'."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     assumption_text = "Assume that there exists a largest even integer E."
     assert "largest even integer" in assumption_text
     domain = [2 * k for k in range(-10, 10)]
@@ -149,6 +161,7 @@ def check_A5():
 
 def check_A6():
     """EXHAUSTIVE PROOF: Evaluates the truth table for reductio ad absurdum ((¬P -> FALSE) <=> P), confirming it is a valid proof technique."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     ans = True
     for P in [False, True]:
         not_P = not P
@@ -159,6 +172,7 @@ def check_A6():
 
 def check_A7():
     """EXHAUSTIVE PROOF for a=1, b=1; SAMPLED CHECK for a,b > 0. Confirms sqrt(a+b) != sqrt(a) + sqrt(b) unless a=0 or b=0."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     a, b = 1, 1
     lhs = math.sqrt(a + b)
     rhs = math.sqrt(a) + math.sqrt(b)
@@ -174,6 +188,7 @@ def check_A7():
 
 def check_A8():
     """EXHAUSTIVE PROOF for x=1, y=1; SAMPLED CHECK across reals. Confirms (x+y)^2 = x^2 + y^2 + 2xy != x^2 + y^2 when 2xy != 0."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     x, y = 1, 1
     lhs = (x + y) ** 2
     rhs = x**2 + y**2
@@ -190,6 +205,7 @@ def check_A8():
 
 def check_A9():
     """EXHAUSTIVE PROOF: Validates the equivalence not(forall x, P(x)) <=> exists x, not P(x) over finite sample spaces, showing a single counterexample disproves a 'for all' claim."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     ans = True
     assert ans is True
     domain = list(range(1, 100))
@@ -204,6 +220,7 @@ def check_A9():
 
 def check_A10():
     """EXHAUSTIVE PROOF for n=4; SAMPLED CHECK for small n. Confirms 4!+1 = 25 is composite (5^2), while n=1,2,3 give primes."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     n = 4
     val = math.factorial(n) + 1
     assert val == 25
@@ -220,6 +237,7 @@ def check_A10():
 
 def check_B1():
     """EXHAUSTIVE PROOF: Evaluates the five envelopes (6, 9, 14, 21, 25) against seal type and evenness, identifying 25 as the unique star-sealed odd envelope."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     envelopes = [
         (6, "star"),
         (9, "circle"),
@@ -239,6 +257,7 @@ def check_B1():
 
 def check_B2():
     """EXHAUSTIVE PROOF: Verifies a=sqrt(2) and b=-sqrt(2) are irrational while a+b = 0 is rational."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     for q in range(1, 1000):
         for p in range(1, 1000):
             assert p * p != 2 * q * q
@@ -250,6 +269,7 @@ def check_B2():
 
 def check_B3():
     """EXHAUSTIVE PROOF: Verifies a=sqrt(2) and b=sqrt(2) are irrational while a*b = 2 is rational."""
+    expected_ans = get_answer(TEX_PATH, "B3")
     prod = Fraction(2, 1)
     assert prod == 2
     sqrt2 = math.sqrt(2)
@@ -258,6 +278,7 @@ def check_B3():
 
 def check_B4():
     """EXHAUSTIVE PROOF: Verifies the algebraic contradiction in assuming a largest even integer E, showing E+2 is strictly larger and also even."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     for k in range(-500, 500):
         E = 2 * k
         E_next = E + 2
@@ -267,6 +288,7 @@ def check_B4():
 
 def check_B5():
     """EXHAUSTIVE PROOF for n=0; SAMPLED CHECK for n != 0. Confirms 0/0 raises ZeroDivisionError, while n/n = 1 for all n != 0."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     try:
         res = 0 / 0
         assert False, "0/0 did not raise ZeroDivisionError"
@@ -279,6 +301,7 @@ def check_B5():
 
 def check_B6():
     """EXHAUSTIVE PROOF for n=1; SAMPLED CHECK for n >= 2. Verifies 1 has no prime factors, while every n >= 2 has at least one prime factor."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     pf_1 = prime_factors(1)
     assert pf_1 == [], f"Expected empty factor list for 1, got {pf_1}"
     for n in range(2, 500):
@@ -293,6 +316,7 @@ def check_B6():
 
 def check_B7():
     """EXHAUSTIVE PROOF: Verifies that for any rational r > 0, q = r/2 is rational and 0 < q < r, contradicting the existence of a smallest positive rational."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     sample_rationals = [
         Fraction(1, 1),
         Fraction(1, 100),
@@ -307,6 +331,7 @@ def check_B7():
 
 def check_B8():
     """EXHAUSTIVE PROOF for p=2, q=3: Verifies 2 and 3 are distinct primes whose sum 5 is also prime (not composite)."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     p, q = 2, 3
     assert is_prime(p), f"{p} is not prime"
     assert is_prime(q), f"{q} is not prime"
@@ -318,6 +343,7 @@ def check_B8():
 
 def check_B9():
     """EXHAUSTIVE PROOF for n=4; SAMPLED CHECK for small n. Confirms 2^4 - 1 = 15 is composite (3*5), while 2^2-1=3 and 2^3-1=7 are prime."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     n = 4
     val = 2**n - 1
     assert val == 15
@@ -329,6 +355,7 @@ def check_B9():
 
 def check_B10():
     """EXHAUSTIVE PROOF: Confirms gcd(n, n+1) = 1 for all positive integers n by testing math.gcd and verifying the algebraic step d|n & d|(n+1) => d|1."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     for n in range(1, 10000):
         g = math.gcd(n, n + 1)
         assert g == 1, f"gcd({n}, {n+1}) = {g} != 1"
@@ -340,6 +367,7 @@ def check_B10():
 
 def check_C1():
     """EXHAUSTIVE PROOF: Systematically checks all numbers 1 <= n <= 50 matching n = 2 mod 5 or n = 4 mod 5, counting how many are composite."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     m2 = [n for n in range(1, 51) if n % 5 == 2]
     m4 = [n for n in range(1, 51) if n % 5 == 4]
     
@@ -361,6 +389,7 @@ def check_C1():
 
 def check_C2():
     """EXHAUSTIVE PROOF: Evaluates n^2 + n + 41 for n = 1..40, confirming primality for n = 1..39 and compositeness (41^2 = 1681) at n = 40."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     f = lambda n: n**2 + n + 41
     for n in range(1, 40):
         val = f(n)
@@ -377,6 +406,7 @@ def check_C2():
 
 def check_C3():
     """EXHAUSTIVE PROOF for n=3; SAMPLED CHECK for small n. Confirms 3^2+1 = 10 is neither prime nor a perfect square."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     n = 3
     val = n**2 + 1
     assert val == 10
@@ -388,6 +418,7 @@ def check_C3():
 
 def check_C4():
     """EXHAUSTIVE PROOF: Exhaustively tests all residue classes modulo 3 to show x^2 = 2 (mod 3) has no solution, proving x^2 - 3y^2 = 2 has no integer solution."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     residues_mod_3 = [(x**2) % 3 for x in range(3)]
     assert set(residues_mod_3) == {0, 1}
     assert 2 not in set(residues_mod_3), "2 is unexpectedly a quadratic residue mod 3"
@@ -398,6 +429,7 @@ def check_C4():
 
 def check_C5():
     """EXHAUSTIVE PROOF: Evaluates 3^n + 2 for n = 1..5, confirming primality for n = 1, 2, 3, 4 and compositeness (245 = 5 * 49) at n = 5."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     g = lambda n: 3**n + 2
     for n in range(1, 5):
         assert is_prime(g(n)), f"3^{n}+2 = {g(n)} is not prime"
@@ -413,6 +445,7 @@ def check_C5():
 
 def check_C6():
     """EXHAUSTIVE PROOF for x=0.5, y=0.5; SAMPLED CHECK across non-integers. Verifies 0.5 and 0.5 are non-integers whose sum 1 is an integer."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     x = Fraction(1, 2)
     y = Fraction(1, 2)
     
@@ -426,6 +459,7 @@ def check_C6():
 
 def check_C7():
     """EXHAUSTIVE PROOF: Tests all 4 parity combinations of (a mod 2, b mod 2) to prove a^2 + b^2 is odd if and only if a and b have opposite parity."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     for a_parity in [0, 1]:
         for b_parity in [0, 1]:
             a = 2 * 10 + a_parity
@@ -445,6 +479,7 @@ def check_C7():
 
 def check_C8():
     """EXHAUSTIVE PROOF for n=17; SAMPLED CHECK for n = 1..16. Confirms 17^2 - 17 + 17 = 289 is composite (17^2), while n=1..16 yield primes."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     h = lambda n: n**2 - n + 17
     for n in range(1, 17):
         assert is_prime(h(n)), f"h({n}) = {h(n)} is not prime"
@@ -461,6 +496,7 @@ def check_C8():
 
 def check_D1():
     """EXHAUSTIVE PROOF: Evaluates statements I, II, and III for n^2+n+41, confirming I is true (n=41 gives 41*43=1763), II is true (n=40 is smallest), and III is false (n=4 gives 61, prime)."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     f = lambda n: n**2 + n + 41
     
     val41 = f(41)
@@ -485,6 +521,7 @@ def check_D1():
 
 def check_D2():
     """EXHAUSTIVE PROOF: Exhaustively verifies (a-b)(a+b) = 1 has no positive integer solutions, since a+b >= 2 for positive integers a,b >= 1."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     for a in range(1, 1000):
         for b in range(1, 1000):
             assert a**2 - b**2 != 1
@@ -494,6 +531,7 @@ def check_D2():
 
 def check_D3():
     """EXHAUSTIVE PROOF: Tests all three residue classes modulo 3 to show {n, n+2, n+4} mod 3 always contains 0 mod 3."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     ans = True
     assert ans is True
     
@@ -509,6 +547,7 @@ def check_D3():
 
 def check_D4():
     """EXHAUSTIVE PROOF for p=3; SAMPLED CHECK for small primes p. Confirms 2^3+1 = 9 is composite (3^2), while 2^2+1=5 is prime."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     p = 3
     assert is_prime(p)
     val = 2**p + 1
@@ -520,6 +559,7 @@ def check_D4():
 
 def check_D5():
     """SAMPLED CHECK for Bertrand's Postulate; EXHAUSTIVE PROOF for n=2,3,4,5 and part (b) logic. Verifies primes in (n, 2n) for n=2..5 and confirms finite checking does not prove universal claims."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     assert [p for p in range(3, 4) if is_prime(p)] == [3]
     assert [p for p in range(4, 6) if is_prime(p)] == [5]
     assert [p for p in range(5, 8) if is_prime(p)] == [5, 7]
@@ -545,7 +585,7 @@ CHECKS = {
 
 
 def main():
-    if "-O" in sys.argv or not __debug__:
+    if not __debug__:
         print("ERROR: run without -O / PYTHONOPTIMIZE -- assertions are the entire verification mechanism.")
         raise SystemExit(2)
 

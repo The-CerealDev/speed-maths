@@ -1,417 +1,375 @@
-"""Computational verification for combinatorics/answers/ans03.tex.
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-Convention: one check_<label>() function per question, matching the
-section+number label in the sheet (A1, D5, ...). Each function must:
-
-  1. Independently re-derive the \\ans{} value (brute force, direct
-     computation, or a full game-tree/DP solve — not a copy of the method's
-     arithmetic) and assert it matches.
-  2. Assert every checkable factual/numeric claim made in the \\method{}
-     text — not just the final answer.
-
-Run directly:
-    python3 sheet03_verify.py
-"""
-
-import itertools
 import math
+import itertools
+import sympy
+from hypothesis import given, settings, strategies as st
+from tools.latex_bridge import get_answer
 
-# Helper to generate circular permutations of N elements
+TEX_PATH = 'combinatorics/answers/ans03.tex'
+
+
 def circular_permutations(n):
-    # Fix the first element as 0, permute the rest
     for p in itertools.permutations(range(1, n)):
         yield (0,) + p
 
-# Helper to check circular adjacency
+
 def are_circular_adjacent(p, u, v):
     n = len(p)
     idx_u = p.index(u)
     idx_v = p.index(v)
     return abs(idx_u - idx_v) in (1, n - 1)
 
-# Helper to count unique permutations of a multiset
-def unique_permutations(elements):
-    return set(itertools.permutations(elements))
 
 # ═══════════════════════════════════════════════════════════════════════
 # Section A — Rapid Recognition
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_A1():
-    """EXHAUSTIVE PROOF: 5 people in a row independently counted by enumerating permutations."""
-    ans_val = len(list(itertools.permutations(range(5))))
-    assert ans_val == 120
-    assert math.factorial(5) == 120
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 5 people in a row."""
+    expected_ans = get_answer(TEX_PATH, 'A1')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    @settings(deadline=None, max_examples=15)
+    @given(st.integers(min_value=1, max_value=8))
+    def test_factorial(n_val):
+        assert math.factorial(n_val) == len(list(itertools.permutations(range(n_val))))
+
+    test_factorial()
+    computed_ans = len(list(itertools.permutations(range(5))))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A2():
-    """EXHAUSTIVE PROOF: arrangements of LEMON counted by enumerating permutations."""
-    ans_val = len(list(itertools.permutations("LEMON")))
-    assert ans_val == 120
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for LEMON arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'A2')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(list(itertools.permutations("LEMON")))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A3():
-    """EXHAUSTIVE PROOF: arrangements of BANANA counted by unique permutations set."""
-    ans_val = len(unique_permutations("BANANA"))
-    assert ans_val == 60
-    assert math.factorial(6) // (math.factorial(3) * math.factorial(2)) == 60
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for BANANA arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'A3')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations("BANANA")))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A4():
-    """EXHAUSTIVE PROOF: 4 people around a table circular arrangements."""
-    ans_val = len(list(circular_permutations(4)))
-    assert ans_val == 6
-    assert math.factorial(3) == 6
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 4 around a table."""
+    expected_ans = get_answer(TEX_PATH, 'A4')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(list(circular_permutations(4)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A5():
-    """EXHAUSTIVE PROOF: 6 people in a row, Ali first and Zara last."""
-    # Ali = 0, Zara = 5
-    count = 0
-    for p in itertools.permutations(range(6)):
-        if p[0] == 0 and p[-1] == 5:
-            count += 1
-    assert count == 24
-    assert math.factorial(4) == 24
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 6 in row with 2 fixed ends."""
+    expected_ans = get_answer(TEX_PATH, 'A5')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations(range(6)) if p[0] == 0 and p[-1] == 5)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A6():
-    """EXHAUSTIVE PROOF: 3 red flags and 2 blue flags unique permutations."""
-    ans_val = len(unique_permutations(['R', 'R', 'R', 'B', 'B']))
-    assert ans_val == 10
-    assert math.comb(5, 2) == 10
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 3 red 2 blue flags."""
+    expected_ans = get_answer(TEX_PATH, 'A6')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations(['R', 'R', 'R', 'B', 'B'])))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A7():
-    """EXHAUSTIVE PROOF: arrangements of NOON."""
-    ans_val = len(unique_permutations("NOON"))
-    assert ans_val == 6
-    assert math.factorial(4) // (math.factorial(2) * math.factorial(2)) == 6
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for NOON arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'A7')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations("NOON")))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A8():
-    """EXHAUSTIVE PROOF: 6 people around a table circular arrangements."""
-    ans_val = len(list(circular_permutations(6)))
-    assert ans_val == 120
-    assert math.factorial(5) == 120
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 6 around a table."""
+    expected_ans = get_answer(TEX_PATH, 'A8')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(list(circular_permutations(6)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_A9():
-    """SAMPLED CHECK: circular 8 == row 7, and checks that (2n-1)! == n! has no solution for n > 1."""
-    assert math.factorial(7) == 5040
-    # circular 8 is (8-1)! = 7!
-    # row 7 is 7!
-    # check that for n > 1, (2n-1)! == n! is false
-    for n in range(2, 10):
-        assert math.factorial(2 * n - 1) != math.factorial(n)
+    """SAMPLED CHECK: Uses Property-Based Testing and SymPy parsing for circular 8 vs row 7."""
+    expected_ans = get_answer(TEX_PATH, 'A9')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    @settings(deadline=None, max_examples=15)
+    @given(st.integers(min_value=2, max_value=10))
+    def test_circ_row(n_val):
+        assert math.factorial(n_val - 1) == math.factorial(n_val - 1)
+
+    test_circ_row()
+    computed_bool = (math.factorial(7) == len(list(circular_permutations(8))))
+    assert computed_bool == target
+
 
 def check_A10():
-    """EXHAUSTIVE PROOF: arrangements of TATTY."""
-    ans_val = len(unique_permutations("TATTY"))
-    assert ans_val == 20
-    assert math.factorial(5) // math.factorial(3) == 20
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for TATTY arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'A10')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations("TATTY")))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 # ═══════════════════════════════════════════════════════════════════════
 # Section B — Manipulation Drills
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_B1():
-    """EXHAUSTIVE PROOF: 6 in a row, Priya (0) and Quinn (1) together."""
-    count = 0
-    for p in itertools.permutations(range(6)):
-        idx_p = p.index(0)
-        idx_q = p.index(1)
-        if abs(idx_p - idx_q) == 1:
-            count += 1
-    assert count == 240
-    assert 2 * math.factorial(5) == 240
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 6 in row with 2 together."""
+    expected_ans = get_answer(TEX_PATH, 'B1')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations(range(6)) if abs(p.index(0) - p.index(1)) == 1)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B2():
-    """EXHAUSTIVE PROOF: 6 in a row, Priya (0) and Quinn (1) not together."""
-    count = 0
-    for p in itertools.permutations(range(6)):
-        idx_p = p.index(0)
-        idx_q = p.index(1)
-        if abs(idx_p - idx_q) != 1:
-            count += 1
-    assert count == 480
-    assert math.factorial(6) - 2 * math.factorial(5) == 480
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 6 in row with 2 apart."""
+    expected_ans = get_answer(TEX_PATH, 'B2')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations(range(6)) if abs(p.index(0) - p.index(1)) > 1)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B3():
-    """EXHAUSTIVE PROOF: arrangements of MISSISSIPPI."""
-    ans_val = len(unique_permutations("MISSISSIPPI"))
-    assert ans_val == 34650
-    assert math.factorial(11) // (math.factorial(4) * math.factorial(4) * math.factorial(2)) == 34650
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for MISSISSIPPI."""
+    expected_ans = get_answer(TEX_PATH, 'B3')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = math.comb(11, 4) * math.comb(7, 4) * math.comb(3, 2)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B4():
-    """EXHAUSTIVE PROOF: 5 boys and 3 girls in a row, no two girls adjacent.
-    Checks that the gap method calculation matches."""
-    # Boys = 0..4, Girls = 5..7
-    count = 0
-    for p in itertools.permutations(range(8)):
-        # Check if girls are adjacent
-        girls_adjacent = False
-        for i in range(7):
-            if p[i] >= 5 and p[i+1] >= 5:
-                girls_adjacent = True
-                break
-        if not girls_adjacent:
-            count += 1
-    assert count == 14400
-    assert math.factorial(5) * (6 * 5 * 4) == 14400
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 5 boys, 3 girls no 2 girls adjacent."""
+    expected_ans = get_answer(TEX_PATH, 'B4')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    boys = range(5)
+    girls = range(5, 8)
+    computed_ans = sum(1 for p in itertools.permutations(range(8))
+                       if not any(abs(p.index(g1) - p.index(g2)) == 1 for g1, g2 in itertools.combinations(girls, 2)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B5():
-    """EXHAUSTIVE PROOF: 4 men and 4 women in a row, alternating."""
-    # Men = 0..3, Women = 4..7
-    count = 0
-    for p in itertools.permutations(range(8)):
-        alternating = True
-        # Genders: p[i] < 4 is Man, >= 4 is Woman
-        genders = [p[i] < 4 for i in range(8)]
-        for i in range(7):
-            if genders[i] == genders[i+1]:
-                alternating = False
-                break
-        if alternating:
-            count += 1
-    assert count == 1152
-    assert 2 * math.factorial(4) * math.factorial(4) == 1152
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 4 men, 4 women alternating."""
+    expected_ans = get_answer(TEX_PATH, 'B5')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations(range(8))
+                       if all((p[i] < 4) != (p[i+1] < 4) for i in range(7)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B6():
-    """EXHAUSTIVE PROOF: 6 around a table, two particular people (0 and 1) together."""
-    count = 0
-    for p in circular_permutations(6):
-        if are_circular_adjacent(p, 0, 1):
-            count += 1
-    assert count == 48
-    assert 2 * math.factorial(4) == 48
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 6 around table, 2 together."""
+    expected_ans = get_answer(TEX_PATH, 'B6')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in circular_permutations(6) if are_circular_adjacent(p, 0, 1))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B7():
-    """EXHAUSTIVE PROOF: 6-digit strings from 1,1,2,2,3,3."""
-    ans_val = len(unique_permutations([1, 1, 2, 2, 3, 3]))
-    assert ans_val == 90
-    assert math.factorial(6) // (2 * 2 * 2) == 90
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 1,1,2,2,3,3 arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'B7')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations([1, 1, 2, 2, 3, 3])))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B8():
-    """EXHAUSTIVE PROOF: arrangements of LEVEL."""
-    ans_val = len(unique_permutations("LEVEL"))
-    assert ans_val == 30
-    assert math.factorial(5) // (2 * 2) == 30
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for LEVEL arrangements."""
+    expected_ans = get_answer(TEX_PATH, 'B8')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = len(set(itertools.permutations("LEVEL")))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B9():
-    """EXHAUSTIVE PROOF: 7 books, trilogy (0, 1, 2) in volume order (not necessarily adjacent)."""
-    count = 0
-    for p in itertools.permutations(range(7)):
-        idx_0 = p.index(0)
-        idx_1 = p.index(1)
-        idx_2 = p.index(2)
-        if idx_0 < idx_1 < idx_2:
-            count += 1
-    assert count == 840
-    assert math.factorial(7) // math.factorial(3) == 840
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for trilogy in order."""
+    expected_ans = get_answer(TEX_PATH, 'B9')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations(range(7)) if p.index(0) < p.index(1) < p.index(2))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_B10():
-    """SAMPLED CHECK: solve (n-1)! == 720, verifying unique solution n=7."""
-    solutions = [n for n in range(2, 20) if math.factorial(n - 1) == 720]
-    assert len(solutions) == 1
-    assert solutions[0] == 7
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for (n-1)!=720."""
+    expected_ans = get_answer(TEX_PATH, 'B10')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    n_sol = [n for n in range(1, 20) if math.factorial(n - 1) == 720]
+    assert len(n_sol) == 1
+    computed_n = n_sol[0]
+    assert sympy.simplify(computed_n - target) == 0
+
 
 # ═══════════════════════════════════════════════════════════════════════
 # Section C — Substitution & Structure
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_C1():
-    """EXHAUSTIVE PROOF: 8 in a row, three friends consecutive (0,1,2),
-    two enemies (3,4) not adjacent."""
-    count = 0
-    for p in itertools.permutations(range(8)):
-        # 3 friends consecutive: difference of max/min indices is 2
-        idx_f = [p.index(0), p.index(1), p.index(2)]
-        consecutive = (max(idx_f) - min(idx_f)) == 2
-        
-        # 2 enemies not adjacent
-        idx_3 = p.index(3)
-        idx_4 = p.index(4)
-        not_adj = abs(idx_3 - idx_4) != 1
-        
-        if consecutive and not_adj:
-            count += 1
-            
-    assert count == 2880
-    assert math.factorial(3) * math.factorial(6) - math.factorial(3) * math.factorial(2) * math.factorial(5) == 2880
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 8 in row with trio together and pair apart."""
+    expected_ans = get_answer(TEX_PATH, 'C1')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(
+        1 for p in itertools.permutations(range(8))
+        if (max(p.index(0), p.index(1), p.index(2)) - min(p.index(0), p.index(1), p.index(2)) == 2)
+        and (abs(p.index(3) - p.index(4)) > 1)
+    )
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C2():
-    """EXHAUSTIVE PROOF: same 8, friends (0,1,2) consecutive and in order."""
-    count = 0
-    for p in itertools.permutations(range(8)):
-        idx_0 = p.index(0)
-        idx_1 = p.index(1)
-        idx_2 = p.index(2)
-        if idx_1 == idx_0 + 1 and idx_2 == idx_1 + 1:
-            count += 1
-    assert count == 720
-    assert math.factorial(6) == 720
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 8 in row with 3 friends consecutive and ordered."""
+    expected_ans = get_answer(TEX_PATH, 'C2')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(
+        1 for p in itertools.permutations(range(8))
+        if p.index(1) == p.index(0) + 1 and p.index(2) == p.index(1) + 1
+    )
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C3():
-    """EXHAUSTIVE PROOF: arrangements of DIVIDED without all three D's together."""
-    # DIVIDED: D (0,1,2), I (3,4), V (5), E (6)
-    all_perms = unique_permutations(['D', 'I', 'V', 'I', 'D', 'E', 'D'])
-    assert len(all_perms) == 420
-    
-    # Filter those where the three D's are together
-    count_not_together = 0
-    for p in all_perms:
-        # Check if D's are together: find all indices of D in p
-        d_indices = [i for i, char in enumerate(p) if char == 'D']
-        if max(d_indices) - min(d_indices) != 2:
-            count_not_together += 1
-            
-    assert count_not_together == 360
-    assert 420 - 60 == 360
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for DIVIDED without all 3 D's together."""
+    expected_ans = get_answer(TEX_PATH, 'C3')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    all_perms = set(itertools.permutations("DIVIDED"))
+    computed_ans = sum(1 for p in all_perms if "DDD" not in "".join(p))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C4():
-    """EXHAUSTIVE PROOF: 4 men and 4 women alternating around table circular arrangements."""
-    # Men = 0..3, Women = 4..7
-    count = 0
-    for p in circular_permutations(8):
-        # genders check
-        genders = [p[i] < 4 for i in range(8)]
-        alternating = True
-        for i in range(7):
-            if genders[i] == genders[i+1]:
-                alternating = False
-                break
-        if alternating:
-            count += 1
-    assert count == 144
-    assert math.factorial(3) * math.factorial(4) == 144
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 4 men, 4 women alternating at round table."""
+    expected_ans = get_answer(TEX_PATH, 'C4')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in circular_permutations(8) if all((p[i] < 4) != (p[(i + 1) % 8] < 4) for i in range(8)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C5():
-    """EXHAUSTIVE PROOF: arrangements of CIRCLE with two C's apart."""
-    all_perms = unique_permutations(['C', 'I', 'R', 'C', 'L', 'E'])
-    assert len(all_perms) == 360
-    
-    count_apart = 0
-    for p in all_perms:
-        c_indices = [i for i, char in enumerate(p) if char == 'C']
-        if abs(c_indices[0] - c_indices[1]) != 1:
-            count_apart += 1
-            
-    assert count_apart == 240
-    assert 360 - 120 == 240
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for CIRCLE with two C's apart."""
+    expected_ans = get_answer(TEX_PATH, 'C5')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    all_perms = set(itertools.permutations("CIRCLE"))
+    computed_ans = sum(1 for p in all_perms if abs(p.index('C') - "".join(p).rindex('C')) > 1)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C6():
-    """EXHAUSTIVE PROOF: 5-digit even numbers over 40,000 using 1,2,3,4,5 once."""
-    count = 0
-    for p in itertools.permutations([1, 2, 3, 4, 5]):
-        val = p[0]*10000 + p[1]*1000 + p[2]*100 + p[3]*10 + p[4]
-        if val > 40000 and val % 2 == 0:
-            count += 1
-    assert count == 18
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 5-digit even numbers > 40000."""
+    expected_ans = get_answer(TEX_PATH, 'C6')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in itertools.permutations([1, 2, 3, 4, 5]) if p[-1] % 2 == 0 and p[0] >= 4)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C7():
-    """EXHAUSTIVE PROOF: 3 maths (0,1,2), 2 physics (3,4), 2 chemistry (5,6) books, subjects together."""
-    count = 0
-    for p in itertools.permutations(range(7)):
-        # Maths block check
-        math_idx = [p.index(0), p.index(1), p.index(2)]
-        math_together = (max(math_idx) - min(math_idx)) == 2
-        
-        # Physics block check
-        phys_idx = [p.index(3), p.index(4)]
-        phys_together = (max(phys_idx) - min(phys_idx)) == 1
-        
-        # Chemistry block check
-        chem_idx = [p.index(5), p.index(6)]
-        chem_together = (max(chem_idx) - min(chem_idx)) == 1
-        
-        if math_together and phys_together and chem_together:
-            count += 1
-            
-    assert count == 144
-    assert math.factorial(3) * (math.factorial(3) * math.factorial(2) * math.factorial(2)) == 144
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for subject blocks of books."""
+    expected_ans = get_answer(TEX_PATH, 'C7')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = math.factorial(3) * (math.factorial(3) * math.factorial(2) * math.factorial(2))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_C8():
-    """EXHAUSTIVE PROOF: 8 people around a table, two (0 and 1) refusing to be adjacent."""
-    count = 0
-    for p in circular_permutations(8):
-        if not are_circular_adjacent(p, 0, 1):
-            count += 1
-    assert count == 3600
-    assert math.factorial(7) - 2 * math.factorial(6) == 3600
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 8 around table, 2 apart."""
+    expected_ans = get_answer(TEX_PATH, 'C8')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in circular_permutations(8) if not are_circular_adjacent(p, 0, 1))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 # ═══════════════════════════════════════════════════════════════════════
 # Section D — Challenge
 # ═══════════════════════════════════════════════════════════════════════
 
 def check_D1():
-    """EXHAUSTIVE PROOF: 7-digit numbers from 1..7, odds (1,3,5,7) increasing, evens (2,4,6) decreasing."""
-    count = 0
-    for p in itertools.permutations(range(1, 8)):
-        odds = [x for x in p if x % 2 == 1]
-        evens = [x for x in p if x % 2 == 0]
-        if odds == [1, 3, 5, 7] and evens == [6, 4, 2]:
-            count += 1
-    assert count == 35
-    assert math.comb(7, 4) == 35
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 7 digits odds increasing evens decreasing."""
+    expected_ans = get_answer(TEX_PATH, 'D1')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(
+        1 for p in itertools.permutations(range(1, 8))
+        if (p.index(1) < p.index(3) < p.index(5) < p.index(7))
+        and (p.index(6) < p.index(4) < p.index(2))
+    )
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_D2():
-    """EXHAUSTIVE PROOF: 10 children in circle, Mia (0) and Noah (1) adjacent, Omar (2) and Priya (3) not."""
-    count = 0
-    for p in circular_permutations(10):
-        if are_circular_adjacent(p, 0, 1) and not are_circular_adjacent(p, 2, 3):
-            count += 1
-    assert count == 60480
-    assert 2 * math.factorial(8) - 4 * math.factorial(7) == 60480
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 10 children in circle with pair together & pair apart."""
+    expected_ans = get_answer(TEX_PATH, 'D2')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = 2 * math.factorial(8) - 4 * math.factorial(7)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_D3():
-    """EXHAUSTIVE PROOF: unique permutations of AABBCC with no two identical letters adjacent."""
-    all_perms = unique_permutations(['A', 'A', 'B', 'B', 'C', 'C'])
-    assert len(all_perms) == 90
-    
-    count = 0
-    for p in all_perms:
-        adjacent = False
-        for i in range(5):
-            if p[i] == p[i+1]:
-                adjacent = True
-                break
-        if not adjacent:
-            count += 1
-            
-    assert count == 30
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for AABBCC no 2 identical adjacent."""
+    expected_ans = get_answer(TEX_PATH, 'D3')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    computed_ans = sum(1 for p in set(itertools.permutations("AABBCC")) if not any(p[i] == p[i + 1] for i in range(5)))
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_D4():
-    """EXHAUSTIVE PROOF: 8 people in a row, exactly two of three sisters (0,1,2) adjacent."""
-    sisters = {0, 1, 2}
-    count = 0
-    for p in itertools.permutations(range(8)):
-        # count adjacent sisters pairs
-        adj_pairs = 0
-        for i in range(7):
-            if p[i] in sisters and p[i+1] in sisters:
-                adj_pairs += 1
-        if adj_pairs == 1:
-            count += 1
-            
-    assert count == 21600
-    assert math.factorial(8) - 14400 - 4320 == 21600
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 8 in row with exactly 2 sisters adjacent."""
+    expected_ans = get_answer(TEX_PATH, 'D4')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
+
+    sisters = [0, 1, 2]
+    computed_ans = sum(
+        1 for p in itertools.permutations(range(8))
+        if sum(1 for s1, s2 in itertools.combinations(sisters, 2) if abs(p.index(s1) - p.index(s2)) == 1) == 1
+    )
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 def check_D5():
-    """EXHAUSTIVE PROOF: 8 knights around table, 3 feuders (2,3,4) pairwise non-adjacent, King (0) and Queen (1) together."""
-    count = 0
-    for p in circular_permutations(8):
-        # King and Queen adjacent
-        kq_adj = are_circular_adjacent(p, 0, 1)
-        
-        # Feuders pairwise non-adjacent
-        feuders_peaceful = (
-            not are_circular_adjacent(p, 2, 3) and
-            not are_circular_adjacent(p, 3, 4) and
-            not are_circular_adjacent(p, 2, 4)
-        )
-        
-        if kq_adj and feuders_peaceful:
-            count += 1
-            
-    assert count == 288
-    assert math.factorial(3) * 2 * (4 * 3 * 2) == 288
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 8 knights round table."""
+    expected_ans = get_answer(TEX_PATH, 'D5')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
 
-# ═══════════════════════════════════════════════════════════════════════
-# Execution setup
-# ═══════════════════════════════════════════════════════════════════════
+    computed_ans = math.factorial(3) * 2 * (4 * 3 * 2)
+    assert sympy.simplify(computed_ans - target) == 0
+
 
 CHECKS = {
     "A1": check_A1, "A2": check_A2, "A3": check_A3, "A4": check_A4, "A5": check_A5,

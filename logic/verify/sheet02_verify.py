@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans02.tex'
 """Computational verification for logic/answers/ans02.tex.
 
 This sheet's toolkit: implication, converse, inverse, contrapositive, and
@@ -130,6 +137,7 @@ def check_A1():
     for the truth values of the original and converse; the converse
     construction itself (swap hypothesis/conclusion) is checked as an
     exact predicate-swap, not just asserted."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     def P(n): return n % 6 == 0
     def Q(n): return n % 3 == 0
 
@@ -147,6 +155,7 @@ def check_A2():
     """SAMPLED CHECK over n = -50000..50000: builds the contrapositive as
     an independent predicate (negate both, swap order) and confirms it
     shares the original's truth value at every sampled n."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     def P(n): return n % 6 == 0
     def Q(n): return n % 3 == 0
     original = lambda n: (not P(n)) or Q(n)
@@ -161,6 +170,7 @@ def check_A2():
 def check_A3():
     """EXHAUSTIVE PROOF: a single direct substitution fully settles
     sufficiency here (x=3 is one specific value, not a quantified claim)."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     x = 3
     assert x * x == 9
 
@@ -169,6 +179,7 @@ def check_A3():
 # \ans: False.
 def check_A4():
     """EXHAUSTIVE PROOF via a single concrete counterexample."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     x = -3
     assert x * x == 9 and x != 3
 
@@ -179,6 +190,7 @@ def check_A5():
     """SAMPLED CHECK over n = -50000..50000 for sufficiency (backed by the
     exact algebraic fact 4=2x2, so 4|n => n=4k=2(2k), for every integer n);
     necessity is disproved by the single exact counterexample n=2."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     for n in range(-50000, 50001):
         if n % 4 == 0:
             assert n % 2 == 0
@@ -195,6 +207,7 @@ def check_A6():
     predicate, backed by an EXHAUSTIVE (2^2 = 4 truth assignments) check
     of the De Morgan identity used to turn "not(odd or n=2)" into
     "even and n!=2"."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     for A, B in all_assignments(2):
         assert (not (A or B)) == ((not A) and (not B))
 
@@ -211,6 +224,7 @@ def check_A7():
     """EXHAUSTIVE PROOF: all 2^2 = 4 truth assignments of P, Q confirm
     "P=>Q" and its contrapositive "not Q => not P" share a truth value in
     every row. Instantiated on A1/A2's concrete conditional as a check."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     for P, Q in all_assignments(2):
         orig = (not P) or Q
         contrapositive = Q or (not P)
@@ -229,6 +243,7 @@ def check_A8():
     """EXHAUSTIVE PROOF via A1's concrete counterexample: original
     "6|n => 3|n" is true throughout a large sampled range, yet its
     converse fails at the single exact witness n=3."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     def P(n): return n % 6 == 0
     def Q(n): return n % 3 == 0
     assert all((not P(n)) or Q(n) for n in range(-20000, 20001))
@@ -242,6 +257,7 @@ def check_A8():
 def check_A9():
     """EXHAUSTIVE PROOF: confirms "P and not Q" is the true negation of
     "P => Q" via the full truth table over all 4 assignments of P, Q."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     for P, Q in all_assignments(2):
         orig = (not P) or Q
         claimed_neg = P and (not Q)
@@ -256,6 +272,7 @@ def check_A9():
 def check_A10():
     """SAMPLED CHECK over n = -50000..50000, backed by the exact algebraic
     fact 12=4x3, so 12|n => n=12k=4(3k) is a multiple of 4."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     for n in range(-50000, 50001):
         if n % 12 == 0:
             assert n % 4 == 0
@@ -273,6 +290,7 @@ def check_B1():
     original's truth for x>2 is backed by exact algebra (x>2>0 =>
     x*x>2*x>4), and the contrapositive "x^2<=4 => x<=2" is backed by the
     exact fact x^2<=4 <=> -2<=x<=2."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     random.seed(10)
     xs = [random.uniform(-1000, 1000) for _ in range(5000)] + [-3.0, -2.0, 0.0, 2.0, 2.0001, 2.9999999]
 
@@ -294,6 +312,7 @@ def check_B1():
 def check_B2():
     """EXHAUSTIVE PROOF: "n=6" is a single fixed value, so sufficiency is a
     one-shot computation, and necessity is disproved by n=9."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     assert 6 % 3 == 0
     assert 9 % 3 == 0 and 9 != 6
 
@@ -303,6 +322,7 @@ def check_B2():
 def check_B3():
     """SAMPLED CHECK over n = -50000..50000, backed by the exact facts
     gcd(2,3)=1 and lcm(2,3)=6."""
+    expected_ans = get_answer(TEX_PATH, "B3")
     assert math.gcd(2, 3) == 1
     assert math.lcm(2, 3) == 6
     for n in range(-50000, 50001):
@@ -314,6 +334,7 @@ def check_B3():
 def check_B4():
     """SAMPLED CHECK over thousands of sampled integer pairs (a,b), backed
     by exact parity algebra for both the original and the contrapositive."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     random.seed(11)
     pairs = [(random.randint(-10**6, 10**6), random.randint(-10**6, 10**6)) for _ in range(5000)]
     for a, b in pairs:
@@ -328,6 +349,7 @@ def check_B4():
 # \ans: True.
 def check_B5():
     """EXHAUSTIVE PROOF: all 2^2 = 4 truth assignments of P, Q."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     for P, Q in all_assignments(2):
         if (not P or Q) and (not Q or P):
             assert P == Q
@@ -341,6 +363,7 @@ def check_B6():
     by the exact irrational witness x=sqrt(2), whose irrationality is
     proved structurally (parity-forcing argument), not by trusting
     math.sqrt."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     random.seed(12)
     for _ in range(2000):
         p, q = random.randint(-1000, 1000), random.randint(1, 1000)
@@ -367,6 +390,7 @@ def check_B7():
     converse "Q=>P" and the inverse "not P=>not Q" always share a truth
     value -- an abstract logical law, not merely for this pair -- then
     instantiated on this sheet's actual prime/odd-or-2 example."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     for P, Q in all_assignments(2):
         converse = (not Q) or P
         inverse = P or (not Q)
@@ -386,6 +410,7 @@ def check_B8():
     """SAMPLED CHECK over thousands of integer pairs for sufficiency,
     backed by a single exact counterexample (a=2,b=-2) disproving
     necessity."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     random.seed(13)
     for _ in range(5000):
         a = random.randint(-10**6, 10**6)
@@ -403,6 +428,7 @@ def check_B9():
     """SAMPLED CHECK over thousands of sampled reals for necessity
     (backed by exact algebra x>2>0 => x*x>4), refuted-for-sufficiency by
     the exact counterexample x=-3."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     random.seed(14)
     xs = [random.uniform(2.0001, 1000) for _ in range(3000)]
     for x in xs:
@@ -415,6 +441,7 @@ def check_B9():
 def check_B10():
     """SAMPLED CHECK over n = -50000..50000 for the original's truth
     (backed by 9=3x3), refuted-for-the-converse by n=3."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     for n in range(-50000, 50001):
         if n % 9 == 0:
             assert n % 3 == 0
@@ -436,6 +463,7 @@ def check_C1():
     y=(s-d)/2 for integers s,d of opposite parity, checked with exact
     Fraction arithmetic over many (s,d) pairs) confirming the failure is
     not a one-off fluke."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     # Necessity: x, y integers => x+y, x-y integers.
     for x in range(-2000, 2001):
         for y in (x - 3, x, x + 7, -x):
@@ -483,6 +511,7 @@ def check_C2():
     """EXHAUSTIVE PROOF: enumerates all 2^3 = 8 truth assignments of
     P, Q, R, filters to exactly those consistent with the two given
     iff's, and confirms P<=>R holds in every surviving assignment."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     surviving = 0
     for P, Q, R in all_assignments(3):
         if (P == Q) and (Q == R):
@@ -506,6 +535,7 @@ def check_C3():
     matches altitude-equality for every pair of sides in every triangle
     -- including the isosceles case, which shows the correspondence is
     exact per-pair, not just an all-or-nothing pattern."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     # (1) exact algebraic core: h_a = h_b <=> a = b, given Area > 0.
     random.seed(21)
     for _ in range(1000):
@@ -563,6 +593,7 @@ def check_C4():
     argument (n|a => a=nk => ab=n(kb), divisible by n, for literally
     every integer a,b,n,k), checked here on thousands of random samples.
     Necessity is disproved by the exact counterexample a=3,b=3,n=9."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     random.seed(16)
     for _ in range(3000):
         n = random.randint(2, 100)
@@ -585,6 +616,7 @@ def check_C5():
     cross-checked for consistency: n=4 breaks the inverse directly, and
     n=2 independently breaks the converse directly -- confirming B7's
     inverse-converse equivalence actually holds for this specific pair."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     n = 4
     assert n % 8 != 0 and n % 2 == 0
     inverse_at_4 = (not (n % 8 != 0)) or (n % 2 != 0)
@@ -603,6 +635,7 @@ def check_C6():
     4k(k+1)+1, always odd for every integer k, so n odd forces n^2 odd
     (contrapositive: n^2 even forces n even -- sufficiency). Necessity
     (n even => n^2 even) is the direct identity (2k)^2=4k^2, always even."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     for k in range(-2000, 2001):
         odd_sq = (2 * k + 1) ** 2
         assert odd_sq == 4 * k * (k + 1) + 1
@@ -627,6 +660,7 @@ def check_C7():
     filters to exactly those where the original and the inverse are BOTH
     true (matching the question's premise), and confirms the converse is
     true in every surviving assignment."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     surviving = 0
     for P, Q in all_assignments(2):
         orig = (not P) or Q
@@ -645,6 +679,7 @@ def check_C8():
     irrational (checked structurally, not by trusting math.sqrt), yet
     ab=2 is exactly rational -- disproving the original, and by A7's
     truth-value-sharing law, the contrapositive at the same witness."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     def sqrt2_is_irrational_structurally():
         for b in range(1, 300):
             a_sq = 2 * b * b
@@ -679,6 +714,7 @@ def check_D1():
     (b,c) pairs with c<0 as an implementation sanity check. II is refuted
     by the exact counterexample (b,c)=(3,1). III is derived from I via
     the general contrapositive-shares-truth-value law (truth table)."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     random.seed(17)
     for _ in range(3000):
         b = random.uniform(-1000, 1000)
@@ -725,6 +761,7 @@ def check_D2():
     odd-length lists of arbitrary (including negative, fractional)
     reals. Necessity is disproved by the exact counterexample list
     [4,4] (n=2, even) from the \\method."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     def median_and_membership(sorted_list):
         n = len(sorted_list)
         if n % 2 == 1:
@@ -757,6 +794,7 @@ def check_D3():
     implementation sanity check): n=4k+1 gives n^2=16k^2+8k+1, always
     =1 (mod 8) (sufficiency). n=4k+3 gives n^2=16k^2+24k+9=16k^2+24k+8+1,
     also always =1 (mod 8), giving Q true with P false (not necessary)."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     for k in range(-5000, 5001):
         n = 4 * k + 1
         n_sq = n * n
@@ -786,6 +824,7 @@ def check_D4():
     zero dot product (perpendicular) in all three cases -- including the
     kite, which is exactly the counterexample to the converse (perpendicular
     diagonals without four equal sides)."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     def sq(v):
         return v[0] * v[0] + v[1] * v[1]
 
@@ -841,6 +880,7 @@ def check_D5():
     arithmetic: many (p,q,r) satisfying p^2=qr (via the parametrisation
     q=pt, r=p/t) all satisfy the Pythagoras identity exactly; many random
     (p,q,r) NOT satisfying p^2=qr all fail it."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     # ---- (1) exact polynomial identity: hand-rolled multivariate polys ----
     # Monomials as (exponent of p, exponent of q, exponent of r) -> coeff.
     def pmul(a, b):

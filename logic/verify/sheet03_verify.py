@@ -1,3 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from tools.latex_bridge import get_answer
+from hypothesis import given, settings, strategies as st
+
+TEX_PATH = 'logic/answers/ans03.tex'
 """Computational verification for logic/answers/ans03.tex.
 
 This sheet's toolkit: direct proof and proof by contrapositive.
@@ -98,6 +105,7 @@ def check_A1():
     """EXHAUSTIVE PROOF: n=2k, n^2=4k^2=2(2k^2) is a closed-form algebraic
     identity holding for literally every integer k, not merely the sampled
     range checked here."""
+    expected_ans = get_answer(TEX_PATH, "A1")
     for k in range(-20000, 20001):
         n = 2 * k
         assert n * n == 4 * k * k == 2 * (2 * k * k)
@@ -108,6 +116,7 @@ def check_A1():
 def check_A2():
     """EXHAUSTIVE PROOF: n=2k+1, n^2=4k^2+4k+1=2(2k^2+2k)+1 is a closed-form
     identity for every integer k."""
+    expected_ans = get_answer(TEX_PATH, "A2")
     for k in range(-20000, 20001):
         n = 2 * k + 1
         assert n * n == 4 * k * k + 4 * k + 1 == 2 * (2 * k * k + 2 * k) + 1
@@ -118,6 +127,7 @@ def check_A2():
 def check_A3():
     """EXHAUSTIVE PROOF: a=2j, b=2k, a+b=2(j+k) is a closed-form identity
     for every pair of integers j,k."""
+    expected_ans = get_answer(TEX_PATH, "A3")
     for j in range(-500, 501):
         for k in (-500, -1, 0, 1, 500):
             a, b = 2 * j, 2 * k
@@ -136,6 +146,7 @@ def check_A4():
     a sampled range of k as an implementation sanity check; combined with
     the general P=>Q <=> not(Q)=>not(P) equivalence this proves the stated
     contrapositive."""
+    expected_ans = get_answer(TEX_PATH, "A4")
     contrapositive_shares_truth_value()
     for k in range(-20000, 20001):
         n = 6 * k
@@ -151,6 +162,7 @@ def check_A4():
 def check_A5():
     """EXHAUSTIVE PROOF: a=2j+1, b=2k+1, ab=4jk+2j+2k+1=2(2jk+j+k)+1 is a
     closed-form identity for every pair of integers j,k."""
+    expected_ans = get_answer(TEX_PATH, "A5")
     for j in range(-300, 301):
         for k in (-300, -1, 0, 1, 300):
             a, b = 2 * j + 1, 2 * k + 1
@@ -167,6 +179,7 @@ def check_A6():
     (assume Q false, i.e. not Q, derive not P) is, by definition, exactly
     proving the contrapositive -- and the contrapositive always shares
     P=>Q's truth value, so establishing it establishes the original."""
+    expected_ans = get_answer(TEX_PATH, "A6")
     for P, Q in all_assignments(2):
         proving_by_contrapositive = Q or (not P)  # material form of "not Q => not P"
         original = (not P) or Q
@@ -179,6 +192,7 @@ def check_A7():
     'n even => n^2 even', verified as the logically correct swap via the
     general truth-table equivalence, and shown to be exactly A1's already-
     proved closed-form identity ((2k)^2=2(2k^2)) rather than a new claim."""
+    expected_ans = get_answer(TEX_PATH, "A7")
     contrapositive_shares_truth_value()
     for k in range(-20000, 20001):
         n = 2 * k
@@ -199,6 +213,7 @@ def check_A8():
     converse is false, proving contrapositive and converse are genuinely
     different logical objects, not merely different names for the same
     thing."""
+    expected_ans = get_answer(TEX_PATH, "A8")
     for P, Q in all_assignments(2):
         orig = (not P) or Q
         contra = Q or (not P)   # material form of "not Q => not P"
@@ -216,6 +231,7 @@ def check_A9():
     literally every real), backed by the exact algebra: x>1>0 gives
     x^2-x=x(x-1)>0 (product of two positives) for every x>1, hence
     x^2>x>1 combines to x^2>1."""
+    expected_ans = get_answer(TEX_PATH, "A9")
     random.seed(101)
     xs = ([Fraction(1) + Fraction(1, k) for k in range(1, 500)]
           + [Fraction(k, 1) for k in range(2, 500)]
@@ -235,6 +251,7 @@ def check_A10():
     exactly x>1, not(x^2<=1) is exactly x^2>1, checked over a sampled
     range plus exact boundary points), and is exactly A9's already-proved
     result."""
+    expected_ans = get_answer(TEX_PATH, "A10")
     xs = ([Fraction(k, 100) for k in range(-500, 501)]
           + [Fraction(1), Fraction(1, 1), Fraction(100001, 100000)])
     for x in xs:
@@ -254,6 +271,7 @@ def check_A10():
 def check_B1():
     """EXHAUSTIVE PROOF: n=4k, n^2=16k^2 is a closed-form algebraic
     identity for every integer k."""
+    expected_ans = get_answer(TEX_PATH, "B1")
     for k in range(-20000, 20001):
         n = 4 * k
         assert n * n == 16 * k * k
@@ -266,6 +284,7 @@ def check_B2():
     and-swap (verified via the general equivalence), and the concrete
     algebra n=3k => n^2=9k^2=3(3k^2) is a closed-form identity for every
     integer k."""
+    expected_ans = get_answer(TEX_PATH, "B2")
     contrapositive_shares_truth_value()
     for k in range(-20000, 20001):
         n = 3 * k
@@ -286,6 +305,7 @@ def check_B3():
     proving both directions of the iff for every integer, not just sampled
     ones. ('Which route is more natural' is a framing judgement, left
     alone per this repo's convention for non-checkable prose.)"""
+    expected_ans = get_answer(TEX_PATH, "B3")
     for k in range(-20000, 20001):
         n_even = 2 * k
         assert n_even * n_even == 2 * (2 * k * k)
@@ -306,6 +326,7 @@ def check_B4():
     a>b>0 since multiplying an inequality by a positive number preserves
     its direction (an exact field property, not merely sampled), checked
     here as an implementation sanity check on thousands of pairs."""
+    expected_ans = get_answer(TEX_PATH, "B4")
     random.seed(102)
     pairs = []
     for _ in range(3000):
@@ -330,6 +351,7 @@ def check_B5():
     product is zero iff at least one factor is zero, this proves the full
     iff 'x^2-4x+3=0 <=> x=1 or x=3', of which the stated contrapositive is
     one direction. Direct substitution confirms both roots exactly."""
+    expected_ans = get_answer(TEX_PATH, "B5")
     random.seed(103)
     for _ in range(3000):
         x = Fraction(random.randint(-10**6, 10**6), random.randint(1, 1000))
@@ -353,6 +375,7 @@ def check_B5():
 def check_B6():
     """EXHAUSTIVE PROOF: n=3k, n^3=27k^3 is a closed-form algebraic
     identity for every integer k."""
+    expected_ans = get_answer(TEX_PATH, "B6")
     for k in range(-5000, 5001):
         n = 3 * k
         assert n ** 3 == 27 * k ** 3
@@ -370,6 +393,7 @@ def check_B7():
     ratio of integers with nonzero denominator, for every choice of
     integers p,q,r,s -- checked over thousands of sampled quadruples as an
     implementation sanity check of the (already-general) closed form."""
+    expected_ans = get_answer(TEX_PATH, "B7")
     def implies(p, q):
         return (not p) or q
 
@@ -401,6 +425,7 @@ def check_B8():
     closed-form identity for every integer k, and 100(k^2+k) contributes
     nothing to the last two digits, so n^2 mod 100 == 25 always, hence
     n^2 mod 10 == 5 always."""
+    expected_ans = get_answer(TEX_PATH, "B8")
     for k in range(-20000, 20001):
         n = 10 * k + 5
         n_sq = n * n
@@ -420,6 +445,7 @@ def check_B9():
     16|n^2 holds exactly for the 4 residues divisible by 4 (n%4==0) and
     fails for the other 12 -- directly re-deriving the 'n=4q+s' residue
     argument the \\method describes, rather than trusting its conclusion."""
+    expected_ans = get_answer(TEX_PATH, "B9")
     for n in range(-50, 51):
         assert (n + 16) ** 2 == n * n + 32 * n + 256
         assert (32 * n) % 16 == 0
@@ -471,6 +497,7 @@ def check_B10():
     solution at all) -- so a would-be direct rewrite starting from 'n^2 is
     even' cannot simply substitute n^2=2m and solve for n the way a direct
     proof substitutes n=2k."""
+    expected_ans = get_answer(TEX_PATH, "B10")
     contrapositive_shares_truth_value()
     # every even integer is trivially reached via n=2k
     for k in range(-1000, 1001):
@@ -504,6 +531,7 @@ def check_C1():
     independently-found counterexample for B and D since the \\method's
     own prose for B is muddled and does not actually exhibit a clean
     counterexample to B."""
+    expected_ans = get_answer(TEX_PATH, "C1")
     random.seed(105)
     pairs = []
     for _ in range(3000):
@@ -562,6 +590,7 @@ def check_C2():
     """EXHAUSTIVE PROOF: the stated contrapositive is the correct swap
     (via the general equivalence), and n=2k+1 => n^3=8k^3+12k^2+6k+1=
     2(4k^3+6k^2+3k)+1 is a closed-form identity for every integer k."""
+    expected_ans = get_answer(TEX_PATH, "C2")
     contrapositive_shares_truth_value()
     for k in range(-3000, 3001):
         n = 2 * k + 1
@@ -578,6 +607,7 @@ def check_C3():
     x^2-y^2=(x-y)(x+y) (a general polynomial identity) and the exact fact
     that x+y>0 whenever x,y>0, so dividing the positive quantity
     (x-y)(x+y) by the positive quantity (x+y) forces x-y>0."""
+    expected_ans = get_answer(TEX_PATH, "C3")
     random.seed(106)
     for _ in range(3000):
         y = Fraction(random.randint(1, 10**6), random.randint(1, 1000))
@@ -602,6 +632,7 @@ def check_C4():
     re-verified here over a large sampled range of m rather than trusted
     from the method's prose, since it is the actual hinge of the whole
     argument (B2 only proved the easy direction 3|m=>3|m^2)."""
+    expected_ans = get_answer(TEX_PATH, "C4")
     for m in range(-20000, 20001):
         n = 3 * m
         assert n * n == 9 * m * m
@@ -630,6 +661,7 @@ def check_C5():
     throughout this script) -- so a true P=>Q always comes with a true
     (hence provable-in-principle) contrapositive, for every possible truth
     assignment of P,Q, not merely the cases arising in this sheet."""
+    expected_ans = get_answer(TEX_PATH, "C5")
     for P, Q in all_assignments(2):
         if (not P) or Q:                      # P=>Q holds (established true, however proved)
             assert Q or (not P)               # contrapositive also holds
@@ -640,6 +672,7 @@ def check_C6():
     """EXHAUSTIVE PROOF: the stated contrapositive is the correct swap
     (general equivalence), and n=2k => n^2+1=4k^2+1=2(2k^2)+1 is a
     closed-form identity for every integer k."""
+    expected_ans = get_answer(TEX_PATH, "C6")
     contrapositive_shares_truth_value()
     for k in range(-20000, 20001):
         n = 2 * k
@@ -654,6 +687,7 @@ def check_C6():
 def check_C7():
     """EXHAUSTIVE PROOF: n=2k+1 = k + (k+1) is a closed-form identity for
     every integer k, and k, k+1 are consecutive by construction."""
+    expected_ans = get_answer(TEX_PATH, "C7")
     for k in range(-20000, 20001):
         n = 2 * k + 1
         assert n % 2 == 1
@@ -673,6 +707,7 @@ def check_C8():
     survives far more than a hundred small-case checks before failing --
     a direct, checkable refutation of 'exhaustive small-case checking
     constitutes a direct proof over an infinite domain'."""
+    expected_ans = get_answer(TEX_PATH, "C8")
     for n in range(0, 40):
         val = n * n + n + 41
         assert is_prime(val), f"expected prime at n={n}, got {val}"
@@ -706,6 +741,7 @@ def check_D1():
     SPECIFIC counterexample points given in the \\method, checked here to
     (a) genuinely satisfy both region inequalities and (b) genuinely
     violate II / III respectively."""
+    expected_ans = get_answer(TEX_PATH, "D1")
     # --- exact boundary intersection: solve x+y=4, x-y=-2 ---
     # adding: 2x = 2 => x = 1; then y = 4-x = 3
     x0 = Fraction(2, 2)
@@ -813,6 +849,7 @@ def check_D2():
     (2k+1)(2k-1) = 4k^2-1 = 2(2k^2-1)+1 is a closed-form identity for
     every integer k, cross-checked two ways (direct expansion of
     (2k+1)^2-2(2k+1), and the factored form n(n-2))."""
+    expected_ans = get_answer(TEX_PATH, "D2")
     contrapositive_shares_truth_value()
     for k in range(-20000, 20001):
         n = 2 * k + 1
@@ -827,9 +864,7 @@ def check_D2():
 
 # D3 -- Prove directly: "If n>4 with n-1,n+1 both prime, then 6|n."
 def check_D3():
-    """SAMPLED CHECK beyond the search bound.
-
-    EXHAUSTIVE within the searched bound (all n>4 up to 300000 with
+    """SAMPLED CHECK: EXHAUSTIVE within the searched bound (all n>4 up to 300000 with
     n-1,n+1 both prime are found via sieve and every single one is
     confirmed a multiple of 6 -- exhaustive search over that finite range,
     not sampling), SAMPLED beyond it (the argument itself -- n even because
@@ -842,6 +877,7 @@ def check_D3():
     load-bearing, since at n=4, n-1=3 is not strictly greater than 3, so
     the 'both primes exceed 3, hence both odd, hence n even' step is the
     one that actually breaks."""
+    expected_ans = get_answer(TEX_PATH, "D3")
     found = []
     for n in range(5, 300000):
         if is_prime(n - 1) and is_prime(n + 1):
@@ -876,6 +912,7 @@ def check_D4():
     thousands of arbitrary (not necessarily perfect-square) positive reals
     x!=y, confirming the same inequality holds numerically within
     tolerance, broadening coverage beyond the perfect-square family."""
+    expected_ans = get_answer(TEX_PATH, "D4")
     random.seed(110)
     # exact family: perfect squares
     for _ in range(3000):
@@ -917,6 +954,7 @@ def check_D5():
     in the question: 36 is a multiple of 4, but 6 is not -- confirming
     the asymmetry between the squarefree modulus 6=2x3 and the prime-power
     modulus 4=2^2."""
+    expected_ans = get_answer(TEX_PATH, "D5")
     assert math.gcd(2, 3) == 1
     assert math.lcm(2, 3) == 6
 
