@@ -266,7 +266,32 @@ def build():
         json.dump(data, f, indent=2, ensure_ascii=False)
     print('  sheets.json')
 
+    # Emit robots.txt and sitemap.xml for search engine indexing.
+    with open(os.path.join(ROOT_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write('User-agent: *\nAllow: /\n\nSitemap: https://speedmaths.co.uk/sitemap.xml\n')
+    print('  robots.txt')
+
     live = published(data)
+    sitemap_urls = [
+        ('https://speedmaths.co.uk/', 'weekly', '1.0'),
+        ('https://speedmaths.co.uk/classic.html', 'monthly', '0.5'),
+    ]
+    for p in live:
+        for s in p['sheets']:
+            if s.get('pdf'):
+                sitemap_urls.append((f"https://speedmaths.co.uk/{s['pdf']}", 'monthly', '0.8'))
+            if s.get('answers'):
+                sitemap_urls.append((f"https://speedmaths.co.uk/{s['answers']}", 'monthly', '0.8'))
+
+    sitemap_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, freq, prio in sitemap_urls:
+        sitemap_lines.append(f'  <url>\n    <loc>{loc}</loc>\n    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>')
+    sitemap_lines.append('</urlset>\n')
+
+    with open(os.path.join(ROOT_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(sitemap_lines))
+    print('  sitemap.xml')
     total = sum(len(p['sheets']) for p in live)
     annotated = sum(1 for p in live for s in p['sheets'] if s['topic'])
     print(f'{total} sheets published across {len(live)} pillars; '
