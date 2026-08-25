@@ -122,9 +122,8 @@ committed, re-runnable script, not by self-report.
   (`2+2==4`), or `pass`. **CI runs `tools/check_binding.py` and
   `tools/analyze_facades.py --strict`**, which read your script's AST and fail the
   build if a check has an empty body, no assertions, only assertions between
-  literals, or no link to its answer key. `verify/BINDING_BASELINE.json` records
-  the questions that predate the gate; it may only ever shrink, and regenerating
-  it to silence a failure defeats the point.
+  literals, or no link to its answer key. `verify/BINDING_BASELINE.json` is enforced
+  at 0 violations in CI, so any unbound check is an immediate build failure.
 - **Mutation testing** (`mutmut`) targets `tools/`, not the check scripts, and is
   a manual job rather than a CI gate — a full run takes far longer than a PR
   should wait. Do not point it at `*/verify/`: a check function cannot be both
