@@ -444,7 +444,7 @@ def check_C1():
     for r in sols:
         assert poly.subs(x, r) == 0
     assert len(sols) == 4
-    return expected_ans
+    return sols
 
 # C2
 def check_C2():
@@ -514,7 +514,7 @@ def check_C5():
     for r in sols:
         assert sympy.simplify(poly.subs(x, r)) == 0
     assert len(sols) == 4
-    return expected_ans
+    return sols
 
 # C6
 def check_C6():

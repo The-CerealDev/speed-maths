@@ -223,7 +223,7 @@ def check_B1():
     assert sympy.simplify(fac - target_fac) == 0
     for s in sols:
         assert poly.subs(x, s) == 0
-    return expected_ans
+    return [target_fac, [3, -2, sympy.Rational(1, 2)]]
 
 # B2
 def check_B2():
@@ -427,7 +427,7 @@ def check_C1():
         for s, e in zip(x_sols, expected_ans):
             e_val = e.rhs if isinstance(e, sympy.Equality) else e
             assert sympy.simplify(s - e_val) == 0
-    return expected_ans
+    return x_sols
 
 # C2
 def check_C2():

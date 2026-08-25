@@ -126,13 +126,30 @@ def _own_statements(fn):
         stack.extend(ast.iter_child_nodes(node))
 
 
-def _returns_a_value(fn):
-    """True if the check itself returns something other than None."""
+def _returns_an_independent_value(fn):
+    """True if the check itself returns a value not derived from get_answer(...)."""
+    tainted = set()
+    for stmt in ast.walk(fn):
+        if isinstance(stmt, ast.Assign) and isinstance(stmt.value, ast.Call):
+            func = stmt.value.func
+            if getattr(func, "id", getattr(func, "attr", None)) == "get_answer":
+                tainted |= {t.id for t in stmt.targets if isinstance(t, ast.Name)}
+    for _ in range(4):
+        for stmt in ast.walk(fn):
+            if isinstance(stmt, ast.Assign) and (_names(stmt.value) & tainted):
+                tainted |= {t.id for t in stmt.targets if isinstance(t, ast.Name)}
+
     for sub in _own_statements(fn):
         if isinstance(sub, ast.Return):
             if sub.value is None:
                 continue
             if isinstance(sub.value, ast.Constant) and sub.value.value is None:
+                continue
+            if isinstance(sub.value, ast.Call):
+                func = sub.value.func
+                if getattr(func, "id", getattr(func, "attr", None)) == "get_answer":
+                    continue
+            if _names(sub.value) & tainted:
                 continue
             return True
     return False
@@ -185,7 +202,7 @@ def inspect_check(fn):
         found.append(NO_ASSERTION)
     elif all(_assert_is_vacuous(a) for a in asserts):
         found.append(VACUOUS_ASSERT)
-    if not (_returns_a_value(fn) or _answer_reaches_assertion(fn)):
+    if not (_returns_an_independent_value(fn) or _answer_reaches_assertion(fn)):
         found.append(UNBOUND)
     return found
 

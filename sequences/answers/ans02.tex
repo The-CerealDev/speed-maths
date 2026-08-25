@@ -99,7 +99,7 @@
 %── B2 ──────────────────────────────────────────────────────────────────────────
 \item Row $10$ of Pascal's triangle sums to $2^{10}$. If instead you sum only its first four entries, $\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}$, is the result arithmetic, geometric, or neither, as a rule? Compute the value.
 
-\ans{Neither, in general; the value is $176$.}
+\ans{Neither in general; the value is 176.}
 \method{$\binom{10}0+\binom{10}1+\binom{10}2+\binom{10}3=1+10+45+120=176$. The four terms themselves ($1,10,45,120$) have differences $9,35,75$ (not constant) and ratios $10,4.5,2.\overline{6}$ (not constant), so the partial sum follows no simple pattern.}
 \inv{Individual entries in a row are neither arithmetic nor geometric; only the full row sum ($2^n$) and alternating sum ($0$) are clean. \textbf{What about the sum of just the even-indexed entries, $\binom n0+\binom n2+\binom n4+\cdots$?} Add the $x=1$ and $x=-1$ substitutions together and see what survives.}
 
@@ -197,7 +197,7 @@
 %── B10 ─────────────────────────────────────────────────────────────────────────
 \item The row-sums of Pascal's triangle are $1,2,4,8,16,\ldots$ Is this sequence of row-sums arithmetic, geometric, both, or neither? State the relevant ratio or difference.
 
-\ans{Geometric, common ratio $2$.}
+\ans{Geometric with common ratio 2.}
 \method{Row sums are $2^0,2^1,2^2,\ldots=1,2,4,8,16,\ldots$ --- each term is exactly double the previous one.}
 \inv{In sequence language: the row sums form a GP even though no single row's entries do. \textbf{What is the sum of \emph{all} entries in rows $0$ through $n$, and is that total itself geometric, arithmetic, or neither?} Sum the row sums --- Day 3 will hand you the formula, but you can already guess its shape.}
 

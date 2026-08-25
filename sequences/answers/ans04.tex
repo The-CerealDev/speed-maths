@@ -29,7 +29,7 @@
 %── A3 ──────────────────────────────────────────────────────────────────────────
 \item Write down the characteristic equation of $a_n=5a_{n-1}-6a_{n-2}$.
 
-\ans{$x^2=5x-6$ (i.e.\ $x^2-5x+6=0$)}
+\ans{$x^2-5x+6=0$}
 \method{Replace $a_n,a_{n-1},a_{n-2}$ with $x^2,x^1,x^0$ respectively in $a_n=5a_{n-1}-6a_{n-2}$.}
 \inv{The substitution is purely formal: linear constant-coefficient recurrences admit solutions $a_n=x^n$, which forces this polynomial exactly. \textbf{So does the characteristic equation depend at all on the starting values $a_1,a_2$?} Take two sequences obeying the same recurrence but starting differently, and say precisely what they share and what they do not.}
 
@@ -50,7 +50,7 @@
 %── A6 ──────────────────────────────────────────────────────────────────────────
 \item The recurrence $a_{n+1}=\tfrac12a_n$, $a_1=8$ is secretly which type of sequence from an earlier day? Write its closed form.
 
-\ans{A GP; $a_n=8\left(\tfrac12\right)^{n-1}$}
+\ans{GP with $a_n=8\left(\tfrac12\right)^{n-1}$}
 \method{$a_{n+1}=\tfrac12a_n$ is a constant-ratio recurrence, i.e.\ exactly a geometric sequence with $a=8,r=\tfrac12$ (Day 3's toolkit).}
 \inv{Recognising this without reaching for a characteristic equation is the point of B9/C6. \textbf{This is a GP with $|r|<1$, so it has a sum to infinity --- compute it, and check it against Day 3's A5, which is the identical sequence.} Two days, two toolkits, one sequence: worth confirming they agree exactly.}
 
@@ -125,7 +125,7 @@
 %── B4 ──────────────────────────────────────────────────────────────────────────
 \item Find the characteristic equation and its roots for $a_n=a_{n-1}+2a_{n-2}$.
 
-\ans{$x^2-x-2=0$; roots $x=2,-1$}
+\ans{$x^2-x-2=0$, roots $x=2,-1$}
 \method{$x^2=x+2\Rightarrow x^2-x-2=0=(x-2)(x+1)\Rightarrow x=2,-1$.}
 \inv{A negative root is perfectly normal --- it contributes a sign-alternating $B(-1)^n$. \textbf{Solve this recurrence with $a_1=a_2=1$ and find its closed form.} You should get a single fraction with a $2^n$ and a $(-1)^n$ in it; check it returns whole numbers at $n=1,2,3$ despite the division.}
 

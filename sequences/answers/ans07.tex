@@ -50,21 +50,21 @@
 %── A6 ──────────────────────────────────────────────────────────────────────────
 \item If the mean of the first $5$ terms of a sequence is an integer, what can be said about their sum?
 
-\ans{Their sum must be a multiple of $5$.}
+\ans{Their sum must be a multiple of 5.}
 \method{Integer mean $\iff$ sum divisible by count (Day 6).}
 \inv{This single equivalence --- integer mean $\iff$ sum divisible by count --- is the entire engine behind Day 6's capstone constructions (B1's $1,3,5,7$, C7's greedy step, D1's card-stacking proof) and D4 later today: everything in that whole strand of questions is this one fact, applied at a different index each time. \textbf{Can all five terms be odd and still give an integer mean?} Consider the parity of a sum of five odd numbers, then find an explicit example or prove none exists.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
 \item Is $2,6,18,54,\ldots$ an AP or a GP?
 
-\ans{GP (ratio $3$)}
+\ans{GP (ratio 3)}
 \method{$6/2=18/6=54/18=3$, constant ratio.}
 \inv{The two tests are mirror images: an AP is spotted by constant \emph{differences}, a GP by constant \emph{ratios}. Both need only three consecutive terms to check --- but as Day 1's C3 (squaring an AP) showed, confirming ``arithmetic'' or ``geometric'' from a handful of terms is suggestive, not a proof, unless a general nth-term formula backs it up. \textbf{Could any sequence be both an AP and a GP at once?} Impose both definitions simultaneously and describe every sequence that survives.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
 \item A recurrence has both characteristic roots with magnitude $<1$. What happens to the sequence as $n\to\infty$?
 
-\ans{Converges to $0$.}
+\ans{Converges to 0.}
 \method{Both roots inside the unit circle $\Rightarrow a_n=Ar_1^n+Br_2^n\to0$ (Day 4 D5, Day 5).}
 \inv{Day 4 gets here algebraically ($a_n=Ar_1^n+Br_2^n$ with $|r_1|,|r_2|<1$ forces both terms to $0$); Day 5 would get to the same place by showing the sequence is eventually monotonic and bounded below by $0$. Two completely different-looking arguments landing on the identical conclusion is exactly the kind of thing worth double-checking rather than dismissing as coincidence. \textbf{What changes if one root has magnitude exactly $1$ while the other stays inside?} Treat $r=1$ and $r=-1$ separately --- one gives convergence to a non-zero limit, the other does not converge at all.}
 
@@ -78,7 +78,7 @@
 %── A10 ─────────────────────────────────────────────────────────────────────────
 \item Write down the fixed-point formula for $f(x)=rx-c$ ($r\neq1$).
 
-\ans{$x=\dfrac c{r-1}$}
+\ans{$x=\dfrac{c}{r-1}$}
 \method{Solve $x=rx-c$ for $x$ (Day 6).}
 \inv{Compare this single-map fixed point to Day 6's two-player version: there, Alice's own combined per-turn map is $f(x)=rx-c$ too, so her fixed point is this exact same formula --- the alternating writer/Bob structure only matters for finding the OTHER values that reappear (B6--B8), not for the fixed point itself. \textbf{For which integer pairs $(r,c)$ is that fixed point itself an integer?} State it as a divisibility condition on $r-1$ and $c$.}
 
@@ -92,7 +92,7 @@
 %── B1 ──────────────────────────────────────────────────────────────────────────
 \item An AP has first term $2$, common difference $3$. Verify that it also satisfies the recurrence $a_n=2a_{n-1}-a_{n-2}$.
 
-\ans{Verified: $a_n=3n-1$ satisfies $a_n=2a_{n-1}-a_{n-2}$.}
+\ans{$a_n=3n-1$}
 \method{$2a_{n-1}-a_{n-2}=2(3(n-1)-1)-(3(n-2)-1)=2(3n-4)-(3n-7)=6n-8-3n+7=3n-1=a_n$. $\square$}
 \inv{Every AP satisfies $a_n=2a_{n-1}-a_{n-2}$ (characteristic equation $x^2-2x+1=(x-1)^2=0$, a repeated root at $1$) --- exactly Day 4's C7 result, now verified directly on a concrete AP. \textbf{Is there a single fixed recurrence, with constant coefficients, satisfied by \emph{every} GP regardless of $r$ --- as $a_n=2a_{n-1}-a_{n-2}$ is for every AP?} Try to build one and see exactly what obstructs it.}
 
@@ -125,7 +125,7 @@
 %── B4 ──────────────────────────────────────────────────────────────────────────
 \item A sequence satisfies $a_{n+1}=\dfrac1{2-a_n}$. Find its fixed point(s), and determine whether $a_1=1$ leads to a constant sequence.
 
-\ans{Fixed point $x=1$ (repeated); yes, $a_1=1$ gives a constant sequence.}
+\ans{$x=1$}
 \method{$x=\dfrac1{2-x}\Rightarrow x(2-x)=1\Rightarrow2x-x^2=1\Rightarrow x^2-2x+1=0\Rightarrow(x-1)^2=0\Rightarrow x=1$ (unique, repeated). Since $a_1=1$ is exactly this fixed point, $a_2=\dfrac1{2-1}=1=a_1$, and the sequence stays constant.}
 \inv{A rational (Möbius-style) map with a REPEATED fixed point behaves differently from Day 5's period-$3$/period-$4$ examples, which had no repeated fixed points --- worth noticing the distinction. \textbf{Which starting values make this sequence undefined at some step?} Find the value that sends $2-a_n$ to zero, then work backwards one step to find its predecessor.}
 
@@ -158,7 +158,7 @@
 %── B7 ──────────────────────────────────────────────────────────────────────────
 \item The series $(1-x)^{-1}=\sum x^k$ is the closed form of which simple recurrence? State the recurrence and its characteristic root.
 
-\ans{$a_k=x\cdot a_{k-1}$, a first-order GP recurrence with (single) characteristic root $x$.}
+\ans{$a_k=x a_{k-1}$}
 \method{Since $a_k=x^k$, clearly $a_k=x\cdot x^{k-1}=x\cdot a_{k-1}$.}
 \inv{Every term of a geometric series is itself the closed-form solution of the simplest possible recurrence --- Day 3 and Day 4 were secretly describing the same object from two different angles all along. \textbf{Which recurrence has $(1-x)^{-2}$ as its closed form?} Its characteristic equation should have a repeated root --- write it down and expand to check.}
 
@@ -237,7 +237,7 @@
 \item[D)] Periodic oscillation.
 \end{itemize}
 
-\ans{A) Linear growth in $n$.}
+\ans{A) Linear growth in n.}
 \method{A repeated characteristic root of exactly $1$ gives closed form $a_n=(A+Bn)(1)^n=A+Bn$ --- linear in $n$ (Day 4's C7 result), regardless of how that root of $1$ arose.}
 \inv{This shows Day 4's C7 result is really about the VALUE of the repeated root ($=1$), not about how the recurrence was originally motivated (whether directly given, or arising from a Day 6-style fixed point). \textbf{What if the repeated root were $2$ rather than $1$?} Write the closed form and say whether the growth is still linear.}
 
@@ -327,7 +327,7 @@ Counting $4\leq n\leq1000$: multiples of $4$ number $250$. Odd perfect $4$th pow
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Prove that for any starting value $a_1$ (a positive integer), there exists a strictly increasing sequence of positive integers $a_1<a_2<\cdots<a_n$, of any desired length $n$, such that every partial sum $S_k$ is divisible by $k$.
 
-\ans{Proof by induction using Day 6's construction.}
+\ans{Proof: see method.}
 \method{Base case: $a_1$ given, trivially satisfies $S_1=a_1$ divisible by $1$. Inductive step: given a valid $a_1<\cdots<a_k$ with $S_k$ divisible by $k$, Day 6's C7 argument shows some $a_{k+1}\equiv-S_k\pmod{k+1}$ makes $S_{k+1}$ divisible by $k+1$ --- and since there are infinitely many integers in that residue class (differing by multiples of $k+1$), we can always choose one that ALSO exceeds $a_k$ (just add enough multiples of $k+1$ to the smallest valid residue). This gives a valid $a_{k+1}>a_k$. By induction, a strictly increasing valid sequence of any desired length $n$ can always be built, starting from any $a_1$. $\square$}
 \inv{This upgrades Day 6's C7 (``a valid next term always exists'') to also guarantee it can be chosen larger than the previous term --- the same idea, with one extra degree of freedom (choosing among infinitely many equivalent residues) doing the extra work. \textbf{Can the next term always be chosen within $n+1$ of the previous one --- that is, is $a_{n+1}\leq a_n+(n+1)$ always achievable?} Think about how many consecutive integers you must scan to hit a given residue class.}
 
@@ -347,7 +347,7 @@ Counting $4\leq n\leq1000$: multiples of $4$ number $250$. Odd perfect $4$th pow
 %── D4 ──────────────────────────────────────────────────────────────────────────
 \item A sequence is defined by $a_1=1$ and, for $n\geq1$, $a_{n+1}$ is the SMALLEST positive integer greater than $a_n$ such that $S_{n+1}$ is divisible by $n+1$. Find $a_1,\ldots,a_5$, and conjecture (with justification) a general closed form for $a_n$.
 
-\ans{$a_1,\ldots,a_5=1,3,5,7,9$; conjectured closed form $a_n=2n-1$.}
+\ans{$a_n=2n-1$}
 \method{$a_1=1$ ($S_1=1$). For $a_2$: try $2$ first ($S_2=3$, not divisible by $2$); try $3$ ($S_2=4$, divisible by $2$) --- so $a_2=3$. For $a_3$: try $4$ ($S_3=8$, not divisible by $3$); try $5$ ($S_3=9$, divisible by $3$) --- $a_3=5$. For $a_4$: try $6$ ($S_4=15$, not divisible by $4$); try $7$ ($S_4=16$, divisible by $4$) --- $a_4=7$. For $a_5$: try $8$ ($S_5=24$, not divisible by $5$); try $9$ ($S_5=25$, divisible by $5$) --- $a_5=9$.\\
 The pattern $1,3,5,7,9$ is exactly the consecutive-odd-numbers sequence from Day 6's B1, where $S_k=k^2$ always --- and $k^2/k=k$ is always an integer, so this sequence is always valid. The conjecture $a_n=2n-1$ is consistent with every computed term, and the fact that the ``next even integer'' candidate fails at every single step (checked above for $n=2,3,4,5$) strongly suggests it is genuinely the SMALLEST valid choice at each stage, not a coincidence.}
 \inv{This is Day 6's B1 construction (built there by deliberate choice) rediscovered here as the UNIQUE greedy outcome of a simple local rule (``smallest integer bigger than the last term, keeping the mean an integer'') --- a satisfying full-circle moment to end the week on. \textbf{Run the same greedy rule from $a_1=2$ instead.} Compute five terms, conjecture the closed form, and say how it relates to the $a_1=1$ answer.}

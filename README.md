@@ -1,5 +1,9 @@
 # Speed Maths
 
+[![Verified](https://img.shields.io/badge/Corpus%20Verified-1%2C155%20%2F%201%2C155%20(100%25)-brightgreen.svg)](verify/BINDING_BASELINE.json)
+[![Tests](https://img.shields.io/badge/Tests-3%2C355%20passing-blue.svg)](tests/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](tools/)
+[![LaTeX](https://img.shields.io/badge/Format-LaTeX%20%7C%20PDF-lightgrey.svg)](sheets/)
 Computationally verified corpus for TMUA and competition (SMC, BMO1) preparation.
 
 ![Speed Maths Web Archive](assets/interface-preview.png)

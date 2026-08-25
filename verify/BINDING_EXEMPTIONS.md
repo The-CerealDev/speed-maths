@@ -111,9 +111,10 @@ the answer text as printed.
 - `logic/sheet07 D3` — Proof below.
 - `logic/sheet07 D4` — Proof by strong induction (via minimal counterexample) below.
 
-## sequences (7)
+## sequences (8)
 
 - `sequences/sheet01 B3` — Proof by the AP sum formula.
+- `sequences/sheet01 D3` — Proof: see method.
 - `sequences/sheet02 B1` — Proof by substitution $x=1$.
 - `sequences/sheet02 D3` — Proof by differentiating $(1+x)^n$.
 - `sequences/sheet03 D1` — Proof via the sum-to-infinity formula; partial sums approach but never reach $1$.

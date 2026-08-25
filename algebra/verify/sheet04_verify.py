@@ -374,7 +374,7 @@ def check_C1():
         for s, e in zip(x_sols, expected_ans):
             e_val = e.rhs if isinstance(e, sympy.Equality) else e
             assert sympy.simplify(s - e_val) == 0
-    return expected_ans
+    return x_sols
 
 # C2
 def check_C2():

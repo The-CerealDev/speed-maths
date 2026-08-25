@@ -55,7 +55,7 @@ _TUPLE_RE = re.compile(r"\(\s*-?\d+(?:\s*,\s*-?\d+)+\s*\)")
 
 
 def as_tuple_list(published_raw):
-    """Read a solution-set answer as actual numbers, or None if it is not one.
+    """Read a solution-set answer as actual values, or None if it is not one.
 
     Answers like "$(3,2)$" and "$(4,12), (6,6), (12,4)$" are the natural output of
     a Diophantine search, and they are extremely common in number theory. SymPy's
@@ -70,13 +70,22 @@ def as_tuple_list(published_raw):
     """
     body = str(published_raw).replace("$", "").strip()
     body = re.sub(r"^\s*\([a-zA-Z](?:\s*,\s*[a-zA-Z])*\)\s*=\s*", "", body)
-    body = re.sub(r"\s+\\text\{or\}\s+|\s+or\s+|\s+and\s+", " ", body)
-    found = _TUPLE_RE.findall(body)
+    body = re.sub(r"\s+\\text\{or\}\s+|\s+or\s+|\s+\\text\{and\}\s+|\s+and\s+", " ", body)
+    tuple_pat = re.compile(r"(?:\\left)?\s*\([^(),]+(?:\s*,\s*[^(),]+)+\)\s*(?:\\right)?")
+    found = tuple_pat.findall(body)
     if not found:
         return None
-    if _TUPLE_RE.sub("", body).strip(" ,;.\t\n"):
+    if tuple_pat.sub("", body).strip(" ,;.\t\n\\"):
         return None                      # there was more than tuples in there
-    return [tuple(int(n) for n in re.findall(r"-?\d+", t)) for t in found]
+    from tools.latex_bridge import parse_tex_math
+    results = []
+    for t_str in found:
+        t_clean = t_str.replace(r"\left", "").replace(r"\right", "").strip()
+        t_clean = t_clean.lstrip("(").rstrip(")")
+        parts = [p.strip() for p in t_clean.split(",") if p.strip()]
+        parsed_parts = tuple(parse_tex_math(p) for p in parts)
+        results.append(parsed_parts)
+    return results
 
 
 def _tuple_sets_match(published, computed):
@@ -87,23 +96,15 @@ def _tuple_sets_match(published, computed):
     are still significant, hence a multiset rather than a set.
     """
     if isinstance(computed, (tuple, list)) and computed and \
-            all(isinstance(v, (int, float)) for v in computed):
+            not any(isinstance(v, (list, tuple)) for v in computed):
         computed = [tuple(computed)]     # a lone solution, returned bare
     if not isinstance(computed, (list, tuple, set, frozenset)):
         return False
-    try:
-        got = [tuple(int(v) for v in item) for item in computed]
-    except (TypeError, ValueError):
+    pub = [tuple(item) if isinstance(item, (list, tuple)) else (item,) for item in published]
+    comp = [tuple(item) if isinstance(item, (list, tuple)) else (item,) for item in computed]
+    if len(pub) != len(comp):
         return False
-    remaining = list(got)
-    if len(remaining) != len(published):
-        return False
-    for want in published:
-        if want in remaining:
-            remaining.remove(want)
-        else:
-            return False
-    return True
+    return _multiset_equal(pub, comp)
 
 
 @dataclass(frozen=True)
@@ -164,6 +165,7 @@ def normalise_prose(text):
     s = s.replace("$", " ")
     s = re.sub(r"\\[a-zA-Z]+", " ", s)          # \tfrac, \neq, \mathbb ...
     s = re.sub(r"[{}\\]", " ", s)
+    s = re.sub(r"[\"`']", "", s)
     s = re.sub(r"[\s,;.]+", " ", s)
     return s.strip().lower().rstrip(" .")
 
@@ -198,6 +200,10 @@ def _numeric_equal(a, b):
             return True
     except (TypeError, ValueError):
         pass
+    if isinstance(a, tuple) and isinstance(b, tuple):
+        return len(a) == len(b) and all(_numeric_equal(x, y) for x, y in zip(a, b))
+    if isinstance(a, (list, tuple)) and isinstance(b, (list, tuple)):
+        return _multiset_equal(a, b)
     if isinstance(a, str) or isinstance(b, str):
         # One side is unparseable text; only an exact textual match counts.
         return normalise_prose(a) == normalise_prose(b)

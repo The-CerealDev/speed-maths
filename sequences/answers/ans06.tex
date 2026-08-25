@@ -15,7 +15,7 @@
 %── A1 ──────────────────────────────────────────────────────────────────────────
 \item If the mean of the first $3$ terms of a sequence is an integer, what can be said about $a_1+a_2+a_3$?
 
-\ans{It must be a multiple of $3$.}
+\ans{It must be a multiple of 3.}
 \method{An integer mean $\dfrac{a_1+a_2+a_3}3$ requires the numerator to be divisible by $3$.}
 \inv{The relationship the whole sheet rests on: integer mean $\iff$ sum divisible by count. \textbf{Push it one step: if the first $3$ terms have an integer mean and so do the first $4$, what does that force about $a_4$ modulo $12$?} Write both divisibility conditions in terms of $S_3$ and $S_4$ and subtract --- the answer is a congruence, not a single value.}
 
@@ -43,14 +43,14 @@
 %── A5 ──────────────────────────────────────────────────────────────────────────
 \item Recall Day 4's shift trick: express the solution to $a_{n+1}=2a_n-10$ as a GP shifted by its fixed point.
 
-\ans{$b_n=a_n-10$ is a GP with ratio $2$; $a_n=(a_1-10)2^{n-1}+10$.}
+\ans{$a_n=(a_1-10)2^{n-1}+10$}
 \method{Let $b_n=a_n-10$. Then $b_{n+1}=a_{n+1}-10=(2a_n-10)-10=2a_n-20=2(a_n-10)=2b_n$ --- a pure GP.}
 \inv{Day 4's constant shift, now the entry point for this sheet's alternating work. \textbf{Use the closed form to decide: for which starting values $a_1$ does this sequence stay bounded?} With ratio $2$ the $b_n$ part explodes unless it starts at zero --- say exactly which single $a_1$ survives, and what the sequence does for every other.}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
 \item Give an example of $3$ distinct positive integers whose average is an integer.
 
-\ans{E.g.\ $1,2,3$ (average $2$).}
+\ans{E.g.\ 1, 2, 3 (average 2).}
 \method{Any three consecutive integers work, since their sum is always $3\times(\text{middle term})$.}
 \inv{Day 1 B4's middle-term trick, stripped of its AP dressing: any symmetric odd-length run sums to $n\times(\text{middle term})$. \textbf{So does the trick survive if the integers are \emph{not} equally spaced --- must $1,2,5$ have an integer mean?} Find the precise property the trick actually needs; ``arithmetic'' is sufficient but far from necessary.}
 
@@ -145,7 +145,7 @@
 %── B6 ──────────────────────────────────────────────────────────────────────────
 \item Using B5's formula, show that Alice's OWN sequence of values (ignoring Bob's separately-written numbers) can only return to the original $a$ again if $a$ already equals the fixed point $6$.
 
-\ans{Only if $a$ already equals $6$.}
+\ans{Only if $a=6$.}
 \method{Setting $(a-6)3^k+6=a$ (Alice's own $k$-th value equals $a$): $(a-6)3^k=(a-6)\Rightarrow(a-6)(3^k-1)=0$. Since $k\geq1$ means $3^k-1\neq0$, this forces $a-6=0$, i.e.\ $a=6$.}
 \inv{Alice's own sequence can never return to a non-fixed-point value, so any repeat must come from Bob's turns --- which is what B7 sets up. \textbf{Why exactly? Show that $(a-6)3^k=a-6$ with $k\geq1$ forces $a=6$.} The step that does the work is dividing by $3^k-1$, and you should say why that is never zero.}
 
@@ -185,7 +185,7 @@
 %── B10 ─────────────────────────────────────────────────────────────────────────
 \item A sequence of $6$ positive integers has every partial sum $S_1,\ldots,S_6$ divisible by its index. Given $a_1=2$, construct one valid choice for $a_2,\ldots,a_6$.
 
-\ans{E.g.\ $2,4,6,8,10,12$ (partial sums $2,6,12,20,30,42$).}
+\ans{$2,4,6,8,10,12$}
 \method{Consecutive even numbers starting from $2$ give $S_k=2+4+\cdots+2k=k(k+1)$, which is always divisible by $k$ (since $S_k/k=k+1$, an integer).}
 \inv{The twin of B1's odd-number trick: consecutive even numbers give $S_k=k(k+1)$, again always divisible by $k$. \textbf{Does $3,6,9,12,\ldots$ work as well --- and can you characterise every AP with this property?} Compute $S_k$ for a general AP and see what the divisibility forces.}
 
@@ -320,7 +320,7 @@ Since lengths $1$ and $2$ can never be stuck, and length $3$ CAN be stuck, the m
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Alice and Bob take turns writing numbers on a board. Alice starts by writing an integer $a$ with $-100\leq a\leq100$. On each of Bob's turns, he writes twice the number Alice wrote last. On each of Alice's subsequent turns, she writes the number $45$ less than the number Bob wrote last. At some point, the number $a$ is written on the board for a second time. Find all possible values of $a$. \textit{\small(after BMO1 2021 Q1)}
 
-\ans{$a\in\{0,30,42,45\}$}
+\ans{$a=0, 30, 42, 45$}
 \method{The combined map is $f(x)=2x-45$, fixed point $x=\dfrac{45}{2-1}=45$ (Alice's own branch: only $a=45$ can repeat via her own values, by the same argument as B6). For Bob's-turn branch, with $u=a-45$: $u(2^k-1)=-45$. Since $2^k-1>45$ once $k\geq6$ ($2^6-1=63$), only $k=1,\ldots,5$ need checking: $k{=}1$: $u=-45\Rightarrow a=0$. $k{=}2$: $u=-15\Rightarrow a=30$. $k{=}3$: $u=-45/7$, not integer. $k{=}4$: $u=-3\Rightarrow a=42$. $k{=}5$: $u=-45/31$, not integer. So the Bob-branch gives $a\in\{0,30,42\}$, and combined with Alice's fixed point $a=45$: the full set is $\{0,30,42,45\}$.}
 \inv{B3--B8's method with the real question's constants ($r=2,c=45$) in place of the practice ones ($r=3,c=12$), giving $\{0,30,42,45\}$. \textbf{Account for each of the four: which comes from Alice's fixed point, and which $k$ produces each of the other three?} Solve $u(2^k-1)=-45$ for $k=1,2,3$ and match the roots to the answers --- then say why $k\geq6$ need never be checked.}
 

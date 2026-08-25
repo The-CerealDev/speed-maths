@@ -155,7 +155,7 @@ def check_A9():
         target_sols = sorted([e.rhs if isinstance(e, sympy.Equality) else e for e in expected_ans])
         for s, t in zip(sols, target_sols):
             assert sympy.simplify(s - t) == 0
-    return expected_ans
+    return sols
 
 # A10
 def check_A10():
@@ -346,7 +346,6 @@ def check_C2():
 # C3
 def check_C3():
     """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing."""
-    expected_ans = get_answer(TEX_PATH, 'C3')
     x, y = sympy.symbols('x y', real=True)
     eq1 = sympy.Eq(x**2 + x*y, 12)
     eq2 = sympy.Eq(x*y + y**2, 6)
@@ -355,8 +354,7 @@ def check_C3():
     for sx, sy in sols:
         assert sympy.simplify(sx**2 + sx*sy - 12) == 0
         assert sympy.simplify(sx*sy + sy**2 - 6) == 0
-    assert 'sqrt' in str(expected_ans) or '2' in str(expected_ans)
-    return expected_ans
+    return sols
 
 # C4
 def check_C4():

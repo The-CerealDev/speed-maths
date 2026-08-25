@@ -36,7 +36,7 @@
 %── A4 ──────────────────────────────────────────────────────────────────────────
 \item A sequence has nth term $4n-1$. Write down its first three terms, and state whether the sequence is arithmetic.
 
-\ans{$3,7,11$; arithmetic with $d=4$}
+\ans{$3,\;7,\;11$;\quad $d=4$}
 \method{$a_1=3,a_2=7,a_3=11$. Consecutive differences are both $4$, so the sequence is arithmetic.}
 \inv{Any nth term of the form $pn+q$ is automatically arithmetic with $d=p$. \textbf{Now suppose the nth term is $pn^2+qn+r$. For which $p,q,r$ is the sequence arithmetic? For which is it geometric?} The second answer is much more restrictive than the first.}
 
@@ -132,7 +132,7 @@
 %── B5 ──────────────────────────────────────────────────────────────────────────
 \item An AP has first term $10$ and common difference $-3$. Find the last term of the sequence that is still positive.
 
-\ans{$1$ (the 4th term)}
+\ans{$1$}
 \method{$a_n=10-3(n-1)>0\Rightarrow n<\frac{13}{3}\approx4.33$, so the last positive term is $a_4=10-9=1$ (and $a_5=-2<0$ confirms the sequence has already crossed zero).}
 \inv{Check the boundary term itself, not just the cutoff: $n<4.33$ gives $n=4$, but you must confirm $a_4>0$ (it could have landed exactly on $0$). \textbf{Keep $a_1=10$ but vary $d$. For exactly which $d$ does this AP have precisely $4$ positive terms?} You should get an interval, closed at one end and open at the other --- be careful which.}
 
@@ -360,7 +360,7 @@
 %── D3 ──────────────────────────────────────────────────────────────────────────
 \item The first four terms of an arithmetic sequence $p,\,p+d,\,p+2d,\,p+3d$ (with $d>0$) are all prime, and $p>3$. Prove that $d$ must be a multiple of $6$.
 
-\ans{$d$ must be a multiple of $6$.}
+\ans{Proof: see method}
 \method{\emph{Mod 2:} since $p>3$ is prime, $p$ is odd. If $d$ were odd, $p+d$ would be even and greater than $2$, hence composite --- contradiction. So $d$ is even.\\
 \emph{Mod 3:} since $p>3$, $p\not\equiv0\pmod3$. If $d\not\equiv0\pmod3$, then $d$ is coprime to $3$, so $p,p+d,p+2d$ take all three residues mod $3$ (adding a unit repeatedly cycles through every residue) --- meaning one of them is $\equiv0\pmod3$. That term is greater than $3$ and divisible by $3$, hence composite --- contradiction. So $3\mid d$.\\
 Combining: $2\mid d$ and $3\mid d\Rightarrow6\mid d$. $\square$}

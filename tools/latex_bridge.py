@@ -84,7 +84,10 @@ def parse_tex_math(tex_str):
         r'necessary', r'neither', r'inductive', r'induction', r'base\s+case',
         r'suppose', r'assume', r'exists', r'every', r'there\s+exists',
         r'tautology', r'fallacy', r'line\s+[0-9]+', r'circular\s+reasoning', r'negation',
-        r'no', r'yes', r'i\s+and\s+iii', r'ii\s+and\s+iii', r'i\s+and\s+ii', r'i\s+only', r'ii\s+only', r'iii\s+only'
+        r'converse', r'inverse', r'contrapositive', r'must', r'sound', r'valid', r'invalid', r'truth',
+        r'true', r'false', r'prime', r'primes', r'squarefree', r'product', r'distinct',
+        r'no', r'yes', r'i\s+and\s+iii', r'ii\s+and\s+iii', r'i\s+and\s+ii', r'i\s+only', r'ii\s+only', r'iii\s+only',
+        r'arbitrary', r'fixed', r'for\s+some', r'never', r'derived', r'chain', r'starts', r'implications'
     ]
     english_pattern = re.compile(r'\b(?:' + '|'.join(english_words) + r')\b', re.IGNORECASE)
     if english_pattern.search(tex_str):
@@ -111,21 +114,12 @@ def parse_tex_math(tex_str):
         return e
 
     # Strip parenthetical annotations like (all four real) or (double) or (one real solution)
-    cleaned = re.sub(r'\([^)]*(?:real|double|root|equiv|giving|solution|multiplicity)[^)]*\)', '', cleaned)
+    cleaned = re.sub(r'\([^)]*(?:real|double|root|equiv|giving|solution|multiplicity|or\s+|any\s+|for\s+any|lines?)[^)]*\)', '', cleaned)
     cleaned = re.sub(r'\b(?:only|giving|always)\b', '', cleaned)
     cleaned = re.sub(r'\b(?:Row\s+[0-9]+|Case\s+[0-9]+):?\s*', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\b(?:Both count|Both are|The odd ones are exactly|at least|at most|each team plays\s+[0-9]+|each team plays)\b', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\b(?:segments?|triangles?|in total|total|avoid(?:ing)?(?:\s+[a-zA-Z])?|ways|matches|teams?|students?|points?|digits?|cards?|rectangles?|squares?|paths?|subsets?|people|hands?|which is [0-9]+)\b', ' ', cleaned, flags=re.IGNORECASE)
     cleaned = cleaned.strip().rstrip('.')
-
-    # If chained equality like r = 1 - a/S = (S-a)/S
-    if cleaned.count('=') >= 2 and ';' not in cleaned and ',' not in cleaned and ' and ' not in cleaned and ' or ' not in cleaned:
-        parts = [p.strip() for p in cleaned.split('=')]
-        try:
-            expr = parse_latex(parts[-1])
-            return _clean_functions(expr)
-        except Exception:
-            pass
 
     def _split_top_level(text, delims=(',', ';')):
         parts = []
@@ -146,6 +140,16 @@ def parse_tex_math(tex_str):
         if current:
             parts.append(''.join(current).strip())
         return [p for p in parts if p]
+
+    # If chained equality like r = 1 - a/S = (S-a)/S
+    if ';' not in cleaned and ',' not in cleaned and ' and ' not in cleaned and ' or ' not in cleaned:
+        parts = _split_top_level(cleaned, ('=',))
+        if len(parts) >= 3:
+            try:
+                expr = parse_latex(parts[-1])
+                return _clean_functions(expr)
+            except Exception:
+                pass
 
     # Handle semicolon separated multi-part answers
     if ';' in cleaned:
