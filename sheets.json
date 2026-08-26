@@ -4,6 +4,7 @@
     "name": "Algebra",
     "desc": "Polynomials, inequalities, and functional equations.",
     "status": "live",
+    "badge": "TMUA · STEP · SMC",
     "sheets": [
       {
         "n": "01",
@@ -96,6 +97,7 @@
     "name": "Combinatorics",
     "desc": "Counting, probability, and discrete structures.",
     "status": "live",
+    "badge": "SMC · BMO1 · TMUA",
     "sheets": [
       {
         "n": "01",
@@ -189,6 +191,7 @@
     "name": "Number Theory",
     "desc": "Divisibility, modular arithmetic, and primes.",
     "status": "live",
+    "badge": "BMO1 · SMC",
     "sheets": [
       {
         "n": "01",
@@ -281,6 +284,7 @@
     "name": "Logic",
     "desc": "Conditionals, proof techniques, and counterexamples.",
     "status": "live",
+    "badge": "TMUA P2",
     "sheets": [
       {
         "n": "01",
@@ -373,6 +377,7 @@
     "name": "Sequences",
     "desc": "Recurrences, series, and limiting behaviour.",
     "status": "live",
+    "badge": "TMUA",
     "sheets": [
       {
         "n": "01",
@@ -466,6 +471,7 @@
     "name": "Calculus",
     "desc": "Differentiation, integration, and rates of change.",
     "status": "draft",
+    "badge": "TMUA · STEP",
     "sheets": []
   },
   {
@@ -473,6 +479,7 @@
     "name": "Graphs",
     "desc": "Curve sketching, transformations, and asymptotics.",
     "status": "draft",
+    "badge": "TMUA · STEP",
     "sheets": []
   }
 ]

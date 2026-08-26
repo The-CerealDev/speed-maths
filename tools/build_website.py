@@ -27,13 +27,13 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # what a reader can trust blind, which is the promise the whole site makes.
 # Move a pillar to 'live' when its sheets have passed review.
 PILLARS = {
-    'algebra':       ('Algebra', 'Polynomials, inequalities, and functional equations.', 'live'),
-    'combinatorics': ('Combinatorics', 'Counting, probability, and discrete structures.', 'live'),
-    'number-theory': ('Number Theory', 'Divisibility, modular arithmetic, and primes.', 'live'),
-    'logic':         ('Logic', 'Conditionals, proof techniques, and counterexamples.', 'live'),
-    'sequences':     ('Sequences', 'Recurrences, series, and limiting behaviour.', 'live'),
-    'calculus':      ('Calculus', 'Differentiation, integration, and rates of change.', 'draft'),
-    'graphs':        ('Graphs', 'Curve sketching, transformations, and asymptotics.', 'draft'),
+    'algebra':       ('Algebra', 'Polynomials, inequalities, and functional equations.', 'live', 'TMUA · STEP · SMC'),
+    'combinatorics': ('Combinatorics', 'Counting, probability, and discrete structures.', 'live', 'SMC · BMO1 · TMUA'),
+    'number-theory': ('Number Theory', 'Divisibility, modular arithmetic, and primes.', 'live', 'BMO1 · SMC'),
+    'logic':         ('Logic', 'Conditionals, proof techniques, and counterexamples.', 'live', 'TMUA P2'),
+    'sequences':     ('Sequences', 'Recurrences, series, and limiting behaviour.', 'live', 'TMUA'),
+    'calculus':      ('Calculus', 'Differentiation, integration, and rates of change.', 'draft', 'TMUA · STEP'),
+    'graphs':        ('Graphs', 'Curve sketching, transformations, and asymptotics.', 'draft', 'TMUA · STEP'),
 }
 
 TEMPLATES = [
@@ -114,7 +114,9 @@ def count_questions(tex_path):
 def scan():
     """Every pillar with its sheets. Pillars with no PDFs are kept, empty."""
     data = []
-    for slug, (name, desc, status) in PILLARS.items():
+    for slug, meta in PILLARS.items():
+        name, desc, status = meta[0], meta[1], meta[2]
+        badge = meta[3] if len(meta) > 3 else ''
         sheets_dir = os.path.join(ROOT_DIR, slug, 'sheets')
         answers_dir = os.path.join(ROOT_DIR, slug, 'answers')
         sheets = []
@@ -140,7 +142,7 @@ def scan():
                                 else None),
                 })
         data.append({'slug': slug, 'name': name, 'desc': desc,
-                     'status': status, 'sheets': sheets})
+                     'status': status, 'badge': badge, 'sheets': sheets})
     return data
 
 
@@ -160,7 +162,12 @@ def render_rows(pillar):
     out = []
     for s in pillar['sheets']:
         title = esc(s['topic']) if s['topic'] else f"Sheet {s['n']}"
-        tags = ''.join(f'<span class="tool">{esc(t)}</span>' for t in s['tools'])
+        if s['tools']:
+            tags = ('<span class="tools-label">Methods:</span>'
+                    + ''.join(f'<span class="tool">{esc(t)}</span>' for t in s['tools']))
+            tools_html = f'<span class="tools">{tags}</span>'
+        else:
+            tools_html = ''
         qs = (f'<span class="qcount">{s["questions"]} questions</span>'
               if s['questions'] else '')
         ans = (f'<a href="{s["answers"]}" class="pdf-link ans" target="_blank">Answers</a>'
@@ -170,7 +177,7 @@ def render_rows(pillar):
             <span class="sheet-num">{s['n']}</span>
             <span class="sheet-body">
               <span class="sheet-name">{title}</span>
-              <span class="tools">{tags}</span>
+              {tools_html}
             </span>
             {qs}
             <span class="links">
@@ -197,11 +204,15 @@ def render_archive(template, data):
             qs = sum(s['questions'] for s in p['sheets'])
             stats = (f'<span class="stats"><b>{n}</b> sheets'
                      + (f' &middot; <b>{qs}</b> questions' if qs else '') + '</span>')
+        badge = f'<span class="pillar-badge">{esc(p["badge"])}</span>' if p.get('badge') else ''
         sections.append(f'''
       <section class="pillar" id="{p['slug']}">
         <div class="pillar-head">
           <div>
-            <h2>{esc(p['name'])}</h2>
+            <div class="pillar-title-row">
+              <h2>{esc(p['name'])}</h2>
+              {badge}
+            </div>
             <p class="pillar-desc">{esc(p['desc'])}</p>
           </div>
           {stats}
