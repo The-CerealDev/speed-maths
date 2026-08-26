@@ -76,7 +76,7 @@ of "what these exams are like":
    non-negotiables; it costs you one check, not your contribution.
 2. **Ground every section.** Each sheet's question archetypes must be
    ones that actually occur in the corpus for its target competition
-   (A/B ↔ TMUA/SMC-early, C ↔ SMC-mid, D ↔ SMC-late/BMO1). Close
+   (A/B ↔ TMUA/SMC-early, C ↔ SMC-mid, D ↔ SMC-late/BMO1)(not set in stone; you can tweak this around as long as it feels natural). Close
    adaptations carry the `(after SMC 2024 Q19)` credit as usual.
 3. **The corpus is local-only.** `research/` is gitignored because the
    papers are UKMT/OCR/Oxford copyright and this repo is public. Never
