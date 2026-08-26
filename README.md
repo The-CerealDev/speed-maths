@@ -1,12 +1,25 @@
-# Speed Maths
+<h1 align='center'>Speed Maths</h1>
+<div align='center'>
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <a href="https://speedmaths.co.uk">
+    <img src="https://img.shields.io/badge/Website-speedmaths.co.uk-blue.svg" alt="Website">
+  </a>
+  <a href="verify/BINDING_BASELINE.json">
+    <img src="https://img.shields.io/badge/Verified%20Questions-1%2C155%20%2F%201%2C155%20(100%25)-brightgreen.svg" alt="Verified">
+  </a>
+  <a href="tests/">
+    <img src="https://img.shields.io/badge/Tests-3%2C355%20passing-blue.svg" alt="Tests">
+  </a>
+  <a href="sheets/">
+    <img src="https://img.shields.io/badge/Format-LaTeX%20%7C%20PDF-lightgrey.svg" alt="LaTeX">
+  </a>
+    <p>Computationally verified corpus for TMUA and competition (SMC, BMO1) preparation.</p>
+    
+</div>
+</div>
 
-[![Verified](https://img.shields.io/badge/Corpus%20Verified-1%2C155%20%2F%201%2C155%20(100%25)-brightgreen.svg)](verify/BINDING_BASELINE.json)
-[![Tests](https://img.shields.io/badge/Tests-3%2C355%20passing-blue.svg)](tests/)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](tools/)
-[![LaTeX](https://img.shields.io/badge/Format-LaTeX%20%7C%20PDF-lightgrey.svg)](sheets/)
-Computationally verified corpus for TMUA and competition (SMC, BMO1) preparation.
 
-![Speed Maths Web Archive](assets/interface-preview.png)
+[![Speed Maths Web Archive](assets/interface-preview.png)](https://speedmaths.co.uk)
 
 ## For Students (TMUA & Competition Prep)
 
@@ -15,10 +28,10 @@ If you are revising for university admissions tests, you know the three biggest 
 This repository contains 1,155 original questions across 5 pillars — Algebra, Combinatorics, Logic, Number Theory and Sequences — at 33 questions on each of 7 daily sheets per pillar. Every answer has a committed, re-runnable Python script behind it, and a machine gate checks that the script actually compares its own result against the answer printed in the PDF.
 
 **How to use this:**
-1. Navigate to the `sheets/` directory of any pillar.
+1. Navigate to the `sheets/` or the website [speedmaths.co.uk](https://speedmaths.co.uk) for any pillar.
 2. Do one daily drill (Sections A--C for TMUA speed and accuracy; Section D for deep competition extension).
 3. Check your work against the `answers/` directory. If you disagree with the answer key, check the pillar's `verify/sheetNN_verify.py` for that question — it shows exactly what was computed and how. If it turns out to be wrong, that is a bug worth reporting; see the Bounty below.
-4. **Tackle the "Investigate further" callouts:** Answer sheets contain interview-style follow-up questions, generalisations, and BMO-level prompts (`\inv{...}`) designed for maths interviews and STEP preparation.
+4. **Tackle the "Investigate further" callouts:** Answer sheets contain interview-style follow-up questions, generalisations, and prompts (`\inv{...}`) designed for maths interviews and STEP preparation.
 
 ---
 
@@ -87,7 +100,7 @@ Speed-Maths/
 │   ├── validate_verify_scripts.py
 │   └── build_website.py
 ├── verify/
-│   ├── BINDING_BASELINE.json  (ratchet gate; permanently empty at 0 violations)
+│   ├── BINDING_BASELINE.json  (ratchet gate; permanently empty at 0 violations, for now...)
 │   └── BINDING_EXEMPTIONS.md  (the 78 "Proof: see method" answers)
 ├── template.html
 └── index.html                 (auto-generated artifact)
