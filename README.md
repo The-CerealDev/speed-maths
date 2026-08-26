@@ -120,7 +120,7 @@ A new sheet cannot be merged without a verify script that passes and binds. See 
 
 ## The Bounty (Hall of Fame)
 
-If you find a mathematical error in a compiled answer key, open a GitHub Issue — that is the most valuable contribution to this repo (apart from sheet contributions ofc), and it is worth being precise about what the bounty covers.
+If you find a mathematical error in a compiled answer key, open a GitHub Issue(or contact me) — that is the most valuable contribution to this repo (apart from sheet contributions ofc).
 
 **A wrong answer is claimable.** Every published answer in the corpus has an active verification check. If you can show a mathematically incorrect answer surviving in the PDF or in a check, that is a defect in the verification pipeline or answer key. Your name goes in the Hall of Fame below; open an issue with your derivation and counterexample.
 
