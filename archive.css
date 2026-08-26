@@ -97,17 +97,7 @@ header.page .subtitle {
     gap: 1rem; border-bottom: 1px solid var(--border);
     padding-bottom: .8rem; margin-bottom: .4rem;
 }
-.pillar-title-row {
-    display: flex; align-items: center; gap: .55rem; flex-wrap: wrap;
-}
 .pillar-head h2 { font-size: 1.3rem; font-weight: 700; }
-.pillar-badge {
-    display: inline-flex; align-items: center;
-    font-size: .68rem; font-weight: 500;
-    color: var(--text-muted); background: var(--bg);
-    border: 1px solid var(--border); border-radius: 999px;
-    padding: .05rem .45rem; letter-spacing: .01em;
-}
 .pillar-desc { font-size: .85rem; color: var(--text-muted); margin-top: .15rem; }
 .stats {
     font-size: .78rem; color: var(--text-muted); white-space: nowrap;
