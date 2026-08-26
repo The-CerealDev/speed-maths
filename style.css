@@ -3,8 +3,8 @@
     --card-bg: #ffffff;
     --text-main: #2d3748;
     --text-muted: #718096;
-    --primary: #2b6cb0;
-    --primary-hover: #2c5282;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
     --border-color: #e2e8f0;
 }
 
@@ -196,7 +196,7 @@ footer a {
     align-items: center;
     gap: 0.4rem;
     padding: 0.4rem 0.8rem;
-    background-color: var(--text-main);
+    background-color: var(--primary);
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -206,7 +206,7 @@ footer a {
 }
 
 .github-link:hover {
-    background-color: #1a202c;
+    background-color: var(--primary-hover);
 }
 
 @media (max-width: 768px) {

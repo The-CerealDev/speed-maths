@@ -15,8 +15,8 @@
     /* One step darker than --text-main, for the GitHub button's hover. */
     --text-strong: #1a202c;
 
-    --primary: #2b6cb0;
-    --primary-hover: #2c5282;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
     --primary-fg: #ffffff;
 
     --secondary: #edf2f7;
