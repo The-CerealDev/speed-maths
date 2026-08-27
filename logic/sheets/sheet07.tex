@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\SpeedTitleBlock{Daily Logic Drill \#7}{David Akinyele-Aje}
+\SpeedTitleBlock{Daily Logic Drill \#7}{The-CerealDev}
 \SpeedMeta{Equivalence, set claims and invariants}{logical equivalence, invariant argument, extremal principle}
 \noindent\textit{New toolkit today: Mixed Synthesis Capstone $\cdot$ Every technique from Days 1--6, combined.}
 
@@ -83,14 +83,14 @@
 \item[A)] $P\iff Q$.
 \item[B)] $P$ is sufficient but not necessary for $Q$.
 \item[C)] $P$ is necessary but not sufficient for $Q$.
-\item[D)] $P$ and $Q$ are neither necessary nor sufficient for each other --- e.g.\ $n=8$ satisfies $P$ but not $Q$, and $n=6$ satisfies $Q$ but not $P$.
+\item[D)] $P$ and $Q$ are neither necessary nor sufficient for each other.
 \item[E)] $Q$ is impossible to satisfy.
 \end{itemize}
 
 \item A theorem states: ``If every element of a finite set $S$ of positive integers is even, then the sum of all elements of $S$ is even.'' A student, wanting to prove the converse, argues: ``Take $S=\{2,4\}$; the sum is $6$, which is even, and every element is indeed even, confirming the converse.'' What is the flaw?
 \begin{itemize}
 \item[A)] The theorem itself is false.
-\item[B)] A single supporting example cannot establish a universal converse statement --- e.g.\ $S=\{1,3\}$ has an even sum ($4$) despite containing no even elements at all, disproving the converse.
+\item[B)] A single supporting example cannot establish a universal converse statement.
 \item[C)] $S=\{2,4\}$ does not actually have an even sum.
 \item[D)] The original theorem's proof technique (not the converse) is what's flawed.
 \item[E)] There is no flaw; the converse is proved.
@@ -108,7 +108,7 @@
 \item A student claims: ``$n$ is a multiple of $9$'' is necessary and sufficient for ``the digit sum of $n$ is a multiple of $9$''. They verify this only for $n=9,18,27$ and declare the claim proved. Evaluate this.
 \begin{itemize}
 \item[A)] The claim and the verification are both fully correct.
-\item[B)] The claim is true (it is a standard divisibility rule), but checking three cases does not constitute a proof of a necessary-and-sufficient claim holding for every positive integer $n$.
+\item[B)] Checking three cases does not constitute a proof of a necessary-and-sufficient claim holding for every positive integer $n$.
 \item[C)] The claim is false; digit sums have nothing to do with divisibility by $9$.
 \item[D)] The claim is true only for necessity, not sufficiency.
 \item[E)] The claim is true only for sufficiency, not necessity.
@@ -125,7 +125,7 @@
 
 \item A student claims $P(n)$: ``$n^2+5n+2$ is even for every positive integer $n$'' is provable by induction: base case $P(1)$: $1+5+2=8$ is even; inductive step: assume $k^2+5k+2$ is even; then $(k+1)^2+5(k+1)+2=k^2+7k+8=(k^2+5k+2)+2k+6$, which is (even)+(even)=even, so $P(k+1)$ holds. Is this induction valid, and is the underlying claim true?
 \begin{itemize}
-\item[A)] The induction is valid, and the claim is true for every positive integer --- confirmed directly too, since $n^2+5n+2=n(n+5)+2$, and $n(n+5)$ (a product of two integers of opposite parity, since $5$ is odd) is always even.
+\item[A)] The induction is valid, and the claim is true for every positive integer.
 \item[B)] The induction has a flaw in the algebra.
 \item[C)] The claim is false --- there exists some $n$ for which $n^2+5n+2$ is odd.
 \item[D)] The base case is wrong.
@@ -134,7 +134,7 @@
 \item Consider positive integers $m,n$. Statement $P$: ``For every prime $p$, if $p\mid mn$ then $p\mid m$ or $p\mid n$.'' Statement $Q$: ``There exists a prime $p$ such that $p\mid mn$ but $p\nmid m$ and $p\nmid n$.'' Which of the following is true?
 \begin{itemize}
 \item[A)] $P$ and $Q$ can both be true simultaneously.
-\item[B)] $Q$ is the negation of $P$, and since $P$ is a true theorem (Euclid's Lemma) for all $m,n$, $Q$ is always false.
+\item[B)] $Q$ is the negation of $P$, so $Q$ is always false because $P$ is always true.
 \item[C)] $P$ is the negation of $Q$.
 \item[D)] Neither $P$ nor $Q$ is ever true.
 \item[E)] $P$ is false in general.
@@ -143,7 +143,7 @@
 \item A student claims: ``$x=1$'' is necessary and sufficient for ``$x^3-1=0$'' (for real $x$), reasoning: ``Sufficient, because substituting $x=1$ gives $0$. Necessary, because $1^3-1=0$, which confirms $x=1$ works.'' Evaluate the necessity argument specifically.
 \begin{itemize}
 \item[A)] Both parts of the reasoning are fully correct as given.
-\item[B)] The ``necessity'' argument is circular: showing $1^3-1=0$ just re-verifies sufficiency again (that $x=1$ satisfies the equation), and says nothing about whether $x=1$ is the ONLY solution. Necessity IS true here --- via $x^3-1=(x-1)(x^2+x+1)$, where the quadratic factor has no real roots (discriminant $1-4=-3<0$) --- just not established by the reasoning given.
+\item[B)] The ``necessity'' argument is circular: showing $1^3-1=0$ just re-verifies sufficiency again, and says nothing about whether $x=1$ is the ONLY solution.
 \item[C)] The necessity argument is flawed because $x=-1$ is also a solution.
 \item[D)] Sufficiency is actually false.
 \item[E)] There is no correct way to establish necessity here.

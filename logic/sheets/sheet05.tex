@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\SpeedTitleBlock{Daily Logic Drill \#5}{David Akinyele-Aje}
+\SpeedTitleBlock{Daily Logic Drill \#5}{The-CerealDev}
 \SpeedMeta{Spotting the flaw: the converse error}{converse error, affirming the consequent, flawed-proof analysis}
 \noindent\textit{New toolkit today: Spot the Flaw $\cdot$ Common Fallacies $\cdot$ Proof Critique $\cdot$ Valid vs.\ Invalid Arguments.}
 
@@ -98,14 +98,14 @@ Which of the following best evaluates this argument?
 \item[A)] The proof is completely valid, and the claim is true.
 \item[B)] The proof is invalid; the error occurs on line II.
 \item[C)] The proof is invalid; the error occurs on line III.
-\item[D)] The proof is invalid; the error occurs on line IV --- irreducibility of the polynomial does not imply primality of its integer values ($n=3$ gives $2(9)+6+1=25=5^2$).
+\item[D)] The proof is invalid; the error occurs on line IV.
 \item[E)] The proof is invalid; the error occurs on line I.
 \end{itemize}
 
 \item Let $P$: ``$x^2-5x+6=0$'' and $Q$: ``$x=2$''. A student argues: ``Since $Q\implies P$ is true (substituting $x=2$ gives $4-10+6=0$), and $P$ and $Q$ are `clearly related', we conclude $P\iff Q$.'' Which of the following identifies the flaw?
 \begin{itemize}
 \item[A)] $Q\implies P$ is actually false.
-\item[B)] $P\implies Q$ is false, since $x=3$ also satisfies $P$ but not $Q$; asserting $P\implies Q$ without proof is the error.
+\item[B)] $P\implies Q$ is false; asserting $P\implies Q$ without proof is the error.
 \item[C)] There is no flaw; the conclusion is correct.
 \item[D)] $P$ and $Q$ are not comparable statements.
 \item[E)] The flaw is that $Q$ should be shown to imply $\neg P$.
@@ -114,7 +114,7 @@ Which of the following best evaluates this argument?
 \item A student attempts to prove: ``For every integer $n$, $n^2+n$ is divisible by $2$.'' Proof: Suppose $n$ is even, so $n=2k$. Then $n^2+n=4k^2+2k=2(2k^2+k)$, which is divisible by $2$. Hence the claim is proved. Which of the following is the most accurate evaluation?
 \begin{itemize}
 \item[A)] The proof is complete and correct.
-\item[B)] The proof is incomplete: only the even case was considered; the odd case must also be checked (though the claim does turn out to be true for odd $n$ too).
+\item[B)] The proof is incomplete: only the even case was considered; the odd case must also be checked.
 \item[C)] The proof is invalid because $n=2k$ is an unjustified assumption.
 \item[D)] The claim itself is false; $n=3$ is a counterexample.
 \item[E)] The proof incorrectly divides by $2$.
@@ -129,7 +129,7 @@ On which line does the argument first break down?
 \begin{itemize}
 \item[A)] Line I
 \item[B)] Line II
-\item[C)] Line III --- a positive multiple of $3$ need not be composite, since $3$ itself is prime; e.g.\ $n-2=3,n=5,n+2=7$ are three consecutive odd primes.
+\item[C)] Line III --- a positive multiple of $3$ need not be composite, since $3$ itself is prime.
 \item[D)] Line IV
 \item[E)] The argument is fully correct.
 \end{itemize}
@@ -146,7 +146,7 @@ On which line does the argument first break down?
 \item Claim: ``If a quadrilateral is a rhombus, then its diagonals are perpendicular.'' A student, wanting to test the converse, argues: ``The diagonals of a square are perpendicular, and a square is a rhombus, so this confirms the converse: if a quadrilateral's diagonals are perpendicular, it is a rhombus.'' What is the flaw in this reasoning?
 \begin{itemize}
 \item[A)] A square is not a rhombus.
-\item[B)] One supporting example does not prove a universal converse statement --- a kite also has perpendicular diagonals but need not be a rhombus.
+\item[B)] One supporting example does not prove a universal converse statement.
 \item[C)] The diagonals of a square are not actually perpendicular.
 \item[D)] The original claim about rhombi is false.
 \item[E)] There is no flaw.
@@ -165,7 +165,7 @@ Assess this answer.
 \item Claim: ``Having four equal sides is a necessary and sufficient condition for a quadrilateral to be a square.'' A student ``verifies'' this by checking that every square has four equal sides. What is the flaw in this verification?
 \begin{itemize}
 \item[A)] Squares do not have four equal sides.
-\item[B)] The student has only checked necessity (square $\implies$ four equal sides), not sufficiency (four equal sides $\implies$ square) --- a rhombus that is not a square is a counterexample to sufficiency.
+\item[B)] The student has only checked necessity (square $\implies$ four equal sides), not sufficiency.
 \item[C)] The student has only checked sufficiency, not necessity.
 \item[D)] There is no flaw.
 \item[E)] Both directions were checked correctly.
@@ -191,7 +191,7 @@ IV. This proves $s^2\geq4p$, so the theorem is shown.\\
 Which of the following best describes this argument?
 \begin{itemize}
 \item[A)] It is completely correct.
-\item[B)] It is incorrect, but its logic runs backward: the student has shown that $s^2\geq4p$ \emph{follows from} the existence of $u,v$, which is the converse of what is required. The theorem needs $u,v$ to be \emph{constructed from} $s^2\geq4p$ (e.g.\ as the roots of $t^2-st+p=0$).
+\item[B)] It is incorrect, but its logic runs backward: the student has shown that $s^2\geq4p$ \emph{follows from} the existence of $u,v$, which is the converse of what is required.
 \item[C)] It is incorrect because line II is false.
 \item[D)] It is incorrect because line III is false.
 \item[E)] There is no flaw; assuming $u,v$ exist first is a standard, valid proof technique here.
@@ -224,7 +224,7 @@ Line 4: This leaves only $6k+1$ and $6k+5=6(k+1)-1$, i.e.\ of the form $6k'-1$. 
 Which of the following is true?
 \begin{itemize}
 \item[A)] The argument is fully valid, and correctly establishes the claim exactly as stated.
-\item[B)] The argument shows only that every prime $>3$ has the form $6k\pm1$ (necessity), not that every number of that form is prime (sufficiency) --- but the claim as stated only asserts the former, so the proof is complete.
+\item[B)] The argument shows only that every prime $>3$ has the form $6k\pm1$ (necessity), not that every number of that form is prime (sufficiency).
 \item[C)] There is a genuine gap: line 2 incorrectly dismisses $6k+4$.
 \item[D)] There is a genuine gap: line 3 is false.
 \item[E)] The proof is invalid because it never explicitly rules out $6k$ itself.

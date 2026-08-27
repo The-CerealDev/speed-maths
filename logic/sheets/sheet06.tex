@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\SpeedTitleBlock{Daily Logic Drill \#6}{David Akinyele-Aje}
+\SpeedTitleBlock{Daily Logic Drill \#6}{The-CerealDev}
 \SpeedMeta{Induction, and where the base case fails}{induction, base case failure, strong induction}
 \noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Strong Induction $\cdot$ Base Case Traps $\cdot$ Misapplied Induction.}
 
@@ -81,7 +81,7 @@
 \item A student attempts to prove $P(n)$: ``in any group of $n$ people, everyone has the same favourite integer,'' by induction. Base case: $P(1)$ is trivially true. Inductive step: assume $P(k)$ holds for any group of $k$ people. Given a group of $k+1$ people, remove one person, leaving a group of $k$ people who all share a favourite by $P(k)$; then put that person back and remove a different person, leaving another group of $k$ people who also all share a favourite by $P(k)$. Since the two groups overlap, everyone must share the same favourite, so $P(k+1)$ holds. Which of the following identifies the flaw?
 \begin{itemize}
 \item[A)] The base case $P(1)$ is invalid.
-\item[B)] The inductive step secretly requires $k\geq2$ for the two subgroups of size $k$ to overlap; the very first application, from $P(1)$ to $P(2)$, has $k=1$, where the two subgroups do not overlap at all, so the chain of implications never actually gets started.
+\item[B)] The inductive step secretly requires $k\geq2$ for the two subgroups of size $k$ to overlap; the very first application, from $P(1)$ to $P(2)$, has $k=1$, where the two subgroups do not overlap.
 \item[C)] The claim is actually true, and the proof is valid.
 \item[D)] The flaw is that people cannot have favourite integers.
 \item[E)] The inductive hypothesis is applied twice, which is never allowed.
@@ -90,7 +90,7 @@
 \item A student attempts to prove: for all positive integers $n$, $n^3-n$ is divisible by $6$. Inductive step: ``Assume $k^3-k=6m$ for some integer $m$. Since $(k+1)^3-(k+1)$ is also divisible by $6$, by the general theory of consecutive-integer products, $P(k+1)$ holds.'' What is the flaw?
 \begin{itemize}
 \item[A)] $n^3-n$ is not actually always divisible by $6$.
-\item[B)] The inductive step never actually derives $(k+1)^3-(k+1)$ from the assumption $k^3-k=6m$; it bypasses the inductive hypothesis entirely, appealing to an external fact instead of doing the algebra that connects $(k+1)^3-(k+1)$ back to $k^3-k$.
+\item[B)] The inductive step never actually derives $(k+1)^3-(k+1)$ from the assumption $k^3-k=6m$; it bypasses the inductive hypothesis entirely.
 \item[C)] The base case is missing.
 \item[D)] $m$ must be shown to be positive.
 \item[E)] There is no flaw.
@@ -99,7 +99,7 @@
 \item A student wants to prove $P(n)$: ``$n^2>3n+4$'' for all sufficiently large $n$, and sets the base case at $n=4$, checking $16>16$. Since this is false, the student concludes the claim can never be proved by induction. What is the actual smallest valid base case, and what was wrong with the student's reasoning?
 \begin{itemize}
 \item[A)] $n=3$; the student made an arithmetic slip.
-\item[B)] $n=5$; $P(4)$ is false ($16>16$ fails), but $P(5)$ is true ($25>19$), and the inductive step $P(k)\implies P(k+1)$ can be verified to hold for $k\geq5$ --- a false $P(n_0)$ at one value doesn't mean no valid base case exists elsewhere.
+\item[B)] $n=5$; $P(4)$ is false, but $P(5)$ is true, and the inductive step holds for $k\geq5$.
 \item[C)] $n=6$; the student needed to check two consecutive cases before starting.
 \item[D)] There is no valid base case; the claim is false for all $n$.
 \item[E)] $n=4$ actually does work; $16>16$ should be interpreted as $\geq$.
@@ -108,7 +108,7 @@
 \item Every integer $n\geq2$ can be written as a product of primes. A student attempts ordinary (single-step) induction: base case $n=2$ (prime); inductive step: ``assume $k$ is a product of primes; show $k+1$ is a product of primes.'' What is the fundamental problem with this approach?
 \begin{itemize}
 \item[A)] There is no problem; the proof works fine.
-\item[B)] If $k+1$ is composite, say $k+1=ab$ with $1<a,b<k+1$, knowing that $k$ (not $a$ or $b$) is a product of primes gives no information about $a$ or $b$ at all --- the inductive hypothesis about $k$ is simply irrelevant to factoring $k+1$. Strong induction (assuming the claim for \emph{all} of $2,\dots,k$, not just $k$ itself) is needed instead.
+\item[B)] Knowing that $k$ is a product of primes gives no information about the factors of $k+1$. Strong induction is needed instead.
 \item[C)] The base case should be $n=1$.
 \item[D)] $k+1$ is always prime if $k$ is a product of primes.
 \item[E)] The inductive hypothesis needs to also assume $k-1$ is a product of primes.
@@ -117,7 +117,7 @@
 \item A student is asked to determine the smallest positive integer $n_0$ such that $P(n)$: ``$\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}>\frac12$'' holds for all $n\geq n_0$. Checking $n=1$: the sum is just $\frac12$, so $P(1)$ is FALSE ($\frac12>\frac12$ fails). The student concludes: ``since $P(1)$ fails, no base case exists and induction cannot be used to establish $P(n)$ for any range of $n$.'' Is this conclusion correct?
 \begin{itemize}
 \item[A)] Yes.
-\item[B)] No --- $P(1)$ failing only rules out $n_0=1$; the claim could still be true from some larger $n_0$ onward (and indeed it is: at $n=2$, the sum is $\frac13+\frac14=\frac7{12}>\frac12$).
+\item[B)] No --- $P(1)$ failing only rules out $n_0=1$; the claim could still be true from some larger $n_0$ onward.
 \item[C)] Yes, because a failed base case always means the inductive step will also fail.
 \item[D)] No, because $\frac12>\frac12$ is actually a true statement.
 \item[E)] The claim is undecidable by induction in principle.
@@ -125,7 +125,7 @@
 
 \item A student attempts to prove ``every amount of postage $n\geq8$ pence can be made using only $3$p and $5$p stamps'' by induction, using base cases $n=8,9,10$ (each directly constructible: $8=3+5$, $9=3+3+3$, $10=5+5$). What must the inductive step actually use to correctly bridge from an earlier case to $P(k+1)$ for $k\geq10$?
 \begin{itemize}
-\item[A)] $P(k+1)$ can be built by taking the construction for $P(k-2)$ (which holds since $k-2\geq8$, already established by an earlier base case or earlier inductive step) and adding one more $3$p stamp --- this is strong induction, using a case three steps back, not just $P(k)$ itself.
+\item[A)] $P(k+1)$ can be built by taking the construction for $P(k-2)$ and adding one more $3$p stamp --- this is strong induction.
 \item[B)] $P(k+1)$ follows directly from $P(k)$ by adding a $1$p stamp.
 \item[C)] No inductive step is needed once three base cases are given.
 \item[D)] $P(k+1)$ cannot be constructed from any earlier case; a completely separate direct construction is required for every $n$.
@@ -135,7 +135,7 @@
 \item A student checks that $F_1+F_3+F_5+\cdots+F_{2n-1}=F_{2n}$ (where $F_i$ is the $i$-th Fibonacci number, $F_1=F_2=1$) for $n=1,2,3,4$ and concludes the identity holds for all positive integers $n$. Which of the following is the most accurate assessment?
 \begin{itemize}
 \item[A)] This is a complete and valid proof.
-\item[B)] Checking finitely many cases is not a proof; a full argument requires an inductive step showing $F_1+\cdots+F_{2k-1}=F_{2k}\implies F_1+\cdots+F_{2k-1}+F_{2k+1}=F_{2k+2}$, which follows directly from the Fibonacci recurrence $F_{2k+2}=F_{2k+1}+F_{2k}$.
+\item[B)] Checking finitely many cases is not a proof; a full argument requires an inductive step.
 \item[C)] The identity is actually false, since Fibonacci numbers grow exponentially.
 \item[D)] No proof is possible since Fibonacci numbers are not well understood.
 \item[E)] Checking $n=1,\dots,4$ is sufficient because Fibonacci identities always stabilise after four terms.
