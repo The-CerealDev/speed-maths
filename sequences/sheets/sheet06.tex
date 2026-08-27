@@ -143,7 +143,7 @@
 \item Values of $a$ that cause $a$ to reappear come from two sources: Alice's own fixed point, and (at most) finitely many solutions from Bob's-turn-matches-$a$ equations. Which statement about the second source is always true?
 \begin{itemize}
 \item[A)] It has infinitely many integer solutions in general.
-\item[B)] It has at most one candidate value of $a$ for each choice of $k$, but only finitely many $k$ can give an integer solution, since $|u|=\frac c{r^k-1}\to0$ as $k\to\infty$.
+\item[B)] It has at most one candidate value of $a$ for each choice of $k$, but only finitely many $k$ can give an integer solution.
 \item[C)] It never has any integer solutions.
 \item[D)] It always has exactly one integer solution for every $r,c$.
 \end{itemize}
@@ -158,7 +158,7 @@
 
 \item A sequence of positive integers is built one at a time, maintaining $S_n$ divisible by $n$ at each step. At each step, does a valid next term always exist?
 \begin{itemize}
-\item[A)] Yes --- choosing $a_{n+1}\equiv-S_n\pmod{n+1}$ (the least positive such residue, or any larger value with that residue) always gives a valid $S_{n+1}$.
+\item[A)] Yes --- choosing $a_{n+1}\equiv-S_n\pmod{n+1}$ always gives a valid $S_{n+1}$.
 \item[B)] No --- eventually the sequence must get stuck.
 \item[C)] It depends on whether $n$ is prime.
 \item[D)] Only if all previous terms were even.
@@ -166,7 +166,7 @@
 
 \item Given an UNLIMITED supply of positive integers to choose from (no finite deck), must the construction from C7 eventually get stuck?
 \begin{itemize}
-\item[A)] No --- with unlimited supply the process can always continue forever; getting stuck is only possible with a FINITE pool of available numbers.
+\item[A)] No --- with unlimited supply the process can always continue forever.
 \item[B)] Yes, it must get stuck within finitely many steps regardless of supply.
 \item[C)] It depends on the value of $a_1$.
 \item[D)] The process is stuck immediately after the first step.
@@ -190,7 +190,7 @@
 
 \item For the card-sequencing problem (as in D1), with cards numbered $1$ to $N$: is it always true that at least $2$ cards can be placed (i.e.\ length-$1$-stuck is impossible) whenever $N\geq4$?
 \begin{itemize}
-\item[A)] True --- for $N\geq4$, both parity classes have at least $2$ members, so removing any single card always leaves at least one same-parity card remaining.
+\item[A)] True --- for $N\geq4$, removing any single card always leaves at least one same-parity card remaining.
 \item[B)] False --- length-$1$-stuck remains possible for some $N\geq4$.
 \item[C)] It depends on whether $N$ is prime.
 \item[D)] True only for even $N$.
@@ -198,7 +198,7 @@
 
 \item In both the card-sequencing problem (D1) and the alternating-writing problem (D2), the eventual stopping/repeating behaviour was forced by a finiteness argument --- a finite pool of cards, or a shrinking magnitude $|u|\to0$. What is the common underlying principle?
 \begin{itemize}
-\item[A)] A process constrained to a finite or shrinking set of possibilities cannot continue satisfying an ever-tightening condition forever --- it must eventually terminate or repeat.
+\item[A)] A process constrained to a finite or shrinking set of possibilities cannot continue satisfying an ever-tightening condition forever.
 \item[B)] Every recurrence relation eventually becomes periodic.
 \item[C)] Integer sequences are always bounded.
 \item[D)] There is no common principle; the two problems are unrelated.
