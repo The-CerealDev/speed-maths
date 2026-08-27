@@ -117,7 +117,7 @@
 \item A student is asked to determine the smallest positive integer $n_0$ such that $P(n)$: ``$\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}>\frac12$'' holds for all $n\geq n_0$. Checking $n=1$: the sum is just $\frac12$, so $P(1)$ is FALSE ($\frac12>\frac12$ fails). The student concludes: ``since $P(1)$ fails, no base case exists and induction cannot be used to establish $P(n)$ for any range of $n$.'' Is this conclusion correct?
 \begin{itemize}
 \item[A)] Yes.
-\item[B)] No --- $P(1)$ failing only rules out $n_0=1$; the claim could still be true from some larger $n_0$ onward.
+\item[B)] No --- the claim could still be true from some larger $n_0$ onward.
 \item[C)] Yes, because a failed base case always means the inductive step will also fail.
 \item[D)] No, because $\frac12>\frac12$ is actually a true statement.
 \item[E)] The claim is undecidable by induction in principle.
@@ -128,7 +128,7 @@
 \item[A)] $P(k+1)$ relies on the construction for $P(k-2)$, requiring strong induction.
 \item[B)] $P(k+1)$ follows directly from $P(k)$ by adding a $1$p stamp.
 \item[C)] No inductive step is needed once three base cases are given.
-\item[D)] $P(k+1)$ cannot be constructed from any earlier case; a completely separate direct construction is required for every $n$.
+\item[D)] $P(k+1)$ cannot be constructed from any earlier case.
 \item[E)] The base cases $8,9,10$ are unnecessary.
 \end{itemize}
 
@@ -138,7 +138,7 @@
 \item[B)] Checking finitely many cases is not a proof; a full argument requires an inductive step.
 \item[C)] The identity is actually false, since Fibonacci numbers grow exponentially.
 \item[D)] No proof is possible since Fibonacci numbers are not well understood.
-\item[E)] Checking $n=1,\dots,4$ is sufficient because Fibonacci identities always stabilise after four terms.
+\item[E)] Checking $n=1,\dots,4$ is sufficient.
 \end{itemize}
 
 \item Which of the following correctly and precisely states what must be proved in the inductive step of a proof that $P(n)$ holds for all integers $n\geq1$?
