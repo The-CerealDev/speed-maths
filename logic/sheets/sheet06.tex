@@ -81,7 +81,7 @@
 \item A student attempts to prove $P(n)$: ``in any group of $n$ people, everyone has the same favourite integer,'' by induction. Base case: $P(1)$ is trivially true. Inductive step: assume $P(k)$ holds for any group of $k$ people. Given a group of $k+1$ people, remove one person, leaving a group of $k$ people who all share a favourite by $P(k)$; then put that person back and remove a different person, leaving another group of $k$ people who also all share a favourite by $P(k)$. Since the two groups overlap, everyone must share the same favourite, so $P(k+1)$ holds. Which of the following identifies the flaw?
 \begin{itemize}
 \item[A)] The base case $P(1)$ is invalid.
-\item[B)] The inductive step secretly requires $k\geq2$ for the two subgroups of size $k$ to overlap; the very first application, from $P(1)$ to $P(2)$, has $k=1$, where the two subgroups do not overlap.
+\item[B)] The inductive step implicitly assumes $k\geq2$ for the subgroups to overlap.
 \item[C)] The claim is actually true, and the proof is valid.
 \item[D)] The flaw is that people cannot have favourite integers.
 \item[E)] The inductive hypothesis is applied twice, which is never allowed.
@@ -90,7 +90,7 @@
 \item A student attempts to prove: for all positive integers $n$, $n^3-n$ is divisible by $6$. Inductive step: ``Assume $k^3-k=6m$ for some integer $m$. Since $(k+1)^3-(k+1)$ is also divisible by $6$, by the general theory of consecutive-integer products, $P(k+1)$ holds.'' What is the flaw?
 \begin{itemize}
 \item[A)] $n^3-n$ is not actually always divisible by $6$.
-\item[B)] The inductive step never actually derives $(k+1)^3-(k+1)$ from the assumption $k^3-k=6m$; it bypasses the inductive hypothesis entirely.
+\item[B)] The inductive hypothesis is bypassed entirely.
 \item[C)] The base case is missing.
 \item[D)] $m$ must be shown to be positive.
 \item[E)] There is no flaw.
@@ -108,7 +108,7 @@
 \item Every integer $n\geq2$ can be written as a product of primes. A student attempts ordinary (single-step) induction: base case $n=2$ (prime); inductive step: ``assume $k$ is a product of primes; show $k+1$ is a product of primes.'' What is the fundamental problem with this approach?
 \begin{itemize}
 \item[A)] There is no problem; the proof works fine.
-\item[B)] Knowing that $k$ is a product of primes gives no information about the factors of $k+1$. Strong induction is needed instead.
+\item[B)] Strong induction is required because the factors of $k+1$ may not relate to $k$.
 \item[C)] The base case should be $n=1$.
 \item[D)] $k+1$ is always prime if $k$ is a product of primes.
 \item[E)] The inductive hypothesis needs to also assume $k-1$ is a product of primes.
@@ -125,7 +125,7 @@
 
 \item A student attempts to prove ``every amount of postage $n\geq8$ pence can be made using only $3$p and $5$p stamps'' by induction, using base cases $n=8,9,10$ (each directly constructible: $8=3+5$, $9=3+3+3$, $10=5+5$). What must the inductive step actually use to correctly bridge from an earlier case to $P(k+1)$ for $k\geq10$?
 \begin{itemize}
-\item[A)] $P(k+1)$ can be built by taking the construction for $P(k-2)$ and adding one more $3$p stamp --- this is strong induction.
+\item[A)] $P(k+1)$ relies on the construction for $P(k-2)$, requiring strong induction.
 \item[B)] $P(k+1)$ follows directly from $P(k)$ by adding a $1$p stamp.
 \item[C)] No inductive step is needed once three base cases are given.
 \item[D)] $P(k+1)$ cannot be constructed from any earlier case; a completely separate direct construction is required for every $n$.
