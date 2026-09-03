@@ -214,11 +214,11 @@
 \inv{Find all pairs of primes $(p,q)$ such that $p^2 - q^2 = 24$.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item A palindromic 6-digit number $N$ is formed by placing the digits of a 3-digit number $x$ followed by the same digits in reverse order (for example, if $x=123$, $N=123321$). What is the largest prime number that must be a factor of all such numbers $N$? \textit{\small(after TMUA 2019 Paper 1 Q12)}
+\item Find all prime numbers $p$ such that $p^2+2$ is also prime. You may first wish to show that if $p>3$ then $p^2-1$ is divisible by $24$. \textit{\small(after TMUA 2017 Paper 2 Q9 and TMUA 2022 Paper 2 Q3)}
 
-\ans{$11$}
-\method{Let $x$ have digits $a, b, c$. Then $N = 100000a + 10000b + 1000c + 100c + 10b + a = 100001a + 10010b + 1100c$. Factoring out $11$, we get $N = 11(9091a + 910b + 100c)$, so $11$ always divides $N$. This matches the alternating sum rule: $(a+b+c) - (c+b+a) = 0$, which is trivially a multiple of $11$. To see if any larger prime divides all such $N$, we can check $x=100 \implies N=100001 = 11 \times 9091$ and $x=101 \implies N=101101 = 11 \times 9191$. Their difference is $1100 = 11 \times 2^2 \times 5^2$. Neither $2$ nor $5$ divides $100001$, so their greatest common divisor is exactly $11$. Thus $11$ is the largest prime that must be a factor.}
-\inv{The original TMUA question explores the difference between a 3-digit number and its reverse. This question adapts the concept to a palindromic concatenation, creating a classic setup for the divisibility by 11 rule. What is the largest integer (not necessarily prime) that divides all such $N$?}
+\ans{$3$}
+\method{If $p>3$ then $p$ is odd and not divisible by $3$, so $p\equiv \pm1\pmod 6$. Then $p-1$ and $p+1$ are consecutive even numbers, one divisible by $4$, the other by $2$, and one of $p-1,p,p+1$ is divisible by $3$ but $p$ is not, so $3\mid p^2-1$. Hence $8\mid p^2-1$ and $3\mid p^2-1$, so $24\mid p^2-1$. Then $p^2\equiv1\pmod3$, so $p^2+2\equiv0\pmod3$ for $p>3$, hence composite and $>3$. Checking $p=2$ gives $6$ composite, $p=3$ gives $11$ prime. Thus only $p=3$.}
+\inv{The two cited TMUA questions isolate the same mod-$3$ obstruction: $p^2\equiv1\pmod3$ for $p\neq3$. Can you also show $p^2\equiv1\pmod{24}$ needs $p$ odd and $3\nmid p$, and use it to prove no prime $p>3$ has $p^2+2$ prime?}
 
 \end{enumerate}
 
