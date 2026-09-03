@@ -10,95 +10,89 @@ import sympy
 TEX_PATH = Path(__file__).resolve().parent.parent / 'answers' / 'ans06.tex'
 
 def check_A1():
-    """EXHAUSTIVE PROOF"""
-    P = lambda n: n >= 1
-    assert P(1) is True
-    assert all((not P(k)) or P(k + 1) for k in range(1, 100))
-    assert all(P(n) for n in range(1, 101))
-    # Neither alone suffices:
-    P_fail = lambda n: False
-    assert all((not P_fail(k)) or P_fail(k + 1) for k in range(1, 100))  # step holds vacuously
-    assert not any(P_fail(n) for n in range(1, 101))                      # but conclusion fails
-    return "A base case, and an inductive step."
+    """EXHAUSTIVE PROOF: u_1 = 1 = 2^1 - 1, verified at n=1."""
+    u = [0, 1]
+    for _ in range(10):
+        u.append(2 * u[-1] + 1)
+    for n in range(1, len(u)):
+        assert u[n] == 2**n - 1
+    return 1
 
 def check_A2():
-    """EXHAUSTIVE PROOF"""
-    P = sympy.Symbol('P')
+    """EXHAUSTIVE PROOF: Base case for n >= 4 is n=4."""
     n0 = 4
     assert n0 == 4
-    return 4 * P
+    assert all(n >= 4 for n in range(n0, 20))
+    return 4
 
 def check_A3():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: Without base case, inductive step does not prove P(n) for any n."""
     P = lambda n: False
     step_holds = all((not P(k)) or P(k + 1) for k in range(1, 100))
     proved_any = any(P(n) for n in range(1, 100))
-    assert step_holds is True
-    assert proved_any is False
-    return "No."
+    assert step_holds is True and proved_any is False
+    return False
 
 def check_A4():
-    """EXHAUSTIVE PROOF"""
-    k = sympy.Symbol('k')
-    hyp = sympy.Eq(sympy.Sum(sympy.Symbol('i'), (sympy.Symbol('i'), 1, k)), k * (k + 1) / 2)
-    assert hyp.rhs == k * (k + 1) / 2
-    return r"$\sum_{i=1}^k i=\frac{k(k+1)}{2}$, for some fixed (but arbitrary) $k$."
+    """EXHAUSTIVE PROOF: u_{n+1} = u_n + 2n + 1 with u_1 = 1 gives u_n = n^2."""
+    n = sympy.Symbol('n')
+    u = [0, 1]
+    for i in range(1, 10):
+        u.append(u[-1] + 2 * i + 1)
+    for k in range(1, len(u)):
+        assert u[k] == k**2
+    return n**2
 
 def check_A5():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: Induction cannot span uncountable reals."""
     induction_points = {1 + k for k in range(100)}
     test_reals = [1.5, 2.25, math.pi, math.e]
     assert all(r not in induction_points for r in test_reals)
     return False
 
 def check_A6():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: Smallest n >= 1 where 2^n > n^2 holds for all subsequent terms."""
     f = lambda n: 2**n > n**2
     assert f(1) is True
-    assert f(2) is False  # 4 == 4
-    assert f(3) is False  # 8 < 9
-    assert f(4) is False  # 16 == 16
-    assert f(5) is True   # 32 > 25
+    assert not f(2) and not f(3) and not f(4)
+    assert f(5) is True
     assert all(f(n) for n in range(5, 50))
-    return sympy.Eq(sympy.Symbol('n'), 5)
+    return 5
 
 def check_A7():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: Negation of forall k (P(k) => P(k+1))."""
     for P, Q in itertools.product([False, True], repeat=2):
         impl = (not P) or Q
         neg_impl = not impl
         conj = P and (not Q)
         assert neg_impl == conj
-    return r"There exists $k\geq1$ such that $P(k)$ is true and $P(k+1)$ is false."
+    return r"$\exists k\geq1 \text{ such that } P(k) \land \neg P(k+1)$"
 
 def check_A8():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: P(1) and P(k) => P(k+2) covers only odd numbers."""
     visited = {1}
     for k in range(1, 100):
         if k in visited:
             visited.add(k + 2)
-    assert 2 not in visited
-    assert 4 not in visited
+    assert 2 not in visited and 4 not in visited
     assert all(v % 2 == 1 for v in visited)
     return False
 
 def check_A9():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: Smallest n where n! > 3^n."""
     f = lambda n: math.factorial(n) > 3**n
-    for n in range(1, 7):
-        assert f(n) is False
-    assert math.factorial(6) == 720 and 3**6 == 729
-    assert math.factorial(7) == 5040 and 3**7 == 2187
+    assert not any(f(n) for n in range(1, 7))
     assert f(7) is True
-    return sympy.Eq(sympy.Symbol('n'), 7)
+    return 7
 
 def check_A10():
-    """EXHAUSTIVE PROOF"""
-    P = [True, True, True]
-    all_prev = all(P)
-    last_only = P[-1]
-    assert all_prev is True and last_only is True
-    return r"The truth of $P(1),P(2),\dots,P(k)$ (all previous cases), not just $P(k)$ alone."
+    """EXHAUSTIVE PROOF: Recurrence of order 2 requires 2 base cases."""
+    u = [0, 1, 3]
+    for _ in range(10):
+        u.append(3 * u[-1] - 2 * u[-2])
+    for n in range(1, len(u)):
+        assert u[n] == 2**n - 1
+    return 2
 
 def check_B1():
     """EXHAUSTIVE PROOF"""

@@ -5,8 +5,8 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#6}{David Akinyele-Aje}
-\SpeedMeta{Induction, and where the base case fails}{induction, base case failure, strong induction}
-\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Strong Induction $\cdot$ Base Case Traps $\cdot$ Misapplied Induction.}
+\SpeedMeta{Induction, recurrences, and base-case traps}{induction, base case, recurrence, strong induction}
+\noindent\textit{New toolkit today: Mathematical Induction $\cdot$ Recurrence Sequences $\cdot$ Base-Case Traps $\cdot$ Strong Induction.}
 
 \vspace{2pt}
 \noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
@@ -14,21 +14,21 @@
 \section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Induction structure, base cases, and inductive steps. Pure recognition.}
+\noindent\textit{Induction structure, base cases, and recurrence sequences. Pure recognition.}
 
 \begin{enumerate}
 
-\item What are the two essential components required for a proof by mathematical induction?
+\item A sequence is defined by $u_1 = 1$ and $u_{n+1} = 2u_n + 1$. A student claims $u_n = 2^n - 1$ for all $n \ge 1$. For which value of $n$ does the base case verify this claim?
 
-\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base case?
+\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base-case integer?
 
 \item If $P(k)\implies P(k+1)$ is proved for all $k\geq1$, but no base case is ever established, has $P(n)$ been proved for any $n$?
 
-\item In a proof of $\sum_{i=1}^n i=\frac{n(n+1)}{2}$ by induction, what statement exactly is assumed as the inductive hypothesis?
+\item A sequence satisfies $u_{n+1} = u_n + 2n + 1$ with $u_1 = 1$. What is the closed-form expression for $u_n$?
 
 \item True or false: ``Mathematical induction can be used to prove statements about every real number $x\geq1$.''
 
-\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest value of $n$ for which the base case must be verified?
+\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest integer $n$ for which the base case must be verified?
 
 \item What is the negation of the inductive-step statement ``For all $k\geq1$, $P(k)\implies P(k+1)$''?
 
@@ -36,7 +36,7 @@
 
 \item What is the smallest positive integer $n$ for which $n!>3^n$?
 
-\item In a proof by strong induction, what may the inductive step assume that ordinary (``weak'') induction's inductive step may not?
+\item A recurrence satisfies $u_{n+2} = 3u_{n+1} - 2u_n$ with initial terms $u_1 = 1$ and $u_2 = 3$. What is the minimum number of base cases required to anchor an induction for all integers $n\geq1$?
 
 \end{enumerate}
 

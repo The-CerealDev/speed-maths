@@ -347,10 +347,11 @@
       },
       {
         "n": "06",
-        "topic": "Induction, and where the base case fails",
+        "topic": "Induction, recurrences, and base-case traps",
         "tools": [
           "induction",
-          "base case failure",
+          "base case",
+          "recurrence",
           "strong induction"
         ],
         "questions": 33,

@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item What are the two essential components required for a proof by mathematical induction?
+\item A sequence is defined by $u_1 = 1$ and $u_{n+1} = 2u_n + 1$. A student claims $u_n = 2^n - 1$ for all $n \ge 1$. For which value of $n$ does the base case verify this claim?
 
-\ans{A base case, and an inductive step.}
-\method{The base case establishes $P(n_0)$ for the starting value; the inductive step proves $P(k)\implies P(k+1)$ for all relevant $k$. Together these imply $P(n)$ for every $n\geq n_0$.}
-\inv{Why is neither component alone sufficient?}
+\ans{1}
+\method{For $n=1$, $u_1 = 1$ and $2^1 - 1 = 1$. The base case is verified at $n=1$.}
+\inv{Compute $u_2$ and $u_3$ to verify the inductive step holds for the first two transitions.}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base case?
+\item To prove $P(n)$ for all integers $n\geq4$ by induction, what is the base-case integer?
 
-\ans{$P(4)$}
-\method{The base case is always the smallest value in the claimed range.}
-\inv{If the claim were instead ``for all $n\geq4$ except $n=5$'', would ordinary induction still apply directly?}
+\ans{4}
+\method{The base case is always the smallest value in the claimed range, which is $n=4$.}
+\inv{If the claim were instead ``for all $n\geq4$ except $n=5$'', how would induction have to be structured?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
 \item If $P(k)\implies P(k+1)$ is proved for all $k\geq1$, but no base case is ever established, has $P(n)$ been proved for any $n$?
 
-\ans{No.}
-\method{The inductive step alone is vacuous without a starting point --- it is entirely possible for $P(k)\implies P(k+1)$ to hold for every $k$ while $P(n)$ is false for every $n$ (e.g.\ if $P(n)$ is always false, $P(k)\implies P(k+1)$ holds vacuously).}
+\ans{False.}
+\method{Without a base case, an inductive step is purely conditional ($P(k) \implies P(k+1)$). If $P(n)$ is false for every $n$, the implication is vacuously true, yet nothing has been proved.}
 \inv{Give an example of a statement $P(n)$ that is false for every $n$ but for which $P(k)\implies P(k+1)$ holds for all $k$.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item In a proof of $\sum_{i=1}^n i=\frac{n(n+1)}{2}$ by induction, what statement exactly is assumed as the inductive hypothesis?
+\item A sequence satisfies $u_{n+1} = u_n + 2n + 1$ with $u_1 = 1$. What is the closed-form expression for $u_n$?
 
-\ans{$\sum_{i=1}^k i=\frac{k(k+1)}{2}$, for some fixed (but arbitrary) $k$.}
-\method{The inductive hypothesis assumes the formula holds at $n=k$, in order to derive it at $n=k+1$.}
-\inv{Why must $k$ be treated as arbitrary rather than a specific number?}
+\ans{$n^2$}
+\method{Telescoping the difference $u_{n+1} - u_n = 2n+1$ gives $u_n = u_1 + \sum_{k=1}^{n-1} (2k+1) = 1 + (n^2-1) = n^2$.}
+\inv{Verify by induction that $u_n = n^2$ satisfies $u_{n+1} = (n+1)^2$.}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
 \item True or false: ``Mathematical induction can be used to prove statements about every real number $x\geq1$.''
 
-\ans{False}
+\ans{False.}
 \method{Induction proves statements indexed by the integers (or a well-ordered discrete set), stepping from $k$ to $k+1$. The real numbers between consecutive integers are never reached by this stepping process.}
 \inv{What technique is typically used instead for statements about all real $x$ in an interval?}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest value of $n$ for which the base case must be verified?
+\item To prove $2^n>n^2$ for all $n\geq5$ by induction, what is the smallest integer $n$ for which the base case must be verified?
 
-\ans{$n=5$}
-\method{Check: $2^5=32>25=5^2$, true. (Note $2^4=16=4^2$ and $2^3=8<9=3^2$, so the claim genuinely fails before $n=5$ --- this is why the range starts at $5$.)}
+\ans{5}
+\method{Check: $2^5=32>25=5^2$, true. (Note $2^4=16=4^2$ and $2^3=8<9=3^2$, so the claim genuinely fails at $n=3, 4$, requiring $n=5$ as the base case.)}
 \inv{Verify that the claim fails at $n=4$ and $n=3$.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
 \item What is the negation of the inductive-step statement ``For all $k\geq1$, $P(k)\implies P(k+1)$''?
 
-\ans{There exists $k\geq1$ such that $P(k)$ is true and $P(k+1)$ is false.}
+\ans{$\exists k\geq1 \text{ such that } P(k) \land \neg P(k+1)$}
 \method{$\neg(\forall k\, (P(k)\implies P(k+1))) \equiv \exists k\,\neg(P(k)\implies P(k+1)) \equiv \exists k\,(P(k)\land\neg P(k+1))$.}
 \inv{Which earlier drill covered exactly this negation rule for implications?}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
 \item True or false: ``If $P(1)$ is true and $P(k)\implies P(k+2)$ holds for all $k\geq1$, then $P(n)$ is true for every positive integer $n$.''
 
-\ans{False}
+\ans{False.}
 \method{$P(1)\implies P(3)\implies P(5)\implies\cdots$ only establishes $P(n)$ for odd $n$. $P(2)$ is never reached, since nothing in the chain starts from an even index.}
 \inv{What additional single fact would need to be assumed to fix this and cover every positive integer?}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
 \item What is the smallest positive integer $n$ for which $n!>3^n$?
 
-\ans{$n=7$}
+\ans{7}
 \method{$6!=720$ vs $3^6=729$: $720<729$, fails. $7!=5040$ vs $3^7=2187$: $5040>2187$, holds. So $n=7$ is the smallest.}
 \inv{Verify $n!\leq3^n$ for $n=1,\dots,6$ explicitly.}
 
-%── A10 ──────────────────────────────────────────────────────────────────────────
-\item In a proof by strong induction, what may the inductive step assume that ordinary (``weak'') induction's inductive step may not?
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A recurrence satisfies $u_{n+2} = 3u_{n+1} - 2u_n$ with initial terms $u_1 = 1$ and $u_2 = 3$. What is the minimum number of base cases required to anchor an induction for all integers $n\geq1$?
 
-\ans{The truth of $P(1),P(2),\dots,P(k)$ (all previous cases), not just $P(k)$ alone.}
-\method{Weak induction's inductive step assumes only $P(k)$ to derive $P(k+1)$; strong induction's inductive step may use any or all of $P(1),\dots,P(k)$.}
-\inv{Are weak and strong induction actually logically equivalent in what they can prove, despite the difference in what's assumed?}
+\ans{2}
+\method{Because the recurrence step for $u_{n+2}$ requires the values of the two preceding terms ($u_{n+1}$ and $u_n$), exactly two independent base cases ($u_1$ and $u_2$) are required to determine all subsequent terms.}
+\inv{Solve the characteristic equation $r^2 - 3r + 2 = 0$ to find the closed-form expression for $u_n$.}
 
 \end{enumerate}
 
