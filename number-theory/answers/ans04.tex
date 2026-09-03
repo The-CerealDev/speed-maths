@@ -179,11 +179,11 @@
 \inv{This expands upon the archetype in SMC 2011 Q19, asking students to realise that difference of squares for a prime number implicitly forces a difference of 1, restricting the variables significantly.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Find the largest integer $n$ such that $n^3 + 100$ is divisible by $n+10$.
+\item Find the number of integer pairs $(x,y)$ satisfying $x^2 - y^2 = 2018$. \textit{\small(after TMUA 2018 Paper 1 Q14)}
 
-\ans{$890$}
-\method{Use polynomial division or algebraic manipulation: $n^3 + 100 = (n^3 + 10^3) - 900 = (n+10)(n^2 - 10n + 100) - 900$. Thus, $n+10$ must divide $900$. To maximise $n$, we maximise $n+10$. The largest divisor of $900$ is $900$, so $n+10 = 900 \implies n = 890$.}
-\inv{Inspired by MAT 2016 Q1H, where the structure of algebraic identities simplifies divisibility problems involving polynomials.}
+\ans{$0$}
+\method{Write $x^2-y^2=(x-y)(x+y)=2018$. For integers $x,y$, $x-y$ and $x+y$ have the same parity, so their product is either odd or divisible by $4$. But $2018=2\times1009\equiv2\pmod4$, so it is even but not divisible by $4$, hence no factorisation with same-parity factors exists. Formally, squares mod $4$ are $0,1$, so $x^2-y^2\not\equiv2\pmod4$. Thus $0$ solutions.}
+\inv{The cited TMUA question uses the same parity obstruction: $2018\equiv2\pmod4$ kills the Diophantine instantly, a 15-second trap if you know it. Try $x^2-y^2=2025$: how many solutions now?}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
 \item How many ordered pairs of positive integers $(x, y)$ satisfy $\frac{1}{x} + \frac{1}{y} = \frac{1}{6}$?
