@@ -321,11 +321,12 @@
       },
       {
         "n": "04",
-        "topic": "Counterexamples, and what actually refutes a claim",
+        "topic": "Disproof by counterexample and universal refutation",
         "tools": [
           "counterexample",
-          "refuting a universal",
-          "contradiction"
+          "refutation",
+          "disproof",
+          "boundary"
         ],
         "questions": 33,
         "pdf": "logic/sheets/sheet04.pdf",

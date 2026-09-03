@@ -5,7 +5,7 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#4 --- Answers \& Investigations}{David Akinyele-Aje}
-\noindent\textit{New toolkit today: Disproof by Counterexample $\cdot$ Proof by Contradiction.}
+\noindent\textit{New toolkit today: Disproof by Counterexample $\cdot$ Boundary Case Discovery $\cdot$ Derivative \& Function Counterexamples $\cdot$ Universal Refutation.}
 
 
 \section*{Section A}
@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``Every prime number is odd.''
+\item Provide the minimal positive integer counterexample $n$ to: ``For all positive integers $n$, if $n$ is prime, then $n^2+2$ is not prime.'' \textit{\small(after TMUA 2022 Paper 2 Q3)}
 
-\ans{$2$}
-\method{$2$ is a prime number because its only positive divisors are $1$ and $2$, but $2$ is even. A single counterexample disproves the universal claim.}
-\inv{Are there any other even prime numbers?}
+\ans{$3$}
+\method{Test small primes: For $n=2$, $2^2+2=6$ (composite, not a counterexample). For $n=3$, $3$ is prime and $3^2+2 = 11$, which is prime! Thus $n=3$ satisfies the premise but falsifies the conclusion, making it the minimal counterexample.}
+\inv{For any prime $p > 3$, $p \equiv \pm 1 \pmod 3$, so $p^2 \equiv 1 \pmod 3$, which means $p^2+2 \equiv 0 \pmod 3$, so $p^2+2$ is always a multiple of $3$ and thus composite. Hence $n=3$ is the \emph{only} prime counterexample!}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$n^2\geq n$ for every real number $n$.''
+\item Find the smallest positive integer $a$ for which there exist positive integers $b, c$ such that $a \mid bc$ but $a \nmid b$ and $a \nmid c$. \textit{\small(after TMUA 2021 Paper 2 Q4)}
 
-\ans{$n = 0.5$ (or any $n \in (0, 1)$)}
-\method{For $n = 0.5 = 1/2$, we have $n^2 = 0.25$. Since $0.25 < 0.5$, $n^2 < n$, disproving the claim.}
-\inv{For which interval of real numbers $n$ is $n^2 < n$ true?}
+\ans{$4$}
+\method{If $a$ is prime, Euclid's Lemma guarantees $a \mid bc \implies a \mid b \lor a \mid c$. Thus $a$ must be composite. The smallest composite number is $a=4$. Taking $b=2$ and $c=2$, we have $bc = 4$, so $4 \mid 4$, but $4 \nmid 2$. Thus $a=4$ is the minimal counterexample.}
+\inv{If $a$ must be squarefree, what is the smallest counterexample? $a=6$, with $b=2, c=3$.}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``If $n$ is prime, then $n+2$ is prime.''
+\item Provide a function $f(x)$ with $f'(x) > 0$ for all $x \in \mathbb{R}$ that serves as a counterexample to: ``If $f'(x) > 0$ for all $x$, then $f(x) > 0$ for all $x$.'' \textit{\small(after TMUA 2018 Paper 2 Q6)}
 
-\ans{$n = 7$ (or $n=23$)}
-\method{$7$ is prime, but $7+2 = 9 = 3^2$, which is composite.}
-\inv{Primes $p$ where $p+2$ is also prime are called twin primes. What is the smallest pair of twin primes?}
+\ans{$f(x) = x$}
+\method{The linear function $f(x) = x$ has $f'(x) = 1 > 0$ for all $x \in \mathbb{R}$, but $f(x) \le 0$ for all $x \le 0$ (e.g.\ $f(-5) = -5 \not> 0$). Another valid counterexample is $f(x) = e^x - 2$.}
+\inv{A positive derivative guarantees that the function is strictly increasing, not that its values are positive.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``Every multiple of $4$ is a multiple of $8$.''
+\item Find a real number $x > 0$ that serves as a counterexample to: ``$x > \frac{1}{x}$ for all $x > 0$.''
 
-\ans{$4$ (or $12, 20, 28, \dots$)}
-\method{$4$ is a multiple of $4$ ($4 = 4 \times 1$), but $4$ is not a multiple of $8$ because $4/8 = 0.5 \notin \mathbb{Z}$.}
-\inv{Is every multiple of $8$ a multiple of $4$?}
+\ans{$\frac{1}{2}$}
+\method{For $x = \frac{1}{2} > 0$, we have $\frac{1}{x} = 2$. Since $\frac{1}{2} < 2$, the inequality fails. Any $x \in (0, 1]$ disproves the claim.}
+\inv{The inequality $x > 1/x$ on positive reals holds if and only if $x > 1$.}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item To prove ``there is no largest even integer'' by contradiction, what should you assume first?
+\item Provide a pair of real numbers $(x, y)$ that serves as a counterexample to: ``For all $x, y \in \mathbb{R}$, if $x^2 > y^2$, then $x > y$.''
 
-\ans{Assume that there exists a largest even integer (call it $E$).}
-\method{A proof by contradiction begins by assuming the exact negation of the statement to be proved.}
-\inv{How do you then construct an even integer strictly larger than $E$?}
+\ans{$(-3, 1)$}
+\method{Let $x = -3$ and $y = 1$. Then $x^2 = 9$ and $y^2 = 1$, so $x^2 > y^2$ holds. However, $-3 < 1$, so $x > y$ is false.}
+\inv{Squaring preserves inequality only when both numbers are non-negative.}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If assuming `not $P$' leads to something impossible, $P$ must be true.''
+\item Find the smallest positive integer $n$ for which $2^n - 1$ is composite despite $n$ being prime.
 
-\ans{True}
-\method{This is the fundamental principle of proof by contradiction (\textit{reductio ad absurdum}). Since a statement cannot be both true and false, establishing that $\neg P$ leads to a contradiction forces $P$ to be true.}
-\inv{How does proof by contradiction differ from proof by contrapositive?}
+\ans{$11$}
+\method{Primes $n$: $2^2-1=3$ (prime), $2^3-1=7$ (prime), $2^5-1=31$ (prime), $2^7-1=127$ (prime). For $n=11$: $2^{11}-1 = 2047 = 23 \times 89$, which is composite. Thus $n=11$ is the smallest counterexample.}
+\inv{Mersenne numbers $2^p-1$ need not be prime even when $p$ is prime.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$\sqrt{a+b}=\sqrt a+\sqrt b$ for all $a,b\geq0$.''
+\item Provide a pair of non-negative real numbers $(a, b)$ that serves as a counterexample to: ``$\sqrt{a+b} = \sqrt{a} + \sqrt{b}$.''
 
-\ans{$a=1, b=1$}
-\method{For $a=1, b=1$, $\sqrt{a+b} = \sqrt{2}$, whereas $\sqrt{a} + \sqrt{b} = 1 + 1 = 2$. Since $\sqrt{2} \neq 2$, the identity fails.}
-\inv{Under what condition on $a$ and $b$ does $\sqrt{a+b} = \sqrt{a} + \sqrt{b}$ hold?}
+\ans{$(1, 1)$}
+\method{For $a=1, b=1$, $\sqrt{a+b} = \sqrt{2}$, whereas $\sqrt{a}+\sqrt{b} = 1+1=2$. Since $\sqrt{2} \neq 2$, the identity fails.}
+\inv{The equality $\sqrt{a+b}=\sqrt{a}+\sqrt{b}$ holds if and only if $ab = 0$.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$(x+y)^2=x^2+y^2$ for all real $x,y$.''
+\item Find the smallest positive integer $n$ that serves as a counterexample to: ``$n^2 + 1$ is always prime.''
 
-\ans{$x=1, y=1$}
-\method{For $x=1, y=1$, $(x+y)^2 = 2^2 = 4$, but $x^2 + y^2 = 1^2 + 1^2 = 2$. Since $4 \neq 2$, the claim is false.}
-\inv{Expand $(x+y)^2$ to state the exact condition required for $(x+y)^2 = x^2+y^2$.}
+\ans{$3$}
+\method{For $n=1$, $1^2+1=2$ (prime). For $n=2$, $2^2+1=5$ (prime). For $n=3$, $3^2+1=10 = 2 \times 5$, which is composite. Smallest $n$ is $3$.}
+\inv{For which other small integers is $n^2+1$ composite? $n=5 \implies 26 = 2 \times 13$, $n=7 \implies 50$.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``A single counterexample is enough to disprove a `for all' claim.''
+\item Provide a differentiable function $f: [1, \infty) \to \mathbb{R}$ with $\lim_{x\to\infty} f'(x) = 0$ that disproves: ``If $\lim_{x\to\infty} f'(x) = 0$, then $\lim_{x\to\infty} f(x)$ exists and is finite.''
 
-\ans{True}
-\method{The negation of $\forall x, P(x)$ is $\exists x, \neg P(x)$. Finding one single element $x$ where $P(x)$ is false satisfies the negation, disproving the universal claim.}
-\inv{Is a single example enough to prove a `for all' claim?}
+\ans{$f(x) = \sqrt{x}$}
+\method{For $f(x) = \sqrt{x}$, $f'(x) = \frac{1}{2\sqrt{x}} \to 0$ as $x \to \infty$, but $f(x) = \sqrt{x} \to \infty$. Another standard counterexample is $f(x) = \ln x$, where $f'(x) = 1/x \to 0$ while $\ln x \to \infty$.}
+\inv{A vanishing derivative means the growth rate slows to zero, but the total accumulated growth can still diverge to infinity.}
 
-%── A10 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$n!+1$ is always prime.''
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Find the smallest odd composite integer $n$ that is not a prime power.
 
-\ans{$n=4$ (or $n=5$)}
-\method{For $n=4$, $4! + 1 = 24 + 1 = 25 = 5^2$, which is composite. (For $n=5$, $5!+1 = 121 = 11^2$).}
-\inv{Is $n!+1$ ever prime for $n > 3$?}
+\ans{$15$}
+\method{Odd composites in order: $9 = 3^2$ (prime power), $15 = 3 \times 5$ (not a prime power). Thus $15$ is the smallest.}
+\inv{Any non-prime-power odd composite has at least two distinct odd prime factors.}
 
 \end{enumerate}
 
@@ -89,74 +89,86 @@
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item Five envelopes contain the numbers $6,9,14,21,25$ respectively. Each is sealed with a wax stamp showing either a star or a circle: the envelopes containing $6,14,25$ are star-sealed, and the envelopes containing $9,21$ are circle-sealed. Claim: ``Every star-sealed envelope contains an even number.'' Which envelope's contents provide a counterexample?
+\item A student claims: ``If a polynomial $f(x)$ satisfies $f(n) \in \mathbb{Z}$ for all $n \in \mathbb{Z}$, then $f'(n) \in \mathbb{Z}$ for all $n \in \mathbb{Z}$.'' Provide a quadratic polynomial $f(x)$ that serves as a counterexample. \textit{\small(after TMUA 2017 Paper 2 Q16)}
 
-\ans{$25$}
-\method{The star-sealed envelopes contain $6, 14, 25$. $6$ and $14$ are even, but $25$ is odd. The envelope containing $25$ is star-sealed yet contains an odd number, disproving the claim.}
-\inv{How does this relate to Wason's Selection Task in logic?}
+\ans{$f(x) = \frac{x(x-1)}{2}$}
+\method{For $f(x) = \frac{x^2-x}{2} = \binom{x}{2}$, the product of two consecutive integers $n(n-1)$ is always even, so $f(n) \in \mathbb{Z}$ for all $n \in \mathbb{Z}$. However, $f'(x) = x - \frac{1}{2}$. For any integer $n$, $f'(n) = n - \frac{1}{2} \notin \mathbb{Z}$. This disproves the claim.}
+\inv{This counterexample relies on the binomial basis polynomials $\binom{x}{k}$, which are integer-valued on $\mathbb{Z}$ but do not have integer coefficients.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``If $a$ and $b$ are both irrational, then $a+b$ is irrational.''
+\item Give a pair of irrational numbers $a, b$ whose sum is rational.
 
 \ans{$a = \sqrt{2}, b = -\sqrt{2}$}
-\method{$\sqrt{2}$ and $-\sqrt{2}$ are both irrational numbers, but their sum is $\sqrt{2} + (-\sqrt{2}) = 0 = 0/1 \in \mathbb{Q}$, which is rational.}
-\inv{Can you construct a counterexample where both $a$ and $b$ are positive?}
+\method{$\sqrt{2}$ and $-\sqrt{2}$ are both irrational, but their sum is $\sqrt{2} + (-\sqrt{2}) = 0 \in \mathbb{Q}$.}
+\inv{Another pair: $a = 1 + \sqrt{3}, b = 1 - \sqrt{3}$, where $a+b = 2$.}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``If $a$ and $b$ are both irrational, then $ab$ is irrational.''
+\item Give a pair of irrational numbers $a, b$ whose product is rational.
 
 \ans{$a = \sqrt{2}, b = \sqrt{2}$}
-\method{$\sqrt{2}$ is irrational, but $ab = \sqrt{2} \times \sqrt{2} = 2 = 2/1 \in \mathbb{Q}$, which is rational.}
-\inv{Find a counterexample where $a \neq b$.}
+\method{$\sqrt{2}$ is irrational, but $ab = \sqrt{2} \times \sqrt{2} = 2 \in \mathbb{Q}$.}
+\inv{A pair of distinct positive irrationals: $a = \sqrt{8}, b = \sqrt{2}$, where $ab = \sqrt{16} = 4$.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contradiction: ``There is no largest even integer.''
+\item Provide a pair of functions $f, g: [0, \infty) \to \mathbb{R}$ such that $f(x) \ge g(x)$ for all $x \ge 0$, but $f'(0) < g'(0)$. \textit{\small(after TMUA 2021 Paper 2 Q12)}
 
-\ans{Proof by contradiction}
-\method{Assume toward a contradiction that there exists a largest even integer, $E$. By definition of even integers, $E = 2k$ for some integer $k$. Consider $E' = E + 2 = 2(k+1)$. Since $k+1 \in \mathbb{Z}$, $E'$ is an even integer. Furthermore, $E' > E$. This contradicts the assumption that $E$ was the largest even integer. Thus, no largest even integer exists.}
-\inv{Why must we add $2$ rather than $1$ to maintain even parity?}
+\ans{$f(x) = 10, g(x) = x$}
+\method{For $x \in [0, 5]$, $f(x) = 10 \ge x = g(x)$. To make $f(x) \ge g(x)$ for all $x \ge 0$, let $f(x) = 10$ and $g(x) = 10 - e^{-x}$. Then $f(x) = 10 > g(x)$ for all $x \ge 0$, but $f'(0) = 0$ while $g'(0) = 1 > 0$, so $f'(0) < g'(0)$.}
+\inv{Inequalities between functions cannot be differentiated; a function can sit entirely above another while having a smaller derivative.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample (using $n=0$) to: ``For every integer $n$, $n/n=1$.''
+\item Find the smallest positive integer $n$ that is a counterexample to: ``$n^2 + n + 41$ is prime for all positive integers $n$.''
 
-\ans{$n=0$}
-\method{For $n=0$, $0/0$ is undefined in standard arithmetic. Since $0/0 \neq 1$, $n=0$ is a counterexample.}
-\inv{What happens to the expression $x/x$ as $x \to 0$ in calculus?}
+\ans{$40$}
+\method{For $n=40$, $n^2+n+41 = 40^2+40+41 = 40(41)+41 = 41(40+1) = 41^2 = 1681$, which is composite ($41 \times 41$). For all $1 \le n \le 39$, $n^2+n+41$ is prime. Thus $n=40$ is the minimal counterexample.}
+\inv{At $n=41$, $41^2+41+41 = 41 \times 43$, which is also composite, but $40$ is smaller.}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample (using $n=1$) to: ``Every positive integer has at least one prime factor.''
+\item Provide a counterexample of three finite sets $A, B, C$ showing that $A \cup B = A \cup C$ does not imply $B = C$.
 
-\ans{$n=1$}
-\method{The prime factorisation of $1$ is empty because $1$ has no prime factors (it is neither prime nor composite). Thus $n=1$ is a counterexample.}
-\inv{Why is $1$ excluded from being a prime number in the Fundamental Theorem of Arithmetic?}
+\ans{$A = \{1\}, B = \{1\}, C = \emptyset$}
+\method{Here $A \cup B = \{1\} \cup \{1\} = \{1\}$, and $A \cup C = \{1\} \cup \emptyset = \{1\}$. The unions are equal, but $B = \{1\} \neq \emptyset = C$.}
+\inv{Union is not an invertible operation: elements absorbed by $A$ lose their distinguishing presence in $B$ or $C$.}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contradiction: ``There is no smallest positive rational number.''
+\item Find the smallest positive integer $n$ for which $3^n + 2$ is composite.
 
-\ans{Proof by contradiction}
-\method{Assume toward a contradiction that $r \in \mathbb{Q}^+$ is the smallest positive rational number. Since $r \in \mathbb{Q}^+$, $r = a/b$ for positive integers $a,b$. Consider $q = r/2 = a/(2b)$. Since $a, 2b$ are positive integers, $q \in \mathbb{Q}^+$. Furthermore, since $r > 0$, we have $0 < q < r$. This contradicts $r$ being the smallest positive rational number. Hence, no smallest positive rational number exists.}
-\inv{Does this property (density) hold for integers?}
+\ans{$5$}
+\method{Test values of $n$:
+$n=1 \implies 3^1+2 = 5$ (prime);
+$n=2 \implies 3^2+2 = 11$ (prime);
+$n=3 \implies 3^3+2 = 29$ (prime);
+$n=4 \implies 3^4+2 = 83$ (prime);
+$n=5 \implies 3^5+2 = 243+2 = 245 = 5 \times 49$ (composite).
+The smallest positive integer is $n=5$.}
+\inv{Modulo $5$: $3^1 \equiv 3, 3^2 \equiv 4, 3^3 \equiv 2, 3^4 \equiv 1$, so $3^5 \equiv 3 \implies 3^5+2 \equiv 5 \equiv 0 \pmod 5$.}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``If $p$ and $q$ are distinct primes, then $p+q$ is composite.''
+\item A student conjectures: ``For every odd prime $p$, the integer $2^p - p$ is divisible by either $3$ or $5$.'' Find the smallest odd prime $p$ that serves as a counterexample. \textit{\small(after TMUA 2021 Paper 2 Q10)}
 
-\ans{$p=2, q=3$}
-\method{$2$ and $3$ are distinct primes, but $p+q = 2+3 = 5$, which is prime (not composite).}
-\inv{If $p$ and $q$ are both odd distinct primes, is $p+q$ always composite?}
+\ans{$7$}
+\method{Test odd primes:
+\begin{itemize}
+\item $p=3$: $2^3 - 3 = 8 - 3 = 5$ (divisible by $5$).
+\item $p=5$: $2^5 - 5 = 32 - 5 = 27$ (divisible by $3$).
+\item $p=7$: $2^7 - 7 = 128 - 7 = 121 = 11^2$. $121$ is divisible by neither $3$ nor $5$.
+\end{itemize}
+Thus $p=7$ is the smallest odd prime counterexample.}
+\inv{Small patterns in modular arithmetic often break precisely at $p=7$, the first prime where neither $2^p \equiv p \pmod 3$ nor $2^p \equiv p \pmod 5$ holds.}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``For every positive integer $n\geq1$, $2^n-1$ is prime.''
+\item Provide integers $a, b$ and a modulus $m > 1$ showing that $a^2 \equiv b^2 \pmod m$ does not imply $a \equiv \pm b \pmod m$.
 
-\ans{$n=4$ (or $n=1, n=6$)}
-\method{For $n=4$, $2^4 - 1 = 15 = 3 \times 5$, which is composite.}
-\inv{Primes of the form $2^p-1$ are called Mersenne primes. Must $n$ be prime for $2^n-1$ to be prime?}
+\ans{$m=8, a=1, b=3$}
+\method{For $m=8$, $a=1, b=3$: $a^2 = 1 \equiv 1 \pmod 8$ and $b^2 = 9 \equiv 1 \pmod 8$, so $a^2 \equiv b^2 \pmod 8$. However, $3 \not\equiv 1 \pmod 8$ and $3 \not\equiv -1 \equiv 7 \pmod 8$.}
+\inv{The failure occurs because $8$ is composite; in $\mathbb{Z}/8\mathbb{Z}$, the polynomial $x^2-1$ has four roots $\{1, 3, 5, 7\}$.}
 
-%── B10 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contradiction: ``If $n$ is a positive integer, $n$ and $n+1$ share no common factor greater than $1$.''
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Give a counterexample function $f: [0, 1] \to [0, 1]$ showing that a continuous function need not have a UNIQUE fixed point.
 
-\ans{Proof by contradiction}
-\method{Suppose toward a contradiction that there exists a common factor $d > 1$ of $n$ and $n+1$. Then $d \mid n$ and $d \mid (n+1)$. Therefore, $d \mid ((n+1) - n) \implies d \mid 1$. But the only positive divisor of $1$ is $1$, which contradicts $d > 1$. Thus, $\gcd(n, n+1) = 1$.}
-\inv{Generalise this: What is the maximum possible common factor of $n$ and $n+k$?}
+\ans{$f(x) = x$}
+\method{The identity function $f(x) = x$ maps $[0, 1]$ continuously to $[0, 1]$. Every single $x \in [0, 1]$ is a fixed point, meaning there are infinitely many fixed points rather than a unique one.}
+\inv{Brouwer's Fixed Point Theorem guarantees the \emph{existence} of at least one fixed point, but never uniqueness.}
 
 \end{enumerate}
 
@@ -165,70 +177,78 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Consider the statement: ``$(*)$ If a whole number $n$ is $2$ more or $4$ more than a multiple of $5$, then $n$ is prime.'' How many counterexamples to $(*)$ are there in the range $1\leq n\leq50$?
+\item Consider the statement: ``$(*)$ If a whole number $n$ is $2$ more or $4$ more than a multiple of $5$, then $n$ is prime.'' How many counterexamples to $(*)$ are there in the range $1\leq n\leq50$? \textit{\small(after TMUA 2019 Paper 2 Q4)}
 
 \ans{$13$}
-\method{\textit{\small(after TMUA 2019 Paper 2 Q4)} Numbers in $1 \le n \le 50$ of the form $5k+2$ are: $2, 7, 12, 17, 22, 27, 32, 37, 42, 47$. Of these, the composites are $12, 22, 27, 32, 42$ ($5$ counterexamples).\\
-Numbers of the form $5k+4$ are: $4, 9, 14, 19, 24, 29, 34, 39, 44, 49$. Of these, the composites are $4, 9, 14, 24, 34, 39, 44, 49$ ($8$ counterexamples).\\
+\method{Numbers of the form $5k+2$ in $[1, 50]$ are: $2, 7, 12, 17, 22, 27, 32, 37, 42, 47$. The composites among these are $12, 22, 27, 32, 42$ ($5$ counterexamples).\\
+Numbers of the form $5k+4$ in $[1, 50]$ are: $4, 9, 14, 19, 24, 29, 34, 39, 44, 49$. The composites among these are $4, 9, 14, 24, 34, 39, 44, 49$ ($8$ counterexamples).\\
 Total counterexamples $= 5 + 8 = 13$.}
-\inv{Why is $2$ not a counterexample despite being $5(0)+2$?}
+\inv{Note that $2$ and $7$ satisfy the premise and are prime, so they are not counterexamples.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item Find the smallest positive integer $n$ for which $n^2+n+41$ is \emph{not} prime.
+\item Which of the following values of $n$ is a counterexample to the claim: ``For all positive integers $n$, if $n$ is prime, then $n^3 - n$ is NOT divisible by $24$?'' \textit{\small(after TMUA 2022 Paper 2 Q3)}
 
-\ans{$40$}
-\method{For $n=40$, $n^2+n+41 = 40^2+40+41 = 40(40+1)+41 = 40(41)+41 = 41(40+1) = 41^2 = 1681$, which is composite. For all $1 \le n \le 39$, $n^2+n+41$ is prime.}
-\inv{Is $n=41$ also a counterexample?}
+\ans{E) Both $n=5$ and $n=7$.}
+\method{Factor $n^3-n = (n-1)n(n+1)$. For any prime $p \ge 5$, $p$ is odd, so $p-1$ and $p+1$ are consecutive even integers, one of which is divisible by $4$, so their product is divisible by $8$. Furthermore, among $p-1, p, p+1$, exactly one is divisible by $3$; since $p \ge 5$ is prime, $3 \nmid p$, so $3 \mid (p-1)(p+1)$. Thus for any prime $p \ge 5$, $24 \mid (p^3-p)$. Both $n=5$ ($5^3-5=120 = 24 \times 5$) and $n=7$ ($7^3-7=336 = 24 \times 14$) are divisible by $24$, refuting the claim. Option E.}
+\inv{This means every single prime $p \ge 5$ is a counterexample to the claim!}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$n^2+1$ is always either prime or a perfect square, for every positive integer $n$.''
+\item A student claims: ``If $f:\mathbb{R}\to\mathbb{R}$ is twice differentiable, $f(0)=0$, and $f''(x) > 0$ for all $x \in \mathbb{R}$, then $f(x) \ge 0$ for all $x \ge 0$.'' Which of the following functions serves as a counterexample? \textit{\small(after TMUA 2018 Paper 2 Q6)}
 
-\ans{$n=3$ (or $n=7, 8$)}
-\method{For $n=3$, $n^2+1 = 3^2+1 = 10$. $10$ is not prime ($10 = 2 \times 5$) and $10$ is not a perfect square ($3^2 < 10 < 4^2$). Thus $n=3$ disproves the claim.}
-\inv{For $n=7$, what is $n^2+1$?}
+\ans{C) $f(x) = x^2 - 3x$.}
+\method{Check the conditions for $f(x) = x^2 - 3x$:
+$f(0) = 0$; $f'(x) = 2x - 3$; $f''(x) = 2 > 0$ for all $x$.
+All hypotheses hold. However, for $x \in (0, 3)$, $f(x) = x(x-3) < 0$. For instance, $f(1) = -2 < 0$. This disproves the claim. Option C.}
+\inv{A positive second derivative means the graph is convex (bending upward), but if the initial slope $f'(0)$ is negative, the function dips below zero before rising.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contradiction: ``There is no integer solution to $x^2-3y^2=2$.''
+\item Consider the statement: ``For all positive integers $a, b, c$, if $a \mid bc$, then $a \mid b$ or $a \mid c$.'' Which of the following triples $(a, b, c)$ is a valid counterexample? \textit{\small(after TMUA 2021 Paper 2 Q4)}
 
-\ans{Proof by contradiction}
-\method{Suppose toward a contradiction that there exist integers $x,y$ such that $x^2 - 3y^2 = 2$. Taking this equation modulo $3$, we get $x^2 \equiv 2 \pmod 3$. However, for any integer $x$, $x \equiv 0, 1, \text{ or } 2 \pmod 3$, which gives $x^2 \equiv 0, 1, \text{ or } 1 \pmod 3$. Thus $x^2 \pmod 3 \in \{0, 1\}$, so $x^2 \equiv 2 \pmod 3$ has no solutions. Contradiction.}
-\inv{Which other integer remainders cannot be quadratic residues?}
+\ans{B) $(6, 4, 9)$.}
+\method{Check option B: $bc = 4 \times 9 = 36$. $a = 6$ divides $36$ ($36/6 = 6$). However, $6 \nmid 4$ and $6 \nmid 9$. Both disjuncts fail while the premise holds. Thus $(6, 4, 9)$ is a valid counterexample. In option A, $a=2 \mid 4$; in C, $a=5 \mid 10$; in D, $a=7 \mid 14$.}
+\inv{A counterexample requires $a$ to share distinct prime factors between $b$ and $c$.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Find the smallest positive integer $n$ for which $3^n+2$ is \emph{not} prime.
+\item Which of the following polynomials satisfies $f(n) \in \mathbb{Z}$ for all $n \in \mathbb{Z}$, but $f'(0) \notin \mathbb{Z}$? \textit{\small(after TMUA 2017 Paper 2 Q16)}
 
-\ans{$5$}
-\method{Testing $n=1,2,3,4,5$:\\
-$n=1 \implies 3^1+2 = 5$ (prime);\\
-$n=2 \implies 3^2+2 = 11$ (prime);\\
-$n=3 \implies 3^3+2 = 29$ (prime);\\
-$n=4 \implies 3^4+2 = 83$ (prime);\\
-$n=5 \implies 3^5+2 = 243+2 = 245 = 5 \times 49$ (composite). Smallest $n$ is $5$.}
-\inv{Why is $3^n+2$ always divisible by $5$ when $n$ is an odd multiple of $5$?}
+\ans{D) Both B and C.}
+\method{For B: $f(x) = \frac{x^2+x}{2} = \binom{x+1}{2}$, integer-valued on $\mathbb{Z}$. $f'(x) = x + \frac{1}{2} \implies f'(0) = \frac{1}{2} \notin \mathbb{Z}$.\\
+For C: $f(x) = \frac{x^3-x}{6} = \frac{(x-1)x(x+1)}{6} = \binom{x+1}{3}$, integer-valued on $\mathbb{Z}$ since the product of three consecutive integers is always divisible by $6$. $f'(x) = \frac{3x^2-1}{6} \implies f'(0) = -\frac{1}{6} \notin \mathbb{Z}$.\\
+Both B and C satisfy the condition. Option D.}
+\inv{Every integer-valued polynomial is an integer linear combination of the binomial polynomials $\binom{x}{k}$.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``If $x$ and $y$ are both non-integers, then $x+y$ is a non-integer.''
+\item A student conjectures: ``If a continuous function $f:[-\pi, \pi] \to \mathbb{R}$ satisfies $\int_{-\pi}^\pi f(x)dx = 0$, then $f(x) = 0$ for all $x \in [-\pi, \pi]$.'' Which of the following is a valid counterexample? \textit{\small(after TMUA 2019 Paper 2 Q14)}
 
-\ans{$x = 0.5, y = 0.5$}
-\method{$x = 0.5 \notin \mathbb{Z}$ and $y = 0.5 \notin \mathbb{Z}$, but $x+y = 1.0 = 1 \in \mathbb{Z}$, which is an integer.}
-\inv{Find a counterexample where $x$ and $y$ are not rational numbers.}
+\ans{D) All of A, B, C.}
+\method{Evaluate the integral for each function on $[-\pi, \pi]$:
+\begin{itemize}
+\item A: $\int_{-\pi}^\pi \cos x\,dx = [\sin x]_{-\pi}^\pi = 0 - 0 = 0$, but $\cos 0 = 1 \neq 0$.
+\item B: $\int_{-\pi}^\pi \sin x\,dx = [-\cos x]_{-\pi}^\pi = 1 - 1 = 0$, but $\sin(\pi/2) = 1 \neq 0$.
+\item C: $\int_{-\pi}^\pi x\,dx = \left[\frac{x^2}{2}\right]_{-\pi}^\pi = 0$, but $f(1) = 1 \neq 0$.
+\end{itemize}
+All three functions have zero integral yet are not identically zero. Option D.}
+\inv{Any non-trivial odd function on a symmetric interval $[-a, a]$ integrates to zero.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contradiction: ``If $a,b$ are positive integers and $a^2+b^2$ is odd, then $a$ and $b$ do not have the same parity.''
+\item Consider two statements about functions $f, g: [0, \infty) \to \mathbb{R}$ with $f(0)=g(0)=0$:
+\begin{itemize}
+\item[I.] $f'(x) \ge g'(x) \text{ for all } x \ge 0 \implies f(x) \ge g(x) \text{ for all } x \ge 0$.
+\item[II.] $f(x) \ge g(x) \text{ for all } x \ge 0 \implies f'(x) \ge g'(x) \text{ for all } x \ge 0$.
+\end{itemize}
+Which of I and II are true? \textit{\small(after TMUA 2021 Paper 2 Q12)}
 
-\ans{Proof by contradiction}
-\method{Suppose toward a contradiction that $a$ and $b$ have the same parity. \\
-Case 1: Both $a,b$ are even. Then $a=2k, b=2m \implies a^2+b^2 = 4k^2+4m^2 = 2(2k^2+2m^2)$, which is even. \\
-Case 2: Both $a,b$ are odd. Then $a=2k+1, b=2m+1 \implies a^2+b^2 = (4k^2+4k+1) + (4m^2+4m+1) = 2(2k^2+2k+2m^2+2m+1)$, which is even. \\
-In both cases $a^2+b^2$ is even, contradicting $a^2+b^2$ being odd. Thus $a$ and $b$ must have opposite parity.}
-\inv{What can you deduce about $a^2+b^2 \pmod 4$ when $a$ and $b$ have opposite parity?}
+\ans{B) I only.}
+\method{By the Fundamental Theorem of Calculus, $f(x) - g(x) = \int_0^x (f'(t) - g'(t))\,dt$. If $f'(t) \ge g'(t)$, the integrand is non-negative, so the integral is $\ge 0$, proving $f(x) \ge g(x)$. Thus statement I is TRUE.\\
+For statement II: consider $f(x) = 2x$ and $g(x) = x + \sin x$. For $x \ge 0$, $f(x) - g(x) = x - \sin x \ge 0$, so $f(x) \ge g(x)$. However, $f'(x) = 2$ and $g'(x) = 1 + \cos x$. At $x = 0$, $f'(0) = 2 \ge 2$, but consider $f(x) = 10x$ and $g(x) = 10x - 5\cos(10x) + 5$: oscillating derivatives frequently exceed $f'(x)$. Statement II is FALSE. Option B.}
+\inv{Integration preserves inequalities; differentiation does not.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``$n^2-n+17$ is prime for every positive integer $n$.''
+\item Consider the theorem: ``An odd prime $p$ can be written as the sum of two integer squares if and only if $p \equiv 1 \pmod 4$.'' Which of the following would constitute a counterexample to the \textbf{converse} of this theorem? \textit{\small(after TMUA 2018 Paper 2 Q17)}
 
-\ans{$n=17$ (or $n=18$)}
-\method{For $n=17$, $n^2-n+17 = 17^2 - 17 + 17 = 17^2 = 289$, which is composite ($17 \times 17$).}
-\inv{What is the value of $n^2-n+17$ for $n=18$?}
+\ans{A) A prime $p \equiv 1 \pmod 4$ that cannot be written as the sum of two squares.}
+\method{The theorem states $P \iff Q$, where $P$: ``$p$ is a sum of two squares'' and $Q$: ``$p \equiv 1 \pmod 4$'' (for odd primes). The converse is $Q \Rightarrow P$: ``If an odd prime $p \equiv 1 \pmod 4$, then $p$ can be written as the sum of two squares.'' A counterexample to $Q \Rightarrow P$ must satisfy the hypothesis $Q$ ($p \equiv 1 \pmod 4$) but fail the conclusion $P$ (cannot be written as the sum of two squares). Option A.}
+\inv{Refuting a conditional statement requires satisfying the antecedent while falsifying the consequent.}
 
 \end{enumerate}
 
@@ -244,7 +264,7 @@ In both cases $a^2+b^2$ is even, contradicting $a^2+b^2$ being odd. Thus $a$ and
 II: For $1 \le n \le 39$, $n^2+n+41$ is prime. At $n=40$, $40^2+40+41 = 41^2$, composite. Thus $n=40$ is indeed the smallest positive integer counterexample. II is true.\\
 III: For $n=4$, $4^2+4+41 = 61$, which is prime. So $n=4$ is not a counterexample. III is false.\\
 Hence, I and II only are true.}
-\inv{Why does Euler's polynomial $n^2+n+41$ yield primes for all $n$ from $0$ to $39$?}
+\inv{Euler's polynomial $n^2+n+41$ is the classical demonstration that finite verification cannot prove universal claims.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Prove by contradiction: ``There do not exist positive integers $a,b$ with $a^2-b^2=1$.''
@@ -262,14 +282,14 @@ Case 1: If $n = 3k$, then $n$ is divisible by $3$.\\
 Case 2: If $n = 3k+1$, then $n+2 = (3k+1)+2 = 3k+3 = 3(k+1)$, which is divisible by $3$.\\
 Case 3: If $n = 3k+2$, then $n+4 = (3k+2)+4 = 3k+6 = 3(k+2)$, which is divisible by $3$.\\
 In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is true.}
-\inv{Can more than one of $n, n+2, n+4$ be divisible by $3$ for the same $n$?}
+\inv{Notice that $n, n+2, n+4 \equiv n, n-1, n+1 \pmod 3$, so they cover all three residue classes modulo $3$.}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
 \item Give a counterexample to: ``If $p$ is prime, then $2^p+1$ is prime.''
 
-\ans{$p=3$ (or $p=5$)}
+\ans{$3$}
 \method{For $p=3$ (which is prime), $2^p+1 = 2^3+1 = 8+1 = 9 = 3^2$, which is composite. (Also for $p=5$, $2^5+1 = 33 = 3 \times 11$).}
-\inv{For which prime $p$ is $2^p+1$ actually prime?}
+\inv{For any odd prime $p$, $2^p+1 = (2+1)(2^{p-1}-2^{p-2}+\dots+1) = 3 \times M$, so $2^p+1$ is always a multiple of $3$, and hence composite for all $p > 1$ with $2^p+1 > 3$!}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Statement $(*)$: ``For every positive integer $n\geq2$, there is a prime strictly between $n$ and $2n$.'' (a) Verify $(*)$ for $n=2,3,4,5$ by direct computation. (b) Does this verification constitute a proof of $(*)$? Justify your answer.
@@ -277,7 +297,7 @@ In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is tr
 \ans{(a) $n=2: 3$; $n=3: 5$; $n=4: 5$ or $7$; $n=5: 7$. (b) No, finite checking does not prove a universal statement.}
 \method{(a) For $n=2$, prime $3 \in (2,4)$. For $n=3$, prime $5 \in (3,6)$. For $n=4$, prime $5 \in (4,8)$. For $n=5$, prime $7 \in (5,10)$. \\
 (b) No. Verification for finitely many cases ($n=2,3,4,5$) does not constitute a proof for infinitely many positive integers $n \ge 2$. A single unchecked value could be a counterexample. (The statement is true for all $n \ge 2$, known as Bertrand's Postulate, but proving it requires a general argument).}
-\inv{What is the formal name of the theorem stating that a prime always exists between $n$ and $2n$?}
+\inv{Bertrand's Postulate was first proved by Chebyshev in 1852 using properties of the gamma function and prime factorisations of central binomial coefficients.}
 
 \end{enumerate}
 
@@ -286,16 +306,16 @@ In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is tr
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Algebraic Non-Identities Disproved by Smallest Test Points.}
-        Universal algebraic claims like $\sqrt{a+b}=\sqrt{a}+\sqrt{b}$ or $(x+y)^2=x^2+y^2$ fail immediately at the simplest non-trivial test points, such as $a=b=1$ or $x=y=1$, by exposing nonzero cross-terms. \seealso{A7, A8, C6, B2, B3}
-  \item \textbf{Polynomial Prime Generators and Constant-Term Factoring.}
-        Formulae that generate primes for small inputs (e.g.\ $n^2+n+41$ or $n^2-n+17$) inevitably fail at $n=c$ or $n=c-1$, where factoring by the constant term ($c(c\pm 1)+c=c(c\pm 1+1)$) produces an explicit composite factorisation. \seealso{C2, C8, D1, A10, B9}
-  \item \textbf{Modular Obstructions in Proofs by Contradiction.}
-        Diophantine equations like $x^2-3y^2=2$ or factorisations like $a^2-b^2=1$ have no positive integer solutions because residues modulo $3$ ($x^2\not\equiv2\pmod3$) or minimum sum constraints ($a+b\ge2$) force an immediate contradiction. \seealso{C4, C7, D2, B4, B7}
-  \item \textbf{Counterexamples via Parity and Even Prime $p=2$.}
-        Claims asserting that all primes are odd, or that prime sums/operations yield composites, routinely break on the single even prime $p=2$, making it the prime candidate for edge-case counterexamples. \seealso{A1, A3, B8, D4}
-  \item \textbf{Closure Failures of Non-Integers and Irrationals.}
-        Neither irrational numbers nor non-integers are closed under addition or multiplication; opposite signs ($+\sqrt{2}, -\sqrt{2}$) or complementary fractions ($0.5+0.5=1$) quickly construct counterexamples. \seealso{B2, B3, C6, A2, B1}
+  \item \textbf{Refuting Implications by Finding Witness Instances.}
+        To disprove $\forall x, (P(x) \Rightarrow Q(x))$, find a single counterexample where $P(x)$ holds while $Q(x)$ fails. \seealso{A1, A2, A3, A4, B8}
+  \item \textbf{Derivative and Function Inversion Traps.}
+        A function satisfying $f'(x)>0$ everywhere does not need to be positive ($f(x)=x$); similarly, $f(x) \ge g(x)$ does not force $f'(x) \ge g'(x)$. \seealso{A3, A9, B4, C3, C7}
+  \item \textbf{Integer-Valued Polynomial Derivatives.}
+        A polynomial integer-valued on $\mathbb{Z}$ (such as binomial coefficients $\binom{x}{2} = \frac{x^2-x}{2}$) need not have integer coefficients or integer derivatives. \seealso{B1, C5}
+  \item \textbf{Prime Generator Boundaries and Divisibility.}
+        Conjectures asserting primality (like $n^2+n+41$ or $2^p-p$) fail at structural boundaries ($n=40$, $p=7$) where algebraic factoring or non-residues intervene. \seealso{A6, A8, B5, B7, D1}
+  \item \textbf{Non-Trivial Modular Residue Square Roots.}
+        In non-prime moduli (like $m=8$), the congruence $x^2 \equiv 1 \pmod 8$ has four distinct roots ($\pm 1, \pm 3$), breaking the field property $a^2 \equiv b^2 \implies a \equiv \pm b$. \seealso{A10, B9, C4}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -303,16 +323,16 @@ In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is tr
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Searching for Huge Counterexamples When Small Boundaries Fail.}
-        Counterexamples to number-theoretic conjectures are often found at minimal boundary values ($n=0, 1, 2$) or algebraic factor points ($n=40$ for $n^2+n+41$), not large random numbers. \seealso{B5, B6, C2, C5, A10}
-  \item \textbf{Assuming Closure of Irrational Numbers.}
-        Assuming $a+b$ or $ab$ is irrational whenever $a$ and $b$ are irrational ignores symmetric cancellation ($\sqrt{2}+(-\sqrt{2})=0$) and reciprocal multiplication ($\sqrt{2}\times\sqrt{2}=2$). \seealso{B2, B3, C6}
-  \item \textbf{Forgetting $p=2$ as the Unique Even Prime.}
-        Universal statements regarding primes often fail exclusively at $p=2$ because it is even; testing $p=2$ is the first defensive step when checking any prime-related claim. \seealso{A1, A3, B8, D4}
-  \item \textbf{Misidentifying What Refutes an Implication.}
-        To refute $P\Rightarrow Q$, one must find a case where $P$ is \emph{true} but $Q$ is \emph{false}. Demonstrating cases where $P$ is false does not challenge the implication. \seealso{A3, A4, B8, C1, D4}
-  \item \textbf{Confusing Non-Existence Proofs with Case Checking.}
-        Showing that an equation like $x^2-3y^2=2$ has no solutions up to 1000 does not prove non-existence; proof by contradiction via structural invariants (e.g.\ residues modulo 3) is required. \seealso{C4, D2, B4, B7, D5}
+  \item \textbf{Testing Only Positive or Symmetrical Values.}
+        Order relations like $x^2>y^2 \implies x>y$ fail only when considering negative values ($x=-3, y=1$); always check signed edge cases. \seealso{A4, A5, A7, B2}
+  \item \textbf{Confusing Implication Refutation with Converse Refutation.}
+        Refuting the converse of $P \iff Q$ requires finding a witness satisfying $Q$ but not $P$, rather than attempting to falsify the forward direction. \seealso{C8, A1, B8}
+  \item \textbf{Assuming Derivatives Inherit Function Inequalities.}
+        The height of a curve $f(x) \ge g(x)$ provides zero information about its slope $f'(x) \ge g'(x)$; slopes can cross while functions remain separated. \seealso{B4, C3, C7}
+  \item \textbf{Assuming Finite Verification Equals Proof.}
+        Checking that a statement holds for hundreds of small cases (Bertrand's Postulate, Euler's polynomial) demonstrates only the absence of small counterexamples, never a proof. \seealso{D5, B5, D1}
+  \item \textbf{Overlooking Composite Prime Factors $p \le \sqrt{n}$.}
+        Refuting that $a \mid bc \implies a \mid b \lor a \mid c$ requires a composite modulus $a$ that splits its prime factors across $b$ and $c$. \seealso{A2, C4, B9}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
