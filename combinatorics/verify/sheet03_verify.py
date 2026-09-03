@@ -341,12 +341,20 @@ def check_D2():
 
 
 def check_D3():
-    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for AABBCC no 2 identical adjacent."""
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for BANANA exactly-one-true logic."""
     expected_ans = get_answer(TEX_PATH, 'D3')
     target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
 
-    computed_ans = sum(1 for p in set(itertools.permutations("AABBCC")) if not any(p[i] == p[i + 1] for i in range(5)))
+    perms = set(itertools.permutations("BANANA"))
+    computed_ans = 0
+    for p in perms:
+        A = (p[0] == 'B')
+        B = (p[-1] == 'A')
+        C = all(not (p[i] == 'A' and p[i+1] == 'A') for i in range(5))
+        if sum([A, B, C]) == 1:
+            computed_ans += 1
     assert sympy.simplify(computed_ans - target) == 0
+    assert computed_ans == 23
 
 
 def check_D4():

@@ -265,11 +265,11 @@ Equivalently $360\left(1-\frac12\right)\left(1-\frac13\right)\left(1-\frac15\rig
 \inv{General surjection count: $\sum_k(-1)^k\binom{m}{k}(m-k)^n$ for $n$ students, $m$ clubs. Compute the $4$-club version for 6 students (1560). Dividing by $m!$ counts \emph{partitions into unlabelled groups} --- the Stirling numbers, waiting one sheet ahead.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Prove exactly $998\,910$ of 1--$10^6$ are neither squares nor cubes.
+\item Eight identical sweets are shared among 3 children. Consider statements: (A) the first child gets at least 2 sweets, (B) exactly two children receive at least one sweet, (C) no child receives more than 4 sweets. Exactly one of the three statements is true. How many distributions satisfy this? \textit{\small(after TMUA Practice Paper 2 Q4)}
 
-\ans{$10^6-1000-100+10=998\,910$}
-\method{Squares up to $10^6$: exactly $1000$ (namely $k^2$ for $k\leq10^3$). Cubes: $100$ (since $100^3=10^6$). The double-counted numbers are those that are both square and cube, i.e.\ sixth powers: $10$ of them ($k^6$, $k\leq10$). By inclusion--exclusion, squares-or-cubes number $1000+100-10=1090$; the rest number $10^6-1090=998\,910$. $\square$}
-\inv{Why is ``both square and cube'' the same as ``sixth power''? (If $n=a^2=b^3$, look at each prime's exponent: it is even and divisible by 3, hence divisible by 6.) That little lemma is the question's real content --- the counting is decoration. Extend: how many are none of square, cube, or fifth power?}
+\ans{$16$}
+\method{List all $\binom{10}{2}=45$ distributions $(x,y,z)$ with $x+y+z=8$. For each, test $A: x\ge2$, $B: |\{v\ge1\}|=2$, $C: \max\le4$. Exactly one true splits into $A\land\neg B\land\neg C$ (5 cases), $\neg A\land B\land\neg C$ (6), $\neg A\land\neg B\land C$ (5), totalling $16$ (brute force).}
+\inv{The cited TMUA question has 5 urns each with a statement exactly one true — same \emph{exactly-one-true} logic as here. Try variant: what if exactly \emph{two} statements were true?}
 
 \end{enumerate}
 

@@ -264,14 +264,11 @@ The cases are disjoint and exhaustive, so $a_n=a_{n-1}+a_{n-2}$. With $a_1=1$, $
 \inv{This is \emph{constructive induction}: the proof is an algorithm you could run. It works precisely because $2^n\times2^n$ splits into four self-similar quarters --- the same divide-and-conquer as merge sort. Note $\frac{4^n-1}{3}$ trominoes are used; check this is an integer for all $n$ (it must be --- why?). Does the theorem hold for a $6\times6$ board minus one square? (No self-similarity --- investigate.)}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Remove a power of 2 ($1,2,4,8,\ldots$) from 2025; last stone wins. Who wins?
+\item Binary strings of length 5 with no two consecutive 1s are listed (there are 13). Consider a string and statements: (A) it starts with 1, (B) it contains exactly two 1s, (C) it ends with 0. Exactly one of the three statements is true. How many strings satisfy this? \textit{\small(after TMUA Practice Paper 2 Q4)}
 
-\ans{The second player.}
-\method{\emph{Proof.} Call a position (the number of stones the mover faces) \emph{losing} if the mover loses under optimal play; we claim the losing positions are exactly the multiples of 3. The key fact is that \emph{no power of 2 is divisible by 3}: since $2\equiv-1\pmod3$, we have $2^k\equiv(-1)^k\equiv\pm1\pmod3$, never $0$.
-\emph{From a multiple of 3:} subtracting any power of 2 (residue $\pm1$) leaves a non-multiple of 3 --- the mover cannot avoid handing the opponent a non-multiple.
-\emph{From a non-multiple of 3:} the mover removes 1 stone (if the residue is 1) or 2 stones (if the residue is 2) --- both are powers of 2 --- reaching a multiple of 3.
-Since position $0$ is losing, induction gives that the losing positions are precisely $0,3,6,\ldots$. As $2025=3\times675$ is a multiple of 3, the first player faces a losing position, so the \textbf{second} player wins by always restoring the pile to a multiple of 3. $\square$}
-\inv{The extra content over the plain 1-or-2 game is the modular fact $2^k\equiv(-1)^k\pmod3$ --- the large move set collapses to two useful residues. Now try removing any \emph{Fibonacci} number of stones: the losing positions are no longer an arithmetic progression (Zeckendorf's theorem governs them) --- a beautiful, much harder game to sit with.}
+\ans{$7$}
+\method{Brute force over the 13 strings with no ``11'': test $A: s_0=1$, $B: \sum s_i=2$, $C: s_4=0$. Exactly one true splits into $A\land\neg B\land\neg C$ (2), $\neg A\land B\land\neg C$ (1), $\neg A\land\neg B\land C$ (4), totalling $7$.}
+\inv{The cited TMUA question has 5 urns each with a statement exactly one true — same \emph{exactly-one-true} logic as here, but here the objects counted are binary strings not committees. Try variant: what if exactly \emph{two} were true?}
 
 \end{enumerate}
 

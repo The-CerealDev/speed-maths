@@ -247,11 +247,11 @@
 \inv{The pattern ``force the easy constraint, complement the hard one'' handles most two-constraint arrangement problems. Try three pairs: A--B adjacent, C--D adjacent, E--F \emph{not} adjacent, 10 people in a circle. (Same layering, one more glue.)}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Arrangements of AABBCC with no two identical letters adjacent?
+\item How many distinct arrangements of the letters of BANANA have exactly one of the following true: (A) the first letter is B, (B) the last letter is A, (C) no two As are adjacent? \textit{\small(after TMUA Practice Paper 2 Q4)}
 
-\ans{$30$}
-\method{Inclusion--exclusion on the ``bad pair'' events, computed cleanly by gluing. Total: $\frac{6!}{2!2!2!}=90$. Glue AA: $\frac{5!}{2!2!}=30$, same for BB, CC. Glue two pairs: $\frac{4!}{2!}=12$ each (3 ways). Glue all three: $3!=6$. Count with no glued pair $=90-3\cdot30+3\cdot12-6=30$.}
-\inv{This is inclusion--exclusion arriving a sheet early --- sheet 5 makes it systematic. For now, verify the answer differently: by symmetry all $3!$ letter-labelings are equivalent, so just count patterns like ABCABC, ABCACB, \ldots{} and multiply. How many \emph{patterns} are there? ($30/3!=5$.)}
+\ans{$23$}
+\method{Enumerate the $60$ distinct arrangements of BANANA ($6!/(3!2!)$). For each, test $A: p_0=B$, $B: p_5=A$, $C: \neg(p_i=A\land p_{i+1}=A)$. Exactly one true splits into $A\land\neg B\land\neg C$, $\neg A\land B\land\neg C$, $\neg A\land\neg B\land C$, summing to $23$ (brute force check).}
+\inv{The cited TMUA question has 5 urns each with a statement exactly one true — same \emph{exactly-one-true} logic as here. Try variant: what if exactly \emph{two} were true?}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
 \item Eight in a row, exactly two of the three sisters adjacent?

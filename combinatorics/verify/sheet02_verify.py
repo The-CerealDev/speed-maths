@@ -452,12 +452,24 @@ def check_D4():
 
 
 def check_D5():
-    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for interior intersection points."""
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for exactly-one-true committee logic."""
     expected_ans = get_answer(TEX_PATH, 'D5')
     target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
 
-    computed_ans = math.comb(10, 4)
+    # 9 people: 5 women including Priya, 4 men; committee of 4; A: Priya in, B: exactly 2 women, C: at least 3 men (w<=1)
+    all_people = list(range(9))
+    women = set([0,1,2,3,4])  # 0=Priya, 1-4 other women
+    computed_ans = 0
+    for comb in itertools.combinations(all_people, 4):
+        s = set(comb)
+        A = 0 in s
+        w = len([p for p in s if p in women])
+        B = (w == 2)
+        C = (w <= 1)
+        if sum([A, B, C]) == 1:
+            computed_ans += 1
     assert sympy.simplify(computed_ans - target) == 0
+    assert computed_ans == 81
 
 
 CHECKS = {

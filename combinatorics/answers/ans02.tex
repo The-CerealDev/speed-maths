@@ -261,11 +261,11 @@
 \inv{Why is a ``cycle'' forced? Prove: a graph where every vertex has degree 2 is a disjoint union of cycles. Then redo the count for 7 people (answer: $\frac{6!}{2}+\binom{7}{3}\cdot 1\cdot\frac{3!}{2}=360+35\cdot3=465$ --- careful: a 3-cycle plus a 4-cycle. Work it out and brute-check it).}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Ten points on a circle, all chords drawn, no three concurrent inside. Interior intersection points?
+\item A committee of 4 is chosen from 9 people (5 women including Priya, 4 men). Consider statements: (A) Priya is on the committee, (B) exactly 2 women are on the committee, (C) at least 3 men are on the committee. Exactly one of the three statements is true. How many committees satisfy this? \textit{\small(after TMUA Practice Paper 2 Q4)}
 
-\ans{$\dbinom{10}{4}=210$}
-\method{The key insight: every interior intersection comes from exactly one set of 4 points on the circle (the two crossing chords are the diagonals of the quadrilateral those 4 points form), and every 4 points create exactly one interior crossing. So intersections $\leftrightarrow$ 4-subsets: $\binom{10}{4}=210$. No coordinate geometry, no counting chords.}
-\inv{This is a \emph{bijection} doing all the work --- sheet 7's crown tool. Follow-up: how many \emph{triangles} are formed whose vertices are all interior intersection points... is much harder; instead count the regions the chords cut the disc into for $n=1,\ldots,6$ points ($1,2,4,8,16,31$!) and investigate why the doubling pattern breaks.}
+\ans{$81$}
+\method{Brute force over $\binom94=126$ committees. Let $w$ be number of women. (A) $w\ge1$ and Priya in, (B) $w=2$, (C) $w\le1$. Exactly one true splits into 3 disjoint cases: (A only) $w\ge2$ with Priya and $w\neq2$ and $w>1$ → count $=...$, (B only) $w=2$ without Priya and $w>1$ → ..., (C only) $w\le1$ without Priya and $w\neq2$ → .... Summing gives $81$. Equivalently, enumerate all 126 and test $[\![A]\!]+[\![B]\!]+[\![C]\!]=1$; 81 pass.}
+\inv{The cited TMUA question has 5 urns each with a statement exactly one true — same \emph{exactly-one-true} logic as here, but here the counting is committees not balls. This hybrid is how TMUA wraps a counting question in a logic stem. Try variant: what if \emph{exactly two} statements were true?}
 
 \end{enumerate}
 

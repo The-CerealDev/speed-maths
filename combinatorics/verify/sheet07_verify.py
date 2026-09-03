@@ -19,11 +19,19 @@ Run directly:
     python3 sheet07_verify.py
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
 import math
 import random
 import itertools
+import sympy
 from fractions import Fraction
 from functools import lru_cache
+from tools.latex_bridge import get_answer
+
+TEX_PATH = 'combinatorics/answers/ans07.tex'
 
 # ─────────────────────────────────────────────────────────────────────────
 # A1 — climb 4 stairs, steps of 1 or 2. \ans{5}
@@ -522,39 +530,29 @@ def check_D4():
         assert (4**n - 1) % 3 == 0
 
 # ─────────────────────────────────────────────────────────────────────────
-# D5 — Remove a power of 2 from a pile of 2025; last stone wins.
-# \method claims: no power of 2 is divisible by 3 (2^k mod 3 alternates
-# 1, 2); losing positions are exactly the multiples of 3; 2025 is a
-# multiple of 3, so the first player loses. \ans{The second player.}
+# D5 — Binary strings length 5 no consecutive 1s exactly-one-true logic \ans{7}
+# \method claims: 13 strings with no 11, exactly one of A: starts 1, B: exactly 2 ones, C: ends 0 is 7.
 # ─────────────────────────────────────────────────────────────────────────
 def check_D5():
     """EXHAUSTIVE PROOF"""
-    N = 2025
-    powers = []
-    p = 1
-    while p <= N:
-        powers.append(p)
-        p *= 2
+    expected_ans = get_answer(TEX_PATH, 'D5')
+    target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
 
-    for k, val in enumerate(powers):
-        assert val % 3 != 0, f"2^{k} is divisible by 3"
-        assert val % 3 == (1 if k % 2 == 0 else 2), f"2^{k} mod 3 breaks the alternating pattern"
+    def has_no_consec(bits):
+        return all(not (bits[i] == 1 and bits[i+1] == 1) for i in range(len(bits)-1))
 
-    # Just do a DP up to 100 to prove the pattern, 2025 is too slow for python unoptimized DP without PyPy
-    M = 100
-    is_losing = [False] * (M + 1)
-    is_losing[0] = True
-    for n in range(1, M + 1):
-        is_losing[n] = not any(is_losing[n - q] for q in powers if q <= n)
-
-    assert all(is_losing[n] == (n % 3 == 0) for n in range(M + 1))
-
-    # 2025 is a multiple of 3, so it is a losing position for whoever must move --
-    # that is the first player. The winner is read off the pattern, not named.
-    starting_position_is_losing = (N % 3 == 0)
-    assert starting_position_is_losing
-    return ("The second player." if starting_position_is_losing
-            else "The first player.")
+    computed_ans = 0
+    for bits in itertools.product([0, 1], repeat=5):
+        if not has_no_consec(bits):
+            continue
+        A = (bits[0] == 1)
+        B = (sum(bits) == 2)
+        C = (bits[-1] == 0)
+        if sum([A, B, C]) == 1:
+            computed_ans += 1
+    assert sympy.simplify(computed_ans - target) == 0
+    assert computed_ans == 7
+    return computed_ans
 
 
 CHECKS = {

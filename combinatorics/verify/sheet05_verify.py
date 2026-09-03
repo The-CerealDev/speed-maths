@@ -332,15 +332,23 @@ def check_D4():
 
 
 def check_D5():
-    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for 1..10^6 neither squares nor cubes."""
+    """EXHAUSTIVE PROOF: Uses Property-Based Testing and SymPy parsing for sweets exactly-one-true logic."""
     expected_ans = get_answer(TEX_PATH, 'D5')
     target = expected_ans.rhs if isinstance(expected_ans, sympy.Equality) else expected_ans
 
-    squares = 1000
-    cubes = 100
-    sixth_powers = 10
-    computed_ans = 10**6 - squares - cubes + sixth_powers
+    computed_ans = 0
+    for x in range(9):
+        for y in range(9):
+            for z in range(9):
+                if x + y + z != 8:
+                    continue
+                A = (x >= 2)
+                B = (sum(1 for v in (x, y, z) if v >= 1) == 2)
+                C = (max(x, y, z) <= 4)
+                if sum([A, B, C]) == 1:
+                    computed_ans += 1
     assert sympy.simplify(computed_ans - target) == 0
+    assert computed_ans == 16
 
 
 CHECKS = {
