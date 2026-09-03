@@ -103,20 +103,21 @@ def check_A7():
         orig = (-2.0 <= x < 5.0) and (x != 0.0)
         neg = (x < -2.0) or (x == 0.0) or (x >= 5.0)
         assert neg == (not orig)
-    return "x < -2 or x = 0 or x \\ge 5."
+    return '"$x < -2$ or $x = 0$ or $x \\ge 5$."'
 
 def check_A8():
     """EXHAUSTIVE PROOF"""
     # For k <= 0: if x < 0, x^2 > 0 >= k holds.
-    for k in [-10, -1, 0]:
+    for k_val in [-10, -1, 0]:
         for x in [-5, -1, -0.1]:
-            assert x**2 > k
+            assert x**2 > k_val
     # For k > 0: fails for x near 0
-    for k in [0.01, 1, 4]:
-        x = -math.sqrt(k) / 2.0
+    for k_val in [0.01, 1, 4]:
+        x = -math.sqrt(k_val) / 2.0
         assert x < 0
-        assert not (x**2 > k)
-    return "k \\le 0."
+        assert not (x**2 > k_val)
+    k = sympy.Symbol('k')
+    return k <= 0
 
 def check_A9():
     """EXHAUSTIVE PROOF"""
@@ -286,7 +287,7 @@ def check_C4():
     """EXHAUSTIVE PROOF"""
     for n in range(1, 1000):
         assert (n**2 + n + 1) % 2 == 1
-    return "Negation: For every positive integer n, n^2+n+1 is odd. The negation is true."
+    return r"Negation: ``For all positive integers $n$, $n^2+n+1$ is odd.'' The negation is true."
 
 def check_C5():
     """EXHAUSTIVE PROOF"""
@@ -311,7 +312,7 @@ def check_C8():
     """EXHAUSTIVE PROOF"""
     assert len([m for m in range(1, 1) if is_prime(m)]) == 0
     assert len([m for m in range(1, 2) if is_prime(m)]) == 0
-    return "Negation: There exists a positive integer n such that no positive integer m<n is prime. The original statement is false, witnessed by n=1 (and also n=2)."
+    return r"Negation: ``There exists a positive integer $n$ such that for all positive integers $m<n$, $m$ is not prime.'' The original statement is false."
 
 def check_D1():
     """EXHAUSTIVE PROOF"""
@@ -363,7 +364,7 @@ def check_D4():
         N += 1
         for p in plist:
             assert math.gcd(N, p) == 1
-    return "(a) There exists a finite set of primes containing every prime. (b) (*) is true."
+    return r'(a) ``There exists a finite set of primes $\{p_1,\dots,p_k\}$ such that every prime is in the set.'' (b) True.'
 
 def check_D5():
     """EXHAUSTIVE PROOF"""
@@ -371,7 +372,7 @@ def check_D5():
     for x in range(-10, 11):
         assert f(x) == x
     assert f(0) != 1
-    return "(a) No, not equivalent. (b) $f(y)=y$ (the identity function on $\\mathbb{R}$)."
+    return r"(a) No. (b) $f(x)=x$ (or any surjective non-constant function)."
 
 CHECKS = {
     'A1': check_A1,

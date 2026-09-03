@@ -118,7 +118,7 @@ def check_A8():
         orig = (not A) or (B and C)
         neg = A and (not B or not C)
         assert (not orig) == neg
-    return r"$f(x)$ has a root at $x=1$, and ($f(1) \neq 0$ or $f'(1) \neq 0$)."
+    return '''"$f(x)$ has a root at $x=1$, and ($f(1) \\neq 0$ or $f'(1) \\neq 0$)."'''
 
 def check_A9():
     """EXHAUSTIVE PROOF: Cycle P => Q => R => P forces identical truth values."""
@@ -171,7 +171,7 @@ def check_B3():
         if sum([label_A, label_B, label_C]) == 1:
             valid_urns.append(prize)
     assert valid_urns == ['C']
-    return r"Urn $C$."
+    return r'"Urn $C$."'
 
 def check_B4():
     """EXHAUSTIVE PROOF: Count assignments where ((P => Q) => R) is True."""
@@ -251,7 +251,7 @@ def check_B10():
             if A_knight == stmt_A:
                 solutions.append((A_knight, B_knight))
     assert solutions == [(True, False)]
-    return r"$A$ is a Knight and $B$ is a Knave."
+    return r'"$A$ is a Knight and $B$ is a Knave."'
 
 def check_C1():
     """EXHAUSTIVE PROOF: x^5 < y^5 <=> x < y."""

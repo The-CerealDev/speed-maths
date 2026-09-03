@@ -68,7 +68,7 @@ def check_A3():
     df = sympy.diff(f, x)
     assert df == 1 and df > 0
     assert f.subs(x, -5) == -5 and f.subs(x, -5) < 0
-    return "f(x) = x"
+    return '"$f(x) = x$"'
 
 def check_A4():
     """EXHAUSTIVE PROOF: x > 1/x fails for 0 < x <= 1."""
@@ -116,7 +116,7 @@ def check_A9():
     df = sympy.diff(f, x)
     assert sympy.limit(df, x, sympy.oo) == 0
     assert sympy.limit(f, x, sympy.oo) == sympy.oo
-    return r"f(x) = \sqrt{x}"
+    return r'"$f(x) = \sqrt{x}$"'
 
 def check_A10():
     """EXHAUSTIVE PROOF: Smallest odd composite that is not a prime power."""
@@ -130,17 +130,17 @@ def check_B1():
         assert (n * (n - 1)) % 2 == 0
     # Derivative at 0 is -1/2
     assert Fraction(0 - 1, 2) == Fraction(-1, 2)
-    return r"f(x) = \frac{x(x-1)}{2}"
+    return r'"$f(x) = \frac{x(x-1)}{2}$"'
 
 def check_B2():
     """EXHAUSTIVE PROOF: Sum of two irrationals is rational."""
     assert math.isclose(math.sqrt(2) + (-math.sqrt(2)), 0.0)
-    return r"a = \sqrt{2}, b = -\sqrt{2}"
+    return r'"$a = \sqrt{2}, b = -\sqrt{2}$"'
 
 def check_B3():
     """EXHAUSTIVE PROOF: Product of two irrationals is rational."""
     assert math.isclose(math.sqrt(2) * math.sqrt(2), 2.0)
-    return r"a = \sqrt{2}, b = \sqrt{2}"
+    return r'"$a = \sqrt{2}, b = \sqrt{2}$"'
 
 def check_B4():
     """EXHAUSTIVE PROOF: f(x) >= g(x) on [0, oo) does not imply f'(0) >= g'(0)."""
@@ -150,7 +150,7 @@ def check_B4():
     df0 = 0
     assert dg0 == 1
     assert df0 < dg0
-    return r"f(x) = 10, g(x) = x"
+    return '"$f(x) = 10, g(x) = x$"'
 
 def check_B5():
     """EXHAUSTIVE PROOF: Smallest positive integer n where n^2+n+41 is composite."""
@@ -167,7 +167,7 @@ def check_B6():
     C = set()
     assert A | B == A | C
     assert B != C
-    return r"A = \{1\}, B = \{1\}, C = \emptyset"
+    return r'"$A = \{1\}, B = \{1\}, C = \emptyset$"'
 
 def check_B7():
     """EXHAUSTIVE PROOF: Smallest positive integer n where 3^n + 2 is composite."""
@@ -192,12 +192,12 @@ def check_B9():
     m, a, b = 8, 1, 3
     assert (a**2 - b**2) % m == 0
     assert (a - b) % m != 0 and (a + b) % m != 0
-    return r"m=8, a=1, b=3"
+    return '"$m=8, a=1, b=3$"'
 
 def check_B10():
     """EXHAUSTIVE PROOF: Fixed points of identity function."""
     assert all(x == x for x in [0.0, 0.25, 0.5, 0.75, 1.0])
-    return r"f(x) = x"
+    return '"$f(x) = x$"'
 
 def check_C1():
     """EXHAUSTIVE PROOF: Count counterexamples to 5k+2,4 => prime in 1..50."""

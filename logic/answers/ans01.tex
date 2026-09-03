@@ -66,7 +66,7 @@
 %── A7 ──────────────────────────────────────────────────────────────────────────
 \item Negate the condition: $x \in [-2, 5) \setminus \{0\}$.
 
-\ans{$x < -2$ or $x = 0$ or $x \ge 5$.}
+\ans{"$x < -2$ or $x = 0$ or $x \ge 5$."}
 \method{$x \in [-2, 5)\setminus\{0\}$ means $(-2\le x < 5) \land (x\neq0)$. Negating by De Morgan gives $\neg(-2\le x < 5) \lor \neg(x\neq0) \equiv (x < -2 \lor x \ge 5) \lor (x = 0)$.}
 \inv{Forgetting the isolated excluded point $x = 0$ is a standard pitfall when negating punctured intervals.}
 
@@ -76,7 +76,7 @@
 \forall x \in \mathbb{R},\quad (x < 0 \implies x^2 > k)
 \]
 
-\ans{$k \le 0$.}
+\ans{$k \le 0$}
 \method{When $x < 0$, $x^2$ takes all values in $(0, \infty)$. For $x^2 > k$ to hold for every $x < 0$, $k$ must be strictly less than every value in $(0, \infty)$, or at most its infimum $0$. Thus $k \le 0$. If $k > 0$, choosing $x = -\sqrt{k}/2$ gives $x^2 = k/4 < k$, disproving the implication.}
 \inv{This rapid boundary check prefigures the case-split method in C2.}
 
@@ -228,7 +228,7 @@ Given that \textbf{exactly one} of I, II, III is true, which statement is imposs
 %── C6 ──────────────────────────────────────────────────────────────────────────
 \item Consider the statement about a real number $x$: ``There exists a real number $y$ such that $xy-x+y$ is positive.'' For how many real values of $x$ is this true? \textit{\small(after TMUA 2022 Paper 2 Q13)}
 
-\ans{C) all except exactly one value of $x$.}
+\ans{E) all values of $x$.}
 \method{Factor the expression: $xy-x+y = y(x+1)-x$. For a fixed $x$, this is a linear function of $y$ with slope $x+1$. If $x+1\neq0$ (i.e.\ $x\neq-1$), the slope is non-zero, so the expression takes arbitrarily large positive values as $y\to\pm\infty$ --- hence a positive value always exists. If $x=-1$, the expression simplifies to $y(-1+1)-(-1) = 0-(-1) = +1$, which is always positive regardless of $y$, so $y=0$ works! At $x=1$, $2y-1>0 \implies y>1/2$ (works). With $xy-x+y > 0$, the expression is solvable for any $x$ except if we require slope $x+1=0$ and intercept $-x > 0$.}
 \inv{Linear functions $ay+b$ can fail to achieve a positive value only when the slope $a=0$ and intercept $b\leq0$.}
 
