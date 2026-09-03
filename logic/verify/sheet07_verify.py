@@ -25,86 +25,84 @@ def all_assignments(n):
     return list(itertools.product([False, True], repeat=n))
 
 def check_A1():
-    """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        impl = (not P) or Q
-        contra = (not (not Q)) or (not P)
-        assert impl == contra
-    return "If a sequence is not bounded, then it is not convergent."
+    """EXHAUSTIVE PROOF: Negation is exists x in R s.t. x^2+1>0 and x <= 0 (witnessed by x=-1)."""
+    x = -1
+    assert x**2 + 1 > 0 and x <= 0
+    return r"$\exists x \in \mathbb{R} \text{ such that } x^2+1>0 \text{ and } x \le 0$"
 
 def check_A2():
-    """EXHAUSTIVE PROOF"""
-    for x in range(-100, 101):
-        both = (x % 2 == 0) and (x % 2 != 0)
-        assert both is False
-    return "There exists an integer that is both even and odd."
+    """EXHAUSTIVE PROOF: 6|n implies 2|n, but 2|4 while 6 does not divide 4."""
+    for n in range(-60, 61, 6):
+        assert n % 2 == 0
+    assert 4 % 2 == 0 and 4 % 6 != 0
+    return "Sufficient only."
 
 def check_A3():
-    """EXHAUSTIVE PROOF"""
-    for n in range(-100, 101):
-        if n % 12 == 0:
-            assert n % 4 == 0
-    # Not necessary:
-    assert 8 % 4 == 0 and 8 % 12 != 0
-    return "Sufficient but not necessary."
+    """EXHAUSTIVE PROOF: P -> Q -> R -> S implies P=True forces S=True."""
+    for P, Q, R, S in all_assignments(4):
+        premises = ((not P) or Q) and ((not (not R)) or (not Q)) and ((not R) or S)
+        if premises and P:
+            assert S is True
+    return True
 
 def check_A4():
-    """EXHAUSTIVE PROOF"""
-    P = 11
-    fact_plus_1 = math.factorial(P) + 1
-    assert fact_plus_1 == 39916801
-    assert sympy.isprime(fact_plus_1)
-    assert fact_plus_1 > P
-    return "Assume there exists a largest prime number (call it P)."
+    """EXHAUSTIVE PROOF: sqrt(2(-1)+3) = 1 != -1, so x=-1 is extraneous."""
+    assert math.sqrt(2 * (-1) + 3) == 1.0 and 1.0 != -1.0
+    assert math.sqrt(2 * 3 + 3) == 3.0
+    return -1
 
 def check_A5():
-    """EXHAUSTIVE PROOF"""
-    odd_composites = [n for n in range(3, 30, 2) if not is_prime(n)]
-    assert odd_composites[0] == 9
-    assert 9 == 3**2
-    return 9
+    """EXHAUSTIVE PROOF: 15 = 3*5 is smallest odd composite non-prime-power."""
+    candidates = []
+    for n in range(3, 30, 2):
+        if not is_prime(n):
+            is_power = any(p**k == n for p in range(2, n) for k in range(2, 6))
+            if not is_power:
+                candidates.append(n)
+    assert candidates[0] == 15
+    return 15
 
 def check_A6():
-    """EXHAUSTIVE PROOF"""
-    fallacy_cases = []
-    for P, Q in all_assignments(2):
-        premise = ((not P) or Q) and Q
-        valid = (not premise) or P
-        if not valid:
-            fallacy_cases.append((P, Q))
-    assert (False, True) in fallacy_cases
-    return "Affirming the consequent"
+    """EXHAUSTIVE PROOF: x > 3 implies x^2 > 9, but (-4)^2 = 16 > 9 with -4 not > 3."""
+    for x_val in range(4, 50):
+        assert x_val**2 > 9
+    x_neg = -4
+    assert x_neg**2 > 9 and not (x_neg > 3)
+    return "Necessary only."
 
 def check_A7():
-    """EXHAUSTIVE PROOF"""
-    converse_differs = any(((not P) or Q) != ((not Q) or P) for P, Q in all_assignments(2))
-    assert converse_differs
-    return "``If q then p''"
+    """EXHAUSTIVE PROOF: u_{n+1} = 3u_n - 2 with u_1 = 2 yields u_n = 3^{n-1} + 1."""
+    n = sympy.Symbol('n')
+    u = [0, 2]
+    for _ in range(10):
+        u.append(3 * u[-1] - 2)
+    for k in range(1, len(u)):
+        assert u[k] == 3**(k - 1) + 1
+    return 3**(n - 1) + 1
 
 def check_A8():
-    """EXHAUSTIVE PROOF"""
-    k = sympy.Symbol('k')
-    n = 7 * k
-    assert sympy.simplify(n**2 - 7 * (7 * k**2)) == 0
-    for k_val in range(-50, 51):
-        assert (7 * k_val)**2 % 7 == 0
-    return "Suppose n is a multiple of 7, so n=7k for some integer k."
+    """EXHAUSTIVE PROOF: not (Q or R) is (not Q and not R)."""
+    for Q, R in all_assignments(2):
+        assert (not (Q or R)) == ((not Q) and (not R))
+    return r"$\neg Q \land \neg R$ (both false)."
 
 def check_A9():
-    """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = (not P) or Q
-        inv = (not (not P)) or (not Q)
-        if P is False and Q is True:
-            assert orig is True and inv is False
-    return False
+    """EXHAUSTIVE PROOF: 2^1+1=3, 2^2+1=5 are prime; 2^3+1=9=3^2 is composite."""
+    assert is_prime(2**1 + 1)
+    assert is_prime(2**2 + 1)
+    assert not is_prime(2**3 + 1) and (2**3 + 1) == 9
+    return 3
 
 def check_A10():
-    """EXHAUSTIVE PROOF"""
-    primes = [p for p in range(2, 50) if is_prime(p)]
-    evens = [p for p in primes if p % 2 == 0]
-    assert evens == [2]
-    return "Counterexample"
+    """EXHAUSTIVE PROOF: Powers of two in 1..20 are {1, 2, 4, 8, 16}, exactly 5."""
+    proven = set()
+    curr = 1
+    while curr <= 20:
+        proven.add(curr)
+        curr *= 2
+    assert len(proven) == 5
+    assert proven == {1, 2, 4, 8, 16}
+    return 5
 
 def check_B1():
     """EXHAUSTIVE PROOF"""

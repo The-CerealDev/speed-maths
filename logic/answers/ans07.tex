@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item State the contrapositive of: ``If a sequence is convergent, then it is bounded.''
+\item What is the negation of the proposition ``$\forall x \in \mathbb{R},\, x^2 + 1 > 0 \implies x > 0$''?
 
-\ans{If a sequence is not bounded, then it is not convergent.}
-\method{The contrapositive of $P\implies Q$ is $\neg Q\implies\neg P$: negate ``bounded'' to get ``not bounded'', and negate ``convergent'' to get ``not convergent'', then swap their order.}
-\inv{Is the converse of the original statement (``if bounded, then convergent'') actually true?}
+\ans{$\exists x \in \mathbb{R} \text{ such that } x^2+1>0 \text{ and } x \le 0$}
+\method{The negation of $\forall x\, (P(x) \implies Q(x))$ is $\exists x\, (P(x) \land \neg Q(x))$. Here $P(x)$ is $x^2+1>0$ and $Q(x)$ is $x > 0$, so $\neg Q(x)$ is $x \le 0$. (For instance, $x = -1$ satisfies $(-1)^2+1 = 2 > 0$ and $-1 \le 0$, proving the negation true.)}
+\inv{Is the original proposition true or false?}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item What is the negation of: ``No integer is both even and odd''?
+\item For integers $n$, is ``$n$ is divisible by $6$'' necessary, sufficient, both, or neither for ``$n$ is divisible by $2$''?
 
-\ans{There exists an integer that is both even and odd.}
-\method{``No $x$ is $P(x)$'' means $\forall x\,\neg P(x)$; its negation is $\exists x\,P(x)$.}
-\inv{Is the negated statement true or false?}
+\ans{Sufficient only.}
+\method{If $n$ is divisible by $6$, then $n = 6k = 2(3k)$, so $n$ is divisible by $2$ (sufficient). However, $n=4$ is divisible by $2$ but not by $6$, so divisibility by $6$ is not necessary.}
+\inv{What condition on $n$ would be both necessary and sufficient for divisibility by $2$?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item Is ``$n$ is a multiple of $6$'' necessary, sufficient, both, or neither for ``$n$ is a multiple of $2$''?
+\item Consider the implication chain $P \implies Q$, $\neg R \implies \neg Q$, and $R \implies S$. If $P$ is true, what is the truth value of $S$?
 
-\ans{Sufficient but not necessary.}
-\method{Multiple of $6$ $\implies$ multiple of $2$ (since $6=2\times3$), so it's sufficient. But $n=4$ is a multiple of $2$ without being a multiple of $6$, so it's not necessary.}
-\inv{What condition on $n$ would be both necessary and sufficient for ``$n$ is a multiple of $2$''?}
+\ans{True.}
+\method{The premises are $P \implies Q$, $\neg R \implies \neg Q$ (whose contrapositive is $Q \implies R$), and $R \implies S$. This gives the transitive deduction chain $P \implies Q \implies R \implies S$. Since $P$ is true, $S$ must be true.}
+\inv{If $S$ is false, what can be deduced about $P$?}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item To prove ``there is no largest prime number'' by contradiction, what should you assume first?
+\item A student solves $\sqrt{2x+3} = x$ by squaring both sides and obtains candidate solutions $x=3$ and $x=-1$. Which candidate is extraneous?
 
-\ans{Assume there exists a largest prime number (call it $P$).}
-\method{Proof by contradiction begins by assuming the negation of the statement to be proved.}
-\inv{How would you then derive a contradiction from this assumption?}
+\ans{$-1$}
+\method{Substituting $x = -1$ gives $\sqrt{2(-1)+3} = \sqrt{1} = 1 \neq -1$. Squaring introduced the extraneous root $x=-1$; only $x=3$ satisfies $\sqrt{2(3)+3} = \sqrt{9} = 3 = x$.}
+\inv{Why does squaring specifically create extraneous roots when the two sides had opposite signs?}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item Give a counterexample to: ``Every odd number is prime.''
+\item Find the smallest odd composite positive integer that is not a prime power.
 
-\ans{$9$ (or $15,21,\dots$)}
-\method{$9$ is odd, but $9=3\times3$ is composite, not prime.}
-\inv{What is the smallest odd composite number?}
+\ans{15}
+\method{Odd positive integers: $1$ (unit), $3, 5, 7$ (primes), $9 = 3^2$ (prime power), $11, 13$ (primes), $15 = 3 \times 5$ (composite, product of two distinct odd primes). Thus $15$ is the smallest.}
+\inv{What is the next odd composite integer that is not a prime power?}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item Name the fallacy: ``If it is raining, the ground is wet. The ground is wet. Therefore it is raining.''
+\item For real numbers $x$, is ``$x^2 > 9$'' necessary, sufficient, both, or neither for ``$x > 3$''?
 
-\ans{Affirming the consequent}
-\method{The form $P\implies Q$, $Q$, therefore $P$ is invalid; the ground could be wet for other reasons (e.g.\ a sprinkler).}
-\inv{What valid rule has the similar-looking but correct form $P\implies Q$, $P$, therefore $Q$?}
+\ans{Necessary only.}
+\method{If $x > 3$, then $x^2 > 9$ (so $x^2 > 9$ is necessary). However, $x = -4$ satisfies $(-4)^2 = 16 > 9$ but $-4 \not> 3$, so $x^2 > 9$ is not sufficient for $x > 3$.}
+\inv{What domain restriction on $x$ would make $x^2 > 9$ both necessary and sufficient for $x > 3$?}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item What is the converse of ``If $p$ then $q$''?
+\item A sequence satisfies $u_1 = 2$ and $u_{n+1} = 3u_n - 2$. What is the closed-form expression for $u_n$?
 
-\ans{``If $q$ then $p$''}
-\method{The converse of $P\implies Q$ swaps the two sides to give $Q\implies P$ --- logically a different (generally non-equivalent) statement.}
-\inv{Give an example of a true implication whose converse is false.}
+\ans{$3^{n-1} + 1$}
+\method{Rearranging the recurrence gives $u_{n+1} - 1 = 3(u_n - 1)$. Setting $v_n = u_n - 1$, we have $v_1 = 2-1 = 1$ and $v_{n+1} = 3v_n$, so $v_n = 3^{n-1}$. Therefore, $u_n = 3^{n-1} + 1$.}
+\inv{Verify by induction that $u_n = 3^{n-1} + 1$ satisfies $u_{n+1} = 3u_n - 2$.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item To prove directly that ``if $n$ is a multiple of $7$, then $n^2$ is a multiple of $49$'', what is the very first line of the proof?
+\item In a proof by contradiction of the implication $P \implies (Q \lor R)$, what compound statement is assumed alongside $P$?
 
-\ans{Suppose $n$ is a multiple of $7$, so $n=7k$ for some integer $k$.}
-\method{A direct proof of $P\implies Q$ begins by assuming $P$ and introducing notation for it, here the definition of ``multiple of $7$''.}
-\inv{Complete the rest of this proof in one further line.}
+\ans{$\neg Q \land \neg R$ (both false).}
+\method{Proof by contradiction of $P \implies S$ assumes the premise $P$ and the negation of the conclusion $\neg S$. Here the conclusion is $Q \lor R$, whose negation by De Morgan's laws is $\neg(Q \lor R) \equiv \neg Q \land \neg R$.}
+\inv{State the contrapositive of $P \implies (Q \lor R)$.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\exists x\,\forall y\,(x<y)$ and $\forall y\,\exists x\,(x<y)$ are logically equivalent statements about real numbers.''
+\item Find the smallest positive integer $n$ such that $2^n + 1$ is composite.
 
-\ans{False}
-\method{$\exists x\,\forall y\,(x<y)$ claims a single $x$ smaller than every real $y$ --- false (no smallest real number). $\forall y\,\exists x\,(x<y)$ claims every $y$ has some smaller $x$ --- true (take $x=y-1$). Different truth values, so not equivalent.}
-\inv{In general, does $\exists x\,\forall y\,P(x,y)$ imply $\forall y\,\exists x\,P(x,y)$, or only the reverse?}
+\ans{3}
+\method{For $n=1$: $2^1+1=3$ (prime). For $n=2$: $2^2+1=5$ (prime). For $n=3$: $2^3+1=9=3^2$ (composite). The smallest positive integer is $n=3$.}
+\inv{What algebraic identity factorises $2^n+1$ whenever $n$ has an odd divisor greater than $1$?}
 
-%── A10 ──────────────────────────────────────────────────────────────────────────
-\item Which proof technique is most natural for disproving ``every multiple of $3$ is odd''?
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item If $P(1)$ is true and $P(k) \implies P(2k)$ holds for all $k \ge 1$, how many integers in $\{1, 2, \dots, 20\}$ are proven true?
 
-\ans{Counterexample}
-\method{A single value ($n=6$, a multiple of $3$ that is even) disproves the universal claim directly --- no need for contradiction, induction, or contrapositive.}
-\inv{Why would proof by contradiction be needlessly roundabout here?}
+\ans{5}
+\method{Starting from the base case $P(1)$, the implication $P(k) \implies P(2k)$ generates only the powers of two: $1, 2, 4, 8, 16$. In the range $1 \le n \le 20$, there are exactly $5$ such integers ($2^0, 2^1, 2^2, 2^3, 2^4$).}
+\inv{How many additional base cases would be required to prove $P(n)$ for all integers $1 \le n \le 20$?}
 
 \end{enumerate}
 
@@ -106,8 +106,12 @@
 \item Prove by induction: $\sum_{i=1}^n i^2=\dfrac{n(n+1)(2n+1)}{6}$ for all positive integers $n$.
 
 \ans{Proof by induction}
-\method{Base case $n=1$: LHS$=1$, RHS$=\frac{1\cdot2\cdot3}{6}=1$. Holds.\\
-Inductive step: assume $\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}{6}$. Then $\sum_{i=1}^{k+1}i^2=\frac{k(k+1)(2k+1)}{6}+(k+1)^2=\frac{(k+1)[k(2k+1)+6(k+1)]}{6}=\frac{(k+1)(2k^2+7k+6)}{6}=\frac{(k+1)(k+2)(2k+3)}{6}$, which matches the formula at $n=k+1$. By induction, true for all positive integers $n$.}
+\method{Base case $n=1$: $\text{LHS}=1^2=1$, $\text{RHS}=\frac{1\cdot2\cdot3}{6}=1$, holds.\\
+Inductive step: assume $\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}{6}$. Then:
+\[
+\sum_{i=1}^{k+1}i^2 = \frac{k(k+1)(2k+1)}{6}+(k+1)^2 = \frac{(k+1)(2k^2+7k+6)}{6} = \frac{(k+1)(k+2)(2k+3)}{6},
+\]
+which matches the formula at $n=k+1$. By induction, the identity holds for all positive integers $n$.}
 \inv{Factor $2k^2+7k+6$ to confirm it equals $(k+2)(2k+3)$.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
@@ -295,13 +299,13 @@ So: if $p\mid ab$ and $p\nmid a$, then $p\mid b$. Equivalently, if $p\mid ab$, t
   \item \textbf{The Invariant Principle under State Transitions.}
         In games or iterative operations (such as removing or tripling balls), identify a quantity whose value modulo $2$ or algebraic sign remains constant across all allowed moves to prove impossibility of target states. \seealso{D2, D1, B8}
   \item \textbf{The Extremal Principle and Minimal Counterexamples.}
-        To prove a universal or uniqueness claim (like the Fundamental Theorem of Arithmetic), assume the contrary and select the strictly smallest counterexample; its minimality generates an immediate structural contradiction. \seealso{D3, D4, A4, B2}
+        To prove a universal or uniqueness claim (like the Fundamental Theorem of Arithmetic), assume the contrary and select the strictly smallest counterexample; its minimality generates an immediate structural contradiction. \seealso{D3, D4, A8, B2}
   \item \textbf{Bounding Arguments in Reciprocal Diophantine Equations.}
-        Equations like $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}=1$ with ordered variables $a<b<c$ force the smallest variable $a$ into a finite set of candidates ($\frac{3}{a}>1\Rightarrow a<3$), reducing infinite domains to finite tests. \seealso{D3, B2, A8}
+        Equations like $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}=1$ with ordered variables $a<b<c$ force the smallest variable $a$ into a finite set of candidates ($\frac{3}{a}>1\Rightarrow a<3$), reducing infinite domains to finite tests. \seealso{D3, B2, C1}
   \item \textbf{Coprimality and Bézout Inversion.}
         The linear combination $mx+ny=1$ is a definitive witness that $\gcd(m,n)=1$ because any common divisor must divide $1$; this gives an operational route to proving coprimality without factoring. \seealso{D5, B1, C1, C7}
   \item \textbf{Synthesis: Selecting the Decisive Proof Mode.}
-        Choose the proof mode by grammatical shape: existential statements demand witness construction; universal statements demand direct algebra or contrapositive; non-existence demands contradiction or invariants; universal refutation demands a single counterexample. \seealso{A10, B1, B2, B8, C3}
+        Choose the proof mode by grammatical shape: existential statements demand witness construction; universal statements demand direct algebra or contrapositive; non-existence demands contradiction or invariants; universal refutation demands a single counterexample. \seealso{B1, B2, B8, C3}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -310,15 +314,15 @@ So: if $p\mid ab$ and $p\nmid a$, then $p\mid b$. Equivalently, if $p\mid ab$, t
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
   \item \textbf{Negating Compound Quantifiers Without Flipping Every Operator.}
-        Negating $\forall A\,\exists B\,P(A,B)$ requires swapping both quantifiers and negating the inner condition ($\exists A\,\forall B\,\neg P$); keeping any quantifier unchanged invalidates the negation. \seealso{A2, B6, A9}
+        Negating $\forall x\,(P(x)\Rightarrow Q(x))$ produces $\exists x\,(P(x)\land\neg Q(x))$; keeping any quantifier unchanged or forgetting to invert the conclusion invalidates the negation. \seealso{A1, B6}
   \item \textbf{The Gap Between Base Case and Inductive Chain.}
-        Establishing $P(1)$ and then proving the inductive step $P(k)\Rightarrow P(k+1)$ only for $k\ge2$ leaves $P(1)\Rightarrow P(2)$ unproven, breaking the induction before it starts. \seealso{B10, B3, B7, C6}
+        Establishing $P(1)$ and then proving the inductive step $P(k)\Rightarrow P(k+1)$ only for $k\ge2$ leaves $P(1)\Rightarrow P(2)$ unproven, breaking the induction before it starts. \seealso{A10, B10, B3, B7, C6}
   \item \textbf{Confusing Modulo Parity with Divisibility Direction.}
-        Asserting that $2\mid n$ and $3\mid n$ guarantees $6\mid n$ relies on $\gcd(2,3)=1$; claiming $4\mid n$ because $2\mid n$ and $2\mid n$ is a classic composite modulus fallacy. \seealso{A3, C1, C4, D5}
+        Asserting that $2\mid n$ and $3\mid n$ guarantees $6\mid n$ relies on $\gcd(2,3)=1$; claiming $4\mid n$ because $2\mid n$ and $2\mid n$ is a classic composite modulus fallacy. \seealso{A2, C1, C4, D5}
   \item \textbf{Treating Necessary Conditions as If They Were Sufficient.}
-        In complex arguments, observing that a property is necessary for a solution (e.g.\ $x^3-1=0\Rightarrow x=1$ over reals) does not make every related condition interchangeable without confirming the reverse direction. \seealso{A3, B9, C2, C8}
+        In complex arguments, observing that a property is necessary for a solution (e.g.\ $x^3-1=0\Rightarrow x=1$ over reals) does not make every related condition interchangeable without confirming the reverse direction. \seealso{A6, B9, C2, C8}
   \item \textbf{Attempting Direct Proof When Contrapositive Simplifies Connectives.}
-        Proving $15\nmid n\Rightarrow(3\nmid n\lor 5\nmid n)$ directly is cumbersome; transforming to the contrapositive $(3\mid n\land 5\mid n)\Rightarrow15\mid n$ turns disjunctive unknowns into simple simultaneous divisibility. \seealso{B1, B4, C5, A1}
+        Proving $15\nmid n\Rightarrow(3\nmid n\lor 5\nmid n)$ directly is cumbersome; transforming to the contrapositive $(3\mid n\land 5\mid n)\Rightarrow15\mid n$ turns disjunctive unknowns into simple simultaneous divisibility. \seealso{B1, B4, C5}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}

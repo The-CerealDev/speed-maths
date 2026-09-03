@@ -360,11 +360,14 @@
       },
       {
         "n": "07",
-        "topic": "Equivalence, set claims and invariants",
+        "topic": "TMUA 9.0 Paper 2 capstone synthesis",
         "tools": [
-          "logical equivalence",
-          "invariant argument",
-          "extremal principle"
+          "quantifiers",
+          "necessary and sufficient",
+          "implication chains",
+          "counterexamples",
+          "flawed proofs",
+          "induction"
         ],
         "questions": 33,
         "pdf": "logic/sheets/sheet07.pdf",
