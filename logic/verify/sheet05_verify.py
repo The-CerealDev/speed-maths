@@ -43,74 +43,76 @@ def all_assignments(n):
     return list(itertools.product([False, True], repeat=n))
 
 def check_A1():
-    """EXHAUSTIVE PROOF"""
-    P = lambda n: n % 6 == 0
-    Q = lambda n: n % 3 == 0
-    assert Q(15) is True and P(15) is False
-    assert all(not P(n) or Q(n) for n in range(-100, 101))
-    return "Affirming the consequent"
+    """EXHAUSTIVE PROOF: sqrt(11-2) = 3 != -3, so x=11 does not satisfy original equation."""
+    x = 11
+    assert math.sqrt(x - 2) == 3.0
+    assert math.sqrt(x - 2) != -3
+    return False
 
 def check_A2():
-    """EXHAUSTIVE PROOF"""
-    P = lambda x: x > 10
-    Q = lambda x: x > 0
-    assert (not P(5)) is True and (not Q(5)) is False
-    return "Denying the antecedent"
+    """EXHAUSTIVE PROOF: (x^2-4)/(x-2) is undefined at x=2."""
+    x = 2
+    assert x - 2 == 0
+    return False
 
 def check_A3():
-    """EXHAUSTIVE PROOF"""
-    for x in range(3, 50):
-        assert x > 2 and x**2 > 4
-    return False
+    """EXHAUSTIVE PROOF: a=b implies a-b=0, so division by a-b is invalid."""
+    for val in [1, 2, 5, 10]:
+        a = b = val
+        assert a - b == 0
+    return r"Dividing by $a-b$ (division by zero is invalid)."
 
 def check_A4():
-    """EXHAUSTIVE PROOF"""
-    trusted_lines = [1, 2, 3]
-    assert len(trusted_lines) == 3
-    return 3
+    """EXHAUSTIVE PROOF: x = -3 satisfies x^2 > 4 but not x > 2."""
+    x = -3
+    assert x**2 > 4 and not (x > 2)
+    return -3
 
 def check_A5():
-    """EXHAUSTIVE PROOF"""
+    """EXHAUSTIVE PROOF: log(-2) is undefined over real numbers."""
     x = -2
-    assert x != 2
-    assert x**2 == 2**2
-    return False
+    assert x <= 0 and (x - 3) <= 0
+    assert 5 > 0 and 5 - 3 > 0 and math.isclose(math.log10(5) + math.log10(2), 1.0)
+    return -2
 
 def check_A6():
-    """EXHAUSTIVE PROOF"""
-    for premise in [True]:
-        conclusion = (0 == 1)
-        valid_step = (not premise) or conclusion
-        assert valid_step is False
-    return "At least one line of the argument contains an error."
+    """EXHAUSTIVE PROOF: f(x) = x^3 has f'(0)=0 but no local extremum."""
+    x = sympy.Symbol('x')
+    f = x**3
+    df0 = sympy.diff(f, x).subs(x, 0)
+    assert df0 == 0
+    assert f.subs(x, -1) < f.subs(x, 0) < f.subs(x, 1)
+    return r"$f(x) = x^3$ (an inflection point, no local extremum)."
 
 def check_A7():
-    """EXHAUSTIVE PROOF"""
-    poly = lambda n: n * n - n + 11
-    assert all(is_prime(poly(n)) for n in range(1, 11))
-    assert not is_prime(poly(11))
-    return False
+    """EXHAUSTIVE PROOF: |1| < |-2| but 1 is not < -2."""
+    a, b = 1, -2
+    assert abs(a) < abs(b) and not (a < b)
+    return (1, -2)
 
 def check_A8():
-    """EXHAUSTIVE PROOF"""
-    a, b, x = 2, 5, 0
-    assert a * x == b * x
-    assert a != b
-    return "The step is invalid if $x=0$."
+    """EXHAUSTIVE PROOF: Smallest positive integer where 4|n^2 but 4∤n."""
+    candidates = []
+    for n in range(1, 10):
+        if (n * n) % 4 == 0 and n % 4 != 0:
+            candidates.append(n)
+    assert candidates[0] == 2
+    return 2
 
 def check_A9():
-    """EXHAUSTIVE PROOF"""
-    for P in [False, True]:
-        contradiction = P and (not P)
-        assert contradiction is False
-    return True
+    """EXHAUSTIVE PROOF: a < b does not imply a^2 < b^2."""
+    a, b = -5, 2
+    assert a < b and a**2 > b**2
+    return (-5, 2)
 
 def check_A10():
-    """EXHAUSTIVE PROOF"""
-    a, b, c, d = 1, 2, 2, 4
-    assert Fraction(a, b) == Fraction(c, d)
-    assert a != c and b != d
-    return "Equal fractions do not require equal numerators and denominators separately."
+    """EXHAUSTIVE PROOF: A = {1, 2} subset B U C but not subset B or C."""
+    A = {1, 2}
+    B = {1}
+    C = {2}
+    assert A.issubset(B | C)
+    assert not A.issubset(B) and not A.issubset(C)
+    return r"$A = \{1, 2\}$"
 
 def check_B1():
     """EXHAUSTIVE PROOF"""
@@ -192,15 +194,12 @@ def check_B9():
     return "Circular reasoning: the proof begins by assuming $a+b$ is even (the very thing to be proved) instead of deriving it."
 
 def check_B10():
-    """EXHAUSTIVE PROOF"""
-    students = [True, False]
-    all_passed = all(students)
-    all_failed = all(not s for s in students)
-    at_least_one_failed = any(not s for s in students)
-    assert not all_passed
-    assert not all_failed
-    assert at_least_one_failed
-    return "The correct negation of ``every student passed'' is ``at least one student did not pass'', not ``every student failed''."
+    """EXHAUSTIVE PROOF: log_2(x-1) + log_2(x+1) = 3 rejects x=-3."""
+    assert (-3 - 1) < 0 and (-3 + 1) < 0
+    x = 3
+    assert x - 1 > 0 and x + 1 > 0
+    assert math.isclose(math.log2(x - 1) + math.log2(x + 1), 3.0)
+    return r"Line 5 (only $x=3$ is valid in the domain)."
 
 def check_C1():
     """EXHAUSTIVE PROOF"""

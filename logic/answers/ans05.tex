@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item Name the fallacy: ``If $n$ is divisible by $6$, then $n$ is divisible by $3$. $n=15$ is divisible by $3$. Therefore $n=15$ is divisible by $6$.''
+\item A student solves $\sqrt{x-2} = -3$ by squaring both sides to obtain $x-2 = 9 \implies x=11$. Does $x=11$ satisfy the original equation?
 
-\ans{Affirming the consequent}
-\method{The argument has the form ``$P\implies Q$, $Q$, therefore $P$'', which is invalid: knowing $Q$ is true does not establish $P$. Indeed $15$ is divisible by $3$ but not by $6$.}
-\inv{Write the valid rule that this fallacy is often confused with (modus ponens).}
+\ans{False.}
+\method{Substituting $x=11$ gives $\sqrt{11-2} = \sqrt{9} = 3 \neq -3$. Squaring both sides introduces an extraneous solution where the two sides originally had opposite signs. Thus $x=11$ does not satisfy the equation.}
+\inv{Under what condition on the right-hand side does $\sqrt{f(x)} = c$ have any real solutions?}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item Name the fallacy: ``If $x>10$, then $x>0$. Suppose $x\leq10$. Therefore $x\leq0$.''
+\item A student simplifies $\dfrac{x^2-4}{x-2} = 4 \implies x+2 = 4 \implies x=2$. Is $x=2$ a valid solution to the original equation?
 
-\ans{Denying the antecedent}
-\method{The argument has the form ``$P\implies Q$, $\neg P$, therefore $\neg Q$'', which is invalid. E.g.\ $x=5$ satisfies $x\leq10$ but not $x\leq0$.}
-\inv{What is the valid rule that instead concludes from $\neg Q$ to $\neg P$?}
+\ans{False.}
+\method{At $x=2$, the denominator $x-2$ equals $0$, so the expression $\frac{x^2-4}{x-2}$ is undefined. The cancellation $\frac{x^2-4}{x-2} = x+2$ is valid only for $x \neq 2$. Thus $x=2$ is not in the domain of the equation, leaving it with no solutions.}
+\inv{What type of discontinuity does the function $g(x) = \frac{x^2-4}{x-2}$ have at $x=2$?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If a proof of $P\implies Q$ is shown to be flawed, then $P\implies Q$ must be false.''
+\item In an attempted proof that $1=2$, a student starts with $a=b$, obtains $(a-b)(a+b) = b(a-b)$, and concludes $a+b = b$. Which algebraic operation is invalid?
 
-\ans{False}
-\method{A flawed proof only invalidates that particular argument; $P\implies Q$ may still be true and simply require a different, correct proof.}
-\inv{Give an example of a true statement that is easy to state but whose standard proof most students get wrong on a first attempt.}
+\ans{Dividing by $a-b$ (division by zero is invalid).}
+\method{Since $a=b$, the factor $a-b$ is equal to $0$. Dividing both sides of $(a-b)(a+b) = b(a-b)$ by $a-b$ constitutes division by zero, which is undefined.}
+\inv{Why does dividing by zero allow one to prove any arbitrary equality such as $1=2$?}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item A $6$-line ``proof'' is flawed only on line $4$. How many of the six lines can you actually trust?
+\item A student claims that for all real $x$, $x^2 > 4 \implies x > 2$. Give a negative integer counterexample to this deduction.
 
-\ans{$3$ (lines 1--3)}
-\method{Once line $4$ is wrong, every subsequent line (5 and 6) depends on it and cannot be trusted either, even if the algebra within them is locally correct.}
-\inv{Could line 6 coincidentally still be a true statement despite depending on a flawed line 4?}
+\ans{$-3$}
+\method{For $x = -3$, $x^2 = 9 > 4$ holds, but $-3 > 2$ is false. Any $x \le -2$ disproves the claim.}
+\inv{What is the correct equivalence for $x^2 > 4$?}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``Squaring both sides of an equation is a reversible step that can never introduce a new, extraneous solution.''
+\item A student solves $\log(x) + \log(x-3) = 1$ and finds candidate solutions $x = -2$ and $x = 5$. Which candidate is extraneous?
 
-\ans{False}
-\method{Squaring is not injective on negative numbers: e.g.\ $x=-2$ does not satisfy $x=2$, but squaring both sides gives $x^2=4$, which is also satisfied by $x=2$.}
-\inv{Name another common ``operation'' on an equation that can introduce extraneous solutions.}
+\ans{$-2$}
+\method{For $x = -2$, neither $\log(-2)$ nor $\log(-5)$ is defined for real logarithms, which require strictly positive arguments. Only $x = 5$ is valid: $\log(5) + \log(2) = \log(10) = 1$.}
+\inv{Why does combining $\log(a) + \log(b) = \log(ab)$ expand the domain of definition?}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item A ``proof'' concludes $0=1$. What does this tell you about the argument (assuming it is not a contradiction proof)?
+\item A student conjectures: ``If $f'(c) = 0$, then $f$ has a local maximum or minimum at $x=c$.'' Give a polynomial function $f(x)$ with $c=0$ that disproves this claim.
 
-\ans{At least one line of the argument contains an error.}
-\method{$0=1$ is false. A valid argument cannot derive a false conclusion from true premises, so an error must exist somewhere in the chain of reasoning.}
-\inv{How would your answer change if this occurred inside a proof by contradiction?}
+\ans{$f(x) = x^3$ (an inflection point, no local extremum).}
+\method{For $f(x) = x^3$, $f'(x) = 3x^2 \implies f'(0) = 0$. However, $x=0$ is a stationary point of inflection: $f(x) < 0$ for $x < 0$ and $f(x) > 0$ for $x > 0$, so $f$ has neither a local maximum nor a local minimum at $x=0$.}
+\inv{What condition on higher derivatives determines whether a stationary point is a local extremum?}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``Verifying a universal claim $P(n)$ for $n=1,2,\dots,10$ constitutes a full proof that $P(n)$ holds for all positive integers $n$.''
+\item A student asserts: ``$|a| < |b| \implies a < b$.'' Provide a counterexample pair of integers $(a, b)$.
 
-\ans{False}
-\method{Finite verification never proves a $\forall n$ claim; a counterexample could exist at $n=11$ or beyond.}
-\inv{What proof technique specifically is designed to close this gap for claims about all positive integers?}
+\ans{$(1, -2)$}
+\method{For $a = 1$ and $b = -2$, we have $|a| = 1 < 2 = |b|$, but $1 < -2$ is false.}
+\inv{When does $|a| < |b| \implies a < b$ hold?}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item What is the flaw in dividing both sides of $ax=bx$ by $x$ to conclude $a=b$?
+\item A student concludes that because $n^2$ is divisible by $4$, $n$ must be divisible by $4$. Find the smallest positive integer counterexample $n$.
 
-\ans{The step is invalid if $x=0$.}
-\method{If $x=0$, $ax=bx$ becomes $0=0$, which is true for any $a,b$ --- so $a=b$ need not hold. Dividing by a possibly-zero quantity can lose solutions/cases.}
-\inv{What should be written instead to handle the $x=0$ case correctly?}
+\ans{$2$}
+\method{For $n = 2$, $n^2 = 4$, which is divisible by $4$, but $2$ is not divisible by $4$. The smallest counterexample is $n=2$.}
+\inv{If $p$ is prime and $p \mid n^2$, must $p \mid n$?}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``In a proof by contradiction, the final derived statement must be a strict logical contradiction (such as $0=1$), not merely an unusual-looking result.''
+\item A student claims: ``For all real numbers $a, b$, if $a < b$ then $a^2 < b^2$.'' Give a pair of integers $(a, b)$ with $a < b$ and $a^2 > b^2$.
 
-\ans{True}
-\method{A valid contradiction proof requires deriving something that is genuinely impossible (a statement and its negation both holding, or a false arithmetic identity) --- an ``unusual'' but not actually impossible result does not complete the proof.}
-\inv{Give an example of a result that looks surprising but is not actually a contradiction.}
+\ans{(-5, 2)}
+\method{For $a = -5$ and $b = 2$, $-5 < 2$ holds, but $a^2 = 25 > 4 = b^2$.}
+\inv{Under what condition on $a$ and $b$ does $a < b \implies a^2 < b^2$ hold?}
 
-%── A10 ──────────────────────────────────────────────────────────────────────────
-\item What is wrong with concluding from $\dfrac{a}{b}=\dfrac{c}{d}$ that $a=c$ and $b=d$?
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A student asserts: ``If $A \subseteq B \cup C$, then $A \subseteq B$ or $A \subseteq C$.'' Give a set $A$ of two elements and sets $B=\{1\}, C=\{2\}$ that disprove this claim.
 
-\ans{Equal fractions do not require equal numerators and denominators separately.}
-\method{E.g.\ $\frac12=\frac24$, yet $1\neq2$ and $2\neq4$. Equality of fractions only guarantees the cross-multiplied products match: $ad=bc$.}
-\inv{Under what extra condition on $a,b,c,d$ would $\frac{a}{b}=\frac{c}{d}$ actually force $a=c,b=d$?}
+\ans{$A = \{1, 2\}$}
+\method{Let $A = \{1, 2\}$. Then $A \subseteq \{1\} \cup \{2\} = \{1, 2\}$ holds, but $A \not\subseteq \{1\}$ and $A \not\subseteq \{2\}$.}
+\inv{Is it true that if $x \in B \cup C$, then $x \in B$ or $x \in C$?}
 
 \end{enumerate}
 
@@ -160,12 +160,18 @@ On which line does the argument first contain an error, and what exactly is that
 \method{A correct proof starts from $a=2j,b=2k$ and derives $a+b=2j+2k=2(j+k)$, which is even because $j+k$ is an integer --- it never needs to assume $a+b=2m$ up front.}
 \inv{Rewrite this as a correct, non-circular direct proof.}
 
-%── B10 ──────────────────────────────────────────────────────────────────────────
-\item A student is told: ``It is not the case that every student in the class passed the exam.'' They conclude: ``Therefore, every student in the class failed the exam.'' What is wrong with this conclusion?
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item A student attempts to solve $\log_2(x-1) + \log_2(x+1) = 3$:\\
+Line 1: $\log_2((x-1)(x+1)) = 3$.\\
+Line 2: $(x-1)(x+1) = 2^3 = 8$.\\
+Line 3: $x^2 - 1 = 8 \implies x^2 = 9$.\\
+Line 4: $x = 3$ or $x = -3$.\\
+Line 5: Hence the solution set is $\{-3, 3\}$.\\
+On which line does the first error occur, and what is the true solution set? \textit{\small(after TMUA 2017 Paper 2 Q13)}
 
-\ans{The correct negation of ``every student passed'' is ``at least one student did not pass'', not ``every student failed''.}
-\method{$\neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x)$, not $\forall x\, \neg P(x)$. Some students may have passed while at least one did not.}
-\inv{Which named error (from Section A of an earlier drill) does this conclusion resemble?}
+\ans{Line 5 (only $x=3$ is valid in the domain).}
+\method{Lines 1--4 correctly deduce $x = \pm 3$. However, in the original equation $\log_2(x-1) + \log_2(x+1) = 3$, the terms require $x-1 > 0$ and $x+1 > 0$, so $x > 1$. The candidate $x = -3$ makes the arguments negative ($\log_2(-4)$ and $\log_2(-2)$), which are undefined. Line 5 fails to verify the domain restriction; the true solution set is $\{3\}$.}
+\inv{Why does combining $\log(a) + \log(b) = \log(ab)$ expand the domain to include points where both $a$ and $b$ are negative?}
 
 \end{enumerate}
 
@@ -280,15 +286,15 @@ On which line does the argument first contain an error, and what exactly is that
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
   \item \textbf{The Converse Error (Affirming the Consequent).}
-        Arguing that $P\Rightarrow Q$ and observing $Q$ implies $P$ is the classic converse fallacy; observing a necessary condition holding never proves the sufficient premise. \seealso{A1, B6, C2, C6, C8}
+        Arguing that $P\Rightarrow Q$ and observing $Q$ implies $P$ is the classic converse fallacy; observing a necessary condition holding never proves the sufficient premise. \seealso{B6, C2, C6, C8, D1}
   \item \textbf{The Inverse Error (Denying the Antecedent).}
-        Arguing that $P\Rightarrow Q$ and concluding $\neg P\Rightarrow\neg Q$ confuses an implication with its inverse; multiple distinct conditions often produce the exact same consequence. \seealso{A2, B8, D3}
+        Arguing that $P\Rightarrow Q$ and concluding $\neg P\Rightarrow\neg Q$ confuses an implication with its inverse; multiple distinct conditions often produce the exact same consequence. \seealso{B8, D3, C2}
   \item \textbf{Extraneous Roots from Non-Reversible Operations.}
-        Squaring both sides of $\sqrt{f(x)}=g(x)$ introduces false solutions where $g(x)<0$; every step must be an equivalence ($\iff$), or candidate solutions must be tested in the original equation. \seealso{A6, A7, B2, B3, D1}
+        Squaring both sides of $\sqrt{f(x)}=g(x)$ or applying logarithm product rules introduces false solutions where the original expressions were undefined or opposite in sign. \seealso{A1, A2, A5, B3, B10}
   \item \textbf{Division by Zero and Root Loss.}
-        Dividing both sides of an equation by a variable expression (e.g.\ $x^2=3x\Rightarrow x=3$ or dividing by $a-b$) implicitly assumes that factor is nonzero, erasing valid roots ($x=0$) or fabricating false contradictions. \seealso{A4, B1, B2, D5}
+        Dividing both sides of an equation by a variable expression (e.g.\ $x^2=3x\Rightarrow x=3$ or dividing by $a-b$) implicitly assumes that factor is nonzero, erasing valid roots or fabricating false contradictions. \seealso{A2, A3, B2, D5}
   \item \textbf{Incomplete Case Analysis and Boundary Gaps.}
-        Proving a claim only for even $n$, or ignoring boundary values where factors equal $1$ ($n=2$ in $(n-1)(n+1)$), leaves unexamined cases that often harbour the unique counterexample. \seealso{A9, B5, B7, C3, D5}
+        Proving a claim only for even $n$, or ignoring boundary values where factors equal $1$ ($n=2$ in $(n-1)(n+1)$), leaves unexamined cases that often harbour the unique counterexample. \seealso{B5, B7, C3, D2, D5}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -297,15 +303,15 @@ On which line does the argument first contain an error, and what exactly is that
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
   \item \textbf{The Fallacy Fallacy (Refuting Argument vs Refuting Claim).}
-        Demonstrating that a proof contains an invalid step shows only that the proof fails, not that the conclusion itself is false; a true proposition can easily be given an invalid proof. \seealso{A3, B4, C1, D2}
+        Demonstrating that a proof contains an invalid step shows only that the proof fails, not that the conclusion itself is false; a true proposition can easily be given an invalid proof. \seealso{B4, C1, D2}
   \item \textbf{Losing Valid Roots via Direct Variable Division.}
-        Cancelling a factor $x$ from $x^2=kx$ discards the root $x=0$; always factorise into $x(x-k)=0$ rather than dividing through by unknown quantities. \seealso{B1, B2, A4, D5}
-  \item \textbf{Accepting Extraneous Solutions After Squaring.}
-        Squaring an equation maps both positive and negative values to positive numbers ($(-3)^2=3^2$); all solutions found after squaring must be verified against the original equation's domain. \seealso{A6, B3, A5, A7}
+        Cancelling a factor $x$ from $x^2=kx$ discards the root $x=0$; always factorise into $x(x-k)=0$ rather than dividing through by unknown quantities. \seealso{A2, A3, B2, D5}
+  \item \textbf{Accepting Extraneous Solutions After Squaring or Logs.}
+        Squaring an equation maps both positive and negative values to positive numbers; all solutions found after squaring or logarithm products must be verified against original domains. \seealso{A1, A5, B3, B10}
   \item \textbf{Assuming ``Checking Cases'' Equals Proof for Universals.}
-        Verifying that an algebraic property holds for several small integers ($n=1,2,3$) is merely inductive evidence; universal claims fail if even a single case or parity class is omitted. \seealso{B5, B7, C3, D2, A9}
+        Verifying that an algebraic property holds for several small integers ($n=1,2,3$) is merely inductive evidence; universal claims fail if even a single case or parity class is omitted. \seealso{B5, B7, C3, D2}
   \item \textbf{Circular Reasoning (Begging the Question).}
-        Assuming the conclusion in order to simplify an intermediate expression produces an argument that appears valid on the surface but is logically vacuous. \seealso{A8, B9, C4}
+        Assuming the conclusion in order to simplify an intermediate expression produces an argument that appears valid on the surface but is logically vacuous. \seealso{B9, C4}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}

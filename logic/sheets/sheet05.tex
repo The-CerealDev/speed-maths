@@ -5,8 +5,8 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#5}{David Akinyele-Aje}
-\SpeedMeta{Spotting the flaw: the converse error}{converse error, affirming the consequent, flawed-proof analysis}
-\noindent\textit{New toolkit today: Spot the Flaw $\cdot$ Common Fallacies $\cdot$ Proof Critique $\cdot$ Valid vs.\ Invalid Arguments.}
+\SpeedMeta{Flawed proof step diagnosis and structural traps}{flawed proof, error diagnosis, converse error, extraneous roots}
+\noindent\textit{New toolkit today: Flawed Proof Diagnosis $\cdot$ Sign Distribution Traps $\cdot$ Extraneous Solutions $\cdot$ Domain Violations.}
 
 \vspace{2pt}
 \noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
@@ -14,29 +14,29 @@
 \section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Fallacy literacy. Recognise the shape of an error before you have to hunt for it.}
+\noindent\textit{Rapid error recognition: algebraic, functional, and logical traps.}
 
 \begin{enumerate}
 
-\item Name the fallacy: ``If $n$ is divisible by $6$, then $n$ is divisible by $3$. $n=15$ is divisible by $3$. Therefore $n=15$ is divisible by $6$.''
+\item A student solves $\sqrt{x-2} = -3$ by squaring both sides to obtain $x-2 = 9 \implies x=11$. Does $x=11$ satisfy the original equation?
 
-\item Name the fallacy: ``If $x>10$, then $x>0$. Suppose $x\leq10$. Therefore $x\leq0$.''
+\item A student simplifies $\dfrac{x^2-4}{x-2} = 4 \implies x+2 = 4 \implies x=2$. Is $x=2$ a valid solution to the original equation?
 
-\item True or false: ``If a proof of $P\implies Q$ is shown to be flawed, then $P\implies Q$ must be false.''
+\item In an attempted proof that $1=2$, a student starts with $a=b$, obtains $(a-b)(a+b) = b(a-b)$, and concludes $a+b = b$. Which algebraic operation is invalid?
 
-\item A $6$-line ``proof'' is flawed only on line $4$. How many of the six lines can you actually trust?
+\item A student claims that for all real $x$, $x^2 > 4 \implies x > 2$. Give a negative integer counterexample to this deduction.
 
-\item True or false: ``Squaring both sides of an equation is a reversible step that can never introduce a new, extraneous solution.''
+\item A student solves $\log(x) + \log(x-3) = 1$ and finds candidate solutions $x = -2$ and $x = 5$. Which candidate is extraneous?
 
-\item A ``proof'' concludes $0=1$. What does this tell you about the argument (assuming it is not a contradiction proof)?
+\item A student conjectures: ``If $f'(c) = 0$, then $f$ has a local maximum or minimum at $x=c$.'' Give a polynomial function $f(x)$ with $c=0$ that disproves this claim.
 
-\item True or false: ``Verifying a universal claim $P(n)$ for $n=1,2,\dots,10$ constitutes a full proof that $P(n)$ holds for all positive integers $n$.''
+\item A student asserts: ``$|a| < |b| \implies a < b$.'' Provide a counterexample pair of integers $(a, b)$.
 
-\item What is the flaw in dividing both sides of $ax=bx$ by $x$ to conclude $a=b$?
+\item A student concludes that because $n^2$ is divisible by $4$, $n$ must be divisible by $4$. Find the smallest positive integer counterexample $n$.
 
-\item True or false: ``In a proof by contradiction, the final derived statement must be a strict logical contradiction (such as $0=1$), not merely an unusual-looking result.''
+\item A student claims: ``For all real numbers $a, b$, if $a < b$ then $a^2 < b^2$.'' Give a pair of integers $(a, b)$ with $a < b$ and $a^2 > b^2$.
 
-\item What is wrong with concluding from $\dfrac{a}{b}=\dfrac{c}{d}$ that $a=c$ and $b=d$?
+\item A student asserts: ``If $A \subseteq B \cup C$, then $A \subseteq B$ or $A \subseteq C$.'' Give a set $A$ of two elements and sets $B=\{1\}, C=\{2\}$ that disprove this claim.
 
 \end{enumerate}
 
@@ -75,7 +75,13 @@ On which line does the argument first contain an error, and what exactly is that
 
 \item Find the flaw: ``Claim: For all integers $a,b$, if $a$ and $b$ are both even, then $a+b$ is even.'' Proof: Since $a+b$ is even, $a+b=2m$ for some integer $m$. Since $a,b$ are even, $a=2j,b=2k$, so $2j+2k=2m$, i.e.\ $j+k=m$, which is true since $m$ is an integer. Hence $a+b$ is even.
 
-\item A student is told: ``It is not the case that every student in the class passed the exam.'' They conclude: ``Therefore, every student in the class failed the exam.'' What is wrong with this conclusion?
+\item A student attempts to solve $\log_2(x-1) + \log_2(x+1) = 3$:\\
+Line 1: $\log_2((x-1)(x+1)) = 3$.\\
+Line 2: $(x-1)(x+1) = 2^3 = 8$.\\
+Line 3: $x^2 - 1 = 8 \implies x^2 = 9$.\\
+Line 4: $x = 3$ or $x = -3$.\\
+Line 5: Hence the solution set is $\{-3, 3\}$.\\
+On which line does the first error occur, and what is the true solution set? \textit{\small(after TMUA 2017 Paper 2 Q13)}
 
 \end{enumerate}
 

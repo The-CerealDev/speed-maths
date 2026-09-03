@@ -334,11 +334,12 @@
       },
       {
         "n": "05",
-        "topic": "Spotting the flaw: the converse error",
+        "topic": "Flawed proof step diagnosis and structural traps",
         "tools": [
+          "flawed proof",
+          "error diagnosis",
           "converse error",
-          "affirming the consequent",
-          "flawed-proof analysis"
+          "extraneous roots"
         ],
         "questions": 33,
         "pdf": "logic/sheets/sheet05.pdf",
