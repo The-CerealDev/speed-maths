@@ -14,29 +14,41 @@
 \section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Apply a negation rule immediately --- fluency, not first contact.}
+\noindent\textit{Rapid formal logic: evaluate truth conditions, negations of nested predicates, and quantifier order.}
 
 \begin{enumerate}
 
-\item Negate: ``For all integers $n$, $n^2 \geq 0$.''
+\item Negate the nested statement: ``$\forall x \in \mathbb{R},\ \exists y \in \mathbb{R} : x^2 + y^2 < 1$.''
 
-\item Negate: ``There exists a real number $x$ such that $x^2=-1$.''
+\item Over the positive integers $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$, determine the truth value of:
+\[
+\forall n \in \mathbb{Z}^+,\ \exists m \in \mathbb{Z}^+ : m < n
+\]
 
-\item Negate: ``$n$ is even and $n$ is prime.''
+\item State the negation of the implication: ``If $n$ is even, then $n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
 
-\item Negate: ``$n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
+\item Over the real numbers $\mathbb{R}$, determine the truth value of:
+\[
+\exists x \in \mathbb{R},\ \forall y \in \mathbb{R} : xy = 0
+\]
 
-\item True or false: ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.''
+\item Over the non-zero real numbers $\mathbb{R}^* = \mathbb{R} \setminus \{0\}$, determine the truth value of:
+\[
+\forall y \in \mathbb{R}^*,\ \exists x \in \mathbb{R}^* : xy = 1
+\]
 
-\item True or false: ``$\text{not}(P \text{ and } Q)$ is the same as $(\text{not } P) \text{ or } (\text{not } Q)$.''
+\item Given propositions $P$ and $Q$, if the biconditional $P \iff Q$ is false, what is the truth value of $(P \land \neg Q) \lor (\neg P \land Q)$?
 
-\item Negate: ``$x>3$ and $x<10$.''
+\item Negate the condition: $x \in [-2, 5) \setminus \{0\}$.
 
-\item Is the statement ``some prime numbers are even'' a $\forall$-statement or a $\exists$-statement in form?
+\item Determine the complete set of real values of $k$ for which the statement is true:
+\[
+\forall x \in \mathbb{R},\quad (x < 0 \implies x^2 > k)
+\]
 
-\item True or false: ``$\exists x \, \forall y: x+y=0$'' and ``$\forall y \, \exists x: x+y=0$'' (both over the reals) mean the same thing.
+\item If the conditional statement $(P \land Q) \implies (R \lor S)$ is false, state the unique truth assignment for the propositions $P, Q, R, S$.
 
-\item Negate: ``$n$ is prime or $n=1$.''
+\item Negate: ``For every even integer $n > 2$, there exist primes $p$ and $q$ such that $n = p + q$.''
 
 \end{enumerate}
 
@@ -44,29 +56,49 @@
 \section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Negate nested and multi-part statements; start noticing where quantifier order changes meaning.}
+\noindent\textit{Multi-premise deductions, quantifier set characterisations, and exactly-one-true logic.}
 
 \begin{enumerate}
 
-\item Consider the statement about Fred: ``Every day next week, Fred will do at least one maths problem.'' State the negation. \textit{\small(after TMUA Specimen Paper 2 Q9)}
+\item An integer $n > 1$ is defined to be an \emph{$\mathcal{S}$-number} if every factor $d > 1$ of $n$ is a multiple of some element of $\mathcal{S} = \{2, 3\}$. Which of the following is the correct definition of an integer $n > 1$ that is \emph{not} an $\mathcal{S}$-number? \textit{\small(after TMUA Specimen Paper 2 Q17)}
+\begin{itemize}
+\item[A)] Every factor $d > 1$ of $n$ is not a multiple of $2$ and not a multiple of $3$.
+\item[B)] There exists a factor $d > 1$ of $n$ such that $\gcd(d, 6) = 1$.
+\item[C)] There exists a factor $d > 1$ of $n$ that is neither $2$ nor $3$.
+\item[D)] No factor $d > 1$ of $n$ is a multiple of $6$.
+\end{itemize}
 
-\item True or false: ``$\text{not}(P \text{ or } Q \text{ or } R)$ is the same as $(\text{not } P) \text{ and } (\text{not } Q) \text{ and } (\text{not } R)$.''
+\item Let $P, Q, R$ be propositions. Suppose you are given that the compound statement
+\[
+(P \implies Q) \land (Q \implies R) \land (R \implies P)
+\]
+is false, but \textbf{exactly two} of the three implications are true. Can $P, Q,$ and $R$ all have the same truth value? \textit{\small(after TMUA 2020 Paper 2 Q20)}
 
-\item Negate: ``$n$ is a multiple of $2$ and $n$ is a multiple of $3$ and $n$ is a multiple of $5$.''
+\item Let $S$ be the set of real numbers $x$ such that:
+\[
+\forall y \in (0, 1),\quad xy < x + y
+\]
+Determine the set $S$ in interval notation. \textit{\small(after TMUA 2022 Paper 2 Q13)}
 
-\item Negate: ``For every real $x>0$, there exists a real $y>0$ with $y<x$.''
+\item Negate the statement: ``$\forall x > 0,\ \exists y > 0 : (y < x \land xy \ge 1)$.'' Is the original statement true or false over $\mathbb{R}$?
 
-\item True or false: ``$\text{`}\forall n\,\exists m: m>n\text{'}$ and $\text{`}\exists m\,\forall n: m>n\text{'}$ (both over the integers) mean the same thing.''
+\item Three statements about an integer $n$ are given:
+\begin{enumerate}
+\item[I.] $n$ is a multiple of $6$.
+\item[II.] $n$ is odd.
+\item[III.] $n$ is a prime strictly greater than $3$.
+\end{enumerate}
+Given that \textbf{exactly one} of I, II, III is true, which statement is impossible to be the true one? \textit{\small(after TMUA 2016 Paper 2 Q4)}
 
-\item Negate the nested statement: ``There exists a prime $p$ such that for every prime $q>p$, $q$ is odd.'' Is the original statement true or false?
+\item Negate the nested statement: ``$\exists p \text{ prime such that } \forall q \text{ prime with } q > p,\ q \text{ is odd}$.'' Is the original statement true or false?
 
-\item Negate: ``$n$ is a multiple of $3$, or ($n$ is a multiple of $2$ and $n$ is a multiple of $5$).''
+\item Consider the claim: ``$\forall a, b, c \in \mathbb{Z}^+,\ (a \mid bc \implies (a \mid b \lor a \mid c))$.'' (a) State the precise negation of this claim. (b) Find a counterexample with the minimal value of $a$. \textit{\small(after TMUA 2021 Paper 2 Q4)}
 
-\item True or false: ``$\text{not}(A \text{ and } (B \text{ or } C))$ is the same as $(\text{not } A) \text{ or } ((\text{not } B) \text{ and } (\text{not } C))$.''
+\item Given that the compound implication $((P \lor Q) \implies R)$ is false, how many of the $8$ possible truth assignments for $(P, Q, R)$ are consistent with this fact?
 
-\item Negate: ``$x$ is rational, or ($x$ is irrational and $x>0$).''
+\item Negate the statement: ``$\forall x \in \mathbb{R},\ (x \in \mathbb{Q} \lor (x \notin \mathbb{Q} \land x > 0))$.'' Give a numerical witness proving the negation is true.
 
-\item Negate: ``For every prime $p>2$, $p$ is odd.'' Is the negation true or false?
+\item Negate: ``For every prime $p$, $p^2 + 2$ is prime.'' What is the smallest prime counterexample to this statement? \textit{\small(after TMUA 2022 Paper 2 Q3)}
 
 \end{enumerate}
 

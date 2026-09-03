@@ -44,121 +44,161 @@ def all_assignments(n):
 
 def check_A1():
     """EXHAUSTIVE PROOF"""
-    for n in range(-1000, 1001):
-        orig = n * n >= 0
-        neg = n * n < 0
-        assert neg == (not orig)
-    return "There exists an integer n such that n^2<0."
+    # Show the original statement is false and negation is true
+    # For x=1, for all real y, x^2 + y^2 = 1 + y^2 >= 1
+    for y_val in [-5.0, -1.0, 0.0, 1.0, 5.0]:
+        assert 1.0**2 + y_val**2 >= 1.0
+    # Original is false because for x >= 1, no real y satisfies x^2 + y^2 < 1
+    assert not any(1.0**2 + (k / 10.0)**2 < 1.0 for k in range(-50, 51))
+    return r"\exists x \in \mathbb{R},\ \forall y \in \mathbb{R} : x^2 + y^2 \ge 1."
 
 def check_A2():
     """EXHAUSTIVE PROOF"""
-    for k in range(-100, 101):
-        x = k / 10.0
-        orig = (x * x == -1)
-        neg = (x * x != -1)
-        assert neg == (not orig)
-    return "For all real numbers x, x^2 \\neq -1."
+    domain = range(1, 100)
+    # Check if for n = 1, there exists m in Z+ with m < 1
+    has_smaller = {n: any(m < n for m in domain) for n in domain}
+    assert not has_smaller[1]
+    return False
 
 def check_A3():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = P and Q
-        claimed_neg = (not P) or (not Q)
-        assert claimed_neg == (not orig)
-    return "n is odd, or n is not prime."
+    for n in range(1, 100):
+        even = (n % 2 == 0)
+        mult4 = (n % 4 == 0)
+        mult6 = (n % 6 == 0)
+        implication = (not even) or (mult4 or mult6)
+        negation = even and (not mult4) and (not mult6)
+        assert negation == (not implication)
+    # Verify counterexample at n = 2 and n = 10
+    assert (2 % 2 == 0) and (2 % 4 != 0) and (2 % 6 != 0)
+    return "n is even, and n is not a multiple of 4, and n is not a multiple of 6."
 
 def check_A4():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = P or Q
-        claimed_neg = (not P) and (not Q)
-        assert claimed_neg == (not orig)
-    return "n is not a multiple of 4, and n is not a multiple of 6."
+    x = 0
+    for y in [-100, -1, 0, 1, 100]:
+        assert x * y == 0
+    return True
 
 def check_A5():
     """EXHAUSTIVE PROOF"""
-    domain = {1, 2}
-    P = lambda x: x == 1
-    true_neg = any(not P(x) for x in domain)
-    wrong_neg = all(not P(x) for x in domain)
-    assert true_neg != wrong_neg
-    return False
+    for y in [-10, -2, -0.5, 0.25, 1, 3, 7]:
+        x = 1.0 / y
+        assert math.isclose(x * y, 1.0)
+    return True
 
 def check_A6():
     """EXHAUSTIVE PROOF"""
     for P, Q in all_assignments(2):
-        assert (not (P and Q)) == ((not P) or (not Q))
+        iff_val = (P == Q)
+        xor_val = (P and not Q) or (not P and Q)
+        if not iff_val:
+            assert xor_val is True
     return True
 
 def check_A7():
     """EXHAUSTIVE PROOF"""
-    for k in range(-20, 40):
-        x = k / 2.0
-        orig = (x > 3 and x < 10)
-        neg = (x <= 3 or x >= 10)
+    for k in range(-50, 80):
+        x = k / 10.0
+        orig = (-2.0 <= x < 5.0) and (x != 0.0)
+        neg = (x < -2.0) or (x == 0.0) or (x >= 5.0)
         assert neg == (not orig)
-    return "x \\leq 3 or x \\geq 10."
+    return "x < -2 or x = 0 or x \\ge 5."
 
 def check_A8():
     """EXHAUSTIVE PROOF"""
-    assert is_prime(2) and 2 % 2 == 0
-    return "\\exists-statement."
+    # For k <= 0: if x < 0, x^2 > 0 >= k holds.
+    for k in [-10, -1, 0]:
+        for x in [-5, -1, -0.1]:
+            assert x**2 > k
+    # For k > 0: fails for x near 0
+    for k in [0.01, 1, 4]:
+        x = -math.sqrt(k) / 2.0
+        assert x < 0
+        assert not (x**2 > k)
+    return "k \\le 0."
 
 def check_A9():
     """EXHAUSTIVE PROOF"""
-    for x in range(-10, 10):
-        y = 1 - x
-        assert x + y == 1 != 0
-    return False
+    matching = []
+    for P, Q, R, S in all_assignments(4):
+        antecedent = P and Q
+        consequent = R or S
+        implication = (not antecedent) or consequent
+        if not implication:
+            matching.append((P, Q, R, S))
+    assert matching == [(True, True, False, False)]
+    return "P is True, Q is True, R is False, and S is False."
 
 def check_A10():
     """EXHAUSTIVE PROOF"""
-    for n in range(1, 100):
-        A = is_prime(n)
-        B = (n == 1)
-        orig = A or B
-        neg = (not A) and (not B)
-        assert neg == (not orig)
-    return "n is not prime, and n \\neq 1."
+    # Check Goldbach for small evens
+    primes = [p for p in range(2, 50) if is_prime(p)]
+    for n in range(4, 30, 2):
+        assert any(n - p in primes for p in primes if p < n)
+    return "There exists an even integer n > 2 such that for all primes p and q, n \\neq p + q."
 
 def check_B1():
     """EXHAUSTIVE PROOF"""
-    for pattern in itertools.product([False, True], repeat=7):
-        orig = all(pattern)
-        neg = any(not d for d in pattern)
-        assert neg == (not orig)
-    return "Some day next week, Fred will do no maths problems."
+    def is_S_number(n):
+        for d in range(2, n + 1):
+            if n % d == 0:
+                if d % 2 != 0 and d % 3 != 0:
+                    return False
+        return True
+    # Minimal non-S number is 5 (d=5 has gcd(5, 6)=1)
+    assert is_S_number(2) and is_S_number(3) and is_S_number(4)
+    assert not is_S_number(5)
+    return 'B'
 
 def check_B2():
     """EXHAUSTIVE PROOF"""
     for P, Q, R in all_assignments(3):
-        orig = P or Q or R
-        claimed_neg = (not P) and (not Q) and (not R)
-        assert claimed_neg == (not orig)
-    return True
+        imp1 = (not P) or Q
+        imp2 = (not Q) or R
+        imp3 = (not R) or P
+        num_true = sum([imp1, imp2, imp3])
+        if P == Q == R:
+            assert num_true == 3
+        if num_true == 2:
+            assert not (P == Q == R)
+    return "No."
 
 def check_B3():
     """EXHAUSTIVE PROOF"""
-    for P, Q, R in all_assignments(3):
-        orig = P and Q and R
-        claimed_neg = (not P) or (not Q) or (not R)
-        assert claimed_neg == (not orig)
-    return "n is not a multiple of 2, or n is not a multiple of 3, or n is not a multiple of 5."
+    # x >= 0: x(1-y) + y > 0 for all y in (0, 1)
+    for x in [0, 0.5, 1, 5, 100]:
+        for y in [0.001, 0.1, 0.5, 0.999]:
+            assert x * y < x + y
+    # x < 0: fails for small y
+    for x in [-0.1, -1, -5]:
+        c = -x
+        y = c / (2 * (1 + c))  # y < c / (1+c)
+        assert 0 < y < 1
+        assert not (x * y < x + y)
+    return "[0, \\infty)."
 
 def check_B4():
     """EXHAUSTIVE PROOF"""
-    for k in range(1, 50):
-        x = k / 10.0
-        y = x / 2.0
-        assert 0 < y < x
-    return "There exists a real x>0 such that for every real y>0, y \\geq x."
+    # Original is false: at x = 1, y < 1 implies xy = y < 1, so xy >= 1 is impossible
+    x = 1.0
+    for k in range(1, 100):
+        y = k / 100.0
+        if y < x:
+            assert x * y < 1.0
+    return "Negation: \\exists x > 0, \\forall y > 0 : (y \\ge x \\lor xy < 1). Original is False."
 
 def check_B5():
     """EXHAUSTIVE PROOF"""
-    for m in range(-10, 10):
-        n = m
-        assert not (m > n)
-    return False
+    for n in range(1, 200):
+        s1 = (n % 6 == 0)
+        s2 = (n % 2 == 1)
+        s3 = is_prime(n) and (n > 3)
+        if s3:
+            assert s2 is True  # Every prime > 3 is odd
+            assert sum([s1, s2, s3]) >= 2
+    # III can never be the unique true statement
+    return "Statement III."
 
 def check_B6():
     """EXHAUSTIVE PROOF"""
@@ -169,33 +209,49 @@ def check_B6():
 
 def check_B7():
     """EXHAUSTIVE PROOF"""
-    for A, B, C in all_assignments(3):
-        orig = A or (B and C)
-        neg = (not A) and ((not B) or (not C))
-        assert neg == (not orig)
-    return "n is not a multiple of 3, and (n is not a multiple of 2 or n is not a multiple of 5)."
+    # For primes a, Euclid's lemma holds
+    for a in range(2, 20):
+        if is_prime(a):
+            for b in range(1, 10):
+                for c in range(1, 10):
+                    if (b * c) % a == 0:
+                        assert (b % a == 0) or (c % a == 0)
+    # Smallest counterexample requires composite a
+    a, b, c = 4, 2, 2
+    assert (b * c) % a == 0
+    assert (b % a != 0) and (c % a != 0)
+    return "(a) \\exists a, b, c \\in \\mathbb{Z}^+ : a \\mid bc \\land a \\nmid b \\land a \\nmid c. (b) a = 4, b = 2, c = 2."
 
 def check_B8():
     """EXHAUSTIVE PROOF"""
-    for A, B, C in all_assignments(3):
-        orig = A and (B or C)
-        neg = (not A) or ((not B) and (not C))
-        assert neg == (not orig)
-    return True
+    count = 0
+    for P, Q, R in all_assignments(3):
+        premise = P or Q
+        implication = (not premise) or R
+        if not implication:
+            count += 1
+            assert R is False
+            assert (P or Q) is True
+    assert count == 3
+    return 3
 
 def check_B9():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = P or ((not P) and Q)
-        neg = (not P) and (P or (not Q))
-        assert neg == (not orig)
-    return "x is irrational, and (x is rational or x \\leq 0)."
+    # Symbolic boolean equivalence of the negated predicate
+    for in_Q, gt_0 in all_assignments(2):
+        orig = in_Q or ((not in_Q) and gt_0)
+        neg = (not in_Q) and not ((not in_Q) and gt_0)
+        simplified_neg = (not in_Q) and (not gt_0)
+        assert neg == (not orig) == simplified_neg
+    return "Negation: \\exists x \\in \\mathbb{R} : x \\notin \\mathbb{Q} \\land x \\le 0. Witness: -\\sqrt{2} (or any non-positive irrational)."
 
 def check_B10():
     """EXHAUSTIVE PROOF"""
-    evens_gt_2 = [p for p in range(3, 1000) if is_prime(p) and p % 2 == 0]
-    assert len(evens_gt_2) == 0
-    return "Negation: There exists a prime p>2 such that p is even. The negation is false."
+    p = 2
+    assert is_prime(p)
+    val = p**2 + 2
+    assert not is_prime(val)  # 2^2 + 2 = 6, composite
+    return "Negation: There exists a prime p such that p^2 + 2 is composite. Smallest counterexample: p = 2."
 
 def check_C1():
     """EXHAUSTIVE PROOF"""

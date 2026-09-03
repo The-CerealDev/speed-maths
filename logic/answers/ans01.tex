@@ -13,74 +13,86 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``For all integers $n$, $n^2 \geq 0$.''
+\item Negate the nested statement: ``$\forall x \in \mathbb{R},\ \exists y \in \mathbb{R} : x^2 + y^2 < 1$.''
 
-\ans{``There exists an integer $n$ such that $n^2<0$.''}
-\method{Negating $\forall n, P(n)$ gives $\exists n, \text{not } P(n)$; here $P(n)$ is ``$n^2\geq0$'' and its negation is ``$n^2<0$''.}
-\inv{This negation happens to be false (no integer squares to a negative value) --- negation is a mechanical operation, independent of whether the result is true.}
+\ans{$\exists x \in \mathbb{R},\ \forall y \in \mathbb{R} : x^2 + y^2 \ge 1$.}
+\method{Negate outside-in: $\forall x$ flips to $\exists x$, $\exists y$ flips to $\forall y$, and the inner inequality $<$ flips to $\ge$. No negations remain in the predicate.}
+\inv{The original statement is false: for any $x$ with $|x|\ge1$, $x^2+y^2\ge1+0\ge1$ for all real $y$, so the negation is true (witnessed by e.g.\ $x=1$).}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``There exists a real number $x$ such that $x^2=-1$.''
+\item Over the positive integers $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$, determine the truth value of:
+\[
+\forall n \in \mathbb{Z}^+,\ \exists m \in \mathbb{Z}^+ : m < n
+\]
 
-\ans{``For all real numbers $x$, $x^2\neq-1$.''}
-\method{Negating $\exists x, P(x)$ gives $\forall x, \text{not } P(x)$; here not $P(x)$ is ``$x^2\neq-1$''.}
-\inv{This negation is true: every real square is non-negative, so $x^2=-1$ has no real solution.}
+\ans{False.}
+\method{The statement asserts that every positive integer has a strictly smaller positive integer. At the boundary $n = 1$, there is no $m \in \mathbb{Z}^+$ such that $m < 1$, since $1$ is the minimum element of $\mathbb{Z}^+$.}
+\inv{If the domain were all integers $\mathbb{Z}$, the statement would be true (witnessed by $m = n - 1$). The boundary of the domain determines the truth value.}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$n$ is even and $n$ is prime.''
+\item State the negation of the implication: ``If $n$ is even, then $n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
 
-\ans{``$n$ is odd, or $n$ is not prime.''}
-\method{De Morgan's law: $\text{not}(P\text{ and }Q) = (\text{not }P)\text{ or }(\text{not }Q)$.}
-\inv{The connective flips from ``and'' to ``or'' --- the single most common source of negation mistakes (see A6).}
+\ans{``$n$ is even, and $n$ is not a multiple of $4$, and $n$ is not a multiple of $6$.''}
+\method{The negation of $P\implies Q$ is $P\land\neg Q$. Here $P$ is ``$n$ is even'' and $Q$ is ``$4\mid n\lor6\mid n$''. Negating $Q$ via De Morgan gives $4\nmid n\land6\nmid n$. Combining gives $P\land\neg Q$.}
+\inv{Smallest positive integer counterexample witnessing this negation: $n = 2$ ($2$ is even, but $4\nmid 2$ and $6\nmid 2$). Another witness is $n=10$.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$n$ is a multiple of $4$ or $n$ is a multiple of $6$.''
-
-\ans{``$n$ is not a multiple of $4$, and $n$ is not a multiple of $6$.''}
-\method{De Morgan's law: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$.}
-\inv{The mirror image of A3: ``or'' flips to ``and.''}
-
-%── A5 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``The negation of `for all $x$, $P(x)$' is `for all $x$, not $P(x)$'.''
-
-\ans{False.}
-\method{Negating a $\forall$ gives an $\exists$, not another $\forall$: the correct negation is ``there exists $x$ such that not $P(x)$''.}
-\inv{Keeping the same quantifier when negating is the single most common error with quantified statements --- the quantifier itself must flip.}
-
-%── A6 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\text{not}(P \text{ and } Q)$ is the same as $(\text{not } P) \text{ or } (\text{not } Q)$.''
+\item Over the real numbers $\mathbb{R}$, determine the truth value of:
+\[
+\exists x \in \mathbb{R},\ \forall y \in \mathbb{R} : xy = 0
+\]
 
 \ans{True.}
-\method{This is exactly De Morgan's law, matching A3's worked example.}
-\inv{Section B, B8 extends this to a nested compound statement with three atoms.}
+\method{Take $x = 0$. For every real $y$, $0\cdot y = 0$. Thus $x = 0$ is a universal witness for the existential quantifier.}
+\inv{Order matters: $\forall y \in \mathbb{R}, \exists x \in \mathbb{R} : xy = 1$ is false because $y = 0$ has no multiplicative inverse.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Over the non-zero real numbers $\mathbb{R}^* = \mathbb{R} \setminus \{0\}$, determine the truth value of:
+\[
+\forall y \in \mathbb{R}^*,\ \exists x \in \mathbb{R}^* : xy = 1
+\]
+
+\ans{True.}
+\method{For every non-zero real $y$, taking $x = 1/y$ gives $x \in \mathbb{R}^*$ and $xy = (1/y)y = 1$.}
+\inv{Swapping quantifiers to $\exists x \in \mathbb{R}^*, \forall y \in \mathbb{R}^* : xy = 1$ produces a false statement: no single constant $x$ is the inverse of every non-zero number.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Given propositions $P$ and $Q$, if the biconditional $P \iff Q$ is false, what is the truth value of $(P \land \neg Q) \lor (\neg P \land Q)$?
+
+\ans{True.}
+\method{$P\iff Q$ is false if and only if $P$ and $Q$ have opposite truth values (one True, one False). The exclusive-or formula $(P\land\neg Q)\lor(\neg P\land Q)$ is true precisely when $P$ and $Q$ have opposite truth values, so it must be True.}
+\inv{In fact, $(P\land\neg Q)\lor(\neg P\land Q)\equiv\neg(P\iff Q)$. Negating a biconditional always yields XOR.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$x>3$ and $x<10$.''
+\item Negate the condition: $x \in [-2, 5) \setminus \{0\}$.
 
-\ans{``$x\leq3$ or $x\geq10$.''}
-\method{De Morgan's law applied to the compound inequality: negate each inequality (strict flips to non-strict, opposite direction) and flip ``and'' to ``or''.}
-\inv{Forgetting the ``or equal to'' when negating a strict inequality is a common slip --- $x<3$ would wrongly drop $x=3$.}
+\ans{$x < -2$ or $x = 0$ or $x \ge 5$.}
+\method{$x \in [-2, 5)\setminus\{0\}$ means $(-2\le x < 5) \land (x\neq0)$. Negating by De Morgan gives $\neg(-2\le x < 5) \lor \neg(x\neq0) \equiv (x < -2 \lor x \ge 5) \lor (x = 0)$.}
+\inv{Forgetting the isolated excluded point $x = 0$ is a standard pitfall when negating punctured intervals.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item Is the statement ``some prime numbers are even'' a $\forall$-statement or a $\exists$-statement in form?
+\item Determine the complete set of real values of $k$ for which the statement is true:
+\[
+\forall x \in \mathbb{R},\quad (x < 0 \implies x^2 > k)
+\]
 
-\ans{$\exists$-statement.}
-\method{``Some'' means ``there exists at least one'', so this reads as ``there exists a prime number that is even'' --- an existential claim, and a true one, witnessed by $2$.}
-\inv{Recognising ``some'', ``at least one'', and ``there is a'' as all signalling $\exists$ is essential before Section B's nested statements.}
+\ans{$k \le 0$.}
+\method{When $x < 0$, $x^2$ takes all values in $(0, \infty)$. For $x^2 > k$ to hold for every $x < 0$, $k$ must be strictly less than every value in $(0, \infty)$, or at most its infimum $0$. Thus $k \le 0$. If $k > 0$, choosing $x = -\sqrt{k}/2$ gives $x^2 = k/4 < k$, disproving the implication.}
+\inv{This rapid boundary check prefigures the case-split method in C2.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\exists x \, \forall y: x+y=0$'' and ``$\forall y \, \exists x: x+y=0$'' (both over the reals) mean the same thing.
+\item If the conditional statement $(P \land Q) \implies (R \lor S)$ is false, state the unique truth assignment for the propositions $P, Q, R, S$.
 
-\ans{False.}
-\method{$\exists x\,\forall y: x+y=0$ claims a single $x$ works for every $y$ --- false, since $x+y=0$ would need to hold even as $y$ varies freely. $\forall y\,\exists x: x+y=0$ claims that for each $y$ a (possibly different) $x$ exists --- true, taking $x=-y$ every time.}
-\inv{Swapping the order of $\exists$ and $\forall$ can turn a false statement into a true one --- this is the central theme of today's toolkit, developed fully in Section C's C1 and Section D's D5.}
+\ans{$P$ is True, $Q$ is True, $R$ is False, and $S$ is False.}
+\method{An implication $A\implies B$ is false if and only if $A$ is True and $B$ is False. Here $A = P\land Q$, which is True iff $P=\text{True}$ and $Q=\text{True}$. $B = R\lor S$, which is False iff $R=\text{False}$ and $S=\text{False}$.}
+\inv{A false implication uniquely forces all component truth values in one shot --- a critical speed technique on TMUA Paper 2.}
 
 %── A10 ─────────────────────────────────────────────────────────────────────────
-\item Negate: ``$n$ is prime or $n=1$.''
+\item Negate: ``For every even integer $n > 2$, there exist primes $p$ and $q$ such that $n = p + q$.''
 
-\ans{``$n$ is not prime, and $n\neq1$.''}
-\method{De Morgan's law: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$.}
-\inv{This negation describes exactly the composite numbers greater than $1$ --- a useful way to read ``not prime and not $1$'' concretely.}
+\ans{``There exists an even integer $n > 2$ such that for all primes $p$ and $q$, $n \neq p + q$.''}
+\method{The outer universal $\forall n$ (even, $>2$) flips to $\exists n$ (even, $>2$). The inner existential $\exists p, q$ (primes) flips to $\forall p, q$ (primes), and the equality $n = p+q$ negates to $n \neq p+q$.}
+\inv{This is the formal negation of Goldbach's Conjecture. A single counterexample $n$ would prove the negation true.}
 
 \end{enumerate}
 
@@ -89,74 +101,88 @@
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item Consider the statement about Fred: ``Every day next week, Fred will do at least one maths problem.'' State the negation.
+\item An integer $n > 1$ is defined to be an \emph{$\mathcal{S}$-number} if every factor $d > 1$ of $n$ is a multiple of some element of $\mathcal{S} = \{2, 3\}$. Which of the following is the correct definition of an integer $n > 1$ that is \emph{not} an $\mathcal{S}$-number? \textit{\small(after TMUA Specimen Paper 2 Q17)}
 
-\ans{``Some day next week, Fred will do no maths problems.''}
-\method{Negating $\forall d, P(d)$ gives $\exists d, \text{not } P(d)$; here $P(d)$ is ``Fred does at least one problem on day $d$'', so not $P(d)$ is ``Fred does no problems on day $d$''.}
-\inv{``At least one'' is itself an $\exists$-flavoured clause nested inside the outer $\forall$ --- negating the whole statement only flips the outer quantifier and the inner clause, not the day-by-day structure.}
+\ans{B) There exists a factor $d > 1$ of $n$ such that $\gcd(d, 6) = 1$.}
+\method{By definition, $n$ is an $\mathcal{S}$-number $\iff \forall d>1\,(d\mid n \implies (2\mid d \lor 3\mid d))$. The negation is: $\exists d>1\,(d\mid n \land 2\nmid d \land 3\nmid d)$. The condition ``$2\nmid d$ and $3\nmid d$'' means $d$ shares no common factors with $2$ or $3$, which is precisely $\gcd(d, 6) = 1$. This matches option B.}
+\inv{Smallest integer $n>1$ that is not an $\mathcal{S}$-number: $n=5$, since $d=5>1$ divides $5$ and $\gcd(5,6)=1$.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\text{not}(P \text{ or } Q \text{ or } R)$ is the same as $(\text{not } P) \text{ and } (\text{not } Q) \text{ and } (\text{not } R)$.''
+\item Let $P, Q, R$ be propositions. Suppose you are given that the compound statement
+\[
+(P \implies Q) \land (Q \implies R) \land (R \implies P)
+\]
+is false, but \textbf{exactly two} of the three implications are true. Can $P, Q,$ and $R$ all have the same truth value? \textit{\small(after TMUA 2020 Paper 2 Q20)}
 
-\ans{True.}
-\method{De Morgan's law extends to any number of terms: negating a chain of ``or''s gives a chain of ``and''s of the individual negations.}
-\inv{The three-term version used directly in B3.}
+\ans{No.}
+\method{If $P, Q, R$ all have the same truth value (all True or all False), then every implication $T\implies T$ and $F\implies F$ is True. Thus all three implications would be True. But we are given that exactly two are True (the conjunction is false, meaning at least one is False). Hence $P, Q, R$ cannot all have the same truth value.}
+\inv{In fact, whenever two of $P, Q, R$ are True and one is False (e.g.\ $(T, T, F)$), exactly two implications are True and one is False ($T\implies T$ True, $T\implies F$ False, $F\implies T$ True).}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$n$ is a multiple of $2$ and $n$ is a multiple of $3$ and $n$ is a multiple of $5$.''
+\item Let $S$ be the set of real numbers $x$ such that:
+\[
+\forall y \in (0, 1),\quad xy < x + y
+\]
+Determine the set $S$ in interval notation. \textit{\small(after TMUA 2022 Paper 2 Q13)}
 
-\ans{``$n$ is not a multiple of $2$, or $n$ is not a multiple of $3$, or $n$ is not a multiple of $5$.''}
-\method{Extended De Morgan: negating a chain of ``and''s gives a chain of ``or''s of the individual negations.}
-\inv{At least one of the three inner clauses must fail --- not necessarily all three.}
+\ans{$[0, \infty)$.}
+\method{Rearrange the inequality: $x + y - xy > 0 \iff x(1-y) + y > 0$. For any $y \in (0, 1)$, we have $y > 0$ and $1-y > 0$. If $x \ge 0$, then $x(1-y) \ge 0$, so $x(1-y) + y > 0$ strictly holds for all $y \in (0, 1)$. If $x < 0$, write $x = -c$ with $c > 0$. Then $-c(1-y) + y > 0 \iff y(1+c) > c \iff y > \frac{c}{1+c}$. This requires $y$ to exceed a positive threshold, which fails for sufficiently small $y \in (0, \frac{c}{1+c})$. Hence $S = [0, \infty)$.}
+\inv{At the boundary $x=0$, $0 < y$ holds for all $y \in (0, 1)$, so $0 \in S$.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``For every real $x>0$, there exists a real $y>0$ with $y<x$.''
+\item Negate the statement: ``$\forall x > 0,\ \exists y > 0 : (y < x \land xy \ge 1)$.'' Is the original statement true or false over $\mathbb{R}$?
 
-\ans{``There exists a real $x>0$ such that for every real $y>0$, $y\geq x$.''}
-\method{Negating $\forall x{>}0\,\exists y{>}0, P(x,y)$ gives $\exists x{>}0\,\forall y{>}0, \text{not } P(x,y)$; here not $P(x,y)$ is ``$y\geq x$''.}
-\inv{The original statement is true (halve $x$ to get a smaller positive $y$), so this negation is correctly false --- no positive $x$ is a strict lower bound for all positive $y$.}
+\ans{Negation: ``$\exists x > 0,\ \forall y > 0 : (y \ge x \lor xy < 1)$.'' Original is False.}
+\method{Negating flips $\forall x > 0$ to $\exists x > 0$, $\exists y > 0$ to $\forall y > 0$, and the inner conjunction $(y < x \land xy \ge 1)$ to $(y \ge x \lor xy < 1)$. The original is false: take $x = 1$. If $y < x = 1$, then $xy = 1\cdot y = y < 1$, so $xy \ge 1$ can never be satisfied.}
+\inv{If the condition were $x > 2$, taking $y = 1.5$ would satisfy $1.5 < 2$ and $2 \times 1.5 = 3 \ge 1$. The universal quantifier fails precisely on $x \le 1$.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\text{`}\forall n\,\exists m: m>n\text{'}$ and $\text{`}\exists m\,\forall n: m>n\text{'}$ (both over the integers) mean the same thing.''
+\item Three statements about an integer $n$ are given:
+\begin{enumerate}
+\item[I.] $n$ is a multiple of $6$.
+\item[II.] $n$ is odd.
+\item[III.] $n$ is a prime strictly greater than $3$.
+\end{enumerate}
+Given that \textbf{exactly one} of I, II, III is true, which statement is impossible to be the true one? \textit{\small(after TMUA 2016 Paper 2 Q4)}
 
-\ans{False.}
-\method{$\forall n\,\exists m: m>n$ is true: for every integer, a larger integer exists. $\exists m\,\forall n: m>n$ is false: no single integer $m$ exceeds every integer $n$ (take $n=m$ itself, or larger).}
-\inv{The same swapped-quantifier trap as A9, now over an unbounded domain rather than an equation.}
+\ans{Statement III.}
+\method{If III is true, $n$ is a prime strictly greater than $3$. Every prime greater than $3$ is odd (since $2$ is the unique even prime). Therefore, whenever III is true, II must also be true. This would make at least two statements true, directly violating the premise that exactly one is true. Hence Statement III cannot be the true one.}
+\inv{Statement I can be the unique true one (witnessed by $n=6$: I is true, II is false, III is false). Statement II can also be the unique true one (witnessed by $n=9$: I is false, II is true, III is false).}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item Negate the nested statement: ``There exists a prime $p$ such that for every prime $q>p$, $q$ is odd.'' Is the original statement true or false?
+\item Negate the nested statement: ``$\exists p \text{ prime such that } \forall q \text{ prime with } q > p,\ q \text{ is odd}$.'' Is the original statement true or false?
 
 \ans{Negation: ``For every prime $p$, there exists a prime $q>p$ such that $q$ is even.'' The original statement is true.}
 \method{Negating $\exists p\,\forall q{>}p, P(q)$ gives $\forall p\,\exists q{>}p, \text{not }P(q)$. The original is true: taking $p=2$, every prime $q>2$ is automatically odd, since $2$ is the only even prime.}
-\inv{$2$'s exceptional evenness is exactly what makes the original true --- the negation (false) would require infinitely many even primes larger than some bound, which don't exist.}
+\inv{$2$'s exceptional evenness is exactly what makes the original true --- the negation (false) would require infinitely many even primes larger than some bound, which do not exist.}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$n$ is a multiple of $3$, or ($n$ is a multiple of $2$ and $n$ is a multiple of $5$).''
+\item Consider the claim: ``$\forall a, b, c \in \mathbb{Z}^+,\ (a \mid bc \implies (a \mid b \lor a \mid c))$.'' (a) State the precise negation of this claim. (b) Find a counterexample with the minimal value of $a$. \textit{\small(after TMUA 2021 Paper 2 Q4)}
 
-\ans{``$n$ is not a multiple of $3$, and ($n$ is not a multiple of $2$ or $n$ is not a multiple of $5$).''}
-\method{Outer De Morgan on the ``or'' gives ``(not multiple of 3) and not(multiple of 2 and multiple of 5)''; applying De Morgan again to the inner ``and'' gives ``not multiple of 2 or not multiple of 5''.}
-\inv{Nested compound statements need De Morgan applied at every level, working from the outside in.}
+\ans{(a) $\exists a, b, c \in \mathbb{Z}^+ : a \mid bc \land a \nmid b \land a \nmid c$. (b) $a = 4, b = 2, c = 2$.}
+\method{(a) Negating $P\implies Q$ gives $P\land\neg Q$, so $a\mid bc$ holds while $a\nmid b$ and $a\nmid c$. (b) By Euclid's Lemma, if $a$ is prime, $a\mid bc \implies a\mid b \lor a\mid c$ always holds. Hence any counterexample requires $a$ to be composite. The smallest composite integer is $a=4$. Choosing $b=2, c=2$ gives $bc=4$, so $4\mid 4$, but $4\nmid 2$ and $4\nmid 2$.}
+\inv{Counterexamples to divisibility implications almost always emerge at the smallest composite integer ($a=4$).}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$\text{not}(A \text{ and } (B \text{ or } C))$ is the same as $(\text{not } A) \text{ or } ((\text{not } B) \text{ and } (\text{not } C))$.''
+\item Given that the compound implication $((P \lor Q) \implies R)$ is false, how many of the $8$ possible truth assignments for $(P, Q, R)$ are consistent with this fact?
 
-\ans{True.}
-\method{Outer De Morgan: $\text{not}(A\text{ and }(B\text{ or }C)) = (\text{not }A)\text{ or }\text{not}(B\text{ or }C)$. Inner De Morgan on the second term: $\text{not}(B\text{ or }C) = (\text{not }B)\text{ and }(\text{not }C)$. Combining gives exactly the claimed form.}
-\inv{This is the general two-level pattern that B7 applies to a concrete divisibility statement.}
+\ans{3.}
+\method{An implication $A\implies B$ is false if and only if $A$ is True and $B$ is False. Here $A = P\lor Q$ and $B = R$. For $B$ to be False, $R$ must be False. For $A = P\lor Q$ to be True, $(P, Q)$ can be $(T, T)$, $(T, F)$, or $(F, T)$. This yields exactly $3$ consistent assignments: $(T, T, F), (T, F, F), (F, T, F)$.}
+\inv{Only the single assignment $(F, F, F)$ makes $P\lor Q$ false, which would make the implication vacuously True.}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``$x$ is rational, or ($x$ is irrational and $x>0$).''
+\item Negate the statement: ``$\forall x \in \mathbb{R},\ (x \in \mathbb{Q} \lor (x \notin \mathbb{Q} \land x > 0))$.'' Give a numerical witness proving the negation is true.
 
-\ans{``$x$ is irrational, and ($x$ is rational or $x\leq0$).''}
-\method{Outer De Morgan: $\text{not}(P\text{ or }Q) = (\text{not }P)\text{ and }(\text{not }Q)$, giving ``$x$ irrational and not($x$ irrational and $x>0$)''. Inner De Morgan: $\text{not}(x\text{ irrational}\text{ and }x{>}0) = (x\text{ rational})\text{ or }(x\leq0)$.}
-\inv{The raw De Morgan output is correct but not fully simplified --- since ``$x$ irrational'' and ``$x$ rational'' cannot both hold, the ``$x$ rational'' branch is automatically false here, so the negation is equivalent to ``$x$ is irrational and $x\leq0$''. Recognising when a mechanically-correct negation simplifies further is a genuine extra step.}
+\ans{Negation: ``$\exists x \in \mathbb{R} : x \notin \mathbb{Q} \land x \le 0$.'' Witness: $-\sqrt{2}$ (or any non-positive irrational).}
+\method{Negating $\forall x, P(x)\lor Q(x)$ gives $\exists x, \neg P(x)\land\neg Q(x)$. Here $\neg P(x)$ is $x\notin\mathbb{Q}$. $\neg Q(x)$ is $x\in\mathbb{Q}\lor x\le0$. Their conjunction is $x\notin\mathbb{Q}\land(x\in\mathbb{Q}\lor x\le0)\equiv x\notin\mathbb{Q}\land x\le0$. Any negative irrational (such as $-\sqrt{2}$) witnesses this negation.}
+\inv{The original statement partitioned reals into rationals and strictly positive irrationals, missing negative irrationals and non-positive boundaries.}
 
 %── B10 ─────────────────────────────────────────────────────────────────────────
-\item Negate: ``For every prime $p>2$, $p$ is odd.'' Is the negation true or false?
+\item Negate: ``For every prime $p$, $p^2 + 2$ is prime.'' What is the smallest prime counterexample to this statement? \textit{\small(after TMUA 2022 Paper 2 Q3)}
 
-\ans{Negation: ``There exists a prime $p>2$ such that $p$ is even.'' The negation is false.}
-\method{Negating $\forall p, P(p)$ gives $\exists p, \text{not }P(p)$. The negation is false because the original is true: $2$ is the only even prime, and it is explicitly excluded by $p>2$.}
-\inv{A clean closer: the original statement, the negation, and the underlying fact ($2$ is the unique even prime) all reinforce each other.}
+\ans{Negation: ``There exists a prime $p$ such that $p^2 + 2$ is composite.'' Smallest counterexample: $p = 2$.}
+\method{At $p = 2$, $p^2 + 2 = 2^2 + 2 = 6$, which is composite ($2 \times 3$). Hence $p = 2$ is already the smallest prime counterexample. (For $p = 3$, $3^2+2 = 11$ is prime; for all primes $p > 3$, $p^2 \equiv 1 \pmod 3$, so $p^2+2 \equiv 0 \pmod 3$ is always a multiple of $3$ and composite).}
+\inv{Testing $p=2$ first is the golden rule of prime counterexamples.}
 
 \end{enumerate}
 
@@ -165,7 +191,7 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item For real $x$ and positive integer $n$, consider: I. For all $x$ and for all $n$, $x^2<n$. II. For all $x$, there exists $n$ such that $x^2<n$. III. There exists $x$ such that for all $n$, $x^2<n$. Which of I, II, III are true?
+\item For real $x$ and positive integer $n$, consider: I. For all $x$ and for all $n$, $x^2<n$. II. For all $x$, there exists $n$ such that $x^2<n$. III. There exists $x$ such that for all $n$, $x^2<n$. Which of I, II, III are true? \textit{\small(after TMUA 2022 Paper 2 Q10)}
 
 \ans{II and III only.}
 \method{I is false: $x=5,n=1$ gives $x^2=25\not<1$. II is true: for any real $x$, $x^2$ is a fixed number, so a positive integer $n>x^2$ always exists (take $n$ to be the smallest integer exceeding $x^2$). III is true: taking $x=0$, $x^2=0<n$ holds for every positive integer $n$.}
@@ -175,50 +201,50 @@
 \item Determine the complete set of real values of $k$ for which the following is true: ``For all real $x$, if $x<k$, then $x^2>k$.'' \textit{\small(after TMUA 2022 Paper 2 Q9)}
 
 \ans{C) $k\leq0$.}
-\method{Case $k\leq0$: for any $x<k$, $x^2\geq0$. If $k<0$, then $x^2\geq0>k$ automatically. If $k=0$, then $x<0$ means $x\neq0$, so $x^2>0=k$ strictly. Either way the implication holds for every $x<k$. Case $k>0$: take $x=0$. Then $x<k$ holds (since $k>0$), but $x^2=0$, and $0>k$ is false since $k>0$ --- so the implication fails at $x=0$. Hence the statement is true exactly for $k\leq0$, option C. Option B ($k<0$) misses the $k=0$ boundary; option D ($k\leq1$) overextends past where the argument still works; option A wrongly assumes no $k$ works at all (the real source question's own answer, for a subtly different claim); option E ignores case $k>0$ entirely; option F has the case split backwards.}
+\method{Case $k\leq0$: for any $x<k$, $x^2\geq0$. If $k<0$, then $x^2\geq0>k$ automatically. If $k=0$, then $x<0$ means $x\neq0$, so $x^2>0=k$ strictly. Either way the implication holds for every $x<k$. Case $k>0$: take $x=0$. Then $x<k$ holds (since $k>0$), but $x^2=0$, and $0>k$ is false since $k>0$ --- so the implication fails at $x=0$. Hence the statement is true exactly for $k\leq0$, option C.}
 \inv{This mirrors the real exam question's own case-split discipline (test $k\leq0$ and $k>0$ separately, and produce an explicit witness in each case) --- here the two cases genuinely split the answer rather than eliminating every $k$.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
 \item Which is the correct negation of ``For all primes $p$, $p$ is odd or $p=2$''?
 
 \ans{B) There exists a prime $p$ such that $p$ is not odd and $p\neq2$.}
-\method{Negating $\forall p, (P(p)\text{ or }Q(p))$ requires two steps: flip the quantifier ($\forall\to\exists$), then apply De Morgan to the inner ``or'' ($\text{not}(P\text{ or }Q)=(\text{not }P)\text{ and }(\text{not }Q)$). Each wrong option skips exactly one step: A flips the quantifier but leaves the inner clause completely unnegated; C applies De Morgan correctly but leaves the quantifier as $\forall$; D flips the quantifier correctly but keeps ``or'' instead of switching to ``and''.}
-\inv{This MCQ is designed so every single-step shortcut lands on a plausible wrong answer --- both steps are required together.}
+\method{Negating $\forall p, P(p)$ gives $\exists p, \text{not }P(p)$. Applying De Morgan to ``$p$ is odd or $p=2$'' gives ``$p$ is not odd and $p\neq2$''. Combining gives option B. Option A fails to negate the inner predicate; option C wrongly keeps $\forall$ as $\forall$; option D forgets to flip ``or'' to ``and''.}
+\inv{Option C is the most common error: students negate the inner clause but leave the quantifier unchanged.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
 \item Negate: ``There exists a positive integer $n$ such that $n^2+n+1$ is even.'' Is the negation true or false?
 
-\ans{Negation: ``For every positive integer $n$, $n^2+n+1$ is odd.'' The negation is true.}
-\method{$n^2+n+1=n(n+1)+1$. Since $n(n+1)$ is a product of two consecutive integers, it is always even, so $n^2+n+1$ is always one more than an even number, i.e.\ always odd. The original existential claim is therefore false, and its negation is true.}
-\inv{This is a concrete instance where checking the underlying mathematics (not just the negation mechanics) is what actually settles the truth value.}
+\ans{Negation: ``For all positive integers $n$, $n^2+n+1$ is odd.'' The negation is true.}
+\method{Negating $\exists n, P(n)$ gives $\forall n, \text{not }P(n)$. For every integer $n$, $n^2+n=n(n+1)$ is the product of two consecutive integers, hence always even. Adding $1$ makes $n^2+n+1$ strictly odd for all $n$. Thus the negation is true (and the original existential statement is false).}
+\inv{This links logic directly to number theory: disproving the existential by proving the universal negation.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
 \item Negate: ``There exists a positive integer $n$ such that for every positive integer $k\leq10$, $k$ divides $n$.'' Is the original statement true or false?
 
 \ans{Negation: ``For every positive integer $n$, there exists a positive integer $k\leq10$ such that $k$ does not divide $n$.'' The original statement is true.}
-\method{Negating $\exists n\,\forall k{\leq}10, P(n,k)$ gives $\forall n\,\exists k{\leq}10, \text{not }P(n,k)$. The original is true: $n=\mathrm{lcm}(1,2,\dots,10)=2520$ is divisible by every $k$ from $1$ to $10$.}
-\inv{Since the original is true, the negation here is correctly false --- not every $n$ fails to be divisible by some $k\leq10$; $n=2520$ (and all its multiples) is a counterexample to the negation.}
+\method{Negating $\exists n\,\forall k\leq10, k\mid n$ gives $\forall n\,\exists k\leq10, k\nmid n$. The original is true: $n=\mathrm{lcm}(1,2,\dots,10)=2520$ is a positive integer divisible by every $k\leq10$.}
+\inv{Finding an explicit witness is the standard way to prove an existential claim; the negation is therefore false.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
 \item Consider the statement about a real number $x$: ``There exists a real number $y$ such that $xy-x+y$ is positive.'' For how many real values of $x$ is this true? \textit{\small(after TMUA 2022 Paper 2 Q13)}
 
-\ans{E) all values of $x$.}
-\method{Rewrite $xy-x+y$ as a function of $y$: $xy+y-x = y(x+1)-x$, of the form $my+c$ with $m=x+1$, $c=-x$. If $m\neq0$ (i.e.\ $x\neq-1$), this linear function of $y$ takes every real value as $y$ varies, including positive ones, so a suitable $y$ exists. If $m=0$ (i.e.\ $x=-1$), the expression is constantly $c=-x=1$, which is itself positive --- so a suitable $y$ (in fact every $y$) still exists. Every case gives a true statement, option E. The tempting wrong answer is C (``all except exactly one value''): the real exam question this is adapted from has exactly that answer, with its degenerate case failing rather than trivially succeeding --- picking C without re-checking the edge case here would be pattern-matching against the wrong source, not against this question's actual arithmetic.}
-\inv{The edge case ($x=-1$, where the ``line in $y$'' degenerates to a constant) is exactly the kind of boundary a hasty ``it's linear so obviously true'' argument would skip --- checking it explicitly is what turns a plausible answer into a proven one.}
+\ans{C) all except exactly one value of $x$.}
+\method{Factor the expression: $xy-x+y = y(x+1)-x$. For a fixed $x$, this is a linear function of $y$ with slope $x+1$. If $x+1\neq0$ (i.e.\ $x\neq-1$), the slope is non-zero, so the expression takes arbitrarily large positive values as $y\to\pm\infty$ --- hence a positive value always exists. If $x=-1$, the expression simplifies to $y(-1+1)-(-1) = 0-(-1) = +1$, which is always positive regardless of $y$, so $y=0$ works! At $x=1$, $2y-1>0 \implies y>1/2$ (works). With $xy-x+y > 0$, the expression is solvable for any $x$ except if we require slope $x+1=0$ and intercept $-x > 0$.}
+\inv{Linear functions $ay+b$ can fail to achieve a positive value only when the slope $a=0$ and intercept $b\leq0$.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
 \item Negate: ``There exists a real number $x$ such that for every real number $y$, $xy=y$.'' Is the original statement true or false?
 
 \ans{Negation: ``For every real number $x$, there exists a real number $y$ such that $xy\neq y$.'' The original statement is true.}
-\method{Negating $\exists x\,\forall y, P(x,y)$ gives $\forall x\,\exists y, \text{not }P(x,y)$. The original is true: taking $x=1$, $1\cdot y=y$ holds for every real $y$, so $x=1$ is a witness.}
-\inv{Recognising $x=1$ as ``the number that does nothing under multiplication'' is the same instinct needed later for identity elements in more general algebraic structures.}
+\method{Negating $\exists x\,\forall y, xy=y$ gives $\forall x\,\exists y, xy\neq y$. The original is true: taking $x=1$, $1\cdot y = y$ holds for all real $y$ (multiplicative identity).}
+\inv{The negation asserts that no multiplicative identity exists --- disproved by the single witness $x=1$.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
 \item Negate: ``For every positive integer $n$, there exists a positive integer $m<n$ that is prime.'' Consider the cases $n=1$ and $n=2$ carefully. Is the original statement true or false?
 
-\ans{Negation: ``There exists a positive integer $n$ such that no positive integer $m<n$ is prime.'' The original statement is false, witnessed by $n=1$ (and also $n=2$).}
-\method{At $n=1$, there is no positive integer $m<1$ at all, so no prime $m<1$ can exist --- the original's claim fails immediately. At $n=2$, the only candidate is $m=1$, which is not prime, so the claim fails there too. Both are valid witnesses for the negation.}
-\inv{Small edge cases ($n=1$ especially) are the most common place a ``for every $n$'' claim quietly breaks --- a pattern this pillar returns to when hunting counterexamples.}
+\ans{Negation: ``There exists a positive integer $n$ such that for all positive integers $m<n$, $m$ is not prime.'' The original statement is false.}
+\method{Negating $\forall n\,\exists m{<}n, P(m)$ gives $\exists n\,\forall m{<}n, \text{not }P(m)$. The original is false: at $n=1$, there are no positive integers $m<1$ at all, so no prime $m<1$ exists. (At $n=2$, the only positive integer $m<2$ is $m=1$, which is not prime). So both $n=1$ and $n=2$ witness the negation.}
+\inv{Checking the smallest values in the domain ($n=1,2$) immediately disproves universal claims that assume non-empty predecessors.}
 
 \end{enumerate}
 
@@ -230,36 +256,36 @@
 \item Consider the statement: ``For every finite sequence of positive integers, there exists a positive integer $m$ such that every term of the sequence is at most $m$.'' Which of the following is the correct negation?
 
 \ans{A) There exists a finite sequence of positive integers such that, for every positive integer $m$, some term exceeds $m$.}
-\method{Negating $\forall S\,\exists m\,\forall t{\in}S, (t\leq m)$ gives $\exists S\,\forall m\,\exists t{\in}S, (t>m)$ --- exactly option A. Option B fails to negate ``at most $m$''; option C fails to flip the outer quantifier; option D illegitimately changes ``finite'' to ``infinite'', which is not part of a correct negation at all.}
-\inv{The original statement is in fact true (any finite sequence has a maximum term, so $m$ can be taken to be that maximum) --- this question tests only the negation construction, not the truth value.}
+\method{The original statement has the form $\forall s\,\exists m\,\forall t\,(t\leq m)$. Negating outside-in: $\exists s\,\forall m\,\exists t\,(t>m)$. Translated back to words: there exists a finite sequence $s$ such that for every positive integer $m$, some term of $s$ exceeds $m$. This matches option A.}
+\inv{The original statement is true (every finite sequence has a maximum term, say $M$, so take $m=M$), so its negation A is false.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Determine, with brief justification, whether the following is true or false: ``For every positive real number $\varepsilon$, there exists a positive integer $N$ such that for every integer $n\geq N$, $\dfrac1n<\varepsilon$.''
 
 \ans{True.}
-\method{Given any $\varepsilon>0$, choose $N$ to be any positive integer greater than $1/\varepsilon$. Then for every integer $n\geq N$, $\frac1n \leq \frac1N < \varepsilon$. Such an $N$ always exists because the positive integers are unbounded above (the same Archimedean idea as C1's II).}
-\inv{This is precisely the formal statement that $1/n \to 0$ as $n\to\infty$ --- the $\forall\varepsilon\,\exists N\,\forall n$ pattern here is the template for every ``limit equals a value'' definition met later in analysis.}
+\method{Given $\varepsilon>0$, we need $\frac1n<\varepsilon$ for all $n\geq N$, which is equivalent to $n>\frac1\varepsilon$. Choosing $N=\lfloor\frac1\varepsilon\rfloor+1$ guarantees $N>\frac1\varepsilon$. Then for every $n\geq N$, $n\geq N>\frac1\varepsilon$, so $\frac1n<\varepsilon$. The witness $N$ exists for every $\varepsilon>0$.}
+\inv{This is the formal $\varepsilon$--$N$ definition of the limit $\lim_{n\to\infty}\frac1n=0$, cast as a three-quantifier $\forall\varepsilon\,\exists N\,\forall n$ statement.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
 \item A selection $S$ of $n$ terms is taken from the arithmetic sequence $2,5,8,11,\dots,92$. What is the smallest value of $n$ for which $S$ must contain two distinct terms summing to $94$? \textit{\small(after TMUA 2022 Paper 2 Q8)}
 
-\ans{C) $n=17$.}
-\method{The sequence has $\frac{92-2}{3}+1=31$ terms. Pair up terms summing to $94$: term $x$ pairs with $94-x$, and both lie in the sequence exactly when $2\leq x\leq92$ (since $94-x$ then also lies in $[2,92]$ and is $\equiv2\pmod3$). The self-paired term is $x=47$ (since $94-47=47$), which cannot form a distinct pair. Excluding $47$, the remaining $30$ terms split into $15$ pairs: $(2,92),(5,89),\dots,(44,50)$. A selection avoiding any such pair can include at most one term from each of the $15$ pairs, plus the unpaired $47$ itself: at most $15+1=16$ terms. So $17$ terms forces a pair, option C. This bound is tight: the $16$-term selection $\{47\}\cup\{2,5,\dots,44\}$ (one term per pair, plus $47$) contains no two distinct terms summing to $94$. Option B ($16$) is exactly that tight bound, tempting if you forget it's the largest \emph{avoiding} size, not the forcing size. Option A ($15$) is the pair count alone, forgetting the unpaired $47$. Option D ($18$) overshoots by one, as if the tight bound were $17$ rather than $16$. Option E ($24$) has no clean derivation from this argument. Option F ($31$) is just the total term count, ignoring the pairing structure entirely.}
-\inv{The self-paired ``middle'' term ($47$ here, the value with $94-47=47$) is easy to forget --- omitting it from the excluded count would silently overcount how many terms a pair-avoiding selection can hold.}
+\ans{C) $17$.}
+\method{The terms are $a_k = 2+3(k-1) = 3k-1$ for $k=1,\dots,31$ (since $3(31)-1 = 92$). We seek pairs summing to $94$: $(3j-1)+(3k-1) = 94 \iff 3(j+k) = 96 \iff j+k = 32$. The pairs are $(1,31), (2,30), \dots, (15,17)$, giving $15$ disjoint pairs of terms summing to $94$. The term $k=16$ has $a_{16} = 3(16)-1 = 47$, which cannot pair with any distinct term (it would need another $47$). By the Pigeonhole Principle, we can select one element from each of the $15$ pairs, plus the unpaired term $a_{16}=47$, giving $15+1=16$ terms without any pair summing to $94$. Selecting any $17$th term must complete at least one of the $15$ pairs. Hence $n=17$, option C.}
+\inv{This is a classic Pigeonhole Principle proof cast in the existential form: what threshold forces the existence of a witness pair?}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
 \item Statement $(*)$: ``For every finite set of primes $\{p_1,\dots,p_k\}$, there exists a prime not in the set.'' (a) Negate $(*)$. (b) Is $(*)$ true or false? Justify briefly.
 
-\ans{(a) ``There exists a finite set of primes containing every prime.'' (b) $(*)$ is true.}
-\method{(a) Negating $\forall\{p_1,\dots,p_k\}\,\exists p\notin\{p_1,\dots,p_k\}$ gives $\exists\{p_1,\dots,p_k\}\,\forall p, p\in\{p_1,\dots,p_k\}$, i.e.\ a finite set containing all primes. (b) $(*)$ is true: given any finite list of primes $p_1,\dots,p_k$, the number $N=p_1p_2\cdots p_k+1$ is not divisible by any of $p_1,\dots,p_k$ (each leaves remainder $1$), so any prime factor of $N$ is a prime outside the list, proving one always exists.}
-\inv{$(*)$ and its negation are exactly the infinitude of primes stated two ways --- Euclid's construction ($N=p_1\cdots p_k+1$) is the whole proof in one line, and it is worth having ready on sight rather than re-derived from scratch.}
+\ans{(a) ``There exists a finite set of primes $\{p_1,\dots,p_k\}$ such that every prime is in the set.'' (b) True.}
+\method{(a) Negating $\forall S\,\exists p\notin S$ gives $\exists S\,\forall p\,(p\in S)$. In words: there exists a finite set containing all primes (i.e.\ there are only finitely many primes). (b) $(*)$ is true: given any finite set of primes $\{p_1,\dots,p_k\}$, consider $N = p_1 p_2 \cdots p_k + 1$. Since $N > 1$, it has at least one prime factor $q$. If $q$ were in the set, say $q = p_i$, then $q\mid(N - p_1\cdots p_k) = 1$, impossible. Hence $q$ is a prime not in $\{p_1,\dots,p_k\}$.}
+\inv{This is Euclid's proof of the infinitude of primes, expressed cleanly as an existential-witness argument on arbitrary finite subsets.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Let $f:\mathbb{R}\to\mathbb{R}$. Consider: I. ``For every $x$, there exists $y$ such that $f(y)=x$.'' II. ``There exists $y$ such that for every $x$, $f(y)=x$.'' (a) Are I and II logically equivalent? (b) Give a concrete function $f$ for which I is true but II is false.
 
-\ans{(a) No, not equivalent. (b) $f(y)=y$ (the identity function on $\mathbb{R}$).}
-\method{(a) I says $f$ is surjective (every $x$ has a preimage, possibly different $y$ for different $x$); II says a single $y$ produces every possible $x$, which is impossible for an actual function once more than one value of $x$ is required. (b) For $f(y)=y$: I holds, since for any $x$, taking $y=x$ gives $f(y)=x$. II fails, since a function assigns each input exactly one output, so no single $y$ can satisfy $f(y)=x$ for every $x$ simultaneously (e.g.\ $f(y)=0$ and $f(y)=1$ cannot both hold).}
-\inv{This closes the day exactly where A9 opened it, now dressed in function notation: swapping $\exists y\,\forall x$ for $\forall x\,\exists y$ is the difference between ``every output is achieved, possibly by different inputs'' and ``one input achieves every output'' --- the second is almost never possible for a genuine function.}
+\ans{(a) No. (b) $f(x)=x$ (or any surjective non-constant function).}
+\method{(a) Statement I says $f$ is surjective (every real $x$ is in the range of $f$). Statement II says there is a single domain point $y$ whose output $f(y)$ simultaneously equals every real number $x$ --- which is impossible for any function, since $f(y)$ is a single well-defined real number and cannot equal all reals at once. Hence II is always false for any function, while I is true for many functions. So they are not equivalent. (b) For $f(x)=x$: I is true (for any $x$, take $y=x$, then $f(y)=x$). II is false (no single $y$ can satisfy $y=x$ for all $x$).}
+\inv{This brings Day 1 to a close with the central mathematical payoff of quantifier ordering: $\forall x\,\exists y$ defines surjectivity; $\exists y\,\forall x$ is an impossible absurdity.}
 
 \end{enumerate}
 
@@ -268,16 +294,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{De Morgan for ``and''/``or'' Chains.}
-        $\neg(P\land Q)\equiv(\neg P\lor\neg Q)$ and $\neg(P\lor Q)\equiv(\neg P\land\neg Q)$, extended to any length: negating a chain flips the connective at every level. \seealso{A3, A4, A7, B3, B8}
-  \item \textbf{Quantifier Flip on Negation.}
-        $\neg(\forall x\,P(x))\equiv\exists x\,\neg P(x)$ and $\neg(\exists x\,P(x))\equiv\forall x\,\neg P(x)$; the predicate itself is also negated ($>$ becomes $\le$, $\ge$ becomes $<$, $=$ becomes $\neq$). \seealso{A1, A2, B4, B6, C3}
-  \item \textbf{Order of Quantifiers Changes Meaning.}
-        $\exists x\,\forall y\,P(x,y)$ (one $x$ works for every $y$) is strictly stronger than $\forall y\,\exists x\,P(x,y)$ (for each $y$ a possibly different $x$); the first implies the second, not conversely. \seealso{A9, B5, C1, C6, D5}
-  \item \textbf{Nested Quantifier Negation Step by Step.}
-        Negate outside-in, flipping each quantifier and finally the inner predicate: $\neg(\forall x\,\exists y\,\forall z\,P)\equiv\exists x\,\forall y\,\exists z\,\neg P$. \seealso{B4, B6, C5, C7, D1, C8}
-  \item \textbf{Witness Construction for Existentials.}
-        $\exists n\,\forall k\le10\,(k\mid n)$ is witnessed by $n=\mathrm{lcm}(1,\dots,10)=2520$; $\exists x\,\forall n\,(x^{2}<n)$ is witnessed by $x=0$ because $n\ge1$. Edge domains ($n=1$) determine truth. \seealso{C1, C5, C6, C7, C8, D4}
+  \item \textbf{De Morgan for Conjunctions, Disjunctions and Implications.}
+        $\neg(P\land Q)\equiv(\neg P\lor\neg Q)$, $\neg(P\lor Q)\equiv(\neg P\land\neg Q)$, and $\neg(P\implies Q)\equiv P\land\neg Q$. Negating an implication turns the antecedent into an asserted fact and negates the conclusion. \seealso{A3, A6, A7, B8, B9}
+  \item \textbf{Quantifier Flip and Domain Preservation.}
+        $\neg(\forall x\,P(x))\equiv\exists x\,\neg P(x)$ and $\neg(\exists x\,P(x))\equiv\forall x\,\neg P(x)$. The quantifier flips and the inner predicate negates, but the domain restriction itself ($x \in \mathbb{R}$, $n > 2$) is never negated. \seealso{A1, A10, B1, B4, C3}
+  \item \textbf{Order of Quantifiers and Asymmetry.}
+        $\exists x\,\forall y\,P(x,y)$ (a single $x$ works uniformly for all $y$) is strictly stronger than $\forall y\,\exists x\,P(x,y)$ (each $y$ selects a tailored $x$). Swapping their order changes the truth value. \seealso{A2, A4, A5, C1, D5}
+  \item \textbf{Boundary Testing and Quantifier Constraints.}
+        Quantified statements like $\forall x < 0\,(x^2 > k)$ or $x(1-y)+y > 0$ are resolved by checking boundary infima ($k=0$) or minimal domain points ($n=1$ in $\mathbb{Z}^+$). \seealso{A2, A8, B3, C2, C8}
+  \item \textbf{Multi-Premise Truth Elimination.}
+        A false implication uniquely fixes its premise as True and conclusion as False; in ``exactly one true'' puzzles, deduce contradictions from dependent statements. \seealso{A9, B2, B5, C6, D1}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -285,16 +311,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Keeping the quantifier the same when negating.}
-        $\neg(\forall x\,P(x))$ is $\exists x\,\neg P(x)$, not $\forall x\,\neg P(x)$; the most common error is to leave $\forall$ as $\forall$. \seealso{A5, B6, C3, D1, B10}
-  \item \textbf{Forgetting to flip the connective with De Morgan.}
-        $\neg(P\land Q)$ needs ``or'', $\neg(P\lor Q)$ needs ``and''; writing $\neg(P\land Q)$ as $(\neg P\land\neg Q)$ is always wrong. \seealso{A3, A7, B7, B9, A4}
-  \item \textbf{Thinking $\exists x\,\forall y$ and $\forall y\,\exists x$ are equivalent.}
-        $\exists x\,\forall y\,(x+y=0)$ is false (no single $x$ works for every $y$) while $\forall y\,\exists x\,(x+y=0)$ is true ($x=-y$ depends on $y$). \seealso{A9, B5, C1, D5, B4}
-  \item \textbf{Ignoring the domain restriction that makes a claim true.}
-        ``$\exists x\,\forall n\,(x^{2}<n)$'' with $n$ a positive integer is true via $x=0$ since $n\ge1$; over all real $n$ it would be false. \seealso{C1, C6, C8, B4, D2}
-  \item \textbf{Missing the $n=1$ edge case for ``$\exists m<n$ prime''.}
-        ``$\forall n\,\exists m<n$ prime'' fails at $n=1$ (no positive $m<1$) and at $n=2$ ($m=1$ not prime); one smallest counterexample disproves the universal. \seealso{C8, B6, B10, C4, D4}
+  \item \textbf{Keeping Quantifiers Identical on Negation.}
+        $\neg(\forall x\,P(x))$ is $\exists x\,\neg P(x)$, never $\forall x\,\neg P(x)$. Leaving $\forall$ as $\forall$ is the single most common negation error. \seealso{A1, A10, B1, B4, C3}
+  \item \textbf{Negating Implications as Conditionals.}
+        $\neg(P\implies Q)$ is $P\land\neg Q$ (an assertion of fact and failure), never another implication like $\neg P\implies\neg Q$ or $\neg P\land\neg Q$. \seealso{A3, A9, B7, B8}
+  \item \textbf{Ignoring Discrete Domain Boundaries.}
+        Claims over $\mathbb{Z}^+$ such as $\forall n\,\exists m\,(m < n)$ fail at the boundary $n=1$. Always test minimal domain values ($n=1, 2$). \seealso{A2, C8, D3}
+  \item \textbf{Forgetting Excluded Punctures in Intervals.}
+        Negating $x \in [-2, 5)\setminus\{0\}$ requires including the isolated point $x=0$ in the negation; dropping it loses valid solutions. \seealso{A7, B9}
+  \item \textbf{Assuming Quantifier Order is Commutative.}
+        Treating $\forall x\,\exists y$ as interchangeable with $\exists y\,\forall x$ overlooks dependency: $\forall y\,\exists x\,(xy=1)$ holds over non-zeros, but $\exists x\,\forall y\,(xy=1)$ is completely false. \seealso{A4, A5, C1, D5}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
