@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item State the converse of: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $3$.''
+\item For real numbers $x, y$, classify ``$x > y$'' as a condition for ``$x^3 > y^3$''.
 
-\ans{``If $n$ is a multiple of $3$, then $n$ is a multiple of $6$.''}
-\method{Swap the hypothesis and conclusion: the converse of ``if $P$ then $Q$'' is ``if $Q$ then $P$''.}
-\inv{This converse is false ($n=3$ is a multiple of $3$ but not $6$) --- Section B's B10 explores a nearly identical pair.}
+\ans{Necessary and sufficient.}
+\method{The function $f(t)=t^3$ has derivative $f'(t)=3t^2\geq0$, with $f'(t)=0$ only at $t=0$, so $f$ is strictly increasing everywhere on $\mathbb{R}$. Hence $x > y \iff x^3 > y^3$. Both directions hold.}
+\inv{Unlike squaring ($x > y \not\iff x^2 > y^2$), odd powers preserve order globally across all real numbers.}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item State the contrapositive of: ``If $n$ is a multiple of $6$, then $n$ is a multiple of $3$.''
+\item For non-zero real numbers $x, y$, classify ``$x > y$'' as a condition for ``$\dfrac{1}{x} < \dfrac{1}{y}$''.
 
-\ans{``If $n$ is not a multiple of $3$, then $n$ is not a multiple of $6$.''}
-\method{Negate both clauses and swap: the contrapositive of ``if $P$ then $Q$'' is ``if not $Q$ then not $P$''.}
-\inv{Unlike A1's converse, the contrapositive is always true whenever the original is (A7) --- since the original is true ($6=3\times2$), this contrapositive is true too.}
+\ans{Neither necessary nor sufficient.}
+\method{Not sufficient: $x=1, y=-2 \implies x > y$, but $\frac{1}{x} = 1 > -\frac{1}{2} = \frac{1}{y}$. Not necessary: $x=-2, y=-1 \implies \frac{1}{x} = -0.5 > -1 = \frac{1}{y}$, while for $x=-1, y=2$ we have $\frac{1}{x} = -1 < \frac{1}{2} = \frac{1}{y}$ but $x < y$.}
+\inv{The inequality $\frac{1}{x} < \frac{1}{y} \iff \frac{y-x}{xy} < 0$ depends entirely on the sign of the product $xy$. It only reverses when $x$ and $y$ share the same sign.}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$x=3$'' is sufficient for ``$x^2=9$''.
+\item For the quadratic equation $x^2 - 2kx + 1 = 0$, classify ``$k > 1$'' as a condition for ``the equation has two distinct positive real roots''.
 
-\ans{True.}
-\method{$x=3 \Rightarrow x^2=9$ directly by substitution --- exactly what ``sufficient'' means.}
-\inv{Compare A4: sufficiency and necessity are independent questions about the same pair of statements.}
+\ans{Necessary and sufficient.}
+\method{For two distinct real roots, the discriminant $\Delta = 4k^2 - 4 > 0 \iff k^2 > 1 \iff |k| > 1$. By Vieta's formulas, the product of roots is $1 > 0$, so the roots share the same sign. The sum of roots is $2k$. For the roots to be positive, we need sum $2k > 0 \implies k > 0$. Combining $|k| > 1$ and $k > 0$ gives $k > 1$.}
+\inv{This three-part test (discriminant, product sign, sum sign) is the universal TMUA protocol for quadratic root separation.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$x=3$'' is necessary for ``$x^2=9$''.
+\item For real numbers $x, y$, classify ``$|x + y| = |x| + |y|$'' as a condition for ``$xy \ge 0$''.
 
-\ans{False.}
-\method{$x^2=9 \Rightarrow x=3$ is false: $x=-3$ also satisfies $x^2=9$.}
-\inv{``$x=3$'' is sufficient but not necessary for ``$x^2=9$'' --- the first fully classified pair of the day.}
+\ans{Necessary and sufficient.}
+\method{Both sides are non-negative, so square both sides: $(x+y)^2 = (|x|+|y|)^2 \iff x^2+2xy+y^2 = x^2+2|xy|+y^2 \iff xy = |xy|$. Since $xy = |xy| \iff xy \geq 0$, the condition is necessary and sufficient.}
+\inv{The Triangle Inequality $|x+y| \le |x|+|y|$ achieves equality if and only if $x$ and $y$ have the same sign (or at least one is zero).}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item Is ``$n$ is a multiple of $4$'' necessary, sufficient, or neither, for ``$n$ is a multiple of $2$''?
+\item Let $f:\mathbb{R}\to\mathbb{R}$ be differentiable. Classify ``$f'(x) > 0$ for all $x \in \mathbb{R}$'' as a condition for ``$f$ is strictly increasing on $\mathbb{R}$''.
 
-\ans{Sufficient.}
-\method{$4\mid n \Rightarrow 2\mid n$, since $4=2\times2$. It is not necessary: $n=2$ is a multiple of $2$ but not of $4$.}
-\inv{A quick way to spot sufficiency instantly: whenever the first property is the more restrictive one (multiples of $4$ are a subset of multiples of $2$), it can only ever be sufficient, never necessary.}
+\ans{Sufficient but not necessary.}
+\method{By the Mean Value Theorem, $f'(x) > 0$ everywhere implies $f(b)-f(a) = f'(c)(b-a) > 0$ for all $b > a$, so $f$ is strictly increasing (sufficient). It is not necessary: $f(x) = x^3$ is strictly increasing on $\mathbb{R}$, yet $f'(0) = 0 \not> 0$.}
+\inv{A classic TMUA distinction: strict positivity of the derivative is sufficient, but isolated stationary points do not break strict monotonicity.}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item State the inverse of: ``If $n$ is prime, then $n$ is odd or $n=2$.''
+\item For real constants $a, b, c, d$, classify ``$ad - bc \neq 0$'' as a condition for ``the system $ax + by = 0,\ cx + dy = 0$ has only the trivial solution $(x,y)=(0,0)$''.
 
-\ans{``If $n$ is not prime, then $n$ is even and $n\neq2$.''}
-\method{The inverse negates both clauses without swapping their order: ``if not $P$ then not $Q$''. Negating ``odd or $n=2$'' gives, by De Morgan, ``not odd and $n\neq2$'', i.e.\ ``even and $n\neq2$''.}
-\inv{The inverse is a distinct operation from both the converse (swap only) and the contrapositive (negate and swap) --- Section B's B7 investigates how the inverse relates to the converse.}
+\ans{Necessary and sufficient.}
+\method{A homogeneous $2\times2$ linear system has non-trivial solutions if and only if the lines are collinear, which occurs iff $\det = ad - bc = 0$. Hence having only the trivial solution is equivalent to $ad - bc \neq 0$.}
+\inv{Determinant non-zero $\iff$ unique solution $\iff$ kernel is trivial: the foundation of linear algebra condition strength.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``The contrapositive of a true statement is always true.''
+\item For a point $(x, y) \in \mathbb{R}^2$, classify ``$x^2 + y^2 \le 1$'' as a condition for ``$|x| + |y| \le \sqrt{2}$''.
 
-\ans{True.}
-\method{``If $P$ then $Q$'' is false only when $P$ is true and $Q$ is false; ``if not $Q$ then not $P$'' is false only in that same case. They share the same truth value in every case, so a true original always has a true contrapositive.}
-\inv{This is the entire reason proof by contrapositive (a later toolkit item) is a fully legitimate proof method, not just a rephrasing trick.}
+\ans{Sufficient but not necessary.}
+\method{By Cauchy-Schwarz, $(|x|+|y|)^2 \le (1^2+1^2)(x^2+y^2) = 2(x^2+y^2)$. If $x^2+y^2 \le 1$, then $(|x|+|y|)^2 \le 2 \implies |x|+|y| \le \sqrt{2}$ (sufficient). Not necessary: the point $(1, 0.4)$ has $|x|+|y| = 1.4 \le \sqrt{2} \approx 1.414$, but $x^2+y^2 = 1 + 0.16 = 1.16 > 1$.}
+\inv{Geometrically, the unit circle is inscribed inside the diamond $|x|+|y| \le \sqrt{2}$ with four tangent points $(\pm\frac{1}{\sqrt2}, \pm\frac{1}{\sqrt2})$. The diamond strictly contains the disk.}
 
 %── A8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``The converse of a true statement is always true.''
+\item For a positive integer $n$, classify ``$12 \mid n$'' as a condition for ``$4 \mid n$ and $6 \mid n$''.
 
-\ans{False.}
-\method{A1 is a direct counterexample: ``$n$ mult.\ $6\Rightarrow n$ mult.\ $3$'' is true, but its converse is false.}
-\inv{Contrast directly with A7 --- the contrapositive is always safe, the converse never is guaranteed.}
+\ans{Necessary and sufficient.}
+\method{An integer $n$ is divisible by both $4$ and $6$ if and only if $n$ is divisible by $\operatorname{lcm}(4, 6) = 12$. Since $12 \mid n \iff (4 \mid n \land 6 \mid n)$, the condition is necessary and sufficient.}
+\inv{Unlike $4 \times 6 = 24$, which is sufficient but not necessary, the LCM gives the exact biconditional.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item Negate: ``If $n$ is even, then $n^2$ is even.''
+\item For a triangle with side lengths $a, b, c$, classify ``$a^2 + b^2 = c^2$'' as a condition for ``the area of the triangle is $\frac{1}{2}ab$''.
 
-\ans{``$n$ is even and $n^2$ is odd.''}
-\method{The negation of ``if $P$ then $Q$'' is ``$P$ and not $Q$'', never another conditional.}
-\inv{This negation is unsatisfiable (no even $n$ gives an odd $n^2$), consistent with the original being true.}
+\ans{Necessary and sufficient.}
+\method{The area of any triangle with sides $a, b$ and included angle $C$ is $\text{Area} = \frac{1}{2}ab\sin C$. Thus $\text{Area} = \frac{1}{2}ab \iff \sin C = 1 \iff C = 90^\circ$. By the Law of Cosines, $c^2 = a^2+b^2 - 2ab\cos C$, so $C = 90^\circ \iff a^2+b^2 = c^2$. Both directions hold.}
+\inv{Pythagoras and the sine area formula link right-angles to area maximization: $\sin C \le 1$ with equality iff right-angled.}
 
 %── A10 ─────────────────────────────────────────────────────────────────────────
-\item True or false: ``$n$ is a multiple of $12$'' is sufficient for ``$n$ is a multiple of $4$''.
+\item For an integer $n$, classify ``$n$ is odd'' as a condition for ``$n^2 \equiv 1 \pmod 8$''.
 
-\ans{True.}
-\method{$12=4\times3$, so $12\mid n \Rightarrow 4\mid n$ directly.}
-\inv{Not necessary: $n=4$ is a multiple of $4$ but not of $12$ --- the same ``more restrictive $\Rightarrow$ sufficient only'' pattern as A5.}
+\ans{Necessary and sufficient.}
+\method{If $n$ is odd, $n = 2k+1$, so $n^2 = 4k(k+1)+1$. Since $k(k+1)$ is the product of consecutive integers, it is even, so $4k(k+1)$ is a multiple of $8$, giving $n^2 \equiv 1 \pmod 8$ (sufficient). Conversely, if $n$ is even, $n^2$ is even, so $n^2 \not\equiv 1 \pmod 8$ (necessary).}
+\inv{Every odd square is $1 \pmod 8$ --- one of the most powerful modular invariants in TMUA Paper 2.}
 
 \end{enumerate}
 
@@ -89,74 +89,79 @@
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item State both the converse and contrapositive of ``If $x>2$, then $x^2>4$.'' Determine the truth of each.
+\item Determine the necessary and sufficient condition on real $k$ such that the quadratic equation $x^2 - kx + 9 = 0$ has two distinct real roots that are both strictly greater than $1$. \textit{\small(after TMUA 2021 Paper 2 Q9)}
 
-\ans{Converse: ``If $x^2>4$, then $x>2$'' --- false. Contrapositive: ``If $x^2\leq4$, then $x\leq2$'' --- true.}
-\method{Converse counterexample: $x=-3$ gives $x^2=9>4$ but $x\leq2$. The contrapositive shares its truth value with the (true) original: $x^2\leq4 \iff -2\leq x\leq2$, which certainly forces $x\leq2$.}
-\inv{A false converse alongside a true contrapositive is the default pattern, not a coincidence --- only the contrapositive is guaranteed to inherit the original's truth.}
+\ans{$6 < k < 10$.}
+\method{Let $f(x) = x^2 - kx + 9$. For $f$ to have two distinct real roots $> 1$: (1) $\Delta = k^2 - 36 > 0 \implies |k| > 6$. (2) The vertex of the parabola $x = k/2 > 1 \implies k > 2$. Combining with $|k| > 6$ gives $k > 6$. (3) Both roots $> 1$ requires $f(1) > 0$, so $f(1) = 1 - k + 9 = 10 - k > 0 \implies k < 10$. Together, $6 < k < 10$.}
+\inv{If $k \ge 10$, one root is $\le 1$; if $k \le 6$, the roots are complex or coincident.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Classify ``$n=6$'' as necessary, sufficient, both, or neither, for ``$n$ is a multiple of $3$''.
-
-\ans{Sufficient but not necessary.}
-\method{$n=6 \Rightarrow n$ is a multiple of $3$ (sufficient). $n=9$ is a multiple of $3$ but $n\neq6$ (not necessary).}
-\inv{A single specific value can be sufficient for a broader property, but is essentially never necessary for one --- necessity requires ruling out every other possibility.}
-
-%── B3 ──────────────────────────────────────────────────────────────────────────
-\item Classify ``$n$ is divisible by $6$'' as necessary, sufficient, both, or neither, for ``$n$ is divisible by $2$ and by $3$''.
+\item Let $f:\mathbb{R}\to\mathbb{R}$ be differentiable. Consider the conditions:
+\begin{enumerate}
+\item[I.] $f(-x) = f(x)$ for all $x \in \mathbb{R}$.
+\item[II.] $f'(-x) = -f'(x)$ for all $x \in \mathbb{R}$.
+\end{enumerate}
+Classify condition I as a condition for condition II. \textit{\small(after TMUA 2018 Paper 2 Q10)}
 
 \ans{Necessary and sufficient.}
-\method{Sufficient: $6\mid n \Rightarrow 2\mid n$ and $3\mid n$ directly. Necessary: since $\gcd(2,3)=1$, $\mathrm{lcm}(2,3)=6$, so $2\mid n$ and $3\mid n$ together force $6\mid n$.}
-\inv{Whenever a statement and its converse are both true, the condition is necessary and sufficient --- Section B's B5 makes this equivalence explicit.}
+\method{If I holds, differentiating $f(-x) = f(x)$ via chain rule gives $-f'(-x) = f'(x) \implies f'(-x) = -f'(x)$, so II holds (sufficient). Conversely, if II holds, let $h(x) = f(x) - f(-x)$. Then $h'(x) = f'(x) - (-f'(-x)) = f'(x) + f'(-x) = 0$ for all $x$, so $h(x) = C$ is constant. At $x = 0$, $h(0) = f(0) - f(0) = 0 \implies C = 0$, so $f(x) = f(-x)$ for all $x$ (necessary).}
+\inv{Because $h(0) = 0$ is guaranteed, the constant of integration vanishes, making evenness and odd derivative strictly equivalent on $\mathbb{R}$.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item For positive real numbers $x, y$, classify ``$\ln(x+y) < \ln x + \ln y$'' as a condition for ``$x > 1$ and $y > 1$''.
+
+\ans{Neither necessary nor sufficient.}
+\method{$\ln(x+y) < \ln(xy) \iff x+y < xy \iff xy - x - y > 0 \iff (x-1)(y-1) > 1$. Not sufficient: $x = 1.5, y = 1.5 \implies x > 1$ and $y > 1$, but $(0.5)(0.5) = 0.25 \not> 1$. Not necessary: $x = 10, y = 1.2 \implies (9)(0.2) = 1.8 > 1$, but if $x = 3, y = 0.5$ then $(2)(-0.5) = -1 < 1$. Furthermore, $x > 1$ and $y > 1$ is not necessary because both $x-1$ and $y-1$ could never be negative and multiply to $>1$ while being positive reals (since $x, y > 0 \implies x-1 > -1, y-1 > -1$). So it is neither.}
+\inv{Factoring $xy - x - y = (x-1)(y-1)-1$ converts the logarithmic inequality into a hyperbola region.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item State the contrapositive of ``If $a$ and $b$ are both even, then $a+b$ is even.'' Is it true?
+\item State the contrapositive of: ``If $a^2 + b^2$ is divisible by $3$, then both $a$ and $b$ are divisible by $3$'' (for integers $a, b$). Is this contrapositive true?
 
-\ans{``If $a+b$ is odd, then $a$ is odd or $b$ is odd.'' True.}
-\method{Negate both clauses and swap: hypothesis becomes ``$a+b$ is odd'', conclusion becomes ``$a$ is odd or $b$ is odd'' (De Morgan on ``not(both even)''). It shares the original's truth value, and the original is true: $a=2j,b=2k \Rightarrow a+b=2(j+k)$, even.}
-\inv{Writing the contrapositive of a compound hypothesis (``both even'') forces a De Morgan step on the way --- exactly Day 1's negation toolkit, now applied to a conditional's clauses.}
+\ans{Contrapositive: ``If at least one of $a$ or $b$ is not divisible by $3$, then $a^2 + b^2$ is not divisible by $3$.'' True.}
+\method{The contrapositive of $P \implies (Q \land R)$ is $\neg(Q \land R) \implies \neg P \equiv (\neg Q \lor \neg R) \implies \neg P$. In words: if $a$ or $b$ is not divisible by $3$, then $a^2+b^2$ is not divisible by $3$. For any integer $n$, $n^2 \equiv 0$ or $1 \pmod 3$. Thus $a^2+b^2 \equiv 0 \pmod 3$ iff $a^2 \equiv 0$ and $b^2 \equiv 0 \pmod 3 \iff 3\mid a$ and $3\mid b$. The original statement is true, so its contrapositive is true.}
+\inv{De Morgan on the conclusion of an implication flips ``both'' to ``at least one fails''.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``If $P\Rightarrow Q$ and $Q\Rightarrow P$ are both true, then $P$ and $Q$ are necessary and sufficient for each other.''
-
-\ans{True.}
-\method{$P\Rightarrow Q$ is exactly ``$P$ is sufficient for $Q$''; $Q\Rightarrow P$ is exactly ``$P$ is necessary for $Q$'' (since it says $Q$ requires $P$). Having both gives necessary and sufficient by definition.}
-\inv{This is B3's underlying principle stated in full generality --- ``iff'' is nothing more than a statement and its converse both holding.}
-
-%── B6 ──────────────────────────────────────────────────────────────────────────
-\item Given that ``$x$ is rational'' is sufficient for ``$x^2$ is rational'', state the converse. Is the converse true?
-
-\ans{Converse: ``$x^2$ is rational'' is sufficient for ``$x$ is rational''. The converse is false.}
-\method{Counterexample: $x=\sqrt2$ is irrational, but $x^2=2$ is rational --- so $x^2$ rational does not force $x$ rational.}
-\inv{Squaring can destroy irrationality even though multiplying two rationals never introduces it --- the same asymmetry underlies why $\sqrt2$'s irrationality proof works at all.}
-
-%── B7 ──────────────────────────────────────────────────────────────────────────
-\item State the inverse and the converse of ``If $n$ is prime, then $n$ is odd or $n=2$.'' Are they logically equivalent to each other?
-
-\ans{Inverse: ``If $n$ is not prime, then $n$ is even and $n\neq2$'' (A6). Converse: ``If $n$ is odd or $n=2$, then $n$ is prime.'' Yes, they are logically equivalent.}
-\method{In general, the contrapositive of the converse ``$Q\Rightarrow P$'' is ``not $P\Rightarrow$ not $Q$'', which is exactly the inverse. Since a statement and its contrapositive always share a truth value (A7), the converse and the inverse --- being contrapositives of each other --- must always share a truth value too.}
-\inv{This is a genuinely useful shortcut: to find whether a converse is true, it is sometimes easier to test the inverse instead, since they are guaranteed to agree.}
-
-%── B8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``$a=b$'' is necessary and sufficient for ``$a^2=b^2$''.
-
-\ans{False.}
-\method{Sufficient: $a=b \Rightarrow a^2=b^2$, true. Necessary: $a^2=b^2 \Rightarrow a=b$? False --- $a=2,b=-2$ gives $a^2=b^2=4$ but $a\neq b$. So it is sufficient but not necessary, not both.}
-\inv{The correct necessary-and-sufficient condition is $a=b$ \emph{or} $a=-b$ --- squaring always loses sign information (Day 1's D5 previewed this exact pattern with a function).}
-
-%── B9 ──────────────────────────────────────────────────────────────────────────
-\item Is ``$x^2>4$'' necessary, sufficient, both, or neither, for ``$x>2$''?
+\item Let $T_1$ and $T_2$ be two triangles. Classify ``$T_1$ and $T_2$ have equal perimeter and equal area'' as a condition for ``$T_1$ and $T_2$ are congruent''.
 
 \ans{Necessary but not sufficient.}
-\method{Necessary: $x>2 \Rightarrow x^2>4$, true. Not sufficient: $x=-3$ gives $x^2=9>4$ but $x\not>2$.}
-\inv{$x^2>4 \iff x>2$ or $x<-2$ --- the ``$x<-2$'' branch is exactly what breaks sufficiency here.}
+\method{Congruent triangles have identical sides, so equal perimeter and equal area is necessary. It is not sufficient: a triangle's area and perimeter fix the semiperimeter $s$ and inradius $r = A/s$, but there exist non-congruent triangles with the same $s$ and $r$ (e.g.\ non-isometric Heron triangles or right triangles vs oblique triangles sharing $s$ and $A$).}
+\inv{Two invariants (perimeter and area) are not enough to fix the three degrees of freedom of a triangle up to congruence.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item For an integer $n$, classify ``$n$ is odd'' as a condition for ``$n^3 - n$ is a multiple of $24$''.
+
+\ans{Sufficient but not necessary.}
+\method{Factor $n^3-n = (n-1)n(n+1)$. If $n$ is odd, $n-1$ and $n+1$ are consecutive even integers, so one is divisible by $4$ and the other by $2$, giving $8 \mid n^3-n$. Among three consecutive integers, one is always divisible by $3$, so $24 \mid n^3-n$ (sufficient). It is not necessary: if $n = 8$ (even), $8^3 - 8 = 504 = 24 \times 21$, which is divisible by $24$.}
+\inv{A classic pitfall: $n$ odd guarantees divisibility by $24$, but certain even integers ($n$ a multiple of $24$, or $n \equiv 0 \pmod 8$) also work.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Suppose propositions $P, Q, R$ satisfy $P \implies Q$ and $R \implies Q$. Must either $P \implies R$ or $R \implies P$ be true? Justify with a mathematical counterexample.
+
+\ans{No. (Counterexample: let $Q$ be $x^2 \ge 0$, $P$ be $x = 1$, and $R$ be $x = -1$).}
+\method{Both $x=1$ and $x=-1$ imply $x^2 \ge 0$, so $P\implies Q$ and $R\implies Q$ are both true. But $x=1 \implies x=-1$ is false, and $x=-1 \implies x=1$ is false. Thus neither $P\implies R$ nor $R\implies P$ holds.}
+\inv{Two independent sufficient conditions for the same conclusion need have no logical relation to each other.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item For real $c$, determine whether ``$c < 0$'' is necessary, sufficient, both, or neither for the quartic equation $x^4 + x^2 + c = 0$ to have at least two distinct real roots.
+
+\ans{Necessary and sufficient.}
+\method{Let $u = x^2 \ge 0$. The equation becomes $u^2 + u + c = 0$. By Vieta's formulas, the product of roots in $u$ is $c$. If $c < 0$, the roots in $u$ have opposite signs, so there is exactly one positive root $u_1 > 0$, yielding two distinct real roots $x = \pm\sqrt{u_1}$ (sufficient). If $c \ge 0$, then for all $u \ge 0$, $u^2+u+c \ge c \ge 0$; the only possible real root is $u=0$ when $c=0$, which gives $x=0$ (one root, not two distinct roots). Thus $c < 0$ is also necessary.}
+\inv{Substitution $u=x^2$ requires paying close attention to the domain $u \ge 0$: only positive $u$ generate pairs of real roots.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Consider the statement: ``If $n$ is a multiple of $9$, then $n^2$ is a multiple of $27$'' (for positive integer $n$). State its converse, and determine whether the converse is true or false.
+
+\ans{Converse: ``If $n^2$ is a multiple of $27$, then $n$ is a multiple of $9$.'' True.}
+\method{The converse states $27 \mid n^2 \implies 9 \mid n$. If $27 \mid n^2$, then $3^3 \mid n^2$. Let the power of $3$ dividing $n$ be $3^k$. Then $3^{2k}$ divides $n^2$, so $2k \ge 3 \implies k \ge 2$. Thus $3^2 = 9$ divides $n$. Hence the converse is true.}
+\inv{The exponent $3$ in $27 = 3^3$ forces $k \ge \lceil 3/2 \rceil = 2$, which uniquely forces divisibility by $3^2 = 9$.}
 
 %── B10 ─────────────────────────────────────────────────────────────────────────
-\item State the converse of ``If $n$ is a multiple of $9$, then $n$ is a multiple of $3$.'' Is the converse true?
+\item Let $f:\mathbb{R}\to\mathbb{R}$ be twice differentiable. Classify ``$f'(a) = 0$ and $f''(a) > 0$'' as a condition for ``$f$ has a local minimum at $x = a$''.
 
-\ans{Converse: ``If $n$ is a multiple of $3$, then $n$ is a multiple of $9$.'' The converse is false.}
-\method{Counterexample: $n=3$ is a multiple of $3$ but not of $9$.}
-\inv{This is the exact converse-failure pair used again in Section D's D5(b), where it's contrasted with the (true) $12$-vs-$4$-and-$3$ relationship.}
+\ans{Sufficient but not necessary.}
+\method{By the Second Derivative Test, $f'(a) = 0$ and $f''(a) > 0$ guarantees a local minimum (sufficient). It is not necessary: $f(x) = x^4$ has a global minimum at $x = 0$, where $f'(0) = 0$ and $f''(0) = 0 \not> 0$.}
+\inv{Higher-order flat minima ($x^4, x^6$) refute necessity of strict second derivatives.}
 
 \end{enumerate}
 
@@ -172,11 +177,11 @@
 \inv{Solving $x=\frac{(x+y)+(x-y)}{2}$, $y=\frac{(x+y)-(x-y)}{2}$ shows exactly what goes wrong: $x,y$ are only forced to be integers when $x+y$ and $x-y$ have the \emph{same parity} (so the sum/difference is even) --- a condition the question's hypothesis never guarantees.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item Given that $P$ is necessary and sufficient for $Q$, and $Q$ is necessary and sufficient for $R$, prove that $P$ is necessary and sufficient for $R$.
+\item Determine the condition on real parameters $p, q$ that is necessary and sufficient for the cubic $x^3 - 3px + q = 0$ with $p > 0$ to have three distinct real roots.
 
-\ans{Proved.}
-\method{``$P$ necessary and sufficient for $Q$'' gives both $P\Rightarrow Q$ and $Q\Rightarrow P$; likewise $Q\Rightarrow R$ and $R\Rightarrow Q$. Chaining sufficiency: $P\Rightarrow Q\Rightarrow R$ gives $P\Rightarrow R$. Chaining the reverse: $R\Rightarrow Q\Rightarrow P$ gives $R\Rightarrow P$. Both directions hold, so $P$ is necessary and sufficient for $R$.}
-\inv{``Iff'' chains exactly like plain implication does, just in both directions at once --- a chain of equivalent definitions transfers all the way down the chain.}
+\ans{B) $4p^3 > q^2$.}
+\method{Let $f(x) = x^3 - 3px + q$. Differentiating gives $f'(x) = 3x^2 - 3p = 3(x^2 - p) = 0 \implies x = \pm\sqrt{p}$. A cubic with positive leading coefficient has three distinct real roots iff its local maximum is positive and local minimum is negative: $f(-\sqrt{p}) > 0$ and $f(\sqrt{p}) < 0$, which is equivalent to $f(-\sqrt{p})f(\sqrt{p}) < 0$. We compute: $f(\sqrt{p}) = p^{3/2} - 3p^{3/2} + q = q - 2p^{3/2}$, and $f(-\sqrt{p}) = -p^{3/2} + 3p^{3/2} + q = q + 2p^{3/2}$. Their product is $(q - 2p^{3/2})(q + 2p^{3/2}) = q^2 - 4p^3 < 0 \iff 4p^3 > q^2$. This matches option B.}
+\inv{This is the classic cubic discriminant $\Delta = 4p^3 - q^2 > 0$ derived entirely from calculus extrema.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
 \item Classify ``a triangle has all three altitudes of equal length'' as a condition for ``the triangle is equilateral''. Justify using the fact that an altitude to side $a$ has length $\frac{2\times\text{Area}}{a}$.
@@ -193,31 +198,31 @@
 \inv{This only fails because $n=9=3^2$ is not squarefree --- if $n$ were prime, divisibility of a product would force divisibility of a factor (Euclid's Lemma), making the condition necessary too. The gap here is exactly why primality matters so much in Number Theory.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Statement $S$: ``If $n$ is a multiple of $8$, then $n$ is a multiple of $2$.'' Determine whether $S$'s converse is true by testing $S$'s inverse instead. State the inverse, and your conclusion about the converse.
+\item For a twice-differentiable function $f:\mathbb{R}\to\mathbb{R}$, which of the following is necessary and sufficient for the midpoint convexity condition $\frac{f(a)+f(b)}{2} \ge f\left(\frac{a+b}{2}\right)$ to hold for all $a, b \in \mathbb{R}$? \textit{\small(after TMUA 2018 Paper 2 Q18)}
 
-\ans{Inverse: ``If $n$ is not a multiple of $8$, then $n$ is not a multiple of $2$.'' The inverse is false, so the converse is also false.}
-\method{$n=4$ is not a multiple of $8$, but $4$ is a multiple of $2$ --- a direct counterexample to the inverse. By B7's fact (inverse $\equiv$ converse always), the converse must therefore be false too, without needing to test it separately: the converse ``if $n$ is a multiple of $2$, then $n$ is a multiple of $8$'' indeed fails at $n=2$.}
-\inv{This is B7's shortcut actually put to work: one counterexample check (on the inverse) settled the converse's truth value for free.}
+\ans{B) $f''(x) \ge 0$ for all $x \in \mathbb{R}$.}
+\method{For a twice-differentiable function, convexity is equivalent to non-negative second derivative: $f''(x) \ge 0$ for all $x$. Option A ($f''(x) > 0$) is sufficient but not necessary: $f(x) = x^4$ is convex everywhere but $f''(0) = 0$, and linear functions $f(x) = mx+c$ satisfy equality with $f''(x) \equiv 0$. Option C and D have no relation to convexity. Hence B is necessary and sufficient.}
+\inv{Midpoint convexity plus continuity implies full Jensen convexity $\sum \lambda_i f(x_i) \ge f(\sum \lambda_i x_i)$.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
 \item Classify ``$n^2$ is even'' as a condition for ``$n$ is even''.
 
 \ans{C) necessary and sufficient.}
 \method{Sufficient: if $n^2$ is even, then $n$ cannot be odd (an odd number squared is odd), so $n$ is even. Necessary: if $n$ is even, $n^2$ is even directly.}
-\inv{Both directions holding here is exactly why ``$n$ even $\iff n^2$ even'' is such a reliable tool --- contrast with C5's example of an inverse that is \emph{false}, which drags its converse down with it.}
+\inv{Both directions holding here is exactly why ``$n$ even $\iff n^2$ even'' is such a reliable tool in proofs by contradiction.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item Statement $S$ is true, and $S$'s inverse is also true. What can you conclude about $S$'s converse? Justify.
+\item Let $p(x)$ be a cubic polynomial with real coefficients. Which of the following conditions is necessary and sufficient for the existence of $c \in (a, b)$ such that $p'(c) = 0$? \textit{\small(after TMUA 2021 Paper 2 Q8)}
 
-\ans{$S$'s converse must also be true.}
-\method{By B7, $S$'s inverse and $S$'s converse are always logically equivalent (same truth value in every case). Since the inverse is given true, the converse is true too.}
-\inv{This gives a free extra fact: checking the inverse instead of the converse directly can sometimes be the easier route to the same conclusion.}
+\ans{C) $p'(x) = 0$ has real roots and at least one lies in $(a, b)$.}
+\method{The statement asserts the existence of a real number $c \in (a, b)$ satisfying $p'(c) = 0$. By definition, this occurs if and only if $p'(x) = 0$ has real roots and at least one root lies in the open interval $(a, b)$. Option A ($p(a)=p(b)$) is sufficient by Rolle's Theorem, but not necessary (a cubic can have a stationary point in $(a, b)$ without $p(a)=p(b)$). Option B is sufficient by the Intermediate Value Theorem, but not necessary (both $p'(a)$ and $p'(b)$ could be positive while a local min and max both lie inside $(a, b)$). Thus C is the exact necessary and sufficient condition.}
+\inv{Distinguishing between a theorem's hypothesis (sufficient, like Rolle's) and the exact semantic equivalence is a core TMUA Paper 2 theme.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
 \item State the contrapositive of ``If $a$ and $b$ are both irrational, then $ab$ is irrational.'' Is the original statement true? Give a counterexample if false.
 
 \ans{Contrapositive: ``If $ab$ is rational, then $a$ is rational or $b$ is rational.'' The original statement is false; counterexample $a=b=\sqrt2$.}
-\method{$\sqrt2$ is irrational, but $ab=\sqrt2\times\sqrt2=2$, which is rational --- disproving the original. Since the contrapositive always shares the original's truth value (A7), the same counterexample shows the contrapositive is false too: $ab=2$ is rational, yet neither $a=\sqrt2$ nor $b=\sqrt2$ is rational.}
+\method{$\sqrt2$ is irrational, but $ab=\sqrt2\times\sqrt2=2$, which is rational --- disproving the original. Since the contrapositive always shares the original's truth value, the same counterexample shows the contrapositive is false too: $ab=2$ is rational, yet neither $a=\sqrt2$ nor $b=\sqrt2$ is rational.}
 \inv{One counterexample disproves both a statement and its contrapositive simultaneously --- there is never a need to separately hunt for a second one.}
 
 \end{enumerate}
@@ -230,8 +235,8 @@
 \item Let $f(x)=x^2+bx+c$ with $f(0)=c$. Let $P$ be the statement: ``if $c<0$, then $f$ has two distinct real roots.'' Which of the following must be true? \textit{\small(after TMUA 2022 Paper 2 Q5)}
 
 \ans{F) I and III only.}
-\method{I ($P$): the discriminant is $b^2-4c$; if $c<0$ then $-4c>0$, so $b^2-4c > b^2 \geq 0$, meaning the discriminant is always strictly positive --- $f$ always has two distinct real roots. $P$ is true. II (converse): ``if $f$ has two distinct real roots, then $c<0$'' --- false, since $b=3,c=1$ gives discriminant $9-4=5>0$ (two distinct real roots) with $c=1\not<0$. III (contrapositive): shares $P$'s truth value (A7), so it is true.}
-\inv{This mirrors B1's pattern exactly (true original, false converse, true contrapositive) but now requires an actual discriminant computation to establish $P$ itself, rather than reading it off directly.}
+\method{I ($P$): the discriminant is $b^2-4c$; if $c<0$ then $-4c>0$, so $b^2-4c > b^2 \geq 0$, meaning the discriminant is always strictly positive --- $f$ always has two distinct real roots. $P$ is true. II (converse): ``if $f$ has two distinct real roots, then $c<0$'' --- false, since $b=3,c=1$ gives discriminant $9-4=5>0$ (two distinct real roots) with $c=1\not<0$. III (contrapositive): shares $P$'s truth value, so it is true.}
+\inv{A true original implication with a false converse and a true contrapositive is the quintessential TMUA implication pattern.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Consider a finite list of $n$ real numbers (repeats allowed), sorted into non-decreasing order. Let $P$ be the statement ``$n$ is odd'', and let $Q$ be the statement ``the middle value of the sorted list equals one of the list's own entries''. $P$ is: \textit{\small(after TMUA 2022 Paper 2 Q6)}
@@ -252,14 +257,14 @@
 
 \ans{(a) True (a rhombus). (b) Converse: ``If a quadrilateral's diagonals are perpendicular, then it has four equal sides.'' The converse is false.}
 \method{(a) Let quadrilateral $WXYZ$ have $WX=XY=YZ=ZW$, and let $M$ be the intersection of diagonals $WY$ and $XZ$. Triangles $WXY$ and $WZY$ are congruent (SSS: $WX=WZ$, $XY=ZY$, $WY$ shared), so $\angle XWY=\angle ZWY$, meaning $WY$ bisects $\angle XWZ$; since triangle $WXZ$ is isosceles ($WX=WZ$), this bisector is also the perpendicular bisector of $XZ$. So the diagonals meet at right angles. (b) A kite with $WX=WZ$ but $XY=ZY\neq WX$ (two pairs of adjacent equal sides, not all four equal) has the same SSS congruence argument still apply to triangles $WXY,WZY$ --- so its diagonals are still perpendicular, but it is a counterexample to the converse since its sides are not all equal.}
-\inv{``Four equal sides'' is a strictly stronger condition than ``diagonals perpendicular'' --- every rhombus is a kite, but not every kite is a rhombus, matching the sufficient-not-necessary pattern threaded through the whole sheet, now geometric.}
+\inv{``Four equal sides'' is a strictly stronger condition than ``diagonals perpendicular'' --- every rhombus is a kite, but not every kite is a rhombus.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Statement $S$: ``If $n$ is a positive integer such that $n^2-1$ is prime, then $n=2$.'' (a) Is $S$ true? Prove or disprove. (b) State $S$'s contrapositive. (c) Is ``$n^2-1$ is prime'' necessary and sufficient for ``$n=2$''?
 
 \ans{(a) True. (b) ``If $n\neq2$, then $n^2-1$ is not prime.'' (c) Yes.}
-\method{(a) Factor $n^2-1=(n-1)(n+1)$. For a product of two positive integers to be prime, one factor must equal $1$ (a prime has exactly two positive divisors, itself and $1$, so the smaller factor of any factorisation into two positive integers $>1$ would already give at least two nontrivial divisors). Since $n\geq1$, the smaller factor is $n-1$, forcing $n-1=1$, i.e.\ $n=2$; checking, $n=2$ gives $n^2-1=3$, which is indeed prime. For every other $n>2$, both $n-1\geq2$ and $n+1\geq4$, so $(n-1)(n+1)$ is a product of two integers each $>1$, hence composite. So $n=2$ is true, and it is the \emph{only} positive integer for which $n^2-1$ is prime. (b) Negate both clauses of $S$ and swap. (c) Since $n=2$ is shown above to be the unique solution, ``$n^2-1$ prime'' and ``$n=2$'' describe exactly the same set of positive integers --- necessary and sufficient.}
-\inv{This closes the day by using all four of its tools in sequence on a single fact: stating $S$ (Day 2's headline object), proving it directly via factoring, writing its contrapositive on demand, and finally recognising that a ``prove $S$'' result about a \emph{unique} solution automatically upgrades to a full necessary-and-sufficient classification --- uniqueness is exactly what turns a one-directional implication into an iff for free.}
+\method{(a) Factor $n^2-1=(n-1)(n+1)$. For a product of two positive integers to be prime, one factor must equal $1$. Since $n\geq1$, the smaller factor is $n-1$, forcing $n-1=1$, i.e.\ $n=2$; checking, $n=2$ gives $n^2-1=3$, which is indeed prime. For every other $n>2$, both $n-1\geq2$ and $n+1\geq4$, so $(n-1)(n+1)$ is composite. So $n=2$ is true, and it is the unique positive integer. (b) Negate both clauses of $S$ and swap. (c) Since $n=2$ is the unique solution, ``$n^2-1$ prime'' and ``$n=2$'' describe exactly the same set --- necessary and sufficient.}
+\inv{Uniqueness turns a one-directional conditional implication into a biconditional equivalence for free.}
 
 \end{enumerate}
 
@@ -268,16 +273,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Converse, Contrapositive and Inverse.}
-        Converse swaps $P\Rightarrow Q$ to $Q\Rightarrow P$; contrapositive is $\neg Q\Rightarrow\neg P$ (always equivalent to the original); inverse is $\neg P\Rightarrow\neg Q$ (always equivalent to the converse). \seealso{A1, A2, A6, B1, B7}
-  \item \textbf{Necessary vs Sufficient as Directional Implications.}
-        ``$P$ sufficient for $Q$'' means $P\Rightarrow Q$; ``$P$ necessary for $Q$'' means $Q\Rightarrow P$; test each direction separately with a proof or one counterexample. \seealso{A3, A4, A5, B2, B8}
-  \item \textbf{Biconditional as Two Directions.}
-        $P\iff Q$ needs both $P\Rightarrow Q$ and $Q\Rightarrow P$; equivalently $P$ is necessary and sufficient for $Q$. A single counterexample to either direction refutes the biconditional. \seealso{B3, B5, C2, C3, D5}
-  \item \textbf{Inverse $\equiv$ Converse Shortcut.}
-        Since the inverse is the contrapositive of the converse, they share truth value; to decide if a converse holds, it is sometimes easier to test its inverse instead. \seealso{B7, C5, C7, D1, A7}
-  \item \textbf{Divisibility and Parity as Necessary/Sufficient Tests.}
-        $6\mid n\Rightarrow2\mid n$ but not conversely; $n^{2}$ even $\iff n$ even; altitudes $h_{a}=2A/a$ equal $\iff$ sides equal. Use the underlying identity in both directions. \seealso{A5, A10, B3, C1, C6, D4}
+  \item \textbf{Directional Testing of Necessity vs Sufficiency.}
+        ``$P$ is sufficient for $Q$'' means $P \implies Q$; ``$P$ is necessary for $Q$'' means $Q \implies P$. Always evaluate the forward and backward implications independently. \seealso{A1, A3, A5, B1, B5}
+  \item \textbf{Strict Inclusions and Counterexample Witnesses.}
+        A condition that is strictly more restrictive is sufficient but not necessary (e.g.\ $f'(x)>0$ for strict monotonicity, unit disk in $|x|+|y|\le\sqrt{2}$). Disprove necessity with an edge counterexample. \seealso{A5, A7, B6, B10, D2}
+  \item \textbf{Equivalence in Geometry and Algebra.}
+        $P \iff Q$ holds when both directions are valid: altitude equality forces equilateral sides, and symmetric quadratic discriminants pin down positive roots. \seealso{A3, A4, A6, A9, C3}
+  \item \textbf{Polynomial and Cubic Root Separation.}
+        Distinct roots in intervals or cubic extrema requiring $4p^3 > q^2$ demand checking discriminant signs, axis vertices, and interval boundaries together. \seealso{A3, B1, B8, C2, D1}
+  \item \textbf{Divisibility and Modular Invariants.}
+        $n^2 \equiv 1 \pmod 8 \iff n$ odd; $n^3-n \equiv 0 \pmod{24}$ for odd $n$. Exponent parity in prime factors establishes exact divisibility equivalences. \seealso{A8, A10, B4, B9, D3}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -285,16 +290,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Confusing contrapositive with converse.}
-        The contrapositive of a true statement is always true; the converse of a true statement is often false ($n$ mult.\ $6\Rightarrow n$ mult.\ $3$ is true, its converse is false). \seealso{A7, A8, A1, B1, C8}
-  \item \textbf{Thinking ``sufficient'' implies ``necessary'' (or conversely).}
-        $x=3$ is sufficient for $x^{2}=9$ but not necessary ($x=-3$ also works); $x^{2}>4$ is necessary for $x>2$ but not sufficient ($x=-3$). \seealso{A3, A4, B9, B2, B8}
-  \item \textbf{Forgetting the sign-loss when squaring.}
-        $a=b$ is sufficient for $a^{2}=b^{2}$ but not necessary; the correct necessary-and-sufficient condition is $a=b$ or $a=-b$. \seealso{B8, B4, D5, C8, A9}
-  \item \textbf{Upgrading a single sufficient value to necessity.}
-        $n=6$ is sufficient for ``$n$ multiple of $3$'' but not necessary; a single witness never proves necessity, which requires ruling out every alternative. \seealso{B2, A5, C4, D2, D3}
-  \item \textbf{Negating ``if $P$ then $Q$'' as another conditional.}
-        $\neg(P\Rightarrow Q)\equiv P\land\neg Q$ (e.g.\ ``$n$ even and $n^{2}$ odd''), never ``if not $P$ then not $Q$'' or another implication. \seealso{A9, B8, C8, B4, A6}
+  \item \textbf{Assuming Sufficiency Automatically Implying Necessity.}
+        $f'(x)>0$ guarantees $f$ is strictly increasing, but $f(x)=x^3$ is strictly increasing with $f'(0)=0$; never assume the converse holds without checking. \seealso{A5, B6, B10, D2, D3}
+  \item \textbf{Overlooking Sign Flips in Reciprocals and Inequalities.}
+        $x > y$ does not imply $1/x < 1/y$ when signs differ ($x=1, y=-2$); sign preservation is essential when inverting inequalities. \seealso{A2, B3, C1, D4}
+  \item \textbf{Assuming False Transitivity Across Shared Consequences.}
+        $P \implies Q$ and $R \implies Q$ does not imply any logical link between $P$ and $R$ ($x=1$ and $x=-1$ both square to $1$). \seealso{B7, C4}
+  \item \textbf{Confusing Contrapositive with Converse.}
+        The contrapositive of $a^2+b^2 \equiv 0 \pmod 3$ always shares its truth value; the converse requires its own independent justification. \seealso{B4, B9, C8, D1, D4}
+  \item \textbf{Missing Multiplicity or Trivial Degeneracies.}
+        In $x^4+x^2+c=0$, $c=0$ yields $x=0$ with multiplicity 2 rather than distinct real roots; strict inequalities at boundaries make or break equivalence. \seealso{A3, B1, B8, C7, D5}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}

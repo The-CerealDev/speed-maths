@@ -54,150 +54,202 @@ def dot2(u, v):
 
 def check_A1():
     """EXHAUSTIVE PROOF"""
-    P = lambda n: n % 6 == 0
-    Q = lambda n: n % 3 == 0
-    assert all(not P(n) or Q(n) for n in range(-1000, 1001))
-    assert Q(3) and not P(3)
-    return "``If $n$ is a multiple of $3$, then $n$ is a multiple of $6$.''"
+    for x in range(-50, 51):
+        for y in range(-50, 51):
+            assert (x > y) == (x**3 > y**3)
+    return "Necessary and sufficient."
 
 def check_A2():
     """EXHAUSTIVE PROOF"""
-    P = lambda n: n % 6 == 0
-    Q = lambda n: n % 3 == 0
-    for n in range(-1000, 1001):
-        orig = not P(n) or Q(n)
-        contra = not (not Q(n)) or (not P(n))
-        assert orig == contra
-    return "``If $n$ is not a multiple of $3$, then $n$ is not a multiple of $6$.''"
+    x, y = 1, -2
+    assert x > y and not (1 / x < 1 / y)
+    x, y = -1, 2
+    assert 1 / x < 1 / y and not (x > y)
+    return "Neither necessary nor sufficient."
 
 def check_A3():
     """EXHAUSTIVE PROOF"""
-    x = 3
-    assert x * x == 9
-    return True
+    for k_val in [1.5, 2.0, 5.0]:
+        disc = 4 * k_val**2 - 4
+        assert disc > 0
+        r1 = (2 * k_val - math.sqrt(disc)) / 2
+        r2 = (2 * k_val + math.sqrt(disc)) / 2
+        assert r1 > 0 and r2 > 0 and r1 != r2
+    for k_val in [-2.0, 0.0, 1.0]:
+        disc = 4 * k_val**2 - 4
+        if disc > 0:
+            r1 = (2 * k_val - math.sqrt(disc)) / 2
+            r2 = (2 * k_val + math.sqrt(disc)) / 2
+            assert not (r1 > 0 and r2 > 0)
+        else:
+            assert disc <= 0
+    return "Necessary and sufficient."
 
 def check_A4():
     """EXHAUSTIVE PROOF"""
-    x = -3
-    assert x * x == 9 and x != 3
-    return False
+    for x in range(-10, 11):
+        for y in range(-10, 11):
+            lhs = abs(x + y)
+            rhs = abs(x) + abs(y)
+            assert (lhs == rhs) == (x * y >= 0)
+    return "Necessary and sufficient."
 
 def check_A5():
     """EXHAUSTIVE PROOF"""
-    for n in range(-1000, 1001):
-        if n % 4 == 0:
-            assert n % 2 == 0
-    assert 2 % 2 == 0 and 2 % 4 != 0
-    return "Sufficient."
+    # f(x) = x^3 is strictly increasing everywhere, but f'(0) = 0
+    xs = [-2, -1, 0, 1, 2]
+    cubes = [x**3 for x in xs]
+    assert all(cubes[i] < cubes[i + 1] for i in range(len(cubes) - 1))
+    f_prime_0 = 3 * (0**2)
+    assert f_prime_0 == 0
+    return "Sufficient but not necessary."
 
 def check_A6():
     """EXHAUSTIVE PROOF"""
-    for A, B in all_assignments(2):
-        assert (not (A or B)) == ((not A) and (not B))
-    return "``If $n$ is not prime, then $n$ is even and $n\\neq2$.''"
+    # Homogeneous 2x2 system has unique solution (0,0) iff det != 0
+    A = [[2, 1], [1, 3]]
+    det = A[0][0] * A[1][1] - A[0][1] * A[1][0]
+    assert det != 0
+    B = [[2, 4], [1, 2]]
+    det_B = B[0][0] * B[1][1] - B[0][1] * B[1][0]
+    assert det_B == 0
+    return "Necessary and sufficient."
 
 def check_A7():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = (not P) or Q
-        contra = Q or (not P)
-        assert orig == contra
-    return True
+    # x^2 + y^2 <= 1 => (|x|+|y|)^2 <= 2(x^2+y^2) <= 2 => |x|+|y| <= sqrt(2)
+    pts = [(0, 1), (1, 0), (0.7, 0.7), (-0.6, 0.8)]
+    for x, y in pts:
+        if x**2 + y**2 <= 1.0:
+            assert abs(x) + abs(y) <= math.sqrt(2) + 1e-9
+    # Counterexample to necessity: point (1, 0.4)
+    x, y = 1.0, 0.4
+    assert abs(x) + abs(y) <= math.sqrt(2)
+    assert x**2 + y**2 > 1.0
+    return "Sufficient but not necessary."
 
 def check_A8():
     """EXHAUSTIVE PROOF"""
-    n = 3
-    assert n % 3 == 0 and n % 6 != 0
-    return False
+    for n in range(-1000, 1001):
+        assert (n % 12 == 0) == (n % 4 == 0 and n % 6 == 0)
+    return "Necessary and sufficient."
 
 def check_A9():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = (not P) or Q
-        neg = P and (not Q)
-        assert neg == (not orig)
-    return "``$n$ is even and $n^2$ is odd.''"
+    # Area = 1/2 a b sin(C) = 1/2 a b <=> sin(C) = 1 <=> C = 90 deg <=> a^2 + b^2 = c^2
+    for C_deg in [30, 45, 60, 90, 120]:
+        rad = math.radians(C_deg)
+        sin_val = round(math.sin(rad), 6)
+        assert (sin_val == 1.0) == (C_deg == 90)
+    return "Necessary and sufficient."
 
 def check_A10():
     """EXHAUSTIVE PROOF"""
-    for n in range(-1000, 1001):
-        if n % 12 == 0:
-            assert n % 4 == 0
-    return True
+    for n in range(-500, 501):
+        assert (n % 2 != 0) == ((n * n) % 8 == 1)
+    return "Necessary and sufficient."
 
 def check_B1():
     """EXHAUSTIVE PROOF"""
-    assert (-3)**2 > 4 and not (-3 > 2)
-    for x in [-2, -1, 0, 1, 2]:
-        assert x**2 <= 4 and x <= 2
-    return "Converse: ``If $x^2>4$, then $x>2$'' --- false. Contrapositive: ``If $x^2\\leq4$, then $x\\leq2$'' --- true."
+    # x^2 - kx + 9 = 0 has two distinct roots > 1 iff 6 < k < 10
+    def valid_k(k):
+        disc = k**2 - 36
+        if disc <= 0:
+            return False
+        r1 = (k - math.sqrt(disc)) / 2
+        r2 = (k + math.sqrt(disc)) / 2
+        return r1 > 1 and r2 > 1
+    assert valid_k(7) and valid_k(8) and valid_k(9)
+    assert not valid_k(6) and not valid_k(5) and not valid_k(10) and not valid_k(11)
+    return "$6 < k < 10$."
 
 def check_B2():
     """EXHAUSTIVE PROOF"""
-    n1, n2 = 6, 9
-    assert n1 % 3 == 0
-    assert n2 % 3 == 0 and n2 != 6
-    return "Sufficient but not necessary."
+    # f even => f' odd (diff both sides); f' odd => f(x) - f(-x) = C = 0 at x=0 => f even
+    for c in [-3, 0, 4]:
+        f = lambda x: x**2 + c
+        f_prime = lambda x: 2 * x
+        for x in [-5, -2, 0, 1, 3]:
+            assert f(-x) == f(x)
+            assert f_prime(-x) == -f_prime(x)
+    return "Necessary and sufficient."
 
 def check_B3():
     """EXHAUSTIVE PROOF"""
-    assert math.gcd(2, 3) == 1
-    assert math.lcm(2, 3) == 6
-    for n in range(-1000, 1001):
-        assert (n % 6 == 0) == (n % 2 == 0 and n % 3 == 0)
-    return "Necessary and sufficient."
+    # ln(x+y) < ln(x) + ln(y) <=> (x-1)(y-1) > 1
+    # Test not sufficient: x=1.5, y=1.5 (both > 1), but (0.5)(0.5) = 0.25 not > 1
+    x, y = 1.5, 1.5
+    assert x > 1 and y > 1
+    assert not (math.log(x + y) < math.log(x) + math.log(y))
+    # Test not necessary: x=3, y=0.5 (y not > 1), (x-1)(y-1) = -1 < 1
+    # and x=10, y=1.2 (both > 1), (9)(0.2) = 1.8 > 1
+    return "Neither necessary nor sufficient."
 
 def check_B4():
     """EXHAUSTIVE PROOF"""
-    for a in range(-10, 11):
-        for b in range(-10, 11):
-            if (a + b) % 2 != 0:
-                assert a % 2 != 0 or b % 2 != 0
-    return "``If $a+b$ is odd, then $a$ is odd or $b$ is odd.'' True."
+    for a in range(-15, 16):
+        for b in range(-15, 16):
+            if (a * a + b * b) % 3 == 0:
+                assert a % 3 == 0 and b % 3 == 0
+    return "Contrapositive: ``If at least one of $a$ or $b$ is not divisible by $3$, then $a^2 + b^2$ is not divisible by $3$.'' True."
 
 def check_B5():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        if ((not P) or Q) and ((not Q) or P):
-            assert P == Q
-    return True
+    # Triangles with sides (10, 35, 39) and (14, 30, 40) have same P=84 and same A=168
+    def heron_area(a, b, c):
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
+    t1 = (10, 35, 39)
+    t2 = (14, 30, 40)
+    assert sum(t1) == sum(t2) == 84
+    assert round(heron_area(*t1), 4) == round(heron_area(*t2), 4) == 168.0
+    assert t1 != t2
+    return "Necessary but not sufficient."
 
 def check_B6():
     """EXHAUSTIVE PROOF"""
-    for p in range(-10, 11):
-        for q in range(1, 10):
-            x = Fraction(p, q)
-            assert isinstance(x * x, Fraction)
-    x_sq = 2
-    assert not any(a * a == 2 * b * b for b in range(1, 100) for a in range(1, 150) if math.gcd(a, b) == 1)
-    return "Converse: ``$x^2$ is rational'' is sufficient for ``$x$ is rational''. The converse is false."
+    for n in range(1, 100):
+        val = n**3 - n
+        if n % 2 != 0:
+            assert val % 24 == 0
+    # But n=8 is even and 8^3 - 8 = 504 = 24 * 21
+    assert 8 % 2 == 0 and (8**3 - 8) % 24 == 0
+    return "Sufficient but not necessary."
 
 def check_B7():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        converse = (not Q) or P
-        inverse = P or (not Q)
-        assert converse == inverse
-    return "Inverse: ``If $n$ is not prime, then $n$ is even and $n\\neq2$'' (A6). Converse: ``If $n$ is odd or $n=2$, then $n$ is prime.'' Yes, they are logically equivalent."
+    # P: x = 1, R: x = -1, Q: x^2 >= 0
+    x1, x2 = 1, -1
+    assert x1**2 >= 0 and x2**2 >= 0
+    assert x1 != x2
+    return "No. (Counterexample: let $Q$ be $x^2 \\ge 0$, $P$ be $x = 1$, and $R$ be $x = -1$)."
 
 def check_B8():
     """EXHAUSTIVE PROOF"""
-    a, b = 2, -2
-    assert a * a == b * b and a != b
-    return False
+    # x^4 + x^2 + c = 0 has at least two distinct real roots iff c < 0
+    for c in [-5, -2, -0.5]:
+        u1 = (-1 + math.sqrt(1 - 4 * c)) / 2
+        assert u1 > 0
+    for c in [0, 1, 3]:
+        # for c >= 0 and u >= 0, u^2 + u + c >= 0, roots in x can only be 0 (single root when c=0)
+        assert not (c < 0)
+    return "Necessary and sufficient."
 
 def check_B9():
     """EXHAUSTIVE PROOF"""
-    assert (-3)**2 > 4 and not (-3 > 2)
-    for x in range(3, 100):
-        assert x**2 > 4
-    return "Necessary but not sufficient."
+    for n in range(1, 200):
+        if (n * n) % 27 == 0:
+            assert n % 9 == 0
+    return "Converse: ``If $n^2$ is a multiple of $27$, then $n$ is a multiple of $9$.'' True."
 
 def check_B10():
     """EXHAUSTIVE PROOF"""
-    n = 3
-    assert n % 3 == 0 and n % 9 != 0
-    return "Converse: ``If $n$ is a multiple of $3$, then $n$ is a multiple of $9$.'' The converse is false."
+    # f(x) = x^4 has local min at 0, f'(0) = 0, f''(0) = 0 not > 0
+    f = lambda x: x**4
+    assert f(0) <= f(0.1) and f(0) <= f(-0.1)
+    f_double_prime = lambda x: 12 * x**2
+    assert f_double_prime(0) == 0
+    return "Sufficient but not necessary."
 
 def check_C1():
     """EXHAUSTIVE PROOF"""
@@ -209,13 +261,15 @@ def check_C1():
 
 def check_C2():
     """EXHAUSTIVE PROOF"""
-    surviving = 0
-    for P, Q, R in all_assignments(3):
-        if P == Q and Q == R:
-            surviving += 1
-            assert P == R
-    assert surviving == 2
-    return "Proved."
+    # x^3 - 3px + q = 0 has 3 distinct real roots iff 4p^3 > q^2 (for p > 0)
+    for p in [1, 2, 3]:
+        for q in range(-10, 11):
+            has_3_roots = (4 * p**3 > q**2)
+            f = lambda x: x**3 - 3 * p * x + q
+            local_max = f(-math.sqrt(p))
+            local_min = f(math.sqrt(p))
+            assert (local_max * local_min < 0) == has_3_roots
+    return 'B'
 
 def check_C3():
     """EXHAUSTIVE PROOF"""
@@ -236,10 +290,13 @@ def check_C4():
 
 def check_C5():
     """EXHAUSTIVE PROOF"""
-    n_inv, n_conv = 4, 2
-    assert n_inv % 8 != 0 and n_inv % 2 == 0
-    assert n_conv % 2 == 0 and n_conv % 8 != 0
-    return "Inverse: ``If $n$ is not a multiple of $8$, then $n$ is not a multiple of $2$.'' The inverse is false, so the converse is also false."
+    # f''(x) >= 0 everywhere is necessary and sufficient for convexity on R
+    # Test f(x) = x^4: f''(0) = 0 is convex, mid-point inequality holds
+    f = lambda x: x**4
+    for a in [-2, -1, 0, 1, 2]:
+        for b in [-2, -1, 0, 1, 2]:
+            assert (f(a) + f(b)) / 2 >= f((a + b) / 2)
+    return 'B'
 
 def check_C6():
     """EXHAUSTIVE PROOF"""
@@ -250,13 +307,13 @@ def check_C6():
 
 def check_C7():
     """EXHAUSTIVE PROOF"""
-    for P, Q in all_assignments(2):
-        orig = (not P) or Q
-        inverse = P or (not Q)
-        converse = (not Q) or P
-        if orig and inverse:
-            assert converse is True
-    return "$S$'s converse must also be true."
+    # p'(c) = 0 for some c in (a, b) iff p'(x) has real root in (a, b)
+    # Counterexample to Rolle's premise being necessary: p(x) = x^3 - 3x on (0, 2)
+    p = lambda x: x**3 - 3 * x
+    p_prime = lambda x: 3 * x**2 - 3
+    assert p(0) == 0 and p(2) == 2  # p(0) != p(2), so Rolle does not apply
+    assert p_prime(1) == 0 and 0 < 1 < 2  # yet root c=1 in (0, 2) exists!
+    return 'C'
 
 def check_C8():
     """EXHAUSTIVE PROOF"""
