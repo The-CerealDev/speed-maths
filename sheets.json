@@ -308,11 +308,12 @@
       },
       {
         "n": "03",
-        "topic": "Contrapositive and contradiction",
+        "topic": "Truth tables, compound conditionals, and deduction",
         "tools": [
-          "contrapositive",
-          "proof by contradiction",
-          "sufficient conditions"
+          "truth tables",
+          "compound conditionals",
+          "deduction",
+          "urns"
         ],
         "questions": 33,
         "pdf": "logic/sheets/sheet03.pdf",

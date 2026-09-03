@@ -5,8 +5,8 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#3}{David Akinyele-Aje}
-\SpeedMeta{Contrapositive and contradiction}{contrapositive, proof by contradiction, sufficient conditions}
-\noindent\textit{New toolkit today: Direct Proof $\cdot$ Proof by Contrapositive.}
+\SpeedMeta{Truth tables, compound conditionals, and deduction}{truth tables, compound conditionals, deduction, urns}
+\noindent\textit{New toolkit today: Compound Implications $\cdot$ Truth Tables \& Model Counting $\cdot$ Exactly-One-True Deductions $\cdot$ Implication Chaining.}
 
 \vspace{2pt}
 \noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
@@ -14,29 +14,29 @@
 \section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Short, immediate proofs --- direct and by contrapositive, paired so you see both routes to the same fact.}
+\noindent\textit{Rapid formal conditionals: truth values, implication chaining, and model counts.}
 
 \begin{enumerate}
 
-\item Prove directly: ``If $n$ is even, then $n^2$ is even.''
+\item Determine whether the compound statement $((P \Rightarrow Q) \lor (Q \Rightarrow P))$ is a tautology (always true regardless of the truth values of propositions $P$ and $Q$).
 
-\item Prove directly: ``If $n$ is odd, then $n^2$ is odd.''
+\item If the conditional statement $(P \lor Q) \Rightarrow (R \land S)$ is false, and $R$ is known to be true, what is the truth value of proposition $S$?
 
-\item Prove directly: ``If $a$ and $b$ are both even, then $a+b$ is even.''
+\item Given that $P \Rightarrow Q$ and $Q \Rightarrow R$ are both true, but $R$ is false, what are the truth values of $P$ and $Q$?
 
-\item State the contrapositive of ``If $n$ is a multiple of $6$, then $n$ is even.'' Prove the contrapositive directly.
+\item For three independent propositions $P, Q, R$, for how many of the $8$ possible truth assignments is the implication $(P \land Q) \Rightarrow R$ false?
 
-\item Prove directly: ``If $a$ and $b$ are both odd, then $ab$ is odd.''
+\item For three independent propositions $P, Q, R$, for how many of the $8$ possible truth assignments is the implication $(P \lor Q) \Rightarrow R$ false?
 
-\item True or false: ``To prove `if $P$ then $Q$' by contrapositive, you should assume $Q$ is false and show $P$ is false.''
+\item Given propositions $P$ and $Q$, if $P \Rightarrow Q$ is true and $Q \Rightarrow P$ is false, what is the truth value of the biconditional $P \iff Q$?
 
-\item Prove by contrapositive: ``If $n^2$ is odd, then $n$ is odd.''
+\item True or false: The statement $P \Rightarrow (Q \Rightarrow R)$ is logically equivalent to $(P \land Q) \Rightarrow R$.
 
-\item True or false: ``A proof by contrapositive is a different technique from proving the converse.''
+\item State the negation of: ``If the polynomial $f(x)$ has a root at $x=1$, then $f(1)=0$ and $f'(1)=0$.''
 
-\item Prove directly: ``If $x>1$, then $x^2>1$.''
+\item If $P \Rightarrow Q$, $Q \Rightarrow R$, and $R \Rightarrow P$ are all true, what can you deduce about the truth values of $P, Q, R$?
 
-\item Prove by contrapositive: ``If $x^2\leq1$, then $x\leq1$.''
+\item Consider the four statements: (1) $P \lor Q$, (2) $P \Rightarrow R$, (3) $Q \Rightarrow R$, and (4) $\neg R$. Is this set of four statements consistent (can they all be simultaneously true)?
 
 \end{enumerate}
 
@@ -44,29 +44,54 @@
 \section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Slightly longer proofs, and judgement calls about which route is more natural.}
+\noindent\textit{Urns, liars, compound deduction, and truth-table model counting.}
 
 \begin{enumerate}
 
-\item Prove directly: ``If $n$ is a multiple of $4$, then $n^2$ is a multiple of $16$.''
+\item Three statements about an integer $n$ are given:
+\begin{itemize}
+\item[I.] $n$ is divisible by $4$.
+\item[II.] $n$ is odd.
+\item[III.] $n$ is divisible by $2$.
+\end{itemize}
+Given that \textbf{exactly one} of I, II, III is true, which statement is impossible to be the true one? \textit{\small(after TMUA 2016 Paper 2 Q4)}
 
-\item Prove by contrapositive: ``If $n^2$ is not a multiple of $3$, then $n$ is not a multiple of $3$.''
+\item Consider three propositions $P, Q, R$ and the implications $S_1: P \Rightarrow Q$, $S_2: Q \Rightarrow R$, and $S_3: R \Rightarrow P$. Given that \textbf{exactly two} of $S_1, S_2, S_3$ are true, can $P, Q, R$ all have the same truth value? \textit{\small(after TMUA 2020 Paper 2 Q20)}
 
-\item Which proof route is more natural for ``If $n^2$ is even, then $n$ is even'' --- direct or contrapositive? Prove it using that route.
+\item Three urns $A, B, C$ each have a label:
+\begin{itemize}
+\item[Urn $A$:] ``The prize is in this urn.''
+\item[Urn $B$:] ``The prize is not in Urn $A$.''
+\item[Urn $C$:] ``The prize is not in this urn.''
+\end{itemize}
+Given that the prize is in exactly one urn and \textbf{exactly one} label is true, which urn contains the prize?
 
-\item Prove directly: ``If $a>b>0$, then $a^2>b^2$.''
+\item For three propositions $P, Q, R$, determine the number of truth assignments (out of $8$) for which $((P \Rightarrow Q) \Rightarrow R)$ is true.
 
-\item Prove by contrapositive: ``If $x^2-4x+3\neq0$, then $x\neq1$ and $x\neq3$.''
+\item Three suspects $X, Y, Z$ are questioned about a crime committed by exactly one person:
+\begin{itemize}
+\item[$X$:] ``$Y$ did it.''
+\item[$Y$:] ``$Z$ did not do it.''
+\item[$Z$:] ``I did not do it.''
+\end{itemize}
+Given that the guilty person is the only liar (the two innocent suspects tell the truth), who committed the crime? \textit{\small(after TMUA 2017 Paper 2 Q2)}
 
-\item Prove directly: ``If $n$ is a multiple of $3$, then $n^3$ is a multiple of $27$.''
+\item Four statements about a positive integer $n$ are given:
+\begin{itemize}
+\item[$S_1$:] $n > 2$ is prime.
+\item[$S_2$:] $n$ is odd.
+\item[$S_3$:] $n$ is a multiple of $3$.
+\item[$S_4$:] $n = 9$.
+\end{itemize}
+Given that \textbf{exactly three} of these statements are true, determine the unique value of $n$.
 
-\item State and prove the contrapositive of ``If $xy$ is irrational, then $x$ is irrational or $y$ is irrational.''
+\item Given propositions $P$ and $Q$, if $(P \land \neg Q) \lor (\neg P \land Q)$ is false and $P \lor Q$ is true, determine the truth values of $P$ and $Q$.
 
-\item Prove directly: ``If $n$ ends in the digit $5$, then $n^2$ ends in the digit $5$.''
+\item Prove by logical equivalence that $(P \Rightarrow R) \land (Q \Rightarrow R)$ is equivalent to $(P \lor Q) \Rightarrow R$.
 
-\item Prove by contrapositive: ``If $n$ is not a multiple of $4$, then $n^2$ is not a multiple of $16$.''
+\item For three propositions $P, Q, R$, for how many of the $8$ possible truth assignments is $(P \Rightarrow Q) \land (Q \Rightarrow R)$ true?
 
-\item True or false: ``Every proof by contrapositive can be rewritten as a direct proof of the original statement.''
+\item On an island where Knights always tell the truth and Knaves always lie, inhabitant $A$ says: ``At least one of us is a Knave.'' Inhabitant $B$ makes no statement. What are the identities of $A$ and $B$?
 
 \end{enumerate}
 
@@ -74,11 +99,11 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90\,s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Multi-step proofs, and your first ``which condition is sufficient'' MCQ.}
+\noindent\textit{Authentic TMUA Paper 2 Arg1 multiple-choice questions.}
 
 \begin{enumerate}
 
-\item For non-zero real numbers $x,y$, which one of the following is sufficient to conclude that $x<y$?
+\item For non-zero real numbers $x,y$, which one of the following is sufficient to conclude that $x<y$? \textit{\small(after TMUA 2016 Paper 2 Q10)}
 \begin{itemize}
 \item[A)] $x^2<y^2$
 \item[B)] $y^2<x^2$
@@ -88,19 +113,97 @@
 \item[F)] $y^5<x^5$
 \end{itemize}
 
-\item Prove by contrapositive: ``If $n^3$ is even, then $n$ is even.''
+\item Let $P, Q, R, S$ be four propositions. For how many of the $16$ possible truth assignments of $(P, Q, R, S)$ is the compound statement $(P \Rightarrow Q) \Rightarrow (R \Rightarrow S)$ false? \textit{\small(after TMUA 2019 Paper 2 Q3)}
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $3$
+\item[D)] $4$
+\item[E)] $6$
+\end{itemize}
 
-\item Prove directly: ``If $x,y>0$ and $x^2>y^2$, then $x>y$.''
+\item Let $f(x) = x^2 + bx + c$ with $b, c \in \mathbb{R}$. Consider three statements:
+\begin{itemize}
+\item[I.] $f(x) = 0$ has two distinct real roots.
+\item[II.] $c < 0$.
+\item[III.] $b^2 - 4c < 0$.
+\end{itemize}
+Which of the following describes the possible numbers of true statements among I, II, III? \textit{\small(after TMUA 2020 Paper 2 Q12)}
+\begin{itemize}
+\item[A)] Exactly $1$ only
+\item[B)] Exactly $2$ only
+\item[C)] Exactly $1$ or exactly $2$ only
+\item[D)] Exactly $0$, $1$, or $2$
+\item[E)] Any number from $0$ to $3$
+\end{itemize}
 
-\item Prove directly: ``If $n$ is a multiple of $3$ but not a multiple of $9$, then $n^2$ is a multiple of $9$ but not a multiple of $81$.''
+\item Consider propositions $P, Q, R$. You are given that $(P \Rightarrow Q) \land (Q \Rightarrow R)$ is false. Which of the following CANNOT be the truth assignment $(P, Q, R)$? \textit{\small(after TMUA 2017 Paper 2 Q7)}
+\begin{itemize}
+\item[A)] $(T, F, T)$
+\item[B)] $(T, F, F)$
+\item[C)] $(T, T, F)$
+\item[D)] $(F, T, F)$
+\item[E)] $(F, F, F)$
+\end{itemize}
 
-\item Prove by contrapositive: ``If $x$ and $y$ are real numbers with $xy$ irrational, then $x\neq0$ and $y\neq0$.''
+\item Five logicians each make a statement, as follows:
+\begin{itemize}
+\item[Mr P:] ``Of these five statements, an odd number are true.''
+\item[Ms Q:] ``Both statements made by women are true.''
+\item[Mr R:] ``My first name is Robert and Mr P's statement is true.''
+\item[Ms S:] ``Exactly one statement made by a man is true.''
+\item[Mr T:] ``Neither statement made by a woman is true.''
+\end{itemize}
+How many of the five statements can be simultaneously true? \textit{\small(after TMUA Specimen Paper 2 Q20)}
+\begin{itemize}
+\item[A)] none
+\item[B)] $1$ only
+\item[C)] $2$ only
+\item[D)] $3$ only
+\item[E)] $4$ only
+\end{itemize}
 
-\item Prove by contrapositive: ``If $n$ is an integer such that $2n^2+1$ is a multiple of $3$, then $n$ is not a multiple of $3$.''
+\item In the Cartesian plane, let $L$ be a line passing through $(1, 2)$. Let $P$ be the statement: ``If the $y$-intercept of $L$ is negative, then the $x$-intercept of $L$ is positive.'' Which of the following must be true? \textit{\small(after TMUA 2022 Paper 2 Q5)}
+\begin{itemize}
+\item[I.] $P$
+\item[II.] The converse of $P$
+\item[III.] The contrapositive of $P$
+\end{itemize}
+\begin{itemize}
+\item[A)] none of them
+\item[B)] I only
+\item[C)] II only
+\item[D)] III only
+\item[E)] I and II only
+\item[F)] I and III only
+\item[G)] II and III only
+\item[H)] I, II and III
+\end{itemize}
 
-\item Prove directly: ``If $n$ is a positive integer that is not a multiple of $3$, then $n^2\equiv1\pmod3$.''
+\item Propositions $P$ and $Q$ are given. Which of the following statements is logically equivalent to ``$P$ is necessary and sufficient for $Q$''? \textit{\small(after TMUA 2020 Paper 2 Q20)}
+\begin{itemize}
+\item[A)] $\neg P \iff \neg Q$
+\item[B)] $(P \Rightarrow Q) \lor (Q \Rightarrow P)$
+\item[C)] $\neg P \Rightarrow \neg Q$
+\item[D)] $P \lor Q$
+\end{itemize}
 
-\item True or false, with justification: ``A statement with no counterexamples found after checking $100$ cases has therefore been proven true by direct proof.''
+\item A theorem states: ``For all real numbers $x$, if $x$ is rational, then $x^2$ is rational.'' Which of the following three restatements of the theorem are correct? \textit{\small(after TMUA 2023 Paper 2 Q11)}
+\begin{itemize}
+\item[I.] For all real numbers $x$, $x^2$ is rational only if $x$ is rational.
+\item[II.] For all real numbers $x$, a sufficient condition for $x^2$ to be rational is that $x$ is rational.
+\item[III.] For all real numbers $x$, if $x^2$ is not rational, then $x$ is not rational.
+\end{itemize}
+\begin{itemize}
+\item[A)] none of them
+\item[B)] I only
+\item[C)] II only
+\item[D)] III only
+\item[E)] I and II only
+\item[F)] II and III only
+\item[G)] I and III only
+\item[H)] I, II and III
+\end{itemize}
 
 \end{enumerate}
 

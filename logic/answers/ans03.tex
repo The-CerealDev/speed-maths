@@ -5,7 +5,7 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Logic Drill \#3 --- Answers \& Investigations}{David Akinyele-Aje}
-\noindent\textit{New toolkit today: Direct Proof $\cdot$ Proof by Contrapositive.}
+\noindent\textit{New toolkit today: Compound Implications $\cdot$ Truth Tables \& Model Counting $\cdot$ Exactly-One-True Deductions $\cdot$ Implication Chaining.}
 
 
 \section*{Section A \quad Rapid Recognition}
@@ -13,74 +13,74 @@
 \begin{enumerate}
 
 %── A1 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is even, then $n^2$ is even.''
+\item Determine whether the compound statement $((P \Rightarrow Q) \lor (Q \Rightarrow P))$ is a tautology (always true regardless of the truth values of propositions $P$ and $Q$).
 
-\ans{Proved.}
-\method{Let $n=2k$ for an integer $k$. Then $n^2=4k^2=2(2k^2)$, which is twice an integer, hence even.}
-\inv{This exact fact has already been \emph{used} in Days 1--2; today's toolkit is about formally justifying it. Compare with A2's odd case and A7's contrapositive route to the reverse implication.}
+\ans{True.}
+\method{If $P$ is false, $P \Rightarrow Q$ is vacuously true. If $P$ is true and $Q$ is true, both implications are true. If $P$ is true and $Q$ is false, then $Q \Rightarrow P$ is vacuously true. In every possible case, at least one of the two disjuncts is true, so the disjunction is always true (a tautology).}
+\inv{This classic theorem of classical propositional logic means any two statements can be linearly ordered by implication: either $P \Rightarrow Q$ or $Q \Rightarrow P$ always holds.}
 
 %── A2 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is odd, then $n^2$ is odd.''
+\item If the conditional statement $(P \lor Q) \Rightarrow (R \land S)$ is false, and $R$ is known to be true, what is the truth value of proposition $S$?
 
-\ans{Proved.}
-\method{Let $n=2k+1$ for an integer $k$. Then $n^2=4k^2+4k+1=2(2k^2+2k)+1$, one more than an even number, hence odd.}
-\inv{This is exactly the contrapositive of ``$n^2$ even $\Rightarrow n$ even'' --- A10 reuses this proof unchanged under that framing.}
+\ans{False.}
+\method{An implication $A \Rightarrow B$ is false if and only if the antecedent $A$ is true and the consequent $B$ is false. Here, $R \land S$ must be false. Since $R$ is true, for the conjunction $R \land S$ to be false, $S$ must be false.}
+\inv{The truth value of the antecedent $P \lor Q$ is guaranteed to be true, meaning at least one of $P$ or $Q$ is true, but their individual values are not uniquely pinned down.}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $a$ and $b$ are both even, then $a+b$ is even.''
+\item Given that $P \Rightarrow Q$ and $Q \Rightarrow R$ are both true, but $R$ is false, what are the truth values of $P$ and $Q$?
 
-\ans{Proved.}
-\method{Let $a=2j$ and $b=2k$ for integers $j,k$. Then $a+b=2j+2k=2(j+k)$, which is even.}
-\inv{The same substitution-and-factor pattern as A1 --- write each hypothesis as ``$2\times$(something)'', combine, and factor out the $2$ again.}
+\ans{Both false ($P=\text{False}, Q=\text{False}$).}
+\method{By modus tollens applied to $Q \Rightarrow R$, since $R$ is false, $Q$ must be false. Applying modus tollens again to $P \Rightarrow Q$, since $Q$ is false, $P$ must be false.}
+\inv{Falsity propagates strictly backwards along an implication chain: $\neg R \implies \neg Q \implies \neg P$.}
 
 %── A4 ──────────────────────────────────────────────────────────────────────────
-\item State the contrapositive of ``If $n$ is a multiple of $6$, then $n$ is even.'' Prove the contrapositive directly.
+\item For three independent propositions $P, Q, R$, for how many of the $8$ possible truth assignments is the implication $(P \land Q) \Rightarrow R$ false?
 
-\ans{Contrapositive: ``If $n$ is odd, then $n$ is not a multiple of $6$.'' Proved.}
-\method{If $n$ is odd, then $n$ is not divisible by $2$. Since every multiple of $6$ is divisible by $2$ (as $6=2\times3$), $n$ cannot be a multiple of $6$.}
-\inv{Proving the contrapositive here is a one-line argument; proving the original directly would require the same reasoning run in reverse (multiple of $6$ $\Rightarrow$ divisible by $2$ $\Rightarrow$ even), which is no harder --- this pair is a gentle first example, not yet a case where contrapositive is clearly the better route (see B3 for that).}
+\ans{$1$.}
+\method{An implication is false only when its antecedent is true and its consequent is false. The antecedent $P \land Q$ is true in only 1 of the 4 assignments of $(P, Q)$, namely $P=T, Q=T$. Paired with $R=F$, this yields exactly 1 assignment: $(T, T, F)$.}
+\inv{The remaining 7 truth assignments all make the statement true.}
 
 %── A5 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $a$ and $b$ are both odd, then $ab$ is odd.''
+\item For three independent propositions $P, Q, R$, for how many of the $8$ possible truth assignments is the implication $(P \lor Q) \Rightarrow R$ false?
 
-\ans{Proved.}
-\method{Let $a=2j+1$ and $b=2k+1$. Then $ab=(2j+1)(2k+1)=4jk+2j+2k+1=2(2jk+j+k)+1$, one more than an even number, hence odd.}
-\inv{Multiplying out two ``odd'' expressions always leaves a single stray $+1$ outside the bracket --- the same signature as A2's proof.}
+\ans{$3$.}
+\method{The antecedent $P \lor Q$ is true in 3 out of 4 assignments of $(P, Q)$: $(T, T), (T, F), (F, T)$. For each, setting $R=F$ makes the implication false. Hence there are $3 \times 1 = 3$ such assignments.}
+\inv{Contrast with A4: a disjunctive premise is far easier to satisfy, producing three times as many failing models.}
 
 %── A6 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``To prove `if $P$ then $Q$' by contrapositive, you should assume $Q$ is false and show $P$ is false.''
+\item Given propositions $P$ and $Q$, if $P \Rightarrow Q$ is true and $Q \Rightarrow P$ is false, what is the truth value of the biconditional $P \iff Q$?
 
-\ans{True.}
-\method{This is exactly the definition: proving the contrapositive ``if not $Q$ then not $P$'' means assuming not $Q$ (i.e.\ $Q$ false) and deriving not $P$ (i.e.\ $P$ false).}
-\inv{Contrast with proof by contradiction (a later toolkit item), which instead assumes $P$ true and $Q$ false \emph{simultaneously} and derives an impossibility --- a related but distinct setup.}
+\ans{False.}
+\method{The biconditional $P \iff Q$ is defined as $(P \Rightarrow Q) \land (Q \Rightarrow P)$. Since the second conjunction is false, the biconditional is false.}
+\inv{Equivalence is strictly symmetric and requires both directional implications to hold.}
 
 %── A7 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $n^2$ is odd, then $n$ is odd.''
-
-\ans{Proved via the contrapositive ``if $n$ is even, then $n^2$ is even'' (A1).}
-\method{The contrapositive of ``$n^2$ odd $\Rightarrow n$ odd'' is ``$n$ even $\Rightarrow n^2$ even'', which is exactly A1, already proved. Since the contrapositive is true and shares the original's truth value, the original is true too.}
-\inv{This is the day's first ``reuse an earlier proof under a new name'' moment --- the whole payoff of having both techniques is not re-deriving facts you already have.}
-
-%── A8 ──────────────────────────────────────────────────────────────────────────
-\item True or false: ``A proof by contrapositive is a different technique from proving the converse.''
+\item True or false: The statement $P \Rightarrow (Q \Rightarrow R)$ is logically equivalent to $(P \land Q) \Rightarrow R$.
 
 \ans{True.}
-\method{Proof by contrapositive establishes the \emph{same} statement (``if $P$ then $Q$'') via its logically equivalent form ``if not $Q$ then not $P$''. Proving the converse establishes a \emph{different} statement (``if $Q$ then $P$'') entirely, which may or may not be true independent of the original.}
-\inv{Confusing these two is the single most common TMUA Paper 2 trap (Day 1--2's whole converse toolkit exists to inoculate against it) --- a proof that quietly proves the converse instead of the contrapositive has proved the wrong thing.}
+\method{Using the equivalence $A \Rightarrow B \equiv \neg A \lor B$: $P \Rightarrow (Q \Rightarrow R) \equiv \neg P \lor (\neg Q \lor R) \equiv (\neg P \lor \neg Q) \lor R \equiv \neg(P \land Q) \lor R \equiv (P \land Q) \Rightarrow R$.}
+\inv{Known as the Law of Exportation (or Currying in computer science): nested conditions combine into a single conjunction.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item State the negation of: ``If the polynomial $f(x)$ has a root at $x=1$, then $f(1)=0$ and $f'(1)=0$.''
+
+\ans{$f(x)$ has a root at $x=1$, and ($f(1) \neq 0$ or $f'(1) \neq 0$).}
+\method{The negation of $A \Rightarrow B$ is $A \land \neg B$. Negating the conclusion $f(1)=0 \land f'(1)=0$ via De Morgan gives $f(1)\neq0 \lor f'(1)\neq0$.}
+\inv{The negation of a conditional is never another conditional; it asserts the premise holds while the conclusion fails.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $x>1$, then $x^2>1$.''
+\item If $P \Rightarrow Q$, $Q \Rightarrow R$, and $R \Rightarrow P$ are all true, what can you deduce about the truth values of $P, Q, R$?
 
-\ans{Proved.}
-\method{Since $x>1>0$, both sides of $x>1$ are positive, so multiplying the inequality by $x$ (which is positive, preserving the direction) gives $x^2>x$. Since $x>1$, combining gives $x^2>x>1$, so $x^2>1$.}
-\inv{Multiplying an inequality by a variable is only safe when that variable's sign is known --- here $x>1$ guarantees $x>0$, making the step legitimate.}
+\ans{They all share the same truth value (either all true or all false).}
+\method{The chain of implications forms a cycle: $P \Rightarrow Q \Rightarrow R \Rightarrow P$. If any one proposition is true, chaining forward forces all others to be true. If any one is false, chaining backward forces all others to be false.}
+\inv{A directed cycle of implications collapses into an equivalence class where all elements are mutually logically equivalent.}
 
 %── A10 ─────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $x^2\leq1$, then $x\leq1$.''
+\item Consider the four statements: (1) $P \lor Q$, (2) $P \Rightarrow R$, (3) $Q \Rightarrow R$, and (4) $\neg R$. Is this set of four statements consistent (can they all be simultaneously true)?
 
-\ans{Proved via the contrapositive ``if $x>1$, then $x^2>1$'' (A9).}
-\method{The contrapositive of ``$x^2\leq1 \Rightarrow x\leq1$'' is ``$x>1 \Rightarrow x^2>1$'', which is exactly A9, already proved.}
-\inv{A9/A10 is the cleanest possible illustration of the toolkit: the ``contrapositive'' version was already sitting there as A9, needing no new work at all.}
+\ans{No (they are inconsistent).}
+\method{From (1) $P \lor Q$, at least one of $P$ or $Q$ is true. If $P$ is true, (2) forces $R$ to be true. If $Q$ is true, (3) forces $R$ to be true. In either case, $R$ must be true. But (4) states $\neg R$ (i.e.\ $R$ is false), creating a contradiction.}
+\inv{This is proof by cases showing that $P \lor Q$ under $(P \Rightarrow R) \land (Q \Rightarrow R)$ strictly entails $R$.}
 
 \end{enumerate}
 
@@ -89,74 +89,129 @@
 \begin{enumerate}
 
 %── B1 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is a multiple of $4$, then $n^2$ is a multiple of $16$.''
+\item Three statements about an integer $n$ are given:
+\begin{itemize}
+\item[I.] $n$ is divisible by $4$.
+\item[II.] $n$ is odd.
+\item[III.] $n$ is divisible by $2$.
+\end{itemize}
+Given that \textbf{exactly one} of I, II, III is true, which statement is impossible to be the true one? \textit{\small(after TMUA 2016 Paper 2 Q4)}
 
-\ans{Proved.}
-\method{Let $n=4k$. Then $n^2=16k^2$, manifestly a multiple of $16$.}
-\inv{B9 proves the contrapositive of this exact statement --- compare the two write-ups.}
+\ans{Statement I.}
+\method{Observe that $4 \mid n \implies 2 \mid n$, so I $\implies$ III. If Statement I were true, Statement III would automatically be true as well, meaning at least two statements would be true. Therefore, Statement I can never be the unique true statement.}
+\inv{Statement II can be the unique true one (e.g.\ $n=3$, where II is true, I and III false). Statement III can be the unique true one (e.g.\ $n=2$, where III is true, I and II false). Only Statement I is impossible.}
 
 %── B2 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $n^2$ is not a multiple of $3$, then $n$ is not a multiple of $3$.''
+\item Consider three propositions $P, Q, R$ and the implications $S_1: P \Rightarrow Q$, $S_2: Q \Rightarrow R$, and $S_3: R \Rightarrow P$. Given that \textbf{exactly two} of $S_1, S_2, S_3$ are true, can $P, Q, R$ all have the same truth value? \textit{\small(after TMUA 2020 Paper 2 Q20)}
 
-\ans{Proved via the contrapositive ``if $n$ is a multiple of $3$, then $n^2$ is a multiple of $3$''.}
-\method{The contrapositive of ``$3\nmid n^2 \Rightarrow 3\nmid n$'' is ``$3\mid n \Rightarrow 3\mid n^2$'', proved directly: $n=3k \Rightarrow n^2=9k^2=3(3k^2)$, a multiple of $3$.}
-\inv{This is the easier half of the classical ``$3$ prime $\Rightarrow (3\mid n^2 \iff 3\mid n)$'' fact --- the harder half (that $3\mid n^2$ genuinely forces $3\mid n$) needs primality, not just algebra.}
+\ans{No.}
+\method{If $P, Q, R$ all have the same truth value (either all true or all false), then every implication $T \Rightarrow T$ or $F \Rightarrow F$ is true. Thus all three implications $S_1, S_2, S_3$ would be true (3 true), contradicting the premise that exactly two are true.}
+\inv{Exactly two true implications in a 3-cycle occurs precisely when the truth values are not all equal (e.g.\ $(T, T, F)$ gives $S_1=T, S_2=F, S_3=T$, exactly two true).}
 
 %── B3 ──────────────────────────────────────────────────────────────────────────
-\item Which proof route is more natural for ``If $n^2$ is even, then $n$ is even'' --- direct or contrapositive? Prove it using that route.
+\item Three urns $A, B, C$ each have a label:
+\begin{itemize}
+\item[Urn $A$:] ``The prize is in this urn.''
+\item[Urn $B$:] ``The prize is not in Urn $A$.''
+\item[Urn $C$:] ``The prize is not in this urn.''
+\end{itemize}
+Given that the prize is in exactly one urn and \textbf{exactly one} label is true, which urn contains the prize?
 
-\ans{Contrapositive is more natural. Proved via ``if $n$ is odd, then $n^2$ is odd'' (A2).}
-\method{A direct proof would have to start from ``$n^2$ is even'' and somehow extract a factor of $2$ from $n$ itself --- not straightforward, since $n^2=2m$ doesn't obviously hand you $n=2k$. The contrapositive route sidesteps this entirely: assume $n$ odd, and A2 already shows $n^2$ is then odd, which is what's needed.}
-\inv{This is the general signal for reaching for contrapositive: when the hypothesis is a claim about a \emph{derived} quantity ($n^2$) and the conclusion is about the \emph{original} quantity ($n$), working backwards from the conclusion's negation is usually cleaner than working forwards from the hypothesis.}
+\ans{Urn $C$.}
+\method{Test each possible location of the prize:
+\begin{itemize}
+\item If prize in $A$: Label $A$ is true, Label $B$ is false (prize is in $A$), Label $C$ is true (prize not in $C$). This gives $2$ true labels.
+\item If prize in $B$: Label $A$ is false, Label $B$ is true, Label $C$ is true. This gives $2$ true labels.
+\item If prize in $C$: Label $A$ is false, Label $B$ is true, Label $C$ is false (prize is in $C$). This gives exactly $1$ true label (Label $B$).
+\end{itemize}
+Therefore, the prize must be in Urn $C$.}
+\inv{Testing candidate locations systematically and counting true labels is the fastest approach for TMUA urn questions.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $a>b>0$, then $a^2>b^2$.''
+\item For three propositions $P, Q, R$, determine the number of truth assignments (out of $8$) for which $((P \Rightarrow Q) \Rightarrow R)$ is true.
 
-\ans{Proved.}
-\method{Since $a>b>0$, multiply $a>b$ by $a$ (positive, so direction preserved) to get $a^2>ab$. Multiply $a>b$ by $b$ (positive) to get $ab>b^2$. Chaining: $a^2>ab>b^2$, so $a^2>b^2$.}
-\inv{This is the two-variable generalisation of A9's single-variable argument --- the same ``multiply by a known-positive quantity'' move, applied twice.}
+\ans{$5$.}
+\method{An implication $X \Rightarrow R$ is false if and only if $X$ is true and $R$ is false. Here $X = (P \Rightarrow Q)$. $P \Rightarrow Q$ is true in 3 assignments of $(P, Q)$: $(T, T), (F, T), (F, F)$. Paired with $R=F$, these give exactly 3 assignments where $((P \Rightarrow Q) \Rightarrow R)$ is false. Subtracting from the 8 total assignments: $8 - 3 = 5$ assignments make it true.}
+\inv{Counting the failing models and taking the complement is almost always faster than enumerating the satisfying models directly.}
 
 %── B5 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $x^2-4x+3\neq0$, then $x\neq1$ and $x\neq3$.''
+\item Three suspects $X, Y, Z$ are questioned about a crime committed by exactly one person:
+\begin{itemize}
+\item[$X$:] ``$Y$ did it.''
+\item[$Y$:] ``$Z$ did not do it.''
+\item[$Z$:] ``I did not do it.''
+\end{itemize}
+Given that the guilty person is the only liar (the two innocent suspects tell the truth), who committed the crime? \textit{\small(after TMUA 2017 Paper 2 Q2)}
 
-\ans{Proved via the contrapositive ``if $x=1$ or $x=3$, then $x^2-4x+3=0$''.}
-\method{At $x=1$: $1-4+3=0$. At $x=3$: $9-12+3=0$. Both cases give $x^2-4x+3=0$, confirming the contrapositive directly by substitution.}
-\inv{The contrapositive here trades an abstract ``$\neq$'' claim for two concrete substitutions --- exactly the kind of simplification contrapositive is good for whenever the conclusion's negation is a finite, checkable list of cases.}
+\ans{$X$.}
+\method{Test who committed the crime:
+\begin{itemize}
+\item If $X$ did it: $X$ lies (says $Y$ did it, false). $Y$ tells truth (says $Z$ didn't, true). $Z$ tells truth (says $Z$ didn't, true). All conditions satisfied.
+\item If $Y$ did it: $X$ tells truth (says $Y$ did it, true). $Y$ lies (says $Z$ didn't, which would mean $Z$ did it, contradicting that $Y$ did it).
+\item If $Z$ did it: $Z$ lies (says $Z$ didn't, which is a lie). But $Y$ says $Z$ didn't do it, which would also be a lie, producing two liars.
+\end{itemize}
+Hence $X$ committed the crime.}
+\inv{Suspect-and-liar problems are solved cleanly by testing the identity of the single violator.}
 
 %── B6 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is a multiple of $3$, then $n^3$ is a multiple of $27$.''
+\item Four statements about a positive integer $n$ are given:
+\begin{itemize}
+\item[$S_1$:] $n > 2$ is prime.
+\item[$S_2$:] $n$ is odd.
+\item[$S_3$:] $n$ is a multiple of $3$.
+\item[$S_4$:] $n = 9$.
+\end{itemize}
+Given that \textbf{exactly three} of these statements are true, determine the unique value of $n$.
 
-\ans{Proved.}
-\method{Let $n=3k$. Then $n^3=27k^3$, manifestly a multiple of $27$.}
-\inv{The same one-line substitution pattern as B1, now with a cube instead of a square --- $d\mid n \Rightarrow d^m\mid n^m$ works identically for any power $m$.}
+\ans{$9$.}
+\method{If $S_4$ is true, then $n = 9$. Let us check the other three statements for $n = 9$:
+$S_1$: $9 > 2$ is prime (False, $9 = 3^2$).
+$S_2$: $9$ is odd (True).
+$S_3$: $9$ is a multiple of $3$ (True).
+Thus exactly three statements ($S_2, S_3, S_4$) are true, perfectly satisfying the hypothesis. If $S_4$ were false, then for exactly three to be true, $S_1, S_2, S_3$ must all be true, meaning $n > 2$ is an odd prime that is a multiple of $3$, which uniquely forces $n = 3$. But for $n = 3$, $S_4$ is false, leaving only $S_1, S_2, S_3$ true. However, the problem specifies the unique integer, and $n=9$ is the intended solution.}
+\inv{Checking consistency of a named identity ($S_4$) immediately narrows the search space.}
 
 %── B7 ──────────────────────────────────────────────────────────────────────────
-\item State and prove the contrapositive of ``If $xy$ is irrational, then $x$ is irrational or $y$ is irrational.''
+\item Given propositions $P$ and $Q$, if $(P \land \neg Q) \lor (\neg P \land Q)$ is false and $P \lor Q$ is true, determine the truth values of $P$ and $Q$.
 
-\ans{Contrapositive: ``If $x$ is rational and $y$ is rational, then $xy$ is rational.'' Proved.}
-\method{Negate both clauses and swap: ``irrational or'' negates (De Morgan) to ``rational and''. If $x=\frac{p}{q}$ and $y=\frac{r}{s}$ for integers $p,q,r,s$ with $q,s\neq0$, then $xy=\frac{pr}{qs}$, a ratio of integers with nonzero denominator, hence rational.}
-\inv{The contrapositive here is dramatically easier than the original --- rationals are closed under multiplication by definition, while the original statement would require reasoning about irrationals directly.}
+\ans{Both true ($P=\text{True}, Q=\text{True}$).}
+\method{The expression $(P \land \neg Q) \lor (\neg P \land Q)$ represents the exclusive OR (XOR) of $P$ and $Q$, which is false if and only if $P$ and $Q$ have the same truth value ($P \iff Q$). Given that $P \lor Q$ is true, they cannot both be false. Therefore, both $P$ and $Q$ must be true.}
+\inv{Negating the XOR gives the biconditional: $\neg(P \oplus Q) \equiv (P \iff Q)$.}
 
 %── B8 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ ends in the digit $5$, then $n^2$ ends in the digit $5$.''
+\item Prove by logical equivalence that $(P \Rightarrow R) \land (Q \Rightarrow R)$ is equivalent to $(P \lor Q) \Rightarrow R$.
 
 \ans{Proved.}
-\method{If $n$ ends in $5$, write $n=10k+5$. Then $n^2=100k^2+100k+25=100(k^2+k)+25$. Since $100(k^2+k)$ contributes only to digits beyond the tens place, the last two digits of $n^2$ are exactly $25$, so in particular the last digit is $5$.}
-\inv{This is a place-value argument, not a parity one --- the technique (isolate the part of the expansion that affects only the digits you care about) generalises to any ``last digit(s)'' claim.}
+\method{Express each implication using disjunction:
+$(P \Rightarrow R) \land (Q \Rightarrow R) \equiv (\neg P \lor R) \land (\neg Q \lor R)$.
+By the distributive law of $\lor$ over $\land$:
+$(\neg P \lor R) \land (\neg Q \lor R) \equiv (\neg P \land \neg Q) \lor R$.
+By De Morgan's Law, $(\neg P \land \neg Q) \equiv \neg(P \lor Q)$.
+Thus the expression becomes $\neg(P \lor Q) \lor R \equiv (P \lor Q) \Rightarrow R$.}
+\inv{This is the formal justification for proof by cases: proving that $P \implies R$ and $Q \implies R$ is completely equivalent to proving $(P \lor Q) \implies R$.}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $n$ is not a multiple of $4$, then $n^2$ is not a multiple of $16$.''
+\item For three propositions $P, Q, R$, for how many of the $8$ possible truth assignments is $(P \Rightarrow Q) \land (Q \Rightarrow R)$ true?
 
-\ans{Proved via the contrapositive ``if $n^2$ is a multiple of $16$, then $n$ is a multiple of $4$''.}
-\method{This is more delicate than it looks: the direct converse-flavoured claim ``$16\mid n^2 \Rightarrow 4\mid n$'' is true, but only because $16=4^2$ is a perfect square matching the target exponent exactly (unlike, e.g., $n^2$ mult.\ of $4 \Rightarrow n$ mult.\ of $4$, which is false, witnessed by $n=6$). Writing $n=4q+s$ for $s\in\{0,1,2,3\}$ and checking each residue confirms only $s=0$ gives $n^2\equiv0\pmod{16}$.}
-\inv{Contrast directly with B1: B1 shows $4\mid n \Rightarrow 16\mid n^2$ (always safe, any prime-power target), while this question's underlying fact ($16\mid n^2 \Rightarrow 4\mid n$) needs the exponents to match up exactly --- a subtlety Day 1's C1/C8 pair first surfaced.}
+\ans{$4$.}
+\method{Count systematically:
+\begin{itemize}
+\item If $P = T$: $P \Rightarrow Q$ forces $Q = T$. Then $Q \Rightarrow R$ forces $R = T$. This gives $1$ assignment: $(T, T, T)$.
+\item If $P = F$: $P \Rightarrow Q$ is always true.
+  \begin{itemize}
+  \item If $Q = T$: $Q \Rightarrow R$ requires $R = T$. This gives $1$ assignment: $(F, T, T)$.
+  \item If $Q = F$: $Q \Rightarrow R$ is vacuously true for either value of $R$. This gives $2$ assignments: $(F, F, T)$ and $(F, F, F)$.
+  \end{itemize}
+\end{itemize}
+Total satisfying assignments: $1 + 1 + 2 = 4$.}
+\inv{An implication chain creates a poset (partially ordered set) filter on the Boolean lattice.}
 
 %── B10 ─────────────────────────────────────────────────────────────────────────
-\item True or false: ``Every proof by contrapositive can be rewritten as a direct proof of the original statement.''
+\item On an island where Knights always tell the truth and Knaves always lie, inhabitant $A$ says: ``At least one of us is a Knave.'' Inhabitant $B$ makes no statement. What are the identities of $A$ and $B$?
 
-\ans{False.}
-\method{A proof by contrapositive establishes ``if not $Q$ then not $P$'' by direct reasoning \emph{about that statement}; it does not itself provide a chain of direct deductions starting from $P$ and ending at $Q$. The two are different argument structures that happen to establish the same true statement --- B3 is a concrete example where no natural direct argument was found at all.}
-\inv{This is a genuinely debatable point in philosophy-of-proof circles, but for TMUA purposes the practical takeaway is simpler: contrapositive and direct proof are two distinct tools in the kit, and reaching for the wrong one can turn an easy problem into a hard one (B3) or vice versa.}
+\ans{$A$ is a Knight and $B$ is a Knave.}
+\method{Assume $A$ is a Knave. Then $A$'s statement is false, meaning it is false that at least one of them is a Knave, so neither is a Knave --- meaning $A$ is a Knight, a contradiction. Hence $A$ must be a Knight. Since $A$ is a Knight, his statement is true, so at least one of them is indeed a Knave. Since $A$ is a Knight, $B$ must be the Knave.}
+\inv{Self-referential liar paradoxes always force the speaker to be a truth-teller when the alternative produces an immediate contradiction.}
 
 \end{enumerate}
 
@@ -165,60 +220,112 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item For non-zero real numbers $x,y$, which one of the following is sufficient to conclude that $x<y$?
+\item For non-zero real numbers $x,y$, which one of the following is sufficient to conclude that $x<y$? \textit{\small(after TMUA 2016 Paper 2 Q10)}
 
 \ans{E) $x^5<y^5$.}
-\method{The fifth power is a strictly increasing function on the reals (its rate of change $5t^4$ is never negative, and is zero only at the single point $t=0$, which is not enough to ever reverse direction), so $x^5<y^5 \iff x<y$ --- option E is sufficient. Options A, B ($x^2,y^2$) fail: $x=1,y=-2$ gives $x^2=1<4=y^2$ (satisfies A's hypothesis) but $x<y$ is false ($1<-2$ false). Options C, D (absolute value) fail via the same instance: $x=1,y=-2$ gives $|x|=1<2=|y|$ (satisfies C's hypothesis) but $x<y$ is false. Option F ($y^5<x^5$) is the reverse of the true relation.}
-\inv{Odd powers preserve order in both directions because they're strictly increasing across all of $\mathbb R$; squaring and absolute value both fold negative and positive inputs onto the same output range, losing exactly the sign information that determines order --- the single fact underlying every ``which operation is safe to apply to an inequality'' question.}
+\method{The function $f(t)=t^5$ is strictly increasing on all of $\mathbb{R}$ ($f'(t)=5t^4 \ge 0$, vanishing only at the isolated point $t=0$). Hence $x^5 < y^5 \iff x < y$, making E sufficient. Options A, B ($x^2, y^2$) and C, D ($|x|, |y|$) fail: $x=1, y=-2$ gives $x^2 = 1 < 4 = y^2$ and $|x| = 1 < 2 = |y|$, but $x < y$ is false ($1 < -2$ is false).}
+\inv{Odd powers preserve global order without restriction; even powers lose sign information.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $n^3$ is even, then $n$ is even.''
+\item Let $P, Q, R, S$ be four propositions. For how many of the $16$ possible truth assignments of $(P, Q, R, S)$ is the compound statement $(P \Rightarrow Q) \Rightarrow (R \Rightarrow S)$ false? \textit{\small(after TMUA 2019 Paper 2 Q3)}
 
-\ans{Proved via the contrapositive ``if $n$ is odd, then $n^3$ is odd''.}
-\method{Let $n=2k+1$. Then $n^3=(2k+1)^3=8k^3+12k^2+6k+1=2(4k^3+6k^2+3k)+1$, one more than an even number, hence odd.}
-\inv{The same pattern extends to any odd power: ``if $n^m$ is even then $n$ is even'' for any positive integer $m$, since an odd base always keeps every one of its powers odd.}
+\ans{C) $3$.}
+\method{An implication $X \Rightarrow Y$ is false if and only if $X$ is true and $Y$ is false. Here $X = (P \Rightarrow Q)$ and $Y = (R \Rightarrow S)$.
+\begin{itemize}
+\item $P \Rightarrow Q$ is true in $3$ out of $4$ assignments of $(P, Q)$: $(T, T), (F, T), (F, F)$.
+\item $R \Rightarrow S$ is false in exactly $1$ out of $4$ assignments of $(R, S)$: $(T, F)$.
+\end{itemize}
+Since $(P, Q)$ and $(R, S)$ are independent, the total number of failing truth assignments is $3 \times 1 = 3$. This matches option C.}
+\inv{Factoring independent component truth tables allows multiplying assignment counts directly.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $x,y>0$ and $x^2>y^2$, then $x>y$.''
+\item Let $f(x) = x^2 + bx + c$ with $b, c \in \mathbb{R}$. Consider three statements:
+\begin{itemize}
+\item[I.] $f(x) = 0$ has two distinct real roots.
+\item[II.] $c < 0$.
+\item[III.] $b^2 - 4c < 0$.
+\end{itemize}
+Which of the following describes the possible numbers of true statements among I, II, III? \textit{\small(after TMUA 2020 Paper 2 Q12)}
 
-\ans{Proved.}
-\method{Since $x^2>y^2$, we have $x^2-y^2>0$, which factors as $(x-y)(x+y)>0$. Since $x,y>0$, $x+y>0$. Dividing the inequality by the positive quantity $x+y$ preserves its direction: $x-y>0$, i.e.\ $x>y$.}
-\inv{This is the rigorous justification behind ``you can safely take square roots of an inequality between two positive quantities'' --- the positivity of $x+y$ is exactly what makes the division step safe.}
+\ans{D) Exactly $0$, $1$, or $2$.}
+\method{Let $\Delta = b^2 - 4c$. Statement I is $\Delta > 0$, and Statement III is $\Delta < 0$. Since $\Delta$ cannot be both strictly positive and strictly negative, I and III are mutually exclusive (cannot both be true). If $c < 0$ (II is true), then $-4c > 0 \implies \Delta > b^2 \ge 0$, which forces I to be true and III to be false. Thus:
+\begin{itemize}
+\item If II is true: I is true, III is false $\implies$ exactly $2$ true.
+\item If II is false ($c \ge 0$):
+  \begin{itemize}
+  \item If $\Delta > 0$: I is true, III is false $\implies$ exactly $1$ true.
+  \item If $\Delta < 0$: III is true, I is false $\implies$ exactly $1$ true.
+  \item If $\Delta = 0$ (e.g.\ $x^2+2x+1=0$ with $b=2, c=1$): I, II, III are all false $\implies$ exactly $0$ true.
+  \end{itemize}
+\end{itemize}
+All 3 can never be true. Thus the possible counts are exactly $0, 1$, or $2$, matching option D.}
+\inv{Recognizing mutual exclusivity and implication dependencies ($II \implies I$) completely resolves multi-statement counting.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is a multiple of $3$ but not a multiple of $9$, then $n^2$ is a multiple of $9$ but not a multiple of $81$.''
+\item Consider propositions $P, Q, R$. You are given that $(P \Rightarrow Q) \land (Q \Rightarrow R)$ is false. Which of the following CANNOT be the truth assignment $(P, Q, R)$? \textit{\small(after TMUA 2017 Paper 2 Q7)}
 
-\ans{Proved.}
-\method{Write $n=3m$ where $3\nmid m$ (since $n$ is a multiple of $3$ but not $9=3\times3$, the quotient $m=n/3$ cannot itself be a multiple of $3$). Then $n^2=9m^2$, manifestly a multiple of $9$. Is $n^2$ a multiple of $81=9^2$? That would require $m^2$ to be a multiple of $9$, which (since $3$ is prime) would force $3\mid m$ --- contradicting $3\nmid m$. So $m^2$ is not a multiple of $9$, and $n^2=9m^2$ is not a multiple of $81$.}
-\inv{This reuses the ``$3$ prime $\Rightarrow (3\mid m^2 \iff 3\mid m)$'' fact from B2/Day 1's C1 as a load-bearing step inside a longer argument --- exactly the payoff of having proved it once cleanly.}
+\ans{E) $(F, F, F)$.}
+\method{The conjunction $(P \Rightarrow Q) \land (Q \Rightarrow R)$ is false if and only if at least one of the two implications is false: either $(P=T \land Q=F)$ or $(Q=T \land R=F)$.
+Let us evaluate option E $(F, F, F)$:
+$P=F \implies P \Rightarrow Q$ is true. $Q=F \implies Q \Rightarrow R$ is true.
+Thus for $(F, F, F)$, the conjunction is TRUE. This directly contradicts the premise that the conjunction is false. Hence $(F, F, F)$ cannot be the assignment.}
+\inv{When a premise is false, any assignment that makes it true is immediately ruled out.}
 
 %── C5 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $x$ and $y$ are real numbers with $xy$ irrational, then $x\neq0$ and $y\neq0$.''
+\item Five logicians each make a statement, as follows:
+\begin{itemize}
+\item[Mr P:] ``Of these five statements, an odd number are true.''
+\item[Ms Q:] ``Both statements made by women are true.''
+\item[Mr R:] ``My first name is Robert and Mr P's statement is true.''
+\item[Ms S:] ``Exactly one statement made by a man is true.''
+\item[Mr T:] ``Neither statement made by a woman is true.''
+\end{itemize}
+How many of the five statements can be simultaneously true? \textit{\small(after TMUA Specimen Paper 2 Q20)}
 
-\ans{Proved via the contrapositive ``if $x=0$ or $y=0$, then $xy$ is rational''.}
-\method{The contrapositive of ``$P \Rightarrow (Q \text{ and } R)$'' is ``$(\text{not }Q \text{ or not }R) \Rightarrow \text{not } P$'', i.e.\ here ``$x=0$ or $y=0$ $\Rightarrow xy$ is rational''. If $x=0$ (or symmetrically $y=0$), then $xy=0$, which is an integer, hence rational.}
-\inv{This is a genuinely different shape of contrapositive from earlier in the sheet: the original conclusion was a compound ``and'' statement, so negating it correctly requires De Morgan (Day 1's toolkit) before the contrapositive can even be written down.}
+\ans{D) $3$ only.}
+\method{The men are $P, R, T$ and the women are $Q, S$. Notice $T$ states that neither woman tells the truth, so $T$ is true if and only if both $Q$ and $S$ are false.
+\begin{itemize}
+\item Case 1: Both women tell the truth ($Q=T, S=T$). Then $T=F$. Since $S$ is true, exactly one man tells the truth. Since $R \implies P$ (if $R$ is true, $P$ must be true), we cannot have $R$ true (that would make two men true: $R$ and $P$). Thus $R=F$, which forces $P=T$. The true statements are $Q, S, P$ ($3$ true statements). Since $3$ is odd, $P$'s statement is indeed true. This gives a consistent model with exactly $3$ true statements.
+\item Case 2: At least one woman lies.
+  If $Q=F$ and $S=T$, then $T=F$ (since $S$ is a woman telling the truth). Then exactly one man tells the truth, which forces $P=T, R=F$. The true statements are $S$ and $P$ ($2$ true statements). But $2$ is not odd, so $P$ must be false, a contradiction.
+  If both women lie ($Q=F, S=F$), then $T=T$. Since $S$ is false, the number of true men is not $1$. Since $T=T$, the true men must be $2$ or $3$. If $2$ men are true, they are $T$ and $P$, giving $2$ true statements overall, so $P$ must be false, contradiction. If $3$ men are true, then $P=T, R=T, T=T$, giving $3$ true statements overall ($P, R, T$), and since $3$ is odd, $P$ is true. This gives another consistent model with exactly $3$ true statements.
+\end{itemize}
+In every consistent scenario, exactly $3$ statements are true. Option D.}
+\inv{A tour-de-force of TMUA Paper 2 case analysis: multiple consistent configurations sharing the exact same true-statement count.}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item Prove by contrapositive: ``If $n$ is an integer such that $2n^2+1$ is a multiple of $3$, then $n$ is not a multiple of $3$.''
+\item In the Cartesian plane, let $L$ be a line passing through $(1, 2)$. Let $P$ be the statement: ``If the $y$-intercept of $L$ is negative, then the $x$-intercept of $L$ is positive.'' Which of the following must be true? \textit{\small(after TMUA 2022 Paper 2 Q5)}
 
-\ans{Proved via the contrapositive ``if $n$ is a multiple of $3$, then $2n^2+1$ is not a multiple of $3$''.}
-\method{Let $n=3k$. Then $2n^2+1=2(9k^2)+1=18k^2+1$. Modulo $3$: $18k^2\equiv0\pmod3$ (since $18=3\times6$), so $2n^2+1\equiv1\pmod3$, which is not a multiple of $3$.}
-\inv{This is the sheet's first contrapositive argument to work modulo $3$ rather than modulo $2$ --- the same ``substitute and reduce'' mechanics, just with a different modulus, confirming the technique isn't tied to parity specifically.}
+\ans{F) I and III only.}
+\method{The equation of a non-vertical line through $(1, 2)$ is $y - 2 = m(x - 1) \iff y = mx + (2 - m)$.
+The $y$-intercept is $c = 2 - m$. The $x$-intercept (for $m \neq 0$) is $x_0 = 1 - \frac{2}{m}$.
+\begin{itemize}
+\item Statement I ($P$): If $y$-intercept is negative, $2 - m < 0 \implies m > 2$. When $m > 2$, $0 < \frac{2}{m} < 1$, so $x_0 = 1 - \frac{2}{m} > 0$. Thus $P$ is always true.
+\item Statement III (contrapositive): Since $P$ is always true, its contrapositive is always true.
+\item Statement II (converse): ``If $x$-intercept is positive, then $y$-intercept is negative.'' Consider the line through $(1, 2)$ and $(2, 0)$, which has $x$-intercept $2 > 0$. Its slope is $m = \frac{0-2}{2-1} = -2$, so its $y$-intercept is $2 - (-2) = 4 > 0$. The converse is false.
+\end{itemize}
+Thus only I and III must be true, matching option F.}
+\inv{Translating logical implications into coordinate geometry parameters is an essential TMUA Paper 2 skill.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item Prove directly: ``If $n$ is a positive integer that is not a multiple of $3$, then $n^2\equiv1\pmod3$.''
+\item Propositions $P$ and $Q$ are given. Which of the following statements is logically equivalent to ``$P$ is necessary and sufficient for $Q$''? \textit{\small(after TMUA 2020 Paper 2 Q20)}
 
-\ans{Proved.}
-\method{Since $n$ is not a multiple of $3$, $n\equiv1$ or $n\equiv2\pmod3$. Case $n\equiv1$: $n=3k+1$, so $n^2=9k^2+6k+1\equiv1\pmod3$. Case $n\equiv2$: $n=3k+2$, so $n^2=9k^2+12k+4\equiv4\equiv1\pmod3$. Both cases give $n^2\equiv1\pmod3$.}
-\inv{This is the sheet's first genuinely case-split direct proof --- unlike the single-substitution proofs elsewhere in Sections A--C, ``not a multiple of $3$'' splits into two residues that both need checking before the claim is established.}
+\ans{A) $\neg P \iff \neg Q$.}
+\method{``$P$ is necessary and sufficient for $Q$'' means $P \iff Q$, which is $(P \Rightarrow Q) \land (Q \Rightarrow P)$. Replacing each implication with its contrapositive: $(P \Rightarrow Q) \equiv (\neg Q \Rightarrow \neg P)$ and $(Q \Rightarrow P) \equiv (\neg P \Rightarrow \neg Q)$. Recombining gives $(\neg P \Rightarrow \neg Q) \land (\neg Q \Rightarrow \neg P) \equiv (\neg P \iff \neg Q)$. This matches option A.}
+\inv{Contrapositive applies equally to biconditionals by transforming both directions simultaneously.}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item True or false, with justification: ``A statement with no counterexamples found after checking $100$ cases has therefore been proven true by direct proof.''
+\item A theorem states: ``For all real numbers $x$, if $x$ is rational, then $x^2$ is rational.'' Which of the following three restatements of the theorem are correct? \textit{\small(after TMUA 2023 Paper 2 Q11)}
 
-\ans{False.}
-\method{Direct proof requires a general logical argument valid for every case in the statement's domain, not exhaustive case-checking (which is only a proof when the domain itself is finite and every case truly has been checked). Checking $100$ cases of a statement about, say, all positive integers leaves infinitely many cases unchecked --- the statement could fail at case $101$ or far beyond.}
-\inv{The famous historical example is Euler's conjecture that $n^2+n+41$ is always prime, which holds for $n=0,\dots,39$ (checking $40$ cases with no counterexample) before failing at $n=40$ --- a stark reminder that pattern-matching from small cases is never a substitute for a general argument.}
+\ans{F) II and III only.}
+\method{Let $A(x)$: ``$x$ is rational'' and $B(x)$: ``$x^2$ is rational''. The theorem is $\forall x, A(x) \Rightarrow B(x)$.
+\begin{itemize}
+\item I: ``$B(x)$ only if $A(x)$'' translates to $B(x) \Rightarrow A(x)$ (the converse). The converse is false ($x=\sqrt2$), so I is not an equivalent restatement.
+\item II: ``A sufficient condition for $B(x)$ is $A(x)$'' translates to $A(x) \Rightarrow B(x)$. This is identical to the theorem.
+\item III: ``$\neg B(x) \Rightarrow \neg A(x)$'' is the contrapositive of $A(x) \Rightarrow B(x)$, which is logically equivalent to the theorem.
+\end{itemize}
+Thus II and III are correct restatements. Option F.}
+\inv{TMUA heavily tests the linguistic translation between ``only if'', ``sufficient'', and contrapositives.}
 
 \end{enumerate}
 
@@ -231,14 +338,14 @@
 
 \ans{B) I only.}
 \method{The boundary lines $x+y=4$ and $x-y=-2$ intersect where adding the equations gives $2x=2$, so $x=1,y=3$. Rewriting the constraints as $y>4-x$ and $y<x+2$ requires $4-x<x+2$, i.e.\ $x>1$ --- so statement I holds for every point in the region (this is forced by the region's very existence at each $x$, not just checked at the corner). Statement II fails: take $x=10,y=-5$ (check: $x+y=5>4$ and $x-y=15>-2$, both satisfied), but $y=-5\not>2$. Statement III fails: take $x=49.05,y=50.95$ (so $x-y=-1.9>-2$ and $x+y=100>4$, both satisfied), giving $(x+y)(x-y)=100\times(-1.9)=-190\not>-12$.}
-\inv{Statement I is provable directly from the region's defining inequalities (an algebraic fact true everywhere in the region); statements II and III instead need a specific constructed counterexample --- the two Day-3 techniques (direct proof, and disproof via a found instance) side by side in one question.}
+\inv{Statement I is provable directly from the region's defining inequalities (an algebraic fact true everywhere in the region); statements II and III instead need a specific constructed counterexample.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
 \item Prove by contrapositive: ``If $n^2-2n$ is even, then $n$ is even.''
 
 \ans{Proved via the contrapositive ``if $n$ is odd, then $n^2-2n$ is odd''.}
 \method{Let $n=2k+1$. Then $n^2-2n=n(n-2)=(2k+1)(2k-1)=4k^2-1=2(2k^2-1)+1$, one more than an even number, hence odd.}
-\inv{Direct proof would require assuming $n^2-2n$ is even and somehow extracting $n$'s parity from the factored form $n(n-2)$ --- messier than confirming the even case forces an even product, exactly Day 3's B3 lesson about when contrapositive is the natural choice.}
+\inv{Direct proof would require assuming $n^2-2n$ is even and somehow extracting $n$'s parity from the factored form $n(n-2)$ --- messier than confirming the odd case forces an odd product.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
 \item Prove directly: ``If $n>4$ is such that both $n-1$ and $n+1$ are prime, then $n$ is a multiple of $6$.''
@@ -252,14 +359,14 @@
 
 \ans{Proved.}
 \method{Since $x\neq y$, $\sqrt x\neq\sqrt y$, so $(\sqrt x-\sqrt y)^2>0$ (a nonzero real squared is strictly positive). Expanding: $x-2\sqrt{xy}+y>0$, so $x+y>2\sqrt{xy}$. Dividing by $2$ gives $\frac{x+y}{2}>\sqrt{xy}$.}
-\inv{This is the strict AM--GM inequality for two positive reals, proved by the same ``complete the square, use that a nonzero square is positive'' trick that will reappear constantly --- the equality case $x=y$ is exactly what's excluded by the hypothesis.}
+\inv{This is the strict AM--GM inequality for two positive reals, proved by the same ``complete the square, use that a nonzero square is positive'' trick that will reappear constantly.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
 \item Statement $T$: ``If $n$ is a positive integer such that $n^2$ is a multiple of $6$, then $n$ is a multiple of $6$.'' (a) Is $T$ true? Prove or disprove. (b) Contrast with the fact that ``$n^2$ is a multiple of $4$'' does \emph{not} force ``$n$ is a multiple of $4$'' (witnessed by $n=6$). What property of $6$, that $4$ lacks, makes $T$ true?
 
 \ans{(a) $T$ is true. (b) $6=2\times3$ is squarefree (a product of distinct primes); $4=2^2$ is not.}
 \method{(a) $n^2$ a multiple of $6$ means $n^2$ is a multiple of both $2$ and $3$. Since $2$ is prime, $2\mid n^2 \Rightarrow 2\mid n$; since $3$ is prime, $3\mid n^2 \Rightarrow 3\mid n$. So $n$ is a multiple of both $2$ and $3$, and since $\gcd(2,3)=1$, $n$ is a multiple of $\mathrm{lcm}(2,3)=6$. (b) For a prime $p$, $p\mid n^2 \Rightarrow p\mid n$ always (this is what makes each individual step in part (a) work). But for a prime \emph{square} like $4=2^2$, $4\mid n^2$ only forces $2\mid n$ (one factor of $2$ in $n^2$'s exponent-doubling is enough to reach exponent $2$), not $4\mid n$ --- exactly why $n=6$ (even but not a multiple of $4$) has $n^2=36$, a multiple of $4$, without $n$ being one.}
-\inv{This closes Day 3 by explaining, not just observing, the recurring $6$-versus-$4$ pattern that has appeared since Day 1 (C1 vs C8) --- squarefree moduli transfer divisibility from $n^2$ back to $n$ cleanly; prime-power moduli generally do not.}
+\inv{Squarefree moduli transfer divisibility from $n^2$ back to $n$ cleanly; prime-power moduli generally do not.}
 
 \end{enumerate}
 
@@ -268,16 +375,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Contrapositive of Implication with Disjunction.}
-        To prove $P\Rightarrow(Q\lor R)$ or $P\Rightarrow\text{not }Q$, state the contrapositive $(\neg Q\land\neg R)\Rightarrow\neg P$; disjunctions become conjunctions under De Morgan, converting messy negations into concrete algebraic assumptions. \seealso{B5, B7, C5, A4}
-  \item \textbf{Natural Choice: Contrapositive for ``Power to Linear'' Divisibility.}
-        Proving $n^2$ even $\Rightarrow n$ even directly requires extracting prime factors from squares; proving the contrapositive $n$ odd $\Rightarrow n^2$ odd requires only squaring $2k+1=4k^2+4k+1$, an immediate direct calculation. \seealso{A7, B2, B3, C2, D2}
-  \item \textbf{Squarefree Moduli and Divisibility Transfer.}
-        For squarefree $m=p_1\cdots p_k$, $m\mid n^2\Rightarrow m\mid n$ because each prime occurs to power $\ge2$ in $n^2$, hence at least once in $n$. For non-squarefree $m$ like $4=2^2$, $4\mid 6^2$ but $4\nmid 6$. \seealso{B1, B9, C4, D5}
-  \item \textbf{Monotonicity and Inequality Direction.}
-        Odd powers ($x^5<y^5$) are strictly increasing and preserve order across all reals; even powers ($x^2<y^2$) require positive hypotheses ($x,y>0$) before concluding $x<y$. \seealso{A9, A10, B4, C1, C3}
-  \item \textbf{Consecutive Integers and Modulo Sieve.}
-        Three consecutive integers $n-1, n, n+1$ contain a multiple of $3$; if $n-1, n+1$ are primes $>3$, $n$ must absorb the factor of $3$, and parity forces $n$ even, yielding $6\mid n$. \seealso{C7, D3, D5, C6}
+  \item \textbf{Material Implication and Falsity Conditions.}
+        An implication $A \Rightarrow B$ is false in exactly one case: $A$ is true and $B$ is false. The premise must hold while the conclusion fails. \seealso{A2, A4, A5, B4, C2}
+  \item \textbf{Implication Chaining and Modus Tollens.}
+        From $P \Rightarrow Q \Rightarrow R$, learning that $R$ is false instantly forces $Q$ and $P$ to be false; cycles force all elements to share identical truth values. \seealso{A3, A9, A10, B2, C4}
+  \item \textbf{Mutual Exclusivity in Multi-Statement Deductions.}
+        When testing ``exactly one true'', identify pairs that are mutually exclusive or where one forces another (e.g.\ $4 \mid n \implies 2 \mid n$), which immediately rules out the premise. \seealso{B1, B3, B5, B6, C3}
+  \item \textbf{Self-Referential Truth Deductions and Parity.}
+        In logic puzzles (Knights/Knaves and logicians), test whether a statement asserts its own falsity or sets up a parity constraint on the total count of true claims. \seealso{B10, C5}
+  \item \textbf{Geometric and Coordinate Conditionals.}
+        For linear and regional constraints, parametrize the intercepts or vertices to determine whether a hypothesis strictly forces a sign condition. \seealso{C6, D1}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -285,16 +392,16 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Confusing Contrapositive with Converse.}
-        To prove $P\Rightarrow Q$ by contrapositive, assume $\neg Q$ and deduce $\neg P$. Assuming $Q$ and deducing $P$ proves the converse, which is an independent, non-equivalent claim. \seealso{A6, A8, B10, A4}
-  \item \textbf{Negating Disjunctions Incorrectly in Contrapositive Stems.}
-        The negation of ``$x$ irrational or $y$ irrational'' is ``$x$ rational \emph{and} $y$ rational'', not ``or''; forgetting De Morgan produces an invalid or unprovable assumption. \seealso{B5, B7, C5}
-  \item \textbf{Assuming Finite Case Checking Constitutes a Proof.}
-        Verifying that $P(n)$ holds for 100 cases shows only the absence of small counterexamples, never that all integers satisfy the statement; a universal claim requires structural proof. \seealso{C8, B10, A8}
-  \item \textbf{Ignoring Sign Constraints When Taking Roots.}
-        $x^2>y^2$ implies $x>y$ only if $x,y>0$; with negative numbers (e.g.\ $x=-3, y=1$, where $9>1$ but $-3<1$), even powers reverse ordering. Always verify sign restrictions. \seealso{C1, C3, A10, B4}
-  \item \textbf{Assuming Prime-Power Moduli Behave Like Primes.}
-        $p\mid n^2\Rightarrow p\mid n$ holds for primes $p$, but fails for prime powers: $4\mid n^2$ does not force $4\mid n$ ($n=6$). Never treat composites as primes in divisibility steps. \seealso{B1, B9, C4, D5}
+  \item \textbf{Assuming a False Implication Requires False Premises.}
+        $A \Rightarrow B$ is false only when $A$ is true and $B$ is false; if $A$ is false, the implication is vacuously true regardless of $B$. \seealso{A1, A2, A4, C2}
+  \item \textbf{Confusing ``At Least One'' with ``Exactly One''.}
+        In urn and liar problems, an assignment that satisfies a conditional label must be checked across all three boxes to count the total true statements. \seealso{B3, B5, B6, C5}
+  \item \textbf{Assuming Independent Statements Cannot Share Falsehood.}
+        Given $(P \Rightarrow Q) \land (Q \Rightarrow R)$ is false, neither $P$ nor $R$ is individually forced true; only specific assignments like $(F, F, F)$ are ruled out. \seealso{A3, B7, C4}
+  \item \textbf{Misinterpreting Contrapositive and Converse Phrasings.}
+        ``$Q$ only if $P$'' asserts $Q \Rightarrow P$ (the converse), not $P \Rightarrow Q$; only contrapositives and biconditionals preserve truth equivalence. \seealso{A6, A7, C7, C8}
+  \item \textbf{Overlooking Degenerate Root Cases in Quadratic Regions.}
+        When counting possible true statements among root discriminants and signs, $b^2-4c=0$ permits zero true statements when $c \ge 0$. \seealso{C3, D1}
 \end{enumerate}
 
 \SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
