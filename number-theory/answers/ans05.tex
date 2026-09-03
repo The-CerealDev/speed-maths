@@ -274,6 +274,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Bounding a Diophantine by Inequalities.}
+        From $xyz=x+y+z$ with $x\le y\le z$ get $xyz\le3z\Rightarrow xy\le3$; from $\frac1x+\frac1y=\frac16$ get $\frac1x\ge\frac1{12}$; finiteness then leaves a short list to check. \seealso{C7, D3, D2, C3, C8}
+  \item \textbf{Polynomial Remainder Rewriting.}
+        $\frac{n^{2}+3n+5}{n+1}=n+2+\frac3{n+1}$, $\frac{n^{3}+100}{n+10}=(n^{2}-10n+100)-\frac{900}{n+10}$; integrality forces the denominator to divide the constant remainder. \seealso{C1, C6, B3, C6, D2}
+  \item \textbf{Geometric-Sum Factoring for Divisibility.}
+        Factor out the lowest power: $2^{2022}(2^{2}+2+1)=7\cdot2^{2022}$, so divisibility by $6,7,8,9,10$ is read off from the prime factors $7$ and $2^{k}$. \seealso{C2, B4, C3, A9, D4}
+  \item \textbf{Modular Cycles and Fermat's Little Theorem.}
+        Last digits cycle every $4$; $5\equiv-1\pmod6$; $7^{4}\equiv1\pmod{100}$; and $x^{10}\equiv1\pmod{11}$ for $11\nmid x$ reduces $x^{2025}$ to $x^{5}$ and pairs $x$, $11-x$ to cancel. \seealso{A1, A5, B6, D4, A9, B3}
+  \item \textbf{Mod-$3$ Obstruction and Sophie Germain.}
+        If $p>3$ then $p^{2}\equiv1\pmod3$ so $p^{2}+2\equiv0\pmod3$; and $n^{4}+4=(n^{2}-2n+2)(n^{2}+2n+2)$ via Sophie Germain, forcing a factor $1$. \seealso{D1, D5, C8, A2, B2}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Enumerating all factor pairs when only one is possible.}
+        $x^{2}-y^{2}=17$ with $17$ prime forces $(x-y,x+y)=(1,17)$; there is no second pair $17,1$ to check separately. \seealso{C3, C5, D2, C7, C8}
+  \item \textbf{Miscounting numbers with exactly $3$ divisors.}
+        $n$ has $3$ divisors iff $n=p^{2}$ with $p$ prime; $\le100$ needs $p\le7$ ($2^{2},3^{2},5^{2},7^{2}$) since $11^{2}=121>100$. \seealso{C5, A4, B7, C4, D5}
+  \item \textbf{Taking the wrong divisor of $900$ for the largest $n$.}
+        $n^{3}+100\equiv-900\pmod{n+10}$, so $n+10\mid900$; the largest $n$ uses the largest divisor $900$ itself, giving $n=890$ and digit sum $17$. \seealso{C6, C1, D2, B3, A10}
+  \item \textbf{Misapplying FLT to $1^{2025}+\cdots+10^{2025}\pmod{11}$.}
+        $10^{2025}\equiv(-1)^{2025}\equiv-1$, not $1$; the ten residues pair as $x^{5}+(-x)^{5}=0$, so the total is $0$, not $10$. \seealso{D4, A5, B6, B3, A1}
+  \item \textbf{Forgetting the negative solution for $n^{4}+4$ prime.}
+        $n^{4}+4=(n^{2}-2n+2)(n^{2}+2n+2)$ prime allows $(n\pm1)^{2}+1=1$, giving $n=1$ and $n=-1$; over all integers the sum is $0$, not $1$. \seealso{D5, C8, D1, C3, A4}
+\end{enumerate}
+
 \SpeedClosing{``Number theory is the queen of mathematics.'' --- Carl Friedrich Gauss}
 
 \end{document}

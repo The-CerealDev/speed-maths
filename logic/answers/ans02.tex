@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Converse, Contrapositive and Inverse.}
+        Converse swaps $P\Rightarrow Q$ to $Q\Rightarrow P$; contrapositive is $\neg Q\Rightarrow\neg P$ (always equivalent to the original); inverse is $\neg P\Rightarrow\neg Q$ (always equivalent to the converse). \seealso{A1, A2, A6, B1, B7}
+  \item \textbf{Necessary vs Sufficient as Directional Implications.}
+        ``$P$ sufficient for $Q$'' means $P\Rightarrow Q$; ``$P$ necessary for $Q$'' means $Q\Rightarrow P$; test each direction separately with a proof or one counterexample. \seealso{A3, A4, A5, B2, B8}
+  \item \textbf{Biconditional as Two Directions.}
+        $P\iff Q$ needs both $P\Rightarrow Q$ and $Q\Rightarrow P$; equivalently $P$ is necessary and sufficient for $Q$. A single counterexample to either direction refutes the biconditional. \seealso{B3, B5, C2, C3, D5}
+  \item \textbf{Inverse $\equiv$ Converse Shortcut.}
+        Since the inverse is the contrapositive of the converse, they share truth value; to decide if a converse holds, it is sometimes easier to test its inverse instead. \seealso{B7, C5, C7, D1, A7}
+  \item \textbf{Divisibility and Parity as Necessary/Sufficient Tests.}
+        $6\mid n\Rightarrow2\mid n$ but not conversely; $n^{2}$ even $\iff n$ even; altitudes $h_{a}=2A/a$ equal $\iff$ sides equal. Use the underlying identity in both directions. \seealso{A5, A10, B3, C1, C6, D4}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Confusing contrapositive with converse.}
+        The contrapositive of a true statement is always true; the converse of a true statement is often false ($n$ mult.\ $6\Rightarrow n$ mult.\ $3$ is true, its converse is false). \seealso{A7, A8, A1, B1, C8}
+  \item \textbf{Thinking ``sufficient'' implies ``necessary'' (or conversely).}
+        $x=3$ is sufficient for $x^{2}=9$ but not necessary ($x=-3$ also works); $x^{2}>4$ is necessary for $x>2$ but not sufficient ($x=-3$). \seealso{A3, A4, B9, B2, B8}
+  \item \textbf{Forgetting the sign-loss when squaring.}
+        $a=b$ is sufficient for $a^{2}=b^{2}$ but not necessary; the correct necessary-and-sufficient condition is $a=b$ or $a=-b$. \seealso{B8, B4, D5, C8, A9}
+  \item \textbf{Upgrading a single sufficient value to necessity.}
+        $n=6$ is sufficient for ``$n$ multiple of $3$'' but not necessary; a single witness never proves necessity, which requires ruling out every alternative. \seealso{B2, A5, C4, D2, D3}
+  \item \textbf{Negating ``if $P$ then $Q$'' as another conditional.}
+        $\neg(P\Rightarrow Q)\equiv P\land\neg Q$ (e.g.\ ``$n$ even and $n^{2}$ odd''), never ``if not $P$ then not $Q$'' or another implication. \seealso{A9, B8, C8, B4, A6}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

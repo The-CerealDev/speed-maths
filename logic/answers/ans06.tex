@@ -275,4 +275,40 @@ Inductive step: assume $\sum_{k=1}^n\frac1{k^2}<2-\frac1n$ for some $n\geq2$. Th
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The Inductive Step as an Implication Chain.}
+        The inductive step proves $P(k)\Rightarrow P(k+1)$ universally; without an established base case $P(n_0)$, the implication chain remains an unanchored abstraction that proves nothing. \seealso{A1, A2, A3, C8, B10}
+  \item \textbf{Shifted and Multi-Step Base Cases.}
+        Statements valid only for $n\ge n_0$ (e.g.\ $2^n>n^2$ for $n\ge5$) must anchor at $n_0$; recurrences or two-step steps $P(k)\Rightarrow P(k+2)$ require multiple base cases to avoid skipping parity classes. \seealso{A2, A6, A8, B10, C3}
+  \item \textbf{Strong Induction for Decomposable Structures.}
+        When an inductive step decomposes an integer or recurrence into smaller pieces of unknown size rather than just $k$ and $1$ (e.g.\ prime factorisation or $t_{n+1}=t\cdot t_n-t_{n-1}$), strong induction assuming all $P(1),\dots,P(k)$ is mandatory. \seealso{A10, C4, C6, D1, D2}
+  \item \textbf{Inequality Induction and Sign Preservation.}
+        Multiplying an inductive inequality like $(1+x)^k\ge 1+kx$ by $(1+x)$ to reach $k+1$ preserves direction only when the multiplier is strictly positive ($x>-1$); negative multipliers flip inequalities. \seealso{B6, B7, D3, D5}
+  \item \textbf{Strengthening the Inductive Hypothesis.}
+        Proving a tighter bound like $\sum_{k=1}^n \frac{1}{k^2}<2-\frac{1}{n}$ is often easier by induction than proving the looser $\sum \frac{1}{k^2}<2$, because the stronger claim provides an extra negative decrement to absorb new terms. \seealso{D5, B8, D4}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The Step-One Overlap Breakdown.}
+        Assuming the transition from $k$ to $k+1$ works identically for all $k$ overlooks the breakdown at $k=1\to2$ (the ``all horses same colour'' fallacy), where the intersection between two sub-collections is empty. \seealso{C1, A7, C8}
+  \item \textbf{Skipping Parity in Step-Size Two Induction.}
+        Proving $P(k)\Rightarrow P(k+2)$ with only $P(1)$ proved establishes $P(n)$ exclusively for odd integers; an independent base case $P(2)$ is required for even integers. \seealso{A8, B10, D1}
+  \item \textbf{Assuming Failed $P(1)$ Invalidates the Entire Proposition.}
+        If $P(1)$ or $P(2)$ fails, the statement may still hold for all $n\ge n_0$ (e.g.\ $n!\ge 3^n$ for $n\ge7$); the valid base case simply begins at a higher threshold. \seealso{A6, A9, C3, C5}
+  \item \textbf{Using Weak Induction Where Subproblems Vary in Size.}
+        Attempting to prove claims about integer factorisation using weak induction fails because dividing $k+1$ by a prime produces an integer strictly smaller than $k$, not necessarily equal to $k$. \seealso{A10, C4, C6, D2}
+  \item \textbf{Applying Induction Across Continuous Domains.}
+        Mathematical induction relies on the well-ordering of natural numbers; it cannot be applied directly across continuous intervals or real numbers without discretization. \seealso{A5, D3}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

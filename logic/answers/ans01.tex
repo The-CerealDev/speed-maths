@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{De Morgan for ``and''/``or'' Chains.}
+        $\neg(P\land Q)\equiv(\neg P\lor\neg Q)$ and $\neg(P\lor Q)\equiv(\neg P\land\neg Q)$, extended to any length: negating a chain flips the connective at every level. \seealso{A3, A4, A7, B3, B8}
+  \item \textbf{Quantifier Flip on Negation.}
+        $\neg(\forall x\,P(x))\equiv\exists x\,\neg P(x)$ and $\neg(\exists x\,P(x))\equiv\forall x\,\neg P(x)$; the predicate itself is also negated ($>$ becomes $\le$, $\ge$ becomes $<$, $=$ becomes $\neq$). \seealso{A1, A2, B4, B6, C3}
+  \item \textbf{Order of Quantifiers Changes Meaning.}
+        $\exists x\,\forall y\,P(x,y)$ (one $x$ works for every $y$) is strictly stronger than $\forall y\,\exists x\,P(x,y)$ (for each $y$ a possibly different $x$); the first implies the second, not conversely. \seealso{A9, B5, C1, C6, D5}
+  \item \textbf{Nested Quantifier Negation Step by Step.}
+        Negate outside-in, flipping each quantifier and finally the inner predicate: $\neg(\forall x\,\exists y\,\forall z\,P)\equiv\exists x\,\forall y\,\exists z\,\neg P$. \seealso{B4, B6, C5, C7, D1, C8}
+  \item \textbf{Witness Construction for Existentials.}
+        $\exists n\,\forall k\le10\,(k\mid n)$ is witnessed by $n=\mathrm{lcm}(1,\dots,10)=2520$; $\exists x\,\forall n\,(x^{2}<n)$ is witnessed by $x=0$ because $n\ge1$. Edge domains ($n=1$) determine truth. \seealso{C1, C5, C6, C7, C8, D4}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Keeping the quantifier the same when negating.}
+        $\neg(\forall x\,P(x))$ is $\exists x\,\neg P(x)$, not $\forall x\,\neg P(x)$; the most common error is to leave $\forall$ as $\forall$. \seealso{A5, B6, C3, D1, B10}
+  \item \textbf{Forgetting to flip the connective with De Morgan.}
+        $\neg(P\land Q)$ needs ``or'', $\neg(P\lor Q)$ needs ``and''; writing $\neg(P\land Q)$ as $(\neg P\land\neg Q)$ is always wrong. \seealso{A3, A7, B7, B9, A4}
+  \item \textbf{Thinking $\exists x\,\forall y$ and $\forall y\,\exists x$ are equivalent.}
+        $\exists x\,\forall y\,(x+y=0)$ is false (no single $x$ works for every $y$) while $\forall y\,\exists x\,(x+y=0)$ is true ($x=-y$ depends on $y$). \seealso{A9, B5, C1, D5, B4}
+  \item \textbf{Ignoring the domain restriction that makes a claim true.}
+        ``$\exists x\,\forall n\,(x^{2}<n)$'' with $n$ a positive integer is true via $x=0$ since $n\ge1$; over all real $n$ it would be false. \seealso{C1, C6, C8, B4, D2}
+  \item \textbf{Missing the $n=1$ edge case for ``$\exists m<n$ prime''.}
+        ``$\forall n\,\exists m<n$ prime'' fails at $n=1$ (no positive $m<1$) and at $n=2$ ($m=1$ not prime); one smallest counterexample disproves the universal. \seealso{C8, B6, B10, C4, D4}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

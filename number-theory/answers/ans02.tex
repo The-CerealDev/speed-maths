@@ -263,6 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Factorising to Force Primality.}
+        Write a polynomial as a product of two integers, e.g.\ $n^{2}-4n-5=(n-5)(n+1)$ or $n^{2}-1=(n-1)(n+1)$; for the product to be prime the smaller positive factor must be $1$. \seealso{C1, B7, C3, D2, C7}
+  \item \textbf{Remainder Rewriting for Integrality.}
+        Divide to isolate a remainder: $\frac{x^{2}+11}{x-1}=x+1+\frac{12}{x-1}$, $\frac{n^{3}+100}{n+10}=(n^{2}-10n+100)-\frac{900}{n+10}$, so the denominator must divide the constant remainder. \seealso{C2, C7, D5, C6, C8}
+  \item \textbf{Quadratic Residues and Modular Solutions.}
+        Squares modulo $p$ hit only half the residues ($0,1,4\pmod5$; $1,4,9,5,3\pmod{11}$); count $x$ with $x^{2}\equiv a\pmod p$ by checking the residue set and multiplying by complete blocks. \seealso{C5, C8, D4, B9, A7}
+  \item \textbf{Legendre's Valuation and Factorials.}
+        $v_{p}(n!)=\sum\lfloor n/p^{i}\rfloor$ gives the highest power of $p$ dividing $n!$, trailing zeros, and the smallest $n$ with $n!\equiv0\pmod m$. \seealso{B4, B10, D3, B6, A4}
+  \item \textbf{Same-Parity Factor Pairs and Euclid's GCD Trick.}
+        For $a^{2}-b^{2}=(a-b)(a+b)$ the two factors share parity, so only even$\times$even works for an even product; and $\gcd(n^{2}+c,n+d)=\gcd(r,n+d)$ via $n^{2}+c=(n-d)(n+d)+r$. \seealso{D2, D5, C3, B7, A5}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Setting the wrong factor to $1$ for primality.}
+        $(n-5)(n+1)$ prime does not mean $n+1=1$; the smaller factor $n-5$ must be $1$, giving $n=6$. Always identify the smaller factor. \seealso{C1, D2, A9, C3}
+  \item \textbf{Missing negative divisors when $x$ ranges over integers.}
+        $\frac{12}{x-1}$ integer allows $x-1\in\pm1,\pm2,\pm3,\pm4,\pm6,\pm12$ ($12$ values), not just the $6$ positive divisors. \seealso{C2, C5, C7, C8, B2}
+  \item \textbf{Assuming every residue is a quadratic residue.}
+        $x^{2}\equiv4\pmod5$ has two solutions per block ($2,3$), but $x^{2}\equiv2\pmod5$ has none; never assume a congruence $x^{2}\equiv a$ is solvable. \seealso{C5, C8, D4, A7, C3}
+  \item \textbf{Forgetting the same-parity condition for $a^{2}-b^{2}$.}
+        $2024=2^{3}\cdot11\cdot23$ factor pairs must both be even to write as $(a-b)(a+b)$; odd$\times$even pairs are impossible and must be discarded. \seealso{D2, C3, A5, B7, D5}
+  \item \textbf{Confusing $\gcd$--$\mathrm{lcm}$ product with coprimality.}
+        $ab=\gcd(a,b)\cdot\mathrm{lcm}(a,b)$ but writing $a=12x$, $b=12y$ requires $\gcd(x,y)=1$; only coprime divisor pairs of $xy$ are valid. \seealso{B7, C6, A5, B2, D5}
+\end{enumerate}
+
 \SpeedClosing{``Speed comes from recognition, not from rushing.
 Every shortcut is a pattern you have internalised.''}
 

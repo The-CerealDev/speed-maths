@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Euclidean Step for Polynomial GCDs.}
+        Replace $\gcd(n^{2}+c,n+d)$ by $\gcd(r,n+d)$ where $r$ is the remainder of $n^{2}+c$ modulo $n+d$; for linear pairs $\gcd(7n+15,3n+2)$ eliminate $n$ by combination to $\gcd(31,n+11)$. \seealso{C7, D2, B5, B9, C8}
+  \item \textbf{Simon's Favourite Factoring Trick.}
+        $xy+x+y=23\iff(x+1)(y+1)=24$; with $xy=144$ and $\gcd(x,y)=3$ write $x=3a$, $y=3b$, $\gcd(a,b)=1$, $ab=16$; count coprime divisor pairs. \seealso{C1, B9, D5, C2, B3}
+  \item \textbf{Remainder Rewriting and Divisor of Remainder.}
+        $\frac{x+11}{x-3}=1+\frac{14}{x-3}$ needs $x-3\mid14$; $\frac{n^{2}+3n+5}{n-1}=n+4+\frac9{n-1}$ needs $n-1\mid9$; list all signed divisors. \seealso{C6, C8, B1, C1, A5}
+  \item \textbf{Stable Last Digits and Factorial Valuations.}
+        $5^{k}\equiv25\pmod{100}$ for $k\ge2$; $25^{k}\equiv625\pmod{1000}$ for $k\ge2$; and $v_{5}(n!)$ gives trailing zeros while $n!\equiv0\pmod m$ needs enough $p$-adic valuation. \seealso{B4, D3, B1, A2, B10, A8}
+  \item \textbf{Prime-Modulo and Exponent Comparison.}
+        If $p\neq3$ then $p^{2}\equiv1\pmod3$ so $p^{2}+2\equiv0\pmod3$; and $2^{300}=(2^{3})^{100}=8^{100}$ versus $3^{200}=9^{100}$ decides the comparison without computing powers. \seealso{C2, A7, A5, C3, A2}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Stopping the Euclidean step too early.}
+        $\gcd(7n+15,3n+2)=\gcd(n+11,3n+2)=\gcd(n+11,31)$, so the gcd divides $31$ and the maximum $31$ is attained at $n=20$; omitting the final reduction to a constant leaves the bound invisible. \seealso{C7, D2, B5, A3, B9}
+  \item \textbf{Off-by-one in Simon's trick.}
+        $xy+x+y=23$ is $(x+1)(y+1)=24$, not $23$; forgetting to add $1$ to both sides shifts every divisor pair and miscounts solutions. \seealso{C1, B9, D5, A5, C6}
+  \item \textbf{Misclassifying $6$ divisors as $p^{5}$.}
+        $6=6$ or $3\times2$, so $n=p^{5}\ge32$ or $n=p^{2}q$; the minimal $p^{2}q=2^{2}\cdot3=12$ beats $2^{5}=32$, so the smallest with $6$ divisors is $12$, not $32$. \seealso{B8, A6, B6, C1, D4}
+  \item \textbf{Misapplying the mod-$11$ palindrome rule.}
+        $aba=101a+10b\equiv2a-b\pmod{11}$; $2a-b=0$ gives $b=2a$ ($a=1\!-\!4$) and $2a-b=11$ gives $b=2a-11$ ($a=6\!-\!9$), totalling $8$, not $9$ or $10$. \seealso{C3, A5, C5, B1, A8}
+  \item \textbf{Forgetting the same-parity condition for $p^{2}-q^{2}=24$.}
+        $24=2\cdot12=4\cdot6$ are the only even$\times$even factor pairs; odd$\times$even pairs cannot be $(p-q)(p+q)$ since $p-q$ and $p+q$ share parity, so only $(7,5)$ works. \seealso{B3, D2, C2, B2, A4}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

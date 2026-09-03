@@ -277,6 +277,31 @@
 
 \end{enumerate}
 
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Factorial ratios cancel first.} $\frac{n!}{k!}=(k+1)\cdots n$ is a short product; cancel the larger factorial before multiplying and read $n(n-1)=42$ as consecutive integers. \seealso{A2, A5, A10, B2, B9, C8}
+  \item \textbf{Multiplication principle, then case-split when counts vary.} Independent choices multiply ($n^k$ vs $n^{\underline{k}}$); when a later count depends on an earlier pick (parity, leading zero), split into disjoint cases before adding. \seealso{A3, A6, A7, C1, C7}
+  \item \textbf{Most-constrained digit first.} For numbers the hundreds digit cannot be $0$ and the units digit may be forced by parity; count those before the free middle digits. Codes allow leading $0$ --- numbers do not. \seealso{B3, B4, C1, C7, D1}
+  \item \textbf{Glue what must be together.} A required adjacency becomes one block with $2!$ internal orders (or $1$ if the letters are identical); ``not together'' is total minus together, and multiple blocks compose independently. \seealso{C2, C3, C5}
+  \item \textbf{Choose the structure, don't list.} Rectangles are $\binom{4}{2}^2$ choices of gridlines; palindromes are determined by the first half; pairings quotient out internal and pair orders; trailing zeros count factors of $5$. \seealso{C4, D2, D3, D4}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Code versus number: the leading zero.} $10\cdot9\cdot8\cdot7$ counts codes; $9\cdot9\cdot8\cdot7$ counts four-digit numbers. Forgetting the $9$ vs $10$ at the front is the single most common digit trap. \seealso{B3, B4, C1, C7}
+  \item \textbf{Counting the constrained position last.} Placing the middle digit before the units/thousands makes the number of options depend on earlier choices and forces a hidden case split. Seat the constrained digit first. \seealso{C1, C7, D1}
+  \item \textbf{Giving a block the wrong internal factor.} Priya--Quinn glued is $2!$ inside, but the two E's of SPEED or a $2\times2$ square's internal arrangement is $1$; identical contents contribute no factor. \seealso{B6, C2, C5}
+  \item \textbf{Counting squares or using the wrong gridlines.} A $3\times3$ board has $4$ vertical and $4$ horizontal lines, so rectangles are $\binom{4}{2}^2=36$ (not $\binom{3}{2}^2$); the $14$ squares are a different enumeration. \seealso{D2}
+  \item \textbf{Dividing pairings by the wrong symmetry.} Splitting $8$ into $4$ unlabelled pairs is $\frac{8!}{(2!)^4 4!}=105$, not $\frac{8!}{(2!)^4}$; trailing zeros need $\lfloor100/25\rfloor$ counted twice. Name the symmetry before dividing. \seealso{D3, D4}
+\end{enumerate}
+
 \SpeedClosing{``Before you count, decide exactly what you are counting.
 Every hard count is an easy count seen from the wrong side.''}
 

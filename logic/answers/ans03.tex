@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Contrapositive of Implication with Disjunction.}
+        To prove $P\Rightarrow(Q\lor R)$ or $P\Rightarrow\text{not }Q$, state the contrapositive $(\neg Q\land\neg R)\Rightarrow\neg P$; disjunctions become conjunctions under De Morgan, converting messy negations into concrete algebraic assumptions. \seealso{B5, B7, C5, A4}
+  \item \textbf{Natural Choice: Contrapositive for ``Power to Linear'' Divisibility.}
+        Proving $n^2$ even $\Rightarrow n$ even directly requires extracting prime factors from squares; proving the contrapositive $n$ odd $\Rightarrow n^2$ odd requires only squaring $2k+1=4k^2+4k+1$, an immediate direct calculation. \seealso{A7, B2, B3, C2, D2}
+  \item \textbf{Squarefree Moduli and Divisibility Transfer.}
+        For squarefree $m=p_1\cdots p_k$, $m\mid n^2\Rightarrow m\mid n$ because each prime occurs to power $\ge2$ in $n^2$, hence at least once in $n$. For non-squarefree $m$ like $4=2^2$, $4\mid 6^2$ but $4\nmid 6$. \seealso{B1, B9, C4, D5}
+  \item \textbf{Monotonicity and Inequality Direction.}
+        Odd powers ($x^5<y^5$) are strictly increasing and preserve order across all reals; even powers ($x^2<y^2$) require positive hypotheses ($x,y>0$) before concluding $x<y$. \seealso{A9, A10, B4, C1, C3}
+  \item \textbf{Consecutive Integers and Modulo Sieve.}
+        Three consecutive integers $n-1, n, n+1$ contain a multiple of $3$; if $n-1, n+1$ are primes $>3$, $n$ must absorb the factor of $3$, and parity forces $n$ even, yielding $6\mid n$. \seealso{C7, D3, D5, C6}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Confusing Contrapositive with Converse.}
+        To prove $P\Rightarrow Q$ by contrapositive, assume $\neg Q$ and deduce $\neg P$. Assuming $Q$ and deducing $P$ proves the converse, which is an independent, non-equivalent claim. \seealso{A6, A8, B10, A4}
+  \item \textbf{Negating Disjunctions Incorrectly in Contrapositive Stems.}
+        The negation of ``$x$ irrational or $y$ irrational'' is ``$x$ rational \emph{and} $y$ rational'', not ``or''; forgetting De Morgan produces an invalid or unprovable assumption. \seealso{B5, B7, C5}
+  \item \textbf{Assuming Finite Case Checking Constitutes a Proof.}
+        Verifying that $P(n)$ holds for 100 cases shows only the absence of small counterexamples, never that all integers satisfy the statement; a universal claim requires structural proof. \seealso{C8, B10, A8}
+  \item \textbf{Ignoring Sign Constraints When Taking Roots.}
+        $x^2>y^2$ implies $x>y$ only if $x,y>0$; with negative numbers (e.g.\ $x=-3, y=1$, where $9>1$ but $-3<1$), even powers reverse ordering. Always verify sign restrictions. \seealso{C1, C3, A10, B4}
+  \item \textbf{Assuming Prime-Power Moduli Behave Like Primes.}
+        $p\mid n^2\Rightarrow p\mid n$ holds for primes $p$, but fails for prime powers: $4\mid n^2$ does not force $4\mid n$ ($n=6$). Never treat composites as primes in divisibility steps. \seealso{B1, B9, C4, D5}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

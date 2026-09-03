@@ -278,11 +278,11 @@ Equivalently $360\left(1-\frac12\right)\left(1-\frac13\right)\left(1-\frac15\rig
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Stars and bars.} Non-negative solutions of $x_1+\cdots+x_k=n$: $\binom{n+k-1}{k-1}$. Positive solutions: bars in gaps, $\binom{n-1}{k-1}$.
-  \item \textbf{Shift for lower bounds.} ``$x\geq c$'' $\Rightarrow$ substitute $x'=x-c$ and reduce the target sum. Write the substitution line explicitly.
-  \item \textbf{Include--exclude for upper bounds.} Caps are violations to subtract: count unrestricted, remove each violation (shift by cap$+1$), add back double violations. Check when doubles are impossible.
-  \item \textbf{Slack variables.} ``$\leq n$'' becomes ``$=n$'' with one extra non-negative variable. Inequalities are equations in disguise.
-  \item \textbf{The I--E sign rhythm.} Singles $-$ pairs $+$ triples $-\cdots$, with overlaps measured by lcm's (divisibility) or forced objects (fixed letters, empty clubs).
+  \item \textbf{Stars and bars.} Non-negative solutions of $x_1+\cdots+x_k=n$: $\binom{n+k-1}{k-1}$. Positive solutions: bars in gaps, $\binom{n-1}{k-1}$. \seealso{A1, A2, A6, B1, B3, B9}
+  \item \textbf{Shift for lower bounds.} ``$x\geq c$'' $\Rightarrow$ substitute $x'=x-c$ and reduce the target sum. Write the substitution line explicitly. \seealso{A7, B2, B3, B5, C1}
+  \item \textbf{Include--exclude for upper bounds.} Caps are violations to subtract: count unrestricted, remove each violation (shift by cap$+1$), add back double violations. Check when doubles are impossible. \seealso{C2, C5, C7, C8}
+  \item \textbf{Slack variables.} ``$\leq n$'' becomes ``$=n$'' with one extra non-negative variable. Inequalities are equations in disguise. \seealso{B9}
+  \item \textbf{The I--E sign rhythm.} Singles $-$ pairs $+$ triples $-\cdots$, with overlaps measured by lcm's (divisibility) or forced objects (fixed letters, empty clubs). \seealso{A3, B4, C3, C4, D3}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -290,11 +290,11 @@ Equivalently $360\left(1-\frac12\right)\left(1-\frac13\right)\left(1-\frac15\rig
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Muddling the two stars-and-bars formulas.} Zeros allowed: $\binom{n+k-1}{k-1}$. Positive: $\binom{n-1}{k-1}$. Shrink-test on a tiny case before trusting either.
-  \item \textbf{Using the product instead of the lcm for overlaps.} Divisible by 4 and 6 means divisible by 12, not 24. Compute the lcm consciously every time.
-  \item \textbf{Forgetting the cap can't always bite.} In C8 no digit could exceed 9; in C5 no two children could both violate. Bound the violation before machining through it.
-  \item \textbf{Dividing compositions by $k!$ to get partitions.} Repeated parts have smaller orbits --- 21 compositions of 8 into 3 parts give 5 partitions, not $21/6$. Symmetry division needs distinct parts.
-  \item \textbf{Stopping I--E one term early.} The alternating sum runs until intersections are empty --- and you must \emph{say} why they are empty (sum too large, all clubs empty impossible), not just stop.
+  \item \textbf{Muddling the two stars-and-bars formulas.} Zeros allowed: $\binom{n+k-1}{k-1}$. Positive: $\binom{n-1}{k-1}$. Shrink-test on a tiny case before trusting either. \seealso{A1, A6, A7, B1, B2}
+  \item \textbf{Using the product instead of the lcm for overlaps.} Divisible by 4 and 6 means divisible by 12, not 24. Compute the lcm consciously every time. \seealso{B4, B7, C4, D3}
+  \item \textbf{Forgetting the cap can't always bite.} In C8 no digit could exceed 9; in C5 no two children could both violate. Bound the violation before machining through it. \seealso{C2, C5, C8}
+  \item \textbf{Dividing compositions by $k!$ to get partitions.} Repeated parts have smaller orbits --- 21 compositions of 8 into 3 parts give 5 partitions, not $21/6$. Symmetry division needs distinct parts. \seealso{B8, D2}
+  \item \textbf{Stopping I--E one term early.} The alternating sum runs until intersections are empty --- and you must \emph{say} why they are empty (sum too large, all clubs empty impossible), not just stop. \seealso{C1, C2, D1, D4}
 \end{enumerate}
 
 \SpeedClosing{``Overcount boldly, then subtract with precision ---

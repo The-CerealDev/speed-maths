@@ -243,4 +243,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Simon's Favourite Factoring Trick and Divisor-Pair Counting.}
+        Rewrite $xy+ax+by=c$ as $(x+a)(y+b)=c+ab$ and $\frac1x+\frac1y=\frac1k$ as $(x-k)(y-k)=k^{2}$; the number of solutions is the number of (positive or signed) divisor pairs. \seealso{C1, C3, C7, B4, D1}
+  \item \textbf{Difference of Squares for Diophantine Optimisation.}
+        $x^{2}-y^{2}=(x-y)(x+y)=N$; to minimise $y$, choose the factor pair of $N$ closest to $\sqrt N$ without being equal, and check parity. \seealso{C2, D2, C4, B9, C1}
+  \item \textbf{Cyclic Last Digits and Binomial Truncation.}
+        For terminal digits expand $(10a\pm1)^{n}$ or use $a^{\phi(100)}\equiv1\pmod{100}$; only the $20k\pm1$ and $k\ge2$ terms survive mod $100$ or $1000$. \seealso{A2, A8, B10, C8, D4, D5, B6}
+  \item \textbf{Divisor Counting, LCM Structure and Geometric-Sum Factoring.}
+        $d(n)=\prod(e_{i}+1)$; $\mathrm{lcm}(a,b)=2^{3}3^{2}5$ needs $\max(e_{a},e_{b})=e_{\mathrm{lcm}}$ giving $2e+1$ choices; and $3^{n}(1+3+9)=13\cdot3^{n}$ reveals hidden factors. \seealso{A7, D1, B1, B2, C6, C5}
+  \item \textbf{Prime-Modulo Obstructions.}
+        If $p>3$ then $p\equiv\pm1\pmod6$ so $p^{2}\equiv1\pmod3$ and $p^{2}+2\equiv0\pmod3$; in $p^{2}-2q^{2}=1$ the product $(p-1)(p+1)$ is a multiple of $8$, forcing $q=2$. \seealso{B7, D2, C4, A5, C2}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Missing signed factor pairs.}
+        $xy=24$ has $8$ positive divisor pairs but $16$ integer pairs once $(-d,-24/d)$ are included; $\frac{2n+15}{n+2}=2+\frac{11}{n+2}$ has $4$ divisors of $11$, not $2$. \seealso{B4, B8, C3, C7, C1}
+  \item \textbf{Choosing the wrong factor pair to minimise $y$.}
+        For $x^{2}-y^{2}=2025$, the pair $1\times2025$ gives $y=1012$ (maximal, not minimal); the pair $27\times75$ nearest $\sqrt{2025}=45$ gives the minimal $y=24$. \seealso{C2, D1, C4, B9}
+  \item \textbf{Misreading cycles for $5^{k}$ and $6^{k}$ modulo $100$.}
+        $5^{k}\equiv25\pmod{100}$ for every $k\ge2$ is constant, but $6^{k}\pmod{100}$ cycles $36,16,96,76,56$ with period $5$ from $k=2$; adding them as $25+56=81$, not $25+76$. \seealso{B10, A2, C8, D5, B6}
+  \item \textbf{Double-counting divisibility by $36$ cases.}
+        $3a4b2$ divisible by $36$ needs $b2\equiv0\pmod4$ ($b$ odd) and $a+b+9\equiv0\pmod9$; $b=9$ admits $a=0$ and $a=9$ (two values) while each $b\in\{1,3,5,7\}$ admits only one $a$. \seealso{C5, B5, A4, B8, C6}
+  \item \textbf{Assuming a long period for $25^{n}\pmod{1000}$.}
+        $25^{2}=625$ is already stable modulo $1000$: $25^{k}\equiv625$ for all $k\ge2$, so $2025^{2026}\equiv625$ immediately, not after a 20- or 100-step cycle. \seealso{D5, D4, C8, A8, B10}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

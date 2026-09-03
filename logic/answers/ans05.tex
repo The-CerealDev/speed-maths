@@ -274,4 +274,40 @@ On which line does the argument first contain an error, and what exactly is that
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The Converse Error (Affirming the Consequent).}
+        Arguing that $P\Rightarrow Q$ and observing $Q$ implies $P$ is the classic converse fallacy; observing a necessary condition holding never proves the sufficient premise. \seealso{A1, B6, C2, C6, C8}
+  \item \textbf{The Inverse Error (Denying the Antecedent).}
+        Arguing that $P\Rightarrow Q$ and concluding $\neg P\Rightarrow\neg Q$ confuses an implication with its inverse; multiple distinct conditions often produce the exact same consequence. \seealso{A2, B8, D3}
+  \item \textbf{Extraneous Roots from Non-Reversible Operations.}
+        Squaring both sides of $\sqrt{f(x)}=g(x)$ introduces false solutions where $g(x)<0$; every step must be an equivalence ($\iff$), or candidate solutions must be tested in the original equation. \seealso{A6, A7, B2, B3, D1}
+  \item \textbf{Division by Zero and Root Loss.}
+        Dividing both sides of an equation by a variable expression (e.g.\ $x^2=3x\Rightarrow x=3$ or dividing by $a-b$) implicitly assumes that factor is nonzero, erasing valid roots ($x=0$) or fabricating false contradictions. \seealso{A4, B1, B2, D5}
+  \item \textbf{Incomplete Case Analysis and Boundary Gaps.}
+        Proving a claim only for even $n$, or ignoring boundary values where factors equal $1$ ($n=2$ in $(n-1)(n+1)$), leaves unexamined cases that often harbour the unique counterexample. \seealso{A9, B5, B7, C3, D5}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The Fallacy Fallacy (Refuting Argument vs Refuting Claim).}
+        Demonstrating that a proof contains an invalid step shows only that the proof fails, not that the conclusion itself is false; a true proposition can easily be given an invalid proof. \seealso{A3, B4, C1, D2}
+  \item \textbf{Losing Valid Roots via Direct Variable Division.}
+        Cancelling a factor $x$ from $x^2=kx$ discards the root $x=0$; always factorise into $x(x-k)=0$ rather than dividing through by unknown quantities. \seealso{B1, B2, A4, D5}
+  \item \textbf{Accepting Extraneous Solutions After Squaring.}
+        Squaring an equation maps both positive and negative values to positive numbers ($(-3)^2=3^2$); all solutions found after squaring must be verified against the original equation's domain. \seealso{A6, B3, A5, A7}
+  \item \textbf{Assuming ``Checking Cases'' Equals Proof for Universals.}
+        Verifying that an algebraic property holds for several small integers ($n=1,2,3$) is merely inductive evidence; universal claims fail if even a single case or parity class is omitted. \seealso{B5, B7, C3, D2, A9}
+  \item \textbf{Circular Reasoning (Begging the Question).}
+        Assuming the conclusion in order to simplify an intermediate expression produces an argument that appears valid on the surface but is logically vacuous. \seealso{A8, B9, C4}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

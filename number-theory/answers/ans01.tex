@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Polynomial Remainder Rewriting.}
+        To decide when $\frac{f(n)}{g(n)}$ is integral, divide and keep the remainder: $\frac{f(n)}{g(n)} = q(n) + \frac{r}{g(n)}$, so $g(n)\mid r$. \seealso{C1, D1, B8, C3}
+  \item \textbf{Simon's Favourite Factoring Trick / Divisor Pairs.}
+        Rewrite $xy + ax + by = c$ as $(x+b)(y+a)=c+ab$, and $\frac1a+\frac1b=\frac1k$ as $(a-k)(b-k)=k^{2}$, then count divisors. \seealso{C2, D4, B2, C4}
+  \item \textbf{Modular Cycles and Last-Digit Periodicity.}
+        Powers modulo $m$ cycle with short period: $10\equiv1\pmod9$, $3^{4}\equiv1\pmod{10}$, $10\equiv3\pmod7$. Use the cycle, not the power. \seealso{A2, A3, A7, A8, B5}
+  \item \textbf{Legendre's Valuation and Trailing Zeros.}
+        The exponent of $p$ in $n!$ is $\sum\lfloor n/p^{i}\rfloor$; trailing zeros are $\min(v_{2},v_{5})=v_{5}$. \seealso{A6, B9, C6, B6, D5}
+  \item \textbf{Prime Factorisation and Divisor-Count Structure.}
+        If $n=\prod p_{i}^{e_{i}}$ then $d(n)=\prod(e_{i}+1)$; for $n/k$ to be a perfect power, every $e_{i}$ satisfies a congruence. \seealso{B1, C4, D4, A1, B10}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Forgetting negative divisors for integer $n$.}
+        When $n$ ranges over all integers, $n+10\mid900$ has $54$ divisors (positive and negative), not $27$; the symmetric sum then collapses to $-10$ per pair. \seealso{D1, C1, C3, B8}
+  \item \textbf{Treating $1$ as prime in $n^{2}-1=(n-1)(n+1)$.}
+        For a product of two positive integers to be prime the smaller factor must be $1$, forcing $n-1=1$ and $n=2$ only. \seealso{A10, C4, D3, C7}
+  \item \textbf{Confusing divisor count with divisor sum or parity.}
+        $d(n)=\prod(e_{i}+1)$ counts divisors; $\sigma(n)=\prod\frac{p^{e+1}-1}{p-1}$ sums them. A number has an odd number of divisors iff it is a perfect square. \seealso{B1, B9, D4, A9, C5}
+  \item \textbf{Brute-forcing CRT or linear congruences.}
+        For $4x\equiv5\pmod7$ or $x\equiv3\pmod5,\,x\equiv5\pmod7$, list the progression of one modulus and test the other, or add multiples of the modulus to make the RHS divisible. \seealso{B2, B4, A5, C4, B6}
+  \item \textbf{Ignoring combined exponent congruences for simultaneous powers.}
+        Requiring $\frac{n}{2}$ square, $\frac{n}{3}$ cube and $\frac{n}{5}$ fifth power forces simultaneous congruences on each prime exponent; solve them together, not one at a time. \seealso{B8, D4, B1, C6, A1}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

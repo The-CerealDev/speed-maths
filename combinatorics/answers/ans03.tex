@@ -274,11 +274,11 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Glue blocks.} ``Must be together'' $\Rightarrow$ treat as one object, multiply by internal orders (which is 1 if the glued items are identical or their order is forced).
-  \item \textbf{Count gaps.} ``No two adjacent'' $\Rightarrow$ seat the unrestricted objects, then place the restricted ones into distinct gaps. Rows of $m$ give $m+1$ gaps; circles of $m$ give $m$ gaps.
-  \item \textbf{Divide by forced order.} If $k$ objects must appear in one specified relative order (not necessarily adjacent), count freely and divide by $k!$.
-  \item \textbf{Fix a seat in circles.} Rotational symmetry costs one factor of $n$: circular $n$ $=(n-1)!$. Ask separately whether reflections are also ``the same''.
-  \item \textbf{Layer constraints.} Force the ``must'' constraints by gluing first, then handle the ``must not'' by complement or gaps inside that restricted world.
+  \item \textbf{Glue blocks.} ``Must be together'' $\Rightarrow$ treat as one object, multiply by internal orders (which is 1 if the glued items are identical or their order is forced). \seealso{B1, B6, C1, C3, C7, D2}
+  \item \textbf{Count gaps.} ``No two adjacent'' $\Rightarrow$ seat the unrestricted objects, then place the restricted ones into distinct gaps. Rows of $m$ give $m+1$ gaps; circles of $m$ give $m$ gaps. \seealso{B2, B4, C5, C8, D4, D5}
+  \item \textbf{Divide by forced order.} If $k$ objects must appear in one specified relative order (not necessarily adjacent), count freely and divide by $k!$. \seealso{B9, C2, D1}
+  \item \textbf{Fix a seat in circles.} Rotational symmetry costs one factor of $n$: circular $n$ $=(n-1)!$. Ask separately whether reflections are also ``the same''. \seealso{A4, A8, B6, B10, C4, D5}
+  \item \textbf{Layer constraints.} Force the ``must'' constraints by gluing first, then handle the ``must not'' by complement or gaps inside that restricted world. \seealso{C1, D2, D5}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -286,11 +286,11 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Multiplying by internal orders of identical letters.} Gluing the two E's of SPEED is a factor 1, not 2. Only \emph{distinguishable} contents of a block get a factorial.
-  \item \textbf{Row gaps vs circle gaps.} Five people create 6 gaps in a row but only 5 in a circle. Using the row count at a round table silently overcounts.
-  \item \textbf{Double-counting the alternating patterns in a circle.} MWMW\ldots{} and WMWM\ldots{} are rotations of each other at a round table --- the row-version factor 2 must be dropped (C4).
-  \item \textbf{Confusing ``in order'' with ``adjacent''.} Volume order scattered along the shelf divides by $3!$; volumes boxed together glues a block. Different tricks, different answers (B9 vs C1/C2).
-  \item \textbf{Treating ``exactly one adjacent pair'' as total minus none-adjacent.} That difference counts \emph{at least one} pair. The all-together case must be carved out separately (D4).
+  \item \textbf{Multiplying by internal orders of identical letters.} Gluing the two E's of SPEED is a factor 1, not 2. Only \emph{distinguishable} contents of a block get a factorial. \seealso{A3, B3, C3, C5}
+  \item \textbf{Row gaps vs circle gaps.} Five people create 6 gaps in a row but only 5 in a circle. Using the row count at a round table silently overcounts. \seealso{B4, B6, C4, C8, D5}
+  \item \textbf{Double-counting the alternating patterns in a circle.} MWMW\ldots{} and WMWM\ldots{} are rotations of each other at a round table --- the row-version factor 2 must be dropped (C4). \seealso{B5, C4}
+  \item \textbf{Confusing ``in order'' with ``adjacent''.} Volume order scattered along the shelf divides by $3!$; volumes boxed together glues a block. Different tricks, different answers (B9 vs C1/C2). \seealso{B9, C1, C2, D1}
+  \item \textbf{Treating ``exactly one adjacent pair'' as total minus none-adjacent.} That difference counts \emph{at least one} pair. The all-together case must be carved out separately (D4). \seealso{C3, D4}
 \end{enumerate}
 
 \SpeedClosing{``Glue what must be together, seat what must be apart last ---

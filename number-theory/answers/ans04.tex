@@ -263,4 +263,40 @@
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Difference of Squares with Prime Forcing.}
+        $p=(a-b)(a+b)$ with $p$ prime forces $a-b=1$, so $a,b$ are consecutive; similarly $p=q^{2}-36=(q-6)(q+6)$ forces $q-6=1$. \seealso{C2, C8, D4, C1, C3}
+  \item \textbf{Sophie Germain Identity.}
+        $x^{4}+4y^{4}=(x^{2}+2xy+2y^{2})(x^{2}-2xy+2y^{2})$; for $n^{4}+4^{n}$ with $n$ odd write $4^{n}=4\cdot(2^{(n-1)/2})^{4}$ to reveal the factorisation. \seealso{D2, C4, A2, B1, D5}
+  \item \textbf{Parity and $\bmod 4$ Obstruction.}
+        $x-y$ and $x+y$ share parity, so $x^{2}-y^{2}$ is odd or $0\pmod4$; $2\pmod4$ like $2018$ is impossible. The same parity check restricts $3^{m}-2^{n}=1$ via $\bmod4$. \seealso{C3, D1, A2, C1, A3}
+  \item \textbf{Euclidean GCD Reduction.}
+        $\gcd(n^{2}+c,n+d)=\gcd(r,n+d)$ where $r$ is the remainder of $n^{2}+c$ upon division by $n+d$; the gcd always divides $r$ and is bounded by $|r|$. \seealso{B6, C5, A4, B9, D5}
+  \item \textbf{Counting via Inclusion--Exclusion and Divisor Parity.}
+        Numbers $\le1000$ not divisible by $2,3,5$ use PIE; square divisors of $10^{10}=2^{10}5^{10}$ need even exponents ($0,2,\dots,10$); simultaneous congruences like $x\equiv3\pmod7$ test residues systematically. \seealso{C7, C6, B3, B6, B8}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Setting the wrong factor to $1$ in $p=(q-6)(q+6)$.}
+        The smaller factor $q-6$ must be $1$ (giving $q=7$, $p=13$), not $q+6=1$; check which factor is genuinely smaller before forcing $1$. \seealso{C8, C2, D4, C1, A1}
+  \item \textbf{Expanding $x^{4}+4^{n}$ instead of recognising Sophie Germain.}
+        $n^{4}+4^{n}$ for odd $n>1$ is $n^{4}+4\cdot(2^{k})^{4}$; expanding or testing primality by trial division misses the hidden product of two integers $>1$. \seealso{D2, C4, B1, D5, A9}
+  \item \textbf{Attempting to solve $x^{2}-y^{2}=2018$ by enumerating factor pairs.}
+        Since $2018\equiv2\pmod4$ and $x-y$, $x+y$ share parity, no factorisation can work; the $\bmod4$ observation kills the equation in one line. \seealso{C3, D1, A2, A8, C2}
+  \item \textbf{Assuming $\gcd(n^{2}+c,n+d)$ can be arbitrarily large.}
+        $\gcd(n^{2}+3,n+1)=\gcd(4,n+1)\le4$; the Euclidean remainder bounds the gcd by a constant, so the maximum is the largest divisor of that constant actually attained. \seealso{B6, A4, B9, D5, C1}
+  \item \textbf{Miscounting PIE or square-divisor choices.}
+        For $\le1000$ not divisible by $2,3,5$, add back $\lfloor1000/30\rfloor=33$; for square divisors of $2^{10}5^{10}$ choose exponents from $\{0,2,4,6,8,10\}$ ($6$ choices each), not $\lfloor10/2\rfloor$. \seealso{C7, C6, B2, B3, A10}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

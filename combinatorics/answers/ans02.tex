@@ -274,11 +274,11 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Choose vs arrange.} $\binom{n}{r}=\frac{{}^nP_r}{r!}$: divide by $r!$ exactly when the selection is unordered. Ask ``does swapping two chosen objects give a new outcome?''
-  \item \textbf{Symmetry flip.} $\binom{n}{r}=\binom{n}{n-r}$: always compute the smaller index. $\binom{100}{98}$ is a two-second question.
-  \item \textbf{Complementary counting.} ``At least one X'' $=$ total $-$ ``no X''. The complement of a hard condition is usually one clean product.
-  \item \textbf{Committee--chair double counting.} $r\binom{n}{r}=n\binom{n-1}{r-1}$: proving identities by counting a scenario two ways beats algebra.
-  \item \textbf{Objects $\leftrightarrow$ subsets.} Binary strings, lattice paths, handshakes, grid rectangles, chord crossings --- all are ``choose a subset'' in costume. Find the subset.
+  \item \textbf{Choose vs arrange.} $\binom{n}{r}=\frac{{}^nP_r}{r!}$: divide by $r!$ exactly when the selection is unordered. Ask ``does swapping two chosen objects give a new outcome?'' \seealso{A4, A8, A10, B2}
+  \item \textbf{Symmetry flip.} $\binom{n}{r}=\binom{n}{n-r}$: always compute the smaller index. $\binom{100}{98}$ is a two-second question. \seealso{A3, A9}
+  \item \textbf{Complementary counting.} ``At least one X'' $=$ total $-$ ``no X''. The complement of a hard condition is usually one clean product. \seealso{A6, C2, C4, C5, C8}
+  \item \textbf{Committee--chair double counting.} $r\binom{n}{r}=n\binom{n-1}{r-1}$: proving identities by counting a scenario two ways beats algebra. \seealso{B5, B8, C5}
+  \item \textbf{Objects $\leftrightarrow$ subsets.} Binary strings, lattice paths, handshakes, grid rectangles, chord crossings --- all are ``choose a subset'' in costume. Find the subset. \seealso{B3, B4, B6, B10, D1}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -286,11 +286,11 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Ordering an unordered selection.} A committee counted with ${}^nP_r$ is overcounted by a factor of $r!$. Decide ordered/unordered \emph{before} touching numbers.
-  \item \textbf{The ``guarantee the quota'' overcount.} ``Choose 4 women, then anyone else'' double-counts committees with 5 women (C1). Quota problems need exact cases or a complement --- never ``reserve then top up''.
-  \item \textbf{Adding overlapping cases.} Cases must be \emph{disjoint} before you add. ``Contains 1'' and ``contains 2'' overlap; either subtract the overlap or complement.
-  \item \textbf{Forgetting forced choices are free.} All four aces in the hand is a factor of 1, not $\binom{4}{4}$ worth of anxiety --- but \emph{exactly} three aces needs $\binom{4}{3}$.
-  \item \textbf{Dividing by symmetry that isn't there.} Handshake circles divide by rotations \emph{and} reflections ($\frac{5!}{2}$); labelled pair-splits divide by $2$ only when the two groups are indistinguishable. Name the symmetry before dividing by it.
+  \item \textbf{Ordering an unordered selection.} A committee counted with ${}^nP_r$ is overcounted by a factor of $r!$. Decide ordered/unordered \emph{before} touching numbers. \seealso{A4, A8, A10, B2}
+  \item \textbf{The ``guarantee the quota'' overcount.} ``Choose 4 women, then anyone else'' double-counts committees with 5 women (C1). Quota problems need exact cases or a complement --- never ``reserve then top up''. \seealso{C1}
+  \item \textbf{Adding overlapping cases.} Cases must be \emph{disjoint} before you add. ``Contains 1'' and ``contains 2'' overlap; either subtract the overlap or complement. \seealso{C8, D5}
+  \item \textbf{Forgetting forced choices are free.} All four aces in the hand is a factor of 1, not $\binom{4}{4}$ worth of anxiety --- but \emph{exactly} three aces needs $\binom{4}{3}$. \seealso{C6}
+  \item \textbf{Dividing by symmetry that isn't there.} Handshake circles divide by rotations \emph{and} reflections ($\frac{5!}{2}$); labelled pair-splits divide by $2$ only when the two groups are indistinguishable. Name the symmetry before dividing by it. \seealso{B3, D4}
 \end{enumerate}
 
 \SpeedClosing{``When a count splits into cases, count the complement first ---

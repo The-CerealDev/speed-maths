@@ -287,4 +287,40 @@ So: if $p\mid ab$ and $p\nmid a$, then $p\mid b$. Equivalently, if $p\mid ab$, t
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{The Invariant Principle under State Transitions.}
+        In games or iterative operations (such as removing or tripling balls), identify a quantity whose value modulo $2$ or algebraic sign remains constant across all allowed moves to prove impossibility of target states. \seealso{D2, D1, B8}
+  \item \textbf{The Extremal Principle and Minimal Counterexamples.}
+        To prove a universal or uniqueness claim (like the Fundamental Theorem of Arithmetic), assume the contrary and select the strictly smallest counterexample; its minimality generates an immediate structural contradiction. \seealso{D3, D4, A4, B2}
+  \item \textbf{Bounding Arguments in Reciprocal Diophantine Equations.}
+        Equations like $\frac{1}{a}+\frac{1}{b}+\frac{1}{c}=1$ with ordered variables $a<b<c$ force the smallest variable $a$ into a finite set of candidates ($\frac{3}{a}>1\Rightarrow a<3$), reducing infinite domains to finite tests. \seealso{D3, B2, A8}
+  \item \textbf{Coprimality and Bézout Inversion.}
+        The linear combination $mx+ny=1$ is a definitive witness that $\gcd(m,n)=1$ because any common divisor must divide $1$; this gives an operational route to proving coprimality without factoring. \seealso{D5, B1, C1, C7}
+  \item \textbf{Synthesis: Selecting the Decisive Proof Mode.}
+        Choose the proof mode by grammatical shape: existential statements demand witness construction; universal statements demand direct algebra or contrapositive; non-existence demands contradiction or invariants; universal refutation demands a single counterexample. \seealso{A10, B1, B2, B8, C3}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Negating Compound Quantifiers Without Flipping Every Operator.}
+        Negating $\forall A\,\exists B\,P(A,B)$ requires swapping both quantifiers and negating the inner condition ($\exists A\,\forall B\,\neg P$); keeping any quantifier unchanged invalidates the negation. \seealso{A2, B6, A9}
+  \item \textbf{The Gap Between Base Case and Inductive Chain.}
+        Establishing $P(1)$ and then proving the inductive step $P(k)\Rightarrow P(k+1)$ only for $k\ge2$ leaves $P(1)\Rightarrow P(2)$ unproven, breaking the induction before it starts. \seealso{B10, B3, B7, C6}
+  \item \textbf{Confusing Modulo Parity with Divisibility Direction.}
+        Asserting that $2\mid n$ and $3\mid n$ guarantees $6\mid n$ relies on $\gcd(2,3)=1$; claiming $4\mid n$ because $2\mid n$ and $2\mid n$ is a classic composite modulus fallacy. \seealso{A3, C1, C4, D5}
+  \item \textbf{Treating Necessary Conditions as If They Were Sufficient.}
+        In complex arguments, observing that a property is necessary for a solution (e.g.\ $x^3-1=0\Rightarrow x=1$ over reals) does not make every related condition interchangeable without confirming the reverse direction. \seealso{A3, B9, C2, C8}
+  \item \textbf{Attempting Direct Proof When Contrapositive Simplifies Connectives.}
+        Proving $15\nmid n\Rightarrow(3\nmid n\lor 5\nmid n)$ directly is cumbersome; transforming to the contrapositive $(3\mid n\land 5\mid n)\Rightarrow15\mid n$ turns disjunctive unknowns into simple simultaneous divisibility. \seealso{B1, B4, C5, A1}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}

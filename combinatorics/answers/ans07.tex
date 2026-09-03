@@ -277,11 +277,11 @@ The cases are disjoint and exhaustive, so $a_n=a_{n-1}+a_{n-2}$. With $a_1=1$, $
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Hear the recurrence.} ``The last move removed 1 or 2 units'' means $f(n)=f(n-1)+f(n-2)$. Read the final choice, write the recurrence, seed it, run it.
-  \item \textbf{Carry the state.} A forbidden adjacency (no two 2-steps, no three 1s) forces you to remember the recent past: a multi-state or higher-order recurrence.
-  \item \textbf{Bijections prove equalities for free.} Stairs $=$ tilings $=$ no-11 strings, all Fibonacci; brackets $=$ Dyck paths $=$ triangulations, all Catalan. Exhibit the map, skip the formula.
-  \item \textbf{Invariants forbid.} A quantity preserved by every move (a parity, a colouring, a residue) proves some end-state is unreachable, no matter the strategy.
-  \item \textbf{Monovariants count and games decide.} A quantity that changes by a fixed step each move fixes the move count (snaps); a residue the winner can always restore names the winning strategy (Nim).
+  \item \textbf{Hear the recurrence.} ``The last move removed 1 or 2 units'' means $f(n)=f(n-1)+f(n-2)$. Read the final choice, write the recurrence, seed it, run it. \seealso{A1, A3, A4, B1, B3}
+  \item \textbf{Carry the state.} A forbidden adjacency (no two 2-steps, no three 1s) forces you to remember the recent past: a multi-state or higher-order recurrence. \seealso{C1, C6, C8}
+  \item \textbf{Bijections prove equalities for free.} Stairs $=$ tilings $=$ no-11 strings, all Fibonacci; brackets $=$ Dyck paths $=$ triangulations, all Catalan. Exhibit the map, skip the formula. \seealso{A3, B2, C3, D1, D3}
+  \item \textbf{Invariants forbid.} A quantity preserved by every move (a parity, a colouring, a residue) proves some end-state is unreachable, no matter the strategy. \seealso{D2}
+  \item \textbf{Monovariants count and games decide.} A quantity that changes by a fixed step each move fixes the move count (snaps); a residue the winner can always restore names the winning strategy (Nim). \seealso{B4, B8, B9}
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
@@ -289,11 +289,11 @@ The cases are disjoint and exhaustive, so $a_n=a_{n-1}+a_{n-2}$. With $a_1=1$, $
 %═══════════════════════════════════════════════════════════════════════════════
 
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Trusting a doubling pattern.} $1,2,4,8,16$ then \textbf{31}, not 32 (C4). A sequence is not a formula until proved; five terms prove nothing.
-  \item \textbf{Wrong seed values.} A correct recurrence with the wrong $f(1),f(2)$ gives wrong answers forever. Compute the first two cases by hand, carefully.
-  \item \textbf{One-state recurrence for a two-state problem.} ``No two 2-steps'' cannot be counted by a single $f(n)$; you must track the last move. Under-modelling the state silently overcounts.
-  \item \textbf{Constructive claim without the construction.} D4 and B9 need an explicit tiling/strategy, not just ``it works by induction/it's optimal.'' Build the object; markers award the algorithm.
-  \item \textbf{Naming the invariant but not checking every move preserves it.} State the quantity \emph{and} verify each legal move leaves it unchanged --- the parity of $|a-b|$ vs $a+b$ in D2 is the crux, not a footnote.
+  \item \textbf{Trusting a doubling pattern.} $1,2,4,8,16$ then \textbf{31}, not 32 (C4). A sequence is not a formula until proved; five terms prove nothing. \seealso{B7, C4}
+  \item \textbf{Wrong seed values.} A correct recurrence with the wrong $f(1),f(2)$ gives wrong answers forever. Compute the first two cases by hand, carefully. \seealso{A1, A4, B1, C1}
+  \item \textbf{One-state recurrence for a two-state problem.} ``No two 2-steps'' cannot be counted by a single $f(n)$; you must track the last move. Under-modelling the state silently overcounts. \seealso{C1, C6, C8}
+  \item \textbf{Constructive claim without the construction.} D4 and B9 need an explicit tiling/strategy, not just ``it works by induction/it's optimal.'' Build the object; markers award the algorithm. \seealso{B9, D3, D4}
+  \item \textbf{Naming the invariant but not checking every move preserves it.} State the quantity \emph{and} verify each legal move leaves it unchanged --- the parity of $|a-b|$ vs $a+b$ in D2 is the crux, not a footnote. \seealso{D2}
 \end{enumerate}
 
 \SpeedClosing{``A recurrence remembers where it came from; an invariant refuses to forget.

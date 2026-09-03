@@ -243,20 +243,20 @@ As $N\to\infty$: $\frac{2(N^2+N+1)}{3N^2+3N}\to\frac{2}{3}$. $\square$}
 
 \section*{Top 5 Patterns --- Worksheet \#7}
 \begin{enumerate}[leftmargin=2em,itemsep=4pt]
-  \item \textbf{Weighted AM--GM: $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$.} For maximising $x^ay^b$ with $x+y$ fixed, split into $a$ copies of $x$ and $b$ copies of $y$, apply AM--GM.
-  \item \textbf{Telescoping products via factored ratios.} Write $\frac{n^3\pm1}{n^3\mp1}$ as a product of two ratios, check if each telescopes independently. The product then collapses to finitely many surviving factors.
-  \item \textbf{Nesbitt's inequality: $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}\geq\frac{3}{2}$.} This identity arises in disguised form whenever $1-a=b+c$ (under $a+b+c=1$). Recognise the substitution $\frac{a}{1-a}=\frac{a}{b+c}$.
-  \item \textbf{$u+c/u=k$ as a disguised quadratic.} Whenever you see $f(x)+\frac{c}{f(x)}=k$, substitute $u=f(x)$ to get $u^2-ku+c=0$.
-  \item \textbf{Vieta jumping: the other root is smaller.} For symmetric Diophantine equations, fix one variable, treat the equation as a quadratic in the other, and show the second root gives a smaller positive solution --- establishing descent to a base case.
+  \item \textbf{Weighted AM--GM: $\lambda a+(1-\lambda)b\geq a^\lambda b^{1-\lambda}$.} For maximising $x^ay^b$ with $x+y$ fixed, split into $a$ copies of $x$ and $b$ copies of $y$, apply AM--GM. \seealso{C1, C8}
+  \item \textbf{Telescoping products via factored ratios.} Write $\frac{n^3\pm1}{n^3\mp1}$ as a product of two ratios, check if each telescopes independently. The product then collapses to finitely many surviving factors. \seealso{D4, B1}
+  \item \textbf{Nesbitt's inequality: $\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{a+b}\geq\frac{3}{2}$.} This identity arises in disguised form whenever $1-a=b+c$ (under $a+b+c=1$). Recognise the substitution $\frac{a}{1-a}=\frac{a}{b+c}$. \seealso{D3}
+  \item \textbf{$u+c/u=k$ as a disguised quadratic.} Whenever you see $f(x)+\frac{c}{f(x)}=k$, substitute $u=f(x)$ to get $u^2-ku+c=0$. \seealso{B10, C4}
+  \item \textbf{Vieta jumping: the other root is smaller.} For symmetric Diophantine equations, fix one variable, treat the equation as a quadratic in the other, and show the second root gives a smaller positive solution --- establishing descent to a base case. \seealso{D1}
 \end{enumerate}
 
 \section*{Common Traps --- Worksheet \#7}
 \begin{enumerate}[leftmargin=2em,itemsep=4pt]
-  \item \textbf{Forgetting $s=0$ solutions in $x^3+y^3=(x+y)^2$.} The case $x+y=0$ gives infinitely many solutions $(-n,n)$ that are easy to miss if you divide by $s$ too quickly.
-  \item \textbf{Splitting infinite products incorrectly.} $\prod(ab)=\prod a\cdot\prod b$ only when both sub-products converge. Check convergence separately for each factor before splitting.
-  \item \textbf{Applying AM--GM without the splitting trick.} $\max(x^2y)$ with $x+y=4$ cannot be solved by plain AM--GM on two terms --- you must split $x$ into two equal parts to make the inequality sharp.
-  \item \textbf{Confusing Nesbitt with the Cauchy--Schwarz bound.} Cauchy--Schwarz gives $\sum\frac{a}{b+c}\geq\frac{(a+b+c)^2}{\text{something}}$, which can also derive Nesbitt but is less direct. Use the ``add 1 to each term'' trick for Nesbitt --- it's faster.
-  \item \textbf{Stopping Vieta jumping after one descent step.} The power of the method is the infinite descent --- you must argue that the process terminates at a base case, not just that one descent step works.
+  \item \textbf{Forgetting $s=0$ solutions in $x^3+y^3=(x+y)^2$.} The case $x+y=0$ gives infinitely many solutions $(-n,n)$ that are easy to miss if you divide by $s$ too quickly. \seealso{D5}
+  \item \textbf{Splitting infinite products incorrectly.} $\prod(ab)=\prod a\cdot\prod b$ only when both sub-products converge. Check convergence separately for each factor before splitting. \seealso{D4}
+  \item \textbf{Applying AM--GM without the splitting trick.} $\max(x^2y)$ with $x+y=4$ cannot be solved by plain AM--GM on two terms --- you must split $x$ into two equal parts to make the inequality sharp. \seealso{C8}
+  \item \textbf{Confusing Nesbitt with the Cauchy--Schwarz bound.} Cauchy--Schwarz gives $\sum\frac{a}{b+c}\geq\frac{(a+b+c)^2}{\text{something}}$, which can also derive Nesbitt but is less direct. Use the ``add 1 to each term'' trick for Nesbitt --- it's faster. \seealso{D3}
+  \item \textbf{Stopping Vieta jumping after one descent step.} The power of the method is the infinite descent --- you must argue that the process terminates at a base case, not just that one descent step works. \seealso{D1}
 \end{enumerate}
 
 \SpeedClosing{``Do not worry about your difficulties in mathematics. I assure you mine are still greater.''~--- Albert Einstein}

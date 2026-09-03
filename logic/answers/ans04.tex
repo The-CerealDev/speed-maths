@@ -281,4 +281,40 @@ In all cases, at least one of $n, n+2, n+4$ is divisible by $3$. The claim is tr
 
 \end{enumerate}
 
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns Today}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Algebraic Non-Identities Disproved by Smallest Test Points.}
+        Universal algebraic claims like $\sqrt{a+b}=\sqrt{a}+\sqrt{b}$ or $(x+y)^2=x^2+y^2$ fail immediately at the simplest non-trivial test points, such as $a=b=1$ or $x=y=1$, by exposing nonzero cross-terms. \seealso{A7, A8, C6, B2, B3}
+  \item \textbf{Polynomial Prime Generators and Constant-Term Factoring.}
+        Formulae that generate primes for small inputs (e.g.\ $n^2+n+41$ or $n^2-n+17$) inevitably fail at $n=c$ or $n=c-1$, where factoring by the constant term ($c(c\pm 1)+c=c(c\pm 1+1)$) produces an explicit composite factorisation. \seealso{C2, C8, D1, A10, B9}
+  \item \textbf{Modular Obstructions in Proofs by Contradiction.}
+        Diophantine equations like $x^2-3y^2=2$ or factorisations like $a^2-b^2=1$ have no positive integer solutions because residues modulo $3$ ($x^2\not\equiv2\pmod3$) or minimum sum constraints ($a+b\ge2$) force an immediate contradiction. \seealso{C4, C7, D2, B4, B7}
+  \item \textbf{Counterexamples via Parity and Even Prime $p=2$.}
+        Claims asserting that all primes are odd, or that prime sums/operations yield composites, routinely break on the single even prime $p=2$, making it the prime candidate for edge-case counterexamples. \seealso{A1, A3, B8, D4}
+  \item \textbf{Closure Failures of Non-Integers and Irrationals.}
+        Neither irrational numbers nor non-integers are closed under addition or multiplication; opposite signs ($+\sqrt{2}, -\sqrt{2}$) or complementary fractions ($0.5+0.5=1$) quickly construct counterexamples. \seealso{B2, B3, C6, A2, B1}
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Common Traps to Avoid}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Searching for Huge Counterexamples When Small Boundaries Fail.}
+        Counterexamples to number-theoretic conjectures are often found at minimal boundary values ($n=0, 1, 2$) or algebraic factor points ($n=40$ for $n^2+n+41$), not large random numbers. \seealso{B5, B6, C2, C5, A10}
+  \item \textbf{Assuming Closure of Irrational Numbers.}
+        Assuming $a+b$ or $ab$ is irrational whenever $a$ and $b$ are irrational ignores symmetric cancellation ($\sqrt{2}+(-\sqrt{2})=0$) and reciprocal multiplication ($\sqrt{2}\times\sqrt{2}=2$). \seealso{B2, B3, C6}
+  \item \textbf{Forgetting $p=2$ as the Unique Even Prime.}
+        Universal statements regarding primes often fail exclusively at $p=2$ because it is even; testing $p=2$ is the first defensive step when checking any prime-related claim. \seealso{A1, A3, B8, D4}
+  \item \textbf{Misidentifying What Refutes an Implication.}
+        To refute $P\Rightarrow Q$, one must find a case where $P$ is \emph{true} but $Q$ is \emph{false}. Demonstrating cases where $P$ is false does not challenge the implication. \seealso{A3, A4, B8, C1, D4}
+  \item \textbf{Confusing Non-Existence Proofs with Case Checking.}
+        Showing that an equation like $x^2-3y^2=2$ has no solutions up to 1000 does not prove non-existence; proof by contradiction via structural invariants (e.g.\ residues modulo 3) is required. \seealso{C4, D2, B4, B7, D5}
+\end{enumerate}
+
+\SpeedClosing{``Speed comes from recognition, not from rushing. Every shortcut is a pattern you have internalised.''}
+
 \end{document}
