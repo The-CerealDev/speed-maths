@@ -32,6 +32,7 @@ PILLARS = {
     'number-theory': ('Number Theory', 'Divisibility, modular arithmetic, and primes.', 'live'),
     'logic':         ('Logic', 'Conditionals, proof techniques, and counterexamples.', 'live'),
     'sequences':     ('Sequences', 'Recurrences, series, and limiting behaviour.', 'live'),
+    'geometry':      ('Geometry', 'Coordinate geometry, circle theorems, and Euclidean proofs.', 'draft'),
     'calculus':      ('Calculus', 'Differentiation, integration, and rates of change.', 'draft'),
     'graphs':        ('Graphs', 'Curve sketching, transformations, and asymptotics.', 'draft'),
 }

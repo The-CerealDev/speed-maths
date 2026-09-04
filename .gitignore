@@ -9,7 +9,7 @@
 
 # Incomplete pillars — untracked until their sheet runs are finished.
 # Remove a line here when its pillar is ready to publish.
-geometry/
+# (geometry is now in development)
 
 # Local research corpus: fetched past papers (UKMT/OCR/Oxford copyright).
 # NEVER commit these — the repo is public. Archetype indexes stay local too

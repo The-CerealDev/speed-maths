@@ -51,9 +51,10 @@ Confirmed by direct inspection (not assumed) as of the Sequences pillar build:
 | Fibonacci-mod-m periodicity (Pisano period via Pigeonhole) | Number Theory | `ans04`, direct worked example |
 | Fibonacci as an induction-proof vehicle | Logic Days 5-6 | F6=8 counterexample, alternating-sum identity proof |
 | Induction-proving of *given* sum formulas (Σi, Σ(2i-1), Σ1/(i(i+1))) | Logic Day 6 | Direct questions in `sheet06.tex` |
-| AP/GP series, binomial series (the *sequence/series-object* framing), recurrence relations via characteristic equation, non-modular periodicity | Sequences | in progress — see `sequences/PLAN.md` |
+| AP/GP series, binomial series (the *sequence/series-object* framing), recurrence relations via characteristic equation, non-modular periodicity | Sequences | `sequences/PLAN.md` |
+| Coordinate lines & circles, radical axis, power of a point, triangle centers, inradius/circumradius, cyclic quadrilaterals, Euclidean theorems | Geometry | `geometry/PLAN.md` |
 
-**Update this table whenever a pillar claims new territory.** A future Geometry, Calculus,
+**Update this table whenever a pillar claims new territory.** A future Calculus
 or Graphs pillar should add rows here before drafting, and check existing rows first.
 
 ## 3. MCQ / proof-format policy (all pillars, not just one)

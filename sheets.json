@@ -469,6 +469,13 @@
     ]
   },
   {
+    "slug": "geometry",
+    "name": "Geometry",
+    "desc": "Coordinate geometry, circle theorems, and Euclidean proofs.",
+    "status": "draft",
+    "sheets": []
+  },
+  {
     "slug": "calculus",
     "name": "Calculus",
     "desc": "Differentiation, integration, and rates of change.",
