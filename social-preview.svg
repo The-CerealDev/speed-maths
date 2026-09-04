@@ -1,5 +1,153 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
-    <rect width="1200" height="500" fill="#2563eb"/>
-    <text x="600" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="82" fill="#ffffff" text-anchor="middle" letter-spacing="-1.5">Speed Maths</text>
-    <text x="600" y="325" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="34" fill="#e0e7ff" text-anchor="middle" letter-spacing="0.5">1,000+ Verified Practice Questions · TMUA · SMC · BMO1</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <filter id="shadow" x="-3%" y="-6%" width="106%" height="118%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', Menlo, Consolas, monospace; }
+  </style>
+
+  <!-- Speed Maths Royal Blue Background -->
+  <rect width="1200" height="630" fill="#2563eb"/>
+
+  <!-- Outer Squircle Frame (Slimmer & subtle) -->
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.2"/>
+
+  <!-- Left Column: Branding, Mission, & Details -->
+  <g transform="translate(76, 95)">
+    <!-- Eyebrow -->
+    <text y="0" class="sans" font-size="13" font-weight="700" fill="#bfdbfe" letter-spacing="2">
+      THE SPEED MATHS PROJECT
+    </text>
+
+    <!-- Main Title -->
+    <text y="74" class="sans" font-size="78" font-weight="900" fill="#ffffff" letter-spacing="-2">
+      Speed Maths
+    </text>
+
+    <!-- Subtitle -->
+    <text y="122" class="sans" font-size="22" font-weight="600" fill="#e0e7ff" letter-spacing="-0.2">
+      1,155+ Verified Practice Questions
+    </text>
+
+    <!-- Description -->
+    <g transform="translate(0, 168)">
+      <text y="0" class="sans" font-size="16" font-weight="400" fill="#bfdbfe">
+        Timed drills engineered for TMUA (Paper 1 &amp; 2), BMO1,
+      </text>
+      <text y="24" class="sans" font-size="16" font-weight="400" fill="#bfdbfe">
+        and SMC. Sourced from competition &amp; admissions maths.
+      </text>
+      <text y="54" class="sans" font-size="15" font-weight="600" fill="#dbeafe">
+        100% verified with SymPy · Zero Calc
+      </text>
+    </g>
+
+    <!-- Minimalist Contributor Callout: Increased left/right padding for even breathing room -->
+    <g transform="translate(0, 260)">
+      <!-- Sleek Rectangular Badge (width 204, rx=5) -->
+      <g transform="translate(0, 0)">
+        <rect width="204" height="22" rx="5" fill="#ffffff"/>
+        <text x="102" y="11" dominant-baseline="central" class="sans" font-size="10.5" font-weight="800" fill="#1d4ed8" text-anchor="middle" letter-spacing="0.8">
+          LOOKING FOR CONTRIBUTORS
+        </text>
+      </g>
+      <!-- Clean Minimal Text with subtle middle dot -->
+      <text y="44" class="sans" font-size="15" font-weight="500" fill="#ffffff">
+        35 sheets live across 5 pillars · Help expand the Question Bank.
+      </text>
+    </g>
+
+    <!-- Left Footer Area -->
+    <g transform="translate(0, 405)">
+      <line x1="0" y1="0" x2="440" y2="0" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1"/>
+      <text y="36" class="sans" font-size="24" font-weight="800" fill="#ffffff">speedmaths.co.uk</text>
+      <text y="62" class="sans" font-size="14" font-weight="500" fill="#bfdbfe">Free PDFs &amp; LaTeX · Open Source on GitHub ↗</text>
+    </g>
+  </g>
+
+  <!-- Right Column: The 8-Pillar Status Board -->
+  <g transform="translate(614, 95)">
+    <!-- Column Header -->
+    <text x="0" y="0" class="sans" font-size="12" font-weight="700" fill="#bfdbfe" letter-spacing="1.5">
+      PILLAR STATUS &amp; ROADMAP
+    </text>
+
+    <!-- 1. Algebra (Live) -->
+    <g transform="translate(0, 18)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Algebra</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
+    </g>
+
+    <!-- 2. Combinatorics (Live) -->
+    <g transform="translate(0, 72)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Combinatorics</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
+    </g>
+
+    <!-- 3. Number Theory (Live) -->
+    <g transform="translate(0, 126)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Number Theory</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
+    </g>
+
+    <!-- 4. Logic (Live) -->
+    <g transform="translate(0, 180)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Logic</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
+    </g>
+
+    <!-- 5. Sequences (Live) -->
+    <g transform="translate(0, 234)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Sequences</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
+    </g>
+
+    <!-- 6. Geometry (In Progress) -->
+    <g transform="translate(0, 288)">
+      <rect width="490" height="46" rx="8" fill="#1d4ed8" stroke="#93c5fd" stroke-width="1.6" stroke-dasharray="5 4" />
+      <circle cx="26" cy="23" r="10" fill="#1e40af" stroke="#60a5fa" stroke-width="1"/>
+      <polygon points="23.5,18.5 23.5,27.5 30.5,23" fill="#93c5fd"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="700" fill="#ffffff">Geometry</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#93c5fd" text-anchor="end">Building Now · Day 1–7</text>
+    </g>
+
+    <!-- 7. Calculus & Graphs (Planned) -->
+    <g transform="translate(0, 342)">
+      <rect width="490" height="46" rx="8" fill="#1d4ed8" stroke="#93c5fd" stroke-width="1.6" stroke-dasharray="5 4" fill-opacity="0.8"/>
+      <circle cx="26" cy="23" r="10" fill="#1e40af" stroke="#60a5fa" stroke-width="1"/>
+      <circle cx="21" cy="23" r="1.8" fill="#93c5fd"/>
+      <circle cx="26" cy="23" r="1.8" fill="#93c5fd"/>
+      <circle cx="31" cy="23" r="1.8" fill="#93c5fd"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="600" fill="#e0e7ff">Calculus &amp; Graphs</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="500" fill="#bfdbfe" text-anchor="end">Planned Pillars</text>
+    </g>
+
+    <!-- 8. Contribute CTA -->
+    <g transform="translate(0, 396)">
+      <rect width="490" height="46" rx="8" fill="#1e40af" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="5 4"/>
+      <circle cx="26" cy="23" r="10" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+      <path d="M26 18.5 L26 27.5 M21.5 23 L30.5 23" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#ffffff">Contribute a Pillar or Sheet</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="700" fill="#dbeafe" text-anchor="end">GitHub PRs Welcome →</text>
+    </g>
+  </g>
 </svg>
