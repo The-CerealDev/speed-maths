@@ -3,61 +3,155 @@ name: Verify
 # The computational verification pipeline (see CONTRIBUTING.md ->
 # "Verification pipeline").
 #
-# This does NOT run tools/similarity_check.py — that tool reads the local
-# research/ corpus, which is gitignored and never exists on a CI runner, on
-# purpose (copyright). Plagiarism checking stays a local, pre-PR step.
+# Implements Differential / Incremental CI:
+# 1. Skips entirely if only docs/assets/markdown changed (anti-waste).
+# 2. On PRs, tests only the touched pillar(s) in ~10-12 seconds.
+# 3. Circuit-breaker: If core tools/shared code change, escalates to full 100% regression.
+# 4. On push to main: Runs full monolithic suite across all pillars (Tier 2 parity).
 
 on:
   pull_request:
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - 'assets/**'
+      - 'templates/**'
+      - '*.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'archive.css'
+      - 'style.css'
+      - 'tokens.css'
+      - 'favicon.*'
+      - 'CNAME'
+      - 'LICENSE'
   push:
     branches: [main]
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - 'assets/**'
+      - 'templates/**'
+      - '*.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'archive.css'
+      - 'style.css'
+      - 'tokens.css'
+      - 'favicon.*'
+      - 'CNAME'
+      - 'LICENSE'
 
 permissions:
   contents: read
 
 jobs:
-  # Per-pillar gate: the scripts a reviewer is told to run themselves.
+  # Per-pillar gate: Differential execution per pillar
   run-existing-checks:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        # calculus/ and graphs/ have no .tex sources yet — only stray LaTeX
-        # build artifacts — and are marked "draft" in sheets.json. Add them here
-        # when they have sheets to check.
         pillar: [algebra, combinatorics, number-theory, logic, sequences]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if pillar should run
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "Push to main: running full suite for ${{ matrix.pillar }}."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.event.pull_request.head.sha }}"
+          diff_files=$(git diff --name-only "$base" "$head")
+
+          # Circuit breaker: If core tools, shared preamble, tests or CI changed, run all pillars
+          if echo "$diff_files" | grep -qE '^(tools/|tests/|shared/|verify/|requirements|\.github/|setup\.cfg)'; then
+            echo "Core infrastructure modified — running full suite for ${{ matrix.pillar }}."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Otherwise, only run if this pillar was touched
+          if echo "$diff_files" | grep -q "^${{ matrix.pillar }}/"; then
+            echo "${{ matrix.pillar }} modified in PR — running verification."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "${{ matrix.pillar }} untouched in PR — skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.check.outputs.run == 'true'
         with:
           python-version: "3.x"
           cache: pip
           cache-dependency-path: requirements-dev.txt
 
-      # Without this the whole job is a no-op that reports success. 24 of the 35
-      # verify scripts import sympy or hypothesis, and setup-python provides
-      # neither, so run_all.py exits 1 on ImportError. The suite last passed here
-      # while every script was still stdlib-only.
       - name: Install dependencies
+        if: steps.check.outputs.run == 'true'
         run: pip install -r requirements-dev.txt
 
       - name: Run ${{ matrix.pillar }}/verify
+        if: steps.check.outputs.run == 'true'
         run: python3 ${{ matrix.pillar }}/verify/run_all.py
 
-  # Runtime binding: every published answer compared against the check that
-  # claims to verify it. 1,155 parametrised cases.
+  # Runtime binding: Targeted or full pytest execution
   answer-binding:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine test filter
+        id: filter
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "Push to main: running complete 1,155-question binding suite."
+            echo "filter=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.event.pull_request.head.sha }}"
+          diff_files=$(git diff --name-only "$base" "$head")
+
+          # Circuit breaker: If core tools, shared preamble, tests or config changed, run all tests
+          if echo "$diff_files" | grep -qE '^(tools/|tests/|shared/|verify/|requirements|\.github/|setup\.cfg)'; then
+            echo "Core infrastructure modified — running all 1,155+ answer binding tests."
+            echo "filter=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Find which pillars were modified
+          pillars=$(echo "$diff_files" | grep -oE '^[a-z-]+/' | sort -u | tr -d '/')
+          if [ -z "$pillars" ]; then
+            echo "No specific pillar directory touched — running full test suite as fallback."
+            echo "filter=" >> "$GITHUB_OUTPUT"
+          else
+            pattern=$(echo "$pillars" | paste -sd '|' -)
+            echo "Targeted pillars: $pattern"
+            echo "filter=-k \"$pattern\"" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           cache: pip
           cache-dependency-path: requirements-dev.txt
-      - run: pip install -r requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
       - name: Compare every published answer against its check
-        run: python3 -m pytest -q
+        run: python3 -m pytest -q ${{ steps.filter.outputs.filter }}
 
   # Static gates. These catch what a passing suite cannot: a check that passes
   # while verifying nothing, or while ignoring its own answer key.

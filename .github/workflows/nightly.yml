@@ -1,0 +1,73 @@
+name: Nightly Regression & Mutation Testing
+
+# Scheduled deep-verification suite.
+#
+# Runs every night at 02:00 UTC (and on-demand via workflow_dispatch) to guarantee
+# absolute repository-wide mathematical purity and execute long-running mutation tests.
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 02:00 UTC daily
+  workflow_dispatch:     # Manual trigger via GitHub UI
+
+permissions:
+  contents: read
+
+jobs:
+  # Monolithic 100% full regression across the entire corpus
+  full-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Verify all pillars
+        run: |
+          for p in algebra combinatorics number-theory logic sequences; do
+            echo "── Running $p/verify/run_all.py ──"
+            python3 $p/verify/run_all.py
+          done
+
+      - name: Full Answer Binding (all 1,155+ questions)
+        run: python3 -m pytest -q
+
+      - name: Static Gates (AST Facade & Baseline Ratchet)
+        run: |
+          python3 tools/check_binding.py
+          python3 tools/analyze_facades.py --strict
+          python3 tools/validate_verify_scripts.py
+
+  # Long-running mutation testing on tools/ (latex_bridge & answer_binding)
+  mutation-testing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies & mutmut
+        run: |
+          pip install -r requirements-dev.txt
+          pip install mutmut
+
+      - name: Run mutmut on tools/
+        run: |
+          mkdir -p mutants
+          # Run mutmut targeting tools/ with pytest runner
+          python3 -m mutmut run || true
+
+      - name: Mutation Test Results
+        run: |
+          python3 -m mutmut results || true
+          python3 -m mutmut show all 2>/dev/null | head -n 100 || true

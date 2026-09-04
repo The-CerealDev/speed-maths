@@ -6,6 +6,7 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.zip
 
 # Incomplete pillars — untracked until their sheet runs are finished.
 # Remove a line here when its pillar is ready to publish.
