@@ -31,4 +31,30 @@
     --radius-md: 12px;
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    /* Pillar Accents & Tool Badges */
+    --pillar-algebra: #2563eb;
+    --pillar-algebra-bg: #eff6ff;
+    --pillar-algebra-border: #bfdbfe;
+    --pillar-algebra-text: #1d4ed8;
+
+    --pillar-combinatorics: #7c3aed;
+    --pillar-combinatorics-bg: #f5f3ff;
+    --pillar-combinatorics-border: #ddd6fe;
+    --pillar-combinatorics-text: #6d28d9;
+
+    --pillar-number-theory: #059669;
+    --pillar-number-theory-bg: #ecfdf5;
+    --pillar-number-theory-border: #a7f3d0;
+    --pillar-number-theory-text: #047857;
+
+    --pillar-logic: #d97706;
+    --pillar-logic-bg: #fffbeb;
+    --pillar-logic-border: #fde68a;
+    --pillar-logic-text: #b45309;
+
+    --pillar-sequences: #0284c7;
+    --pillar-sequences-bg: #f0f9ff;
+    --pillar-sequences-border: #bae6fd;
+    --pillar-sequences-text: #0369a1;
 }

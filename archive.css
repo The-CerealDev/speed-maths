@@ -89,29 +89,99 @@ header.page .subtitle {
 /* ── pillar block ────────────────────────────────────────────────────────── */
 .pillar {
     background: var(--surface); border: 1px solid var(--border);
+    border-top: 3.5px solid var(--pillar-color, var(--border));
     border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
     padding: 1.4rem 1.5rem; margin-bottom: 1.5rem;
+    transition: box-shadow 0.2s ease;
 }
+
+/* Pillar modifier classes mapping custom properties */
+.pillar--algebra {
+    --pillar-color: var(--pillar-algebra);
+    --pillar-bg: var(--pillar-algebra-bg);
+    --pillar-border: var(--pillar-algebra-border);
+    --pillar-text: var(--pillar-algebra-text);
+}
+.pillar--combinatorics {
+    --pillar-color: var(--pillar-combinatorics);
+    --pillar-bg: var(--pillar-combinatorics-bg);
+    --pillar-border: var(--pillar-combinatorics-border);
+    --pillar-text: var(--pillar-combinatorics-text);
+}
+.pillar--number-theory {
+    --pillar-color: var(--pillar-number-theory);
+    --pillar-bg: var(--pillar-number-theory-bg);
+    --pillar-border: var(--pillar-number-theory-border);
+    --pillar-text: var(--pillar-number-theory-text);
+}
+.pillar--logic {
+    --pillar-color: var(--pillar-logic);
+    --pillar-bg: var(--pillar-logic-bg);
+    --pillar-border: var(--pillar-logic-border);
+    --pillar-text: var(--pillar-logic-text);
+}
+.pillar--sequences {
+    --pillar-color: var(--pillar-sequences);
+    --pillar-bg: var(--pillar-sequences-bg);
+    --pillar-border: var(--pillar-sequences-border);
+    --pillar-text: var(--pillar-sequences-text);
+}
+
 .pillar-head {
     display: flex; justify-content: space-between; align-items: baseline;
     gap: 1rem; border-bottom: 1px solid var(--border);
     padding-bottom: .8rem; margin-bottom: .4rem;
 }
-.pillar-head h2 { font-size: 1.3rem; font-weight: 700; }
+.pillar-head h2 {
+    font-size: 1.35rem; font-weight: 700;
+    display: flex; align-items: center; gap: 0.45rem;
+}
+.pillar-status-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 0.75rem;
+    font-weight: 900;
+    flex-shrink: 0;
+}
 .pillar-desc { font-size: .85rem; color: var(--text-muted); margin-top: .15rem; }
 .stats {
     font-size: .78rem; color: var(--text-muted); white-space: nowrap;
     font-variant-numeric: tabular-nums;
+    display: flex; align-items: center; gap: 0.35rem;
 }
 .stats b { color: var(--text-main); font-weight: 600; }
+.completion-chip {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+    background: var(--pillar-bg, var(--secondary));
+    color: var(--pillar-text, var(--primary));
+    border: 1px solid var(--pillar-border, var(--border));
+}
 
 /* ── sheet rows ──────────────────────────────────────────────────────────── */
 .sheet-list { list-style: none; }
 .sheet-row {
     display: flex; align-items: center; gap: 1rem;
-    padding: .7rem 0; border-bottom: 1px solid var(--border);
+    padding: .7rem .75rem;
+    margin: 0 -.75rem;
+    border-bottom: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease;
 }
 .sheet-row:last-child { border-bottom: none; }
+.sheet-row:hover {
+    background: rgba(37, 99, 235, 0.035);
+}
 /* Inter with tabular figures, not a monospace stack. The numbers only need to
    line up, and the coding fonts that ui-monospace resolves to draw a slashed
    or dotted zero — a programmer's disambiguation mark that means nothing on a
@@ -123,17 +193,21 @@ header.page .subtitle {
 .sheet-body { flex: 1; min-width: 0; }
 .sheet-name { display: block; font-size: .95rem; font-weight: 500; }
 
-/* The day's new tools. These replaced exam-source labels deliberately: a tag
-   saying "TMUA P1" tells a reader nothing they cannot get from the pillar, but
-   a tag naming the tool the sheet introduces is the reason to open it. */
+/* The day's new tools. Now tinted per-pillar technique palette */
 .tools { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
 .tools-label {
     font-size: .72rem; font-weight: 600; color: var(--text-muted); margin-right: .1rem;
 }
 .tool {
-    font-size: .72rem; color: var(--text-muted);
-    background: var(--secondary); border: 1px solid var(--border);
+    font-size: .72rem;
+    color: var(--pillar-text, var(--text-muted));
+    background: var(--pillar-bg, var(--secondary));
+    border: 1px solid var(--pillar-border, var(--border));
     border-radius: 999px; padding: .1rem .55rem; white-space: nowrap;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+.tool:hover {
+    filter: brightness(0.96);
 }
 .qcount {
     font-size: .78rem; color: var(--text-muted); white-space: nowrap;
