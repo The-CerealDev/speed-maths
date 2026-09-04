@@ -250,3 +250,285 @@ footer {
         border-radius: var(--radius-sm);
     }
 }
+
+/* ── hero status board ─────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+.hero-status-board {
+    margin: 1.75rem 0 2.25rem;
+    background: #2563eb;
+    border-radius: 16px;
+    padding: 2.5rem 2.25rem;
+    color: #ffffff;
+    box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.3), 0 8px 12px -6px rgba(37, 99, 235, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.hsb-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.hsb-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #bfdbfe;
+    text-transform: uppercase;
+}
+
+.hsb-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #ffffff;
+    margin: -0.2rem 0 0;
+}
+
+.hsb-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e0e7ff;
+    letter-spacing: -0.01em;
+}
+
+.hsb-desc {
+    font-size: 0.95rem;
+    color: #bfdbfe;
+    line-height: 1.55;
+    margin-top: 0.2rem;
+}
+
+.hsb-desc-highlight {
+    color: #dbeafe;
+    font-weight: 600;
+    display: block;
+    margin-top: 0.4rem;
+}
+
+.hsb-contributor-box {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.hsb-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    color: #1d4ed8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.22rem 0.75rem;
+    border-radius: 5px;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.hsb-contributor-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.hsb-footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.18);
+    margin: 1.2rem 0 0.4rem;
+    width: 90%;
+}
+
+.hsb-footer-links {
+    font-size: 0.85rem;
+    color: #bfdbfe;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.hsb-footer-domain {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.hsb-footer-links a {
+    color: #bfdbfe;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.hsb-footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Right Column: Status Board */
+.hsb-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.hsb-board-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #bfdbfe;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.hsb-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.hsb-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.hsb-card-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hsb-icon-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+/* Live Cards */
+.hsb-card.live {
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+}
+.hsb-card.live:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16);
+}
+.hsb-card.live .hsb-icon-circle {
+    background: #dcfce7;
+    color: #16a34a;
+}
+.hsb-card.live .hsb-card-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+.hsb-card.live .hsb-card-stat {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* In-Progress Card (Geometry) */
+.hsb-card.in-progress {
+    background: #1d4ed8;
+    border: 1.5px dashed #93c5fd;
+    color: #ffffff;
+}
+.hsb-card.in-progress:hover {
+    background: #1e40af;
+    transform: translateX(3px);
+}
+.hsb-card.in-progress .hsb-icon-circle {
+    background: #1e40af;
+    color: #93c5fd;
+    border: 1px solid #60a5fa;
+    font-size: 0.6rem;
+}
+.hsb-card.in-progress .hsb-card-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+.hsb-card.in-progress .hsb-card-stat {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #93c5fd;
+}
+
+/* Planned Card (Calculus & Graphs) */
+.hsb-card.planned {
+    background: rgba(29, 78, 216, 0.8);
+    border: 1.5px dashed rgba(147, 197, 253, 0.6);
+    color: #ffffff;
+}
+.hsb-card.planned .hsb-icon-circle {
+    background: #1e40af;
+    color: #bfdbfe;
+    border: 1px solid #60a5fa;
+    font-size: 0.65rem;
+    letter-spacing: -1px;
+}
+.hsb-card.planned .hsb-card-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e0e7ff;
+}
+.hsb-card.planned .hsb-card-stat {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #bfdbfe;
+}
+
+/* Contribute CTA Card */
+.hsb-card.cta {
+    background: #1e40af;
+    border: 1.8px dashed #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+}
+.hsb-card.cta:hover {
+    background: #172554;
+    transform: translateX(5px);
+}
+.hsb-card.cta .hsb-icon-circle {
+    background: #2563eb;
+    color: #ffffff;
+    border: 1.2px solid #ffffff;
+    font-size: 0.85rem;
+}
+.hsb-card.cta .hsb-card-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+.hsb-card.cta .hsb-card-stat {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #dbeafe;
+}
+
+@media (max-width: 920px) {
+    .hero-status-board {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 2.25rem;
+    }
+    .hsb-title {
+        font-size: 2.6rem;
+    }
+}
