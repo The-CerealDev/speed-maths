@@ -18,8 +18,25 @@ from pathlib import Path
 import pytest
 import sympy
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO_ROOT))
+def _find_repo_root() -> Path:
+    p = Path(__file__).resolve().parent
+    while p != p.parent:
+        if (p / "sheets.json").is_file() and (p / "tools").is_dir():
+            return p
+        p = p.parent
+    if (Path.cwd() / "sheets.json").is_file():
+        return Path.cwd().resolve()
+    return Path(__file__).resolve().parent.parent
+
+
+REPO_ROOT = _find_repo_root()
+
+# Ensure mutants/tools takes precedence if running under mutmut, followed by REPO_ROOT
+_test_parent = Path(__file__).resolve().parent.parent
+if (_test_parent / "tools").is_dir() and str(_test_parent) not in sys.path:
+    sys.path.insert(0, str(_test_parent))
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from tools.answer_binding import (  # noqa: E402
     DRIFT_ONLY, EXACT, EXEMPT, as_tuple_list, bind, is_proof_marker, mcq_letter,
