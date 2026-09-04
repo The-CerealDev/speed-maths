@@ -131,23 +131,7 @@ header.page .subtitle {
     gap: 1rem; border-bottom: 1px solid var(--border);
     padding-bottom: .8rem; margin-bottom: .4rem;
 }
-.pillar-head h2 {
-    font-size: 1.35rem; font-weight: 700;
-    display: flex; align-items: center; gap: 0.45rem;
-}
-.pillar-status-check {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #dcfce7;
-    color: #16a34a;
-    font-size: 0.75rem;
-    font-weight: 900;
-    flex-shrink: 0;
-}
+.pillar-head h2 { font-size: 1.3rem; font-weight: 700; }
 .pillar-desc { font-size: .85rem; color: var(--text-muted); margin-top: .15rem; }
 .stats {
     font-size: .78rem; color: var(--text-muted); white-space: nowrap;
