@@ -199,13 +199,13 @@ header.page .subtitle {
 .links { display: flex; gap: .5rem; flex-shrink: 0; }
 .pdf-link {
     display: inline-block; padding: .25rem .75rem; background: var(--bg);
-    color: var(--primary); font-size: .82rem; font-weight: 600;
+    color: var(--pillar-color, var(--primary)); font-size: .82rem; font-weight: 600;
     border: 1px solid var(--border); border-radius: var(--radius-sm);
     transition: background-color .15s, color .15s, border-color .15s;
 }
 .pdf-link:hover {
-    background: var(--primary); color: var(--primary-fg);
-    border-color: var(--primary);
+    background: var(--pillar-color, var(--primary)); color: var(--primary-fg);
+    border-color: var(--pillar-color, var(--primary));
 }
 .pdf-link.ans { color: var(--danger); }
 .pdf-link.ans:hover {
@@ -363,10 +363,10 @@ html { scroll-behavior: smooth; }
 }
 
 .hsb-desc-highlight {
-    color: #dbeafe;
-    font-weight: 600;
+    color: #ffffff;
+    font-weight: 700;
     display: block;
-    margin-top: 0.4rem;
+    margin-top: 0.45rem;
 }
 
 .hsb-contributor-box {
