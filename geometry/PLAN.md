@@ -1,4 +1,4 @@
-# Geometry Pillar — Build Plan & Syllabus
+# Geometry Pillar — Build Plan & Syllabus (ONLY A PLAN; LOADS OF CHANGES CAN AND SHOULD BE MADE, THIS ISN'T PERFECT... yet)
 
 This document outlines the architectural syllabus, 7-day progression arc, and topic boundaries for the **Geometry Pillar**. 
 
