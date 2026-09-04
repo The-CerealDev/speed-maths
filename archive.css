@@ -89,7 +89,6 @@ header.page .subtitle {
 /* ── pillar block ────────────────────────────────────────────────────────── */
 .pillar {
     background: var(--surface); border: 1px solid var(--border);
-    border-top: 3.5px solid var(--pillar-color, var(--border));
     border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
     padding: 1.4rem 1.5rem; margin-bottom: 1.5rem;
     transition: box-shadow 0.2s ease;
