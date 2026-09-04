@@ -2,12 +2,12 @@ name: Nightly Regression & Mutation Testing
 
 # Scheduled deep-verification suite.
 #
-# Runs every night at 02:00 UTC (and on-demand via workflow_dispatch) to guarantee
-# absolute repository-wide mathematical purity and execute long-running mutation tests.
+# Runs every night at 23:00 UTC (12:00 Midnight UK time) and on-demand via workflow_dispatch
+# to guarantee absolute repository-wide mathematical purity.
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 02:00 UTC daily
+    - cron: '0 23 * * *'  # 23:00 UTC = 12:00 Midnight UK time daily
   workflow_dispatch:     # Manual trigger via GitHub UI
 
 permissions:
