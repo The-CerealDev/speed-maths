@@ -535,10 +535,11 @@ html { scroll-behavior: smooth; }
 }
 .hsb-card.planned .hsb-icon-circle {
     background: #1e40af;
-    color: #bfdbfe;
+    color: #93c5fd;
     border: 1px solid #60a5fa;
-    font-size: 0.65rem;
-    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .hsb-card.planned .hsb-card-name {
     font-size: 0.95rem;
