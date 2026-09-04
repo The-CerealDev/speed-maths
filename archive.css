@@ -92,6 +92,7 @@ header.page .subtitle {
     border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
     padding: 1.4rem 1.5rem; margin-bottom: 1.5rem;
     transition: box-shadow 0.2s ease;
+    scroll-margin-top: 4.5rem;
 }
 
 /* Pillar modifier classes mapping custom properties */

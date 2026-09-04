@@ -715,6 +715,13 @@
             q.blur();
         }
     });
+
+    // Prevent mobile/iPad Safari pull-to-refresh from jumping down to previously clicked anchor hash
+    window.addEventListener('scroll', function () {
+        if (window.scrollY < 120 && window.location.hash) {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+    }, { passive: true });
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d5ea47820a3f4fd4bc53b72917607221"}'></script><!-- End Cloudflare Web Analytics -->
