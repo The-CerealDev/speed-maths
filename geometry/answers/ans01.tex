@@ -1,0 +1,404 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{1}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#1 --- Answers \& Investigations}{Henry Koduthore}
+\noindent\textit{New toolkit today: Gradients \& Perpendicularity $\cdot$ Distance \& Midpoints $\cdot$ Perpendicular Distance $\cdot$ Shoelace Areas $\cdot$ Collinearity.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Find the gradient of the line $\;6x - 3y + 15 = 0$.
+
+\ans{$2$}
+\method{Rearrange to gradient--intercept form: $3y=6x+15\Rightarrow y=2x+5$, so $m=2$.}
+\inv{Implicit form $ax+by+c=0$ has gradient $-a/b$; here $-\frac{6}{-3}=2$. \textbf{If the line is instead written $3y-6x-15=0$ (the same line), is the gradient still $2$?} It must be --- check the $-a/b$ rule still agrees.}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Find the gradient of the line through $(1,2)$ and $(5,14)$.
+
+\ans{$3$}
+\method{$m=\frac{14-2}{5-1}=\frac{12}{4}=3$.}
+\inv{Check with $(5-1,14-2)$ swapped: $\frac{2-14}{1-5}=\frac{-12}{-4}=3$ \checkmark --- the sign always cancels. \textbf{If the line through $(1,2)$ and $(5,14)$ is moved up by $3$ (every $y$ increased by $3$), does its gradient change?} No --- a vertical translation keeps the ratio of rises fixed.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item A line of gradient $4$ is perpendicular to a line of gradient $m$. Write down $m$.
+
+\ans{$-\frac{1}{4}$}
+\method{Perpendicular gradients are negative reciprocals: $m=-\frac{1}{4}$, since $4\cdot(-\frac14)=-1$.}
+\inv{The product test $m_1m_2=-1$ is the fastest check. \textbf{Is the line $y=4x$ parallel, perpendicular, or neither, to $y=-\frac14x+12$?} The constant term is a distraction --- gradients alone decide.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Find the distance between $(2,1)$ and $(5,5)$.
+
+\ans{$5$}
+\method{$d=\sqrt{(5-2)^2+(5-1)^2}=\sqrt{9+16}=\sqrt{25}=5$.}
+\inv{$3$-$4$-$5$ right triangle in disguise. \textbf{The points $(-1,0)$ and $(3,-3)$ are the same distance apart --- can you see the Pythagorean triple before computing, by drawing the displacement vector?} The displacement $(4,-3)$ is a reordered $3$-$4$-$5$.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item Find the midpoint of the segment joining $(4,8)$ and $(10,2)$.
+
+\ans{"$(7,5)$"}
+\method{Midpoint averages each coordinate: $\left(\frac{4+10}{2},\frac{8+2}{2}\right)=(7,5)$.}
+\inv{Check both halves are equal distances: $(7-4,8-5)=(3,3)$ and $(10-7,5-2)=(3,3)$ \checkmark. \textbf{The midpoint of two points is the {\em average} of the two displacement vectors. What is the midpoint of $(4,8)$ and $(-6,-2)$?} Negative coordinates behave the same way.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Find the perpendicular distance from the origin to the line $\;3x + 4y - 10 = 0$.
+
+\ans{$2$}
+\method{Use $\frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$ at $(0,0)$: $\frac{|-10|}{\sqrt{9+16}}=\frac{10}{5}=2$.}
+\inv{The denominator $5$ is the length of the normal vector $(3,4)$. \textbf{The point of the line closest to the origin satisfies $(x,y)=t(3,4)$ for some $t$ --- find it and confirm its distance is indeed $2$.} Every point of the line's coordinate vector is a multiple of its normal.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item A line has $x$-intercept $4$ and $y$-intercept $6$. Find its gradient.
+
+\ans{$-\frac{3}{2}$}
+\method{The intercepts are the points $(4,0)$ and $(0,6)$: $m=\frac{6-0}{0-4}=-\frac{3}{2}$.}
+\inv{Reading right-to-left: this is the negative of $\frac{\text{$y$-intercept}}{\text{$x$-intercept}}$. \textbf{Write the line in intercept form $\frac{x}{4}+\frac{y}{6}=1$ and rearrange to confirm $m=-\frac{y\text{-intercept}}{x\text{-intercept}}=-\frac{6}{4}=-\frac32$ --- the intercept form makes the gradient transparent.}}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Find the area of the triangle with vertices $(0,0)$, $(4,0)$ and $(0,3)$.
+
+\ans{$6$}
+\method{Right-angled at the origin: area $=\frac12\cdot4\cdot3=6$.}
+\inv{Equivalently the shoelace/midpoint-vector formula $\frac12|(4)(3)-(0)(0)|=6$. \textbf{Rotate this triangle by $90^\circ$ about the origin: does the area change, and do you get the same shoelace number?} Reflections and rotations preserve area.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item The points $(1,2)$, $(2,4)$ and $(k,10)$ are collinear. Find $k$.
+
+\ans{$5$}
+\method{Rise per unit run is $2$ (from $(1,2)$ to $(2,4)$); continuing to $y=10$ climbs $6$ more, so $k=2+\frac{6}{2}=5$.}
+\inv{Formal check: $\frac{4-2}{2-1}=\frac{10-4}{k-2}\Rightarrow 2=\frac{6}{k-2}\Rightarrow k=5$. \textbf{What happens to $k$ if the points are required to be collinear but the order is $(2,4)$, $(1,2)$, $(k,10)$?} Collinearity is order-independent --- all three gradients must agree.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Using the shoelace formula, find the area of the triangle with vertices $(0,0)$, $(3,4)$ and $(6,0)$.
+
+\ans{$12$}
+\method{Shoelace: $\frac12|0\cdot4+3\cdot0+6\cdot0-(0\cdot3+4\cdot6+0\cdot0)|=\frac12|24|=12$.}
+\inv{Bonus route: base $=6$, height $=4$, area $=\frac12\cdot6\cdot4=12$ \checkmark. \textbf{For a triangle with one vertex at the origin, shoelace collapses to $\frac12|x_1y_2-x_2y_1|$ with the other two points --- prove that this equals $\frac12|\det|$ of the two vectors.} That determinant is the signed area.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;2x - 3y + 6 = 0\;$ is perpendicular to which of the following?
+\begin{itemize}
+\item[A)] $y = -\dfrac{3}{2}x + 1$
+\item[B)] $y = \dfrac{3}{2}x - 2$
+\item[C)] $y = \dfrac{2}{3}x + 5$
+\item[D)] $y = -\dfrac{2}{3}x + 3$
+\end{itemize}
+
+\ans{A) $y = -\frac{3}{2}x + 1$}
+\method{Given line has gradient $\frac23$ (rule $-a/b$), so perpendicular gradient is $-\frac32$. Only option A has gradient $-\frac32$.}
+\inv{Options B and C have the same gradient, and D the new ``same slope'' decoy --- read \emph{gradients only} through the $-\frac32$ filter. \textbf{Which option is parallel to the given line, and which is merely reflection-symmetric in slope?} Perpendicularity and parallelism are decided by one number, the slope.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item What is the perpendicular distance from $(2,3)$ to the line $\;5x + 12y - 7 = 0$?
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $3$
+\item[D)] $4$
+\end{itemize}
+
+\ans{C) $3$}
+\method{$\frac{|5(2)+12(3)-7|}{\sqrt{25+144}}=\frac{|10+36-7|}{13}=\frac{39}{13}=3$.}
+\inv{The numerator is exactly how far the point sits from the line measured along a normal whose length is $13$. \textbf{Two points are at perpendicular distance $3$ from $5x+12y-7=0$ --- what do they have in common?} They lie on $5x+12y-7=\pm39$, the two parallel satellite lines.}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item Which point lies on the perpendicular bisector of the segment joining $(1,2)$ and $(5,6)$?
+\begin{itemize}
+\item[A)] $(2,5)$
+\item[B)] $(3,3)$
+\item[C)] $(4,4)$
+\item[D)] $(5,3)$
+\end{itemize}
+
+\ans{A) $(2,5)$}
+\method{Midpoint $(3,4)$; segment gradient $1$, so bisector gradient $-1$: $y-4=-(x-3)$, i.e.\ $x+y=7$. Check options: $2+5=7$ \checkmark.}
+\inv{Only A satisfies $x+y=7$. \textbf{A point is on the perpendicular bisector iff it is {\em equidistant} from the two endpoints --- verify $(2,5)$ is distance $\sqrt{16}$ from both $(1,2)$ and $(5,6)$.} That's the defining property, worth internalising.}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item Find the area of the quadrilateral with vertices $(0,0)$, $(4,0)$, $(5,3)$, $(1,3)$, in that order.
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $12$
+\item[C)] $14$
+\item[D)] $16$
+\end{itemize}
+
+\ans{B) $12$}
+\method{Shoelace in order: $\frac12|0\cdot0+4\cdot3+5\cdot3+1\cdot0-(0\cdot4+0\cdot5+3\cdot1+3\cdot0)|=\frac12|0+12+15+0-(0+0+3+0)|=\frac12|24|=12$.}
+\inv{The quadrilateral is a parallelogram (bases $\parallel$ via position vectors $(4,0)$ and $(1,3)$), so area $=|\det|=|4(3)-0(1)|=12$ \checkmark. \textbf{Reorder the vertices as $(0,0),(5,3),(4,0),(1,3)$: the same region, but the shoelace number warns you when points are listed in the wrong order.} Keep vertices in cyclic order.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item The line through $(1,2)$ and $(4,5)$ crosses the $y$-axis at which value?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\end{itemize}
+
+\ans{B) $1$}
+\method{Gradient $\frac{5-2}{4-1}=1$; $y=x+c$ through $(1,2)$ gives $c=1$.}
+\inv{Extension: at $x=0$, $y=1$. \textbf{Through the point-slope form, $y-2=1(x-1)$. If the line were instead the one through $(1,2)$ and $(4,8)$, the $y$-intercept changes --- resolve $c$ again.} Always plug the known point in, never guess $c$ from the picture.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Find the perpendicular distance from $(0,1)$ to the line $\;6x - 8y + 2 = 0$.
+
+\ans{$\frac{3}{5}$}
+\method{$\frac{|6(0)-8(1)+2|}{\sqrt{36+64}}=\frac{|-6|}{10}=\frac{3}{5}$.}
+\inv{Normal length $\sqrt{36+64}=10$; numerator $6$. \textbf{The line $6x-8y+2=0$ sits distance $\frac15$ from the origin (check $\frac{|2|}{10}$). Since the $y$-axis point $(0,1)$ is $1$ unit up from the origin, the net distance $|1-\frac15|=\frac45$ differs from $\frac35$ --- why?} Because the normal $(6,-8)$ is not vertical: only the projection along it counts.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is NOT parallel to $\;y = 3x + 1$?
+\begin{itemize}
+\item[A)] $y = 3x + 5$
+\item[B)] $6x - 2y = 4$
+\item[C)] $3x - y = 2$
+\item[D)] $y = 2x + 1$
+\end{itemize}
+
+\ans{D) $y = 2x + 1$}
+\method{Parallel $\Leftrightarrow$ same gradient $3$. A: $3$\checkmark; B: $6x-2y=4\Rightarrow y=3x-2$\checkmark; C: $3x-y=2\Rightarrow y=3x-2$\checkmark; D: $y=2x+1$ has gradient $2$.}
+\inv{Options B and C are disguises (divide by the $y$-coefficient first). \textbf{Show two distinct parallel lines never intersect, while any two non-parallel lines always do.} Parallelism is exactly ``same slope, different intercept''.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item The line $y = x + 1$ meets the line through $(0,3)$ perpendicular to it at the point $P$. Find the coordinates of $P$.
+
+\ans{"$(1,2)$"}
+\method{Through $(0,3)$ with gradient $-1$: $y=-x+3$. Intersect: $x+1=-x+3\Rightarrow x=1$, then $y=2$.}
+\inv{The intersection of two perpendicular lines is the right-angle vertex of a right triangle. Verify $P=(1,2)$ lies on both lines: $y=x+1$ gives $2=1+1$ \checkmark\ and $y=-x+3$ gives $2=-1+3$ \checkmark. \textbf{Through $(0,3)$ draw the perpendicular and reflect the point where it meets $y=x+1$ across that meeting point --- what do you get, and how does it connect to the midpoint of $(0,3)$ and $(2,1)$?} Perpendicular lines meet exactly once; the reflect-and-extend trick answers the follow-up.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item Which point is closest to the origin?
+\begin{itemize}
+\item[A)] $(1,3)$
+\item[B)] $(2,2)$
+\item[C)] $(4,0)$
+\item[D)] $(0,5)$
+\end{itemize}
+
+\ans{B) $(2,2)$}
+\method{Distances: $\sqrt{(1,3)}=\sqrt{10}$, $\sqrt{(2,2)}=\sqrt{8}$, `$(4,0)$'$=4$, `$(0,5)$'$=5$; smallest is $\sqrt{8}$.}
+\inv{Comparing squared distances avoids surds: $10$, $8$, $16$, $25$. \textbf{Among points with $x,y$ nonnegative integers and $x+y=4$, which is closest to the origin?} Both squares and sum compare against $(2,2)$.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Using the shoelace formula, find the area of the triangle with vertices $(1,1)$, $(4,2)$, $(2,6)$.
+
+\ans{$7$}
+\method{$\frac12|1\cdot2+4\cdot6+2\cdot1-(1\cdot4+2\cdot2+6\cdot1)|=\frac12|2+24+2-(4+4+6)|=\frac12|28-14|=7$.}
+\inv{The $7$ here is exactly the determinant area of the two vectors $(3,1)$ and $(1,5)$: $\frac12|3(5)-1(1)|=\frac12(14)=7$ \checkmark. \textbf{In shoelace, matching -- and cancelling -- the repeated coordinate arithmetic is a good fastest-check habit.} Confirm you did $\frac12|(x_1y_2+x_2y_3+x_3y_1)-(y_1x_2+y_2x_3+y_3x_1)|$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item The midpoint of $(2,-1)$ and $(6,7)$ is?
+\begin{itemize}
+\item[A)] $(4,3)$
+\item[B)] $(3,4)$
+\item[C)] $(5,4)$
+\item[D)] $(4,2)$
+\end{itemize}
+
+\ans{A) $(4,3)$}
+\method{$\left(\frac{2+6}{2},\frac{-1+7}{2}\right)=(4,3)$.}
+\inv{A and B swap the coordinates of the answer; D averages the $x$'s but not the $y$'s. \textbf{Midpoint of $(2,-1)$ and $(6,7)$ is {(4,3)}; of $(2,-1)$ and $(6,7)$ reflected in the origin, $(-6,-7)$, is $(-2,-4)$.} Averaging negatives works the same.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item The perpendicular bisector of the segment joining $(0,1)$ and $(4,5)$ has equation?
+\begin{itemize}
+\item[A)] $x + y = 5$
+\item[B)] $y = x + 1$
+\item[C)] $y = -x + 3$
+\item[D)] $y = x + 3$
+\end{itemize}
+
+\ans{A) $x + y = 5$}
+\method{Midpoint $(2,3)$; segment gradient $\frac{5-1}{4-0}=1$, so perpendicular gradient $-1$: $y-3=-(x-2)\Rightarrow x+y=5$.}
+\inv{B and D are the perpendicular-doubles (gradient $1$); C is a parallel shifted copy missing the midpoint. \textbf{The perpendicular bisector is the locus of equidistant points --- verify $(2,3)$ and, say, $(6,-1)$ both satisfy $x+y=5$ and check equal distances to both endpoints.}}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item The distance between $(2,5)$ and $(7,17)$ is?
+\begin{itemize}
+\item[A)] $13$
+\item[B)] $14$
+\item[C)] $\sqrt{194}$
+\item[D)] $12$
+\end{itemize}
+
+\ans{A) $13$}
+\method{$\sqrt{(7-2)^2+(17-5)^2}=\sqrt{25+144}=\sqrt{169}=13$.}
+\inv{5-12-13 triple again; option C is the ``forgot to take the square root'' trap ($25+144=169$, not $\sqrt{194}$). \textbf{If the second point were $(7,13)$ instead, the distance $\sqrt{25+64}=\sqrt{89}$ stays a surd --- prove it is irrational.} Rational squares never land on $89$.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The area of the triangle with vertices $(0,0)$, $(5,0)$, $(2,6)$ is?
+\begin{itemize}
+\item[A)] $15$
+\item[B)] $30$
+\item[C)] $10$
+\item[D)] $12$
+\end{itemize}
+
+\ans{A) $15$}
+\method{Take $(5,0)$ as base, height $6$ from $(2,6)$: $\frac12\cdot5\cdot6=15$.}
+\inv{Shoelace check: $\frac12|0+5(6)+0-(0+0+0)|=15$ \checkmark. \textbf{The altitude is measured to the {\em base line} $y=0$ --- the $6$ is the $y$-coordinate. If the apex were $(2,-6)$ the area is still $15$; is that a reflection or a genuine second triangle?} Area is absolute.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Which line is perpendicular to $\;y = 2x - 3$?
+\begin{itemize}
+\item[A)] $y = -2x + 1$
+\item[B)] $y = -\frac{1}{2}x + 4$
+\item[C)] $y = \frac{1}{2}x$
+\item[D)] $y = 2x + 5$
+\end{itemize}
+
+\ans{B) $y = -\frac{1}{2}x + 4$}
+\method{Gradient $2$ flips and inverts to $-\frac12$.}
+\inv{A is the ``negate only'' trap, C the ``invert only'' trap, D parallel. \textbf{Which lines through $(0,4)$ are perpendicular to $y=2x-3$, and how many are there?} Through any fixed point there is exactly one perpendicular line: $y=-\tfrac12x+4$ here.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item The points $(1,4)$, $(4,7)$, $(10,k)$ are collinear. Find $k$.
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $12$
+\item[C)] $13$
+\item[D)] $15$
+\end{itemize}
+
+\ans{C) $13$}
+\method{Gradient between the first two is $\frac{7-4}{4-1}=1$; at $x=10$, six units further, $y=4+\frac{10-1}{1}\cdot1=13$.}
+\inv{Equivalently $k=4+(10-1)=13$, and $\frac{k-7}{10-4}=1\Rightarrow k=13$ \checkmark. \textbf{If the middle point were removed, the ``two'' gradients that must agree are $(1,4)\to(10,k)$ and $(1,4)\to(4,7)$ --- verify all three pairwise gradients equal $1$.}}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item The perpendicular distance from $(2,-1)$ to the line $\;3x - 4y + 10 = 0$ is?
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $4$
+\item[D)] $5$
+\end{itemize}
+
+\ans{C) $4$}
+\method{$\frac{|3(2)-4(-1)+10|}{\sqrt{9+16}}=\frac{|6+4+10|}{5}=\frac{20}{5}=4$.}
+\inv{Big numerator: the point lies far out along the normal. \textbf{Recompute with the point $(2,1)$: $\frac{|6-4+10|}{5}=\frac{12}{5}=2.4$; the distance changes as the point slides, while the normal length $5$ stays fixed.} The numerator measures signed offset along the normal.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item The line through $(2,1)$ perpendicular to $\;y = \frac{1}{2}x + 3$ has equation?
+\begin{itemize}
+\item[A)] $y = -2x + 5$
+\item[B)] $y = 2x - 3$
+\item[C)] $y = -\frac{1}{2}x + 1$
+\item[D)] $y = -2x + 3$
+\end{itemize}
+
+\ans{A) $y = -2x + 5$}
+\method{Gradient $-\frac{1}{1/2}=-2$; through $(2,1)$: $y-1=-2(x-2)\Rightarrow y=-2x+5$.}
+\inv{Options A and D share gradient $-2$ but only A passes through $(2,1)$ (check $1=-4+5$ \checkmark). \textbf{The line $y=-2x+5$ and $y=\frac12x+3$ meet at $x=0.8,y=3.4$ --- verify the product of gradients $(-2)(\frac12)=-1$ \checkmark.} Perpendicular lines always cross at right angles, wherever that is.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item The perpendicular bisector of the segment joining $(3,-1)$ and $(7,5)$ meets the $x$-axis at $P$. What is the $x$-coordinate of $P$?
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $7$
+\item[C)] $8$
+\item[D)] $9$
+\end{itemize}
+
+\ans{C) $8$}
+\method{Midpoint $(5,2)$; segment gradient $\frac{5-(-1)}{7-3}=\frac32$, so bisector gradient $-\frac23$: $y-2=-\frac23(x-5)$. At $y=0$: $-2=-\frac23(x-5)\Rightarrow x-5=3\Rightarrow x=8$.}
+\inv{General trick: the perpendicular bisector of a segment is equidistant from both ends, so $P=(p,0)$ satisfies $\sqrt{(p-3)^2+1}=\sqrt{(p-7)^2+25}$. Squaring: $(p-3)^2+1=(p-7)^2+25\Rightarrow p=8$ \checkmark. \textbf{Both routes agree --- the equidistance route never needs a slope.}}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item A triangle with vertices $(0,0)$, $(6,0)$ and $(3,h)$ has area $12$. Find $h$.
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $4$
+\item[C)] $6$
+\item[D)] $8$
+\end{itemize}
+
+\ans{B) $4$}
+\method{Base $6$ on the $x$-axis; altitude is $|h|$: $\frac12\cdot6\cdot|h|=12\Rightarrow h=\pm4$.}
+\inv{Options B and D double the right answer? No --- B is $4$, D is $8$; both signs are valid, the question intends the positive one. \textbf{The apex $(3,h)$ is directly above the midpoint of the base, making an isosceles triangle. What is its perimeter at $h=4$?} Sides are $x=3,y=4$ hypotenuses of length $5$: perimeter $=6+10=16$.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item The distance from the point $(4,3)$ to the line $y = x$ is?
+\begin{itemize}
+\item[A)] $\dfrac{1}{\sqrt{2}}$
+\item[B)] $1$
+\item[C)] $\sqrt{2}$
+\item[D)] $\dfrac{7}{\sqrt{2}}$
+\end{itemize}
+
+\ans{A) $\frac{1}{\sqrt{2}}$}
+\method{Line $x-y=0$: $\frac{|4-3|}{\sqrt{1^2+(-1)^2}}=\frac{1}{\sqrt{2}}$.}
+\inv{For $y=x$ the distance formula halves to $|x_0-y_0|/\sqrt{2}$ --- the $1$ difference over $\sqrt2$. \textbf{The point $(4,3)$ lies $\frac{1}{\sqrt{2}}$ from $y=x$ and $\frac{7}{\sqrt{2}}$ from $y=-x$ (check $|4+3|/\sqrt2$). What is the distance between the two lines $y=x$ and $y=-x$ themselves?} It's $0$ --- they meet at the origin; only non-parallel pairs have a ``distance'' in this sense, and these two are perpendicular.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;2x + 3y - 12 = 0\;$ cuts the coordinate axes to form a right-angled triangle. Its area is?
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $8$
+\item[C)] $12$
+\item[D)] $24$
+\end{itemize}
+
+\ans{C) $12$}
+\method{Intercepts: $x=6$ at $y=0$, $y=4$ at $x=0$, so area $=\frac12\cdot6\cdot4=12$.}
+\inv{The intercept form $\frac{x}{6}+\frac{y}{4}=1$ reads intercepts straight off. \textbf{If instead the line were $4x+3y-12=0$, the intercepts are $3$ and $4$ --- which axis-touching area, $6$ or $12$, does the swap produce?} Check $\frac12\cdot3\cdot4=6$; the $12$ in the defining equation is {\em not} the area.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Using the shoelace formula, find the area of the quadrilateral with vertices $(0,2)$, $(3,0)$, $(6,4)$, $(1,6)$, in that order.
+
+\ans{$20$}
+\method{Shoelace in order: $\frac12|(0)(0)+(3)(4)+(6)(6)+(1)(2)-[(2)(3)+(0)(6)+(4)(1)+(6)(0)]|=\frac12|(0+12+36+2)-(6+0+4+0)|=\frac12|50-10|=20$.}
+\inv{Cross-check by triangulating along $(0,2)\!\to\!(6,4)$: the two triangles have areas $9$ and $11$, summing to $20$ \checkmark. \textbf{Now list the same four points in the order $(0,2),(3,0),(1,6),(6,4)$. Compute the shoelace value --- it differs, because that polygon crosses itself.} Reconcile the two, and note that area formulas assume a simple (non-crossing) polygon.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#1}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Implicit line $\rightarrow$ gradient: rearrange to $y=mx+c$ (or read $-a/b$).} The constant $c$ never touches $m$ --- strip it off last. \seealso{A1, A7, B5}
+  \item \textbf{Perpendicular gradients are negative reciprocals: $m_1m_2=-1$.} Slack jaw never flips and negates; keep both operations. \seealso{A3, B1, B8, C5, C8}
+  \item \textbf{Perpendicular bisector $=$ midpoint $+$ negative-reciprocal slope.} Always hit the midpoint first; the bisector is the line through it with the flipped-inverted gradient. \seealso{B3, C2, D1}
+  \item \textbf{Perpendicular distance formula: $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.} Numerator from substitution, denominator from the normal vector's length. \seealso{A6, B2, B6, C7, D3}
+  \item \textbf{Shoelace (signed) area: $\frac12\left|\sum x_iy_{i+1}-\sum y_ix_{i+1}\right|$.} Vertices in cyclic order; the $\frac12$ and the absolute value are non-negotiable. \seealso{A10, B4, B10, D5}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#1}
+\begin{enumerate}[leftmargin=2em,itemsep=4pt]
+  \item \textbf{Sign of the implicit gradient.} $6x-3y+15=0$ has gradient $2$, not $-2$ and not $3$ --- always solve for $y$ explicitly, or read $-a/b$ with both signs. \seealso{A1, A7, B1}
+  \item \textbf{Distance: absolute value $\&$ square root together.} $\frac{|...+c|}{\sqrt{...}}$ --- dropping the absolute value floors the answer at zero and loses the sign of the offset. \seealso{A6, B2, C7}
+  \item \textbf{Perpendicular does not mean ``negated slope''.} $m=2$ pairs with $-\frac12$, not $-2$; only the flip-invert passes $m_1m_2=-1$. \seealso{C5, C8, B1}
+  \item \textbf{Shoelace: half the absolute difference, vertices in order.} Out-of-order vertices produce self-crossing regions whose signed sum misleads --- keep cyclic order and take half of the magnitude. \seealso{B4, B10, D5}
+  \item \textbf{Collinearity: compare the right gradient pairs.} Three points are collinear iff {\em every} pair gives the same slope --- one matching pair is never enough. \seealso{A9, C6}
+\end{enumerate}
+
+\SpeedClosing{``Shoelace before altitude: area is a one-line cross product, not a construction.''}
+
+\end{document}

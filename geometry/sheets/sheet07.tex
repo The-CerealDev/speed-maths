@@ -1,0 +1,229 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#7}{Henry Koduthore}
+\SpeedMeta{TMUA-style synthesis: loci and geometric logic}{loci of fixed distance, Apollonius ratio circles, bounding quick constraints, necessary vs sufficient conditions, spot-the-flaw in proofs, mixed multi-step synthesis}
+\noindent\textit{New toolkit today: Loci of points $\cdot$ Apollonius circle $\frac{PA}{PB}=k$ $\cdot$ geometry-logic conditionals $\cdot$ flaw-spotting in synthetic proofs.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Name the locus straight off; only the standard families occupy these questions.}
+
+\begin{enumerate}
+
+\item Write down the locus of points whose distance from the origin is $5$.
+
+\item Write down the locus of points equidistant from the two points $(0,0)$ and $(4,0)$.
+
+\item The locus of $P$ with $PA=2\,PB$, where $A=(0,0)$ and $B=(6,0)$, is a circle. Write down the $x$-coordinate of its (relevant) endpoint on the $x$-axis where $y=0$ between $A$ and $B$.
+
+\item Write down the locus of points that are always $3$ units from the fixed line $y=4$.
+
+\item The locus of points whose distance to the fixed point $(0,1)$ equals their distance to the fixed line $y=-1$ is a parabola. Write down a point on it other than the origin with integer coordinates.
+
+\item The locus of points whose distance to the point $(1,2)$ is exactly $3$ is a circle. Write down its equation.
+
+\item Write down the locus of the midpoint $M$ of every radius $OQ$ of the circle $x^2+y^2=4$ as $Q$ runs around the circle (with $O$ the origin).
+
+\item The equation $x^2+y^2=2x$ describes a circle. Write down its radius.
+
+\item Write down whether the statement ``$x^2+y^2=4$ implies $x=\pm 2$ or $y=\pm 2$'' is true or false.
+
+\item Write down the locus of points $P$ with $PA=PB$, where $A=(1,3)$ and $B=(5,3)$. (Give its equation in $x$.)
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Square both sides to force Apollonius loci into circle form, or reason about necessity/sufficiency for the logic items.}
+
+\begin{enumerate}
+
+\item The circle of Apollonius for $PA = 2PB$ with $A=(0,0)$, $B=(6,0)$ has radius?
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $12$
+\end{itemize}
+
+\item Locus of points equidistant from $(0,0)$ and $(0,4)$ is?
+\begin{itemize}
+\item[A)] $x=2$
+\item[B)] $y=2$
+\item[C)] $y=4$
+\item[D)] $x=4$
+\end{itemize}
+
+\item The points satisfying $x^2+y^2 \le 4$ form a filled disk. Its area is?
+\begin{itemize}
+\item[A)] $2\pi$
+\item[B)] $4\pi$
+\item[C)] $8\pi$
+\item[D)] $16$
+\end{itemize}
+
+\item The distance from $P(x,y)$ to the origin is $\sqrt{x^2+y^2}$. The locus $\sqrt{x^2+y^2}=1$ is a circle. Write down its circumference.
+
+\item A point is known to lie strictly inside the unit disk $x^2+y^2<1$. Which of the following statements is {\em necessarily} true for such a point?
+\begin{itemize}
+\item[A)] $x^2+y^2<\dfrac12$
+\item[B)] $x+y<1$
+\item[C)] $x^2+y^2<2$
+\item[D)] $x^2+y^2>0$
+\end{itemize}
+
+\item The Apollonius locus $PA=3PB$ with $A=(0,0)$, $B=(2,0)$: what is the $x$-coordinate of its right endpoint on the $x$-axis?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $6$
+\item[D)] $9$
+\end{itemize}
+
+\item To prove a point $P$ lies on the unit circle $x^2+y^2=1$, which single condition is {\em sufficient} on its own?
+\begin{itemize}
+\item[A)] $x^2+y^2<1$
+\item[B)] $x=-\dfrac12$ and $y=\dfrac{\sqrt3}{2}$
+\item[C)] $P$ is not the origin
+\item[D)] $x+y=1$
+\end{itemize}
+
+\item The locus of $P$ with $PA=PB$ where $A=(0,0)$ and $B=(6,0)$ is the perpendicular bisector $\mathbf{x=3}$. Write down the distance from $(3,0)$ to $(0,0)$.
+
+\item A circle has equation $x^2+y^2-4x-6y+9=0$. Write down its centre.
+
+\item Write down the radius of the circle $x^2+y^2-4x+6y+9=0$.
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$75 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Assemble loci, equations and logic: square, complete the square, and decide whether each borrowed fact is necessary, sufficient, or both.}
+
+\begin{enumerate}
+
+\item The locus of $P$ with $PA=PB$, where $A=(0,0)$ and $B=(6,0)$, is the line $\mathbf{x=3}$. What is its distance from $B$?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $6$
+\item[C)] $9$
+\item[D)] $0$
+\end{itemize}
+
+\item The circle of Apollonius $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ has centre?
+\begin{itemize}
+\item[A)] $(8,0)$
+\item[B)] $(4,0)$
+\item[C)] $(2,0)$
+\item[D)] $(-8,0)$
+\end{itemize}
+
+\item The inequality $x^2+y^2 \le 9$ describes a filled disk. Which point is strictly inside it?
+\begin{itemize}
+\item[A)] $(2,2)$
+\item[B)] $(3,3)$
+\item[C)] $(2,3)$
+\item[D)] $(4,0)$
+\end{itemize}
+
+\item The locus $\frac{PA}{PB}=1$ (equal distances) with $A=(0,0)$, $B=(6,0)$ is a line. What is it?
+\begin{itemize}
+\item[A)] $x=3$
+\item[B)] $x=6$
+\item[C)] parallel to the $y$-axis through $B$
+\item[D)] $y=x$
+\end{itemize}
+
+\item Given the circle $x^2+y^2=5$, how many of the following points lie on it: $(1,2)$, $(2,1)$, $(\sqrt{5},0)$, $(1,-2)$?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $2$
+\item[D)] $1$
+\end{itemize}
+
+\item The locus of $P$ with $PA+PB=8$ and $A=(-3,0)$, $B=(3,0)$ is an ellipse. The length of its major axis is?
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $8$
+\item[C)] $6$
+\item[D)] $16$
+\end{itemize}
+
+\item A point is said to be ``well-placed'' if it lies on the unit circle. Which statement is {\em both necessary and sufficient} for the point $(a,b)$ to be well-placed?
+\begin{itemize}
+\item[A)] $a^2+b^2=1$
+\item[B)] $a+b=1$
+\item[C)] $a^2+b^2<1$
+\item[D)] the point is not the origin
+\end{itemize}
+
+\item The circle $x^2+y^2-4x+4=0$ has radius? (Complete the square.)
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $0$
+\item[D)] $4$
+\end{itemize}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge Ramp \hfill{\normalfont\small($\leq$90 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Stack the whole week: a locus, a completing-the-square circle, and a clean TRUE/FALSE verdict on a geometric claim.}
+
+\begin{enumerate}
+
+\item The Apollonius locus $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ has centre $(8,0)$ and radius $4$. Find the locus of points $P$ with $PA=KB$ obtained when the ratio is $2$: the circle's equation is $(x-8)^2+y^2=16$. What is the distance between the two $x$-axis endpoints of this locus?
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $4$
+\item[C)] $16$
+\item[D)] $6$
+\end{itemize}
+
+\item The circle with equation $x^2+y^2-4x-6y+12=0$ has radius?
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $3$
+\item[D)] $\sqrt{12}$
+\end{itemize}
+
+\item Which of the following is {\em sufficient} for the point $(x,y)$ to lie {\em strictly inside} the unit disk $x^2+y^2<1$?
+\begin{itemize}
+\item[A)] $x^2+y^2<\frac12$
+\item[B)] $x<\frac12$ and $y<\frac12$
+\item[C)] $x^2+y^2<2$
+\item[D)] $x>1$ and $y>1$
+\end{itemize}
+
+\item Fil finds the circle of Apollonius $PA=3PB$ with $A=(0,0)$ and $B=(2,0)$ by squaring $\frac{PA}{PB}=3$ and claiming the locus is $(x-2)^2+y^2=9$. Where is the error in his conclusion?
+\begin{itemize}
+\item[A)] His equation is a circle centred at $B$ with radius $3$, but the true locus must involve the distance to $A$ as well; expanding $x^2+y^2=9\big((x-2)^2+y^2\big)$ gives a different circle.
+\item[B)] Squaring loses the sign information, so the locus is really a single point.
+\item[C)] The set $PA=3PB$ is a straight line, not a circle at all.
+\item[D)] There is no error; $(x-2)^2+y^2=9$ is correct.
+\end{itemize}
+
+\item The circle passes through the point $(1,2)$ and has centre $(0,0)$. Write down its equation.
+
+\end{enumerate}
+
+\SpeedClosing{``A locus is a sentence the points all agree on; a geometric proof is only as strong as the condition you actually used.''}
+
+\end{document}

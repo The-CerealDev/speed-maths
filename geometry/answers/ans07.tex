@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#7 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{TMUA-style synthesis: loci and geometric logic}{loci of fixed distance, Apollonius ratio circles, necessary/sufficient conditionals, spot-the-flaw, mixed synthesis}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+\item \ans{"a circle of radius 5 centred at the origin"}
+\method{$\sqrt{x^2+y^2}=5$ rearranges to $x^2+y^2=25$, a circle of radius $5$.}
+\inv{Forgetting to square: quoting radius $25$ or a square.}
+
+\item \ans{$x=2$}
+\method{Squaring $x^2+y^2=(x-4)^2+y^2$: $x^2=(x-4)^2$, so $x=2$.}
+\inv{Giving the single midpoint $(2,0)$ instead of the whole vertical line.}
+
+\item \ans{$4$}
+\method{On the $x$-axis, between $A$ and $B$ we have $PA=x$ and $PB=6-x$, so $x=2(6-x)$, giving $x=4$. The Apollonius circle's two $x$-axis endpoints are $x=4$ and $x=12$.}
+\inv{Choosing $x=2$ (halving $6$) or the external endpoint $x=12$.}
+
+\item \ans{$y=1$ or $y=7$}
+\method{$|y-4|=3$ gives $y=1$ and $y=7$, two parallel lines $3$ units from $y=4$.}
+\inv{Keeping only one line $y=1$ and missing its mirror $y=7$.}
+
+\item \ans{$(2,1)$}
+\method{A point equidistant from focus $(0,1)$ and directrix $y=-1$ satisfies $\sqrt{x^2+(y-1)^2}=|y+1|$, i.e.\ $x^2=4y$; $(2,1)$ works since $4=4$.}
+\inv{Naming a point on the $y$-axis (which only hits the vertex origin for integer $y$) or mislaying the focus/directrix distance.}
+
+\item \ans{$(x-1)^2+(y-2)^2=9$}
+\method{Points at distance exactly $3$ from $(1,2)$ form the circle centred there with radius $3$.}
+\inv{Writing distance $=3$ unsquared, or using the point as an offset in the wrong sign.}
+
+\item \ans{"a circle of radius 1 centred at the origin"}
+\method{$Q$ runs over $x^2+y^2=4$ (radius $2$); the midpoint $M=OQ/2$ scales radii by $\frac12$, giving $x^2+y^2=1$.}
+\inv{Halving the equation's radius linearly to $\sqrt{2}$ or keeping the original radius $2$.}
+
+\item \ans{$1$}
+\method{$x^2+y^2=2x$ rearranges to $(x-1)^2+y^2=1$, radius $1$.}
+\inv{Answering $\sqrt{2}$ (reading the constant $2$ as $r^2$ before completing the square).}
+
+\item \ans{false}
+\method{The point $\left(\sqrt2,\sqrt2\right)$ lies on $x^2+y^2=4$ yet has $x\ne\pm2$ and $y\ne\pm2$; the implication fails in both coordinates.}
+\inv{Mistaking the circle's bounding box for its points; only the four axis points hit $\pm2$.}
+
+\item \ans{$x=3$}
+\method{$A$ and $B$ are at equal height $y=3$, so the perpendicular bisector is the vertical line $x=\frac{1+5}{2}=3$.}
+\inv{Writing the horizontal line $y=3$ through both points.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+\item \ans{A) $4$}
+\method{On the $x$-axis, $|x|=2|x-6|$ gives the endpoints $x=4$ and $x=12$; the circle between them has centre $(8,0)$ and radius $4$.}
+\inv{Quoting the centre distance $8$ (option B) or the gap $6$ (option D).}
+
+\item \ans{B) $y=2$}
+\method{$x^2+y^2=x^2+(y-4)^2$ gives $y=2$, the horizontal bisector.}
+\inv{Answering $x=2$ (wrong orientation) or $y=4$.}
+
+\item \ans{B) $4\pi$}
+\method{The disk has radius $2$, so its area is $\pi r^2=4\pi$.}
+\inv{Using $\pi r=2\pi$ (option A) or $r^2=16$ (option D).}
+
+\item \ans{$2\pi$}
+\method{Circumference $=2\pi r=2\pi\cdot 1=2\pi$.}
+\inv{Mixing circumference with area ($\pi$) or doubling the radius to $4\pi$.}
+
+\item \ans{C) $x^2+y^2<2$}
+\method{If $x^2+y^2<1$ then certainly $x^2+y^2<2$; option A is not necessary (a point with $x^2+y^2=0.75$ is inside but not $<\frac12$).}
+\inv{Picking a circle whose radius is smaller than the disk (option A) as if it were implied.}
+
+\item \ans{A) $3$}
+\method{On the $x$-axis $|x|=3|x-2|$ gives internal $x=\frac32$ and external $x=3$; the right endpoint is $3$.}
+\inv{Choosing the left endpoint $\frac32$ or the $y$-absent centre guess.}
+
+\item \ans{B) $x=-\dfrac12$ and $y=\dfrac{\sqrt3}{2}$}
+\method{This point satisfies $x^2+y^2=\frac14+\frac34=1$ exactly, so it pins $P$ on the circle. Option A puts $P$ strictly {\em inside}; C and D do not force $x^2+y^2=1$.}
+\inv{Choosing a strictly-inside condition (option A) because it is a {\em necessary} symptom of being on the circle.}
+
+\item \ans{$3$}
+\method{Distance from $(3,0)$ to the origin is $\sqrt{9}=3$.}
+\inv{Answering $6$ (the segment $AB$) or $9$ (the squared distance).}
+
+\item \ans{$(2,3)$}
+\method{In $x^2+y^2+2gx+2fy+c=0$, the centre is $(-g,-f)$; with $2g=-4$ and $2f=-6$ we get $(2,3)$.}
+\inv{Halving the wrong sign: $(4,6)$ or negating incorrectly.}
+
+\item \ans{$2$}
+\method{Completing the square: $(x-2)^2+(y+3)^2=(-9)+4+9=4$, radius $2$.}
+\inv{Quoting the constant $9$ as the radius or $r^2$ before shifting.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+\item \ans{A) $3$}
+\method{The distance from the line $x=3$ to $B=(6,0)$ is $|6-3|=3$.}
+\inv{Answering $6$ (the gap $A$--$B$, option B).}
+
+\item \ans{A) $(8,0)$}
+\method{Endpoints of the locus on the $x$-axis were $x=4$ and $x=12$, so the centre is their midpoint $(8,0)$.}
+\inv{Choosing the $B$-side endpoint $(12,0)$ or the midpoint of $AB$, $(3,0)$.}
+
+\item \ans{A) $(2,2)$}
+\method{$(2,2)$ has $x^2+y^2=8<9$; the others give $18$, $13$, $16$.}
+\inv{Picking a boundary or an exterior point.}
+
+\item \ans{A) $x=3$}
+\method{Equal ratios are the perpendicular bisector of $AB$, the line $x=3$.}
+\inv{Answering the line through $B$ (option C) or a diagonal.}
+
+\item \ans{B) $4$}
+\method{Each of $(1,2)$, $(2,1)$, $(\sqrt5,0)$, $(1,-2)$ satisfies $x^2+y^2=5$.}
+\inv{Counting only the obvious axis pair or miscounting by sign.}
+
+\item \ans{B) $8$}
+\method{The major axis equals the constant sum $PA+PB=8$.}
+\inv{Quoting the focal distance $6$ (option C) or the semi-major axis $4$ (option A).}
+
+\item \ans{A) $a^2+b^2=1$}
+\method{Being on the unit circle is exactly $a^2+b^2=1$: necessary (only these points qualify) and sufficient (every such point is on it).}
+\inv{Choosing a merely-necessary condition (option B) or a merely-sufficient one.}
+
+\item \ans{C) $0$}
+\method{$(x-2)^2+y^2=0$, a single point at $(2,0)$: ``radius'' $0$.}
+\inv{Quoting $\sqrt{4}=2$ (option B) without completing the square.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge Ramp}
+
+\begin{enumerate}
+
+\item \ans{A) $8$}
+\method{Endpoints at $x=4$ and $x=12$ (from $|x|=2|x-6|$), so the chord between them on the $x$-axis is $12-4=8$.}
+\inv{Quoting the radius $4$ (option B) or the centre-to-$B$ distance.}
+
+\item \ans{A) $1$}
+\method{$(x-2)^2+(y-3)^2=12-4-9+$shift$=1$, radius $1$.}
+\inv{Failing to subtract the completed-square constant; $\sqrt{12}$ (option D) is a snare.}
+
+\item \ans{A) $x^2+y^2<\dfrac12$}
+\method{This forces $x^2+y^2<1$ strictly, i.e.\ strictly inside the unit disk. Option C allows points outside the unit disk (e.g.\ $x^2+y^2=1.5$).}
+\inv{Choosing the weaker disk $x^2+y^2<2$ (which is not sufficient).}
+
+\item \ans{A)}
+\method{Expanding $x^2+y^2=9\big((x-2)^2+y^2\big)$ yields $\left(x-\frac94\right)^2+y^2=\frac{9}{16}$, a circle centred at $\left(\frac94,0\right)$ of radius $\frac34$ --- not $(x-2)^2+y^2=9$. Fil's circle is centred at $B$ and ignores $A$ entirely.}
+\inv{Believing $(x-2)^2+y^2=9$ (option D) or claiming the ratio locus is a line (option C).}
+
+\item \ans{$x^2+y^2=5$}
+\method{Through $(1,2)$ with centre $O$: $r^2=1^2+2^2=5$.}
+\inv{Writing $(x-1)^2+(y-2)^2=5$ (putting the given point as the centre).}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns}
+
+\begin{itemize}
+\item \textbf{A fixed-distance locus is a circle; square it to find the equation.} Distance $=r$ means $x^2+y^2=r^2$; an offset centre shifts the squares. \seealso{A1, A6, A8, B3, B4, D5}
+\item \textbf{$\frac{PA}{PB}=k$ is an Apollonius circle when $k\ne1$.} Square the ratio, collect $x,y$, complete the square; endpoints on the $x$-axis come from $|x|=k|x-b|$. \seealso{A3, B1, B6, C2, D1, D4}
+\item \textbf{Equal ratios ($k=1$) are the perpendicular bisector.} The line $\frac{PA}{PB}=1$ is the mirror line of the segment. \seealso{A2, A10, B2, B8, C1, C4}
+\item \textbf{Distinguish {\em necessary} from {\em sufficient}.} A condition must be true for the claim (necessary) versus enough to force the claim (sufficient). \seealso{B5, B7, C7, D3}
+\item \textbf{A line and a circle can both be ``3 units away''; name both.} Absolute-value loci split into symmetric branches. \seealso{A4, A9}
+\end{itemize}
+
+\section*{Common Traps}
+
+\begin{itemize}
+\item \textbf{Reading a distance-equality as a point instead of a family.} $PA=PB$ names a whole line, not just the midpoint. \seealso{A2, A10, C4}
+\item \textbf{Quoting the radius from $r^2$ before completing the square.} The constant in $x^2+y^2+2gx+2fy+c=0$ is not $r^2$; the centred shift supplies it. \seealso{B10, C8, D2, A8}
+\item \textbf{Forgetting the second solution when a modulus meets.} $|x|=k|x-b|$ has an internal and an external endpoint; a flagged ratio answer usually picks the wrong one. \seealso{A3, B6, D1}
+\item \textbf{Confusing necessary with sufficient.} ``Must be inside'' and ``is forced on the circle'' are different strengths; one extra decimal of the radius flips the verdict. \seealso{B5, B7, C7, D3}
+\item \textbf{Believing a claimed Apollonius equation without testing it.} Expand the squared ratio yourself; a circle centred at one focus is the classic decoy. \seealso{D4}
+\end{itemize}
+
+\SpeedClosing{``A locus is a sentence the entire family agrees on; a geometric claim is only as good as the condition you actually invoked.''}
+
+\end{document}

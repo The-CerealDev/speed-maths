@@ -473,7 +473,109 @@
     "name": "Geometry",
     "desc": "Coordinate geometry, circle theorems, and Euclidean proofs.",
     "status": "draft",
-    "sheets": []
+    "sheets": [
+      {
+        "n": "01",
+        "topic": "Coordinate geometry: lines, gradients, distances and polygon areas",
+        "tools": [
+          "negative reciprocal gradients",
+          "perpendicular bisectors",
+          "distance formula",
+          "perpendicular distance to a line",
+          "shoelace area"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet01.pdf",
+        "answers": "geometry/answers/ans01.pdf"
+      },
+      {
+        "n": "02",
+        "topic": "Circle equations, tangents and line--circle interactions",
+        "tools": [
+          "completing the square for circle equations",
+          "tangent to a circle",
+          "perpendicular distance line--circle test",
+          "half-chord length"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet02.pdf",
+        "answers": "geometry/answers/ans02.pdf"
+      },
+      {
+        "n": "03",
+        "topic": "Two-circle systems, radical axes and common chords",
+        "tools": [
+          "relative positions of two circles",
+          "radical axis by subtraction",
+          "common chord length",
+          "orthogonal circles",
+          "tangency to both coordinate axes"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet03.pdf",
+        "answers": "geometry/answers/ans03.pdf"
+      },
+      {
+        "n": "04",
+        "topic": "Triangle centres and Euclidean relations",
+        "tools": [
+          "centroid 2:1 median division",
+          "inradius via A = rs",
+          "right-triangle inradius constant",
+          "circumradius via abc/(4A)",
+          "angle bisector theorem",
+          "Apollonius' theorem on medians",
+          "Euler line"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet04.pdf",
+        "answers": "geometry/answers/ans04.pdf"
+      },
+      {
+        "n": "05",
+        "topic": "Tangents from an external point",
+        "tools": [
+          "tangent length via OP^2 - r^2",
+          "angle between tangents via sin(t/2) = r/OP",
+          "chord of contact / polar xx1 + yy1 = r^2",
+          "director circle x^2 + y^2 = 2r^2",
+          "power of a point"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet05.pdf",
+        "answers": "geometry/answers/ans05.pdf"
+      },
+      {
+        "n": "06",
+        "topic": "Circle theorems and power of a point",
+        "tools": [
+          "angle at centre twice angle at circumference",
+          "cyclic quadrilaterals sum to 180",
+          "alternate segment theorem",
+          "power of a point (chord and tangent-secant products)",
+          "Ptolemy's theorem",
+          "Brahmagupta's formula",
+          "Pitot's theorem"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet06.pdf",
+        "answers": "geometry/answers/ans06.pdf"
+      },
+      {
+        "n": "07",
+        "topic": "Loci, Apollonius circles and geometric logic",
+        "tools": [
+          "loci of fixed distance",
+          "Apollonius circle PA over PB = k",
+          "perpendicular bisector loci",
+          "necessary versus sufficient conditions",
+          "flaw-spotting in synthetic proofs"
+        ],
+        "questions": 33,
+        "pdf": "geometry/sheets/sheet07.pdf",
+        "answers": "geometry/answers/ans07.pdf"
+      }
+    ]
   },
   {
     "slug": "calculus",
