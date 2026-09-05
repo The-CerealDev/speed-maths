@@ -44,10 +44,16 @@ jobs:
           python3 tools/analyze_facades.py --strict
           python3 tools/validate_verify_scripts.py
 
-  # Long-running mutation testing on tools/ (latex_bridge & answer_binding)
+  # Parallel mutation testing on tools/ (latex_bridge & answer_binding)
   mutation-testing:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - tools/answer_binding.py
+          - tools/latex_bridge.py
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -61,10 +67,28 @@ jobs:
           pip install -r requirements-dev.txt
           pip install mutmut
 
-      - name: Run mutmut on tools/
+      - name: Cache mutants
+        uses: actions/cache@v4
+        with:
+          path: mutants
+          key: mutmut-${{ matrix.target }}-${{ hashFiles(matrix.target) }}
+          restore-keys: |
+            mutmut-${{ matrix.target }}-
+
+      - name: Configure mutmut for ${{ matrix.target }}
+        run: |
+          python3 -c "
+          import re
+          c = open('setup.cfg').read()
+          new_c = re.sub(r'only_mutate=.*?(runner=)', 'only_mutate=\n    ${{ matrix.target }}\n\\1', c, flags=re.DOTALL)
+          open('setup.cfg', 'w').write(new_c)
+          "
+          echo "── Configured setup.cfg ──"
+          cat setup.cfg | grep -A 4 "only_mutate="
+
+      - name: Run mutmut on ${{ matrix.target }}
         run: |
           mkdir -p mutants
-          # Run mutmut targeting tools/ with pytest runner
           python3 -m mutmut run || true
 
       - name: Mutation Test Results
