@@ -537,6 +537,10 @@ html { scroll-behavior: smooth; }
     font-weight: 900;
     flex-shrink: 0;
 }
+.hsb-icon-circle svg {
+    display: block;
+    flex-shrink: 0;
+}
 
 /* Live Cards */
 .hsb-card.live {
@@ -748,6 +752,10 @@ html { scroll-behavior: smooth; }
         height: 16px;
         font-size: 0.62rem;
         flex-shrink: 0;
+    }
+    .hsb-icon-circle svg {
+        width: 10px;
+        height: 10px;
     }
     .hsb-card-name {
         font-size: 0.8rem !important;
