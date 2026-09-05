@@ -281,27 +281,32 @@ footer {
 
     .sheet-row {
         display: block;
-        padding: 0.8rem 0;
+        padding: 0.75rem 0;
         margin: 0;
         border-bottom: 1px solid var(--border);
     }
     .sheet-row:last-child {
         border-bottom: none;
-        padding-bottom: 0.2rem;
+        padding-bottom: 0.1rem;
     }
     .sheet-num {
         display: inline-block;
         font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.04em;
-        color: var(--pillar-color, var(--primary));
-        background: var(--pillar-bg, rgba(37, 99, 235, 0.08));
-        border: 1px solid var(--pillar-border, rgba(37, 99, 235, 0.25));
-        border-radius: 4px;
-        padding: 0.1rem 0.38rem;
+        font-size: 0.82rem;
+        font-variant-numeric: tabular-nums;
+        color: var(--text-muted);
+        background: none;
+        border: none;
+        padding: 0;
         width: auto;
-        margin-right: 0.45rem;
-        vertical-align: 1px;
+        margin-right: 0.4rem;
+        vertical-align: 0;
+    }
+    .sheet-num::after {
+        content: "·";
+        margin-left: 0.35rem;
+        color: var(--border);
+        font-weight: 400;
     }
     .sheet-body {
         display: inline;
@@ -318,8 +323,14 @@ footer {
         align-items: center;
         flex-wrap: wrap;
         gap: 0.25rem;
-        margin-top: 0.35rem;
+        margin-top: 0.3rem;
         width: 100%;
+    }
+    .tools-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-right: 0.15rem;
     }
     .tool {
         font-size: 0.68rem;
@@ -333,6 +344,7 @@ footer {
         gap: 0.45rem;
         width: 100%;
         margin-top: 0.45rem;
+        margin-bottom: 0.15rem;
     }
     .pdf-link {
         flex: 0 0 auto;
@@ -341,18 +353,26 @@ footer {
         font-weight: 600;
         min-height: 32px;
         border-radius: 6px;
-        background: var(--pillar-bg, rgba(37, 99, 235, 0.08));
+        background: var(--surface);
         color: var(--pillar-color, var(--primary));
-        border: 1px solid var(--pillar-border, rgba(37, 99, 235, 0.25));
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.1s ease, background-color 0.15s ease;
+        transition: transform 0.1s ease, border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .pdf-link:hover, .pdf-link:active {
+        background: var(--pillar-bg, rgba(37, 99, 235, 0.06));
+        border-color: var(--pillar-color, var(--primary));
     }
     .pdf-link.ans {
-        background: rgba(239, 68, 68, 0.08);
         color: var(--danger);
-        border: 1px solid rgba(239, 68, 68, 0.22);
+        border-color: var(--border);
+    }
+    .pdf-link.ans:hover, .pdf-link.ans:active {
+        background: rgba(239, 68, 68, 0.06);
+        border-color: var(--danger);
     }
     .pdf-link:active {
         transform: scale(0.96);
