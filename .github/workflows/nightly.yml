@@ -78,13 +78,23 @@ jobs:
       - name: Configure mutmut for ${{ matrix.target }}
         run: |
           python3 -c "
-          import re
-          c = open('setup.cfg').read()
-          new_c = re.sub(r'only_mutate=.*?(runner=)', 'only_mutate=\n    ${{ matrix.target }}\n\\1', c, flags=re.DOTALL)
-          open('setup.cfg', 'w').write(new_c)
+          lines = open('setup.cfg').read().splitlines()
+          out = []
+          skip = False
+          for line in lines:
+              if line.strip() == 'only_mutate=':
+                  out.append('only_mutate=')
+                  out.append('    ${{ matrix.target }}')
+                  skip = True
+              elif skip and line.startswith('runner='):
+                  skip = False
+                  out.append(line)
+              elif not skip:
+                  out.append(line)
+          open('setup.cfg', 'w').write('\n'.join(out) + '\n')
           "
           echo "── Configured setup.cfg ──"
-          cat setup.cfg | grep -A 4 "only_mutate="
+          git diff setup.cfg
 
       - name: Run mutmut on ${{ matrix.target }}
         run: |
