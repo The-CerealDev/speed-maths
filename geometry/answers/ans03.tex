@@ -1,0 +1,413 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{3}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#3 --- Answers \& Investigations}{Henry Koduthore}
+\noindent\textit{New toolkit today: Relative Positions $\cdot$ Radical Axis by subtraction $\cdot$ Common Chords $\cdot$ Orthogonal Circles $\cdot$ Tangency to Both Axes.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-12x-16y+75=0$ is tangent to the circle $\;x^2+y^2=25$. Write down the number of common tangents of the two circles.
+
+\ans{$3$}
+\method{$x^2+y^2-12x-16y+75=(x-6)^2+(y-8)^2-100+75=0$, so centre $(6,8)$, radius $\sqrt{36+64-75}=5$. Both circles have radius $5$; $d=10=r_1+r_2$ --- externally tangent --- $3$ common tangents.}
+\inv{The bookkeeping: $d>r_1+r_2\Rightarrow4$, $d=r_1+r_2\Rightarrow3$, $|r_1-r_2|<d<r_1+r_2\Rightarrow2$, $d=|r_1-r_2|\Rightarrow1$, $d<|r_1-r_2|\Rightarrow0$. \textbf{``Tangent'' means exactly one common point, giving exactly $3$ tangents, not $2$.}}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item The circles with centre $(0,0)$ radius $5$ and centre $(13,0)$ radius $3$ are disjoint. Write down the number of common tangents of the two circles.
+
+\ans{$4$}
+\method{$d=13$, $r_1+r_2=8$; since $d>r_1+r_2$ the circles are fully disjoint and there are $4$ common tangents.}
+\inv{Disjoint circles admit $2$ direct (external) tangents plus $2$ transverse (internal) tangents. \textbf{Once the circles overlap, the two transverse tangents disappear.}}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Write down the radical axis of the circles $\;x^2+y^2-6x+2y+1=0$ and $\;x^2+y^2-2x-4y+13=0$.
+
+\ans{"$2x-3y+6=0$"}
+\method{At the radical axis powers are equal, so subtract: $(-6x+2y+1)-(-2x-4y+13)=0$, i.e.\ $-4x+6y-12=0$, i.e.\ $2x-3y+6=0$. The $x^2+y^2$ terms cancel in one stroke.}
+\inv{Check the answer by symmetry: $x=\frac34 y-\frac32$ plug-in balances both powers automatically. \textbf{A single-line subtraction beats solving any intersection; the radical axis exists even for disjoint circles.}}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Write down whether the circles $\;x^2+y^2=9$ and $\;x^2+y^2+6x+8y+9=0$ are orthogonal (yes or no).
+
+\ans{yes}
+\method{$x^2+y^2+6x+8y+9$ has centre $(-3,-4)$ and $r^2=9+16-9=16$, so $r=4$. $d=\sqrt{3^2+4^2}=5$. Orthogonal iff $d^2=r_1^2+r_2^2$: $25=9+16$ \checkmark. Yes.}
+\inv{Equivalently with coefficients: $g_1=f_1=0$, $g_2=3$, $f_2=4$ and $2g_1g_2+2f_1f_2=0$ must equal $c_1+c_2=(-9)+(9)=0$. \textbf{Orthogonality is about the radii forming a right triangle with the centre distance.}}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item The circles $\;x^2+y^2=25$ and $\;x^2+y^2-10x+5=0$ intersect in two points. Find the length of their common chord.
+
+\ans{$8$}
+\method{Subtract: $-25=-10x+5\Rightarrow x=3$, the radical axis. Distance of $x=3$ from the origin is $3$, radius $5$, so half-chord $=\sqrt{25-9}=4$, chord $=8$.}
+\inv{The second circle has centre $(5,0)$ and radius $\sqrt{20}$; the two circles agree on the two end-points of this chord. \textbf{Identify the radical axis first --- the chord sits on it --- then apply the half-chord formula.}}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item Two circles have radii $3$ and $5$ and their centres are $4$ units apart. Write down the number of common tangents.
+
+\ans{$2$}
+\method{$|r_1-r_2|=2<d=4<r_1+r_2=8$ --- intersecting circles --- $2$ common tangents.}
+\inv{Two crossing circles always have exactly $2$ common tangents. \textbf{The trap is counting the two intersection points as ``tangents''.}}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-10x-10y+k=0$ is tangent to both coordinate axes. Find $k$.
+
+\ans{$25$}
+\method{Centre $(5,5)$. Tangent to both axes forces the radius to equal each coordinate: $r=5$. Then $r^2=25=5^2+5^2-k$, so $k=50-25=25$.}
+\inv{A circle tangent to both axes has centre $(r,r)$, $(-r,r)$, $(r,-r)$ or $(-r,-r)$ and equation $(x\mp r)^2+(y\mp r)^2=r^2$, constant $r^2$. \textbf{The constant is $r^2$, not $2r^2$.}}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2+4x-2y+C=0$ is orthogonal to the circle $\;x^2+y^2-4x+4y-1=0$. Find $C$.
+
+\ans{$-11$}
+\method{$g_1=2$, $f_1=-1$; $g_2=-2$, $f_2=2$, $c_2=-1$. Orthogonality: $2g_1g_2+2f_1f_2=c_1+c_2\Rightarrow 2(2)(-2)+2(-1)(2)=C-1\Rightarrow-8-4=C-1\Rightarrow C=-11$.}
+\inv{Geometric check: first circle centre $(-2,1)$ with $r_1^2=C$? No --- $r_1^2=4+1-C=5-C$; second centre $(2,-2)$ with $r_2^2=9$. $d^2=25=9+5-C\Rightarrow C=-11$ \checkmark. \textbf{Both forms of the test mirror each other.}}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item How many common tangents do the circles $\;x^2+y^2-4x-6y+12=0$ and $\;x^2+y^2+2x-10y+25=0$ have?
+
+\ans{$4$}
+\method{First: centre $(2,3)$, $r^2=4+9-12=1$. Second: centre $(-1,5)$, $r^2=1+25-25=1$. $d=\sqrt{(3)^2+(2)^2}=\sqrt{13}>2=r_1+r_2$ --- disjoint unit circles --- $4$ common tangents.}
+\inv{Completing the square (Worksheet \#2 skill) locates the centres; only then compare $d$ with $r_1+r_2$. \textbf{Worksheets \#2's centre-and-radius reading is today's first move.}}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item Two circles have radii $7$ and $3$ and exactly $3$ common tangents. Find the distance between their centres.
+
+\ans{$10$}
+\method{Exactly $3$ common tangents means the circles are externally tangent, so $d=r_1+r_2=7+3=10$.}
+\inv{Keep the five-case table on one line. \textbf{If there were $2$ tangents you would instead need $|3-7|<d<10$, which leaves a whole range, not a single value.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item How many common tangents do the circles $\;x^2+y^2=9$ and $\;x^2+y^2-4x-6y+9=0$ have?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $4$
+\end{itemize}
+
+\ans{C) $2$}
+\method{$x^2+y^2-4x-6y+9=0$: centre $(2,3)$, $r^2=4+9-9=4$. The other has centre $(0,0)$ radius $3$. $d=\sqrt{13}$; $|3-2|=1<\sqrt{13}<5$ --- intersecting --- $2$ common tangents.}
+\inv{$x^2+y^2=9$ is radius $3$, so the second circle is strictly inside the first's $5$-radius relation. \textbf{Do not stop after finding the centres; compare $d$ against both $r_1+r_2$ and $|r_1-r_2|$.}}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item The radical axis of the circles $\;x^2+y^2+ax+by+c=0$ and $\;x^2+y^2+6x-4y+10=0$ is $\;2x-y+3=0$. What is $a+b$?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $-3$
+\item[C)] $13$
+\item[D)] $-13$
+\end{itemize}
+
+\ans{A) $3$}
+\method{Subtract: $(a-6)x+(b+4)y+(c-10)=0$. Compare with $2x-y+3=0$: $a-6=2\Rightarrow a=8$; $b+4=-1\Rightarrow b=-5$; $c-10=3\Rightarrow c=13$. So $a+b=3$.}
+\inv{Each coefficient matches with the {\em same} scale factor (here $1$); change the factor and all three coefficient equations change together. \textbf{The $y$-coefficient sign is the usual slip --- $b+4=-1$ gives $b=-5$, not $-3$.}}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-4x+2y-5=0$ is orthogonal to $\;x^2+y^2+6x-2y+k=0$. Find $k$.
+\begin{itemize}
+\item[A)] $-9$
+\item[B)] $9$
+\item[C)] $-5$
+\item[D)] $14$
+\end{itemize}
+
+\ans{A) $-9$}
+\method{$g_1=-2,f_1=1,c_1=-5$; $g_2=3,f_2=-1,c_2=k$. $2g_1g_2+2f_1f_2=2(-2)(3)+2(1)(-1)=-14=c_1+c_2=-5+k\Rightarrow k=-9$.}
+\inv{Orthogonal circles cut at right angles: the radii to a common point are perpendicular. \textbf{Never pair $g$ with $c$ or $f$ with $g$ --- the pairing is $g_1g_2+f_1f_2$ against $\frac{c_1+c_2}{2}$.}}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item A circle is tangent to both coordinate axes in the first quadrant and passes through the point $(1,8)$. Find the smaller possible radius.
+
+\ans{$5$}
+\method{Centre $(r,r)$, radius $r$: $(1-r)^2+(8-r)^2=r^2\Rightarrow r^2-18r+65=0\Rightarrow(r-5)(r-13)=0$. Smaller radius $5$.}
+\inv{There really are two such circles --- always state which root the question wants. \textbf{Both roots are positive, so the phrasing ``smaller'' is essential.}}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item Two circles of equal radius $5$ have centres $(0,0)$ and $(6,0)$. Their radical axis has equation?
+\begin{itemize}
+\item[A)] $x=3$
+\item[B)] $x=6$
+\item[C)] $y=3$
+\item[D)] $y=0$
+\end{itemize}
+
+\ans{A) $x=3$}
+\method{Equal radii: subtract $(x^2+y^2-25)=((x-6)^2+y^2-25)\Rightarrow -25=-12x+36-25\Rightarrow x=3$.
+}
+\inv{For equal circles the radical axis is the perpendicular bisector of the centre segment. \textbf{A quick sanity check: power at $(3,0)$ is $9-25=-16$ for both sides.}}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Two circles of radii $4$ and $6$ have centres $9$ units apart. How many common tangents do they have?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $4$
+\end{itemize}
+
+\ans{C) $2$}
+\method{$|r_1-r_2|=2<d=9<10=r_1+r_2$: strict overlap without containment --- $2$ common tangents.}
+\inv{Compare $d$ to $10$ (sum) and $2$ (difference) before counting. \textbf{$9$ is dangerously close to $10$; only exactly $10$ would give $3$.}}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2=4$ is orthogonal to $\;x^2+y^2+8x-6y+C=0$. Find $C$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $-4$
+\item[C)] $25$
+\item[D)] $2$
+\end{itemize}
+
+\ans{A) $4$}
+\method{Second circle: centre $(-4,3)$, $r_2^2=25-C$. $d^2=16+9=25$. Orthogonal: $d^2=r_1^2+r_2^2=4+(25-C)=29-C\Rightarrow C=4$.}
+\inv{Check with $g_1=f_1=0$: the coefficient test gives $0=-4+C\Rightarrow C=4$ \checkmark. \textbf{Both routes agree --- use whichever you trust.}}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item The circles $\;x^2+y^2=36$ and $\;(x-6)^2+y^2=36$ intersect. Find the length of their common chord.
+
+\ans{$6\sqrt{3}$}
+\method{Equal radii $6$ on centres $6$ apart: radical axis is the perpendicular bisector $x=3$. Half-chord $=\sqrt{36-9}=3\sqrt{3}$, chord $=6\sqrt{3}$.}
+\inv{The two circles overlap in a lens whose extreme width is $6\sqrt3$. \textbf{Do not add the two radii; the chord lives on the radical axis, not at the intersection of centre-lines.}}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item A circle is tangent to both coordinate axes in the first quadrant and passes through the point $(4,8)$. Its possible radii are?
+\begin{itemize}
+\item[A)] $4$ only
+\item[B)] $20$ only
+\item[C)] $4$ and $20$
+\item[D)] $16$
+\end{itemize}
+
+\ans{C) $4$ and $20$}
+\method{Centre $(r,r)$: $(4-r)^2+(8-r)^2=r^2\Rightarrow r^2-24r+80=0\Rightarrow(r-4)(r-20)=0$. Both $4$ and $20$.}
+\inv{Verify: radius $4$ circle touches both axes near the origin; radius $20$ circle is far out and still reaches $(4,8)$. \textbf{A quadratic in $r$ can give two genuine circles --- list both.}}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item The point $P=(1,t)$ lies on the radical axis $\;3x-4y+5=0$ of two circles. Find $t$.
+
+\ans{$2$}
+\method{Substitute: $3(1)-4t+5=0\Rightarrow8-4t=0\Rightarrow t=2$.}
+\inv{The radical axis is exactly the set of points of equal power --- a line. \textbf{Put $P$ into the line, not into either circle equation.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item The circle with centre $(2,-1)$ and radius $5$ and the circle $\;x^2+y^2-12x-4y+24=0$ intersect. How do they meet?
+\begin{itemize}
+\item[A)] at two points
+\item[B)] at exactly one point (tangent)
+\item[C)] not at all; one contains the other
+\item[D)] not at all; disjoint exteriors
+\end{itemize}
+
+\ans{A) at two points}
+\method{Second circle: centre $(6,2)$, $r^2=36+4-24=16$. $d=\sqrt{16+9}=5$; $|5-4|=1<5<9$ --- two points.}
+\inv{The common centres distance and the two radii are exactly the three sides of a valid triangle ($1<5<9$). \textbf{A geometric ``triangle inequality'' check is faster than solving anything.}}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item Two circles of radii $3$ and $4$ are orthogonal. What is the distance between their centres?
+\begin{itemize}
+\item[A)] $5$
+\item[B)] $7$
+\item[C)] $1$
+\item[D)] $\sqrt{7}$
+\end{itemize}
+
+\ans{A) $5$}
+\method{Orthogonal iff $d^2=r_1^2+r_2^2$: $d^2=9+16=25\Rightarrow d=5$.}
+\inv{$3$-$4$-$5$ right triangle in disguise. \textbf{Option C claims $|4-3|=1$; that is the containment boundary, not orthogonality.}}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item Two circles of radii $3$ and $8$ have centres $13$ units apart. The direct common tangent segment between the two circles has what length?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $5$
+\item[C)] $8$
+\item[D)] $\sqrt{104}$
+\end{itemize}
+
+\ans{A) $12$}
+\method{Direct tangent segment $=\sqrt{d^2-(r_2-r_1)^2}=\sqrt{13^2-5^2}=12$.}
+\inv{Drop perpendiculars from both centres to the common tangent: a right triangle of legs $12$ and $5$, hypotenuse $13$. \textbf{Option D arises from squaring $r_2+r_1=11$ into the bracket instead of $5$.}}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item For the same two circles (radii $3$ and $8$, centres $13$ apart), the transverse common tangent segment has what length?
+\begin{itemize}
+\item[A)] $4\sqrt{3}$
+\item[B)] $6\sqrt{3}$
+\item[C)] $12$
+\item[D)] $2\sqrt{6}$
+\end{itemize}
+
+\ans{A) $4\sqrt{3}$}
+\method{Transverse tangent segment $=\sqrt{d^2-(r_1+r_2)^2}=\sqrt{169-121}=\sqrt{48}=4\sqrt{3}$.}
+\inv{The transverse tangent crosses the gap between the circles, so the bracket holds the {\em sum} of radii $11$. \textbf{Switching the bracket from $5$ to $11$ is exactly the C3-to-C4 distinction.}}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is the radical axis of the circles $\;x^2+y^2-2x-4y-8=0$ and $\;x^2+y^2+4x-2y+3=0$?
+\begin{itemize}
+\item[A)] $6x+2y+11=0$
+\item[B)] $6x-2y+11=0$
+\item[C)] $6x+2y-11=0$
+\item[D)] $2x+6y+11=0$
+\end{itemize}
+
+\ans{A) $6x+2y+11=0$}
+\method{Subtract: $(-2x-4y-8)=(4x-2y+3)\Rightarrow-6x-2y-11=0\Rightarrow6x+2y+11=0$.}
+\inv{The $x$ and $y$ coefficients swap roles between C and D --- keep track of which circle owned which term. \textbf{Check your result by substituting any point that satisfies both.}}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item How many circles tangent to both coordinate axes pass through the point $(9,2)$?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\end{itemize}
+
+\ans{C) $2$}
+\method{Centre $(r,r)$: $(9-r)^2+(2-r)^2=r^2\Rightarrow 2r^2-22r+85=0\Rightarrow r^2-22r+85=0\Rightarrow(r-5)(r-17)=0$. Two positive radii, so two circles.}
+\inv{Both $r=5$ and $r=17$ satisfy the geometry; the quadratic produced two genuine circles. \textbf{Whether a question wants the count (2) or the radii (5 and 17) --- answer exactly what is asked.}}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item The circles $\;x^2+y^2=169$ and $\;x^2+y^2-6x+8y-119=0$ meet in two points. What is the length of their common chord?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $16$
+\item[C)] $24$
+\item[D)] $26$
+\end{itemize}
+
+\ans{C) $24$}
+\method{Second circle: centre $(3,-4)$, $r^2=9+16+119=144$, $r=12$. Subtract: $-169=-6x+8y-119\Rightarrow6x-8y-50=0\Rightarrow3x-4y-25=0$. Distance from origin $=|{-}25|/5=5$. Half-chord $=\sqrt{169-25}=12$, chord $=24$.}
+\inv{The $13$-$12$-$5$ Pythagorean triple runs the whole question. \textbf{Sanity-check: the chord length $24$ is visibly less than the diameter $2\cdot 13=26$ (option D).}}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item The circles $\;x^2+y^2+4x-1=0$, $\;x^2+y^2-8y+11=0$ and $\;x^2+y^2+2x-12y+13=0$ have pairwise radical axes that all pass through a single point. This radical centre has coordinates?
+\begin{itemize}
+\item[A)] $(1,1)$
+\item[B)] $(1,-1)$
+\item[C)] $(3,1)$
+\item[D)] $(1,2)$
+\end{itemize}
+
+\ans{A) $(1,1)$}
+\method{Radical axis of the first two: $(4x-1)-(-8y+11)=0\Rightarrow x+2y-3=0$. Of the second two: $(-8y+11)-(2x-12y+13)=0\Rightarrow x-2y+1=0$. Solve: $x+2y=3$, $x-2y=-1\Rightarrow x=1,y=1$.}
+\inv{Verify the power: at $(1,1)$, circle 1 gives $1+1+4-1=5$; circle 2 gives $1+1-8+11=5$; circle 3 gives $1+1+2-12+13=5$ \checkmark. \textbf{Finding two radical axes meets at the radical centre; the third axis must pass through it.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge Ramp}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item A point $P$ moves so that its power with respect to the circle $\;x^2+y^2=1$ is equal to its power with respect to the circle $\;(x-6)^2+y^2=4$. As $P$ moves it traces out?
+\begin{itemize}
+\item[A)] the line $x=\dfrac{11}{4}$
+\item[B)] the circle $\;x^2+y^2=1$
+\item[C)] a pair of isolated points
+\item[D)] the $y$-axis
+\end{itemize}
+
+\ans{A) the line $x=\dfrac{11}{4}$}
+\method{Equal powers ARE the radical axis: $x^2+y^2-1=(x-6)^2+y^2-4=x^2+y^2-12x+32\Rightarrow12x=33\Rightarrow x=\dfrac{11}{4}$. A vertical line.}
+\inv{The locus of equal powers is always a straight line, even when the circles are disjoint --- here $d=6>3=r_1+r_2$. \textbf{Do not picture a ``middle circle''; the radical axis is a line, not a curve.}}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item The circles $\;x^2+y^2=100$ and $\;x^2+y^2-6x-8y-40=0$ intersect in two points. What is the length of their common chord?
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $16$
+\item[C)] $12$
+\item[D)] $6\sqrt{3}$
+\end{itemize}
+
+\ans{B) $16$}
+\method{Second circle: centre $(3,4)$, $r^2=9+16+40=65$. Subtract: $-100=-6x-8y-40\Rightarrow3x+4y=30$. Distance to origin $=30/5=6$. Half-chord $=\sqrt{100-36}=8$, chord $=16$.}
+\inv{Twice over: distance from $(3,4)$ to $3x+4y-30$ is $|9+16-30|/5=1$, giving half-chord $\sqrt{65-1}=8$ \checkmark. \textbf{Both centres agree the chord is $16$ --- a cheap consistency check.}}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-6x-8y+C=0$ is orthogonal to the circle with centre $(2,-1)$ and radius $5$. Find $C$.
+\begin{itemize}
+\item[A)] $24$
+\item[B)] $26$
+\item[C)] $25$
+\item[D)] $-24$
+\end{itemize}
+
+\ans{A) $24$}
+\method{Circle 1: centre $(3,4)$, $r_1^2=25-C$. Circle 2: centre $(2,-1)$, $r_2=5$. $d^2=(3-2)^2+(4+1)^2=1+25=26$. Orthogonality: $26=25-C+25\Rightarrow C=24$.}
+\inv{The partner circle $(x-2)^2+(y+1)^2=25$ is Worksheet \#2's A3 --- orthogonality lets today's sheet lean on yesterday's circle. \textbf{Keep $r_1^2=25-C$, not $C-25$.}}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item Two circles of radii $3$ and $4$ are orthogonal. What is the length of their common chord?
+\begin{itemize}
+\item[A)] $\dfrac{24}{5}$
+\item[B)] $\dfrac{12}{5}$
+\item[C)] $6$
+\item[D)] $\dfrac{48}{5}$
+\end{itemize}
+
+\ans{A) $\dfrac{24}{5}$}
+\method{$d^2=r_1^2+r_2^2=9+16=25$, $d=5$. Place centres $(0,0)$ and $(5,0)$; the radical axis solves $-9=-10x+9\Rightarrow x=\frac95$. Half-chord of the radius-3 circle: $\sqrt{9-(\frac95)^2}=\sqrt{\frac{144}{25}}=\frac{12}{5}$, chord $=\frac{24}{5}$.}
+\inv{Work the $3$-$4$-$5$ system: the radical axis sits $\frac95$ from the small circle's centre, and the chord is the small circle's own chord. \textbf{Option C is the diameter of the small circle; the chord is strictly shorter.}}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item Three circles of radii $3$, $4$ and $5$ are pairwise externally tangent (each pair has exactly one common point). What is the area of the triangle formed by their three centres?
+\begin{itemize}
+\item[A)] $12\sqrt{5}$
+\item[B)] $12$
+\item[C)] $84$
+\item[D)] $3\sqrt{5}$
+\end{itemize}
+
+\ans{A) $12\sqrt{5}$}
+\method{The centres form a triangle with sides $3+4=7$, $3+5=8$, $4+5=9$. Heron: $s=\frac{7+8+9}{2}=12$, area $=\sqrt{12\cdot5\cdot4\cdot3}=\sqrt{720}=12\sqrt{5}$.}
+\inv{Co-ordinate check: $(0,0)$ and $(7,0)$ fixed, third centre $9$ from the first and $8$ from the second: $x=\frac{33}{7}$, $y=\frac{24\sqrt5}{7}$, area $=\frac12\cdot7\cdot\frac{24\sqrt5}{7}=12\sqrt5$ \checkmark. \textbf{The side length is the {\em sum} of the two radii, never the difference.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#3}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Classify two circles by comparing $d$ with $r_1+r_2$ and $|r_1-r_2|$.} $d>r_1+r_2$ (4 tangents), $d=r_1+r_2$ (3), overlap (2), $d=|r_1-r_2|$ (1), containment (0). \seealso{A1, A2, A6, B1, B6}
+  \item \textbf{Radical axis $=$ the two equations subtracted.} The $x^2+y^2$ terms vanish in one line; the result is the common chord for intersecting circles and the equal-power line in general. \seealso{A3, B2, C5, D1}
+  \item \textbf{Common chord $=$ radical axis $+$ half-chord formula.} Find the radical axis, take its distance $d$ from a centre, then $2\sqrt{r^2-d^2}$. \seealso{A5, B8, C7, D2, D4}
+  \item \textbf{Orthogonality either way: $d^2=r_1^2+r_2^2$ or $2g_1g_2+2f_1f_2=c_1+c_2$.} The radii make a right triangle against the centre distance. \seealso{A4, A8, B3, B7, C2, D3}
+  \item \textbf{A circle tangent to both axes lives at $(\pm r,\pm r)$ with constant $r^2$.} Powers of $r$ are found from a point condition; there can be two solutions. \seealso{A7, B4, B9, C6}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#3}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Miscounting the common-tangent table.} Externally tangent means exactly $3$ common tangents (diameter line plus two direct); crossing circles have $2$, disjoint circles $4$. One boundary-off-by-one changes the whole count. \seealso{A1, A2, A6, A10, B1, B6}
+  \item \textbf{Mangling the subtraction sign on the radical axis.} It is the difference of the two {\em constants and linear terms} set to zero; flip a sign and you get the next option in C5. \seealso{A3, B2, C5}
+  \item \textbf{Wrong pairing in the orthogonality test.} The condition binds $g_1g_2+f_1f_2$ against $(c_1+c_2)/2$ --- pair $g$ with $g$, $f$ with $f$. \seealso{A8, B3, B7, D3}
+  \item \textbf{Imagining the radical axis is a circle.} Equal powers trace a straight line, not a curve, even between disjoint circles. \seealso{D1, B5, B10}
+  \item \textbf{Forgetting the triangle of centres on tangent circles.} For pairwise tangent circles each centre distance is the {\em sum} of the two radii; subtracting instead of adding breaks Heron immediately. \seealso{D5, A10, A1}
+\end{enumerate}
+
+\SpeedClosing{``Two circles are solved by one subtraction: locate, subtract, then compare with the sum and difference of the radii.''}
+
+\end{document}

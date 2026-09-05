@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#4 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{Triangle centres and Euclidean relations}{centroid, incenter $A=rs$, circumradius $R=\frac{abc}{4A}$, right-triangle inradius, angle bisector theorem, Apollonius medians}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+\item \ans{"$(3,3)$"}
+\method{The centroid is the average of the three vertices: $\left(\frac{0+6+3}{3},\frac{0+0+9}{3}\right)=(3,3)$.}
+\inv{Forgetting to divide every coordinate by three, or averaging only two vertices.}
+
+\item \ans{"$(3,4)$"}
+\method{In a right triangle the circumcentre is the midpoint of the hypotenuse, the midpoint of $(6,0)$ and $(0,8)$ is $(3,4)$.}
+\inv{Choosing the midpoint of the wrong side, or halving only one coordinate.}
+
+\item \ans{$1$}
+\method{The incircle is tangent to all three sides. For a right triangle with legs $3,4$ the hypotenuse is $5$ and $r=\frac{a+b-c}{2}=\frac{3+4-5}{2}=1$.}
+\inv{Writing $\frac{a+b+c}{2}$ (that is $s$, the semiperimeter) instead of $\frac{a+b-c}{2}$.}
+
+\item \ans{$7$}
+\method{Legs $6,8$ give hypotenuse $10$. The inradius is $\frac{6+8-10}{2}=2$ and the circumradius of a right triangle is half the hypotenuse, $R=5$, so $r+R=7$.}
+\inv{Using $R=\frac{abc}{4A}$ with the wrong area, or adding $r$ to the hypotenuse instead of $R$.}
+
+\item \ans{$5$}
+\method{$A=\frac12\cdot 6\cdot 8=24$ and $R=\frac{abc}{4A}=\frac{6\cdot 8\cdot 10}{4\cdot 24}=5$. Equivalently the hypotenuse $10$ is a diameter, so $R=5$.}
+\inv{Treating the circumdiameter as a side; the hypotenuse is twice $R$, not equal to it.}
+
+\item \ans{"$(3,2)$"}
+\method{$\left(\frac{1+5+3}{3},\frac{2+6-2}{3}\right)=(3,2)$.}
+\inv{Mixing up the $x$ and $y$ sums.}
+
+\item \ans{"$(0,0)$"}
+\method{A right triangle has its orthocentre at the right-angle vertex, which is the origin here.}
+\inv{Substituting for the other two altitudes and getting tangled; the right angle decides it.}
+
+\item \ans{$6$}
+\method{The angle bisector theorem: $BD:DC=AB:AC=2:3$ with $BD+DC=10$, so $DC=\frac{3}{2+3}\cdot 10=6$.}
+\inv{Using the ratio the wrong way round and giving $4$. The smaller side segment pairs with the smaller adjacent side.}
+
+\item \ans{$4$}
+\method{The median to the base is the altitude: $\sqrt{5^2-3^2}=\sqrt{16}=4$.}
+\inv{Dropping only half, not the full base, or halving the base incorrectly.}
+
+\item \ans{$8$}
+\method{The centroid is $\frac{2}{3}$ of the way from the vertex, so the vertex-to-centroid distance is $\frac23\cdot 12=8$.}
+\inv{Using the $\frac13$ tail (the centroid-to-midpoint piece) and answering $4$.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+\item \ans{C) $(4,3)$}
+\method{$\left(\frac{2+4+6}{3},\frac{1+3+5}{3}\right)=(4,3)$.}
+\inv{Spotting equal spacings and guessing the middle point without summing.}
+
+\item \ans{B) $2$}
+\method{$r=\frac{5+12-13}{2}=2$. Sanity check via $A=rs$: area $30$, semiperimeter $15$, $r=2$.}
+\inv{Using $s$ in place of the triangle inequality expression.}
+
+\item \ans{B) $\dfrac{25}{2}$}
+\method{$25=7^2+24^2$, so this is a right triangle: hypotenuse $25$ is the diameter, $R=\frac{25}{2}$.}
+\inv{Answering the hypotenuse itself, $25$, instead of the radius $\frac{25}{2}$.}
+
+\item \ans{$9$}
+\method{The centroid sits $\frac23$ along the median: $AG=\frac23 AM$, and $AM=\frac32\cdot 6=9$.}
+\inv{Reversing the fraction and getting $4$.}
+
+\item \ans{B) $(4,3)$}
+\method{Right angle at $(0,0)$, so the circumcentre is the midpoint of the hypotenuse $(8,0)$\textendash$(0,6)$, namely $(4,3)$.}
+\inv{Halving the perpendicular side midpoints and landing on a quadrant distractor.}
+
+\item \ans{B) $6$}
+\method{By the angle bisector theorem $\frac{BD}{DC}=\frac{AB}{AC}$, so $DC=\frac{BD\cdot AC}{AB}=\frac{4\cdot 9}{6}=6$.}
+\inv{Multiplying $BD$ by the {\em near} side $AB$ instead of the {\em far} side $AC$.}
+
+\item \ans{B) $8$}
+\method{The apex median is the altitude: $\sqrt{10^2-6^2}=\sqrt{64}=8$.}
+\inv{Substituting the wrong leg of the right triangle (${}6$ twice instead of once).}
+
+\item \ans{$4$}
+\method{$r=\frac{A}{s}=\frac{84}{21}=4$.}
+\inv{Using the full perimeter $42$ as the divisor and getting $2$.}
+
+\item \ans{B) $3$}
+\method{Hypotenuse is $\sqrt{8^2+15^2}=17$; $r=\frac{8+15-17}{2}=3$.}
+\inv{Answering $\frac{17}{2}$ as if the question asked for $R$, not $r$.}
+
+\item \ans{$\dfrac{65}{8}$}
+\method{$R=\frac{abc}{4A}=\frac{13\cdot 14\cdot 15}{4\cdot 84}=\frac{2730}{336}=\frac{65}{8}$.}
+\inv{Forgetting to reduce, or using the semiperimeter instead of the area in the denominator.}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+\item \ans{C) $(1,1)$}
+\method{$\left(\frac{1+3-1}{3},\frac{-2+4+1}{3}\right)=(1,1)$.}
+\inv{Slipping a sign in the $y$-average and getting $(2,1)$ or $(1,2)$.}
+
+\item \ans{A) $21$}
+\method{$A=rs$ gives $s=A/r=84/4=21$.}
+\inv{Confusing $A=rs$ as $A=s/r$ or dividing by twice $r$.}
+
+\item \ans{A) $\left(4,\dfrac{5}{3}\right)$}
+\method{The perpendicular bisector of $(0,0)$\textendash$(8,0)$ is $x=4$. Let the centre be $(4,y)$: $(4)^2+y^2=(4-4)^2+(y-6)^2$ gives $12y=20$, $y=\frac53$.}
+\inv{Assuming the centre lies on an altitude and picking $(4,3)$.}
+
+\item \ans{A) $\dfrac{\sqrt{5}}{2}$}
+\method{Euler's formula $d^2=R^2-2Rr$ with $R=\frac52$, $r=1$: $d^2=\frac{25}{4}-5=\frac54$, $d=\frac{\sqrt5}{2}$.}
+\inv{Adding radii naively. The incenter and circumcentre coincide only in an equilateral triangle.}
+
+\item \ans{A) $6$}
+\method{$BD:DC=3:4$ with total $14$: $BD=\frac{3}{7}\cdot 14=6$.}
+\inv{Picking the $4$ part as if the ratio named the segments in the wrong order.}
+
+\item \ans{A) $\dfrac{2\sqrt{34}}{3}$}
+\method{$G=\left(\frac{0+8+2}{3},\frac{0+0+6}{3}\right)=\left(\frac{10}{3},2\right)$; $OG=\sqrt{\left(\frac{10}{3}\right)^2+2^2}=\frac{\sqrt{136}}{3}=\frac{2\sqrt{34}}{3}$.}
+\inv{Squaring the average instead of averaging the squares.}
+
+\item \ans{A) $\left(3,\dfrac{9}{4}\right)$}
+\method{Altitude from $C$ is $x=3$. Side $AC$ has slope $\frac43$, so the altitude from $B$ is $y=-\frac34(x-6)$; at $x=3$, $y=\frac94$.}
+\inv{Returning the vertex $C=(3,4)$ itself. The altitudes meet $\frac{9}{4}$ up, not $4$.}
+
+\item \ans{A) $\left(4,\dfrac{8}{3}\right)$}
+\method{On the Euler line $\overrightarrow{GH}=2\overrightarrow{GO}$, so $H=G+2(G-O)$; $G=(4,2)$, $O=\left(4,\frac53\right)$ gives $H=\left(4,\frac83\right)$. Cross-check with the altitude method.}
+\inv{Using $\frac12$ instead of $2$ and landing on $(4,2)$ mixed with $O$.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge Ramp}
+
+\begin{enumerate}
+
+\item \ans{A) $\dfrac{21}{2}$}
+\method{Right triangle $9,12,15$: $r=\frac{9+12-15}{2}=3$, $R=\frac{15}{2}$, $r+R=\frac{21}{2}$.}
+\inv{Quoting the hypotenuse instead of $R$, or omitting the inradius.}
+
+\item \ans{A) $6$}
+\method{$\frac{BD}{DC}=\frac{AB}{AC}=\frac{12}{16}=\frac34$ and $BD+DC=14$ give $BD=\frac{3}{7}\cdot 14=6$.}
+\inv{Breaking $14$ in half for an isosceles reflex; the ratio offsets the midpoint.}
+
+\item \ans{A) $\dfrac{\sqrt{106}}{2}$}
+\method{Apollonius: $m_a^2=\frac{2b^2+2c^2-a^2}{4}$ with $a=8$, $b=6$, $c=7$: $m^2=\frac{72+98-64}{4}=\frac{106}{4}$, $m=\frac{\sqrt{106}}{2}$.}
+\inv{Putting $a,b,c$ into the wrong slots, or taking a half-scaled median.}
+
+\item \ans{A) $(1,1)$}
+\method{Weight by opposite sides: $I=\frac{BC\cdot A+CA\cdot B+AB\cdot C}{a+b+c}=\frac{5(0,0)+4(3,0)+3(0,4)}{12}=\frac{(12,12)}{12}=(1,1)$.}
+\inv{Weighting by the {\em adjacent} sides or cross-adding the coordinates.}
+
+\item \ans{A) $\dfrac{\sqrt{65}}{8}$}
+\method{$d^2=R^2-2Rr=\frac{65^2}{64}-2\cdot\frac{65}{8}\cdot 4=\frac{4225}{64}-\frac{4160}{64}=\frac{65}{64}$, so $d=\frac{\sqrt{65}}{8}$.}
+\inv{Dropping the $2Rr$ term, or reporting $R$ as the answer.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns}
+
+\begin{itemize}
+\item \textbf{The centroid is the vertex average.} Sum all three $x$-coordinates and all three $y$-coordinates, then divide by 3. \seealso{A1, A6, B1, C1, C6}
+\item \textbf{Right triangles donate their centres for free.} The circumcentre is the hypotenuse midpoint, the orthocentre is the right-angle vertex, and $r=\frac{a+b-c}{2}$. \seealso{A2, A3, A4, A7, B2, B3, B5, B9, D1}
+\item \textbf{$A=rs$ and $R=\frac{abc}{4A}$ bind sides to circles.} Every pair of sides and area plugs into these two formulas. \seealso{A5, B8, B10, C2}
+\item \textbf{The centroid divides each median in the ratio $2:1$.} The vertex-to-centroid part is twice the centroid-to-midpoint part. \seealso{A10, B4, C8}
+\item \textbf{Angle bisector theorem: segments pair with the {\em adjacent} sides.} $\frac{BD}{DC}=\frac{AB}{AC}$. \seealso{A8, B6, C5, D2}
+\end{itemize}
+
+\section*{Common Traps}
+
+\begin{itemize}
+\item \textbf{The incenter is not at the average of the vertices.} The centroid equates masses; the incenter needs the {\em opposite-side} weighting. \seealso{D4, C4}
+\item \textbf{A right circumcentre sits halfway along the hypotenuse, not at its own vertex-average.} Spot the right angle before averaging anything. \seealso{A2, B5, D1}
+\item \textbf{$A=rs$ and $R=\frac{abc}{4A}$ ask for the same $A$.} Semi-perimeter, not perimeter, goes under $A$ in $r=A/s$. \seealso{B8, B10, C2}
+\item \textbf{Euler's formula is $d^2=R^2-2Rr$, not $R-r$ or $R^2-r^2$.} For a non-equilateral triangle the two centers are never glued together. \seealso{C4, D5}
+\item \textbf{Apollonius and the bisector ratio are not interchangeable.} Medians bisect {\em lengths}, angle bisectors split {\em the opposite side in the side ratio}. \seealso{D3, D2, A8, A9, B7}
+\end{itemize}
+
+\SpeedClosing{``Every triangle centre is cooked by the same three sides: one averages them, one divides four times the area, one halves a hypotenuse.''}
+
+\end{document}

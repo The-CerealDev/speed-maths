@@ -1,0 +1,422 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{2}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#2 --- Answers \& Investigations}{Henry Koduthore}
+\noindent\textit{New toolkit today: Circle Equations $\cdot$ Tangents $\cdot$ Line--Circle Tests $\cdot$ Chord Lengths.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\item Write down the centre of the circle $\;x^2 + y^2 - 6x - 8y + 24 = 0$.
+
+\ans{"$(3,4)$"}
+\method{Complete the square: $(x-3)^2+(y-4)^2=25-24=1$, so centre $(3,4)$, radius $1$.}
+\inv{In $x^2+y^2+2gx+2fy+c=0$ the centre is $(-g,-f)$ and here $2g=-6$, $2f=-8$, so $g=-3$, $f=-4$ --- centre $(3,4)$ \checkmark. \textbf{If the coefficients of $x^2,y^2$ are not $1$, divide through first so they are, then read the centre.}}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\item Write down the radius of the circle $\;x^2 + y^2 - 6x - 8y + 24 = 0$.
+
+\ans{$1$}
+\method{From A1, $(x-3)^2+(y-4)^2=1$, so $r=\sqrt{1}=1$.}
+\inv{Formula check: $r=\sqrt{g^2+f^2-c}=\sqrt{9+16-24}=\sqrt{1}=1$ \checkmark. \textbf{A ``circle'' with $g^2+f^2-c<0$?} Empty locus --- the square sum equals a negative number.}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\item Write down the equation of the circle with centre $(2,-1)$ and radius $5$.
+
+\ans{"$x^2+y^2-4x+2y-20=0$"}
+\method{$(x-2)^2+(y+1)^2=25$ expands to $x^2+y^2-4x+2y+5=25$, i.e. $x^2+y^2-4x+2y-20=0$.}
+\inv{Reading back: $2g=-4\Rightarrow g=-2$ (centre $x=2$), $2f=2\Rightarrow f=1$ (centre $y=-1$), $r=\sqrt{g^2+f^2-c}=\sqrt{4+1+20}=5$ \checkmark. \textbf{Rewrite for centre $(2,-1)$ radius $2$: what becomes of the constant?} $\;x^2+y^2-4x+2y+1=0$.}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\item Write down the radius of the circle $\;x^2 + y^2 - 4x + 6y - 12 = 0$.
+
+\ans{$5$}
+\method{Complete the square: $(x-2)^2+(y+3)^2=4+9+12=25$, so $r=5$.}
+\inv{Formula: $g=-2,f=3$, $r=\sqrt{4+9+12}=5$ \checkmark. \textbf{All these squares are perfect: $5^2,4^2,3^2$. What radius would an {\em irrational} answer look like, and would that stop a clean distance test?} Only the appearance changes; the distance test still works.}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\item The point $(x,4)$ lies on the circle $\;x^2 + y^2 = 25$ with $x > 0$. Find $x$.
+
+\ans{$3$}
+\method{$x^2+4^2=25\Rightarrow x^2=9\Rightarrow x=\pm3$; take $+3$.}
+\inv{Both $(3,4)$ and $(-3,4)$ lie on the circle --- the $x>0$ condition kills one branch. \textbf{List all lattice points $(x,y)$ on $x^2+y^2=25$.} $(0,\pm5),(\pm3,\pm4),(\pm4,\pm3),(\pm5,0)$.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\item The radius from the origin to the point $(3,4)$ on $\;x^2+y^2=25$ has what gradient?
+
+\ans{$\frac{4}{3}$}
+\method{Gradient $=\frac{4-0}{3-0}=\frac43$.}
+\inv{The radius is the line joining centre to the point. \textbf{Gradient of the perpendicular radius to $(3,-4)$?} $-\frac43$.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\item The tangent to $\;x^2 + y^2 = 25$ at the point $(3,4)$ has what gradient?
+
+\ans{$-\frac{3}{4}$}
+\method{Tangent $\perp$ radius, and radius gradient is $\frac43$, so tangent gradient $=-\frac{1}{4/3}=-\frac34$.}
+\inv{The tangent line is $3x+4y=25$ (via $xx_1+yy_1=r^2$). \textbf{Does it pass through $(3,4)$?} $9+16=25$ \checkmark. \textbf{What is its $x$-intercept?} $x=25/3$.}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\item Write down the equation of the circle with centre $(-1,2)$ and radius $3$.
+
+\ans{"$x^2+y^2+2x-4y-4=0$"}
+\method{$(x+1)^2+(y-2)^2=9$ expands to $x^2+y^2+2x-4y+5=9$, i.e. $x^2+y^2+2x-4y-4=0$.}
+\inv{Check centre: $g=1\Rightarrow$ centre $x=-1$, $f=-2\Rightarrow$ centre $y=2$ \checkmark; $r=\sqrt{1+4+4}=3$ \checkmark. \textbf{Where does this circle cross the axes?} Put $y=0$: $x^2+2x-4=0$, a surd --- compare with the clean integer axes of Day 1 right-triangles.}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\item The centre of $\;x^2+y^2-6x-8y+24=0$ is $(3,4)$. Find the perpendicular distance of this centre from the line $\;4x + 3y - 9 = 0$.
+
+\ans{$3$}
+\method{Distance $=\frac{|4(3)+3(4)-9|}{\sqrt{4^2+3^2}}=\frac{|12+12-9|}{5}=\frac{15}{5}=3$.}
+\inv{This is day 1's perpendicular-distance formula applied to a circle's centre. \textbf{Since $d=3>r=1$, the line misses the circle. How many common tangents could such an external line family have?} Preview of Day 3's tangent-counting.}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\item A chord of the circle $\;x^2+y^2=25$ is at perpendicular distance $3$ from the origin. Find the length of the chord.
+
+\ans{$8$}
+\method{Half-chord $=\sqrt{r^2-d^2}=\sqrt{25-9}=\sqrt{16}=4$; full length $=8$.}
+\inv{The perpendicular from the centre to a chord bisects it --- the half-chord formula. \textbf{If the distance were $4$, the length is $6$; if $5$,\  it degenerates to a tangent. Check both.} The chord shrinks to a point exactly when $d=r$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is the equation of the circle with centre $(3,-2)$ and radius $4$?
+\begin{itemize}
+\item[A)] $x^2+y^2-6x+4y-3=0$
+\item[B)] $x^2+y^2-6x+4y+9=0$
+\item[C)] $x^2+y^2+6x-4y-3=0$
+\item[D)] $x^2+y^2-6x-4y-3=0$
+\end{itemize}
+
+\ans{A) $x^2+y^2-6x+4y-3=0$}
+\method{$(x-3)^2+(y+2)^2=16$ gives $x^2+y^2-6x+4y+13=16$, i.e. $x^2+y^2-6x+4y-3=0$.}
+\inv{Only A has both the $x$-coefficient $-6$ (centre $x=3$) and the $y$-coefficient $+4$ (centre $y=-2$). \textbf{B has the right coefficients but the wrong constant $+9$; what radius would that give?} $r=\sqrt{9+4-9}=2$.}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2+2x-4y-11=0$ has what radius?
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $4$
+\item[D)] $\sqrt{5}$
+\end{itemize}
+
+\ans{C) $4$}
+\method{$(x+1)^2+(y-2)^2=1+4+11=16$, so $r=4$.}
+\inv{Complete the square exactly: $x^2+2x=(x+1)^2-1$ and $y^2-4y=(y-2)^2-4$, so $(x+1)^2+(y-2)^2=11+1+4=16$ and $r=4$ \checkmark. With $g=1,f=-2,c=-11$ the formula reads $r=\sqrt{g^2+f^2-c}=\sqrt{1+4+11}$. \textbf{Option D ($\sqrt{5}$) traps students who drop the constant $11$ (leaving $r^2=1+4=5$) or flip the sign of $c$; keep the sign fixed through the whole square.}}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\item The point $(1,2)$ lies on the circle $\;x^2+y^2=5$. The equation of the tangent to the circle at $(1,2)$ is?
+\begin{itemize}
+\item[A)] $y = -\frac{1}{2}x + \frac{5}{2}$
+\item[B)] $y = 2x$
+\item[C)] $y = -2x + 5$
+\item[D)] $y = \frac{1}{2}x$
+\end{itemize}
+
+\ans{A) $y = -\frac12 x + \frac52$}
+\method{Radius gradient $=\frac21=2$; tangent gradient $=-\frac12$; through $(1,2)$: $y-2=-\frac12(x-1)\Rightarrow y=-\frac12x+\frac52$.}
+\inv{Option C uses the wrong sign ($-2x$ is the negative-reciprocal error recalling Day 1), B is the tangent being perpendicular to the perpendicular. \textbf{Split-variable test: tangent to $x^2+y^2=r^2$ at $(x_1,y_1)$ is $xx_1+yy_1=r^2$: here $x+2y=5\Rightarrow y=-\frac12x+\frac52$ \checkmark.}}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\item A circle of form $\;x^2+y^2+2gx+2fy+c=0$ passes through the origin. Deduce $c$.
+\begin{itemize}
+\item[A)] $c = 1$
+\item[B)] $c = 0$
+\item[C)] $c = g + f$
+\item[D)] $c = -1$
+\end{itemize}
+
+\ans{B) $c=0$}
+\method{At the origin $(0,0)\in$ circle means $0+0+0+0+c=0$ --- the constant term is the value of the LHS at the origin, so $c=0$.}
+\inv{\textbf{Circle $x^2+y^2=25$ has $c=-25$ and indeed does {\em not} pass through the origin.} The constant records the origin's membership: $c=0\Leftrightarrow$ origin on the circle.}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\item The perpendicular distance from the centre of $\;x^2+y^2=25$ to the line $\;y = 2x + 3$ is?
+\begin{itemize}
+\item[A)] $\dfrac{3}{\sqrt{5}}$
+\item[B)] $\dfrac{3}{5}$
+\item[C)] $3$
+\item[D)] $2$
+\end{itemize}
+
+\ans{A) $\frac{3}{\sqrt5}$}
+\method{Line $2x-y+3=0$; distance from $(0,0)$ $=\frac{|3|}{\sqrt{2^2+(-1)^2}}=\frac{3}{\sqrt5}$.}
+\inv{\textbf{Compare with $r=5$: $\frac{3}{\sqrt5}<5$, so the line cuts the circle.} This is exactly the Day-1 formula put to the new line--circle test.}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\item Which of the following is a tangent to the circle $\;x^2+y^2=4$?
+\begin{itemize}
+\item[A)] $y = x + 2\sqrt{2}$
+\item[B)] $y = x + 4$
+\item[C)] $y = 2x + 2$
+\item[D)] $y = 2x + 4$
+\end{itemize}
+
+\ans{A) $y = x + 2\sqrt2$}
+\method{Line $x-y+2\sqrt2=0$ has distance from origin $\frac{2\sqrt2}{\sqrt2}=2=r$ --- tangent. The others give $\frac{4}{\sqrt2}=2\sqrt2$, $\frac2{\sqrt5}$, $\frac4{\sqrt5}$, none equal to $2$.}
+\inv{Only option A places the origin exactly $r$ away. \textbf{Check B: $y=x+4$ has distance $2\sqrt2>2$, so it misses the circle.} Shifting a tangent line a little breaks tangency --- distance must {\em equal} $r$.}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\item A chord of the circle $\;x^2+y^2=13$ has length $4\sqrt{3}$. What is the perpendicular distance of the chord from the centre?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $2$
+\item[C)] $\sqrt{5}$
+\item[D)] $1$
+\end{itemize}
+
+\ans{D) $1$}
+\method{Half-chord $=2\sqrt3$; $(2\sqrt3)^2=13-d^2\Rightarrow 12=13-d^2\Rightarrow d^2=1\Rightarrow d=1$.}
+\inv{\textbf{Fallback: remember $(\text{half-chord})^2+(\perp\,\text{dist})^2=r^2$.} Statement C ($\sqrt5$) is the trap of $13-8$ instead of $13-12$.}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;y = mx + 4$ is a tangent to the circle $\;x^2+y^2=4$. Find the two possible values of $m$.
+\begin{itemize}
+\item[A)] $\pm 1$
+\item[B)] $\pm \sqrt{3}$
+\item[C)] $\pm 2$
+\item[D)] $\pm \sqrt{2}$
+\end{itemize}
+
+\ans{B) $\pm \sqrt3$}
+\method{Line $mx-y+4=0$; tangency requires $\frac{|4|}{\sqrt{m^2+1}}=2\Rightarrow\sqrt{m^2+1}=2\Rightarrow m^2=3\Rightarrow m=\pm\sqrt3$.}
+\inv{Both tangent lines pass through $(0,4)$, symmetric about the $y$-axis --- the two tangents from an external point. \textbf{How long is each tangent segment from $(0,4)$ to its touch point?} $\sqrt{16-4}=\sqrt{12}=2\sqrt3$ --- a preview of Power of a Point (Day 5).}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\item The circle with centre $(6,a)$ and radius $6$ is tangent to the $y$-axis and passes through the point $(0,8)$. Find $a$.
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $3$
+\item[C)] $5$
+\item[D)] $8$
+\end{itemize}
+
+\ans{D) $a=8$}
+\method{Tangent to the $y$-axis ($x=0$) since centre's $x$-distance $6=r$. Through $(0,8)$: $(0-6)^2+(8-a)^2=36\Rightarrow 36+(8-a)^2=36\Rightarrow a=8$.}
+\inv{Setting $r=6$ fixes the $x$-distance; passing through $(0,8)$ forces the centre level with that point. \textbf{Option C ($5$) assumes the centre is $(6,a)$ with $(8-a)=1$?} Check $(8-5)^2=9\ne0$.}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\item Write down the length of the chord cut from the line $\;y = x + 1$ by the circle $\;x^2+y^2=25$.
+
+\ans{$7\sqrt{2}$}
+\method{Line $x-y+1=0$; distance from the origin $=\frac{|1|}{\sqrt2}=\frac1{\sqrt2}$. Half-chord $=\sqrt{25-\frac12}=\sqrt{\frac{49}{2}}=\frac{7}{\sqrt2}$; full chord $=\frac{14}{\sqrt2}=7\sqrt2$.}
+\inv{\textbf{Note the line does not pass through the centre, so this is a genuine off-centre chord.} If it were $y=x$ the chord would be a full diameter $10$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;y = 2x + 5$ is a tangent to the circle $\;x^2+y^2=r^2$. Find $r^2$.
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $5$
+\item[C)] $25$
+\item[D)] $5\sqrt{5}$
+\end{itemize}
+
+\ans{B) $r^2=5$}
+\method{Line $2x-y+5=0$; distance from origin $=\frac{5}{\sqrt{4+1}}=\frac5{\sqrt5}=\sqrt5=r$. So $r^2=5$.}
+\inv{Option C ($25$) is ``forgot the $\sqrt{m^2+1}$ in the denominator''; A is a sign slip. \textbf{Tangent to a centred circle has $r=\dfrac{|c|}{\sqrt{a^2+b^2}}$.}}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item The point $(2,-1)$ lies on the circle $\;x^2+y^2+2gx+2fy-3=0$ with $g=f$. Find $g$.
+\begin{itemize}
+\item[A)] $-1$
+\item[B)] $0$
+\item[C)] $1$
+\item[D)] $2$
+\end{itemize}
+
+\ans{A) $g=-1$}
+\method{Substitute: $4+1+2g(2)+2g(-1)-3=0\Rightarrow 5+4g-2g-3=0\Rightarrow 2+2g=0\Rightarrow g=-1$.}
+\inv{Because $g=f$, the two linear terms combine: $2g(x+y)$, and at $(2,-1)$ that is $2g(1)=2g$. \textbf{Checking the centre now: $g=f=-1$ gives centre $(1,1)$.} The circle passes through $(2,-1)$ but its centre is elsewhere.}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-4x+2y-11=0$ and the line $\;x-y+1=0$ have what relationship?
+\begin{itemize}
+\item[A)] The line cuts the circle in two points (secant)
+\item[B)] The line is a tangent
+\item[C)] The line misses the circle
+\item[D)] The line passes through the centre
+\end{itemize}
+
+\ans{A) secant}
+\method{Centre $(2,-1)$, $r=\sqrt{4+1+11}=4$. Distance to line $x-y+1=0$: $\frac{|2-(-1)+1|}{\sqrt2}=\frac4{\sqrt2}=2\sqrt2<4=r$ --- cuts twice.}
+\inv{\textbf{Since $2\sqrt2<4$ the line crosses; if $=$ it would be tangent, if $>$ it would miss.} Compare the magnitude, never substitute. Option D is the line-through-centre trap: would need $d=0$.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item The tangent to $\;x^2+y^2=9$ at $(2,\sqrt{5})$ has equation?
+\begin{itemize}
+\item[A)] $2x+\sqrt{5}\,y = 9$
+\item[B)] $2x-\sqrt{5}\,y = 9$
+\item[C)] $2x+\sqrt{5}\,y = 3$
+\item[D)] $\sqrt{5}\,x+2y = 9$
+\end{itemize}
+
+\ans{A) $2x+\sqrt5 y=9$}
+\method{Split the circle: tangent at $(x_1,y_1)$ is $xx_1+yy_1=r^2$, so $2x+\sqrt5\,y=9$.}
+\inv{Check $(2,\sqrt5)$ sits on the tangent: $4+5=9$ \checkmark, and on the circle: $4+5=9$ \checkmark. \textbf{Option D swaps the coefficients; does it pass through $(2,\sqrt5)$?} $\sqrt5\cdot2+2\sqrt5=4\sqrt5\ne9$.}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item The midpoint of a chord of $\;x^2+y^2=40$ is at distance $2$ from the centre. Find the chord length.
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $6\sqrt{2}$
+\item[C)] $8$
+\item[D)] $4\sqrt{10}$
+\end{itemize}
+
+\ans{A) $12$}
+\method{$r=\sqrt{40}=2\sqrt{10}$; half-chord $=\sqrt{40-4}=\sqrt{36}=6$; chord $=12$.}
+\inv{\textbf{Option D is the ``the half-chord is $6$ but I forgot to double it'' error.} The perpendicular from the centre meets the chord at its midpoint, which is exactly the ``distance $2$'' given.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item Which of these circles is tangent to the $x$-axis?
+\begin{itemize}
+\item[A)] $x^2+y^2-6y=0$
+\item[B)] $x^2+y^2+4x=0$
+\item[C)] $x^2+y^2-6x+9=0$
+\item[D)] $x^2+y^2-2y-3=0$
+\end{itemize}
+
+\ans{A) $x^2+y^2-6y=0$}
+\method{A: centre $(0,3)$, $r=3$, distance to $x$-axis $=3=r$ --- tangent. B: centre $(-2,0)$, $r=2$, distance $0$. C: degenerate $r=0$. D: centre $(0,1)$, $r=2$, distance $1$.}
+\inv{\textbf{A circle is tangent to the $x$-axis exactly when the centre's $y$-coordinate equals $r$ (up to sign).} Option D is a common trap: centre $(0,1)$, radius $2$, so it {\em crosses} the $x$-axis rather than touching it.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item The circle $\;x^2+y^2-8x-4y-21=0$ cuts the $y$-axis at two points. The distance between these two points is?
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $10$
+\end{itemize}
+
+\ans{D) $10$}
+\method{On the $y$-axis $x=0$: $y^2-4y-21=0\Rightarrow(y-7)(y+3)=0$, points $(0,7),(0,-3)$, distance $10$.}
+\inv{Equivalently $d=|\text{product-split}|$; the two intercepts differ by $7-(-3)=10$. \textbf{This is the chord perpendicular to diameter idea: the $y$-axis chord here.} Compare the half-chord test: centre $(4,2),r=\sqrt{16+4+21}=\sqrt{41}$, distance from centre to $y$-axis $4$, half-chord $\sqrt{41-16}=5$, length $10$ \checkmark.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;y = kx + 5$ touches the circle $\;x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ achieve this?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\end{itemize}
+
+\ans{C) $2$}
+\method{Circle centre $(3,4)$, $r=1$. All lines $y=kx+5$ pass through $(0,5)$; distance $OP=\sqrt{(3)^2+(1)^2}=\sqrt{10}>1$, so $(0,5)$ is external: exactly two tangents.}
+\inv{From any external point there are exactly two tangents to a circle --- here the two slopes come from $\frac{|3k-4|}{\sqrt{k^2+1}}=1$. \textbf{Option B ($1$) is tempting if you silently assume $(0,5)$ is on the circle; $9+1\ne1$} so it is not.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item The line $\;3x+4y-12=0$ cuts the circle $\;x^2+y^2-8x-6y+16=0$ in two points. Find the length of the chord.
+\begin{itemize}
+\item[A)] $\dfrac{18}{5}$
+\item[B)] $\dfrac{12}{5}$
+\item[C)] $6$
+\item[D)] $\dfrac{36}{5}$
+\end{itemize}
+
+\ans{A) $\frac{18}{5}$}
+\method{Centre $(4,3)$, $r=\sqrt{16+9-16}=3$. Distance to $3x+4y-12=0$: $\frac{|12+12-12|}{5}=\frac{12}{5}$. Half-chord $=\sqrt{9-(\frac{12}{5})^2}=\sqrt{\frac{225-144}{25}}=\frac{9}{5}$; chord $=\frac{18}{5}$.}
+\inv{Option B ($\frac{12}{5}$) is the distance-to-centre, not the chord; D doubles it wrongly as $\frac{36}{5}$. \textbf{Chain: distance $\to$ half-chord (Pythagoras) $\to$ double.} Keep the steps separate.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item A circle with centre $(3,k)$ is tangent to the $x$-axis and passes through the point $(0,4)$. Find the radius.
+\begin{itemize}
+\item[A)] $\dfrac{25}{8}$
+\item[B)] $\dfrac{25}{9}$
+\item[C)] $3$
+\item[D)] $4$
+\end{itemize}
+
+\ans{A) $\frac{25}{8}$}
+\method{Tangent to the $x$-axis $\Rightarrow$ radius $=|k|$. Through $(0,4)$: $(0-3)^2+(4-k)^2=k^2\Rightarrow 9+16-8k=0\Rightarrow k=\frac{25}{8}$.}
+\inv{\textbf{The centre moved off the axis, so we cannot read $r$ directly; equate the squared distances.} Each candidate option must satisfy both tangent-to-axis and pass-through. Option D ($4$) is the ``$y$-coordinate of the point'' trap.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item The tangent to $\;x^2+y^2=25$ at the point $P$ (in the first quadrant) passes through the point $A=(7,1)$. Find the $x$-coordinate of $P$.
+\begin{itemize}
+\item[A)] $2$
+\item[B)] $3$
+\item[C)] $4$
+\item[D)] $5$
+\end{itemize}
+
+\ans{B) $x=3$}
+\method{If $P=(x_1,y_1)$, tangent is $x_1x+y_1y=25$. Through $A(7,1)$: $7x_1+y_1=25$; with $x_1^2+y_1^2=25$: $y_1=25-7x_1\Rightarrow x_1^2+(25-7x_1)^2=25\Rightarrow50x_1^2-350x_1+600=0$, factor $(x_1-3)(x_1-4)=0$: $x_1=3,4$. Of these, only $x_1=3$ gives $y_1=4>0$ in the first quadrant; $x_1=4$ gives $y_1=-3$.}
+\inv{\textbf{Two tangent points $P$ satisfy the line-through-$A$ condition; the quadrant chooses one.} At $x_1=4$, $y_1=25-28=-3$, so $(4,-3)$ is in the fourth quadrant.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item A circle has centre $(1,4)$ and is tangent to the line $\;y = 2x + 1$. Find its radius.
+\begin{itemize}
+\item[A)] $\dfrac{1}{\sqrt{5}}$
+\item[B)] $\dfrac{1}{5}$
+\item[C)] $1$
+\item[D)] $\sqrt{5}$
+\end{itemize}
+
+\ans{A) $\frac{1}{\sqrt5}$}
+\method{Line $2x-y+1=0$; radius $=$ perpendicular distance from $(1,4)$: $\frac{|2-4+1|}{\sqrt{4+1}}=\frac{1}{\sqrt5}$.}
+\inv{Option B ($\frac15$) ignores the $\sqrt{a^2+b^2}$; D ($\sqrt5$) mis-uses $a^2+b^2$. \textbf{Tangency $\Leftrightarrow$ distance from centre $=$ radius --- reverse of the line--circle test.}}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item The circle through the three points $(0,0)$, $(6,0)$ and $(3,-1)$ has what centre?
+\begin{itemize}
+\item[A)] $(3,4)$
+\item[B)] $(3,2)$
+\item[C)] $(4,3)$
+\item[D)] $(5,0)$
+\end{itemize}
+
+\ans{A) $(3,4)$}
+\method{Perpendicular bisector of $(0,0),(6,0)$ is $x=3$. Bisector of $(0,0),(3,-1)$: midpoint $(1.5,-0.5)$, segment gradient $-\frac13$, so bisector gradient $3$: $y+0.5=3(x-1.5)\Rightarrow y=3x-5$. At $x=3$: $y=9-5=4$. Centre $(3,4)$.}
+\inv{Radius $=\sqrt{9+16}=5$; check all three points are distance $5$: to $(6,0)$ $\sqrt9+16=5$ \checkmark, to $(3,-1)$ $=5$ \checkmark. \textbf{This is the Day-1 perpendicular-bisector tool finding a circumcentre --- the seed of Day 4's triangle centres.}}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Top 5 Patterns --- Worksheet \#2}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Complete the square to read centre and radius.} In $x^2+y^2+2gx+2fy+c=0$ the centre is $(-g,-f)$ and $r=\sqrt{g^2+f^2-c}$. Strip the linear terms into squares before touching $c$. \seealso{A1, A2, A4, B2, C8}
+  \item \textbf{Tangency $=$ distance-to-line equals radius.} For a tangent, $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}=r$. Never substitute line into circle. \seealso{A9, B6, C1, D4}
+  \item \textbf{Tangent at a point: perpendicular to the radius / split variables.} On $x^2+y^2=r^2$, tangent at $(x_1,y_1)$ is $xx_1+yy_1=r^2$. \seealso{A7, B3, C4, D3}
+  \item \textbf{Chord: half-chord $=\sqrt{r^2-d^2}$.} The perpendicular from the centre bisects the chord and makes a right triangle with half-chord, distance, and radius. \seealso{A10, B7, B10, C5, D1}
+  \item \textbf{Line--circle positioning by comparing $d$ to $r$.} $d<r$ secant, $d=r$ tangent, $d>r$ external. \seealso{B5, C3, C8}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#2}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Forgetting to halve the linear coefficients.} $x^2+y^2-6x-8y+24=0$ has centre $(3,4)$, not $(-6,-8)$. Centre is $(-g,-f)$ where $2g,2f$ are the linear terms. \seealso{A1, A4, B2}
+  \item \textbf{Negative reciprocal error on the tangent slope.} Tangent to a circle is perpendicular to the radius, not a mere negation or inversion. \seealso{A6, A7, B3}
+  \item \textbf{Applying tangency when the point is not on the circle.} The tangent-at-a-point formula only holds for points on the circle; check $x_1^2+y_1^2=r^2$ first. \seealso{B3, C4, D3}
+  \item \textbf{Generic lines through the centre are diameters, not tangents.} A line through the centre always cuts twice; tangency needs the perpendicular distance to be exactly $r$, not $0$. \seealso{B5, C3, C8}
+  \item \textbf{Mixing up distance-to-centre with chord length.} The perpendicular distance $d$ is one leg; the half-chord is the other. Squaring and subtracting, then doubling. \seealso{B7, B10, C5, D1}
+\end{enumerate}
+
+\SpeedClosing{``Tangency is a distance statement in disguise: compare $d$ to $r$, never solve the intersection.''}
+
+\end{document}

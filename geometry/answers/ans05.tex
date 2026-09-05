@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\SpeedHeader{Geometry}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#5 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{Tangents from an external point}{tangent length, angle between tangents, chord of contact / polar, director circle}
+
+\section*{Section A \quad Rapid Recognition}
+
+\begin{enumerate}
+
+\item \ans{$4$}
+\method{Tangent length $=\sqrt{OP^2-r^2}=\sqrt{25-9}=\sqrt{16}=4$.}
+\inv{Using $\sqrt{r^2-OP^2}$ (the inside/outside sign flipped).}
+
+\item \ans{$\dfrac{3}{4}$}
+\method{$\tan\frac{\theta}{2}=\frac{r}{\sqrt{OP^2-r^2}}=\frac{3}{4}$. The right triangle is exactly the tangent length geometry of A1.}
+\inv{Writing $\sin\frac{\theta}{2}$'s $\frac{r}{OP}=\frac35$ instead of the tangent ratio.}
+
+\item \ans{"$5x+3y=25$"}
+\method{The polar of $(x_1,y_1)$ is $xx_1+yy_1=r^2$: $5x+3y=25$.}
+\inv{Putting $P$'s coordinates in as a point on the circle rather than coefficients of the line.}
+
+\item \ans{$5\sqrt{2}$}
+\method{$r^2=25$, director circle $x^2+y^2=2r^2=50$, radius $\sqrt{50}=5\sqrt{2}$.}
+\inv{Doubling the radius $r$ instead of the squared radius $r^2$.}
+
+\item \ans{$\sqrt{13}$}
+\method{$\sqrt{7^2-6^2}=\sqrt{49-36}=\sqrt{13}$.}
+\inv{Subtracting $r$ from $OP$ (linear) instead of $r^2$ from $OP^2$.}
+
+\item \ans{$3\sqrt{3}$}
+\method{$\sin\frac{\theta}{2}=\frac{r}{OP}$ gives $\sin 30^\circ=\frac{r}{6}$, so $r=3$, tangent $=\sqrt{36-9}=3\sqrt{3}$.}
+\inv{Using $\frac{\theta}{2}=60^\circ$; the tangents make the full angle, halve it before the sine.}
+
+\item \ans{"$5x=4$"}
+\method{Polar: $xx_1+yy_1=r^2$ with $(x_1,y_1)=(5,0)$ gives $5x=4$, the vertical chord halfway between the two symmetrical tangency points.}
+\inv{Forgetting to include the $yy_1$ term that vanishes with $y_1=0$, or solving to $x=\frac45$ when the polar itself is the answer.}
+
+\item \ans{$13$}
+\method{$OP=\sqrt{12^2+5^2}=13$.}
+\inv{Adding $12+5=17$ or subtracting to $7$.}
+
+\item \ans{$\dfrac{10\sqrt{3}}{3}$}
+\method{Half the angle is $60^\circ$; $\sin 60^\circ=\frac{5}{OP}$ so $OP=\frac{5}{\sqrt{3}/2}=\frac{10\sqrt{3}}{3}$.}
+\inv{Taking $\frac{\theta}{2}=120^\circ$, or inverting the sine ratio.}
+
+\item \ans{"$(4,4)$"}
+\method{Compare $xx_1+yy_1=16$ with $x+y=4$: multiply the given line by $4$ to get $4x+4y=16$, so $(x_1,y_1)=(4,4)$.}
+\inv{Reading the coefficients directly gives $(1,1)$; the constant $r^2=16$ forces the scale $4$.}
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills}
+
+\begin{enumerate}
+
+\item \ans{B) $4$}
+\method{$OP=\sqrt{9+16}=5$, $r=3$, tangent $=\sqrt{25-9}=4$.}
+\inv{Quoting $OP=5$ (option C); the question asks for the tangent itself.}
+
+\item \ans{C) $60^\circ$}
+\method{$\sin\frac{\theta}{2}=\frac{r}{OP}=\frac{3}{6}=\frac12$, so $\frac{\theta}{2}=30^\circ$ and $\theta=60^\circ$.}
+\inv{Answering $30^\circ$, the half-angle, without doubling.}
+
+\item \ans{"$3x+5y=25$"}
+\method{Polar: $xx_1+yy_1=25$ gives $3x+5y=25$.}
+\inv{Swapping $x_1,y_1$ with $r^2$ and writing $3x+5y=r^2$ with the wrong constant.}
+
+\item \ans{B) $2\sqrt{2}$}
+\method{Directrix circle $x^2+y^2=2r^2=8$, radius $\sqrt{8}=2\sqrt{2}$.}
+\inv{Answering the circle radius $2$ (option A) instead of the director radius.}
+
+\item \ans{C) $2$}
+\method{$\sqrt{1^2+2^2-1^2}=\sqrt{4}=2$.}
+\inv{Quoting $\sqrt{OP^2}=\sqrt5$ and ignoring the $r^2=1$ subtraction.}
+
+\item \ans{C) $13$}
+\method{$OP=\sqrt{12^2+5^2}=13$.}
+\inv{Adding the segments ($17$) rather than Pythagoras.}
+
+\item \ans{B) $4$}
+\method{Polar of $(a,0)$ is $ax=16$, i.e.\ $x=\frac{16}{a}$; setting this equal to $4$ gives $a=4$.}
+\inv{Quoting $\frac{16}{4}=4$ the wrong way round, or answering $a=16$ as if no division happened.}
+
+\item \ans{$5$}
+\method{Perpendicular tangents put $P$ on the director circle: $OP^2=2r^2=50$; tangent $=\sqrt{50-25}=5$.}
+\inv{Answering the director circle's radius $5\sqrt{2}$.}
+
+\item \ans{A) $4$}
+\method{Tangents of slope $m$ to $x^2+y^2=r^2$ are $y=mx\pm r\sqrt{1+m^2}$; here $r=\sqrt8$ so $c=\sqrt8\sqrt2=4$.}
+\inv{Quoting $r=\sqrt8$ itself as the intercept.}
+
+\item \ans{$8$}
+\method{$r^2=OP^2-(\text{tangent})^2=100-36=64$, $r=8$.}
+\inv{Subtracting linearly ($10-6=4$).}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure}
+
+\begin{enumerate}
+
+\item \ans{A) $4$}
+\method{$OP=\sqrt{7+9}=4$.}
+\inv{Taking $OP$ as the sum of the two squared legs, $\sqrt{16}=4$-style thinking that skips the square root of the sum.}
+
+\item \ans{A) $x=2$}
+\method{Equal powers: $x^2+y^2-4=(x-6)^2+y^2-16$, which cancels to $-4=-12x+20$, i.e.\ $x=2$. The circles are externally tangent at $(2,0)$.}
+\inv{Subtracting the radii or reading the gap $6$ directly; the radical axis sits at the tangent point $x=2$.}
+
+\item \ans{B) $\dfrac{4}{5}$}
+\method{Distance $=\frac{|4\cdot 0+3\cdot 0-4|}{\sqrt{4^2+3^2}}=\frac45$.}
+\inv{Quoting $\frac{25}{5}=5$ (pre-reduction) or flipping the fraction.}
+
+\item \ans{A) $2\sqrt{6}$}
+\method{Centre $C=(3,4)$, $PC=\sqrt{3^2+4^2}=5$, $r=1$; tangent $=\sqrt{25-1}=\sqrt{24}=2\sqrt{6}$.}
+\inv{Reading the centre from the raw coefficients instead of halving them.}
+
+\item \ans{A) $3\sqrt{2}$}
+\method{Director circle of radius-$3$ circle has radius $3\sqrt{2}$.}
+\inv{Doubling the radius to $6$ (option B) or squaring it to $18$ (option C).}
+
+\item \ans{A) $3\sqrt{11}$}
+\method{$OP=\sqrt{8^2+6^2}=10$; tangent $=\sqrt{100-1}=\sqrt{99}=3\sqrt{11}$.}
+\inv{Answering $\sqrt{99}$ unsimplified (option B) or forgetting $r^2=1$.}
+
+\item \ans{B) $8$}
+\method{The tangent segments from a vertex are $s-a$. Here $s=21$ and the opposite side is $13$, so the segments are $21-13=8$.}
+\inv{Taking $s$ itself or the side $13$.}
+
+\item \ans{A) $\dfrac{\sqrt{5}}{5}$}
+\method{Distance $=\frac{1}{\sqrt{2^2+1^2}}=\frac{1}{\sqrt5}=\frac{\sqrt5}{5}$.}
+\inv{Answering the coefficient ratio $\frac12$ or skipping the normalization.}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge Ramp}
+
+\begin{enumerate}
+
+\item \ans{C) $60^\circ$}
+\method{$\sin\frac{\theta}{2}=\frac{3}{6}=\frac12$ gives $\frac{\theta}{2}=30^\circ$, so $\theta=60^\circ$.}
+\inv{Leaving the half-angle $30^\circ$ undoubled.}
+
+\item \ans{A) $10$}
+\method{$OP=\sqrt{(5\sqrt3)^2+5^2}=\sqrt{75+25}=\sqrt{100}=10$.}
+\inv{Squaring the tangent length incorrectly or adding $5+5\sqrt3$.}
+
+\item \ans{A) $3\sqrt{2}$}
+\method{Distance of $x+y=3$ from the origin is $\frac3{\sqrt2}$; half-chord $=\sqrt{9-\frac92}=\frac3{\sqrt2}$, so the chord is $\frac6{\sqrt2}=3\sqrt2$.}
+\inv{Quoting the distance $\frac{3}{\sqrt{2}}$ (option C) as the chord length.}
+
+\item \ans{B) $5\sqrt{3}$}
+\method{$\sin 30^\circ=\frac{r}{10}\Rightarrow r=5$; tangent $=\sqrt{100-25}=5\sqrt3$.}
+\inv{Quoting $r=5$ (option C) or $OP=10$ (option A).}
+
+\item \ans{A) $\dfrac{27}{5}$}
+\method{Write $9x+12y=81$ as $3x+4y=27$; distance $=\frac{27}{\sqrt{9+16}}=\frac{27}{5}$.}
+\inv{Using $81$ unreduced (distance $81/15$), or dividing the wrong way.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns}
+
+\begin{itemize}
+\item \textbf{Tangent length is one Pythagorean step: $\sqrt{OP^2-r^2}$.} Locate $OP$ and $r$, square, subtract. \seealso{A1, A5, A8, B1, B5, B6, B10, C4, C6, D2}
+\item \textbf{The polar of $(x_1,y_1)$ is $xx_1+yy_1=r^2$.} The same $r^2$ on the right keeps the chord of contact honest. \seealso{A3, A7, A10, B3, B7, C3, C8, D3, D5}
+\item \textbf{$\sin\frac{\theta}{2}=\frac{r}{OP}$ sizes the double-tangent wedge.} Halve the angle before you take the sine. \seealso{A2, A6, A9, B2, D1, D4}
+\item \textbf{Perpendicular tangents define the director circle $x^2+y^2=2r^2$.} The doubling happens on $r^2$, so the radius multiplies by $\sqrt{2}$. \seealso{A4, B4, B8, C5}
+\item \textbf{Polar, half-chord and distance form one triangle.} The chord of contact is bisected by the perpendicular from the centre. \seealso{C3, C8, D3, D5, A3}
+\end{itemize}
+
+\section*{Common Traps}
+
+\begin{itemize}
+\item \textbf{Subtracting radii instead of squared radii.} $OP^2=r^2+\ell^2$; the null case is $7^2$, not $7$, minus $6^2$. \seealso{A5, B10, D2}
+\item \textbf{Answering the half-angle.} The tangents make $\theta$; $\sin\frac{\theta}{2}$ is half of it. \seealso{B2, D1, D4}
+\item \textbf{Reading polar coefficients as a point.} $5x+3y=25$ is a line; only its coefficients come from $P$. \seealso{A3, B3, A10}
+\item \textbf{Bumping the director circle radius by one $\sqrt{2}$ too many or too few.} Doubling $r^2$ changes the radius by $\sqrt{2}$, not by $2$. \seealso{A4, B4, C5}
+\item \textbf{Leaving the polar unreduced.} The chord $9x+12y=81$ asks for the distance to the simplified $3x+4y=27$. \seealso{D5, C8, C3}
+\end{itemize}
+
+\SpeedClosing{``Every view of a tangent is the same right triangle: $OP$ hypoteuse, $r$ one leg, the tangent the other. The polar just points it.''}
+
+\end{document}
