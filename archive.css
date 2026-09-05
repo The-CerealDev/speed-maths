@@ -139,17 +139,7 @@ header.page .subtitle {
     display: flex; align-items: center; gap: 0.35rem;
 }
 .stats b { color: var(--text-main); font-weight: 600; }
-.completion-chip {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.12rem 0.5rem;
-    border-radius: 999px;
-    background: var(--pillar-bg, var(--secondary));
-    color: var(--pillar-text, var(--primary));
-    border: 1px solid var(--pillar-border, var(--border));
-}
+
 
 /* ── sheet rows ──────────────────────────────────────────────────────────── */
 .sheet-list { list-style: none; }
