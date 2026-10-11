@@ -202,10 +202,9 @@ def render_archive(template, data):
         else:
             body = f'<ul class="sheet-list">{render_rows(p)}</ul>'
             qs = sum(s['questions'] for s in p['sheets'])
-            stats = (f'<span class="stats"><b>{n}</b> sheets'
-                     + (f' &middot; <b>{qs}</b> questions' if qs else '') + '</span>')
+            stats = f'<span class="stats"><b>{qs}</b> questions</span>' if qs else ''
         sections.append(f'''
-      <section class="pillar" id="{p['slug']}">
+      <section class="pillar pillar--{p['slug']}" id="{p['slug']}">
         <div class="pillar-head">
           <div>
             <h2>{esc(p['name'])}</h2>
@@ -215,9 +214,50 @@ def render_archive(template, data):
         </div>
         {body}
       </section>''')
+    sheets = sum(len(p['sheets']) for p in data)
+    questions = sum(s['questions'] for p in data for s in p['sheets'])
     return (template
             .replace('<!-- NAV -->', '\n'.join(nav))
+            .replace('<!-- HERO_CARDS -->', render_hero_cards(data))
+            .replace('<!-- HERO_QUESTIONS -->', f'{questions:,}')
+            .replace('<!-- HERO_SHEETS -->', str(sheets))
+            .replace('<!-- HERO_PILLARS -->', str(len(data)))
             .replace('<!-- PILLARS -->', '\n'.join(sections)))
+
+
+def render_hero_cards(data):
+    """The hero's roadmap: one card per live pillar, then the drafts as one.
+
+    Counts come from the scan like everything else. The board was once
+    hand-written into index.html, and the next rebuild wiped it while its
+    numbers were still describing a pillar that had gone live since.
+    """
+    out = []
+    for p in data:
+        qs = sum(s['questions'] for s in p['sheets'])
+        out.append(f'''<a href="#{p['slug']}" class="hsb-card live">
+                        <div class="hsb-card-left">
+                            <span class="hsb-icon-circle">&check;</span>
+                            <span class="hsb-card-name">{esc(p['name'])}</span>
+                        </div>
+                        <span class="hsb-card-stat">{len(p['sheets'])} sheets &middot; {qs} Qs</span>
+                    </a>''')
+    drafts = [meta[0] for meta in PILLARS.values() if meta[2] == 'draft']
+    if drafts:
+        out.append(f'''<div class="hsb-card planned">
+                        <div class="hsb-card-left">
+                            <span class="hsb-icon-circle" aria-hidden="true">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <circle cx="2" cy="6" r="1.1"/>
+                                    <circle cx="6" cy="6" r="1.1"/>
+                                    <circle cx="10" cy="6" r="1.1"/>
+                                </svg>
+                            </span>
+                            <span class="hsb-card-name">{' &amp; '.join(esc(d) for d in drafts)}</span>
+                        </div>
+                        <span class="hsb-card-stat">Planned Pillars</span>
+                    </div>''')
+    return '\n                    '.join(out)
 
 
 def render_classic(template, data):
