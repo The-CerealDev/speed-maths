@@ -1,0 +1,448 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../geometry-preamble}
+\SpeedHeader{Geometry}{7}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#7 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{TMUA-style synthesis: loci and geometric logic}{loci of fixed distance, Apollonius ratio circles, necessary/sufficient conditionals, spot-the-flaw, mixed synthesis}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ───────────────────────────────────────────────────────────────────────
+\item Write down the locus of points whose distance from the origin is $5$.
+
+\ans{$x^2+y^2=25$}
+\method{$\sqrt{x^2+y^2}=5$ rearranges to $x^2+y^2=25$, a circle of radius $5$.}
+\inv{Describe the set of points whose distance from the origin is at least $3$ and at most $5$, and find its area.}
+
+%── A2 ───────────────────────────────────────────────────────────────────────
+\item Write down the locus of points equidistant from the two points $(0,0)$ and $(4,0)$.
+
+\ans{$x=2$}
+\method{Squaring $x^2+y^2=(x-4)^2+y^2$: $x^2=(x-4)^2$, so $x=2$.}
+\inv{Now take the points $(0,0)$ and $(4,2)$. Find the equation of the locus, and check that it passes through their midpoint.}
+
+%── A3 ───────────────────────────────────────────────────────────────────────
+\item The locus of $P$ with $PA=2\,PB$, where $A=(0,0)$ and $B=(6,0)$, is a circle. It crosses the segment $AB$ at one point. Write down the $x$-coordinate of that point.
+
+\ans{$4$}
+\method{On the $x$-axis between $A$ and $B$, $PA=x$ and $PB=6-x$, so $x=2(6-x)$, giving $x=4$. The circle's other crossing is $x=12$, from $x=2(x-6)$.}
+\inv{The circle also crosses the $x$-axis at $x=12$. Use the two crossings to write down its centre and radius without any algebra.}
+
+%── A4 ───────────────────────────────────────────────────────────────────────
+\item Write down the locus of points that are always $3$ units from the fixed line $y=4$.
+
+\ans{$y=1$ or $y=7$}
+\method{$|y-4|=3$ gives $y=1$ and $y=7$, two parallel lines $3$ units from $y=4$.}
+\inv{What is the locus of points $3$ units from the circle $x^2+y^2=16$?}
+
+%── A5 ───────────────────────────────────────────────────────────────────────
+\item The locus of points whose distance to the point $(0,1)$ equals their distance to the line $y=-1$ is a parabola. Write down its equation.
+
+\ans{$x^2=4y$}
+\method{$\sqrt{x^2+(y-1)^2}=|y+1|$. Squaring, $x^2+y^2-2y+1=y^2+2y+1$, so $x^2=4y$.}
+\inv{Move the line to $y=-3$, keeping the point $(0,1)$. Find the new equation and the vertex of the parabola.}
+
+%── A6 ───────────────────────────────────────────────────────────────────────
+\item The locus of points whose distance to the point $(1,2)$ is exactly $3$ is a circle. Write down its equation.
+
+\ans{$(x-1)^2+(y-2)^2=9$}
+\method{Points at distance exactly $3$ from $(1,2)$ form the circle centred there with radius $3$.}
+\inv{Expand the equation into the form $x^2+y^2+2gx+2fy+c=0$. The constant is $c=1+4-9=-4$; what does $c<0$ tell you about where the origin is?}
+
+%── A7 ───────────────────────────────────────────────────────────────────────
+\item Write down the locus of the midpoint $M$ of every radius $OQ$ of the circle $x^2+y^2=4$ as $Q$ runs around the circle (with $O$ the origin).
+
+\ans{$x^2+y^2=1$}
+\method{$Q$ runs over $x^2+y^2=4$ (radius $2$); the midpoint $M=OQ/2$ scales radii by $\frac12$, giving $x^2+y^2=1$.}
+\inv{Now let $M$ be the midpoint of $PQ$, where $P=(4,0)$ is fixed. Show that the locus is still a circle, and find its centre and radius.}
+
+%── A8 ───────────────────────────────────────────────────────────────────────
+\item The equation $x^2+y^2=2x$ describes a circle. Write down its radius.
+
+\ans{$1$}
+\method{$x^2+y^2=2x$ rearranges to $(x-1)^2+y^2=1$, radius $1$.}
+\inv{Show that every circle $x^2+y^2=2ax$ ($a\ne0$) passes through the origin and touches the $y$-axis there.}
+
+%── A9 ───────────────────────────────────────────────────────────────────────
+\item Write down whether the statement ``$x^2+y^2=4$ implies $x=\pm 2$ or $y=\pm 2$'' is true or false.
+
+\ans{false}
+\method{The point $\left(\sqrt2,\sqrt2\right)$ lies on $x^2+y^2=4$ yet has $x\ne\pm2$ and $y\ne\pm2$; the implication fails in both coordinates.}
+\inv{Is it true that $x^2+y^2=4$ implies $|x|\le2$ and $|y|\le2$? Is the converse true?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────
+\item Write down the locus of points $P$ with $PA=PB$, where $A=(1,3)$ and $B=(5,3)$. (Give its equation in $x$.)
+
+\ans{$x=3$}
+\method{$A$ and $B$ are at equal height $y=3$, so the perpendicular bisector is the vertical line $x=\frac{1+5}{2}=3$.}
+\inv{Find the locus of $P$ with $PA=PB$ for $A=(1,3)$ and $B=(5,7)$, and check that it passes through the midpoint of $AB$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ───────────────────────────────────────────────────────────────────────
+\item The locus of $P$ with $PA=3\,PB$, where $A=(0,0)$ and $B=(8,0)$, is a circle. What is its radius? \textit{\small(after tmua.fyi Challenge Mock 1 Paper 1 Q14)}
+\begin{itemize}
+\item[A)] $9$
+\item[B)] $6$
+\item[C)] $3$
+\item[D)] $8$
+\end{itemize}
+
+\ans{C) $3$}
+\method{On the $x$-axis, $|x|=3|x-8|$ gives $x=6$ and $x=12$, the ends of a diameter, so the centre is $(9,0)$ and the radius is $3$. Check by squaring: $x^2+y^2=9\big((x-8)^2+y^2\big)$ becomes $(x-9)^2+y^2=9$. Option A is the centre's $x$-coordinate; option B is the diameter; option D is $AB$.}
+\inv{What happens to the circle as the ratio $3$ is replaced by numbers closer and closer to $1$? What is the locus when the ratio is exactly $1$?}
+
+%── B2 ───────────────────────────────────────────────────────────────────────
+\item Locus of points equidistant from $(0,0)$ and $(0,4)$ is?
+\begin{itemize}
+\item[A)] $x=2$
+\item[B)] $y=2$
+\item[C)] $y=4$
+\item[D)] $x=4$
+\end{itemize}
+
+\ans{B) $y=2$}
+\method{$x^2+y^2=x^2+(y-4)^2$ gives $y=2$, the horizontal bisector.}
+\inv{Show that for $A=(0,0)$ and $B=(a,b)$ the locus of points equidistant from $A$ and $B$ is $ax+by=\tfrac12(a^2+b^2)$.}
+
+%── B3 ───────────────────────────────────────────────────────────────────────
+\item The points satisfying $x^2+y^2 \le 4$ form a filled disk. Its area is?
+\begin{itemize}
+\item[A)] $2\pi$
+\item[B)] $4\pi$
+\item[C)] $8\pi$
+\item[D)] $16$
+\end{itemize}
+
+\ans{B) $4\pi$}
+\method{The disk has radius $2$, so its area is $\pi r^2=4\pi$.}
+\inv{Find the area of the part of the disk $x^2+y^2\le4$ with $x+y\ge2$.}
+
+%── B4 ───────────────────────────────────────────────────────────────────────
+\item The points $A=(0,0)$ and $B=(4,0)$ are fixed. The point $P$ moves in the region $y>0$ so that $\angle APB=45^\circ$. What is the locus of $P$?
+\begin{itemize}
+\item[A)] an arc of the circle with centre $(2,0)$ and radius $2$
+\item[B)] an arc of the circle with centre $(2,-2)$ and radius $2\sqrt2$
+\item[C)] part of the line $x=2$
+\item[D)] an arc of the circle with centre $(2,2)$ and radius $2\sqrt2$
+\end{itemize}
+
+\ans{D) an arc of the circle with centre $(2,2)$ and radius $2\sqrt2$}
+\method{A fixed chord $AB$ subtends a fixed angle only along an arc (angles in the same segment are equal). The angle at the centre is $2\times45^\circ=90^\circ$, so the radius is $\tfrac{AB}{\sqrt2}=2\sqrt2$, and the centre is $2$ from the midpoint $(2,0)$ on the same side as $P$ (the angle is acute), i.e.\ at $(2,2)$. Option A is the $90^\circ$ circle (Thales); on the upper arc of option B's circle, $AB$ subtends $180^\circ-45^\circ=135^\circ$.}
+\inv{What is the locus if $P$ may lie on either side of $AB$ (still with $\angle APB=45^\circ$)?}
+
+%── B5 ───────────────────────────────────────────────────────────────────────
+\item A point is known to lie strictly inside the unit disk $x^2+y^2<1$. Which of the following statements is {\em necessarily} true for such a point?
+\begin{itemize}
+\item[A)] $x^2+y^2<\dfrac12$
+\item[B)] $x+y<1$
+\item[C)] $x^2+y^2<2$
+\item[D)] $x^2+y^2>0$
+\end{itemize}
+
+\ans{C) $x^2+y^2<2$}
+\method{If $x^2+y^2<1$ then certainly $x^2+y^2<2$. Option A fails at $(0.8,0)$; option B fails at $(0.7,0.7)$, which is inside the disk but has $x+y=1.4$; option D fails at the origin.}
+\inv{Option A is the other way round: show that $x^2+y^2<\tfrac12$ is sufficient for the point to be inside the unit disk, but not necessary.}
+
+%── B6 ───────────────────────────────────────────────────────────────────────
+\item The Apollonius locus $PA=3PB$ with $A=(0,0)$, $B=(2,0)$: what is the $x$-coordinate of its right endpoint on the $x$-axis?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $4$
+\item[C)] $6$
+\item[D)] $9$
+\end{itemize}
+
+\ans{A) $3$}
+\method{On the $x$-axis $|x|=3|x-2|$ gives internal $x=\frac32$ and external $x=3$; the right endpoint is $3$.}
+\inv{Use the two crossings $x=\tfrac32$ and $x=3$ to find the centre and radius of this circle.}
+
+%── B7 ───────────────────────────────────────────────────────────────────────
+\item To prove a point $P$ lies on the unit circle $x^2+y^2=1$, which single condition is {\em sufficient} on its own?
+\begin{itemize}
+\item[A)] $x^2+y^2<1$
+\item[B)] $x=-\dfrac12$ and $y=\dfrac{\sqrt3}{2}$
+\item[C)] $P$ is not the origin
+\item[D)] $x+y=1$
+\end{itemize}
+
+\ans{B) $x=-\dfrac12$ and $y=\dfrac{\sqrt3}{2}$}
+\method{This point satisfies $x^2+y^2=\frac14+\frac34=1$ exactly, so it pins $P$ on the circle. Option A puts $P$ strictly {\em inside}; C and D do not force $x^2+y^2=1$.}
+\inv{Option D, $x+y=1$, meets the circle at $(1,0)$ and $(0,1)$. Explain why it is neither necessary nor sufficient for $P$ to lie on the circle.}
+
+%── B8 ───────────────────────────────────────────────────────────────────────
+\item Which property is necessary, but not sufficient, for a quadrilateral to be a rectangle?
+\begin{itemize}
+\item[A)] all four angles are right angles
+\item[B)] the diagonals are equal in length
+\item[C)] the diagonals are perpendicular
+\item[D)] the diagonals are equal in length and bisect each other
+\end{itemize}
+
+\ans{B) the diagonals are equal in length}
+\method{Every rectangle has equal diagonals, so B is necessary; an isosceles trapezium also has equal diagonals, so B is not sufficient. Options A and D are both necessary and sufficient. Option C is not even necessary: a $1\times2$ rectangle's diagonals are not perpendicular.}
+\inv{Find a property that is sufficient but not necessary for a quadrilateral to be a rectangle.}
+
+%── B9 ───────────────────────────────────────────────────────────────────────
+\item A circle has equation $x^2+y^2-4x-6y+9=0$. Write down its centre.
+
+\ans{$(2,3)$}
+\method{In $x^2+y^2+2gx+2fy+c=0$, the centre is $(-g,-f)$; with $2g=-4$ and $2f=-6$ we get $(2,3)$.}
+\inv{The radius is $2$. Show that this circle touches the $y$-axis. Does it touch the $x$-axis?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────
+\item Write down the radius of the circle $x^2+y^2-4x+6y+9=0$.
+
+\ans{$2$}
+\method{Completing the square: $(x-2)^2+(y+3)^2=(-9)+4+9=4$, radius $2$.}
+\inv{Only the sign of the $y$ term differs from the circle in B9. How are the two circles placed, and how many common tangents do they have?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ───────────────────────────────────────────────────────────────────────
+\item The locus of $P$ with $PA=2\,PB$, where $A=(-2,0)$ and $B=(4,0)$, is a circle. What is its centre?
+\begin{itemize}
+\item[A)] $(6,0)$
+\item[B)] $(8,0)$
+\item[C)] $(10,0)$
+\item[D)] $(2,0)$
+\end{itemize}
+
+\ans{A) $(6,0)$}
+\method{Square $PA=2PB$: $(x+2)^2+y^2=4\big((x-4)^2+y^2\big)$, so $x^2+4x+4+y^2=4x^2-32x+64+4y^2$, i.e.\ $x^2-12x+20+y^2=0$, or $(x-6)^2+y^2=16$. Centre $(6,0)$, radius $4$. Faster: the $x$-axis crossings from $|x+2|=2|x-4|$ are $x=2$ and $x=10$, and the centre is their midpoint. Option C is the far crossing; option D is the near one.}
+\inv{For which ratio $k$ does the locus of $PA=k\,PB$, with the same $A$ and $B$, pass through the origin?}
+
+%── C2 ───────────────────────────────────────────────────────────────────────
+\item The locus of points equidistant from the lines $L_1:x+y=0$ and $L_2:x-y=0$ is:
+\begin{itemize}
+\item[A)] $y=x$
+\item[B)] $y=-x$
+\item[C)] $y=|x|$
+\item[D)] $x=0$ or $y=0$
+\end{itemize}
+
+\ans{D) $x=0$ or $y=0$}
+\method{The distances to $L_1$ and $L_2$ are $\tfrac{|x+y|}{\sqrt2}$ and $\tfrac{|x-y|}{\sqrt2}$. Setting them equal and squaring: $(x+y)^2=(x-y)^2$, so $4xy=0$, i.e.\ $x=0$ or $y=0$: the two bisectors of the angles between the lines. Options A and B are the given lines themselves; option C is half of each.}
+\inv{Find the locus of points equidistant from the line $y=2x$ and the $x$-axis, and check that it consists of two perpendicular lines.}
+
+%── C3 ───────────────────────────────────────────────────────────────────────
+\item \emph{Claim.} If $A$, $B$ and $P$ lie on a circle with centre $O$, and $P$ is on the major arc $AB$, then $\angle AOB=2\angle APB$.
+
+\emph{Proof.} Draw the diameter $PD$. Triangles $OPA$ and $OPB$ are isosceles, so by the exterior angle theorem $\angle AOD=2\angle APO$ and $\angle BOD=2\angle BPO$. Adding, $\angle AOB=2(\angle APO+\angle BPO)=2\angle APB$.
+
+Which statement about this argument is correct?
+\begin{itemize}
+\item[A)] It is correct and covers every position of $P$ on the major arc.
+\item[B)] The exterior angle step fails, because $\angle OAP\ne\angle OPA$ in general.
+\item[C)] Adding assumes $O$ lies inside $\angle APB$; when it does not, the angles must be subtracted, so that case is unproved.
+\item[D)] The claim itself is false when $O$ lies outside triangle $APB$.
+\end{itemize}
+
+\ans{C)}
+\method{The claim is true (it is the angle at the centre theorem), but the proof only covers one case. If $D$ lies on the minor arc $AB$, then $O$ is inside $\angle APB$ and the two parts add. If $P$ is near $A$ and the minor arc is short, $D$ lies on the major arc and $O$ is outside $\angle APB$. Then $\angle APB$ is the difference of $\angle APO$ and $\angle BPO$, and $\angle AOB$ is the difference of $\angle AOD$ and $\angle BOD$, so the same two exterior-angle facts give $\angle AOB=2\angle APB$ by subtraction, a step the proof never takes. Option B is wrong because $OA=OP$ makes $\angle OAP=\angle OPA$; option D is wrong because the claim holds in both cases.}
+\inv{Write out the subtraction case in full. Then say what happens when $O$ lies on $PA$ itself.}
+
+%── C4 ───────────────────────────────────────────────────────────────────────
+\item $PQRS$ is a quadrilateral. Consider the conditions: I.\ its diagonals bisect each other; \quad II.\ its diagonals are equal in length; \quad III.\ its diagonals are perpendicular. Which is the smallest set of these conditions that together guarantee $PQRS$ is a square? \textit{\small(after TMUA 2020 Paper 2 Q7)}
+\begin{itemize}
+\item[A)] I and II
+\item[B)] I and III
+\item[C)] II and III
+\item[D)] I, II and III
+\item[E)] no set of them is enough
+\end{itemize}
+
+\ans{D) I, II and III}
+\method{I alone makes a parallelogram. I and II give a rectangle; I and III give a rhombus; neither need be a square. II and III without I fail too: diagonals of length $2$ crossing at right angles but not at their midpoints give a kite that is not a square. All three together give a parallelogram that is both a rectangle and a rhombus, which is a square.}
+\inv{Which single one of the three conditions, added to ``$PQRS$ is a rectangle'', guarantees a square?}
+
+%── C5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+In $\triangle ABC$, $AB=8$, $BC=6$ and $\angle A=\theta$. Exactly two non-congruent triangles fit these data, and the larger has four times the area of the smaller. What is $\cos\theta$? \textit{\small(after TMUA 2018 Paper 1 Q19)}
+\begin{itemize}[itemsep=4pt]
+\item[A)] $\dfrac{5\sqrt7}{16}$
+\item[B)] $\dfrac{3\sqrt{14}}{16}$
+\item[C)] $\dfrac{\sqrt7}{4}$
+\item[D)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.3]
+\draw[speedgeom] (0,0) -- (8,0) -- (8.75,5.953) -- cycle;
+\draw[speedgeom] (8,0) -- (2.1875,1.4882);
+\draw[speedaux] (8,0) ++(82.8:6) arc (82.8:165.6:6);
+\draw (1.2,0) arc (0:34.2:1.2);
+\node at (1.9,0.5) {\tiny $\theta$};
+\node[below left] at (0,0) {\small $A$}; \node[below right] at (8,0) {\small $B$};
+\node[above] at (8.75,5.953) {\small $C_1$}; \node[above left] at (2.1875,1.4882) {\small $C_2$};
+\filldraw (0,0) circle (3pt) (8,0) circle (3pt) (8.75,5.953) circle (3pt) (2.1875,1.4882) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $\dfrac{5\sqrt7}{16}$}
+\method{Let $AC=b$. The cosine rule gives $36=64+b^2-16b\cos\theta$, i.e.\ $b^2-16b\cos\theta+28=0$, whose two roots $b_1>b_2$ are the two possible lengths of $AC$. Both triangles have area $\tfrac12\cdot8\cdot b\sin\theta$, so $b_1=4b_2$. The product of the roots is $28=4b_2^2$, so $b_2=\sqrt7$ and $b_1=4\sqrt7$; their sum is $5\sqrt7=16\cos\theta$, so $\cos\theta=\tfrac{5\sqrt7}{16}$. Option B takes the area ratio as the square of the length ratio ($b_1=2b_2$); option C uses $b_1$ alone as the sum of the roots.}
+\inv{For which angles $\theta$ do the data $AB=8$, $BC=6$ fit two triangles at all? Check that $\sin\theta=\tfrac{9}{16}$ here is in that range.}
+
+%── C6 ───────────────────────────────────────────────────────────────────────
+\item The circles $C_1:(x+3)^2+(y-1)^2=25$ and $C_2:(x-8)^2+(y-1)^2=9$ have radii $5$ and $3$. How many common tangents do they have?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $4$
+\end{itemize}
+
+\ans{E) $4$}
+\method{Centres $(-3,1)$ and $(8,1)$, so $d=11$. Since $d>r_1+r_2=8$, the circles are separate and have $4$ common tangents: $2$ direct and $2$ transverse.}
+\inv{Keep $C_1$ fixed and slide the centre of $C_2$ along $y=1$. For which centres are there exactly $3$ common tangents? Exactly $1$?}
+
+%── C7 ───────────────────────────────────────────────────────────────────────
+\item The point $P$ moves so that $PA=3\,PB$, where $A=(0,0)$ and $B=(6,0)$. What is the greatest possible value of $PA$?
+\begin{itemize}
+\item[A)] $9$
+\item[B)] $7.5$
+\item[C)] $12$
+\item[D)] $6$
+\end{itemize}
+
+\ans{A) $9$}
+\method{The locus is a circle symmetric about the $x$-axis, and $A$ lies on that axis, so the point of the circle farthest from $A$ is where the axis crosses the circle on the far side. The crossings solve $|x|=3|x-6|$: $x=\tfrac92$ and $x=9$. So the greatest $PA$ is $9$, at $(9,0)$ where $PB=3$. (The circle is $(x-\tfrac{27}{4})^2+y^2=(\tfrac94)^2$.)}
+\inv{What is the least possible value of $PB$?}
+
+%── C8 ───────────────────────────────────────────────────────────────────────
+\item Fil finds the locus of $P$ with $PA=3\,PB$, where $A=(0,0)$ and $B=(2,0)$, by writing $(x-2)^2+y^2=9$. What is wrong?
+\begin{itemize}
+\item[A)] Squaring loses sign information, so the locus is really a single point.
+\item[B)] The locus of $PA=3\,PB$ is a straight line, not a circle.
+\item[C)] His equation says $PB=3$; it never uses the distance to $A$.
+\item[D)] Nothing: $(x-2)^2+y^2=9$ is the locus.
+\end{itemize}
+
+\ans{C)}
+\method{$(x-2)^2+y^2=9$ is the circle with centre $B$ and radius $3$: it says $PB=3$. The true locus comes from $x^2+y^2=9\big((x-2)^2+y^2\big)$, i.e.\ $8x^2-36x+8y^2+36=0$, which is $(x-\tfrac94)^2+y^2=\tfrac{9}{16}$: centre $(\tfrac94,0)$, radius $\tfrac34$. Option A is wrong because both sides are lengths, so squaring loses nothing; option B is true only when the ratio is $1$.}
+\inv{Show that $A$ and $B$ are inverse points in the true circle: with centre $C=(\tfrac94,0)$, check that $CA\cdot CB=r^2$.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge Ramp}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ───────────────────────────────────────────────────────────────────────
+\item The locus of $P$ with $PA^2+PB^2=34$, where $A=(-3,0)$ and $B=(3,0)$, is a circle. What is its radius?
+\begin{itemize}
+\item[A)] $2\sqrt2$
+\item[B)] $4$
+\item[C)] $\sqrt{17}$
+\item[D)] $\sqrt{34}$
+\end{itemize}
+
+\ans{A) $2\sqrt2$}
+\method{$PA^2+PB^2=(x+3)^2+y^2+(x-3)^2+y^2=2x^2+2y^2+18=34$, so $x^2+y^2=8$: a circle about the midpoint of $AB$ with $r=2\sqrt2$. Check: $PA^2+PB^2=2\,OP^2+\tfrac12AB^2=16+18=34$. Option C forgets the $18$; option D takes $34$ as $r^2$.}
+\inv{For which values of the constant $c$ does $PA^2+PB^2=c$ describe a circle, a single point, or no points at all?}
+
+%── D2 ───────────────────────────────────────────────────────────────────────
+\item $S$ is the square with vertices $(0,0)$, $(4,0)$, $(4,4)$ and $(0,4)$. What is the area of the region of points whose distance from the boundary of $S$ is at most $1$?
+\begin{itemize}
+\item[A)] $32+\pi$
+\item[B)] $28+4\pi$
+\item[C)] $23+\pi$
+\item[D)] $28+\pi$
+\end{itemize}
+
+\ans{D) $28+\pi$}
+\method{Outside $S$: four $4\times1$ strips along the sides ($16$) and four quarter-discs of radius $1$ at the corners ($\pi$). Inside $S$: every point except those more than $1$ from all four sides, which form the $2\times2$ square in the middle, so $16-4=12$. Total $28+\pi$. Option A forgets the hole; option B uses whole discs at the corners; option C takes the inner square as $3\times3$.}
+\inv{Replace the square by a circle of radius $4$. Show that the area within $1$ of the circle is exactly $2\times$ its perimeter, but for the square it is less. Where does the square lose area?}
+
+%── D3 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.66\linewidth}
+The diagram shows a kite $PQRS$ whose diagonals meet at $O$, with $OP=OR=x$, $OQ=y$ and $OS=z$. Which condition is necessary and sufficient for $P$, $Q$, $R$ and $S$ to lie on a circle? \textit{\small(after TMUA 2022 Paper 2 Q11)}
+\begin{itemize}
+\item[A)] $x=y=z$
+\item[B)] $2x=y+z$
+\item[C)] $x^2=yz$
+\item[D)] $y=z$
+\item[E)] $y^2=x^2+z^2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[speedgeom] (-2,0) -- (0,1) -- (2,0) -- (0,-3) -- cycle;
+\draw[speedaux] (-2,0) -- (2,0) (0,1) -- (0,-3);
+\node[left] at (-2,0) {\small $P$}; \node[above] at (0,1) {\small $Q$};
+\node[right] at (2,0) {\small $R$}; \node[below] at (0,-3) {\small $S$};
+\node[below left] at (0,0) {\tiny $O$};
+\node[above] at (-1,0) {\scriptsize $x$}; \node[above] at (1,0) {\scriptsize $x$};
+\node[right] at (0,0.5) {\scriptsize $y$}; \node[right] at (0,-1.5) {\scriptsize $z$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $x^2=yz$}
+\method{The kite is symmetric in $QS$, so $\angle SPQ=\angle SRQ$. It is cyclic iff these opposite angles sum to $180^\circ$, i.e.\ iff $\angle SPQ=90^\circ$. With $O$ at the origin, $P=(-x,0)$, $Q=(0,y)$, $S=(0,-z)$, and $\overrightarrow{PQ}\cdot\overrightarrow{PS}=x^2-yz$, so the condition is $x^2=yz$. Option A (a square) is sufficient but not necessary; option D makes a rhombus, which is cyclic only when it is a square.}
+\inv{Get $x^2=yz$ in one line from the intersecting chords theorem applied to $PR$ and $QS$. Why does that argument also prove the converse?}
+
+%── D4 ───────────────────────────────────────────────────────────────────────
+\item The circles $C_1:x^2+y^2=25$ and $C_2:(x-4)^2+y^2=9$ meet at $P$ and $Q$. What is the length $PQ$?
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $6$
+\item[C)] $\dfrac{4\sqrt{14}}{3}$
+\item[D)] $\dfrac{24}{5}$
+\end{itemize}
+
+\ans{B) $6$}
+\method{Subtracting the equations gives the radical axis: $x^2-(x-4)^2=16$, so $8x-16=16$ and $x=4$. It is $4$ from the centre of $C_1$, so the half-chord is $\sqrt{25-16}=3$ and $PQ=6$. The line $x=4$ passes through the centre of $C_2$, so $PQ$ is also a diameter of $C_2$. Option A is the half-chord.}
+\inv{Find the cosine of the angle between the radii $O_1P$ and $O_2P$.}
+
+%── D5 ───────────────────────────────────────────────────────────────────────
+\item The points $A$ and $B$ are fixed, and $k>0$ with $k\ne1$. Prove that the locus of points $P$ with $PA=k\,PB$ is a circle, and that this circle cuts every circle through $A$ and $B$ at right angles.
+
+\ans{Proof: see method}
+\method{Similarities preserve circles, ratios of lengths and right angles, so take $A=(-1,0)$ and $B=(1,0)$. Both $PA$ and $PB$ are non-negative, so $PA=k\,PB$ is equivalent to $PA^2=k^2PB^2$: $(x+1)^2+y^2=k^2\big((x-1)^2+y^2\big)$, i.e.\ $(1-k^2)(x^2+y^2)+2(1+k^2)x+(1-k^2)=0$. Since $k\ne1$ we can divide by $1-k^2$: $x^2+y^2+2\lambda x+1=0$ with $\lambda=\tfrac{1+k^2}{1-k^2}$. For $k>0$, $|1+k^2|>|1-k^2|$, so $|\lambda|>1$ and $r^2=\lambda^2-1>0$: the locus is the whole circle with centre $(-\lambda,0)$. A circle through $A$ and $B$ has its centre on their perpendicular bisector $x=0$, so its equation is $x^2+y^2+2fy+e=0$, and passing through $(1,0)$ gives $e=-1$. Circles $x^2+y^2+2g_1x+2f_1y+c_1=0$ and $x^2+y^2+2g_2x+2f_2y+c_2=0$ are orthogonal iff $2g_1g_2+2f_1f_2=c_1+c_2$ (Worksheet \#3). Here $g_1=\lambda$, $f_1=0$, $c_1=1$ and $g_2=0$, $f_2=f$, $c_2=-1$: the left side is $0$ and the right side is $1-1=0$. So the Apollonius circle is orthogonal to every circle through $A$ and $B$. $\blacksquare$}
+\inv{Where does the circle cross the line $AB$? Show that those points divide $AB$ internally and externally in the ratio $k:1$.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{$PA=k\,PB$ with $k\ne1$ is a circle.} Its crossings with line $AB$ divide $AB$ internally and externally in the ratio $k:1$; they are the ends of a diameter, so the centre is their midpoint. \seealso{A3, B1, B6, C1, C7, C8, D5}
+  \item \textbf{Name the locus from the condition.} Fixed distance from a point: circle; from a line: two lines; equal distances: a bisector; fixed angle on a fixed chord: an arc; $PA^2+PB^2$ fixed: a circle about the midpoint; distance from a shape: a band. \seealso{A1, A2, A4, A5, A10, B2, B4, C2, D1, D2}
+  \item \textbf{Necessary and sufficient are two separate checks.} Every example must have a necessary property; a sufficient one forces the conclusion. One counterexample kills one direction. \seealso{A9, B5, B7, B8, C4, D3}
+  \item \textbf{A proof must cover every configuration.} Check where the centre, a point or a second triangle can go; SSA data can fit two triangles, and a figure can show only one case. \seealso{C3, C5, C8}
+  \item \textbf{Circle equations: complete the square, subtract for chords, compare $d$ with the radii.} \seealso{A6, A7, A8, B3, B9, B10, C6, D4}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#7}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Centring an Apollonius circle at $B$ or at the midpoint of $AB$.} Neither is right unless you have done the algebra; use the two axis crossings. \seealso{B1, C1, C7, C8}
+  \item \textbf{Keeping one branch of a locus.} $|y-4|=3$ is two lines, $|x+y|=|x-y|$ is two lines, and a fixed angle on $AB$ gives an arc on each side. \seealso{A4, B4, C2}
+  \item \textbf{Swapping necessary and sufficient.} Equal diagonals are necessary for a rectangle but not sufficient; a square kite is cyclic, but cyclic kites need not be squares. \seealso{B5, B7, B8, D3}
+  \item \textbf{Accepting a proof because its conclusion is true.} A true claim can have a proof that misses a case or proves something else. \seealso{C3, C8}
+  \item \textbf{Mixing up lengths, squares and areas.} Triangles sharing an angle and a side have areas in the ratio of their other sides, not its square; $PA^2+PB^2=34$ does not make $r^2=34$; and a band around a shape has corners and a hole to account for. \seealso{C5, D1, D2}
+\end{enumerate}
+
+\SpeedClosing{``A locus is a sentence the entire family agrees on; a geometric claim is only as good as the condition you actually invoked.''}
+
+\end{document}

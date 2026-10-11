@@ -97,6 +97,7 @@ def parse_tex_math(tex_str):
     cleaned = tex_str.replace('{,}', '').replace(r'\,', ' ').replace(r'\;', ' ').replace(r'\ ', ' ').replace('~', ' ')
     cleaned = re.sub(r';\s*undefined\s+at\s+.*', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\\(?:quad|qquad|displaystyle|left|right|checkmark)\b', ' ', cleaned)
+    cleaned = re.sub(r'\^\s*(?:\{\s*\\circ\s*\}|\\circ\b)', '', cleaned)     # 150^\circ is the number 150 (degrees)
     cleaned = re.sub(r'\\text\{([^}]*)\}', r' \1 ', cleaned)
     cleaned = re.sub(r'\\sqrt(?![{\[])([0-9a-zA-Z]+)', r'\\sqrt{\1}', cleaned)
     cleaned = re.sub(r'\\dfrac\b', r'\\frac', cleaned)

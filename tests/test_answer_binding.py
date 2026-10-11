@@ -51,7 +51,7 @@ if str(REPO_ROOT) not in sys.path:
 from tools.answer_binding import (  # noqa: E402
     DRIFT_ONLY, EXACT, EXEMPT, bind, is_proof_marker,
 )
-from tools.check_binding import internally_bound_labels  # noqa: E402
+from tools.check_binding import included_drafts, internally_bound_labels  # noqa: E402
 from tools.latex_bridge import extract_tex_answers, parse_tex_math  # noqa: E402
 
 _module_cache = {}
@@ -85,12 +85,12 @@ def _baseline():
 
 
 def _cases():
-    """(pillar, sheet, label) for every question on a live pillar."""
+    """(pillar, sheet, label) for every question on a live pillar, or an opted-in draft."""
     sheets = json.loads((REPO_ROOT / "sheets.json").read_text(encoding="utf-8"))
     baseline = _baseline()
     out = []
     for pillar in sheets:
-        if pillar.get("status") != "live":
+        if pillar.get("status") != "live" and pillar["slug"] not in included_drafts():
             continue
         slug = pillar["slug"]
         for sheet in pillar.get("sheets", []):

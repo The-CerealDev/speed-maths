@@ -1,0 +1,9 @@
+% Geometry-only TikZ setup, loaded after shared/preamble.tex by every geometry
+% sheet and answer key. Kept out of the shared preamble so geometry's drawing
+% styles cannot change how any other pillar compiles.
+\usetikzlibrary{calc, angles, quotes}
+\tikzset{
+  speedgeom/.style={line width=0.8pt, draw=darkgray, line cap=round, line join=round},
+  speedaux/.style={line width=0.5pt, dashed, draw=medgray},
+  speedpoint/.style={circle, fill=darkgray, inner sep=1.2pt}
+}

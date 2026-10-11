@@ -56,6 +56,13 @@ def test_parse_tex_math_integers_and_fractions():
     assert sympy.simplify(res_tfrac - sympy.Rational(5, 6)) == 0
 
 
+def test_parse_tex_math_degrees_are_plain_numbers():
+    # an angle answer printed as 150^\circ is the number 150, not 150 to the power circ
+    assert parse_tex_math(r"$150^\circ$") == 150
+    assert parse_tex_math(r"$150^{\circ}$") == 150
+    assert parse_tex_math(r"$67.5^\circ$") == sympy.Float(67.5)          # decimals parse as floats
+
+
 def test_parse_tex_math_sqrt_and_powers():
     res_sqrt = parse_tex_math(r"\sqrt{9}")
     assert sympy.simplify(res_sqrt - 3) == 0

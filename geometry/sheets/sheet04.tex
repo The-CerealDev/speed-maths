@@ -1,0 +1,463 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../geometry-preamble}
+\SpeedHeader{Geometry}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#4}{Henry Koduthore}
+\SpeedMeta{Polygons and angle chasing}{regular polygon angles, diagonals, star polygons, tilings, angle chasing through parallels and isosceles triangles, similar triangles and area ratios}
+\noindent\textit{New toolkit today: Exterior angles sum to $360^\circ$ $\cdot$ Isosceles chains $\cdot$ Regular polygons as equal triangles $\cdot$ Similar triangles $\cdot$ Area ratios.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators. Diagrams are not to scale.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Exterior angles of any polygon sum to $360^\circ$; interior $=180^\circ-$ exterior. Know these cold.}
+
+\begin{enumerate}
+
+\item Write down the size of each interior angle of a regular $12$-sided polygon.
+
+\item An isosceles triangle has apex angle $40^\circ$. Write down each base angle.
+
+\item The incircle of the right triangle with legs $3$ and $4$ touches all three sides. What is the inradius?
+
+\item Each interior angle of a regular polygon is $162^\circ$. Write down the number of sides.
+
+\item Write down the number of diagonals of a decagon.
+
+\item The angle bisector from $A$ of triangle $ABC$ meets $BC$ at $D$, with $AB:AC = 2:3$ and $BC=10$. Write down $DC$.
+
+\item The isosceles triangle with sides $5$, $5$, $6$ has base $6$. Write down the median from the apex to the base.
+
+\item A median of a triangle has length $12$. How far is the centroid from the vertex at the end of that median?
+
+\item Two similar triangles have corresponding sides in the ratio $2:3$. The smaller has area $8$. Write down the area of the larger.
+
+\item Write down the area of a regular hexagon with side $2$.
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Chase angles through parallels, isosceles triangles and regular polygons. Draw the extra line.}
+
+\begin{enumerate}
+
+\item \begin{minipage}[t]{0.58\linewidth}
+$AB$ is parallel to $ED$. Given $\angle ABC=130^\circ$ and $\angle CDE=150^\circ$, find $\angle BCD$.
+\begin{itemize}
+\item[A)] $60^\circ$
+\item[B)] $70^\circ$
+\item[C)] $80^\circ$
+\item[D)] $100^\circ$
+\item[E)] $110^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (A) at (-1.4,2); \coordinate (B) at (0.8,2);
+\coordinate (E) at (-1.6,0); \coordinate (D) at (-0.61,0);
+\coordinate (C) at (1.47,1.2);
+\draw[speedgeom] (-1.6,2) -- (2.6,2);
+\draw[speedgeom] (-1.8,0) -- (2.6,0);
+\draw[speedgeom] (B) -- (C) -- (D);
+\pic[draw, angle radius=4mm, "\scriptsize$130^\circ$", angle eccentricity=1.9] {angle = A--B--C};
+\pic[draw, angle radius=4mm, "\scriptsize$150^\circ$", angle eccentricity=1.8] {angle = C--D--E};
+\pic[draw, angle radius=3mm, "\scriptsize?", angle eccentricity=1.7] {angle = B--C--D};
+\node[above] at (A) {\small $A$}; \node[above] at (B) {\small $B$};
+\node[below] at (E) {\small $E$}; \node[below] at (D) {\small $D$};
+\node[right] at (C) {\small $C$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a square and $ABE$ is an equilateral triangle drawn outside the square on side $AB$. What is $\angle DEC$? \textit{\small(after Primer 1.4 P11)}
+\begin{itemize}
+\item[A)] $15^\circ$
+\item[B)] $20^\circ$
+\item[C)] $45^\circ$
+\item[D)] $60^\circ$
+\item[E)] $30^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.75]
+\coordinate (A) at (0,0); \coordinate (B) at (2,0);
+\coordinate (C) at (2,2); \coordinate (D) at (0,2);
+\coordinate (E) at (1,-1.732);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedgeom] (A) -- (E) -- (B);
+\draw[speedaux] (D) -- (E) -- (C);
+\pic[draw, angle radius=5mm, "\scriptsize?", angle eccentricity=1.5] {angle = C--E--D};
+\node[left] at (A) {\small $A$}; \node[right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[below] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\item The triangle with sides $13$, $14$, $15$ has area $84$. Its inscribed circle has what radius?
+
+\item The five diagonals of a regular pentagon form a five-pointed star whose points are the pentagon's vertices. What is the angle at each point of the star?
+\begin{itemize}
+\item[A)] $36^\circ$
+\item[B)] $30^\circ$
+\item[C)] $45^\circ$
+\item[D)] $54^\circ$
+\item[E)] $72^\circ$
+\end{itemize}
+
+\item $ABCDEF$ is a regular hexagon. What fraction of its area is triangle $ACE$?
+\begin{itemize}
+\item[A)] $\dfrac13$
+\item[B)] $\dfrac12$
+\item[C)] $\dfrac23$
+\item[D)] $\dfrac34$
+\item[E)] $\dfrac14$
+\end{itemize}
+
+\item A square, a regular hexagon and one other regular polygon fit together around a point with no gaps or overlaps. How many sides does the other polygon have?
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $10$
+\item[C)] $15$
+\item[D)] $12$
+\item[E)] $18$
+\end{itemize}
+
+\item Each interior angle of a regular polygon is four times each exterior angle. How many sides does it have?
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $8$
+\item[C)] $9$
+\item[D)] $12$
+\item[E)] $16$
+\end{itemize}
+
+\item $ABCDEFGH$ is a regular octagon. Find $\angle ACF$.
+
+\item A regular pentagon and a regular hexagon share a side and lie on opposite sides of it. At each end of the shared side there is a gap between the two shapes. What is the angle of this gap?
+\begin{itemize}
+\item[A)] $120^\circ$
+\item[B)] $126^\circ$
+\item[C)] $128^\circ$
+\item[D)] $132^\circ$
+\item[E)] $144^\circ$
+\end{itemize}
+
+\item A five-pointed star is drawn with five straight strokes, not necessarily regular. Write down the sum of the angles at its five points.
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{SMC Q18--22 level. Split the figure into pieces you know (equilateral triangles, isosceles triangles, similar copies), then use ratios.}
+
+\begin{enumerate}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+In triangle $ABC$, the point $D$ lies on $BC$ with $BD:DC=1:2$, and $E$ is the midpoint of $AD$. The line $BE$ meets $AC$ at $F$. What fraction of triangle $ABC$ is the shaded quadrilateral $EDCF$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac12$
+\item[B)] $\dfrac58$
+\item[C)] $\dfrac7{12}$
+\item[D)] $\dfrac23$
+\item[E)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.8]
+\coordinate (A) at (0.4,3); \coordinate (B) at (0,0); \coordinate (C) at (4.5,0);
+\coordinate (D) at (1.5,0); \coordinate (E) at (0.95,1.5); \coordinate (F) at (1.425,2.25);
+\fill[gray!25] (E) -- (D) -- (C) -- (F) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (A) -- (D); \draw[speedgeom] (B) -- (F);
+\node[above] at (A) {\small $A$}; \node[below left] at (B) {\small $B$};
+\node[below right] at (C) {\small $C$}; \node[below] at (D) {\small $D$};
+\node[left] at (E) {\small $E$}; \node[above right] at (F) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+A right-angled triangle has legs $3$ and $4$. A square sits inside it with one side along the hypotenuse and its other two vertices on the legs. What is the side length of the square?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{12}{7}$
+\item[B)] $\dfrac53$
+\item[C)] $\dfrac32$
+\item[D)] $\dfrac{60}{37}$
+\item[E)] $\dfrac{60}{49}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.75]
+\coordinate (C) at (0,0); \coordinate (A) at (0,3); \coordinate (B) at (4,0);
+\coordinate (P) at (0,0.973); \coordinate (Q) at (1.297,0);
+\coordinate (P2) at (0.973,2.270); \coordinate (Q2) at (2.270,1.297);
+\fill[gray!25] (P) -- (Q) -- (Q2) -- (P2) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (P) -- (Q) -- (Q2) -- (P2) -- cycle;
+\draw (0,0.2) -- (0.2,0.2) -- (0.2,0);
+\node[left] at (0,1.5) {\scriptsize $3$}; \node[below] at (2,0) {\scriptsize $4$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.58\linewidth}
+$PQ$ and $TS$ are perpendicular to $QS$, with $PQ=6$, $TS=4$ and $QS=11$. The point $R$ lies on $QS$ with $QR=x$, and $\angle PRT=90^\circ$. Then \textit{\small(after Primer 1.4 P48)}
+\begin{itemize}
+\item[A)] $x$ has two possible values whose sum is $12$
+\item[B)] $x$ has two possible values whose difference is $5$
+\item[C)] $x$ has only one value, and $x\geq 5.5$
+\item[D)] $x$ has only one value, and $x<5.5$
+\item[E)] $x$ cannot be determined from the given information
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.45]
+\coordinate (Q) at (0,0); \coordinate (S) at (11,0);
+\coordinate (P) at (0,6); \coordinate (T) at (11,4);
+\coordinate (R) at (3,0);
+\draw[speedgeom] (P) -- (Q) -- (S) -- (T);
+\draw[speedgeom] (P) -- (R) -- (T);
+\pic[draw, angle radius=2.5mm] {right angle = T--R--P};
+\draw (0,0.6) -- (0.6,0.6) -- (0.6,0); \draw (11,0.6) -- (10.4,0.6) -- (10.4,0);
+\node[left] at (P) {\small $P$}; \node[below left] at (Q) {\small $Q$};
+\node[below] at (R) {\small $R$}; \node[below right] at (S) {\small $S$};
+\node[right] at (T) {\small $T$};
+\node[left] at (0,3) {\scriptsize $6$}; \node[right] at (11,2) {\scriptsize $4$};
+\node[below] at (1.5,0) {\scriptsize $x$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDEFGH$ is a regular octagon with sides of length $1$. What is the area of the shaded square $ACEG$?
+\begin{itemize}
+\item[A)] $2+\sqrt2$
+\item[B)] $1+\sqrt2$
+\item[C)] $2+2\sqrt2$
+\item[D)] $4$
+\item[E)] $3+2\sqrt2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.62]
+\foreach \i/\l in {0/A,1/B,2/C,3/D,4/E,5/F,6/G,7/H} \coordinate (\l) at ({112.5-45*\i}:1.3066);
+\fill[gray!25] (A) -- (C) -- (E) -- (G) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- (H) -- cycle;
+\draw[speedgeom] (A) -- (C) -- (E) -- (G) -- cycle;
+\foreach \i/\l in {0/A,1/B,2/C,3/D,4/E,5/F,6/G,7/H} \node at ({112.5-45*\i}:1.62) {\scriptsize $\l$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDE$ is a regular pentagon, and $ABF$ is an equilateral triangle with $F$ inside the pentagon. What is $\angle FCD$?
+\begin{itemize}
+\item[A)] $36^\circ$
+\item[B)] $48^\circ$
+\item[C)] $42^\circ$
+\item[D)] $54^\circ$
+\item[E)] $66^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.25]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.309,0.951);
+\coordinate (D) at (0.5,1.539); \coordinate (E) at (-0.309,0.951); \coordinate (F) at (0.5,0.866);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (F) -- (B); \draw[speedaux] (F) -- (C);
+\pic[draw, angle radius=3mm, "\scriptsize ?", angle eccentricity=1.7] {angle = D--C--F};
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$}; \node[right] at (C) {\small $C$};
+\node[above] at (D) {\small $D$}; \node[left] at (E) {\small $E$}; \node[below] at (F) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDEF$ is a regular hexagon and $M$ is the midpoint of $CD$. What fraction of the hexagon is the shaded triangle $AME$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac13$
+\item[B)] $\dfrac12$
+\item[C)] $\dfrac14$
+\item[D)] $\dfrac38$
+\item[E)] $\dfrac5{12}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.05]
+\coordinate (A) at (1,0); \coordinate (B) at (0.5,0.866); \coordinate (C) at (-0.5,0.866);
+\coordinate (D) at (-1,0); \coordinate (E) at (-0.5,-0.866); \coordinate (F) at (0.5,-0.866); \coordinate (M) at (-0.75,0.433);
+\fill[gray!25] (A) -- (M) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- cycle;
+\draw[speedgeom] (A) -- (M) -- (E) -- cycle;
+\node[right] at (A) {\small $A$}; \node[above right] at (B) {\small $B$}; \node[above left] at (C) {\small $C$};
+\node[left] at (D) {\small $D$}; \node[below left] at (E) {\small $E$}; \node[below right] at (F) {\small $F$};
+\node[above left] at (M) {\small $M$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+The points $B$ and $D$ lie on one arm of an angle at $A$, and $C$ and $E$ lie on the other arm, with $AB=BC=CD=DE$. The line $DE$ is perpendicular to $AD$. What is $\angle BAC$?
+\begin{itemize}
+\item[A)] $15^\circ$
+\item[B)] $18^\circ$
+\item[C)] $20^\circ$
+\item[D)] $22.5^\circ$
+\item[E)] $30^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.1]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.707,0.707);
+\coordinate (D) at (2.414,0); \coordinate (E) at (2.414,1);
+\draw[speedgeom] (A) -- (2.9,0); \draw[speedgeom] (A) -- (2.9,1.201);
+\draw[speedgeom] (B) -- (C) -- (D) -- (E);
+\draw (2.414,0.12) -- (2.294,0.12) -- (2.294,0);
+\node[below left] at (A) {\small $A$}; \node[below] at (B) {\small $B$}; \node[above left] at (C) {\small $C$};
+\node[below] at (D) {\small $D$}; \node[above] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\item A regular $12$-sided polygon is inscribed in a circle of radius $1$. What is the total area inside the circle but outside the polygon?
+\begin{itemize}
+\item[A)] $\pi-2$
+\item[B)] $\pi-3$
+\item[C)] $\pi-\dfrac{3\sqrt3}{2}$
+\item[D)] $\pi-2\sqrt2$
+\item[E)] $\dfrac{\pi}{12}$
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC Q21--25 / BMO1 difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{The key step is a construction, a hidden equal length or a similar pair. Diagrams are not to scale.}
+
+\begin{enumerate}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+A rectangular sheet $ABCD$ has $AB=8$ and $BC=6$. It is folded along a straight crease so that $C$ lands exactly on $A$. How long is the crease?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $7$
+\item[B)] $5\sqrt2$
+\item[C)] $\dfrac{25}{4}$
+\item[D)] $8$
+\item[E)] $\dfrac{15}{2}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.4]
+\coordinate (A) at (0,0); \coordinate (B) at (8,0); \coordinate (C) at (8,6); \coordinate (D) at (0,6);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedaux] (A) -- (C);
+\draw[speedgeom, dashed] (6.25,0) -- (1.75,6);
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[below] at (4,0) {\scriptsize $8$}; \node[right] at (8,3) {\scriptsize $6$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+In triangle $ABC$, $AB=6$, $AC=3$ and $\angle BAC=120^\circ$. The bisector of angle $A$ meets $BC$ at $D$. What is the length of $AD$?
+\begin{itemize}
+\item[A)] $2\sqrt3$
+\item[B)] $2$
+\item[C)] $4$
+\item[D)] $\sqrt7$
+\item[E)] $3$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.5]
+\coordinate (A) at (0,0); \coordinate (B) at (6,0); \coordinate (C) at (-1.5,2.598);
+\coordinate (D) at (1,1.732);
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (A) -- (D);
+\node[below] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above left] at (C) {\small $C$}; \node[above right] at (D) {\small $D$};
+\node[below] at (3,0) {\scriptsize $6$}; \node[left] at (-0.75,1.3) {\scriptsize $3$};
+\end{tikzpicture}
+\end{minipage}
+
+\item What is the side length of the largest square that fits inside a regular hexagon with sides of length $1$?
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $\dfrac{2\sqrt3}{3}$
+\item[C)] $3-\sqrt3$
+\item[D)] $\dfrac{\sqrt6}{2}$
+\item[E)] $\sqrt2$
+\end{itemize}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDE$ is a regular pentagon with sides of length $1$. The diagonals $AC$ and $BE$ meet at $X$. What is the length $AX$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{\sqrt5-1}{2}$
+\item[B)] $\dfrac{\sqrt5+1}{2}$
+\item[C)] $\dfrac12$
+\item[D)] $\dfrac{\sqrt5}{2}$
+\item[E)] $\dfrac{3-\sqrt5}{2}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.25]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.309,0.951);
+\coordinate (D) at (0.5,1.539); \coordinate (E) at (-0.309,0.951); \coordinate (X) at (0.5,0.363);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (C); \draw[speedgeom] (B) -- (E);
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$}; \node[right] at (C) {\small $C$};
+\node[above] at (D) {\small $D$}; \node[left] at (E) {\small $E$}; \node[above] at (X) {\small $X$};
+\end{tikzpicture}
+\end{minipage}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a square. The point $E$ inside the square satisfies $\angle EAB=\angle EBA=15^\circ$. Prove that triangle $CDE$ is equilateral.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (A) at (0,0); \coordinate (B) at (2.4,0); \coordinate (C) at (2.4,2.4); \coordinate (D) at (0,2.4);
+\coordinate (E) at (1.2,0.3215);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedgeom] (A) -- (E) -- (B);
+\draw[speedaux] (D) -- (E) -- (C);
+\pic[draw, angle radius=6mm, ] {angle = B--A--E};
+\pic[draw, angle radius=6mm, ] {angle = E--B--A};
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[above] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\end{enumerate}
+
+\SpeedClosing{``Every polygon is a bundle of triangles: count the exterior angles, find the isosceles pairs, and let similar copies carry the ratios.''}
+
+\end{document}

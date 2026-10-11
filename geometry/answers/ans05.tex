@@ -1,0 +1,560 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../geometry-preamble}
+\SpeedHeader{Geometry}{5}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#5 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{Circles, arcs and tangency}{circle theorems, alternate segment, cyclic quadrilaterals, power of a point, tangent lengths, touching circles, circles in angles, segments and lenses}
+\noindent\textit{New toolkit today: Angle at the centre $\cdot$ Cyclic quadrilaterals $\cdot$ Tangent $\perp$ radius $\cdot$ Power of a point $\cdot$ Touching circles: join the centres.}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ───────────────────────────────────────────────────────────────────────
+\item In a circle with centre $O$, the angle at the circumference subtending arc $AB$ is $20^\circ$. Write down the angle at the centre.
+
+\ans{$40^\circ$}
+\method{The angle at the centre is twice the angle at the circumference on the same arc: $2\times20^\circ=40^\circ$.}
+\inv{Where on the circle can the $20^\circ$ angle be, and what does the angle become if the point moves onto the minor arc $AB$?}
+
+%── A2 ───────────────────────────────────────────────────────────────────────
+\item $AB$ is a diameter of a circle and $P$ is any other point on the circle. Write down $\angle APB$.
+
+\ans{$90^\circ$}
+\method{The angle at the centre is the straight angle $180^\circ$, so the angle at the circumference is half of it.}
+\inv{State and prove the converse: if $\angle APB=90^\circ$, then $P$ lies on the circle with diameter $AB$.}
+
+%── A3 ───────────────────────────────────────────────────────────────────────
+\item $ABCD$ is a cyclic quadrilateral with $\angle A=70^\circ$ and $\angle B=85^\circ$. Write down $\angle C$.
+
+\ans{$110^\circ$}
+\method{Opposite angles of a cyclic quadrilateral sum to $180^\circ$, so $\angle C=180^\circ-70^\circ=110^\circ$. ($\angle B$ is not needed.)}
+\inv{Find $\angle D$ as well, and check that the four angles sum to $360^\circ$.}
+
+%── A4 ───────────────────────────────────────────────────────────────────────
+\item The tangent at $T$ to a circle makes an angle of $40^\circ$ with the chord $TA$. By the alternate segment theorem, write down the angle in the alternate segment subtended by $TA$.
+
+\ans{$40^\circ$}
+\method{The angle between a tangent and a chord equals the angle in the alternate segment.}
+\inv{Prove the alternate segment theorem from the angle in a semicircle, by taking the point in the alternate segment at the far end of the diameter through $T$.}
+
+%── A5 ───────────────────────────────────────────────────────────────────────
+\item Chords $AB$ and $CD$ of a circle intersect inside at $P$, with $PA=2$, $PB=6$ and $PC=3$. Write down $PD$.
+
+\ans{$4$}
+\method{Intersecting chords: $PA\cdot PB=PC\cdot PD$, so $2\cdot6=3\cdot PD$ and $PD=4$.}
+\inv{Prove $PA\cdot PB=PC\cdot PD$ from a pair of similar triangles. Which angles are equal, and why?}
+
+%── A6 ───────────────────────────────────────────────────────────────────────
+\item A tangent from $P$ touches the circle at $T$, and a secant through $P$ cuts the circle at $A$ then $B$. Given $PT=3$ and $PA=1$, write down $PB$.
+
+\ans{$9$}
+\method{Tangent--secant: $PT^2=PA\cdot PB$, so $9=1\cdot PB$ and $PB=9$.}
+\inv{How long is the chord $AB$, and how far is its midpoint from $P$?}
+
+%── A7 ───────────────────────────────────────────────────────────────────────
+\item Write down the length of the tangent from $(7,0)$ to $x^2+y^2=36$.
+
+\ans{$\sqrt{13}$}
+\method{The radius to the point of contact is perpendicular to the tangent, so the tangent length is $\sqrt{7^2-6^2}=\sqrt{13}$.}
+\inv{For which points $P$ is the tangent length to $x^2+y^2=36$ equal to $\sqrt{13}$? Describe the locus.}
+
+%── A8 ───────────────────────────────────────────────────────────────────────
+\item Two tangents from the point $P$ to a circle of unknown radius make an angle of $60^\circ$ and $OP=6$. Write down the length of each tangent.
+
+\ans{$3\sqrt3$}
+\method{$OP$ bisects the $60^\circ$ angle, so each tangent makes $30^\circ$ with $OP$ and has length $6\cos30^\circ=3\sqrt3$.}
+\inv{Find the radius of the circle too, and the area of the kite formed by $P$, the centre and the two points of contact.}
+
+%── A9 ───────────────────────────────────────────────────────────────────────
+\item The two tangents from $P$ to the circle $x^2+y^2=25$ make an angle of $120^\circ$. Write down $OP$.
+
+\ans{$\dfrac{10\sqrt3}{3}$}
+\method{$OP$ bisects the $120^\circ$ angle, so $\sin60^\circ=\tfrac{r}{OP}$ and $OP=\tfrac{5}{\sqrt3/2}=\tfrac{10\sqrt3}{3}$.}
+\inv{As $P$ moves away from the circle, the angle between the tangents shrinks. At what distance $OP$ is it $90^\circ$?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────
+\item In the cyclic quadrilateral $ABCD$, $\angle BAC=30^\circ$. Write down $\angle BDC$.
+
+\ans{$30^\circ$}
+\method{$\angle BAC$ and $\angle BDC$ stand on the same arc $BC$, on the same side of $BC$, so they are equal.}
+\inv{If $\angle BAC=30^\circ$ and $\angle CAD=40^\circ$, find $\angle BCD$.}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ───────────────────────────────────────────────────────────────────────
+\item A tangent at $T$ makes an angle of $55^\circ$ with chord $TA$. The angle in the alternate segment subtended by $TA$ is?
+\begin{itemize}
+\item[A)] $35^\circ$
+\item[B)] $55^\circ$
+\item[C)] $110^\circ$
+\item[D)] $70^\circ$
+\end{itemize}
+
+\ans{B) $55^\circ$}
+\method{Alternate segment theorem: the angle between the tangent and the chord equals the angle in the alternate segment. Option A is its complement; option C doubles it (that is the angle at the centre).}
+\inv{The angle at the centre on chord $TA$ is $110^\circ$. Show this directly from the isosceles triangle $OTA$ and the right angle between $OT$ and the tangent.}
+
+%── B2 ───────────────────────────────────────────────────────────────────────
+\item $ABCD$ is cyclic with $\angle A=2x$ and $\angle C=3x$. Find $x$.
+\begin{itemize}
+\item[A)] $24$
+\item[B)] $30$
+\item[C)] $36$
+\item[D)] $72$
+\end{itemize}
+
+\ans{C) $36$}
+\method{Opposite angles of a cyclic quadrilateral are supplementary: $2x+3x=180^\circ$, so $x=36$.}
+\inv{Can $\angle B$ and $\angle D$ also be in the ratio $2:3$? Find them.}
+
+%── B3 ───────────────────────────────────────────────────────────────────────
+\item A {\em tangential} (circumscribed) quadrilateral $ABCD$ has $AB=5$, $BC=7$ and $CD=6$. By Pitot's theorem ($AB+CD=BC+DA$), find $DA$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $18$
+\end{itemize}
+
+\ans{A) $4$}
+\method{The tangent lengths from each vertex are equal, so opposite sides have equal sums: $AB+CD=BC+DA$, i.e.\ $5+6=7+DA$ and $DA=4$.}
+\inv{Prove Pitot's theorem by labelling the four pairs of equal tangent lengths.}
+
+%── B4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+From external $P$, tangent $PT=12$ touches a circle and secant $PAB$ meets it with $PA=8$. Find the chord $AB$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $10$
+\item[C)] $12$
+\item[D)] $18$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.1]
+\draw[speedgeom] (0,0) circle (13);
+\draw[speedgeom] (13,12) -- (-5,12); \draw[speedgeom] (13,12) -- (13,0);
+\filldraw (13,12) circle (6pt) (5,12) circle (6pt) (-5,12) circle (6pt) (13,0) circle (6pt);
+\node[above right] at (13,12) {\small $P$}; \node[above] at (5,12) {\small $A$};
+\node[above left] at (-5,12) {\small $B$}; \node[right] at (13,0) {\small $T$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $10$}
+\method{$PT^2=PA\cdot PB$ gives $144=8\cdot PB$, so $PB=18$ and $AB=18-8=10$. Option D is $PB$.}
+\inv{Find the distance from the centre to the chord $AB$ if the circle has radius $13$.}
+
+%── B5 ───────────────────────────────────────────────────────────────────────
+\item From an external point $P$, two secants meet the same circle at $P$--$A$--$B$ and $P$--$C$--$D$, with $PA=4$, $PB=18$ and $PC=6$. Write down the length of the chord $CD$.
+
+\ans{$6$}
+\method{$PA\cdot PB=PC\cdot PD$ gives $72=6\cdot PD$, so $PD=12$ and $CD=12-6=6$.}
+\inv{Where must a tangent from $P$ touch, and how long is it?}
+
+%── B6 ───────────────────────────────────────────────────────────────────────
+\item The point $P$ has $OP=6$ with respect to a circle of radius $3$. The angle between the two tangents from $P$ is?
+\begin{itemize}
+\item[A)] $30^\circ$
+\item[B)] $45^\circ$
+\item[C)] $60^\circ$
+\item[D)] $90^\circ$
+\end{itemize}
+
+\ans{C) $60^\circ$}
+\method{$OP$ bisects the angle between the tangents, and $\sin\tfrac\theta2=\tfrac{r}{OP}=\tfrac12$, so $\tfrac\theta2=30^\circ$ and $\theta=60^\circ$.}
+\inv{Show that the two points of contact and $P$ form an equilateral triangle here.}
+
+%── B7 ───────────────────────────────────────────────────────────────────────
+\item Two circles of radius $6$ each pass through the other's centre. They meet at $A$ and $B$. How long is $AB$? \textit{\small(after Primer 1.4 P16)}
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $12$
+\item[C)] $6\sqrt2$
+\item[D)] $6\sqrt3$
+\item[E)] $3\sqrt3$
+\end{itemize}
+
+\ans{D) $6\sqrt3$}
+\method{The centres $O_1$, $O_2$ and $A$ form an equilateral triangle of side $6$, and so do $O_1$, $O_2$ and $B$. $AB$ is twice the height of one of them: $2\cdot3\sqrt3=6\sqrt3$. Option E is only the height.}
+\inv{Find the area of the region inside both circles. (C3 does this for radius $2$.)}
+
+%── B8 ───────────────────────────────────────────────────────────────────────
+\item Two concentric circles have radii in the ratio $2:5$. $AC$ is a diameter of the larger circle, and the chord $BC$ of the larger circle touches the smaller circle. If $AB=8$, what is the radius of the larger circle? \textit{\small(after Primer 1.4 P13)}
+\begin{itemize}
+\item[A)] $16$
+\item[B)] $20$
+\item[C)] $8$
+\item[D)] $12$
+\item[E)] $10$
+\end{itemize}
+
+\ans{E) $10$}
+\method{$\angle ABC=90^\circ$ (angle in a semicircle). The radius $OT$ to the point of contact is perpendicular to $BC$, so $OT\parallel AB$, and since $O$ is the midpoint of $AC$, $OT=\tfrac12AB=4$. That is the small radius, so the large radius is $\tfrac52\cdot4=10$.}
+\inv{Find $BC$, and check that $T$ is its midpoint.}
+
+%── B9 ───────────────────────────────────────────────────────────────────────
+\item The line $ST$ is a chord of the larger of two concentric circles and touches the smaller one. If $ST=30$, find the area of the region between the circles. \textit{\small(after Primer 1.4 P8)}
+
+\ans{$225\pi$}
+\method{If the radii are $R$ and $r$, the point of contact is the midpoint of $ST$, so $R^2-r^2=15^2$. The area between the circles is $\pi(R^2-r^2)=225\pi$, whatever the radii are.}
+\inv{Why does the answer not depend on the radii? What happens as the smaller circle shrinks to a point?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────
+\item $AB$ is a diameter of a circle and $C$ is a point on the circle with $\angle ABC=55^\circ$. Write down $\angle BAC$.
+
+\ans{$35^\circ$}
+\method{$\angle ACB=90^\circ$ (angle in a semicircle), so $\angle BAC=180^\circ-90^\circ-55^\circ=35^\circ$.}
+\inv{Find the angle between the tangent at $A$ and the chord $AC$.}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$BC$ is a diameter of a circle and $CD$ is the tangent at $C$. The line $BD$ meets the circle again at $A$. If $AB=7$ and $AD=9$, what is the radius of the circle? \textit{\small(after Primer 1.4 P40)}
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $4\sqrt7$
+\item[C)] $2\sqrt7$
+\item[D)] $8$
+\item[E)] $6$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.21]
+\draw[speedgeom] (0,0) circle (5.29);
+\draw[speedgeom] (0,5.29) -- (0,-5.29) -- (12,-5.29) -- cycle;
+\draw (0,-4.6) -- (0.7,-4.6) -- (0.7,-5.29);
+\node[above] at (0,5.29) {\small $B$}; \node[below] at (0,-5.29) {\small $C$};
+\node[below] at (12,-5.29) {\small $D$}; \node[above right] at (5.25,0.66) {\small $A$};
+\filldraw (5.25,0.66) circle (4pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $2\sqrt7$}
+\method{Tangent--secant from $D$: $DC^2=DA\cdot DB=9\cdot16=144$, so $DC=12$. The tangent is perpendicular to the diameter, so $BC^2=BD^2-DC^2=256-144=112$, $BC=4\sqrt7$ and the radius is $2\sqrt7$. Option A is $DC$; option B is the diameter.}
+\inv{Find $AC$ in two ways: from triangle $ABC$ (right-angled at $A$) and from triangle $ACD$.}
+
+%── C2 ───────────────────────────────────────────────────────────────────────
+\item A regular octagon is inscribed in a circle with centre $O$ and radius $2$. A point $X$ inside the circle is chosen so that the sum of the squares of its distances to the eight vertices is $40$. What is $OX$? \textit{\small(after SMC 2025 Q21)}
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $\sqrt5$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $\sqrt3$
+\end{itemize}
+
+\ans{A) $1$}
+\method{Put $O$ at the origin and let $OX=d$. For a vertex $V$, $XV^2=|X|^2+|V|^2-2\,X\cdot V=d^2+4-2\,X\cdot V$. The eight vertex vectors sum to zero, so the dot products cancel and the sum is $8(d^2+4)$ for \emph{every} $X$ at distance $d$ from $O$. Then $8(d^2+4)=40$ gives $d^2=1$. Option B drops the $|V|^2=4$ terms; option C assumes $X$ is on the circle (that sum would be $64$); options D and E subtract the radius $2$ instead of $4$.}
+\inv{The set of points with a given sum is a circle centred at $O$. What is the smallest possible sum, and where is $X$ then? Does the answer change for a square with the same circumcircle?}
+
+%── C3 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Two circles of radius $2$ each pass through the other's centre. What is the area of the shaded region common to both circles? \textit{\small(after Primer 1.4 P24)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{4\pi}{3}-\sqrt3$
+\item[B)] $\dfrac{8\pi}{3}-\sqrt3$
+\item[C)] $\dfrac{4\pi}{3}+2\sqrt3$
+\item[D)] $\dfrac{8\pi}{3}-2\sqrt3$
+\item[E)] $2\pi-2\sqrt3$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.5]
+\begin{scope}\clip (0,0) circle (2); \fill[gray!25] (2,0) circle (2); \end{scope}
+\draw[speedgeom] (0,0) circle (2); \draw[speedgeom] (2,0) circle (2);
+\filldraw (0,0) circle (1.5pt) (2,0) circle (1.5pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $\tfrac{8\pi}{3}-2\sqrt3$}
+\method{The common chord and the two centres form two equilateral triangles, so each centre sees the chord at $120^\circ$. The region is two segments, each a $120^\circ$ sector minus a triangle: $\tfrac13\pi\cdot4-\tfrac12\cdot4\sin120^\circ=\tfrac{4\pi}{3}-\sqrt3$. Two of them: $\tfrac{8\pi}{3}-2\sqrt3$. Option A is one segment.}
+\inv{What fraction of one circle is the common region? Show that it is the same for every radius.}
+
+%── C4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A circle of radius $1$ touches both arms of a right angle. A larger circle touches both arms and the first circle. What is the radius of the larger circle? \textit{\small(after Primer 1.4 P35)}
+\begin{itemize}
+\item[A)] $1+\sqrt2$
+\item[B)] $2+\sqrt2$
+\item[C)] $2\sqrt2$
+\item[D)] $3$
+\item[E)] $3+2\sqrt2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.27]
+\draw[speedgeom] (0,12) -- (0,0) -- (12,0);
+\draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (5.83,5.83) circle (5.83);
+\draw (0,0.5) -- (0.5,0.5) -- (0.5,0);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $3+2\sqrt2$}
+\method{Both centres lie on the bisector of the angle, at distances $\sqrt2$ and $R\sqrt2$ from the vertex. The circles touch, so $R\sqrt2-\sqrt2=R+1$, giving $R=\tfrac{\sqrt2+1}{\sqrt2-1}=(\sqrt2+1)^2=3+2\sqrt2$.}
+\inv{For an angle $2\alpha$ show the ratio of consecutive radii is $\tfrac{1+\sin\alpha}{1-\sin\alpha}$. For which angle is it exactly $3$?}
+
+%── C5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. What fraction of the ring between the two circles is covered by the discs? \textit{\small(after SMC 2016 Q21)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac34$
+\item[B)] $\dfrac23$
+\item[C)] $\dfrac79$
+\item[D)] $\dfrac12$
+\item[E)] $\dfrac35$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.33]
+\draw[speedgeom] (0,0) circle (1); \draw[speedgeom] (0,0) circle (3);
+\foreach \a in {0,60,...,300} \draw[speedgeom, fill=gray!20] (\a:2) circle (1);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $\tfrac34$}
+\method{Scale so the inner circle has radius $1$ and let the discs have radius $\rho$. Their centres lie on a circle of radius $1+\rho$, and neighbouring centres are $2\rho$ apart, which is the side of a regular hexagon inscribed in that circle: $2\rho=1+\rho$. So $\rho=1$ and the outer radius is $3$. The discs cover $6\pi$ of a ring of area $9\pi-\pi=8\pi$: $\tfrac68=\tfrac34$. Option B divides by the whole outer disc; C also counts the inner disc as covered; D takes the ring as circumference $\times$ width ($2\pi\cdot3\cdot2$); E adds the two circle areas.}
+\inv{Repeat with $n$ discs: show $\rho=\tfrac{s}{1-s}$ with $s=\sin(180^\circ/n)$, and that the covered fraction is $\tfrac{n\rho}{4(1+\rho)}$. What does it tend to as $n\to\infty$?}
+
+%── C6 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A circle of radius $1$ touches three sides of a rectangle of width $2$ and length $L$. A diagonal of the rectangle cuts the circle into two arcs, and the smaller arc is exactly a quarter of the circle. What is $L$? \textit{\small(after SMC 2017 Q19)}
+\begin{itemize}
+\item[A)] $4-2\sqrt3$
+\item[B)] $4+2\sqrt3$
+\item[C)] $2+2\sqrt3$
+\item[D)] $2$
+\item[E)] $2+2\sqrt2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.4]
+\draw[speedgeom] (0,0) rectangle (7.464,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (7.464,2);
+\node[left] at (0,1) {\scriptsize $2$}; \node[below] at (3.73,0) {\scriptsize $L$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $4+2\sqrt3$}
+\method{A quarter arc means the chord subtends $90^\circ$ at the centre, so the diagonal is $\tfrac{1}{\sqrt2}$ from the centre. Put the rectangle at $0\le x\le L$, $0\le y\le2$; the circle has centre $(1,1)$ and the diagonal is $2x-Ly=0$. Its distance from the centre is $\tfrac{|2-L|}{\sqrt{4+L^2}}$, so $2(L-2)^2=4+L^2$, i.e.\ $L^2-8L+4=0$ and $L=4\pm2\sqrt3$. The circle needs $L\ge2$, which rejects $4-2\sqrt3$ (option A). Option C is $L-2$, the part of the rectangle beyond the circle; option D measures the distance from the corner instead of from the centre.}
+\inv{For which $L$ does the diagonal cut off a sixth of the circle? Show that no rectangle makes the diagonal a tangent. Which rectangle makes it a diameter?}
+
+%── C7 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+All four sides of an isosceles trapezium touch a circle of radius $6$, and the perimeter of the trapezium is $52$. What is the difference between the lengths of its parallel sides? \textit{\small(after SMC 2012 Q20)}
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $13$
+\item[C)] $26$
+\item[D)] $10$
+\item[E)] $5$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.15]
+\draw[speedgeom] (0,0) -- (18,0) -- (13,12) -- (5,12) -- cycle;
+\draw[speedgeom] (9,6) circle (6);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $10$}
+\method{Let the parallel sides be $a<b$ and each slanted side $\ell$. Pitot (equal sums of opposite sides) gives $a+b=2\ell$, so the perimeter $2(a+b)=52$ gives $a+b=26$ and $\ell=13$. The circle touches both parallel sides, so the height is the diameter $12$. Each slanted side overhangs by $\tfrac{b-a}{2}=\sqrt{13^2-12^2}=5$, so $b-a=10$ (the sides are $8$ and $18$). Option E is the overhang, option A the height, option B a slanted side.}
+\inv{Show that for any isosceles trapezium with an incircle, the radius is $\tfrac12\sqrt{ab}$. Check it here, and use it to find the sides from the radius and the perimeter without Pythagoras.}
+
+%── C8 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$, $CD=7$ and $AD=BC$. What is the length $AD$? \textit{\small(after Primer 1.4 P33)}
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $20$
+\item[C)] $16$
+\item[D)] $5\sqrt7$
+\item[E)] $15$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.12]
+\draw[speedgeom] (0,0) circle (12.5);
+\draw[speedgeom] (-12.5,0) -- (12.5,0) -- (3.5,12) -- (-3.5,12) -- cycle;
+\node[left] at (-12.5,0) {\small $A$}; \node[right] at (12.5,0) {\small $B$};
+\node[above right] at (3.5,12) {\small $C$}; \node[above left] at (-3.5,12) {\small $D$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $15$}
+\method{Let $AD=BC=x$. $\angle ADB=\angle ACB=90^\circ$ (angles in a semicircle), so $AC=BD$ and $AC^2=25^2-x^2$. Ptolemy's theorem for $ABCD$: $AC\cdot BD=AB\cdot CD+AD\cdot BC$, i.e.\ $625-x^2=175+x^2$, so $x^2=225$ and $x=15$. Option B is the diagonal $AC$; option A is the height of the trapezium; option C averages the parallel sides; option D takes $x^2=AB\cdot CD$.}
+\inv{Keep $AB=25$ and let $CD=c$. Show that $AD^2=\tfrac{25(25-c)}{2}$, and find the $c$ for which $ABCD$ is half of a regular hexagon.}
+
+\end{enumerate}
+
+\clearpage
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Three circles each touch both arms $QP$ and $QR$ of an angle, and each touches the next. The largest radius is $4$ times the smallest. What is $\cos\angle PQR$? \textit{\small(after SMC 2011 Q24)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac79$
+\item[B)] $\dfrac13$
+\item[C)] $\dfrac23$
+\item[D)] $\dfrac89$
+\item[E)] $\dfrac{4\sqrt2}{9}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.19]
+\draw[speedgeom] (0,0) -- (17,6.01); \draw[speedgeom] (0,0) -- (17,-6.01);
+\draw[speedgeom] (3,0) circle (1); \draw[speedgeom] (6,0) circle (2); \draw[speedgeom] (12,0) circle (4);
+\node[left] at (0,0) {\small $Q$}; \node[above] at (17,6.01) {\small $P$}; \node[below] at (17,-6.01) {\small $R$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $\tfrac79$}
+\method{The centres lie on the bisector; a circle whose centre is $d$ from $Q$ has radius $d\sin\alpha$, where $2\alpha=\angle PQR$. Consecutive circles touch, so their radii are in a constant ratio $k$ with $\tfrac{k-1}{k+1}=\sin\alpha$. Three circles give ratio $k^2=4$, so $k=2$ and $\sin\alpha=\tfrac13$. Then $\cos2\alpha=1-2\sin^2\alpha=\tfrac79$. Option B is $\sin\alpha$; option E is $\sin2\alpha$.}
+\inv{Continue the chain towards $Q$ for ever. Show that the radii form a geometric sequence, and find the total area of all the new circles in terms of the smallest original radius $r$.}
+
+%── D2 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$OAB$ is a quarter circle with radius $4$. A semicircle is drawn on $OA$ as diameter, inside the quarter circle. A circle touches $OB$, the semicircle and the arc $AB$. What is its radius? \textit{\small(after SMC 2014 Q19)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac43$
+\item[B)] $1$
+\item[C)] $\dfrac23$
+\item[D)] $\sqrt2$
+\item[E)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[speedgeom] (0,4) -- (0,0) -- (4,0); \draw[speedgeom] (4,0) arc (0:90:4);
+\draw[speedgeom] (4,0) arc (0:180:2); \draw[speedgeom, fill=gray!20] (1,2.828) circle (1);
+\node[below left] at (0,0) {\small $O$}; \node[below] at (4,0) {\small $A$}; \node[left] at (0,4) {\small $B$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $1$}
+\method{Put $O$ at the origin with $OA$ along the $x$-axis. The circle touches $OB$ (the $y$-axis), so its centre is $(r,y)$. It touches the semicircle (centre $(2,0)$, radius $2$) externally: $(r-2)^2+y^2=(r+2)^2$, so $y^2=8r$. It touches the arc internally: $r^2+y^2=(4-r)^2$, so $y^2=16-8r$. Hence $8r=16-8r$ and $r=1$.}
+\inv{Replace the quarter circle's radius $4$ by $2a$ and the semicircle by one of radius $a$. Show that the answer is always $\tfrac a2$.}
+
+%── D3 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{\linewidth}
+A triangle is inscribed in a circle of radius $2$. One of its angles is $45^\circ$ and its area is $1+\sqrt3$. What is its largest angle? \textit{\small(after SMC 2021 Q22)}
+\begin{itemize}
+\item[A)] $90^\circ$
+\item[B)] $120^\circ$
+\item[C)] $105^\circ$
+\item[D)] $135^\circ$
+\item[E)] $75^\circ$
+\end{itemize}
+\end{minipage}
+
+\ans{C) $105^\circ$}
+\method{By the extended sine rule each side is $2R\sin(\text{opposite angle})$, so the area is $\tfrac12ab\sin C=2R^2\sin A\sin B\sin C=8\sin45^\circ\sin B\sin C$. With $B+C=135^\circ$, product-to-sum gives $\sin B\sin C=\tfrac12\bigl(\cos(B-C)+\tfrac{\sqrt2}{2}\bigr)$. Setting the area to $1+\sqrt3$: $\cos(B-C)=\tfrac{\sqrt3-1}{2\sqrt2}=\cos75^\circ$, so $B-C=\pm75^\circ$ and the angles are $30^\circ$, $45^\circ$, $105^\circ$. Option E is $B-C$; option D is $B+C$; option A assumes a right angle (that triangle has area $4$).}
+\inv{For a $45^\circ$ angle in a circle of radius $2$, which area values are possible? Show the largest is $2+2\sqrt2$, reached when the triangle is isosceles.}
+
+%── D4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Two circles of radius $5$ have centres $2$ apart. Let $S$ be the largest square that fits in the region common to both circles with its sides parallel to the line of centres, and $T$ the largest that fits with its diagonals along and perpendicular to that line. What is the ratio of the area of $S$ to the area of $T$? \textit{\small(after SMC 2019 Q25)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $1$
+\item[B)] $\dfrac{9}{16}$
+\item[C)] $\dfrac89$
+\item[D)] $\dfrac98$
+\item[E)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.24]
+\begin{scope}\clip (-1,0) circle (5); \fill[gray!12] (1,0) circle (5); \end{scope}
+\draw[speedgeom] (-1,0) circle (5); \draw[speedgeom] (1,0) circle (5);
+\filldraw (-1,0) circle (3pt) (1,0) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $\tfrac98$}
+\method{Put the centres at $(\pm1,0)$; the region is $8$ wide and $4\sqrt6$ tall. For $S$, the corner $(\tfrac s2,\tfrac s2)$ lies on the circle centred at $(-1,0)$: $(\tfrac s2+1)^2+\tfrac{s^2}{4}=25$, so $s^2+2s-48=0$, $s=6$ and the area is $36$. For $T$, the vertices are $(\pm a,0)$ and $(0,\pm a)$. The side vertices need $a+1\le5$ and the top ones $a^2+1\le25$; the first binds, so $a=4$, the diagonal is $8$ and the area is $\tfrac12\cdot8^2=32$. The ratio is $\tfrac{36}{32}=\tfrac98$. Option E lets the top vertex bind ($a^2=24$, area $48$); option B takes $8$ as the side of $T$; option C is upside down.}
+\inv{Tilt the square by an angle $\theta$ between the two cases. Is the largest square always at $\theta=0$? Find the largest rectangle with sides parallel to the line of centres.}
+
+%── D5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a cyclic quadrilateral whose diagonals are perpendicular and meet at $E$. The line through $E$ perpendicular to $AB$ meets $CD$ at $F$. Prove that $F$ is the midpoint of $CD$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.42]
+\draw[speedgeom] (1,-1) circle (3.162);
+\draw[speedgeom] (4,0) -- (0,2) -- (-2,0) -- (0,-4) -- cycle;
+\draw[speedaux] (4,0) -- (-2,0) (0,2) -- (0,-4);
+\draw[speedgeom] (0.8,1.6) -- (-1,-2);
+\node[right] at (4,0) {\small $A$}; \node[above] at (0,2) {\small $B$}; \node[left] at (-2,0) {\small $C$};
+\node[below] at (0,-4) {\small $D$}; \node[above left] at (0,0) {\scriptsize $E$}; \node[left] at (-1,-2) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{Proof: see method}
+\method{Let the line meet $AB$ at $H$, so $EH\perp AB$. In triangle $AEB$, right-angled at $E$, the altitude $EH$ gives $\angle HEA=90^\circ-\angle EAB=\angle ABE$. Now $\angle ABE=\angle ABD=\angle ACD$ (angles on the arc $AD$), and $\angle HEA=\angle FEC$ (vertically opposite). So $\angle FEC=\angle FCE$ and $FE=FC$. Triangle $CED$ is right-angled at $E$, so $\angle FED=90^\circ-\angle FEC=90^\circ-\angle FCE=\angle FDE$, and $FE=FD$. Hence $FC=FE=FD$: $F$ is the midpoint of $CD$. $\blacksquare$}
+\inv{This is Brahmagupta's theorem. Use it to show that the distance from the circle's centre to $AB$ is half of $CD$.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Angles on an arc.} The angle at the centre is twice the angle at the circumference; angles on the same arc are equal; opposite angles of a cyclic quadrilateral sum to $180^\circ$. \seealso{A1, A2, A3, A10, B2, B10}
+  \item \textbf{Tangent $\perp$ radius.} It gives the right angle behind tangent lengths, the angle between tangents and the alternate segment theorem. \seealso{A4, A7, A8, A9, B1, B6}
+  \item \textbf{Power of a point.} $PA\cdot PB$ is the same for every line through $P$ that meets the circle, and equals $PT^2$ for a tangent. \seealso{A5, A6, B4, B5, B9, C1}
+  \item \textbf{Touching circles: join the centres.} The distance is $r_1+r_2$ (or $|r_1-r_2|$), and circles in an angle have centres on its bisector with radius proportional to distance. \seealso{C4, C5, D1, D2}
+  \item \textbf{Chords, segments and lenses.} Use the perpendicular from the centre to a chord, sector minus triangle for a segment, and Ptolemy for cyclic quadrilaterals. \seealso{B7, B8, C3, C6, C8, D4}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Quoting the angle at the centre for the angle at the circumference.} Halve it (or double it) once, in the right direction. \seealso{A1, B1}
+  \item \textbf{Stopping at the tangent length.} In C1 the tangent is only the first step; the question asks for the radius. \seealso{B4, C1}
+  \item \textbf{Answering an intermediate length.} $12$ in C7 is the height, not the difference of the sides; $4\sqrt7$ in C1 is the diameter, not the radius. \seealso{C1, C7, B8}
+  \item \textbf{Mixing up external and internal tangency.} Circles touching externally have centres $r_1+r_2$ apart; a circle touching a larger one from inside has centres $R-r$ apart, as with the arc in D2 and the outer circle in C5. \seealso{C4, C5, D2}
+  \item \textbf{Counting one segment for a lens, or trusting the first root.} Check which constraint actually binds: in D4 the side vertices of the tilted square reach the boundary first, and in C6 the smaller root gives a rectangle too short to hold the circle. \seealso{C3, D4, C6}
+\end{enumerate}
+
+\SpeedClosing{``With circles, draw what you cannot see: the centres, the radii to the points of contact, and the line joining two centres.''}
+
+\end{document}

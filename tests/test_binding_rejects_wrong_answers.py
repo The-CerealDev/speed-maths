@@ -44,7 +44,7 @@ from tools.answer_binding import (  # noqa: E402
 )
 from tools.latex_bridge import extract_tex_answers, parse_tex_math  # noqa: E402
 
-PILLARS = ["algebra", "combinatorics", "logic", "number-theory", "sequences"]
+PILLARS = ["algebra", "combinatorics", "logic", "number-theory", "sequences", "geometry"]
 
 
 def _every_answer():

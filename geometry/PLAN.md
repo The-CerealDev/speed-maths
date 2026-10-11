@@ -26,9 +26,9 @@ Before drafting questions, consult this territory boundary to ensure Geometry do
 | Coordinate lines, perpendicular bisectors, distance formula | **Geometry** | ✅ (Day 1 signature move) |
 | Circle equations, tangents, circle-line discriminant vs distance | **Geometry** | ✅ (Day 2 signature move) |
 | Multi-circle systems, radical axis by subtraction, common chords | **Geometry** | ✅ (Day 3 signature move) |
-| Triangle centers (centroid, incenter, orthocenter, circumcenter) | **Geometry** | ✅ (Day 4 signature move) |
-| Power of a Point ($PT^2 = PA \cdot PB$), alternate segment theorem | **Geometry** | ✅ (Day 5 signature move) |
-| Cyclic quadrilaterals, Ptolemy's theorem, Brahmagupta, Pitot | **Geometry** | ✅ (Day 5–6 signature move) |
+| Polygon angle sums, angle chasing, similarity and area ratios | **Geometry** | ✅ (Day 4 signature move) |
+| Circle theorems, power of a point, touching circles, Ptolemy, Pitot | **Geometry** | ✅ (Day 5 signature move) |
+| Solids: volume, surface area, nets, cross-sections, Euler's formula | **Geometry** | ✅ (Day 6 signature move) |
 | Loci, Apollonius circles, geometric proof flaw diagnosis | **Geometry** | ✅ (Day 7 signature move) |
 
 ---
@@ -45,7 +45,7 @@ Grounded directly in [`research/INDEX-tmua-geometry.md`](../research/INDEX-tmua-
   - Perpendicular distance from $(x_0, y_0)$ to $ax+by+c=0$: $d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
   - **Shoelace Formula** for triangle and quadrilateral areas without altitude construction.
   - Linear intercept conditionals and collinearity tests.
-- **Anchors from Corpus:** TMUA 2016 P1 Q8, 2021 P1 Q7, Hercules Mock P1 Q7, Tyler Tutoring pack 04.
+- **Anchors (adapted, credited on the sheet):** TMUA Specimen P1 Q3, 2017 P1 Q3, 2023 P1 Q5.
 - **Speed Invariant:** Use vector cross-product / Shoelace formula for area in $\le 15$ seconds.
 
 ### Day 2: Circle Equations, Tangents & Intersections
@@ -55,7 +55,7 @@ Grounded directly in [`research/INDEX-tmua-geometry.md`](../research/INDEX-tmua-
   - Tangent to circle at $(x_1, y_1)$ via line perpendicular to radius or split-variable identity $x x_1 + y y_1 + g(x+x_1) + f(y+y_1) + c = 0$.
   - Line-circle intersection via **perpendicular distance test** ($d < r, d = r, d > r$) instead of quadratic substitution.
   - Chords of circles: perpendicular from center bisects chord; half-chord length $\sqrt{r^2 - d^2}$.
-- **Anchors from Corpus:** TMUA Specimen 1 Q8, 2017 P1 Q6, 2018 P1 Q7, 2020 P1 Q7, Tyler Tutoring pack 09.
+- **Anchors (adapted, credited on the sheet):** TMUA Specimen P1 Q9, 2017 P1 Q6, 2017 P1 Q9, 2018 P1 Q3, 2022 P1 Q2, 2022 P1 Q14.
 - **Speed Invariant:** Never substitute $y = mx+c$ into a circle equation to check for tangency — always compare the perpendicular distance from the center to $r$.
 
 ### Day 3: Multi-Circle Systems & Radical Axes
@@ -66,52 +66,47 @@ Grounded directly in [`research/INDEX-tmua-geometry.md`](../research/INDEX-tmua-
   - Common chord length via radical axis and distance from center.
   - Orthogonal circles: $d^2 = r_1^2 + r_2^2$ or $2g_1 g_2 + 2f_1 f_2 = c_1 + c_2$.
   - Tangency to both coordinate axes ($r = |x_0| = |y_0|$).
-- **Anchors from Corpus:** TMUA 2016 P2 Q9, 2019 P1 Q7, JZMaths Mock 1 Q5, Vantage Mock P2 Q10, Oxbridge P1 Q8, BMO1 2017 Q4.
+- **Anchors (adapted, credited on the sheet):** TMUA 2019 P1 Q6, 2020 P1 Q16, 2021 P1 Q1, 2021 P2 Q15; Primer 1.4 P47.
 - **Speed Invariant:** Subtracting two circle equations instantly gives the common secant/chord in 1 line without solving for the intersection coordinates.
 
-### Day 4: Triangle Centers & Euclidean Relations
-- **Theme:** Centroids, incenters, circumcenters, orthocenters, and area formulas.
+### Day 4: Polygons & Angle Chasing
+- **Theme:** SMC-style Euclid: the angle and area facts every later day leans on.
 - **Core Topics:**
-  - Triangle Centroid: $G = \left(\frac{x_1+x_2+x_3}{3}, \frac{y_1+y_2+y_3}{3}\right)$, median 2:1 division ratio.
-  - Inradius formula: $A = r s$ (where $s = \frac{a+b+c}{2}$).
-  - Right-angled triangle inradius shortcut: $r = \frac{a+b-c}{2}$.
-  - Circumradius formula: $R = \frac{abc}{4A}$, Thales' theorem (right angle in semicircle).
-  - **Angle Bisector Theorem**: $BD/DC = AB/AC$.
-  - Apollonius' Theorem for medians: $b^2 + c^2 = 2m_a^2 + 2(a/2)^2$.
-- **Anchors from Corpus:** TMUA 2016 P2 Q16, 2020 P2 Q10, 2021 P2 Q9, 2022 P2 Q5, 2023 P1 Q7, Beyond Horizon P1 Q16.
-- **Speed Invariant:** Compute the inradius of a right triangle in 2 seconds via $(a+b-c)/2$.
+  - Interior and exterior angle sums of polygons; regular polygon angles.
+  - Angle chasing with parallels, isosceles triangles and folded paper.
+  - Similar triangles and area ratios (shared heights, $k^2$ scaling).
+  - Triangles as the preview toolkit: inradius, angle bisector ratios.
+- **Anchors (adapted, credited on the sheet):** Primer 1.4 P11, P48; SMC Q18–25 style throughout.
+- **Section D:** D5 is a written angle chase or proof.
 
-### Day 5: Circle Theorems & Power of a Point
-- **Theme:** Classical Euclidean circle geometry and projective metric invariants.
+### Day 5: Circles, Arcs & Tangency
+- **Theme:** Circle theorems, power of a point and touching circles.
 - **Core Topics:**
-  - Angle at center is twice angle at circumference; angles in the same segment.
-  - **Alternate Segment Theorem**: Angle between tangent and chord equals angle in alternate segment.
-  - **Power of a Point Theorem**:
-    - Intersecting chords: $PA \cdot PB = PC \cdot PD$.
-    - Tangent-secant: $PT^2 = PA \cdot PB = d^2 - r^2$.
-  - Cyclic quadrilaterals: Opposite angles sum to $180^\circ$.
-  - **Ptolemy's Theorem**: $AC \cdot BD = AB \cdot CD + BC \cdot AD$.
-- **Anchors from Corpus:** TMUA Specimen 2 Q9, 2017 P2 Q15, 2023 P2 Q9, BMO1 2011 Q2, Tyler Tutoring pack 09.
-- **Speed Invariant:** Use Power of a Point to equate chord products instantly instead of constructing similar triangles from scratch.
+  - Angle at the centre, angles on the same arc, cyclic quadrilaterals, alternate segment.
+  - **Power of a Point**: $PA \cdot PB = PC \cdot PD$; $PT^2 = PA \cdot PB = d^2 - r^2$.
+  - Touching circles (join the centres), circles in an angle, lenses and segments.
+  - Ptolemy and Pitot on cyclic and tangential quadrilaterals.
+- **Anchors (adapted, credited on the sheet):** Primer 1.4 P8, P13, P16, P24, P33, P35, P40; SMC 2011 Q24, 2012 Q20, 2014 Q19, 2016 Q21, 2017 Q19, 2019 Q25, 2021 Q22, 2025 Q21.
+- **Section D:** D5 is a proof (Brahmagupta's theorem).
 
-### Day 6: BMO1 Capstone I — Written Euclidean & Cyclic Proofs
-- **Theme:** Olympiad-level geometric reasoning and synthetic proof constructions.
+### Day 6: Solids & Spatial Reasoning
+- **Theme:** Three-dimensional SMC geometry.
 - **Core Topics:**
-  - Perpendicular diagonals in cyclic quadrilaterals (**Brahmagupta's Theorem**).
-  - Tangent quadrilaterals (**Pitot's Theorem**: $AB + CD = BC + DA$).
-  - Inscribed and circumscribed circle interactions; contact triangles.
-  - Orthocenter and reflections in sides lying on the circumcircle.
-  - Proof-heavy structure in Section D (written proofs rather than multiple-choice options).
-- **Anchors from Corpus:** BMO1 2010 Q4, 2013 Q4, 2015 Q3, 2020 Q3, 2023 Q4.
+  - Volume and surface area of prisms, pyramids, cones, spheres and frustums; similar solids.
+  - Nets, painted cubes and Euler's formula $V - E + F = 2$.
+  - Cross-sections of cubes, solids inscribed in spheres and cones.
+- **Anchors (adapted, credited on the sheet):** SMC 2011 Q25, 2014 Q18, 2016 Q23, 2019 Q23, 2022 Q25, 2023 Q16; Primer 1.4 P23, P28, 8.8 P12, 9.1 P41; community TMUA mocks.
+- **Section D:** D5 is a proof (a tetrahedron with equal opposite edges has acute faces).
 
 ### Day 7: TMUA 9.0 Capstone Synthesis & Geometric Logic
-- **Theme:** Full synthesis across all 6 skills under TMUA Paper 1 and Paper 2 conditions.
+- **Theme:** TMUA synthesis across the week under Paper 1 and Paper 2 conditions.
 - **Core Topics:**
   - **Loci & Circles of Apollonius**: Locus of points with ratio of distances $PA/PB = k$ ($k \neq 1$ yields a circle).
   - Geometry-logic conditionals: Necessary vs sufficient conditions for geometric properties (concyclicity, tangency, parallelism).
   - Spot-the-flaw in geometric proofs (e.g. convexity assumptions, betweenness fallacies, extraneous intersection branches).
   - Mixed multi-step challenge problems combining coordinates, circle theorems, and area optimization.
-- **Anchors from Corpus:** TMUA 2018 P2 Q6, 2019 P2 Q14, 2022 P1 Q7, BMO1 2017 Q4.
+- **Anchors (adapted, credited on the sheet):** TMUA 2018 P1 Q19, 2020 P2 Q7, 2022 P2 Q11; tmua.fyi Challenge Mock 1 P1 Q14.
+- **After this pillar:** true BMO1 geometry belongs in sheets 8+.
 
 ---
 
@@ -124,7 +119,7 @@ Each day must contain **exactly 33 questions**:
 | **Section A** | Rapid Recognition | **10** (A1–A10) | **100% Non-MCQ** (Exact values, coordinates, equations). Never multiple-choice. | 2:30 |
 | **Section B** | Manipulation Drills | **10** (B1–B10) | **~7/10 MCQ**, rest short structured response. | 8:00 |
 | **Section C** | Substitution & Structure | **8** (C1–C8) | **100% MCQ** (Options A–D or A–E). High-speed TMUA/SMC standard. | 10:00 |
-| **Section D** | Challenge Ramp | **5** (D1–D5) | Days 1–5: MCQ-leaning. Days 6–7: Proof-heavy (BMO1 style). | 15:00 |
+| **Section D** | Challenge Ramp | **5** (D1–D5) | Days 1–3: MCQ. Days 4–7: D5 is a written proof or angle chase. | 15:00 |
 
 ---
 
@@ -134,7 +129,7 @@ Starting on **Day 2**, each sheet's Section A and B must include **1–2 graded 
 - Day 2 folds in 1–2 Day 1 linear/distance techniques.
 - Day 3 folds in 1–2 Day 1–2 circle completing-the-square/perpendicular distance tests.
 - Day 4 folds in 1–2 Day 2–3 circle chord/tangent mechanics.
-- Day 5 folds in 1–2 Day 4 inradius/circumradius theorems.
+- Day 5 folds in 1–2 Day 4 angle-chasing and similarity moves.
 - Days 6–7 synthesize the entire week's toolkit.
 
 ---

@@ -1,0 +1,635 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../geometry-preamble}
+\SpeedHeader{Geometry}{4}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#4 --- Answers \& Investigations}{Henry Koduthore}
+\SpeedMeta{Polygons and angle chasing}{regular polygon angles, diagonals, star polygons, tilings, angle chasing through parallels and isosceles triangles, similar triangles and area ratios}
+\noindent\textit{New toolkit today: Exterior angles sum to $360^\circ$ $\cdot$ Isosceles chains $\cdot$ Regular polygons as equal triangles $\cdot$ Similar triangles $\cdot$ Area ratios.}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ───────────────────────────────────────────────────────────────────────
+\item Write down the size of each interior angle of a regular $12$-sided polygon.
+
+\ans{$150^\circ$}
+\method{Each exterior angle is $\tfrac{360^\circ}{12}=30^\circ$, so each interior angle is $180^\circ-30^\circ=150^\circ$.}
+\inv{Which regular polygons have an interior angle that is a whole number of degrees? (There are $22$ of them; the exterior angle must divide $360^\circ$.)}
+
+%── A2 ───────────────────────────────────────────────────────────────────────
+\item An isosceles triangle has apex angle $40^\circ$. Write down each base angle.
+
+\ans{$70^\circ$}
+\method{The base angles are equal and sum to $180^\circ-40^\circ=140^\circ$, so each is $70^\circ$.}
+\inv{An isosceles triangle has one angle of $40^\circ$, but you are not told which. List every possibility for the other two angles.}
+
+%── A3 ───────────────────────────────────────────────────────────────────────
+\item The incircle of the right triangle with legs $3$ and $4$ touches all three sides. What is the inradius?
+
+\ans{$1$}
+\method{The incircle is tangent to all three sides. For a right triangle with legs $3,4$ the hypotenuse is $5$ and $r=\frac{a+b-c}{2}=\frac{3+4-5}{2}=1$.}
+\inv{Show that $r=\tfrac{a+b-c}{2}$ for every right-angled triangle, by marking the equal tangent lengths from each vertex to the incircle.}
+
+%── A4 ───────────────────────────────────────────────────────────────────────
+\item Each interior angle of a regular polygon is $162^\circ$. Write down the number of sides.
+
+\ans{$20$}
+\method{Each exterior angle is $180^\circ-162^\circ=18^\circ$, and the exterior angles sum to $360^\circ$, so there are $\tfrac{360}{18}=20$ sides.}
+\inv{Can a regular polygon have interior angle $155^\circ$? Explain using the exterior angle.}
+
+%── A5 ───────────────────────────────────────────────────────────────────────
+\item Write down the number of diagonals of a decagon.
+
+\ans{$35$}
+\method{Each of the $10$ vertices joins to $10-3=7$ others by a diagonal (not itself or its two neighbours), and each diagonal is counted twice: $\tfrac{10\cdot7}{2}=35$.}
+\inv{Which polygon has exactly as many diagonals as sides?}
+
+%── A6 ───────────────────────────────────────────────────────────────────────
+\item The angle bisector from $A$ of triangle $ABC$ meets $BC$ at $D$, with $AB:AC = 2:3$ and $BC=10$. Write down $DC$.
+
+\ans{$6$}
+\method{The angle bisector theorem: $BD:DC=AB:AC=2:3$ with $BD+DC=10$, so $DC=\frac{3}{2+3}\cdot 10=6$.}
+\inv{Prove the angle bisector theorem by comparing the areas of triangles $ABD$ and $ACD$ in two ways.}
+
+%── A7 ───────────────────────────────────────────────────────────────────────
+\item The isosceles triangle with sides $5$, $5$, $6$ has base $6$. Write down the median from the apex to the base.
+
+\ans{$4$}
+\method{The median to the base is the altitude: $\sqrt{5^2-3^2}=\sqrt{16}=4$.}
+\inv{Find the median from one of the base vertices of the same triangle. (Use Apollonius: $m^2=\tfrac{2b^2+2c^2-a^2}{4}$.)}
+
+%── A8 ───────────────────────────────────────────────────────────────────────
+\item A median of a triangle has length $12$. How far is the centroid from the vertex at the end of that median?
+
+\ans{$8$}
+\method{The centroid is $\frac{2}{3}$ of the way from the vertex, so the vertex-to-centroid distance is $\frac23\cdot 12=8$.}
+\inv{The three medians split a triangle into six small triangles. Show that all six have the same area.}
+
+%── A9 ───────────────────────────────────────────────────────────────────────
+\item Two similar triangles have corresponding sides in the ratio $2:3$. The smaller has area $8$. Write down the area of the larger.
+
+\ans{$18$}
+\method{Areas scale as the square of the length ratio: $8\cdot\left(\tfrac32\right)^2=18$.}
+\inv{Two similar solids have lengths in the ratio $2:3$. What is the ratio of their volumes, and of their surface areas?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────
+\item Write down the area of a regular hexagon with side $2$.
+
+\ans{$6\sqrt3$}
+\method{A regular hexagon is six equilateral triangles of side $2$, each of area $\tfrac{\sqrt3}{4}\cdot4=\sqrt3$. Total $6\sqrt3$.}
+\inv{Show that a regular hexagon of side $s$ has area exactly $\tfrac32$ times that of the equilateral triangle on its long diagonal.}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.58\linewidth}
+$AB$ is parallel to $ED$. Given $\angle ABC=130^\circ$ and $\angle CDE=150^\circ$, find $\angle BCD$.
+\begin{itemize}
+\item[A)] $60^\circ$
+\item[B)] $70^\circ$
+\item[C)] $80^\circ$
+\item[D)] $100^\circ$
+\item[E)] $110^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (A) at (-1.4,2); \coordinate (B) at (0.8,2);
+\coordinate (E) at (-1.6,0); \coordinate (D) at (-0.61,0);
+\coordinate (C) at (1.47,1.2);
+\draw[speedgeom] (-1.6,2) -- (2.6,2);
+\draw[speedgeom] (-1.8,0) -- (2.6,0);
+\draw[speedgeom] (B) -- (C) -- (D);
+\pic[draw, angle radius=4mm, "\scriptsize$130^\circ$", angle eccentricity=1.9] {angle = A--B--C};
+\pic[draw, angle radius=4mm, "\scriptsize$150^\circ$", angle eccentricity=1.8] {angle = C--D--E};
+\pic[draw, angle radius=3mm, "\scriptsize?", angle eccentricity=1.7] {angle = B--C--D};
+\node[above] at (A) {\small $A$}; \node[above] at (B) {\small $B$};
+\node[below] at (E) {\small $E$}; \node[below] at (D) {\small $D$};
+\node[right] at (C) {\small $C$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $80^\circ$}
+\method{Draw the line through $C$ parallel to $AB$. Co-interior angles with $\angle ABC=130^\circ$ give $50^\circ$ above it; co-interior angles with $\angle CDE=150^\circ$ give $30^\circ$ below it. So $\angle BCD=50^\circ+30^\circ=80^\circ$.}
+\inv{For any zig-zag between parallel lines, the angle at the kink equals the sum of the two outer angles measured on the same side. Rewrite the rule using the reflex angles at $B$ and $D$ and check it still gives $80^\circ$.}
+
+%── B2 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a square and $ABE$ is an equilateral triangle drawn outside the square on side $AB$. What is $\angle DEC$? \textit{\small(after Primer 1.4 P11)}
+\begin{itemize}
+\item[A)] $15^\circ$
+\item[B)] $20^\circ$
+\item[C)] $45^\circ$
+\item[D)] $60^\circ$
+\item[E)] $30^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.75]
+\coordinate (A) at (0,0); \coordinate (B) at (2,0);
+\coordinate (C) at (2,2); \coordinate (D) at (0,2);
+\coordinate (E) at (1,-1.732);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedgeom] (A) -- (E) -- (B);
+\draw[speedaux] (D) -- (E) -- (C);
+\pic[draw, angle radius=5mm, "\scriptsize?", angle eccentricity=1.5] {angle = C--E--D};
+\node[left] at (A) {\small $A$}; \node[right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[below] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $30^\circ$}
+\method{$AD=AB=AE$ and $\angle DAE=90^\circ+60^\circ=150^\circ$, so triangle $ADE$ is isosceles with base angles $15^\circ$. By symmetry $\angle BEC=15^\circ$. Hence $\angle DEC=60^\circ-15^\circ-15^\circ=30^\circ$.}
+\inv{Put $E$ inside the square instead. Show that $\angle DEC$ becomes $150^\circ$: the base angles of $ADE$ are now $75^\circ$.}
+
+%── B3 ───────────────────────────────────────────────────────────────────────
+\item The triangle with sides $13$, $14$, $15$ has area $84$. Its inscribed circle has what radius?
+
+\ans{$4$}
+\method{$r=\frac{A}{s}=\frac{84}{21}=4$.}
+\inv{Find the circumradius of the same triangle using $R=\tfrac{abc}{4\,[ABC]}$, and check that $R\ge 2r$.}
+
+%── B4 ───────────────────────────────────────────────────────────────────────
+\item The five diagonals of a regular pentagon form a five-pointed star whose points are the pentagon's vertices. What is the angle at each point of the star?
+\begin{itemize}
+\item[A)] $36^\circ$
+\item[B)] $30^\circ$
+\item[C)] $45^\circ$
+\item[D)] $54^\circ$
+\item[E)] $72^\circ$
+\end{itemize}
+
+\ans{A) $36^\circ$}
+\method{The vertices lie on a circle and the five sides are equal chords, so each side subtends the same angle at every other vertex. At each vertex the two diagonals therefore split the $108^\circ$ into three equal parts, and the point angle is $36^\circ$. Check with B10: the five point angles sum to $180^\circ$, and $5\times36^\circ=180^\circ$.}
+\inv{For a regular seven-pointed star $\{7/3\}$, joining every third vertex of a heptagon, find the angle at each point.}
+
+%── B5 ───────────────────────────────────────────────────────────────────────
+\item $ABCDEF$ is a regular hexagon. What fraction of its area is triangle $ACE$?
+\begin{itemize}
+\item[A)] $\dfrac13$
+\item[B)] $\dfrac12$
+\item[C)] $\dfrac23$
+\item[D)] $\dfrac34$
+\item[E)] $\dfrac14$
+\end{itemize}
+
+\ans{B) $\dfrac12$}
+\method{Cut the hexagon into six equilateral triangles about its centre. Each corner triangle $ABC$, $CDE$, $EFA$ has two sides equal to the hexagon's side and a $120^\circ$ angle between them, so it has the same area as one of the six equilateral triangles: $\tfrac16$ of the hexagon. So $[ACE]=1-3\cdot\tfrac16=\tfrac12$.}
+\inv{What fraction of the hexagon is the smaller hexagon formed where the two triangles $ACE$ and $BDF$ overlap?}
+
+%── B6 ───────────────────────────────────────────────────────────────────────
+\item A square, a regular hexagon and one other regular polygon fit together around a point with no gaps or overlaps. How many sides does the other polygon have?
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $10$
+\item[C)] $15$
+\item[D)] $12$
+\item[E)] $18$
+\end{itemize}
+
+\ans{D) $12$}
+\method{The angles at the point sum to $360^\circ$: $90^\circ+120^\circ+x=360^\circ$, so $x=150^\circ$. An interior angle of $150^\circ$ means an exterior angle of $30^\circ$, so $12$ sides.}
+\inv{Find all the ways three regular polygons (not necessarily different) can meet at a point with no gaps. There are ten.}
+
+%── B7 ───────────────────────────────────────────────────────────────────────
+\item Each interior angle of a regular polygon is four times each exterior angle. How many sides does it have?
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $8$
+\item[C)] $9$
+\item[D)] $12$
+\item[E)] $16$
+\end{itemize}
+
+\ans{A) $10$}
+\method{Interior $+$ exterior $=180^\circ$ and interior $=4\times$ exterior, so the exterior angle is $36^\circ$ and there are $\tfrac{360}{36}=10$ sides.}
+\inv{For which whole numbers $k$ is there a regular polygon whose interior angle is $k$ times its exterior angle?}
+
+%── B8 ───────────────────────────────────────────────────────────────────────
+\item $ABCDEFGH$ is a regular octagon. Find $\angle ACF$.
+
+\ans{$67.5^\circ$}
+\method{The octagon's vertices lie on a circle, and each side subtends $\tfrac{360^\circ}{8}=45^\circ$ at the centre, so $22.5^\circ$ at any other vertex. The arc $AF$ not containing $C$ runs $A\to H\to G\to F$, three sides, so $\angle ACF=3\times22.5^\circ=67.5^\circ$.}
+\inv{Without circles: triangle $ABC$ is isosceles with apex $135^\circ$, so $\angle BCA=22.5^\circ$. Finish the angle chase to $\angle ACF$ this way.}
+
+%── B9 ───────────────────────────────────────────────────────────────────────
+\item A regular pentagon and a regular hexagon share a side and lie on opposite sides of it. At each end of the shared side there is a gap between the two shapes. What is the angle of this gap?
+\begin{itemize}
+\item[A)] $120^\circ$
+\item[B)] $126^\circ$
+\item[C)] $128^\circ$
+\item[D)] $132^\circ$
+\item[E)] $144^\circ$
+\end{itemize}
+
+\ans{D) $132^\circ$}
+\method{At an end of the shared side the angles are the pentagon's $108^\circ$, the hexagon's $120^\circ$ and the gap: $360^\circ-108^\circ-120^\circ=132^\circ$.}
+\inv{Which regular polygon would fill the gap exactly? (None does. Explain why, and find the $n$-gon that fits the gap left by a square and a regular octagon.)}
+
+%── B10 ──────────────────────────────────────────────────────────────────────
+\item A five-pointed star is drawn with five straight strokes, not necessarily regular. Write down the sum of the angles at its five points.
+
+\ans{$180^\circ$}
+\method{Label the points $A,B,C,D,E$ in order round the star, so the strokes are $AC$, $CE$, $EB$, $BD$, $DA$, with point angles $a,b,c,d,e$. Let $BE$ meet $AC$ at $X$ and $AD$ at $Y$. Triangle $XCE$ has angles $c$ and $e$ at $C$ and $E$, so its exterior angle $\angle AXY=c+e$; likewise triangle $YBD$ gives $\angle AYX=b+d$. The angles of triangle $AXY$ then give $a+(c+e)+(b+d)=180^\circ$.}
+\inv{What is the sum of the point angles of a seven-pointed star drawn by joining every third vertex of a heptagon? (It is $180^\circ$ for the pentagram, but not in general.)}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+In triangle $ABC$, the point $D$ lies on $BC$ with $BD:DC=1:2$, and $E$ is the midpoint of $AD$. The line $BE$ meets $AC$ at $F$. What fraction of triangle $ABC$ is the shaded quadrilateral $EDCF$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac12$
+\item[B)] $\dfrac58$
+\item[C)] $\dfrac7{12}$
+\item[D)] $\dfrac23$
+\item[E)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.8]
+\coordinate (A) at (0.4,3); \coordinate (B) at (0,0); \coordinate (C) at (4.5,0);
+\coordinate (D) at (1.5,0); \coordinate (E) at (0.95,1.5); \coordinate (F) at (1.425,2.25);
+\fill[gray!25] (E) -- (D) -- (C) -- (F) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (A) -- (D); \draw[speedgeom] (B) -- (F);
+\node[above] at (A) {\small $A$}; \node[below left] at (B) {\small $B$};
+\node[below right] at (C) {\small $C$}; \node[below] at (D) {\small $D$};
+\node[left] at (E) {\small $E$}; \node[above right] at (F) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $\dfrac7{12}$}
+\method{Mass points: $BD:DC=1:2$ puts mass $2$ at $B$ and $1$ at $C$, so $3$ at $D$. Since $E$ is the midpoint of $AD$, $A$ also gets mass $3$. On $AC$ this gives $AF:FC=1:3$. Then $[AEF]=\tfrac12\cdot\tfrac14\,[ADC]=\tfrac18\cdot\tfrac23=\tfrac1{12}$ of $[ABC]$, and $[EDCF]=[ADC]-[AEF]=\tfrac23-\tfrac1{12}=\tfrac7{12}$. Option D is $[ADC]$ with the corner $AEF$ left in.}
+\inv{Redo the question with $BD:DC=1:k$ and find $AF:FC$ in terms of $k$.}
+
+%── C2 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A right-angled triangle has legs $3$ and $4$. A square sits inside it with one side along the hypotenuse and its other two vertices on the legs. What is the side length of the square?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{12}{7}$
+\item[B)] $\dfrac53$
+\item[C)] $\dfrac32$
+\item[D)] $\dfrac{60}{37}$
+\item[E)] $\dfrac{60}{49}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.75]
+\coordinate (C) at (0,0); \coordinate (A) at (0,3); \coordinate (B) at (4,0);
+\coordinate (P) at (0,0.973); \coordinate (Q) at (1.297,0);
+\coordinate (P2) at (0.973,2.270); \coordinate (Q2) at (2.270,1.297);
+\fill[gray!25] (P) -- (Q) -- (Q2) -- (P2) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (P) -- (Q) -- (Q2) -- (P2) -- cycle;
+\draw (0,0.2) -- (0.2,0.2) -- (0.2,0);
+\node[left] at (0,1.5) {\scriptsize $3$}; \node[below] at (2,0) {\scriptsize $4$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $\dfrac{60}{37}$}
+\method{The altitude to the hypotenuse is $h=\tfrac{3\cdot4}{5}=\tfrac{12}{5}$. The strip of the triangle beyond the square is similar to the whole triangle, with base $s$ and height $h-s$. So $\dfrac{s}{5}=\dfrac{h-s}{h}$, giving $s=\dfrac{5h}{5+h}=\dfrac{60}{37}$. Option A, $\tfrac{12}{7}=\tfrac{ab}{a+b}$, is the square tucked into the right-angle corner.}
+\inv{Prove that the corner square is always the larger of the two, for every right-angled triangle.}
+
+%── C3 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.58\linewidth}
+$PQ$ and $TS$ are perpendicular to $QS$, with $PQ=6$, $TS=4$ and $QS=11$. The point $R$ lies on $QS$ with $QR=x$, and $\angle PRT=90^\circ$. Then \textit{\small(after Primer 1.4 P48)}
+\begin{itemize}
+\item[A)] $x$ has two possible values whose sum is $12$
+\item[B)] $x$ has two possible values whose difference is $5$
+\item[C)] $x$ has only one value, and $x\geq 5.5$
+\item[D)] $x$ has only one value, and $x<5.5$
+\item[E)] $x$ cannot be determined from the given information
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.45]
+\coordinate (Q) at (0,0); \coordinate (S) at (11,0);
+\coordinate (P) at (0,6); \coordinate (T) at (11,4);
+\coordinate (R) at (3,0);
+\draw[speedgeom] (P) -- (Q) -- (S) -- (T);
+\draw[speedgeom] (P) -- (R) -- (T);
+\pic[draw, angle radius=2.5mm] {right angle = T--R--P};
+\draw (0,0.6) -- (0.6,0.6) -- (0.6,0); \draw (11,0.6) -- (10.4,0.6) -- (10.4,0);
+\node[left] at (P) {\small $P$}; \node[below left] at (Q) {\small $Q$};
+\node[below] at (R) {\small $R$}; \node[below right] at (S) {\small $S$};
+\node[right] at (T) {\small $T$};
+\node[left] at (0,3) {\scriptsize $6$}; \node[right] at (11,2) {\scriptsize $4$};
+\node[below] at (1.5,0) {\scriptsize $x$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $x$ has two possible values whose difference is $5$}
+\method{$\angle PRT=90^\circ$ makes triangles $PQR$ and $RST$ similar, so $\dfrac{PQ}{QR}=\dfrac{RS}{ST}$, giving $x(11-x)=24$. Then $x=3$ or $x=8$, which differ by $5$.}
+\inv{For which lengths $QS$ is there exactly one position of $R$? Link the answer to the discriminant, and to the circle on diameter $PT$ touching $QS$.}
+
+%── C4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDEFGH$ is a regular octagon with sides of length $1$. What is the area of the shaded square $ACEG$?
+\begin{itemize}
+\item[A)] $2+\sqrt2$
+\item[B)] $1+\sqrt2$
+\item[C)] $2+2\sqrt2$
+\item[D)] $4$
+\item[E)] $3+2\sqrt2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.62]
+\foreach \i/\l in {0/A,1/B,2/C,3/D,4/E,5/F,6/G,7/H} \coordinate (\l) at ({112.5-45*\i}:1.3066);
+\fill[gray!25] (A) -- (C) -- (E) -- (G) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- (H) -- cycle;
+\draw[speedgeom] (A) -- (C) -- (E) -- (G) -- cycle;
+\foreach \i/\l in {0/A,1/B,2/C,3/D,4/E,5/F,6/G,7/H} \node at ({112.5-45*\i}:1.62) {\scriptsize $\l$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $2+\sqrt2$}
+\method{Extend four alternate sides to form a square of side $1+\sqrt2$: the octagon is that square with four corner triangles of legs $\tfrac1{\sqrt2}$ removed, so its area is $(1+\sqrt2)^2-4\cdot\tfrac14=2+2\sqrt2$. The square $ACEG$ is the octagon minus four triangles like $ABC$, each with sides $1,1$ and included angle $135^\circ$, area $\tfrac12\sin135^\circ=\tfrac{\sqrt2}{4}$. So $[ACEG]=2+2\sqrt2-\sqrt2=2+\sqrt2$. Option C is the whole octagon; option E is the enclosing square.}
+\inv{What fraction of the octagon is the square $ACEG$? Compare it with the fraction of a regular hexagon taken by triangle $ACE$ (B5).}
+
+%── C5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDE$ is a regular pentagon, and $ABF$ is an equilateral triangle with $F$ inside the pentagon. What is $\angle FCD$?
+\begin{itemize}
+\item[A)] $36^\circ$
+\item[B)] $48^\circ$
+\item[C)] $42^\circ$
+\item[D)] $54^\circ$
+\item[E)] $66^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.25]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.309,0.951);
+\coordinate (D) at (0.5,1.539); \coordinate (E) at (-0.309,0.951); \coordinate (F) at (0.5,0.866);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (F) -- (B); \draw[speedaux] (F) -- (C);
+\pic[draw, angle radius=3mm, "\scriptsize ?", angle eccentricity=1.7] {angle = D--C--F};
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$}; \node[right] at (C) {\small $C$};
+\node[above] at (D) {\small $D$}; \node[left] at (E) {\small $E$}; \node[below] at (F) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $42^\circ$}
+\method{Each angle of the pentagon is $108^\circ$, so $\angle FBC=108^\circ-60^\circ=48^\circ$. Also $BF=BA=BC$, so triangle $BFC$ is isosceles with $\angle BCF=\tfrac12(180^\circ-48^\circ)=66^\circ$. Hence $\angle FCD=108^\circ-66^\circ=42^\circ$. Option B is $\angle FBC$; option E is $\angle BCF$.}
+\inv{Find $\angle CFD$, and check that the four angles at $F$ outside the equilateral triangle add up to $300^\circ$.}
+
+%── C6 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDEF$ is a regular hexagon and $M$ is the midpoint of $CD$. What fraction of the hexagon is the shaded triangle $AME$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac13$
+\item[B)] $\dfrac12$
+\item[C)] $\dfrac14$
+\item[D)] $\dfrac38$
+\item[E)] $\dfrac5{12}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.05]
+\coordinate (A) at (1,0); \coordinate (B) at (0.5,0.866); \coordinate (C) at (-0.5,0.866);
+\coordinate (D) at (-1,0); \coordinate (E) at (-0.5,-0.866); \coordinate (F) at (0.5,-0.866); \coordinate (M) at (-0.75,0.433);
+\fill[gray!25] (A) -- (M) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- cycle;
+\draw[speedgeom] (A) -- (M) -- (E) -- cycle;
+\node[right] at (A) {\small $A$}; \node[above right] at (B) {\small $B$}; \node[above left] at (C) {\small $C$};
+\node[left] at (D) {\small $D$}; \node[below left] at (E) {\small $E$}; \node[below right] at (F) {\small $F$};
+\node[above left] at (M) {\small $M$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $\dfrac5{12}$}
+\method{All three triangles $ACE$, $AME$, $ADE$ share the base $AE$. Since $M$ is the midpoint of $CD$, its distance from the line $AE$ is the average of the distances of $C$ and $D$, so $[AME]=\tfrac12\big([ACE]+[ADE]\big)$. Now $[ACE]=\tfrac12$ of the hexagon (B5), and $[ADE]=\tfrac13$: its base $AD$ is twice a side and its height is that of one equilateral triangle, so it is two of the six. Hence $[AME]=\tfrac12\left(\tfrac12+\tfrac13\right)=\tfrac5{12}$. Option A is $[ADE]$; option B is $[ACE]$.}
+\inv{As $M$ moves along the side $CD$, how does $[AME]$ change? Where on the hexagon's boundary should $M$ be to make $[AME]$ as large as possible?}
+
+%── C7 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+The points $B$ and $D$ lie on one arm of an angle at $A$, and $C$ and $E$ lie on the other arm, with $AB=BC=CD=DE$. The line $DE$ is perpendicular to $AD$. What is $\angle BAC$?
+\begin{itemize}
+\item[A)] $15^\circ$
+\item[B)] $18^\circ$
+\item[C)] $20^\circ$
+\item[D)] $22.5^\circ$
+\item[E)] $30^\circ$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.1]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.707,0.707);
+\coordinate (D) at (2.414,0); \coordinate (E) at (2.414,1);
+\draw[speedgeom] (A) -- (2.9,0); \draw[speedgeom] (A) -- (2.9,1.201);
+\draw[speedgeom] (B) -- (C) -- (D) -- (E);
+\draw (2.414,0.12) -- (2.294,0.12) -- (2.294,0);
+\node[below left] at (A) {\small $A$}; \node[below] at (B) {\small $B$}; \node[above left] at (C) {\small $C$};
+\node[below] at (D) {\small $D$}; \node[above] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $22.5^\circ$}
+\method{Let $\angle BAC=x$. Triangle $ABC$ is isosceles, so $\angle BCA=x$ and the exterior angle $\angle CBD=2x$. Triangle $BCD$ is isosceles, so $\angle CDB=2x$. At $C$ the angles along the arm give $\angle DCE=180^\circ-x-(180^\circ-4x)=3x$, and triangle $CDE$ is isosceles, so $\angle CED=3x$. In triangle $ADE$: $x+90^\circ+3x=180^\circ$, so $x=22.5^\circ$.}
+\inv{Keep adding equal segments $EF$, $FG$, \dots\ alternately on the two arms. If there are $k$ equal segments and the last one is perpendicular to an arm, what is $x$? What is the largest number of equal segments that fit for a given $x$?}
+
+%── C8 ───────────────────────────────────────────────────────────────────────
+\item A regular $12$-sided polygon is inscribed in a circle of radius $1$. What is the total area inside the circle but outside the polygon?
+\begin{itemize}
+\item[A)] $\pi-2$
+\item[B)] $\pi-3$
+\item[C)] $\pi-\dfrac{3\sqrt3}{2}$
+\item[D)] $\pi-2\sqrt2$
+\item[E)] $\dfrac{\pi}{12}$
+\end{itemize}
+
+\ans{B) $\pi-3$}
+\method{The dodecagon is twelve isosceles triangles with two sides $1$ and apex angle $30^\circ$, each of area $\tfrac12\sin30^\circ=\tfrac14$. So its area is $3$, and the region outside it is $\pi-3$. Option A uses the square, option C the hexagon, option D the octagon.}
+\inv{Show that the regular $12$-gon inscribed in a circle of radius $R$ has area exactly $3R^2$, and use it to prove $\pi>3$.}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A rectangular sheet $ABCD$ has $AB=8$ and $BC=6$. It is folded along a straight crease so that $C$ lands exactly on $A$. How long is the crease?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $7$
+\item[B)] $5\sqrt2$
+\item[C)] $\dfrac{25}{4}$
+\item[D)] $8$
+\item[E)] $\dfrac{15}{2}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.4]
+\coordinate (A) at (0,0); \coordinate (B) at (8,0); \coordinate (C) at (8,6); \coordinate (D) at (0,6);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedaux] (A) -- (C);
+\draw[speedgeom, dashed] (6.25,0) -- (1.75,6);
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[below] at (4,0) {\scriptsize $8$}; \node[right] at (8,3) {\scriptsize $6$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $\dfrac{15}{2}$}
+\method{The crease is the perpendicular bisector of $AC$ (every point on it is equidistant from $A$ and $C$), so it passes through the centre $M$ with $AM=5$. It meets $AC$ at right angles, so its half-length is $AM\tan\angle CAB=5\cdot\tfrac68=\tfrac{15}{4}$. The full crease is $\tfrac{15}{2}$.}
+\inv{Show that for an $a\times b$ sheet the crease is $\dfrac{b\sqrt{a^2+b^2}}{a}$. What shape does the folded sheet make?}
+
+%── D2 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+In triangle $ABC$, $AB=6$, $AC=3$ and $\angle BAC=120^\circ$. The bisector of angle $A$ meets $BC$ at $D$. What is the length of $AD$?
+\begin{itemize}
+\item[A)] $2\sqrt3$
+\item[B)] $2$
+\item[C)] $4$
+\item[D)] $\sqrt7$
+\item[E)] $3$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.5]
+\coordinate (A) at (0,0); \coordinate (B) at (6,0); \coordinate (C) at (-1.5,2.598);
+\coordinate (D) at (1,1.732);
+\draw[speedgeom] (A) -- (B) -- (C) -- cycle;
+\draw[speedgeom] (A) -- (D);
+\node[below] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above left] at (C) {\small $C$}; \node[above right] at (D) {\small $D$};
+\node[below] at (3,0) {\scriptsize $6$}; \node[left] at (-0.75,1.3) {\scriptsize $3$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $2$}
+\method{Split the area along $AD$: $[ABD]+[ADC]=[ABC]$, so $\tfrac12\cdot6\cdot AD\sin60^\circ+\tfrac12\cdot3\cdot AD\sin60^\circ=\tfrac12\cdot6\cdot3\sin120^\circ$. That gives $9\,AD=18$, so $AD=2$. Option C, $4=\tfrac{2bc}{b+c}$, forgets the factor $\cos\tfrac A2$.}
+\inv{For a $120^\circ$ angle this says $\dfrac1{AD}=\dfrac1{AB}+\dfrac1{AC}$. Derive the general bisector length $AD=\dfrac{2bc\cos(A/2)}{b+c}$.}
+
+%── D3 ───────────────────────────────────────────────────────────────────────
+\item What is the side length of the largest square that fits inside a regular hexagon with sides of length $1$?
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $\dfrac{2\sqrt3}{3}$
+\item[C)] $3-\sqrt3$
+\item[D)] $\dfrac{\sqrt6}{2}$
+\item[E)] $\sqrt2$
+\end{itemize}
+
+\ans{C) $3-\sqrt3$}
+\method{Place the hexagon with vertices $(\pm1,0)$ and $(\pm\tfrac12,\pm\tfrac{\sqrt3}{2})$, and the square centred at the origin with sides parallel to the axes, so two of its sides are parallel to two sides of the hexagon. A corner $(\tfrac s2,\tfrac s2)$ must lie inside the slanted side $\sqrt3x+y=\sqrt3$: $\tfrac{\sqrt3+1}{2}s\le\sqrt3$, so $s\le\tfrac{2\sqrt3}{\sqrt3+1}=3-\sqrt3\approx1.268$, and then the top side at $y=\tfrac s2\approx0.634<\tfrac{\sqrt3}{2}$ fits too. Turning the square only makes it worse: at $45^\circ$ (option D) the best is $\tfrac{\sqrt6}{2}\approx1.225$.}
+\inv{Show that the square's corners touch four of the hexagon's six sides. Which is larger: the largest square in a regular hexagon of side $1$, or the largest equilateral triangle in a square of side $1$?}
+
+%── D4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCDE$ is a regular pentagon with sides of length $1$. The diagonals $AC$ and $BE$ meet at $X$. What is the length $AX$?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{\sqrt5-1}{2}$
+\item[B)] $\dfrac{\sqrt5+1}{2}$
+\item[C)] $\dfrac12$
+\item[D)] $\dfrac{\sqrt5}{2}$
+\item[E)] $\dfrac{3-\sqrt5}{2}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.25]
+\coordinate (A) at (0,0); \coordinate (B) at (1,0); \coordinate (C) at (1.309,0.951);
+\coordinate (D) at (0.5,1.539); \coordinate (E) at (-0.309,0.951); \coordinate (X) at (0.5,0.363);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+\draw[speedgeom] (A) -- (C); \draw[speedgeom] (B) -- (E);
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$}; \node[right] at (C) {\small $C$};
+\node[above] at (D) {\small $D$}; \node[left] at (E) {\small $E$}; \node[above] at (X) {\small $X$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $\dfrac{\sqrt5-1}{2}$}
+\method{The angles of the pentagon are $108^\circ$ and each diagonal cuts off an isosceles triangle with base angles $36^\circ$. So $\angle XAB=\angle XBA=36^\circ$, and in triangle $BXC$, $\angle XBC=72^\circ$ and $\angle XCB=36^\circ$, so $\angle BXC=72^\circ$ and $CX=CB=1$. Triangles $ABC$ and $XAB$ are similar (angles $36^\circ,36^\circ,108^\circ$), so with $d=AC$: $\tfrac{d}{1}=\tfrac{1}{AX}=\tfrac{1}{d-1}$, i.e.\ $d^2-d-1=0$, $d=\tfrac{1+\sqrt5}{2}$, and $AX=d-1=\tfrac{\sqrt5-1}{2}$. Option B is the whole diagonal.}
+\inv{The five diagonals form a smaller regular pentagon inside. Find its side length, and the ratio of its area to the original pentagon's.}
+
+%── D5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a square. The point $E$ inside the square satisfies $\angle EAB=\angle EBA=15^\circ$. Prove that triangle $CDE$ is equilateral.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (A) at (0,0); \coordinate (B) at (2.4,0); \coordinate (C) at (2.4,2.4); \coordinate (D) at (0,2.4);
+\coordinate (E) at (1.2,0.3215);
+\draw[speedgeom] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[speedgeom] (A) -- (E) -- (B);
+\draw[speedaux] (D) -- (E) -- (C);
+\pic[draw, angle radius=6mm, ] {angle = B--A--E};
+\pic[draw, angle radius=6mm, ] {angle = E--B--A};
+\node[below left] at (A) {\small $A$}; \node[below right] at (B) {\small $B$};
+\node[above right] at (C) {\small $C$}; \node[above left] at (D) {\small $D$};
+\node[above] at (E) {\small $E$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{Proof: see method}
+\method{Work backwards from the triangle we want. Construct the equilateral triangle $CDF$ with $F$ inside the square. Then $DF=DC=DA$ and $\angle ADF=90^\circ-60^\circ=30^\circ$, so triangle $ADF$ is isosceles with $\angle DAF=\tfrac12(180^\circ-30^\circ)=75^\circ$. Hence $\angle FAB=90^\circ-75^\circ=15^\circ$, and by symmetry $\angle FBA=15^\circ$. Only one point inside the square makes $15^\circ$ angles at both $A$ and $B$ (the two rays from $A$ and $B$ cross once), so $F=E$. Therefore $CDE$ is equilateral. $\blacksquare$}
+\inv{Why is ``build the answer, then show it coincides'' legitimate here? Write down exactly which uniqueness fact the proof relies on. Then try a direct proof by angle chasing alone, and see where it gets stuck.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Exterior angles sum to $360^\circ$.} A regular $n$-gon has exterior angle $\tfrac{360^\circ}{n}$ and interior angle $180^\circ-\tfrac{360^\circ}{n}$; angles meeting at a point sum to $360^\circ$. \seealso{A1, A4, B6, B7, B9}
+  \item \textbf{A regular polygon lives on a circle.} Each side subtends $\tfrac{360^\circ}{n}$ at the centre and half that at any other vertex, and the polygon splits into $n$ equal isosceles triangles. \seealso{A10, B4, B8, C4, C8}
+  \item \textbf{Chase angles through isosceles triangles.} Equal sides give equal base angles, and the exterior angle of a triangle is the sum of the two opposite interior angles. \seealso{A2, B1, B2, B10, C5, C7, D5}
+  \item \textbf{Similar triangles carry ratios.} Lengths scale by $k$, areas by $k^2$; in a pentagon the diagonal and side satisfy $d^2=d+1$. \seealso{A9, C2, C3, D1, D4}
+  \item \textbf{Area ratios from shared heights.} Triangles with the same height have areas in the ratio of their bases; cut regular polygons into equal triangles and count. \seealso{A6, B5, C1, C6, D2}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#4}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Using the interior angle where the exterior one is needed.} $\tfrac{360}{\text{interior}}$ is not the number of sides; divide $360^\circ$ by the exterior angle. \seealso{A1, A4, B7}
+  \item \textbf{Stopping at the first isosceles triangle.} In chains and pentagons the answer is usually two or three triangles further on; options like $48^\circ$ and $66^\circ$ in C5 are the intermediate angles. \seealso{B2, C5, C7}
+  \item \textbf{Scaling areas by $k$ instead of $k^2$.} Similar figures with lengths in ratio $2:3$ have areas in ratio $4:9$. \seealso{A9, C2, C4}
+  \item \textbf{Forgetting a corner piece.} The shaded region is often the obvious triangle minus (or plus) a small corner: $\tfrac23$ in C1 and $2+2\sqrt2$ in C4 are the uncorrected answers. \seealso{C1, C4, C6, C8}
+  \item \textbf{Assuming the diagram is to scale or the obvious orientation is best.} The largest square in a hexagon is not the tilted one, and a crease is not a diagonal. \seealso{D1, D3, D4}
+\end{enumerate}
+
+\SpeedClosing{``Every polygon is a bundle of triangles: count the exterior angles, find the isosceles pairs, and let similar copies carry the ratios.''}
+
+\end{document}

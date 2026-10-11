@@ -30,7 +30,7 @@ jobs:
 
       - name: Verify all pillars
         run: |
-          for p in algebra combinatorics number-theory logic sequences; do
+          for p in algebra combinatorics number-theory logic sequences geometry; do
             echo "── Running $p/verify/run_all.py ──"
             python3 $p/verify/run_all.py
           done

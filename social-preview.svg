@@ -30,7 +30,7 @@
 
     <!-- Subtitle -->
     <text y="122" class="sans" font-size="22" font-weight="600" fill="#e0e7ff" letter-spacing="-0.2">
-      1,155+ Verified Practice Questions
+      1,386+ Verified Practice Questions
     </text>
 
     <!-- Description -->
@@ -57,7 +57,7 @@
       </g>
       <!-- Clean Minimal Text with subtle middle dot -->
       <text y="44" class="sans" font-size="15" font-weight="500" fill="#ffffff">
-        35 sheets live across 5 pillars · Help expand the Question Bank.
+        42 sheets live across 6 pillars · Help expand the Question Bank.
       </text>
     </g>
 
@@ -121,13 +121,13 @@
       <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
     </g>
 
-    <!-- 6. Geometry (In Progress) -->
-    <g transform="translate(0, 288)">
-      <rect width="490" height="46" rx="8" fill="#1d4ed8" stroke="#93c5fd" stroke-width="1.6" stroke-dasharray="5 4" />
-      <circle cx="26" cy="23" r="10" fill="#1e40af" stroke="#60a5fa" stroke-width="1"/>
-      <polygon points="23.5,18.5 23.5,27.5 30.5,23" fill="#93c5fd"/>
-      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="700" fill="#ffffff">Geometry</text>
-      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#93c5fd" text-anchor="end">Building Now · Day 1–7</text>
+    <!-- 6. Geometry (Live) -->
+    <g transform="translate(0, 288)" filter="url(#shadow)">
+      <rect width="490" height="46" rx="8" fill="#ffffff"/>
+      <circle cx="26" cy="23" r="10" fill="#dcfce7"/>
+      <path d="M21 23.5 L24.5 27 L31 19.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="48" y="23" dominant-baseline="central" class="sans" font-size="16" font-weight="800" fill="#1e3a8a">Geometry</text>
+      <text x="472" y="23" dominant-baseline="central" class="sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">7 sheets · 231 Qs</text>
     </g>
 
     <!-- 7. Calculus & Graphs (Planned) -->

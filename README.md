@@ -25,7 +25,7 @@
 
 If you are revising for university admissions tests, you know the three biggest problems: official past papers run out fast, some external papers are sketchy, and answer keys are wrong.
 
-This repository contains 1,155 original questions across 5 pillars — Algebra, Combinatorics, Logic, Number Theory and Sequences — at 33 questions on each of 7 daily sheets per pillar. Every answer has a committed, re-runnable Python script behind it, and a machine gate checks that the script actually compares its own result against the answer printed in the PDF.
+This repository contains 1,386 original questions across 6 pillars — Algebra, Combinatorics, Geometry, Logic, Number Theory and Sequences — at 33 questions on each of 7 daily sheets per pillar. Every answer has a committed, re-runnable Python script behind it, and a machine gate checks that the script actually compares its own result against the answer printed in the PDF.
 
 **How to use this:**
 1. Navigate to the `sheets/` or the website [speedmaths.co.uk](https://speedmaths.co.uk) for any pillar.
@@ -39,12 +39,12 @@ This repository contains 1,155 original questions across 5 pillars — Algebra, 
 
 Two halves, because they catch different things.
 
-**Runtime**, in `tests/`: one parametrised test over all 1,155 questions. It imports each pillar's verify script, runs the check for a question, and compares the value it returns against the `\ans{}` in the `.tex`.
+**Runtime**, in `tests/`: one parametrised test over all 1,386 questions. It imports each pillar's verify script, runs the check for a question, and compares the value it returns against the `\ans{}` in the `.tex`.
 
 1. **AST parsing** (`tools/latex_bridge.py`): strips `.tex` formatting, handles juxtaposition edge cases, and compiles expressions like `\ans{\frac{x(x+1)}{2}}` into SymPy nodes.
-2. **Comparison** (`tools/answer_binding.py`): one reviewed comparison for the whole corpus rather than 1,155 authors each improvising one. Handles expressions, value lists, booleans and multiple-choice letters, and reports honestly which of those it managed — `EXACT`, `DRIFT_ONLY` or `EXEMPT`.
+2. **Comparison** (`tools/answer_binding.py`): one reviewed comparison for the whole corpus rather than 1,386 authors each improvising one. Handles expressions, value lists, booleans and multiple-choice letters, and reports honestly which of those it managed — `EXACT`, `DRIFT_ONLY` or `EXEMPT`.
 3. **Property-based testing** (`hypothesis`): fuzz-tests combinatorial recurrences and algebraic identities across randomised integer boundaries.
-4. **Negative controls** (`tests/test_binding_rejects_wrong_answers.py`): every answer is perturbed and the comparison required to reject it. Without this, a comparison that returned `True` unconditionally would pass all 1,155 cases and the whole gate would be decorative slop.
+4. **Negative controls** (`tests/test_binding_rejects_wrong_answers.py`): every answer is perturbed and the comparison required to reject it. Without this, a comparison that returned `True` unconditionally would pass all 1,386 cases and the whole gate would be decorative slop.
 
 **Static**, in `tools/check_binding.py`: a passing suite cannot detect a check that passes while verifying nothing, because the check passes. So that is checked in the source instead — every published question must have a non-empty body, at least one assertion that depends on a value it computed, and a link to its answer key.
 
@@ -86,11 +86,12 @@ Speed-Maths/
 │   ├── sheets/ & answers/
 │   └── verify/                (one script per sheet, 33 checks each)
 ├── combinatorics/             (live)
+├── geometry/                  (live)
 ├── logic/                     (live)
 ├── number-theory/             (live)
 ├── sequences/                 (live)
 ├── tests/
-│   ├── test_answer_binding.py             (all 1,155 answers vs their checks)
+│   ├── test_answer_binding.py             (all 1,386 answers vs their checks)
 │   └── test_binding_rejects_wrong_answers.py   (negative controls)
 ├── tools/
 │   ├── latex_bridge.py        (LaTeX -> SymPy)
@@ -136,9 +137,8 @@ The static PDF corpus is open source, and it is the whole of what this repo publ
 1. **Speed Calculus** (Integration and Differentiation, majorly TMUA)
 2. **Speed Graphs** (Sketches and limits, TMUA and SMC territory)
 3. **Speed Logs** (Exponentials and Logarithms, majorly TMUA)
-4. **Speed Geometry** (Classical Geometry, mainly BMO1, SMC and TMUA)
-5. **Speed Trig** (Trigonometry, TMUA, SMC)
+4. **Speed Trig** (Trigonometry, TMUA, SMC)
 
 Next, in order:
 1. Release Calculus and Graphs pillars once their 7-day drill arcs and verification suites complete review.
-2. Reduce the 78 exemptions in `verify/BINDING_EXEMPTIONS.md` by rewriting "Proof: see method" answers as the explicit identity or closed-form bound they establish.
+2. Reduce the 82 exemptions in `verify/BINDING_EXEMPTIONS.md` by rewriting "Proof: see method" answers as the explicit identity or closed-form bound they establish.

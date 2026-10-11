@@ -1,0 +1,290 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../geometry-preamble}
+\SpeedHeader{Geometry}{6}
+
+\begin{document}
+
+\SpeedTitleBlock{Daily Geometry Drill \#6}{Henry Koduthore}
+\SpeedMeta{Solids and spatial reasoning}{3D Pythagoras, volumes and surface areas of prisms, pyramids, cones and spheres, Euler's formula, nets, cross-sections, frustums, inscribed solids}
+\noindent\textit{New toolkit today: Space diagonal $\sqrt{a^2+b^2+c^2}$ $\cdot$ Pyramids and cones are $\tfrac13Ah$ $\cdot$ Scaling $k,k^2,k^3$ $\cdot$ $V-E+F=2$ $\cdot$ Frustum = cone minus cone.}
+
+\vspace{2pt}
+\noindent\textit{Attempt each question before checking answers. Time yourself. No calculators. Diagrams are not to scale.}
+
+\section*{Section A \quad Rapid Recognition \hfill{\normalfont\small($\leq$15 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Volume and surface formulas, the 3D Pythagoras and Euler's $V-E+F=2$. Know them cold.}
+
+\begin{enumerate}
+
+\item A convex polyhedron has $12$ vertices and $30$ edges. How many faces does it have?
+
+\item Find the length of a space diagonal of a $3\times4\times12$ cuboid.
+
+\item Find the volume of a cone with base radius $3$ and height $4$.
+
+\item A sphere has surface area $36\pi$. Find its volume.
+
+\item Find the distance between the points $(1,2,3)$ and $(3,5,9)$. (It is Day 1's distance formula with one more square.)
+
+\item A cube has a space diagonal of length $6$. Find its total surface area.
+
+\item Two similar solids have corresponding lengths in the ratio $2:3$. The volume of the smaller is what fraction of the volume of the larger?
+
+\item Find the curved surface area of a cone with base radius $5$ and height $12$.
+
+\item Find the total surface area of a regular tetrahedron with every edge of length $2$.
+
+\item A regular octahedron has $8$ faces, all of them triangles. How many edges does it have?
+
+\end{enumerate}
+
+\section*{Section B \quad Manipulation Drills \hfill{\normalfont\small($\leq$50 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Reduce the solid to a flat picture: a section through the axis, a net or a right-angled triangle.}
+
+\begin{enumerate}
+
+\item A sector with angle $\theta$ is cut from a disc of radius $6$ and rolled up, without overlap, into the curved surface of a cone of height $4\sqrt2$. What is $\theta$? \textit{\small(after Primer 1.4 P28)}
+\begin{itemize}
+\item[A)] $60^\circ$
+\item[B)] $90^\circ$
+\item[C)] $120^\circ$
+\item[D)] $150^\circ$
+\item[E)] $180^\circ$
+\end{itemize}
+
+\item The base edges of a square-based pyramid are shortened by $10\%$. By what factor must its height be multiplied to keep its volume the same? \textit{\small(after Primer 1.4 P23)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{10}{9}$
+\item[B)] $\dfrac{100}{81}$
+\item[C)] $\dfrac{11}{10}$
+\item[D)] $\dfrac{121}{100}$
+\item[E)] $\dfrac{81}{100}$
+\end{itemize}
+
+\item A cuboid is built from unit cubes, painted on the outside, then taken apart. Exactly $12$ of the unit cubes have no paint on them. What is the smallest possible number of unit cubes in the cuboid? \textit{\small(after Primer 8.8 P12)}
+\begin{itemize}
+\item[A)] $80$
+\item[B)] $90$
+\item[C)] $96$
+\item[D)] $126$
+\item[E)] $60$
+\end{itemize}
+
+\item A pyramid has an equilateral-triangle base of side $6$, and its three sloping edges all have length $b$. Its volume is $18$. Find $b$. \textit{\small(after Hercules Set 2 Paper 2 Q13)}
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $4\sqrt2$
+\item[C)] $\sqrt{15}$
+\item[D)] $2\sqrt6$
+\item[E)] $2\sqrt3$
+\end{itemize}
+
+\item A cube is cut into $n^3$ equal smaller cubes. The pieces have $5$ times the total surface area of the original cube. How many pieces are there? \textit{\small(after OxbridgeApplications TMUA Mock Exam 2 Q30)}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+The net shown is folded into a die, and opposite faces of the die add up to $7$. Three faces are already numbered. Which number belongs on the shaded face?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\fill[gray!30] (2,-2) rectangle (3,-1);
+\foreach \x/\y in {0/0,1/0,1/-1,2/-1,2/-2,3/-2} \draw[speedgeom] (\x,\y) rectangle ++(1,1);
+\node at (0.5,0.5) {$1$}; \node at (1.5,0.5) {$2$}; \node at (1.5,-0.5) {$3$};
+\end{tikzpicture}
+\end{minipage}
+
+\item A sphere is inscribed in a cube, and a smaller cube is inscribed in that sphere. What is the ratio of the larger cube's volume to the smaller cube's? \textit{\small(after Beyond Horizon Set 4 Paper 1 Q2)}
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $2\sqrt2$
+\item[C)] $9$
+\item[D)] $27$
+\item[E)] $3\sqrt3$
+\end{itemize}
+
+\item Regular pentagons meet three at every vertex of a convex polyhedron. The \emph{angle deficit} at a vertex is $360^\circ$ minus the face angles there, and for any convex polyhedron the deficits add up to $720^\circ$. How many faces does this polyhedron have?
+
+\item A solid cone and a solid hemisphere have the same base radius $r$ and the same volume. What is the height of the cone?
+\begin{itemize}[itemsep=3pt]
+\item[A)] $2r$
+\item[B)] $r$
+\item[C)] $\dfrac32r$
+\item[D)] $4r$
+\item[E)] $r\sqrt2$
+\end{itemize}
+
+\item Each corner of a cube is sliced off by a small plane cut, so that each corner is replaced by a small triangle. How many edges does the new solid have?
+\begin{itemize}
+\item[A)] $24$
+\item[B)] $30$
+\item[C)] $48$
+\item[D)] $36$
+\item[E)] $42$
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{SMC Q18--22 level. Lengths scale by $k$, areas by $k^2$, volumes by $k^3$; cut a piece off, or complete the missing piece and subtract.}
+
+\begin{enumerate}
+
+\item A cuboid has integer edge lengths, and all eight of its vertices lie on a sphere of radius $3$. What is its volume? \textit{\small(after SMC 2016 Q23)}
+\begin{itemize}
+\item[A)] $36$
+\item[B)] $32$
+\item[C)] $24$
+\item[D)] $27$
+\item[E)] $48$
+\end{itemize}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+A cube of edge $2$ has top corner $T$ and, below it, bottom corner $B$. $M$ and $N$ are the midpoints of the two top edges at $T$, and $P$ and $Q$ are the two bottom corners next to $B$. The plane through $M$, $N$, $Q$ and $P$ cuts the cube in two. What fraction of the cube is the piece containing $T$? \textit{\small(after SMC 2023 Q16)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac14$
+\item[B)] $\dfrac13$
+\item[C)] $\dfrac{5}{16}$
+\item[D)] $\dfrac{5}{24}$
+\item[E)] $\dfrac{7}{24}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=1.0]
+\fill[gray!25] (1,2) -- (2.45,2.3) -- (2.9,0.6) -- (0,0) -- cycle;
+\draw[speedgeom] (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+\draw[speedgeom] (2,0) -- (2.9,0.6) -- (2.9,2.6) -- (2,2); \draw[speedgeom] (0,2) -- (0.9,2.6) -- (2.9,2.6);
+\draw[speedaux] (0,0) -- (0.9,0.6) -- (2.9,0.6) (0.9,0.6) -- (0.9,2.6) (0,0) -- (2.9,0.6);
+\draw[speedgeom] (0,0) -- (1,2) -- (2.45,2.3) -- (2.9,0.6);
+\node[above left] at (1,2) {\small $M$}; \node[above] at (2.45,2.3) {\small $N$}; \node[below right] at (2,2) {\small $T$};
+\node[below left] at (0,0) {\small $P$}; \node[right] at (2.9,0.6) {\small $Q$}; \node[below] at (2,0) {\small $B$};
+\end{tikzpicture}
+\end{minipage}
+
+\item Two cubes of edge $1$ have the same centre and the same vertical axis of symmetry, and one is turned through $45^\circ$ about that axis. What is the volume of the solid the two cubes form together? \textit{\small(after SMC 2011 Q25)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $4-2\sqrt2$
+\item[B)] $2\sqrt2-1$
+\item[C)] $3-\sqrt2$
+\item[D)] $2\sqrt2-2$
+\item[E)] $1+\dfrac{\sqrt2}{4}$
+\end{itemize}
+
+\item A hollow cone with base radius $3$ and height $4$ stands on its vertex with its rim level. A ball inside it touches the cone all the way round, and the top of the ball is level with the rim. What fraction of the cone's volume does the ball fill? \textit{\small(after Beyond Horizon Set 2 Paper 1 Q11)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac12$
+\item[B)] $\dfrac{9}{32}$
+\item[C)] $\dfrac38$
+\item[D)] $\dfrac23$
+\item[E)] $\dfrac14$
+\end{itemize}
+
+\item A cone has base radius $3\sqrt2$ and height $6$. A cube stands on the cone's base with its four top corners on the curved surface. What is the edge of the cube? \textit{\small(after JZMaths TMUA Mock Set B Paper 1 Q18)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $2$
+\item[B)] $2\sqrt2$
+\item[C)] $12-6\sqrt2$
+\item[D)] $3$
+\item[E)] $\dfrac{3\sqrt2}{2}$
+\end{itemize}
+
+\item A regular tetrahedron and a cube are inscribed in the same sphere. What is the ratio of the tetrahedron's volume to the cube's? \textit{\small(after Primer 9.1 P41)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac16$
+\item[B)] $\dfrac13$
+\item[C)] $\dfrac{\sqrt2}{4}$
+\item[D)] $\dfrac29$
+\item[E)] $\dfrac12$
+\end{itemize}
+
+\item A bucket is a frustum of a cone with base radius $1$, top radius $2$ and height $3$. It is filled with water to half its height. What fraction of the bucket is full? \textit{\small(after Beyond Horizon Set 1 Paper 1 Q20)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac12$
+\item[B)] $\dfrac38$
+\item[C)] $\dfrac{19}{56}$
+\item[D)] $\dfrac{27}{56}$
+\item[E)] $\dfrac13$
+\end{itemize}
+
+\item Every face of a convex polyhedron is a triangle, and at every vertex either five or six faces meet. How many vertices have exactly five faces?
+\begin{itemize}
+\item[A)] $20$
+\item[B)] $6$
+\item[C)] $10$
+\item[D)] $24$
+\item[E)] $12$
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Section D \quad Challenge \hfill{\normalfont\small(SMC Q23--25 / BMO1 difficulty)}}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Invariants, boxes and optimisation. Diagrams are not to scale.}
+
+\begin{enumerate}
+
+\item Beatrix draws on the faces of a cube of edge $2$. On each face she either draws nothing or draws one straight line joining the midpoints of two edges of that face (adjacent or opposite edges). She wants her lines to form a single closed loop. What is the greatest possible length of the loop? \textit{\small(after SMC 2014 Q18)}
+\begin{itemize}
+\item[A)] $4+4\sqrt2$
+\item[B)] $8+2\sqrt2$
+\item[C)] $6+3\sqrt2$
+\item[D)] $6\sqrt2$
+\item[E)] $8$
+\end{itemize}
+
+\item A cylinder is inscribed in a sphere, with both rims on the sphere. What is the largest possible area of its curved surface, as a fraction of the sphere's surface area? \textit{\small(after nabla-tuition TMUA Paper 1 Q18)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac13$
+\item[B)] $\dfrac23$
+\item[C)] $\dfrac{1}{\sqrt2}$
+\item[D)] $\dfrac12$
+\item[E)] $\dfrac34$
+\end{itemize}
+
+\item A tetrahedron $ABCD$ has $AB=CD=\sqrt5$, $AC=BD=\sqrt{10}$ and $AD=BC=\sqrt{13}$. What is its volume? \textit{\small(after SMC 2022 Q25)}
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $3$
+\item[C)] $2$
+\item[D)] $6$
+\item[E)] $4$
+\end{itemize}
+
+\item A plane perpendicular to a space diagonal of a cube of edge $2$ slides from one end of that diagonal to the other. What is the largest area of cross-section it makes? \textit{\small(after SMC 2019 Q23)}
+\begin{itemize}
+\item[A)] $2\sqrt3$
+\item[B)] $3\sqrt3$
+\item[C)] $4\sqrt2$
+\item[D)] $6$
+\item[E)] $3\sqrt2$
+\end{itemize}
+
+\item \begin{minipage}[t]{0.60\linewidth}
+A tetrahedron $ABCD$ has $AB=CD$, $AC=BD$ and $AD=BC$. Prove that every face of $ABCD$ is an acute-angled triangle.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\draw[speedgeom] (0,0) -- (2.4,3) -- (4,0) -- (3,-1.4) -- cycle; \draw[speedgeom] (2.4,3) -- (3,-1.4);
+\draw[speedaux] (0,0) -- (4,0) (2.4,3) -- (2,0) -- (3,-1.4);
+\node[left] at (0,0) {\small $A$}; \node[right] at (4,0) {\small $B$}; \node[above] at (2.4,3) {\small $C$};
+\node[below] at (3,-1.4) {\small $D$}; \node[above left] at (2,0) {\small $M$};
+\end{tikzpicture}
+\end{minipage}
+
+\end{enumerate}
+
+\SpeedClosing{``In three dimensions, find the flat picture: the section through the axis, the net, or the triangle hidden inside the solid.''}
+
+\end{document}

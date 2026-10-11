@@ -49,6 +49,7 @@ can never come back. The baseline may only ever shrink.
 import argparse
 import ast
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -67,6 +68,16 @@ UNBOUND = "UNBOUND"
 _ENTRY_RE = re.compile(r"\b([a-z-]+)/sheet(\d{2})\s+([A-D]\d{1,2})\b")
 
 
+def included_drafts():
+    """Draft pillars named in SPEEDMATHS_INCLUDE_DRAFTS, held to the published bar on request.
+
+    Drafts stay out by default (see published_sheets). A maintainer rebuilding a
+    draft opts it in explicitly, so each sheet is gated before the pillar ships.
+    """
+    raw = os.environ.get("SPEEDMATHS_INCLUDE_DRAFTS", "")
+    return {slug.strip() for slug in raw.split(",") if slug.strip()}
+
+
 def published_sheets():
     """Sheets the site actually serves, from sheets.json.
 
@@ -76,7 +87,7 @@ def published_sheets():
     data = json.loads((REPO_ROOT / "sheets.json").read_text(encoding="utf-8"))
     out = []
     for pillar in data:
-        if pillar.get("status") != "live":
+        if pillar.get("status") != "live" and pillar["slug"] not in included_drafts():
             continue
         for sheet in pillar.get("sheets", []):
             script = REPO_ROOT / pillar["slug"] / "verify" / f"sheet{sheet['n']}_verify.py"
