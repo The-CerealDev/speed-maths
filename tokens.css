@@ -57,4 +57,9 @@
     --pillar-sequences-bg: #f0f9ff;
     --pillar-sequences-border: #bae6fd;
     --pillar-sequences-text: #0369a1;
+
+    --pillar-geometry: #c026d3;
+    --pillar-geometry-bg: #fdf4ff;
+    --pillar-geometry-border: #f5d0fe;
+    --pillar-geometry-text: #a21caf;
 }

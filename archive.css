@@ -125,6 +125,12 @@ header.page .subtitle {
     --pillar-border: var(--pillar-sequences-border);
     --pillar-text: var(--pillar-sequences-text);
 }
+.pillar--geometry {
+    --pillar-color: var(--pillar-geometry);
+    --pillar-bg: var(--pillar-geometry-bg);
+    --pillar-border: var(--pillar-geometry-border);
+    --pillar-text: var(--pillar-geometry-text);
+}
 
 .pillar-head {
     display: flex; justify-content: space-between; align-items: baseline;
