@@ -19,11 +19,16 @@ on:
 permissions:
   contents: read
 
+# A new push to the same PR cancels the run it supersedes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   compile-changed:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -86,7 +91,7 @@ jobs:
 
       - name: Upload freshly built PDFs
         if: always() && hashFiles('/tmp/out/*') != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: compiled-pdfs
           path: /tmp/out/
