@@ -45,6 +45,12 @@ on:
 permissions:
   contents: read
 
+# A new push to the same PR cancels the run it supersedes. Pushes to main
+# group by commit, so every main push still runs to completion.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
   # Per-pillar gate: Differential execution per pillar
   run-existing-checks:
@@ -54,7 +60,7 @@ jobs:
       matrix:
         pillar: [algebra, combinatorics, number-theory, logic, sequences, geometry]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -87,7 +93,7 @@ jobs:
             echo "run=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.check.outputs.run == 'true'
         with:
           python-version: "3.x"
@@ -106,7 +112,7 @@ jobs:
   answer-binding:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -141,7 +147,7 @@ jobs:
             echo "filter=-k \"$pattern\"" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.x"
           cache: pip
@@ -164,8 +170,8 @@ jobs:
   static-gates:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.x"
           cache: pip
@@ -191,7 +197,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Check every changed sheet has a matching verify script

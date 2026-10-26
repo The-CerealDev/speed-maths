@@ -18,8 +18,8 @@ jobs:
   full-regression:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.x"
           cache: pip
@@ -55,8 +55,8 @@ jobs:
           - tools/answer_binding.py
           - tools/latex_bridge.py
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.x"
           cache: pip
@@ -68,7 +68,7 @@ jobs:
           pip install mutmut
 
       - name: Cache mutants
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: mutants
           key: mutmut-${{ matrix.target }}-${{ hashFiles(matrix.target) }}
