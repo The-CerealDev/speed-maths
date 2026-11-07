@@ -122,12 +122,12 @@ def scan():
         sheets = []
         if os.path.isdir(sheets_dir):
             for f in sorted(os.listdir(sheets_dir)):
-                if not f.endswith('.pdf'):
-                    continue
-                num = re.search(r'\d+', f)
+                # sheetNN-speed.pdf is an edition of sheetNN, not a sheet of its own
+                num = re.fullmatch(r'sheet(\d+)\.pdf', f)
                 if not num:
                     continue
-                n = num.group(0)
+                n = num.group(1)
+                speed = f'sheet{n}-speed.pdf'
                 tex = os.path.join(sheets_dir, f'sheet{n}.tex')
                 topic, tools = read_meta(tex)
                 ans = f'ans{n}.pdf'
@@ -137,6 +137,9 @@ def scan():
                     'tools': tools,
                     'questions': count_questions(tex),
                     'pdf': f'{slug}/sheets/{f}',
+                    'speed': (f'{slug}/sheets/{speed}'
+                              if os.path.exists(os.path.join(sheets_dir, speed))
+                              else None),
                     'answers': (f'{slug}/answers/{ans}'
                                 if os.path.exists(os.path.join(answers_dir, ans))
                                 else None),
@@ -172,6 +175,10 @@ def render_rows(pillar):
               if s['questions'] else '')
         ans = (f'<a href="{s["answers"]}" class="pdf-link ans" target="_blank">Answers</a>'
                if s['answers'] else '')
+        # The Speed Sheet is the default download; classic.html keeps the originals.
+        first = (f'<a href="{s["speed"]}" class="pdf-link" target="_blank">Speed Sheet</a>'
+                 if s.get('speed') else
+                 f'<a href="{s["pdf"]}" class="pdf-link" target="_blank">Questions</a>')
         out.append(f'''
           <li class="sheet-row">
             <span class="sheet-num">{s['n']}</span>
@@ -181,7 +188,7 @@ def render_rows(pillar):
             </span>
             {qs}
             <span class="links">
-              <a href="{s['pdf']}" class="pdf-link" target="_blank">Questions</a>
+              {first}
               {ans}
             </span>
           </li>''')
