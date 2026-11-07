@@ -23,7 +23,7 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 
 1. One Speed Sheet per published sheet, built from the existing answers `.tex`, with no second hand-maintained source.
 2. Every answer link lands on the right question, in every pillar.
-3. CI builds them on every push, so they never drift from the checked answers.
+3. They never drift from the checked answers: one command rebuilds them all, and CI flags any that are stale or broken.
 4. Website: the archive view (`index.html`) shows **Speed Sheet** and **Answers** per sheet. The classic view (`classic.html`) keeps the original **Questions** and **Answers**. The original `sheetNN.pdf` files stay hosted.
 
 ## Non-goals
@@ -40,8 +40,8 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 
 ## Constraints and facts found
 
-- **List items ≠ questions.** MCQ options and sub-parts are also `\item`s, so hyperref's `Item.N` anchors drift: in 18 of 42 answers files (all of Geometry and Sequences, Logic 1–4), question N stops being `Item.N` from around question 11. Links must use a **per-question anchor**: `\ans` in `shared/preamble.tex` steps a counter and places a named destination (e.g. `q.N`) in the answers PDF; the Speed Sheet's answer links to `…/ansNN.pdf#nameddest=q.N`. Adding an invisible anchor doesn't change how the answers PDFs look, but editing the shared preamble rebuilds every pillar in CI.
-- Links use the absolute URL `https://speedmaths.co.uk/<pillar>/answers/ansNN.pdf#nameddest=q.N`, so they work after the PDF is downloaded or imported into GoodNotes (tested: Chrome jumps to the right page; iPad confirmed by David).
+- **Anchors already exist.** hyperref gives every numbered `enumerate` item a named destination `Item.N`; MCQ options (`itemize`) and `\item[...]` labels don't step it. Checked 2026-11-07: in all 42 answers files the Nth `\ans` sits under numbered item N, and every answers PDF has `Item.1`–`Item.43` (33 questions, then the 10 pattern/trap bullets). So no preamble change and no answers PDF is reissued. This only holds while questions never contain a nested numbered list, so a test must guard it.
+- Links use the absolute URL `https://speedmaths.co.uk/<pillar>/answers/ansNN.pdf#nameddest=Item.N`, so they work after the PDF is downloaded or imported into GoodNotes (tested: Chrome jumps to the right page; iPad confirmed by David).
 - Keep-together and section spacing must live in macros/hooks, not a text rewrite of the `.tex` (the spike used `sed`; that's throwaway). Keep-together must apply only to top-level question items, not MCQ options or sub-parts.
 - Geometry answers also `\input{../geometry-preamble}`; the Speed Sheet must build there too.
 - 33 questions per sheet; 42 sheets live across 6 pillars.
@@ -58,7 +58,8 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 - Name **"Speed Sheet"** and filename `sheetNN-speed.pdf` (#13 said "iPad edition"; Henry's plan says "Annotate Edition" / `sheetNN-ipad.pdf`, and needs updating to match).
 - Cut "Top 5 Patterns" and "Common Traps" from the Speed Sheet.
 - Make the link's tap area bigger than the 4pt text (invisible), so it's easy to hit on an iPad.
-- CI checks, run on every built Speed Sheet: exactly 33 answer links `q.1…q.33`; the matching answers PDF has destinations `q.1…q.33`; no page starts with an orphaned answer; no page ends on a section heading (via `pdftotext`, as the #13 prototype did).
+- Checks, run on every built Speed Sheet: exactly one answer link per question, to `Item.1…Item.N` in order; every answers `.tex` keeps the Nth `\ans` under numbered item N; no page starts with an orphaned answer; no page ends on a section heading (via `pdftotext`, as the #13 prototype did).
+- Follow the repo's existing PDF model: Speed Sheet PDFs are built locally and committed like every other PDF; CI rebuilds the ones whose answers `.tex` changed and flags any that are stale (as `compile.yml` already does), rather than pushing PDFs itself.
 
 ## Left to the builder
 
@@ -66,4 +67,3 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 - How Sections A–D get their spacing and how the post-D sections are suppressed.
 - Website template and `sheets.json` changes for the new button.
 - Reference: the macros in #13. The 2026-11-07 spike overrode `\ans` to put the answer in a box, `\rotatebox{180}`, and place it with `\hfill\rlap{\hspace{\dimexpr16mm-\wd\box}…}` so its right edge lands 16mm into the 22mm margin, wrapped in `\href`. It was throwaway and is not kept.
-- Ordering: the Speed Sheets link to the live answers PDFs, so the answers PDFs carrying the `q.N` anchors must deploy in the same push (or earlier) as the first Speed Sheets.
