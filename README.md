@@ -5,10 +5,10 @@
     <img src="https://img.shields.io/badge/Website-speedmaths.co.uk-blue.svg" alt="Website">
   </a>
   <a href="verify/BINDING_BASELINE.json">
-    <img src="https://img.shields.io/badge/Verified%20Questions-1%2C155%20%2F%201%2C155%20(100%25)-brightgreen.svg" alt="Verified">
+    <img src="https://img.shields.io/badge/Verified%20Questions-1%2C386%20%2F%201%2C386%20(100%25)-brightgreen.svg" alt="Verified">
   </a>
   <a href="tests/">
-    <img src="https://img.shields.io/badge/Tests-3%2C355%20passing-blue.svg" alt="Tests">
+    <img src="https://img.shields.io/badge/Tests-4%2C084%20passing-blue.svg" alt="Tests">
   </a>
   <a href="sheets/">
     <img src="https://img.shields.io/badge/Format-LaTeX%20%7C%20PDF-lightgrey.svg" alt="LaTeX">
