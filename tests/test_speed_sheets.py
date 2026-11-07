@@ -11,7 +11,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from tools.build_speed_sheets import answer_item_numbers, build, jobs, speed_title  # noqa: E402
+from tools.build_speed_sheets import (  # noqa: E402
+    Word, answer_item_numbers, build, check, jobs, layout_problems, links, speed_title)
 
 needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
 
@@ -66,3 +67,37 @@ def test_build_produces_a_clean_speed_sheet(tmp_path, pillar, n):
     for gone in ("Method:", "Investigate further", "Top 5 Patterns", "Common Traps"):
         assert gone not in text
     assert not list(job.answers_tex.parent.glob("sheet*-speed.*"))  # nothing left beside the source
+
+
+def test_layout_flags_orphan_answer_page():
+    ws = [Word(1, "1.", 100), Word(2, "Ans:", 100)]
+    assert layout_problems(ws, 842) != []
+
+
+def test_layout_flags_heading_alone_at_page_bottom():
+    ws = [Word(1, "1.", 100), Word(1, "Section", 760), Word(2, "2.", 100)]
+    assert layout_problems(ws, 842) != []
+
+
+def test_layout_flags_answer_above_every_question_on_its_page():
+    ws = [Word(1, "1.", 100), Word(2, "Ans:", 90), Word(2, "2.", 200)]
+    assert layout_problems(ws, 842) != []
+
+
+def test_layout_ignores_superscript_above_question_number():
+    ws = [Word(1, "1.", 100), Word(2, "2", 95), Word(2, "4.", 99)]
+    assert layout_problems(ws, 842) == []
+
+
+def test_layout_accepts_clean_pages():
+    ws = [Word(1, "Section", 90), Word(1, "1.", 120), Word(2, "2.", 90)]
+    assert layout_problems(ws, 842) == []
+
+
+@needs_tex
+def test_algebra_01_links_and_layout(tmp_path):
+    job = next(j for j in jobs(REPO_ROOT, ["algebra"]) if j.n == "01")
+    pdf = build(job, out_dir=tmp_path)
+    answer_links = [l.uri for l in links(pdf) if l.uri.startswith(job.url)]  # footers link elsewhere
+    assert answer_links == [f"{job.url}#nameddest=Item.{i}" for i in range(1, 34)]
+    assert check(job, pdf) == []
