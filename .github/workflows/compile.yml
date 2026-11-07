@@ -108,10 +108,12 @@ jobs:
               pdf="$(dirname "$(dirname "$f")")/sheets/sheet$(basename "$f" .tex | sed 's/^ans//')-speed.pdf"
               [ -f "$pdf" ] || continue   # draft pillar: no Speed Sheet is published
               git show "HEAD:$pdf" > /tmp/committed.pdf 2>/dev/null || : > /tmp/committed.pdf
-              if ! diff -q <(pdftotext /tmp/committed.pdf - 2>/dev/null) \
-                           <(pdftotext "$pdf" - 2>/dev/null) >/dev/null; then
+              # Compare words, positions and links, not just text: a changed
+              # link target or spacing is invisible to pdftotext alone.
+              if ! python3 tools/build_speed_sheets.py --same /tmp/committed.pdf "$pdf"; then
                 echo "::notice file=$f::$pdf is out of date with $f — the freshly built PDF is in this run's artifact."
-                cp "$pdf" /tmp/out/
+                mkdir -p "/tmp/out/$(dirname "$pdf")"   # keep the pillar: every pillar has a sheet01-speed.pdf
+                cp "$pdf" "/tmp/out/$pdf"
                 stale=1
               fi
             done

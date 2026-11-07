@@ -12,7 +12,8 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.build_speed_sheets import (  # noqa: E402
-    Word, answer_item_numbers, answer_spaces, build, check, jobs, layout_problems, links, speed_title)
+    Word, answer_item_numbers, answer_spaces, build, check, jobs, layout_problems, links, same_layout,
+    speed_title)
 
 needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
 
@@ -125,3 +126,15 @@ def test_answer_spaces_follow_the_section_headings():
                          ids=lambda j: str(j.out_pdf.relative_to(REPO_ROOT)))
 def test_committed_speed_sheet_is_clean(job):
     assert check(job, job.out_pdf) == []
+
+
+@needs_tex
+def test_same_layout_ignores_build_time_but_not_links(tmp_path):
+    from dataclasses import replace
+    job = next(j for j in jobs(REPO_ROOT, ["algebra"]) if j.n == "02")
+    a = build(job, out_dir=tmp_path / "a")
+    b = build(job, out_dir=tmp_path / "b")
+    moved = build(replace(job, url=job.url.replace("ans02", "ans03")), out_dir=tmp_path / "c")
+    assert same_layout(a, b)
+    assert not same_layout(a, moved)  # pdftotext alone cannot see a link change
+    assert pdftotext(a) == pdftotext(moved)

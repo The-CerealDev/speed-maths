@@ -111,6 +111,7 @@ def build(job: SpeedJob, out_dir: Path | None = None) -> Path:
     the preamble by a path relative to themselves.
     """
     out_dir = Path(out_dir or job.out_pdf.parent).resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
     name = job.out_pdf.stem
     prelude = (rf'\def\SpeedAnsURL{{{job.url}}}'
                rf'\def\SpeedSheetTitle{{{job.title}}}'
@@ -232,6 +233,23 @@ def check(job: SpeedJob, pdf: Path) -> list[str]:
     return problems + layout_problems(ws, height)
 
 
+def layout(pdf: Path) -> tuple:
+    """What a reader sees and taps: every word with its position, every link with its box.
+
+    pdflatex stamps a build time into each PDF, so two correct builds are never
+    byte-identical; and plain extracted text cannot see a link or a spacing
+    change. This is the comparison that can.
+    """
+    ws, width, height = words(pdf)
+    return (round(width, 1), round(height, 1),
+            tuple((w.page, w.text, round(w.y, 1), round(w.bottom, 1)) for w in ws),
+            tuple((l.page, l.uri, tuple(round(v, 1) for v in l.rect)) for l in links(pdf)))
+
+
+def same_layout(a: Path, b: Path) -> bool:
+    return layout(a) == layout(b)
+
+
 def _live_pillars():
     sys.path.insert(0, str(ROOT))
     from tools.build_website import PILLARS
@@ -239,6 +257,8 @@ def _live_pillars():
 
 
 def main(argv: list[str]) -> int:
+    if argv[:1] == ['--same']:  # --same A.pdf B.pdf: exit 0 when a reader could not tell them apart
+        return 0 if same_layout(Path(argv[1]), Path(argv[2])) else 1
     checking = '--check' in argv
     files = [Path(a).resolve() for a in argv if a != '--check']
     todo = [j for j in jobs(ROOT, _live_pillars())
