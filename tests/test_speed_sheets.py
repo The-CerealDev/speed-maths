@@ -12,7 +12,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.build_speed_sheets import (  # noqa: E402
-    Word, answer_item_numbers, build, check, jobs, layout_problems, links, speed_title)
+    Word, answer_item_numbers, answer_spaces, build, check, jobs, layout_problems, links, speed_title)
 
 needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
 
@@ -108,3 +108,20 @@ def test_algebra_01_links_and_layout(tmp_path):
 def test_tall_questions_keep_their_answer_on_the_same_page(tmp_path, pillar, n):
     job = next(j for j in jobs(REPO_ROOT, [pillar]) if j.n == n)
     assert check(job, build(job, out_dir=tmp_path)) == []
+
+
+def test_answer_spaces_follow_the_section_headings():
+    tex = (r"\begin{enumerate}\item Q \ans{1}\end{enumerate}"
+           r"\section*{Section B \quad Drills}\begin{enumerate}\item Q \ans{2}\end{enumerate}"
+           r"\section*{Section D \quad Challenge}\begin{enumerate}\item Q \ans{3}\end{enumerate}")
+    assert [round(x / 28.4528, 1) for x in answer_spaces(tex)] == [3.0, 4.5, 7.0]  # pt -> cm
+
+
+@pytest.mark.skipif(shutil.which("qpdf") is None or shutil.which("pdftotext") is None,
+                    reason="needs qpdf and pdftotext")
+@pytest.mark.parametrize("job", [j for j in jobs(REPO_ROOT, ["algebra", "combinatorics", "number-theory",
+                                                          "logic", "sequences", "geometry"])
+                                 if j.out_pdf.exists()],
+                         ids=lambda j: str(j.out_pdf.relative_to(REPO_ROOT)))
+def test_committed_speed_sheet_is_clean(job):
+    assert check(job, job.out_pdf) == []

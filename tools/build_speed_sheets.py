@@ -52,6 +52,21 @@ def answer_item_numbers(tex: str) -> list[int]:
     return out
 
 
+CM = 28.4528  # points per cm
+SPACES = {'A': 3.0, 'B': 4.5, 'C': 6.0, 'D': 7.0}  # must match shared/speed.tex
+
+
+def answer_spaces(tex: str) -> list[float]:
+    """The working space, in points, each `\\ans` is meant to get."""
+    out, space = [], SPACES['A']
+    for m in re.finditer(r'\\section\*\{Section ([ABCD])|\\ans\{', _COMMENT_RE.sub('', tex)):
+        if m.group(1):
+            space = SPACES[m.group(1)]
+        else:
+            out.append(space * CM)
+    return out
+
+
 def speed_title(tex: str) -> str:
     """The answers title with its 'Answers & Investigations' suffix swapped."""
     m = re.search(r'\\SpeedTitleBlock\{((?:[^{}]|\{[^{}]*\})*)\}', tex)
@@ -118,6 +133,7 @@ def build(job: SpeedJob, out_dir: Path | None = None) -> Path:
 
 MARGIN = 71.0           # 25mm top/bottom margin in points: header and footer sit outside it
 MIN_TAP = (42.5, 14.2)  # 15mm x 5mm
+MIN_SPACE = 0.5         # a question may lose at most half its space to a tall neighbour
 EDGE = 8.5              # links stay at least 3mm inside the paper edge
 
 
@@ -133,6 +149,7 @@ class Word:
     page: int
     text: str
     y: float
+    bottom: float = 0.0
 
 
 def links(pdf: Path) -> list[Link]:
@@ -162,8 +179,8 @@ def words(pdf: Path) -> tuple[list[Word], float, float]:
     for n, (w, h, body) in enumerate(re.findall(
             r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>', xml, re.S), 1):
         width, height = float(w), float(h)
-        out += [Word(n, t, float(y)) for y, t in
-                re.findall(r'<word [^>]*yMin="([\d.]+)"[^>]*>([^<]*)</word>', body)]
+        out += [Word(n, t, float(y0), float(y1)) for y0, y1, t in re.findall(
+            r'<word [^>]*yMin="([\d.]+)"[^>]*yMax="([\d.]+)"[^>]*>([^<]*)</word>', body)]
     return out, width, height
 
 
@@ -198,6 +215,14 @@ def check(job: SpeedJob, pdf: Path) -> list[str]:
     if [l.uri for l in ls] != want:
         problems.append(f'links do not run Item.1..Item.{n} in order ({len(ls)} links found)')
     ws, width, height = words(pdf)
+    spaces = answer_spaces(job.answers_tex.read_text(encoding='utf-8'))
+    for i, l in enumerate(ls):
+        top = height - l.rect[3]
+        above = [w.bottom for w in ws if w.page == l.page and MARGIN < w.y and w.bottom <= top + 1]
+        gap = top - max(above, default=MARGIN)
+        if i < len(spaces) and gap < MIN_SPACE * spaces[i]:
+            problems.append(f'page {l.page}: question {i + 1} has {gap / CM:.1f}cm of space, '
+                            f'under half its {spaces[i] / CM:.1f}cm')
     for l in ls:
         x0, y0, x1, y1 = l.rect
         if x1 - x0 < MIN_TAP[0] or y1 - y0 < MIN_TAP[1]:

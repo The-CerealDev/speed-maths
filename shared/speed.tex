@@ -10,15 +10,33 @@
 \newlength{\SpeedSpace}\setlength{\SpeedSpace}{3cm}
 
 % Start a new page now if less than #1 is left on this one (\Needspace, inlined).
+% No "is anything left" guard: a page filled exactly to the bottom must break
+% too, or the next question lands there with no room. An empty page has
+% \pagegoal = \maxdimen, so this never breaks needlessly.
 \newcommand{\Speed@need}[1]{\par\penalty-100\begingroup
   \dimen@=#1\relax\dimen@ii=\pagegoal\advance\dimen@ii-\pagetotal
-  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\break\fi\fi\endgroup}
+  \ifdim\dimen@>\dimen@ii\break\fi\endgroup}
 
-% A question never splits from its space. Only top-level items are questions:
-% MCQ options and sub-parts sit deeper (\@listdepth > 1) and are left alone.
+% A question never splits from its space. The build runs pdflatex more than
+% once: each pass writes every question's measured height to the .aux, and the
+% next pass reserves that height plus the section's space before starting the
+% question. Until a height is known, 3cm stands in for it.
+% Only top-level items outside any box are questions: MCQ options and sub-parts
+% sit deeper, or inside a minipage (\ifinner), and are left alone.
+\newlength{\Speed@start}
+\newcount\Speed@startpage
+\newcommand{\Speed@height}[1]{%
+  \ifcsname Speed@h@#1\endcsname\csname Speed@h@#1\endcsname\else3cm\fi}
 \let\Speed@item\item
-\renewcommand{\item}{\ifnum\@listdepth=\@ne
-  \Speed@need{\dimexpr\SpeedSpace+3cm\relax}\fi\Speed@item}
+\renewcommand{\item}{\ifnum\@listdepth=\@ne\ifinner\else
+  \Speed@need{\dimexpr\SpeedSpace+\Speed@height{\the\numexpr\c@Item+1\relax}+12mm\relax}%
+  \global\Speed@start=\pagetotal\global\Speed@startpage=\c@page
+  \fi\fi\Speed@item}
+\newcommand{\Speed@record}{%
+  \ifnum\Speed@startpage=\c@page\ifdim\pagetotal>\Speed@start
+    \immediate\write\@auxout{\string\expandafter\string\gdef\string\csname\space
+      Speed@h@\the\c@Item\string\endcsname{\the\dimexpr\pagetotal-\Speed@start\relax}}%
+  \fi\fi}
 
 % "Section A ..." to "Section D ..." set the space and keep the heading with a
 % question. Any other starred section (Top 5 Patterns, Common Traps) would give
@@ -31,7 +49,9 @@
   \ifin@
     \Speed@try{A}{3cm}{#1}\Speed@try{B}{4.5cm}{#1}%
     \Speed@try{C}{6cm}{#1}\Speed@try{D}{7cm}{#1}%
-    \Speed@need{\dimexpr\SpeedSpace+6cm\relax}\Speed@section*{#1}%
+    % the heading, its instruction line, and the whole of the first question
+    \Speed@need{\dimexpr3cm+\SpeedSpace+\Speed@height{\the\numexpr\c@Item+1\relax}+12mm\relax}%
+    \Speed@section*{#1}%
   \else
     \end{document}%
   \fi}
@@ -49,7 +69,7 @@
 % page. The space then shrinks to what is left, so the answer stays at the foot
 % of its own question instead of being pushed alone onto the next page.
 \newlength{\Speed@room}
-\newcommand{\Speed@space}{\par\penalty\@M
+\newcommand{\Speed@space}{\par\penalty\@M\Speed@record
   \setlength{\Speed@room}{\dimexpr\pagegoal-\pagetotal-12mm\relax}%
   \ifdim\Speed@room<\SpeedSpace
     \ifdim\Speed@room>\z@\vspace{\Speed@room}\fi\nopagebreak
