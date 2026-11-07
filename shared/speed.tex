@@ -45,7 +45,16 @@
 \newsavebox{\Speed@ansbox}
 \newsavebox{\Speed@linkbox}
 \newlength{\Speed@w}
-\renewcommand{\ans}[1]{\par\vspace{\SpeedSpace}%
+% A tall question (diagram, MCQ options) can leave less than \SpeedSpace on its
+% page. The space then shrinks to what is left, so the answer stays at the foot
+% of its own question instead of being pushed alone onto the next page.
+\newlength{\Speed@room}
+\newcommand{\Speed@space}{\par\penalty\@M
+  \setlength{\Speed@room}{\dimexpr\pagegoal-\pagetotal-12mm\relax}%
+  \ifdim\Speed@room<\SpeedSpace
+    \ifdim\Speed@room>\z@\vspace{\Speed@room}\fi\nopagebreak
+  \else\vspace{\SpeedSpace}\fi}
+\renewcommand{\ans}[1]{\Speed@space%
   \sbox{\Speed@ansbox}{\rotatebox{180}{\color{black!22}\fontsize{4}{5}\selectfont Ans: #1}}%
   \setlength{\Speed@w}{\wd\Speed@ansbox}%
   \ifdim\Speed@w<15mm\setlength{\Speed@w}{15mm}\fi

@@ -101,3 +101,10 @@ def test_algebra_01_links_and_layout(tmp_path):
     answer_links = [l.uri for l in links(pdf) if l.uri.startswith(job.url)]  # footers link elsewhere
     assert answer_links == [f"{job.url}#nameddest=Item.{i}" for i in range(1, 34)]
     assert check(job, pdf) == []
+
+
+@needs_tex
+@pytest.mark.parametrize("pillar,n", [("geometry", "01"), ("sequences", "03"), ("logic", "03")])
+def test_tall_questions_keep_their_answer_on_the_same_page(tmp_path, pillar, n):
+    job = next(j for j in jobs(REPO_ROOT, [pillar]) if j.n == n)
+    assert check(job, build(job, out_dir=tmp_path)) == []
