@@ -44,7 +44,7 @@ def test_every_answers_file_maps_question_n_to_item_n(path):
 
 def test_speed_title():
     tex = r"\SpeedTitleBlock{Daily Logic Drill \#2 --- Answers \& Investigations}{David}"
-    assert speed_title(tex) == r"Daily Logic Drill \#2 --- Speed Sheet"
+    assert speed_title(tex) == r"Daily Logic Drill \#2"  # the same title as the plain sheet
 
 
 def test_speed_title_rejects_unexpected_title():
@@ -64,7 +64,7 @@ def test_jobs_algebra_01():
 def test_build_produces_a_clean_speed_sheet(tmp_path, pillar, n):
     job = next(j for j in jobs(REPO_ROOT, [pillar]) if j.n == n)
     text = pdftotext(build(job, out_dir=tmp_path))
-    assert "Speed Sheet" in text
+    assert "Daily" in text and "Drill #" in text and "Speed Sheet" not in text
     for gone in ("Method:", "Investigate further", "Top 5 Patterns", "Common Traps"):
         assert gone not in text
     assert not list(job.answers_tex.parent.glob("sheet*-speed.*"))  # nothing left beside the source

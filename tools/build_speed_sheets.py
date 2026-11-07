@@ -68,11 +68,14 @@ def answer_spaces(tex: str) -> list[float]:
 
 
 def speed_title(tex: str) -> str:
-    """The answers title with its 'Answers & Investigations' suffix swapped."""
+    """The answers title without its 'Answers & Investigations' suffix.
+
+    This is the sheet a student works from, so it carries the plain sheet's title.
+    """
     m = re.search(r'\\SpeedTitleBlock\{((?:[^{}]|\{[^{}]*\})*)\}', tex)
     if not m or ANSWERS_PHRASE not in m.group(1):
         raise ValueError(f'expected a \\SpeedTitleBlock containing {ANSWERS_PHRASE!r}')
-    return m.group(1).replace(ANSWERS_PHRASE, 'Speed Sheet')
+    return m.group(1).replace(f' --- {ANSWERS_PHRASE}', '').strip()
 
 
 @dataclass(frozen=True)

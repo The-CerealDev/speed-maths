@@ -175,10 +175,8 @@ def render_rows(pillar):
               if s['questions'] else '')
         ans = (f'<a href="{s["answers"]}" class="pdf-link ans" target="_blank">Answers</a>'
                if s['answers'] else '')
-        # The Speed Sheet is the default download; classic.html keeps the originals.
-        first = (f'<a href="{s["speed"]}" class="pdf-link" target="_blank">Speed Sheet</a>'
-                 if s.get('speed') else
-                 f'<a href="{s["pdf"]}" class="pdf-link" target="_blank">Questions</a>')
+        # Questions opens the Speed Sheet edition when it exists; classic.html keeps the originals.
+        first = f'<a href="{s.get("speed") or s["pdf"]}" class="pdf-link" target="_blank">Questions</a>'
         out.append(f'''
           <li class="sheet-row">
             <span class="sheet-num">{s['n']}</span>

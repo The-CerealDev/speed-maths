@@ -12,7 +12,7 @@ It becomes the **default sheet** on the website. It is also a ship-blocker for H
 
 One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in GoodNotes/Notability or printing:
 
-- Same title block, toolkit line and Sections A–D as today. Title reads "… — Speed Sheet".
+- Same title block, toolkit line and Sections A–D as today, under the plain sheet's title (e.g. "Daily Algebra Drill #1"; David, 2026-11-07: "it's just meant to be the normal sheet").
 - Working space under every question: A 3cm, B 4.5cm, C 6cm, D 7cm.
 - The answer sits at the bottom of each question's space, **in the right page margin**: upside down, 4pt, 22% grey, right edge about 6mm from the paper edge. Invisible at normal zoom; readable by pinch-zooming and rotating.
 - **Tapping the answer opens the answers PDF at that exact question** (method + "Investigate further"). Verified working on David's iPad with the 2026-11-07 spike.
@@ -24,7 +24,7 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 1. One Speed Sheet per published sheet, built from the existing answers `.tex`, with no second hand-maintained source.
 2. Every answer link lands on the right question, in every pillar.
 3. They never drift from the checked answers: one command rebuilds them all, and CI flags any that are stale or broken.
-4. Website: the archive view (`index.html`) shows **Speed Sheet** and **Answers** per sheet. The classic view (`classic.html`) keeps the original **Questions** and **Answers**. The original `sheetNN.pdf` files stay hosted.
+4. Website: the archive view (`index.html`) shows **Questions** (now opening the Speed Sheet edition) and **Answers** per sheet. The classic view (`classic.html`) keeps the original **Questions** and **Answers**. The original `sheetNN.pdf` files stay hosted.
 
 ## Non-goals
 
@@ -55,7 +55,7 @@ One PDF per sheet (`<pillar>/sheets/sheetNN-speed.pdf`), A4, for annotating in G
 
 ## Claude's calls (check these)
 
-- Name **"Speed Sheet"** and filename `sheetNN-speed.pdf` (#13 said "iPad edition"; Henry's plan says "Annotate Edition" / `sheetNN-ipad.pdf`, and needs updating to match).
+- Internal name "Speed Sheet" and filename `sheetNN-speed.pdf` (never shown to students: the PDF and the button say "Questions"/the plain title) (#13 said "iPad edition"; Henry's plan says "Annotate Edition" / `sheetNN-ipad.pdf`, and needs updating to match).
 - Cut "Top 5 Patterns" and "Common Traps" from the Speed Sheet.
 - Make the link's tap area bigger than the 4pt text (invisible), so it's easy to hit on an iPad.
 - Checks, run on every built Speed Sheet: exactly one answer link per question, to `Item.1…Item.N` in order; every answers `.tex` keeps the Nth `\ans` under numbered item N; no page starts with an orphaned answer; no page ends on a section heading (via `pdftotext`, as the #13 prototype did).

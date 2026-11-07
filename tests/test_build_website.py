@@ -35,13 +35,13 @@ def test_scan_does_not_count_speed_sheet_as_a_sheet(site):
     assert alg["sheets"][0]["speed"] == "algebra/sheets/sheet01-speed.pdf"
 
 
-def test_archive_row_offers_speed_sheet_and_answers(site):
+def test_archive_questions_link_is_the_speed_sheet(site):
     html = build_website.render_rows(_algebra())
-    assert ">Speed Sheet</a>" in html and "sheet01-speed.pdf" in html
-    assert ">Answers</a>" in html and ">Questions</a>" not in html
+    assert '<a href="algebra/sheets/sheet01-speed.pdf" class="pdf-link" target="_blank">Questions</a>' in html
+    assert ">Answers</a>" in html and "Speed Sheet" not in html
 
 
 def test_archive_row_falls_back_to_questions_without_a_speed_sheet(site):
     (site / "algebra" / "sheets" / "sheet01-speed.pdf").unlink()
     html = build_website.render_rows(_algebra())
-    assert ">Questions</a>" in html and "Speed Sheet" not in html
+    assert 'href="algebra/sheets/sheet01.pdf" class="pdf-link" target="_blank">Questions</a>' in html
