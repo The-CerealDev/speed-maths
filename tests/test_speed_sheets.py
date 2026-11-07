@@ -1,5 +1,7 @@
 """The Speed Sheet is the answers file recompiled, so its links must land on the right question."""
 
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -9,7 +11,14 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from tools.build_speed_sheets import answer_item_numbers, jobs, speed_title  # noqa: E402
+from tools.build_speed_sheets import answer_item_numbers, build, jobs, speed_title  # noqa: E402
+
+needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
+
+
+def pdftotext(pdf: Path) -> str:
+    return subprocess.run(["pdftotext", str(pdf), "-"], capture_output=True,
+                          text=True, check=True).stdout
 
 
 def test_answer_item_numbers_counts_only_numbered_items():
@@ -46,3 +55,14 @@ def test_jobs_algebra_01():
     assert j.out_pdf == REPO_ROOT / "algebra/sheets/sheet01-speed.pdf"
     assert j.url == "https://speedmaths.co.uk/algebra/answers/ans01.pdf"
     assert len(jobs(REPO_ROOT, ["algebra"])) == 7
+
+
+@needs_tex
+@pytest.mark.parametrize("pillar,n", [("algebra", "01"), ("geometry", "01"), ("number-theory", "03")])
+def test_build_produces_a_clean_speed_sheet(tmp_path, pillar, n):
+    job = next(j for j in jobs(REPO_ROOT, [pillar]) if j.n == n)
+    text = pdftotext(build(job, out_dir=tmp_path))
+    assert "Speed Sheet" in text
+    for gone in ("Method:", "Investigate further", "Top 5 Patterns", "Common Traps"):
+        assert gone not in text
+    assert not list(job.answers_tex.parent.glob("sheet*-speed.*"))  # nothing left beside the source

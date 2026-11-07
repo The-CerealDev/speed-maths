@@ -13,11 +13,15 @@ every answers PDF. They are only right while the Nth `\\ans` sits under the
 Nth numbered item, so `answer_item_numbers` exists to guard exactly that.
 """
 import re
+import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
 SITE = 'https://speedmaths.co.uk'
+ROOT = Path(__file__).resolve().parent.parent
+SPEED_TEX = ROOT / 'shared' / 'speed.tex'
 ANSWERS_PHRASE = r'Answers \& Investigations'
 
 _TOKEN_RE = re.compile(r'\\begin\{(\w+)\}|\\end\{(\w+)\}|\\item(\[)?|\\ans\{')
@@ -82,3 +86,47 @@ def jobs(root: Path, pillars: Iterable[str]) -> list[SpeedJob]:
                 title=speed_title(tex.read_text(encoding='utf-8')),
             ))
     return out
+
+
+def build(job: SpeedJob, out_dir: Path | None = None) -> Path:
+    """Compile one Speed Sheet; returns the PDF path. Raises RuntimeError if it fails.
+
+    pdflatex runs from the answers directory because the answers files reach
+    the preamble by a path relative to themselves.
+    """
+    out_dir = Path(out_dir or job.out_pdf.parent).resolve()
+    name = job.out_pdf.stem
+    prelude = (rf'\def\SpeedAnsURL{{{job.url}}}'
+               rf'\def\SpeedSheetTitle{{{job.title}}}'
+               rf'\AtBeginDocument{{\input{{{SPEED_TEX.with_suffix("")}}}}}'
+               rf'\input{{{job.answers_tex.name}}}')
+    cmd = ['pdflatex', '-interaction=nonstopmode', '-halt-on-error',
+           f'-jobname={name}', f'-output-directory={out_dir}', prelude]
+    for _ in range(2):
+        run = subprocess.run(cmd, cwd=job.answers_tex.parent, capture_output=True, text=True)
+        if run.returncode != 0:
+            log = out_dir / f'{name}.log'
+            tail = log.read_text(errors='replace')[-2000:] if log.exists() else run.stdout[-2000:]
+            raise RuntimeError(f'{job.answers_tex} failed as a Speed Sheet:\n{tail}')
+    for ext in ('.aux', '.log', '.out'):
+        (out_dir / f'{name}{ext}').unlink(missing_ok=True)
+    return out_dir / f'{name}.pdf'
+
+
+def _live_pillars():
+    sys.path.insert(0, str(ROOT))
+    from tools.build_website import PILLARS
+    return [slug for slug, meta in PILLARS.items() if meta[2] == 'live']
+
+
+def main(argv: list[str]) -> int:
+    files = [Path(a).resolve() for a in argv]
+    todo = [j for j in jobs(ROOT, _live_pillars())
+            if not files or j.answers_tex.resolve() in files]
+    for job in todo:
+        print(build(job).relative_to(ROOT))
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main(sys.argv[1:]))
