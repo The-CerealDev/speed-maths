@@ -122,7 +122,9 @@ jobs:
           echo "stale=$stale" >> "$GITHUB_OUTPUT"
 
       - name: Upload freshly built PDFs
-        if: always() && hashFiles('/tmp/out/*') != ''
+        # hashFiles() only sees files inside the workspace, so it never matched
+        # /tmp/out and nothing was ever uploaded; key off the steps' own verdicts.
+        if: always() && (steps.build.outputs.stale == '1' || steps.speed.outputs.stale == '1')
         uses: actions/upload-artifact@v4
         with:
           name: compiled-pdfs

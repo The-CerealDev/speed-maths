@@ -12,8 +12,8 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.build_speed_sheets import (  # noqa: E402
-    Word, answer_item_numbers, answer_spaces, build, check, jobs, layout_problems, links, same_layout,
-    speed_title)
+    Link, Word, answer_item_numbers, answer_spaces, build, check, content, jobs, layout_problems, links,
+    same_layout, speed_title)
 
 needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
 
@@ -138,3 +138,16 @@ def test_same_layout_ignores_build_time_but_not_links(tmp_path):
     assert same_layout(a, b)
     assert not same_layout(a, moved)  # pdftotext alone cannot see a link change
     assert pdftotext(a) == pdftotext(moved)
+
+
+def test_content_ignores_positions_from_a_different_tex_version():
+    # CI's TeX Live sets words a fraction of a point away from a local build
+    a = content([Word(1, "1.", 100.0, 110.0)], [Link(1, "u#nameddest=Item.1", (1.0, 2.0, 3.0, 4.0))])
+    b = content([Word(2, "1.", 101.3, 111.2)], [Link(2, "u#nameddest=Item.1", (1.4, 2.2, 3.1, 4.5))])
+    assert a == b
+
+
+def test_content_sees_a_changed_link_target():
+    w = [Word(1, "1.", 100.0)]
+    assert content(w, [Link(1, "u#nameddest=Item.1", (0, 0, 1, 1))]) != \
+        content(w, [Link(1, "u#nameddest=Item.2", (0, 0, 1, 1))])

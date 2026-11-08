@@ -236,21 +236,19 @@ def check(job: SpeedJob, pdf: Path) -> list[str]:
     return problems + layout_problems(ws, height)
 
 
-def layout(pdf: Path) -> tuple:
-    """What a reader sees and taps: every word with its position, every link with its box.
+def content(ws: list[Word], ls: list[Link]) -> tuple:
+    """What must match between a committed Speed Sheet and a fresh build.
 
-    pdflatex stamps a build time into each PDF, so two correct builds are never
-    byte-identical; and plain extracted text cannot see a link or a spacing
-    change. This is the comparison that can.
+    The words in order and every link target. Not positions: TeX Live versions
+    set words a fraction of a point apart, so CI's build never matches a local
+    one exactly. Layout is held by check() on every build instead. Plain
+    extracted text alone is not enough either: it cannot see a link change.
     """
-    ws, width, height = words(pdf)
-    return (round(width, 1), round(height, 1),
-            tuple((w.page, w.text, round(w.y, 1), round(w.bottom, 1)) for w in ws),
-            tuple((l.page, l.uri, tuple(round(v, 1) for v in l.rect)) for l in links(pdf)))
+    return tuple(w.text for w in ws), tuple(l.uri for l in ls)
 
 
 def same_layout(a: Path, b: Path) -> bool:
-    return layout(a) == layout(b)
+    return content(words(a)[0], links(a)) == content(words(b)[0], links(b))
 
 
 def _live_pillars():
@@ -260,7 +258,7 @@ def _live_pillars():
 
 
 def main(argv: list[str]) -> int:
-    if argv[:1] == ['--same']:  # --same A.pdf B.pdf: exit 0 when a reader could not tell them apart
+    if argv[:1] == ['--same']:  # --same A.pdf B.pdf: exit 0 when text and links match
         return 0 if same_layout(Path(argv[1]), Path(argv[2])) else 1
     checking = '--check' in argv
     files = [Path(a).resolve() for a in argv if a != '--check']
