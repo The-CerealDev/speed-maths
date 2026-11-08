@@ -239,18 +239,25 @@ def check(job: SpeedJob, pdf: Path) -> list[str]:
 def content(ws: list[Word], ls: list[Link]) -> tuple:
     """What must match between a committed Speed Sheet and a fresh build.
 
-    The words in order and every link target. Not positions: TeX Live versions
-    set words a fraction of a point apart, so CI's build never matches a local
-    one exactly. Layout is held by check() on every build instead. Plain
-    extracted text alone is not enough either: it cannot see a link change.
+    Every link target in order, and each page's characters as a multiset.
+    TeX Live versions set glyphs a fraction of a point apart, which reorders
+    and re-splits words where glyphs overlap (a negated '=', roots,
+    superscripts), so neither positions nor word order survive the trip to
+    CI. Layout is held by check() on every build instead. Plain extracted text
+    alone is not enough either: it cannot see a link change. The cost: two
+    answers swapping places on one page would not read as stale.
     """
-    return tuple(w.text for w in ws), tuple(l.uri for l in ls)
+    pages: dict[int, str] = {}
+    for w in ws:
+        pages[w.page] = pages.get(w.page, '') + w.text
+    return (tuple((n, ''.join(sorted(t))) for n, t in sorted(pages.items())),
+            tuple(l.uri for l in ls))
 
 
 def first_difference(a: Path, b: Path) -> str | None:
     """None when text and link targets match, else where they first part ways."""
     (wa, la), (wb, lb) = content(words(a)[0], links(a)), content(words(b)[0], links(b))
-    for kind, x, y in (('word', wa, wb), ('link', la, lb)):
+    for kind, x, y in (('page text', wa, wb), ('link', la, lb)):
         for i, (p, q) in enumerate(zip(x, y)):
             if p != q:
                 return f'{kind} {i}: {p!r} != {q!r}'

@@ -144,7 +144,7 @@ def test_same_layout_ignores_build_time_but_not_links(tmp_path):
 def test_content_ignores_positions_from_a_different_tex_version():
     # CI's TeX Live sets words a fraction of a point away from a local build
     a = content([Word(1, "1.", 100.0, 110.0)], [Link(1, "u#nameddest=Item.1", (1.0, 2.0, 3.0, 4.0))])
-    b = content([Word(2, "1.", 101.3, 111.2)], [Link(2, "u#nameddest=Item.1", (1.4, 2.2, 3.1, 4.5))])
+    b = content([Word(1, "1.", 101.3, 111.2)], [Link(1, "u#nameddest=Item.1", (1.4, 2.2, 3.1, 4.5))])
     assert a == b
 
 
@@ -152,3 +152,14 @@ def test_content_sees_a_changed_link_target():
     w = [Word(1, "1.", 100.0)]
     assert content(w, [Link(1, "u#nameddest=Item.1", (0, 0, 1, 1))]) != \
         content(w, [Link(1, "u#nameddest=Item.2", (0, 0, 1, 1))])
+
+
+def test_content_ignores_word_order_and_splitting_within_a_page():
+    # seen on CI: overlapping glyphs (a negated '=', roots, superscripts) swap order or merge
+    a = content([Word(1, "x", 1), Word(1, "=", 1), Word(1, "\u0338", 1), Word(1, "12", 2)], [])
+    b = content([Word(1, "\u0338", 1), Word(1, "x", 1), Word(1, "=", 1), Word(1, "1", 2), Word(1, "2", 2)], [])
+    assert a == b
+
+
+def test_content_sees_a_changed_character():
+    assert content([Word(1, "12", 1)], []) != content([Word(1, "13", 1)], [])
