@@ -12,8 +12,8 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from tools.build_speed_sheets import (  # noqa: E402
-    Link, Word, answer_item_numbers, answer_spaces, build, check, content, jobs, layout_problems, links,
-    same_layout, speed_title)
+    Link, Word, answer_item_numbers, answer_spaces, build, check, content, first_difference, jobs,
+    layout_problems, links, same_layout, speed_title)
 
 needs_tex = pytest.mark.skipif(shutil.which("pdflatex") is None, reason="needs pdflatex")
 
@@ -137,6 +137,7 @@ def test_same_layout_ignores_build_time_but_not_links(tmp_path):
     moved = build(replace(job, url=job.url.replace("ans02", "ans03")), out_dir=tmp_path / "c")
     assert same_layout(a, b)
     assert not same_layout(a, moved)  # pdftotext alone cannot see a link change
+    assert first_difference(a, moved).startswith("link 0: ")
     assert pdftotext(a) == pdftotext(moved)
 
 

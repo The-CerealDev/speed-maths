@@ -247,8 +247,20 @@ def content(ws: list[Word], ls: list[Link]) -> tuple:
     return tuple(w.text for w in ws), tuple(l.uri for l in ls)
 
 
+def first_difference(a: Path, b: Path) -> str | None:
+    """None when text and link targets match, else where they first part ways."""
+    (wa, la), (wb, lb) = content(words(a)[0], links(a)), content(words(b)[0], links(b))
+    for kind, x, y in (('word', wa, wb), ('link', la, lb)):
+        for i, (p, q) in enumerate(zip(x, y)):
+            if p != q:
+                return f'{kind} {i}: {p!r} != {q!r}'
+        if len(x) != len(y):
+            return f'{kind} count {len(x)} != {len(y)}'
+    return None
+
+
 def same_layout(a: Path, b: Path) -> bool:
-    return content(words(a)[0], links(a)) == content(words(b)[0], links(b))
+    return first_difference(a, b) is None
 
 
 def _live_pillars():
@@ -259,7 +271,10 @@ def _live_pillars():
 
 def main(argv: list[str]) -> int:
     if argv[:1] == ['--same']:  # --same A.pdf B.pdf: exit 0 when text and links match
-        return 0 if same_layout(Path(argv[1]), Path(argv[2])) else 1
+        diff = first_difference(Path(argv[1]), Path(argv[2]))
+        if diff:
+            print(f'{argv[2]}: {diff}')
+        return 1 if diff else 0
     checking = '--check' in argv
     files = [Path(a).resolve() for a in argv if a != '--check']
     todo = [j for j in jobs(ROOT, _live_pillars())
